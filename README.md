@@ -1,2 +1,2 @@
-# ccm
-Calculus Concepts and Modelling --- An Introduction to Calculus
+# Calculus Concepts and Modelling
+## An Introduction to Calculus
