@@ -20,39 +20,94 @@ respective owners.
 
 <book xml:id="calculus-concepts-modelling-book">
 <title>Calculus Concepts and Modelling</title>
-<subtitle onlyin="onesemester">An introduction to the concepts of calculus</subtitle>
+<subtitle>An introduction to the concepts of calculus</subtitle>
 
+<!-- -->
 <xi:include href="./frontmatter.ptx" />
+
+<!-- Variables, constants, and parameters. Change and variation. -->
 <xi:include href="./vars.ptx" />
+
+<!-- Functions, accumulation, and rate of variation. Graphs of functions. Transformations of functions/graphs. -->
+<xi:include href="./funcs.ptx" />
+
+<!-- Modelling accumulation and rate of variation. Differential equation examples (but no solving). -->
+<xi:include href="./models.ptx" />
+
+<!--
+  Long-term behaviour: horizontal asymptotes (i.e., informal treatment of limits as x → ∞).
+  Singular behaviour: vertical asymptotes (i.e., informal treatment of limits where y →∞).
+  Connections to differential equations.
+-->
+<xi:include href="./inf-behaviour.ptx" />
+
+<!-- Step functions and their graphs. Accumulation when rate function is a step function. Sigma notation. -->
 <xi:include href="./step.ptx" />
+
+<!--
+  Approximate accumulation from rate of variation (using step functions).
+  Exact accumulation from rate of variation.
+-->
+<xi:include href="./integ.ptx" />
+
+<!-- Polynomial growth (i.e., accumulation when rate of variation is polynomial). -->
+<xi:include href="./poly.ptx" />
+
+<!-- Logarithmic growth/decay (i.e., accumulation when rate of variation is 1/x.) Logarithm function: graph, properties, etc. -->
+<xi:include href="./log.ptx" />
+
+<!-- Logistic models, associated differential equations. -->
+<xi:include href="./logistic.ptx" />
+
+<!-- Exponential growth/decay. Exponential function: graph, properties, etc. -->
+<xi:include href="./exp.ptx" />
+
+<!-- Accumulation when rate of variation is exponential. Separable differential equations. -->
+<xi:include href="./separable.ptx" />
+
+<!-- Periodic growth/decay. Trig functions: graphs, properties, etc. -->
+<xi:include href="./periodic.ptx" />
+
+<!-- Models & differential equations where solution is periodic, with examples from the sciences. -->
+<xi:include href="./pmodels.ptx" />
+
+<!-- Average rate of variation. Differentials and approximate rate of variation. -->
+<xi:include href="./avg-rate.ptx" />
+
+<!--
+  Exact rate of variation from approximate rate of variation.
+  Rate of variation formulas (polynomial, logarithmic, exponential, trig).
+-->
+<xi:include href="./instant-rate.ptx" />
+
+<!--
+  Implicit differentiation.
+  One-to-one and inverse functions.
+  Rate of variation for inverse functions.
+-->
+<xi:include href="./imp-inv.ptx" />
+
+<!-- Average value of a function. Mean Value Theorems. Fundamental Theorem. -->
+<xi:include href="./fund-thm.ptx" />
+
+<!-- Chain rule. Reversing the chain rule (substitution). -->
+<xi:include href="./chain.ptx" />
+
+<!-- Product rule. Linear differential equations and integrating factors. -->
+<xi:include href="./product.ptx" />
+
+<!-- Higher-order rate functions. Curve-sketching. -->
+<xi:include href="./higher.ptx" />
+
+<!-- Local/absolute extremes. Optimization. -->
+<xi:include href="./opt.ptx" />
+
+<!-- Autonomous differential equations. -->
+<xi:include href="./auto.ptx" />
+
+<!-- -->
 <xi:include href="./backmatter.ptx" />
 
 </book>
 
 </pretext>
-
-
-
-<!-- 1 Variables, constants, and parameters. Change and variation.
-2 Functions, accumulation, and rate of variation. Graphs of functions. Transformations of functions/graphs.
-3 Modelling accumulation and rate of variation. Differential equation examples (but no solving).
-4 Long-term behaviour: horizontal asymptotes (i.e., informal treatment of limits as x → ∞).
-  Singular behaviour: vertical asymptotes (i.e., informal treatment of limits where y →∞).
-  Connections to differential equations.
-5 Step functions and their graphs. Accumulation when rate function is a step function. Sigma notation.
-6 Approximate accumulation from rate of variation (using step functions). Exact accumulation from rate of variation. Polynomial growth (i.e., accumulation when rate of variation is polynomial).
-7 Logarithmic growth/decay (i.e., accumulation when rate of variation is 1/x.) Logarithm function: graph, properties, etc.
-8 Logistic models, associated differential equations.
-9 Exponential growth/decay. Exponential function: graph, properties, etc.
-10 Accumulation when rate of variation is exponential. Separable differential equations.
-11 Periodic growth/decay. Trig functions: graphs, properties, etc.
-12 Models & differential equations where solution is periodic, with examples from the sciences.
-13 Average rate of variation. Differentials and approximate rate of variation.
-14 Exact rate of variation from approximate rate of variation. Rate of variation formulas (polynomial, logarithmic, exponential, trig).
-15 Implicit differentiation. One-to-one and inverse functions. Rate of variation for inverse functions.
-16 Average value of a function. Mean Value Theorems. Fundamental Theorem.
-17 Chain rule. Reversing the chain rule (substitution).
-18 Product rule. Linear differential equations and integrating factors.
-19 Higher-order rate functions. Curve-sketching.
-20 Local/absolute extremes. Optimization.
-21 Autonomous differential equations. -->

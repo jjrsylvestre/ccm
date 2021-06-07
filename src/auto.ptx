@@ -13,24 +13,17 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
-<publication>
+<chapter xml:id="chapter-auto" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Autonomous systems</title>
 
-	<html>
-		<analytics google-gst="UA-132951299-1"/>
-		<knowl example="no" exercise-inline="no" />
-	</html>
+<section xml:id="section-auto-intro">
+<title>TODO</title>
 
-	<common>
-		<chunking level="1" />
-	</common>
+<p> TODO </p>
 
-	<numbering>
+</section>
 
-		<!-- <projects level="2" /> -->
+<!-- <xi:include href="./auto.d/activities.ptx" />
+<xi:include href="./auto.d/exercises.ptx" /> -->
 
-		<!-- "structural" resets chapter numbering at beginning of new part -->
-		<!-- <divisions part-structure="decorative" /> -->
-
-	</numbering>
-
-</publication>
+</chapter>
