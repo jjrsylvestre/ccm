@@ -16,10 +16,291 @@ respective owners.
 <chapter xml:id="chapter-step" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Step functions</title>
 
-<section xml:id="section-step-intro">
-<title>TODO</title>
+<section xml:id="section-step-func">
+<title>Concept</title>
 
-<p> TODO </p>
+<example xml:id="example-step-air-pump">
+	<title>Inflating a raft</title>
+
+	<p>
+	You bring an inflatable raft on a trip to the lake,
+	along with a portable air pump to inflate it.
+	The air pump has three settings:
+
+	<ul>
+
+		<li>
+			low
+			(<quantity>
+				<mag>0.25</mag>
+				<unit base="meter" exp="3"/>
+				<per  base="minute" />
+			</quantity>)
+		</li>
+
+		<li>
+			medium
+			(<quantity>
+				<mag>0.5</mag>
+				<unit base="meter" exp="3"/>
+				<per  base="minute" />
+			</quantity>)
+		</li>
+
+		<li>
+			high
+			(<quantity>
+				<mag>0.75</mag>
+				<unit base="meter" exp="3"/>
+				<per  base="minute" />
+			</quantity>).
+		</li>
+
+	</ul>
+
+	Notice that the specification for each of the three settings is given in <em>volume-per-unit-time</em>,
+	so these are inflation <em>rates</em>
+	</p>
+
+	<p>
+	You run the pump at medium for one minute,
+	but it's taking too long so you bump it up to high.
+	After two minutes on high,
+	the raft is nearly inflated but the pump seems like it's getting a bit hot as it works to counter-act the tendency of the raft to want to <em>deflate</em>,
+	so you switch it to low for one more minute before turning it off.
+	</p>
+
+	<figure xml:id="figure-step-air-pump">
+		<caption>Graph modelling output of an air pump with three settings.</caption>
+		<image width="60%">
+			<description>Graph modelling output of an air pump with three settings.</description>
+			<latex-image><xi:include href="step.d/air-pump-graph.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+The model function graphed in <xref ref="figure-step-air-pump" />
+is an example of a <term>step function</term>,
+as it <q>steps</q> between constant values.
+A function can only take on one output value at any given input value,
+which is why we have an open circle at the endpoint of each line segment.
+For example, if we call this function <m>f</m>,
+then <m>f(3) = 0.25</m> but <m>f(2.9999) = 0.75</m>.
+Of course, this function is just a <term>model</term> of the behaviour of the air pump described in <xref ref="example-step-air-pump" /> <mdash />
+we could have put open circles at the <em>beginnings</em> of the line segments and closed ones at the ends instead,
+and it wouldn't really effect our analysis of the inflation of the raft.
+</p>
+
+<p>
+To describe a step function,
+we use piecewise notation to specify the constant output values on different subdomains.
+</p>
+
+<example xml:id="example-step-piecewise">
+	<title>Describing a step function</title>
+
+	<p> Here is the graph of another step function. </p>
+
+	<figure xml:id="figure-step-piecewise">
+		<caption>An example step function.</caption>
+		<image width="75%">
+			<description>Graph of an example step function.</description>
+			<latex-image><xi:include href="step.d/piecewise.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	There is no <em>single</em> constant value or formula that describes the function's output values at every possible input value,
+	so we describe the function's output values using different output values on different subdomains.
+	<me>
+		f(t) = \begin{cases}
+			0 \amp t \lt 0 \\
+			1 \amp 0 \le t \lt 1 \\
+			2 \amp 1 \le t \lt 2 \\
+			3 \amp 2 \le t \lt \pi \\
+			\sqrt{2} \amp \pi \le t \lt 4.5 \\
+			0 \amp t \ge 4.5
+		\end{cases}
+	</me>
+	Suppose we wanted to determine the output value <m>f(\sqrt{3})</m> without the graph in front of us.
+	We would first scan the subdomains in the right column,
+	and notice that the input <m>t = \sqrt{3}</m> falls into the subdomain <m>1 \le t \lt 2</m>.
+	Matching up this subdomain with its specified output value,
+	we find that <m>f(\sqrt{3}) = 2</m>.
+	</p>
+
+</example>
+
+</section>
+
+<section>
+<title>Accumulation for a stepped rate function</title>
+
+<p>
+When a rate function is known to be constant,
+computing accumulation is easy:
+<me> \text{amount} = \text{rate} \times \text{duration} </me>.
+When a quantity changes with a rate function that can be modelled by a step function,
+then technically the rate function is not constant over its entire domain because it is not always the same rate value for all time.
+However, a stepped rate function is constant over specific subdomains,
+so we can still apply the above formula on each of those subdomains and then total up all of those partial accumulations.
+</p>
+
+<example xml:id="example-step-accumulation-air-pump">
+	<title>Inflated raft</title>
+
+	<p>
+	For the situation described in <xref ref="example-step-air-pump" />,
+	how much air has been pumped into the raft?
+	To answer this question, we will split the inflation time period up.
+	</p>
+
+	<p>
+	During the first minute when the pump is run on the medium setting,
+	pumping air at a rate of
+	<quantity>
+		<mag>0.5</mag>
+		<unit base="meter" exp="3"/>
+		<per  base="minute" />
+	</quantity>
+	for one minute accumulates
+	<me>
+		(0.5 \unitsp \mathrm{m}^3 / \mathrm{min})
+		\times
+		(1 \unitsp \mathrm{min})
+		=
+		0.5 \unitsp \mathrm{m}^3
+	</me>
+	of air in the raft.
+	</p>
+
+	<p>
+	Over the next two minutes, when the air pump is on the high setting,
+	we accumulate an additional
+	<me>
+		(0.75 \unitsp \mathrm{m}^3 / \mathrm{min})
+		\times
+		(2 \unitsp \mathrm{min})
+		=
+		1.5 \unitsp \mathrm{m}^3
+	</me>
+	of air in the raft.
+	</p>
+
+	<p>
+	Finally, over the final minute on the low setting,
+	we accumulate an additional
+	<me>
+		(0.25 \unitsp \mathrm{m}^3 / \mathrm{min})
+		\times
+		(1 \unitsp \mathrm{min})
+		=
+		0.25 \unitsp \mathrm{m}^3
+	</me>
+	of air in the raft.
+	</p>
+
+	<p>
+	The total accumulation of air in the raft is the total of the calculations.
+	<!-- Graphically, it is the total of the three rectangle areas. -->
+	<md>
+		<mrow>
+			\text{TOTAL} \amp =
+			(0.5 \unitsp \mathrm{m}^3 / \mathrm{min})
+			\times
+			(1 \unitsp \mathrm{min})
+		</mrow>
+		<mrow>
+			\amp \phantom{=} +
+			(0.75 \unitsp \mathrm{m}^3 / \mathrm{min})
+			\times
+			(2 \unitsp \mathrm{min})
+		</mrow>
+		<mrow>
+			\amp \phantom{=} +
+			(0.25 \unitsp \mathrm{m}^3 / \mathrm{min})
+			\times
+			(1 \unitsp \mathrm{min})
+		</mrow>
+		<mrow> \amp = (0.5 + 1.5 + 0.25) \unitsp \mathrm{m}^3 </mrow>
+		<mrow> \amp = 2.25 \unitsp \mathrm{m}^3 </mrow>
+	</md>.
+	</p>
+
+</example>
+
+<!-- TODO more editing from here -->
+
+<p>
+Consider what this calculation represents on our graph.
+Geometrically, the product of two numbers represents the area of a rectangle:
+<em>area equals height times width</em>.
+And in our product calculation above,
+the first number is precisely the height of the first horizontal portion of the step graph
+and the second number is its width,
+so that we really are calculating the area of a particular rectangle related to that portion of the graph of the step function.
+</p>
+
+<figure xml:id="figure-step-air-pump-1st-minute">
+	<caption>Running the air pump on medium for one minute.</caption>
+	<image width="60%">
+		<description>Graph modelling output of an air pump for one minute.</description>
+		<latex-image><xi:include href="step.d/air-pump-graph-1st-min.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+
+<figure xml:id="figure-step-air-pump-middle-minutes">
+	<caption>Running the air pump on high for another two minutes.</caption>
+	<image width="60%">
+		<description>Graph modelling output of an air pump for another two minutes.</description>
+		<latex-image><xi:include href="step.d/air-pump-graph-middle-mins.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+
+<figure xml:id="figure-step-air-pump-last-minute">
+	<caption>Running the air pump on high for the final minute.</caption>
+	<image width="60%">
+		<description>Graph modelling output of an air pump for another one minute.</description>
+		<latex-image><xi:include href="step.d/air-pump-graph-last-min.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+
+<figure xml:id="figure-step-air-pump-all">
+	<caption>Total accumulation over the time period.</caption>
+	<image width="60%">
+		<description>Graph modelling total accumulation pumped air.</description>
+		<latex-image><xi:include href="step.d/air-pump-graph-all.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<warning><p>
+	We talk about <em>area</em> in <xref ref="example-step-accumulation-air-pump" />,
+	but end up with units of <m>\mathrm{m}^3</m> on our total <mdash />
+	why is that?
+	It is important to maintain a distinction between
+	<ul>
+		<li>
+			the actual <em>physical quantity</em> whose accumulation we are determining
+			(in <xref ref="example-step-accumulation-air-pump" />, this is a <em>volume</em> of air in units of <m>\mathrm{m}^3</m>)
+		</li>
+		<li>
+			the <em>graphical area</em> formed by creating rectangles under the different levels of the step function (for example, as highlighted in the figures <xref ref="example-step-accumulation-air-pump" />).
+		</li>
+	</ul>
+	We are making a graphical connection between the two product calculations
+	<md alignment="gather">
+		<mrow> \text{accumulation} = \text{rate} \times \text{duration} </mrow>
+		<mrow> \text{area} = \text{height} \times \text{width} </mrow>
+	</md>.
+	So, if we think of our rate as a <em>height</em> and the duration as a <em>width</em> on the rate graph,
+	then the <em>magnitudes</em> of accumulation and graphical area will be the same,
+	but their units of measurement will not coincide.
+</p></warning>
 
 </section>
 

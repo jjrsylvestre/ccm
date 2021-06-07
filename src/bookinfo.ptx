@@ -31,21 +31,19 @@ respective owners.
 		<package>cancel</package>
 	</latex-preamble> -->
 
-	<!-- not yet -->
-	<!-- <xi:include href="./latex-macros.ptx" /> -->
+	<macros> <xi:include href="./latex-macros.tex" parse="text" /> </macros>
 
-	<!-- not yet -->
 	<!-- tikz package and libraries for images -->
-	<!-- <latex-image-preamble>
-		\usepackage{cancel}
+	<latex-image-preamble>
+		<!-- \usepackage{cancel} -->
 		\usepackage{tikz}
-		\usepackage{tikz-3dplot}
+		<!-- \usepackage{tikz-3dplot}
 		\usepackage{tikz-cd}
 		\usetikzlibrary{matrix}
 		\usetikzlibrary{positioning}
 		\usetikzlibrary{fit}
-		\usetikzlibrary{decorations.pathreplacing}
-	</latex-image-preamble> -->
+		\usetikzlibrary{decorations.pathreplacing} -->
+	</latex-image-preamble>
 
 	<!-- not yet -->
 	<!-- renamings -->
