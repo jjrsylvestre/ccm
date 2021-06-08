@@ -59,7 +59,7 @@ respective owners.
 	</ul>
 
 	Notice that the specification for each of the three settings is given in <em>volume-per-unit-time</em>,
-	so these are inflation <em>rates</em>
+	so these are inflation <em>rates</em>.
 	</p>
 
 	<p>
@@ -81,7 +81,7 @@ respective owners.
 </example>
 
 <p>
-The model function graphed in <xref ref="figure-step-air-pump" />
+The model rate function graphed in <xref ref="figure-step-air-pump" />
 is an example of a <term>step function</term>,
 as it <q>steps</q> between constant values.
 A function can only take on one output value at any given input value,
@@ -138,12 +138,15 @@ we use piecewise notation to specify the constant output values on different sub
 <section>
 <title>Accumulation for a stepped rate function</title>
 
+<subsection>
+<title>Calculation pattern</title>
+
 <p>
 When a rate function is known to be constant,
 computing accumulation is easy:
 <me> \text{amount} = \text{rate} \times \text{duration} </me>.
 When a quantity changes with a rate function that can be modelled by a step function,
-then technically the rate function is not constant over its entire domain because it is not always the same rate value for all time.
+then the rate function is not constant over its entire domain because it is not always the same rate value for all time.
 However, a stepped rate function is constant over specific subdomains,
 so we can still apply the above formula on each of those subdomains and then total up all of those partial accumulations.
 </p>
@@ -204,7 +207,6 @@ so we can still apply the above formula on each of those subdomains and then tot
 
 	<p>
 	The total accumulation of air in the raft is the total of the calculations.
-	<!-- Graphically, it is the total of the three rectangle areas. -->
 	<md>
 		<mrow>
 			\text{TOTAL} \amp =
@@ -231,16 +233,36 @@ so we can still apply the above formula on each of those subdomains and then tot
 
 </example>
 
-<!-- TODO more editing from here -->
+</subsection>
+
+
+<subsection>
+<title>Geometric interpretation</title>
 
 <p>
-Consider what this calculation represents on our graph.
-Geometrically, the product of two numbers represents the area of a rectangle:
-<em>area equals height times width</em>.
-And in our product calculation above,
-the first number is precisely the height of the first horizontal portion of the step graph
-and the second number is its width,
-so that we really are calculating the area of a particular rectangle related to that portion of the graph of the step function.
+Consider what the calculations in <xref ref="example-step-accumulation-air-pump" /> represent on the graph of the inflation rate function.
+On each subdomain, we used the constant-rate accumulation formula
+<me> \text{amount} = \text{rate} \times \text{duration} </me>.
+The rate represents the <em>height</em> of the graph on that particular subdomain,
+while the duration represents the <em>length</em> of time that this rate was in effect.
+Geometrically, the product of a <em>height</em> and a <em>length</em> represents the area of a rectangle:
+<me> \text{area} = \text{height} \times \text{length} </me>.
+So each partial accumulation calculation in <xref ref="example-step-accumulation-air-pump" />
+corresponds to an area of a rectangle related to the graph of the stepped rate function.
+Let's see exactly how.
+</p>
+
+<p>
+First, suppose we actually turned the air pump off after the first minute of running on the medium setting.
+The accumulation formula
+<me>
+	\text{air accumulation}
+	=
+	(0.5 \unitsp \mathrm{m}^3 / \mathrm{min})
+	\times
+	(1 \unitsp \mathrm{min})
+</me>
+corresponds to an area calculation for a rectangle of height <m>0.5</m> and length <m>1</m>.
 </p>
 
 <figure xml:id="figure-step-air-pump-1st-minute">
@@ -251,6 +273,18 @@ so that we really are calculating the area of a particular rectangle related to 
 	</image>
 </figure>
 
+<p>
+Now let's take into account the additional two minutes running on high.
+The accumulation formula
+<me>
+	\text{air accumulation}
+	=
+	(0.75 \unitsp \mathrm{m}^3 / \mathrm{min})
+	\times
+	(2 \unitsp \mathrm{min})
+</me>
+corresponds to an area calculation for a rectangle of height <m>0.75</m> and length <m>2</m>.
+</p>
 
 <figure xml:id="figure-step-air-pump-middle-minutes">
 	<caption>Running the air pump on high for another two minutes.</caption>
@@ -260,6 +294,17 @@ so that we really are calculating the area of a particular rectangle related to 
 	</image>
 </figure>
 
+<p>
+Finally, the accumulation formula
+<me>
+	\text{air accumulation}
+	=
+	(0.25 \unitsp \mathrm{m}^3 / \mathrm{min})
+	\times
+	(1 \unitsp \mathrm{min})
+</me>
+for the final minute running on low corresponds to an area calculation for a rectangle of height <m>0.25</m> and length <m>1</m>.
+</p>
 
 <figure xml:id="figure-step-air-pump-last-minute">
 	<caption>Running the air pump on high for the final minute.</caption>
@@ -269,6 +314,11 @@ so that we really are calculating the area of a particular rectangle related to 
 	</image>
 </figure>
 
+<p>
+For the total accumulation, we added up the results of these three calculations.
+Graphically,
+<alert>the total accumulation corresponds to the total area of the rectangles formed between the stepped rate function's levels and the <m>t</m>-axis</alert>.
+</p>
 
 <figure xml:id="figure-step-air-pump-all">
 	<caption>Total accumulation over the time period.</caption>
@@ -278,10 +328,16 @@ so that we really are calculating the area of a particular rectangle related to 
 	</image>
 </figure>
 
-<warning><p>
-	We talk about <em>area</em> in <xref ref="example-step-accumulation-air-pump" />,
-	but end up with units of <m>\mathrm{m}^3</m> on our total <mdash />
+<warning>
+
+	<p>
+	We talk above about accumulation corresponding to <em>area</em>,
+	but the results of each of our accumulation calculations in <xref ref="example-step-accumulation-air-pump" />
+	are in units of <m>\mathrm{m}^3</m>, not <m>\mathrm{m}^2</m> <mdash />
 	why is that?
+	</p>
+
+	<p>
 	It is important to maintain a distinction between
 	<ul>
 		<li>
@@ -289,22 +345,663 @@ so that we really are calculating the area of a particular rectangle related to 
 			(in <xref ref="example-step-accumulation-air-pump" />, this is a <em>volume</em> of air in units of <m>\mathrm{m}^3</m>)
 		</li>
 		<li>
-			the <em>graphical area</em> formed by creating rectangles under the different levels of the step function (for example, as highlighted in the figures <xref ref="example-step-accumulation-air-pump" />).
+			the <em>graphical area</em> formed by creating rectangles under the different levels of the step function.
 		</li>
 	</ul>
 	We are making a graphical connection between the two product calculations
 	<md alignment="gather">
 		<mrow> \text{accumulation} = \text{rate} \times \text{duration} </mrow>
-		<mrow> \text{area} = \text{height} \times \text{width} </mrow>
-	</md>.
-	So, if we think of our rate as a <em>height</em> and the duration as a <em>width</em> on the rate graph,
-	then the <em>magnitudes</em> of accumulation and graphical area will be the same,
+		<mrow> \text{area} = \text{height} \times \text{length} </mrow>
+	</md>
+	by interpreting each rate value as a <em>height</em> and each time duration as a <em>length</em> on the rate graph.
+	Through this correspondence between the two formulas above,
+	the <em>magnitudes</em> of accumulation and graphical area will be the same,
 	but their units of measurement will not coincide.
-</p></warning>
+	</p>
+
+</warning>
+
+<example xml:id="example-step-car-trip">
+
+	<p>
+	On a car trip from Camrose to Wetaskiwin,
+	it takes the driver
+	<quantity>
+		<mag>6</mag>
+		<unit base="minute"/>
+	</quantity>
+	at the posted Camrose city speed limit of
+	<quantity>
+		<mag>50</mag>
+		<unit base="meter" prefix="kilo" />
+		<per  base="hour" />
+	</quantity>
+	to get out onto the highway,
+	then
+	<quantity>
+		<mag>24</mag>
+		<unit base="minute"/>
+	</quantity>
+	at the posted highway speed limit of
+	<quantity>
+		<mag>100</mag>
+		<unit base="meter" prefix="kilo" />
+		<per  base="hour" />
+	</quantity>
+	to reach Wetaskiwin,
+	and another
+	<quantity>
+		<mag>9</mag>
+		<unit base="minute"/>
+	</quantity>
+	at the posted Wetaskiwin city speed limit of
+	<quantity>
+		<mag>50</mag>
+		<unit base="meter" prefix="kilo" />
+		<per  base="hour" />
+	</quantity>
+	to reach your final destination.
+	</p>
+
+	<p> With this model, our rate function is stepped. </p>
+
+	<figure xml:id="figure-step-camrose-wetaskiwin">
+		<caption>Graph of a rate-of-travel model.</caption>
+		<image width="80%">
+			<description>Graph of a rate-of-travel model.</description>
+			<latex-image><xi:include href="step.d/camrose-wetaskiwin.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>(Note that minutes have been converted into hours for the graph.)</p>
+
+	<p>
+	Computing the total distance travelled is the same as calculating the total area of the three rectangles in <xref ref="figure-step-camrose-wetaskiwin" />:
+	<md>
+		<mrow>
+			\text{TOTAL DISTANCE} \amp =
+			(50 \unitsp \mathrm{km} / \mathrm{hr})
+			\times
+			(0.1 \unitsp \mathrm{hr})
+		</mrow>
+		<mrow>
+			\amp \phantom{=} +
+			(100 \unitsp \mathrm{km} / \mathrm{hr})
+			\times
+			(0.4 \unitsp \mathrm{hr})
+		</mrow>
+		<mrow>
+			\amp \phantom{=} +
+			(50 \unitsp \mathrm{km} / \mathrm{hr})
+			\times
+			(0.15 \unitsp \mathrm{hr})
+		</mrow>
+		<mrow> \amp = (5 + 40 + 7.5) \unitsp \mathrm{km} </mrow>
+		<mrow> \amp = 52.5 \unitsp \mathrm{km} </mrow>
+	</md>.
+	</p>
+
+</example>
+
+<remark>
+
+	<p>
+	Keep in mind that the stepped rate function in <xref ref="example-step-car-trip" /> is a <em>simplified model</em>.
+	In reality, a car cannot change its rate of travel instantaneously,
+	and so our rate graph should have periods of increasing speed (that is, acceleration)
+	and periods of decreasing speed (that is, deceleration).
+	Moreover, it is unlikely the car was travelling at <em>exactly</em>
+	<quantity>
+		<mag>50</mag>
+		<unit base="meter" prefix="kilo" />
+		<per  base="hour" />
+	</quantity>
+	during the city portions of the trip,
+	or at <em>exactly</em>
+	<quantity>
+		<mag>100</mag>
+		<unit base="meter" prefix="kilo" />
+		<per  base="hour" />
+	</quantity>
+	during the highway portion <mdash />
+	in reality there would have been dips and rises in the rate graph,
+	as the car went up or down hills, around corners,
+	or was stuck behind or pulled out to pass slower-moving vehicles.
+	However, often a <em>simplified</em> model is <em>good enough</em>,
+	and trying to take into account all of the little variations in velocity during the trip might be too complicated for the simple purpose of estimating the distance travelled.
+	</p>
+
+	<p>
+	In fact, we will learn in the next chapter how estimating total accumulation using simplified models involving stepped rate functions can actually help us to calculate total accumulation <em>exactly</em> for more complicated models.
+	</p>
+
+</remark>
+
+</subsection>
+
+<subsection>
+<title>Oriented area</title>
+
+<p> What if the rate is sometimes negative? </p>
+
+<example xml:id="example-step-air-pump-with-leak">
+	<title>Punctured raft</title>
+
+	<p>
+	One minute after inflating your raft
+	(as in <xref ref="example-step-air-pump" />),
+	a previously patched leak begins leaking again at a rate of
+	<quantity>
+		<mag>0.2</mag>
+		<unit base="meter" exp="3"/>
+		<per  base="minute" />
+	</quantity>,
+	and three minutes pass before you notice, quickly slap a piece of tape over the leak,
+	and turn the air pump back on to medium for two minutes.
+	(We'll assume in our <em>simplified</em> model that all of this happens instantaneously.)
+	</p>
+
+	<p>
+	How much air is in the raft now?
+	We just have to repeat the calculation of <xref ref="example-step-air-pump" />,
+	but take into account the periods of air-loss and re-inflation.
+	<md>
+		<mrow>
+			\text{TOTAL} \amp =
+			(0.5 \unitsp \mathrm{m}^3 / \mathrm{min})
+			\times
+			(1 \unitsp \mathrm{min})
+		</mrow>
+		<mrow>
+			\amp \phantom{=} +
+			(0.75 \unitsp \mathrm{m}^3 / \mathrm{min})
+			\times
+			(2 \unitsp \mathrm{min})
+		</mrow>
+		<mrow>
+			\amp \phantom{=} +
+			(0.25 \unitsp \mathrm{m}^3 / \mathrm{min})
+			\times
+			(1 \unitsp \mathrm{min})
+		</mrow>
+		<mrow>
+			\amp \phantom{=} -
+			(0.2 \unitsp \mathrm{m}^3 / \mathrm{min})
+			\times
+			(3 \unitsp \mathrm{min})
+		</mrow>
+		<mrow>
+			\amp \phantom{=} +
+			(0.5 \unitsp \mathrm{m}^3 / \mathrm{min})
+			\times
+			(2 \unitsp \mathrm{min})
+		</mrow>
+		<mrow> \amp = (0.5 + 1.5 + 0.25 - 0.6 + 1) \unitsp \mathrm{m}^3 </mrow>
+		<mrow> \amp = 2.65 \unitsp \mathrm{m}^3 </mrow>
+	</md>.
+	</p>
+
+</example>
+
+<p>
+Can we still interpret the calculation in <xref ref="example-step-air-pump-with-leak" />
+as a sum of rectangle areas on the rate graph?
+While leaking air, the amount of accumulated air in the raft is <em>decreasing</em>,
+and so we should interpret the rate of air leakage as a <em>negative</em> rate of variance.
+The static period between the initial inflation and the start of the leakage could also be interpreted as a period with rate
+<quantity>
+	<mag>0</mag>
+	<unit base="meter" exp="3"/>
+	<per  base="minute" />
+</quantity>.
+<md>
+	<mrow>
+		\text{TOTAL} \amp =
+		(0.5 \unitsp \mathrm{m}^3 / \mathrm{min})
+		\times
+		(1 \unitsp \mathrm{min})
+	</mrow>
+	<mrow>
+		\amp \phantom{=} +
+		(0.75 \unitsp \mathrm{m}^3 / \mathrm{min})
+		\times
+		(2 \unitsp \mathrm{min})
+	</mrow>
+	<mrow>
+		\amp \phantom{=} +
+		(0.25 \unitsp \mathrm{m}^3 / \mathrm{min})
+		\times
+		(1 \unitsp \mathrm{min})
+	</mrow>
+	<mrow>
+		\amp \phantom{=}
+		{\color{red}
+			+
+			(0 \unitsp \mathrm{m}^3 / \mathrm{min})
+			\times
+			(1 \unitsp \mathrm{min})
+		}
+	</mrow>
+	<mrow>
+		\amp \phantom{=}
+		{\color{red}
+			+
+			(-0.2 \unitsp \mathrm{m}^3 / \mathrm{min})
+			\times
+			(3 \unitsp \mathrm{min})
+		}
+	</mrow>
+	<mrow>
+		\amp \phantom{=} +
+		(0.5 \unitsp \mathrm{m}^3 / \mathrm{min})
+		\times
+		(2 \unitsp \mathrm{min})
+	</mrow>
+	<mrow> \amp = \bigl( 0.5 + 1.5 + 0.25 + 0 + (-0.6) + 1 \bigr) \unitsp \mathrm{m}^3 </mrow>
+	<mrow> \amp = 2.65 \unitsp \mathrm{m}^3 </mrow>
+</md>.
+If we allow rectangles to be assigned <em>negative</em> area and also consider a line segment along the horizontal axis as a rectangle with height <m>0</m>,
+then the above calculation is still a sum of rectangle areas.
+</p>
+
+<figure xml:id="figure-step-air-pump-leakage">
+	<caption>Inflating and re-inflating an air raft.</caption>
+	<image width="90%">
+		<description>Graph modelling inflating, partially deflating, and re-inflating an air raft.</description>
+		<latex-image><xi:include href="step.d/air-pump-graph-leakage.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<assemblage>
+	<title>Positively-oriented area</title>
+
+	<p>
+	If a function is positive on a domain,
+	then the area bounded between the graph of the function and the horizontal axis over that domain is <term>positively-oriented</term>
+	and we assign positive number to that area.
+	</p>
+
+</assemblage>
+
+<figure xml:id="figure-step-positively-oriented">
+	<caption>A positively-oriented area.</caption>
+	<image width="50%">
+		<description>A diagram of a positively-oriented area under the graph of a function.</description>
+		<latex-image><xi:include href="step.d/positively-oriented.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<assemblage>
+	<title>Negatively-oriented area</title>
+
+	<p>
+	If a function is negative on a domain,
+	then the area bounded between the graph of the function and the horizontal axis over that domain is <term>negatively-oriented</term>
+	and we assign a negative number to that area.
+	</p>
+
+</assemblage>
+
+<figure xml:id="figure-step-negatively-oriented">
+	<caption>A negatively-oriented area.</caption>
+	<image width="50%">
+		<description>A diagram of a negatively-oriented area under the graph of a function.</description>
+		<latex-image><xi:include href="step.d/negatively-oriented.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+
+</subsection>
 
 </section>
 
-<!-- <xi:include href="./sets.d/activities.ptx" />
-<xi:include href="./sets.d/exercises.ptx" /> -->
+<section>
+<title>Sigma notation</title>
+
+<subsection>
+<title>Summing patterns</title>
+
+<p>
+In the examples in this section,
+total accumulation was calculated as a sum of products.
+The situation of calculating a sum where each term in the sum follows a pattern comes up a lot in mathematics,
+so mathematicians have developed a special notation for it.
+</p>
+
+<assemblage>
+<title>Sigma notation</title>
+
+<p>
+If we write <m>P(k)</m> to mean a calculation formula or pattern in the variable <m>k</m>,
+then we can write
+<me> \sum_{k = 1}^n P(k) </me>
+to represent the sum
+<me> P(1) + P(2) + P(3) + \dotsb + P(n) </me>.
+The <term>Greek letter <m>\Sigma</m></term> stands for <q>Sum</q>,
+the variable <m>k</m> is called the <term>index variable</term> for the sum,
+and the <q>start</q> and <q>end</q> values <m>1</m> and <m>n</m> are called the <term>lower bound</term> and <term>upper bound</term>,
+respectively,
+for the summation.
+</p>
+
+</assemblage>
+
+<note>
+	<p>
+	The Greek letter <m>\Sigma, \sigma</m> is called <q>sigma</q>,
+	where <m>\Sigma</m> is the uppercase version and <m>\sigma</m> is the lower case version.
+	This letter corresponds to the letter <em>S</em> in the English alphabet,
+	hence its use to represent a <em>S</em>um.
+	</p>
+</note>
+
+<example xml:id="example-step-sigma-squares">
+	<title>Sum of squares</title>
+	<p>
+	Consider the <term>sum-of-squares</term> formula
+	<me> 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 100 </me>.
+	Recognizing each term in the sum as a square number,
+	we can express each term as the result of the pattern
+	<me> P(k) = k^2 </me>
+	for increasing integer values of the variable <m>k</m>:
+	<me> 1^2 + 2^2 + 3^2 + 4^2 + 5^2 + 6^2 + 7^2 + 8^2 + 9^2 + {10}^2 </me>.
+	Based on this pattern, we can compactly express the above sum of squares using Sigma notation:
+	<me> \sum_{k = 1}^{10} k^2 </me>.
+	</p>
+</example>
+
+<p>
+While we used the value <m>k = 1</m> as sort of a <q>default</q> start value in the definition of Sigma notation above,
+we can use any start value we like, according to the summation pattern we are trying to describe.
+</p>
+
+<example xml:id="example-step-sigma-squares-higher-start">
+	<title>Different starting value</title>
+	<p>
+	Here is another <term>sum-of-squares</term> formula:
+	<me> 16 + 25 + 36 + 49 + 64 + 81 + 100 </me>.
+	Since this summation pattern begins at the square of <m>4</m>,
+	our Sigma-notation version of this sum is
+	<me> \sum_{k = 4}^{10} k^2 </me>.
+	</p>
+</example>
+
+<example xml:id="example-step-sigma-constant">
+	<title>Summing a constant value</title>
+	<p>
+	Summing a constant value is, by definition, the same as multiplication
+	(which is why we say <q>times</q>).
+	<md>
+		<mrow> \sum_{k = 1}^{6} 2 \amp = 2 + 2 + 2 + 2 + 2 + 2 </mrow>
+		<mrow> \amp = 6 \times 2 </mrow>
+		<mrow> \amp = 12 </mrow>
+	</md>
+	</p>
+</example>
+
+<p>
+Take care when counting an indexed collection:
+the number of objects is
+<me> (\text{ending index value}) - (\text{starting index value}) + 1 </me>.
+(The <q><m>+ 1</m></q> is because in the subtraction you have <q>taken away</q> the object at the starting index value,
+but you actually want to include it in the collection you're counting.)
+</p>
+
+<example xml:id="example-step-sigma-constant-again">
+	<title>Summing a constant value (again)</title>
+	<p>
+	For a constant value <m>c</m> and integers <m>m</m> and <m>n</m> with <m>n \gt m</m>:
+	<me> \sum_{k = m}^{n} c = (n - m + 1) \times c </me>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection>
+<title>Properties of Sigma notation</title>
+
+<p>
+Keep in mind that calculating with Sigma notation is really just addition,
+so every algebra rule for addition can be applied to Sigma notation.
+</p>
+
+<example xml:id="example-step-sigma-common-factor">
+	<title>Sum of evens</title>
+	<p>
+	Suppose we want to sum a collection of even numbers:
+	<me> 2 + 4 + 6 + 8 + 10 </me>.
+	While there are variations of Sigma notation where the index variable may <q>step</q> by more than <m>1</m>,
+	we can avoid that by expressing each of our even numbers as <m>2</m> times a number that increases by only <m>1</m> from term to term:
+	<me> 2 \cdot 1 + 2 \cdot 2 + 2 \cdot 3 + 2 \cdot 4 + 2 \cdot 5 </me>.
+	In Sigma notation, this sum can be expressed as
+	<me> \sum_{k = 1}^{5} 2 k </me>.
+	However, we also know that a common factor can be factored out of a sum:
+	<me> 2 (1 + 2 + 3 + 4 + 5) </me>.
+	This formula is <m>2</m> times a sum,
+	so we can express it as <m>2</m> times a Sigma expression:
+	<me> 2 \sum_{k = 1}^{5} k </me>.
+	</p>
+</example>
+
+<assemblage>
+	<title>Factoring in a Sigma expression</title>
+	<p>
+	For pattern <m>P(k)</m> and constant value <m>c</m>,
+	<me> \sum_{k = 1}^n c P(k) = c \sum_{k = 1}^n P(k) </me>.
+	</p>
+</assemblage>
+
+<warning><p>
+	Only a <em>constant</em> may be factored out of Sigma notation <mdash />
+	any expression involving the index variable <m>k</m> cannot be factored out,
+	because if the sum were written out that variable part would be different from term to term and so would not actually be a <em>common</em> factor.
+</p></warning>
+
+<p>
+As well as factoring out of sums, we also know that we may perform a series of additions in any order and with any groupings we wish.
+</p>
+
+<example xml:id="example-step-sigma-two-sums">
+	<title>Summing two patterns</title>
+	<p>
+	Consider the sum
+	<me> 2 + 6 + 12 + 20 + 30 + 42 + 56 + 72 + 90 + 110 </me>.
+	It may not be obvious at first glance,
+	but is the summation from <xref ref="example-step-sigma-squares" /> with each term increased by its index:
+	<me> (1^2 + 1) + (2^2 + 2) + (3^2 + 3) + \dotsb + (10^2 + 10) </me>.
+	In Sigma notation, this can be written
+	<me> \sum_{k = 1}^{10} (k^2 + k) </me>.
+	But we would come to the same result if we added all the squares first,
+	and then added to that result the sum of the extra bits:
+	<me> (1^2 + 2^2 + 3^2 + \dotsb + 10^2) + (1 + 2 + 3 + \dotsb + 10) </me>.
+	We can write each of the bracketed Sigma expressions in Sigma notation separately:
+	<me> \sum_{k = 1}^{10} k^2 + \sum_{k = 1}^{10} k </me>.
+	</p>
+</example>
+
+<assemblage>
+	<title>Summing separate patterns in a Sigma expression</title>
+	<p>
+	For patterns <m>P_1(k)</m> and <m>P_2(k)</m>,
+	<me> \sum_{k = 1}^n \bigl( P_1(k) + P_2(k) \bigr) = \sum_{k = 1}^n P_1(k) + \sum_{k = 1}^n P_2(k) </me>.
+	</p>
+</assemblage>
+
+<example xml:id="example-step-sigma-break">
+	<title>Breaking up a sum</title>
+
+	<p>
+	Again consider the sum-of-squares pattern
+	<me> 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 100 </me>.
+	We can put brackets around any portions of the sum without changing the result:
+	<me> (1 + 4 + 9 + 16 + 25 + 36) + (49 + 64 + 81 + 100) </me>.
+	</p>
+
+	<aside><title>BEDMAS</title><p>
+		Remember what brackets mean in a mathematical formula:
+		they are explicit instructions about the order in which the computations should proceed.
+	</p></aside>
+
+	<p>
+	So this same sum that we expressed in <xref ref="example-step-sigma-squares" /> using a single Sigma expression
+	can be re-expressed using two Sigma expressions, if we had some particular reason for wanting to do so:
+	<me> \sum_{k = 1}^{6} k^2 + \sum_{k = 7}^{10} k^2 </me>.
+	</p>
+
+</example>
+
+<assemblage>
+	<title>Splitting up a Sigma sum</title>
+	<p>
+		If <m>q</m> is an index value between the starting index <m>m</m> and the ending index <m>n</m>,
+		then
+		<me> \sum_{k = m}^{n} P(k) = \sum_{k = m}^{q} P(k) + \sum_{k = q + 1}^{n} P(k) </me>.
+	</p>
+</assemblage>
+
+</subsection>
+
+<subsection>
+<title>Riemann sums</title>
+
+<p>
+When we sum up the (oriented) areas of rectangles formed by a step function,
+the sum is called a <term>Riemann sum</term>.
+</p>
+
+<aside>
+	<title>Georg Friedrich Bernhard Riemann</title>
+	<p>1826 <ndash /> 1866.</p>
+</aside>
+
+<assemblage>
+	<title>Riemann sum</title>
+	<p>
+	Suppose <m>s(t)</m> is a step function that takes on values
+	<me>
+		s(t) = \begin{cases}
+			h_1 \amp t_0 \le t \lt t_1 \\
+			h_2 \amp t_1 \le t \lt t_2 \\
+			h_3 \amp t_2 \le t \lt t_3 \\
+			\amp \vdots \\
+			h_n \amp t_{n - 1} \le t \lt t_n
+		\end{cases}
+	</me>.
+	If we write <m>\Delta t_k</m> to represent the length of the subdomain <m>t_{k - 1} \le t \lt t_k</m> so that
+	<me> \Delta t_k = t_k - t_{k - 1} </me>,
+	then the sum of (oriented) rectangle areas
+	<me> \sum_{k = 1}^{n} h_k \Delta t_k </me>
+	is called the <term>Riemann sum</term> for <m>s(t)</m> over the domain <m>t_0 \le t \le t_n</m>.
+	</p>
+</assemblage>
+
+<example xml:id="example-step-riemann-air-pump">
+	<title>Riemann sum for the air pump</title>
+
+	<p>
+	Let's unpack the notation of the definition above for the <em>inflate-deflate-reinflate</em> model
+	from <xref ref="example-step-air-pump-with-leak" />.
+	The step function in the model <q>steps</q> output values at the following input values.
+	<md>
+		<mrow> t_0 \amp = 0 \amp t_2 \amp = 3 \amp t_4 \amp = 5 \amp t_6 \amp = 10 </mrow>
+		<mrow> t_1 \amp = 1 \amp t_3 \amp = 4 \amp t_5 \amp = 8 </mrow>
+	</md>
+	The corresponding output height values between these stepping input values are:
+	<md>
+		<mrow> h_1 \amp = 0.5  \amp h_3 \amp = 0.25 \amp h_5 \amp = -0.2 </mrow>
+		<mrow> h_2 \amp = 0.75 \amp h_4 \amp = 0    \amp h_6 \amp = 0.5  </mrow>
+	</md>.
+	</p>
+
+	<figure xml:id="figure-step-air-pump-leakage-riemann">
+		<caption>Riemann sum parameters for inflating and re-inflating an air raft.</caption>
+		<image width="100%">
+			<description>Graph modelling inflating, partially deflating, and re-inflating an air raft.</description>
+			<latex-image><xi:include href="step.d/air-pump-graph-leakage-riemann.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	The subdomain lengths are as follows.
+	<md>
+		<mrow> \Delta t_1 \amp = t_1 - t_0 = 1 </mrow>
+		<mrow> \Delta t_2 \amp = t_2 - t_1 = 2 </mrow>
+		<mrow> \Delta t_3 \amp = t_3 - t_2 = 1 </mrow>
+		<mrow> \Delta t_4 \amp = t_4 - t_3 = 1 </mrow>
+		<mrow> \Delta t_5 \amp = t_5 - t_4 = 3 </mrow>
+		<mrow> \Delta t_6 \amp = t_6 - t_5 = 2 </mrow>
+	</md>
+	Then our Riemann sum is
+	<md>
+		<mrow>
+			\sum_{k = 1}^{6} h_k \Delta t_k
+			\amp = h_1 \Delta t_1 + h_2 \Delta t_2 + h_3 \Delta t_3 + h_4 \Delta t_4 + h_5 \Delta t_5 + h_6 \Delta t_6
+		</mrow>
+		<mrow>
+			\amp = 0.5 \cdot 1 + 0.75 \cdot 2 + 0.25 \cdot 1 + 0 \cdot 1 + (-0.2) \cdot 3 + 0.5 \cdot 2
+		</mrow>
+	</md>,
+	just as in our previous calculation.
+	</p>
+
+</example>
+
+</subsection>
+
+<subsection>
+<title>Summing in Sage</title>
+
+<p>
+Summation based on a pattern can be performed in Sage.
+The syntax is below.
+<cd><cline>
+	sum(pattern, variable, start, end)
+</cline></cd>
+For example, the summation
+<me> \sum_{k=1}^{5} 2 k + 1 </me>
+becomes Sage input
+<cd><cline>
+	sum(2*k + 1, k, 1, 5)
+</cline></cd>
+However, remember that by default the only letter that Sage treats as a variable is <c>x</c>,
+so if we want to use <c>k</c> for our index variable as we've been doing in our Sigma notation,
+we have to first tell Sage that we want <c>k</c> to be treated as a variable.
+</p>
+
+<example xml:id="example-step-sage-sum">
+	<title>Summing in Sage</title>
+
+	<p> Let's try the example command above. </p>
+
+	<sage>
+		<input>
+			var('k')
+			sum(2*k + 1, k, 1, 5)
+		</input>
+		<output> 35 </output>
+	</sage>
+
+</example>
+
+<exercise>
+	<title>Try it yourself</title>
+	<p>
+	Use the blank Sage cell below to compute the sum
+	<me> \sum_{k = 1}^{17} k^2 </me>.
+	(If you've already evaluated the example Sage cell above,
+	you won't need the <c>var('k')</c> command.)
+	</p>
+	<sage>
+		<input></input>
+		<output></output>
+	</sage>
+</exercise>
+
+</subsection>
+
+</section>
+
+<!-- <xi:include href="./step.d/activities.ptx" />
+<xi:include href="./step.d/exercises.ptx" /> -->
 
 </chapter>

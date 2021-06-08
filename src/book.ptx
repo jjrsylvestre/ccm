@@ -41,7 +41,6 @@ respective owners.
 -->
 <xi:include href="./inf-behaviour.ptx" />
 
-<!-- Step functions and their graphs. Accumulation when rate function is a step function. Sigma notation. -->
 <xi:include href="./step.ptx" />
 
 <!--
