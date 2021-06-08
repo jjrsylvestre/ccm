@@ -84,14 +84,18 @@ ${BUILDDIR}/html/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	    html.css.extra ccm.css \
 	  --directory ${BUILDDIR}/html \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+	@sed -i \
+	  -e 's/scale: 0\.[0-9]*,//' \
+	  -e 's/mtextInheritFont: true/mtextInheritFont: true, matchFontHeight: true/' \
+	  ${BUILDDIR}/html/*.html
 	@echo "...copying css style customizations"
 	@cp css/ccm.css ${BUILDDIR}/html/
-	@sed -i -e 's/scale: [0-9]*,/scale: 100,/' ${BUILDDIR}/html/*.html
 	@touch ${BUILDDIR}/html/.sentinal
 	@echo "...DONE"
 	@echo "Now call:"
 	@echo "   make html-images  (to build SVG images)"
 	@echo "   make html-serve   (to serve the output locally for previewing)"
+
 
 ${BUILDDIR}/html/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Generating SVG files for HTML output..."
