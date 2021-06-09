@@ -65,11 +65,13 @@
 	\node[blue,closedpt] at (1,0.75) (hstart) {};
 	\node[blue,thick,openpt] at (3,0.75) (hstop) {};
 	\draw[blue,thick] (hstart) -- (hstop);
+	\node[blue,closedpt] at (2,0.75) (hmid) {};
 
-	% area divider
-	\draw[blue,dashed]
-	%   (hstart) -- (mstop)
+	% area dividers
+	\draw[blue,thin]
+	  (hstart) -- (mstop)
 	  (mstop) -- (1,0)
+	  (hmid) -- (2,0)
 	;
 
 	% low
@@ -77,28 +79,66 @@
 	\node[blue,thick,openpt] at (4,0.25) (lstop) {};
 	\draw[blue,thick] (lstart) -- (lstop);
 
-	% area divider
-	\draw[blue,dashed]
+	% area dividers
+	\draw[blue,thin]
+	  (hstop) -- (lstart)
 	  (lstart) -- (3,0)
 	;
 
 	% off
-	\node[blue,closedpt] at (4,0) (start) {};
-	\node[blue,thick,openpt] at (5,0) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\node[blue,closedpt] at (4,0) (ostart) {};
+	\node[blue,thick,openpt] at (5,0) (ostop) {};
+	\draw[blue,thick] (ostart) -- (ostop);
+
+	% area dividers
+	\draw[blue,thin]
+	  (lstop) -- (ostart)
+	;
 
 	% leaking
-	\node[red,closedpt] at (5,-0.2) (start) {};
-	\node[red,thick,openpt] at (8,-0.2) (stop) {};
-	\draw[red,thick] (start) -- (stop);
+	\node[red,closedpt] at (5,-0.2) (lstart) {};
+	\node[red,thick,openpt] at (8,-0.2) (lstop) {};
+	\draw[red,thick] (lstart) -- (lstop);
+	\node[red,closedpt] at (6,-0.2) (lmid1) {};
+	\node[red,closedpt] at (7,-0.2) (lmid2) {};
+
+	% area dividers
+	\draw[red,thin]
+	  (lstart) -- (ostop)
+	  (lmid1) -- (6,0)
+	  (lmid2) -- (7,0)
+	;
 
 	% medium
-	\node[blue,closedpt] at (8,0.5) (start) {};
-	\node[blue,thick,openpt] at (10,0.5) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\node[blue,closedpt] at (8,0.5) (mstart) {};
+	\node[blue,thick,openpt] at (10,0.5) (mstop) {};
+	\draw[blue,thick] (mstart) -- (mstop);
+	\node[blue,closedpt] at (9,0.5) (mmid) {};
+
+	% area dividers
+	\draw[blue,thin]
+	  (mstart) -- (lstop)
+	  (mmid) -- (9,0)
+	;
 
 	% off
-	\node[blue,closedpt] at (10,0) (start) {};
-	\draw[blue,thick] (start) -- (\xmax,0);
+	\node[blue,closedpt] at (10,0) (ostart) {};
+	\draw[blue,thick] (ostart) -- (\xmax,0);
+
+	% area divider
+	\draw[blue,thin]
+	  (mstop) -- (ostart)
+	;
+
+	% rectangle labels
+	\node[blue] at (0.5,0.25) {$R_1$};
+	\node[blue] at (1.5,0.375) {$R_2$};
+	\node[blue] at (2.5,0.375) {$R_3$};
+	\node[blue] at (3.5,0.125) {$R_4$};
+	\node[red] at (5.5,-0.115) {$R_6$};
+	\node[red] at (6.5,-0.115) {$R_7$};
+	\node[red] at (7.5,-0.115) {$R_8$};
+	\node[blue] at (8.5,0.25) {$R_9$};
+	\node[blue] at (9.5,0.25) {$R_{10}$};
 
 \end{tikzpicture}

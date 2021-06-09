@@ -82,12 +82,19 @@ respective owners.
 
 <p>
 The model rate function graphed in <xref ref="figure-step-air-pump" />
-is an example of a <term>step function</term>,
-as it <q>steps</q> between constant values.
+is an example of a <term>step function</term>.
+</p>
+
+<definition xml:id="definition-step-function">
+	<title>Step function</title>
+	<p> A function that <q>steps</q> between constant values on non-overlapping intervals. </p>
+</definition>
+
+<p>
 A function can only take on one output value at any given input value,
-which is why we have an open circle at the endpoint of each line segment.
-For example, if we call this function <m>f</m>,
-then <m>f(3) = 0.25</m> but <m>f(2.9999) = 0.75</m>.
+which is why we have an open circle at the endpoint of each line segment in the graph in <xref ref="figure-step-air-pump" />.
+For example, if we call that inflation rate function <m>r</m>,
+then <m>r(3) = 0.25</m> but <m>r(2.9999) = 0.75</m>.
 Of course, this function is just a <term>model</term> of the behaviour of the air pump described in <xref ref="example-step-air-pump" /> <mdash />
 we could have put open circles at the <em>beginnings</em> of the line segments and closed ones at the ends instead,
 and it wouldn't really effect our analysis of the inflation of the raft.
@@ -132,6 +139,39 @@ we use piecewise notation to specify the constant output values on different sub
 	</p>
 
 </example>
+
+<p> The simplest situation to deal with is a step function that <q>steps</q> at regular intervals. </p>
+
+<!-- TODO this definition needs fixing -->
+<definition xml:id="definition-step-regular-function">
+	<title>Regular step function</title>
+	<p>
+	A step function whose domain can be split into equal-length intervals
+	so that the <q>steps</q> in output value only occur at boundaries between these intervals.
+	</p>
+</definition>
+
+<p>
+The step function in <xref ref="example-step-piecewise" /> is not regular <mdash />
+the steps in output value from <m>1</m> to <m>2</m> and from <m>2</m> to <m>3</m> both occur after intervals of length <m>1</m>,
+but the next two steps in output value occur after intervals of length greater than <m>1</m>.
+Because the irrational number <m>\pi</m> is involved in these longer two interval lengths,
+there is no way to subdivide all these intervals into equal-length intervals so that output-value changes only occur at interval boundaries.
+</p>
+
+<p>
+On the other hand,
+the air pump model in <xref ref="example-step-air-pump" /> is regular because we can split the middle interval in half,
+and then changes in output-value still only occur at boundaries of these length-<m>1</m> intervals.
+</p>
+
+<figure xml:id="figure-step-air-pump-regular">
+	<caption>Graph modelling output of an air pump with three settings.</caption>
+	<image width="60%">
+		<description>Graph modelling output of an air pump with three settings.</description>
+		<latex-image><xi:include href="step.d/air-pump-regular-graph.tex" parse="text" /></latex-image>
+	</image>
+</figure>
 
 </section>
 
@@ -612,7 +652,7 @@ then the above calculation is still a sum of rectangle areas.
 	</image>
 </figure>
 
-<assemblage>
+<definition xml:id="definition-step-positively-oriented-area">
 	<title>Positively-oriented area</title>
 
 	<p>
@@ -621,7 +661,7 @@ then the above calculation is still a sum of rectangle areas.
 	and we assign positive number to that area.
 	</p>
 
-</assemblage>
+</definition>
 
 <figure xml:id="figure-step-positively-oriented">
 	<caption>A positively-oriented area.</caption>
@@ -631,7 +671,7 @@ then the above calculation is still a sum of rectangle areas.
 	</image>
 </figure>
 
-<assemblage>
+<definition xml:id="definition-step-negatively-oriented-area">
 	<title>Negatively-oriented area</title>
 
 	<p>
@@ -640,7 +680,7 @@ then the above calculation is still a sum of rectangle areas.
 	and we assign a negative number to that area.
 	</p>
 
-</assemblage>
+</definition>
 
 <figure xml:id="figure-step-negatively-oriented">
 	<caption>A negatively-oriented area.</caption>
@@ -743,8 +783,8 @@ we can use any start value we like, according to the summation pattern we are tr
 Take care when counting an indexed collection:
 the number of objects is
 <me> (\text{ending index value}) - (\text{starting index value}) + 1 </me>.
-(The <q><m>+ 1</m></q> is because in the subtraction you have <q>taken away</q> the object at the starting index value,
-but you actually want to include it in the collection you're counting.)
+(The <q><m>+ 1</m></q> is because in the subtraction we have <q>taken away</q> every object up to and including the one at the starting index value,
+but we actually want to include that one at the starting index value in the collection being counting.)
 </p>
 
 <example xml:id="example-step-sigma-constant-again">
@@ -783,13 +823,13 @@ so every algebra rule for addition can be applied to Sigma notation.
 	</p>
 </example>
 
-<assemblage>
+<identity xml:id="pattern-step-factoring-sigma">
 	<title>Factoring in a Sigma expression</title>
 	<p>
 	For pattern <m>P(k)</m> and constant value <m>c</m>,
 	<me> \sum_{k = 1}^n c P(k) = c \sum_{k = 1}^n P(k) </me>.
 	</p>
-</assemblage>
+</identity>
 
 <warning><p>
 	Only a <em>constant</em> may be factored out of Sigma notation <mdash />
@@ -819,13 +859,13 @@ As well as factoring out of sums, we also know that we may perform a series of a
 	</p>
 </example>
 
-<assemblage>
+<identity xml:id="pattern-step-summing-sum">
 	<title>Summing separate patterns in a Sigma expression</title>
 	<p>
 	For patterns <m>P_1(k)</m> and <m>P_2(k)</m>,
 	<me> \sum_{k = 1}^n \bigl( P_1(k) + P_2(k) \bigr) = \sum_{k = 1}^n P_1(k) + \sum_{k = 1}^n P_2(k) </me>.
 	</p>
-</assemblage>
+</identity>
 
 <example xml:id="example-step-sigma-break">
 	<title>Breaking up a sum</title>
@@ -850,14 +890,14 @@ As well as factoring out of sums, we also know that we may perform a series of a
 
 </example>
 
-<assemblage>
+<identity xml:id="pattern-step-splitting-sigma">
 	<title>Splitting up a Sigma sum</title>
 	<p>
-		If <m>q</m> is an index value between the starting index <m>m</m> and the ending index <m>n</m>,
-		then
-		<me> \sum_{k = m}^{n} P(k) = \sum_{k = m}^{q} P(k) + \sum_{k = q + 1}^{n} P(k) </me>.
+	If <m>q</m> is an index value between the starting index <m>m</m> and the ending index <m>n</m>,
+	then
+	<me> \sum_{k = m}^{n} P(k) = \sum_{k = m}^{q} P(k) + \sum_{k = q + 1}^{n} P(k) </me>.
 	</p>
-</assemblage>
+</identity>
 
 </subsection>
 
@@ -874,6 +914,7 @@ the sum is called a <term>Riemann sum</term>.
 	<p>1826 <ndash /> 1866.</p>
 </aside>
 
+<!-- TODO make this an actual definition? -->
 <assemblage>
 	<title>Riemann sum</title>
 	<p>
@@ -941,10 +982,85 @@ the sum is called a <term>Riemann sum</term>.
 			\amp = 0.5 \cdot 1 + 0.75 \cdot 2 + 0.25 \cdot 1 + 0 \cdot 1 + (-0.2) \cdot 3 + 0.5 \cdot 2
 		</mrow>
 	</md>,
-	just as in our previous calculation.
+	just as in our previous calculation,
+	and each term in the sum represents an oriented rectangle area,
+	as pictured in <xref ref="figure-step-air-pump-leakage" />
+	(though one of the rectangles has height <m>0</m> and can't be seen in that diagram).
 	</p>
 
 </example>
+
+<identity xml:id="pattern-step-regular-riemann">
+	<title>Riemann sum for a regular step function</title>
+	<p>
+	For a regular step function, we can split the domain into subdomains of equal length,
+	so that <m>\Delta t_k</m> is the same value for each subdomain.
+	Write <m>\Delta t</m> for this common subdomain length.
+	Then we can factor this common length out of our sum,
+	so that
+	<me>
+		\sum_{k = 1}^{n} h_k \Delta t_k
+		= \sum_{k = 1}^{n} h_k \Delta t
+		= \left(\sum_{k = 1}^{n} h_k\right) \Delta t
+	</me>.
+	</p>
+</identity>
+
+<example xml:id="example-step-regular-riemann-air-pump">
+	<title>Riemann sum for the air pump using a regular step function</title>
+
+	<p> Let's redo <xref ref="example-step-riemann-air-pump" /> but interpreting the rate function as a regular step function. </p>
+
+	<figure xml:id="figure-step-air-pump-leakage-regular-riemann">
+		<caption>Regular Riemann sum parameters for inflating and re-inflating an air raft.</caption>
+		<image width="100%">
+			<description>Graph modelling inflating, partially deflating, and re-inflating an air raft.</description>
+			<latex-image><xi:include href="step.d/air-pump-graph-leakage-regular-riemann.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	We have more subdomains this time,
+	because we have split the longer subdomains up so that each subdomain has the same length.
+	</p>
+
+	<p>
+	Factoring out the common subdomain length,
+	we have
+	<md>
+		<mrow>
+			\sum_{k = 1}^{10} h_k \Delta t
+			\amp = \left(\sum_{k = 1}^{10} h_k\right) \Delta t
+		</mrow>
+		<mrow>
+			\amp = (h_1 + h_2 + h_3 + h_4 + h_5 + h_6 + h_7 + h_8 + h_9 + h_{10}) \Delta t
+		</mrow>
+		<mrow>
+			\amp = (0.5 + 0.75 + 0.75 + 0.25 + 0 + (-0.2) + (-0.2) + (-0.2) + 0.5 + 0.5) \cdot 1
+		</mrow>
+	</md>.
+	This Riemann sum corresponds to the net (oriented) area of ten rectangles
+	(though again one of the rectangles has height <m>0</m> and can't be seen).
+	</p>
+
+	<figure xml:id="figure-step-air-pump-regular-leakage">
+		<caption>Inflating and re-inflating an air raft.</caption>
+		<image width="90%">
+			<description>Graph modelling inflating, partially deflating, and re-inflating an air raft.</description>
+			<latex-image><xi:include href="step.d/air-pump-graph-regular-leakage.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<remark><p>
+	It may seem that summing ten rectangle areas in <xref ref="example-step-regular-riemann-air-pump" />
+	is more work than summing six rectangle areas in <xref ref="example-step-riemann-air-pump" />.
+	But when programming a computer to do such sums,
+	the regularly-spaced ten rectangles is easier to program then the irregularly-spaced six rectangles,
+	and computers don't care how many rectangle areas you ask them to sum
+	(unless the number of rectangles is very, very large).
+</p></remark>
 
 </subsection>
 

@@ -13,7 +13,7 @@
 % *********************************************************************
 
 \newcommand*{\xmin}{-0.1}
-\newcommand*{\xmax}{0.8}
+\newcommand*{\xmax}{0.7}
 \newcommand*{\ymin}{-10}
 \newcommand*{\ymax}{110}
 
@@ -21,7 +21,7 @@
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
 	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	xscale=10,
+	xscale=12,
 	yscale=0.03
 ]
 
@@ -31,7 +31,7 @@
 	\fill[blue!40!white] (0.5,50) rectangle (0.65,0);
 
 	% grid
-	\foreach \x in {-0.1,0.0,0.1,...,0.9} {   % I don't know why this needs to go past \xmax...
+	\foreach \x in {-0.1,0.0,0.1,...,0.8} {   % I don't know why this needs to go past \xmax...
 		\draw[very thin,gray] (\x,\ymin) -- (\x,\ymax);
 	}
 	\foreach \y in {-10,0,10,...,110} {
@@ -42,7 +42,7 @@
 	\foreach \x in {0.1} {
 		\node[below] at (\x,0) {$\x$};
 	}
-	\foreach \y in {10} {
+	\foreach \y in {10,50,100} {
 		\node[left] at (0,\y) {$\y$};
 	}
 
@@ -80,7 +80,7 @@
 	  (wstart) -- (0.5,0);
 	;
 
-	% off
+	% after
 	\node[blue,closedpt] at (0.65,0) (start) {};
 	\draw[blue,thick] (start) -- (\xmax,0);
 

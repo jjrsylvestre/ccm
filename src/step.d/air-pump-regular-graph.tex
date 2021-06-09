@@ -12,36 +12,28 @@
 %
 % *********************************************************************
 
-\newcommand*{\xmin}{-1}
-\newcommand*{\xmax}{11}
-\newcommand*{\ymin}{-0.5}
+\newcommand*{\xmin}{-0.5}
+\newcommand*{\xmax}{4.5}
+\newcommand*{\ymin}{-0.25}
 \newcommand*{\ymax}{1}
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
 	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	xscale=0.75,
 	yscale=2
 ]
 
-	% rectangle fills
-	\fill[blue!40!white] (0,0.5) rectangle (1,0);
-	\fill[blue!40!white] (1,0.75) rectangle (3,0);
-	\fill[blue!40!white] (3,0.25) rectangle (4,0);
-	\fill[red!40!white] (5,-0.2) rectangle (8,0);
-	\fill[blue!40!white] (8,0.5) rectangle (10,0);
-
 	% grid
-	\foreach \x in {-1,0,1,...,11} {
+	\foreach \x in {-0.5,0,0.5,...,4.5} {
 		\draw[very thin,gray] (\x,\ymin) -- (\x,\ymax);
 	}
-	\foreach \y in {-0.5,-0.25,0,0.25,...,1} {
+	\foreach \y in {-0.25,0,0.25,...,1} {
 		\draw[very thin,gray] (\xmin,\y) -- (\xmax,\y);
 	}
 
 	% label grid
-	\foreach \x in {1} {
+	\foreach \x in {1,2,3,4} {
 		\node[below] at (\x,0) {$\x$};
 	}
 	\foreach \y in {0.5,1} {
@@ -57,48 +49,23 @@
 	\draw[blue,thick] (\xmin,0) -- (stop);
 
 	% medium
-	\node[blue,closedpt] at (0,0.5) (mstart) {};
-	\node[blue,thick,openpt] at (1,0.5) (mstop) {};
-	\draw[blue,thick] (mstart) -- (mstop);
+	\node[blue,closedpt] at (0,0.5) (start) {};
+	\node[blue,thick,openpt] at (1,0.5) (stop) {};
+	\draw[blue,thick] (start) -- (stop);
 
 	% high
-	\node[blue,closedpt] at (1,0.75) (hstart) {};
-	\node[blue,thick,openpt] at (3,0.75) (hstop) {};
-	\draw[blue,thick] (hstart) -- (hstop);
-
-	% area divider
-	\draw[blue,dashed]
-	%   (hstart) -- (mstop)
-	  (mstop) -- (1,0)
-	;
+	\node[blue,closedpt] at (1,0.75) (start) {};
+	\node[blue,thick,openpt] at (3,0.75) (stop) {};
+	\draw[blue,thick] (start) -- (stop);
+	\node[blue,closedpt] at (2,0.75) {};
 
 	% low
-	\node[blue,closedpt] at (3,0.25) (lstart) {};
-	\node[blue,thick,openpt] at (4,0.25) (lstop) {};
-	\draw[blue,thick] (lstart) -- (lstop);
-
-	% area divider
-	\draw[blue,dashed]
-	  (lstart) -- (3,0)
-	;
+	\node[blue,closedpt] at (3,0.25) (start) {};
+	\node[blue,thick,openpt] at (4,0.25) (stop) {};
+	\draw[blue,thick] (start) -- (stop);
 
 	% off
 	\node[blue,closedpt] at (4,0) (start) {};
-	\node[blue,thick,openpt] at (5,0) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
-
-	% leaking
-	\node[red,closedpt] at (5,-0.2) (start) {};
-	\node[red,thick,openpt] at (8,-0.2) (stop) {};
-	\draw[red,thick] (start) -- (stop);
-
-	% medium
-	\node[blue,closedpt] at (8,0.5) (start) {};
-	\node[blue,thick,openpt] at (10,0.5) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
-
-	% off
-	\node[blue,closedpt] at (10,0) (start) {};
 	\draw[blue,thick] (start) -- (\xmax,0);
 
 \end{tikzpicture}

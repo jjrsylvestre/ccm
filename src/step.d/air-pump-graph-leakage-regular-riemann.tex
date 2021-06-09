@@ -35,37 +35,26 @@
 	% label grid
 	\node[below left,green!33!black] at (0,0) {$t_0$};
 	\node[below,green!33!black] at (1,0) {$t_1$};
-	\node[below,green!33!black] at (3,0) {$t_2$};
-	\node[below,green!33!black] at (4,0) {$t_3$};
-	\node[above,green!33!black] at (5,0) {$t_4$};
-	\node[above,green!33!black] at (8,0) {$t_5$};
-	\node[below,green!33!black] at (10,0) {$t_6$};
+	\node[below,green!33!black] at (2,0) {$t_2$};
+	\node[below,green!33!black] at (3,0) {$t_3$};
+	\node[below,green!33!black] at (4,0) {$t_4$};
+	\node[above,green!33!black] at (5,0) {$t_5$};
+	\node[above,green!33!black] at (6,0) {$t_6$};
+	\node[above,green!33!black] at (7,0) {$t_7$};
+	\node[above,green!33!black] at (8,0) {$t_8$};
+	\node[below,green!33!black] at (9,0) {$t_9$};
+	\node[below,green!33!black] at (10,0) {$t_{10}$};
 
 	% interval widths
 	\draw[green!33!black,<->] (0,-0.45)
-	  -- node[below] {$\Delta t_1$}
+	  -- node[below] {$\Delta t$}
 	  (1,-0.45)
 	;
 	\draw[green!33!black,<->] (1,-0.45)
-	  -- node[below] {$\Delta t_2$}
-	  (3,-0.45)
+	  -- node[below] {$\Delta t$}
+	  (2,-0.45)
 	;
-	\draw[green!33!black,<->] (3,-0.45)
-	  -- node[below] {$\Delta t_3$}
-	  (4,-0.45)
-	;
-	\draw[green!33!black,<->] (4,-0.45)
-	  -- node[below] {$\Delta t_4$}
-	  (5,-0.45)
-	;
-	\draw[green!33!black,<->] (5,-0.45)
-	  -- node[below] {$\Delta t_5$}
-	  (8,-0.45)
-	;
-	\draw[green!33!black,<->] (8,-0.45)
-	  -- node[below] {$\Delta t_6$}
-	  (10,-0.45)
-	;
+	\node[green!33!black] at (2.5,-0.6) {$\cdots$};
 
 	\foreach \y in {0.5,1} {
 		\node[left] at (0,\y) {$\y$};
@@ -88,6 +77,7 @@
 	\node[blue,closedpt] at (1,0.75) (hstart) {};
 	\node[blue,thick,openpt] at (3,0.75) (hstop) {};
 	\draw[blue,thick] (hstart) -- (hstop);
+	\node[blue,closedpt] at (2,0.75) {};
 
 	% low
 	\node[blue,closedpt] at (3,0.25) (lstart) {};
@@ -103,11 +93,14 @@
 	\node[red,closedpt] at (5,-0.2) (start) {};
 	\node[red,thick,openpt] at (8,-0.2) (stop) {};
 	\draw[red,thick] (start) -- (stop);
+	\node[red,closedpt] at (6,-0.2) {};
+	\node[red,closedpt] at (7,-0.2) {};
 
 	% medium
 	\node[blue,closedpt] at (8,0.5) (start) {};
 	\node[blue,thick,openpt] at (10,0.5) (stop) {};
 	\draw[blue,thick] (start) -- (stop);
+	\node[blue,closedpt] at (9,0.5) {};
 
 	% off
 	\node[blue,closedpt] at (10,0) (start) {};
@@ -115,10 +108,14 @@
 
 	% label heights
 	\node[above,blue] at (0.5,0.5) {$h_1$};
-	\node[above,blue] at (2,0.75) {$h_2$};
-	\node[above,blue] at (3.5,0.25) {$h_3$};
-	\node[above,blue] at (4.5,0) {$h_4$};
-	\node[below,red] at (6.5,-0.2) {$h_5$};
-	\node[above,blue] at (9,0.5) {$h_6$};
+	\node[above,blue] at (1.5,0.75) {$h_2$};
+	\node[above,blue] at (2.5,0.75) {$h_3$};
+	\node[above,blue] at (3.5,0.25) {$h_4$};
+	\node[above,blue] at (4.5,0) {$h_5$};
+	\node[below,red] at (5.5,-0.2) {$h_6$};
+	\node[below,red] at (6.5,-0.2) {$h_7$};
+	\node[below,red] at (7.5,-0.2) {$h_8$};
+	\node[above,blue] at (8.5,0.5) {$h_9$};
+	\node[above,blue] at (9.5,0.5) {$h_{10}$};
 
 \end{tikzpicture}

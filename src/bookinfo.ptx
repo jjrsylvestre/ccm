@@ -45,13 +45,12 @@ respective owners.
 		\usetikzlibrary{decorations.pathreplacing} -->
 	</latex-image-preamble>
 
-	<!-- not yet -->
 	<!-- renamings -->
-	<!-- <rename element="heuristic">Goal</rename>
-	<rename element="algorithm">Procedure</rename>
-	<rename element="hypothesis">Idea</rename>
-	<rename element="convention">Pattern</rename>
-	<rename element="worksheet">Discovery guide</rename>
-	<rename element="activity">Discovery</rename> -->
+	<rename element="identity">Pattern</rename>
+	<!-- <rename element="heuristic">Goal</rename> -->
+	<!-- <rename element="algorithm">Procedure</rename> -->
+	<!-- <rename element="hypothesis">Idea</rename> -->
+	<!-- <rename element="worksheet">Discovery guide</rename> -->
+	<!-- <rename element="activity">Discovery</rename> -->
 
 </docinfo>
