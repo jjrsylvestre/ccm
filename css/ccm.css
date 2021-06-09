@@ -34,3 +34,80 @@ body {
 dt {
   font-style: italic;
 }
+
+/* highlight definitions ***********************/
+.pretext-content article.definition.definition-like {
+  border: solid 2px #1100AA;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.pretext-content .definition.definition-like {
+  border: solid 2px #1100AA;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #f4f4fe;
+}
+
+.pretext-content .definition.definition-like .heading {
+  margin-top: 0;
+}
+
+.pretext-content .definition.definition-like + .sidebyside {
+  margin-top: 1.25em;
+}
+.pretext-content section article.definition.definition-like .heading + p {
+  display: block;
+}
+
+/* undo Greg's L */
+.pretext-content article.definition.definition-like::after {
+    content:'';
+    border-bottom: none;
+    display: none;
+    margin: 0px;
+    padding-top: 0px;
+    width: 0px;
+}
+
+/***********************************************/
+
+
+/* highlight patterns (renamed from identity) ************/
+/* TODO change these colors to be different from definitions */
+.pretext-content article.identity.theorem-like {
+  border: solid 2px #1100AA;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.pretext-content .identity.theorem-like {
+  border: solid 2px #1100AA;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #f4f4fe;
+}
+
+.pretext-content .identity.theorem-like .heading {
+  margin-top: 0;
+}
+
+.pretext-content .identity.theorem-like + .sidebyside {
+  margin-top: 1.25em;
+}
+.pretext-content section article.identity.theorem-like .heading + p {
+  display: block;
+}
+
+/* undo Greg's L */
+.pretext-content article.identity.theorem-like::after {
+    content:'';
+    border-bottom: none;
+    display: none;
+    margin: 0px;
+    padding-top: 0px;
+    width: 0px;
+}
+
+/*********************************************************/
+
