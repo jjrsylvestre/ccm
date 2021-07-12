@@ -1,0 +1,103 @@
+% *********************************************************************
+% © 2021 Jeremy Sylvestre
+%
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License, Version 1.3 or
+% any later version published by the Free Software Foundation; with no
+% Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+% copy of the license is included in the appendix entitled “GNU Free
+% Documentation License” that appears in the output document of this
+% PreTeXt source code. All trademarks™ are the registered® marks of
+% their respective owners.
+%
+% *********************************************************************
+
+\newcommand*{\xmin}{0.5}
+\newcommand*{\xmax}{5.5}
+\newcommand*{\ymin}{-2.5}
+\newcommand*{\ymax}{4.5}
+\newcommand*{\func}{\x * \x * \x - 9 * \x * \x + 23 * \x - 14}
+
+\begin{tikzpicture}
+[
+	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
+	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
+	xscale=1.33,
+	yscale=0.66
+]
+
+	% \fill[blue!40!white]
+	%   (1.5,0) -- (1.5,3.625)
+	%   plot[domain=1.5:3.254, smooth] (\x,{\func})
+	%   -- (1.5,0)
+	% ;
+	% \fill[red!40!white]
+	%   plot[domain=3.254:4.861, smooth] (\x,{\func})
+	%   -- (3.254,0)
+	% ;
+	% \fill[blue!40!white]
+	%   plot[domain=4.861:5.35, smooth] (\x,{\func})
+	%   -- (5.35,0) -- (4.861,0)
+	% ;
+
+	% rectangle fills
+	\foreach \x in {1.0625,1.1875,1.3125,...,3.25} {
+		\fill[blue!40!white]
+		  ($(\x - 0.0625, \func)$)
+		  -- ($ (\x + 0.0625, \func) $)
+		  -- ($ (\x + 0.0625, 0) $)
+		  -- ($ (\x - 0.0625, 0) $)
+		  -- cycle
+	  ;
+	}
+	\foreach \x in {3.3125,3.4375,3.5625,...,4.5} {
+		\fill[red!40!white]
+		  ($(\x - 0.0625, \func)$)
+		  -- ($ (\x + 0.0625, \func) $)
+		  -- ($ (\x + 0.0625, 0) $)
+		  -- ($ (\x - 0.0625, 0) $)
+		  -- cycle
+	  ;
+	}
+
+	% grid
+	\foreach \x in {0.5,1,1.5,...,5.5} {
+		\draw[very thin,gray] (\x,\ymin) -- (\x,\ymax);
+	}
+	\foreach \y in {-2.5,-2,-1.5,...,4.5} {
+		\draw[very thin,gray] (\xmin,\y) -- (\xmax,\y);
+	}
+
+	\node[below] at (1,0) {$a$};
+	\node[above] at (4.5,0) {$b$};
+
+	% axes
+	\draw[->,thick] (\xmin,0) -- (\xmax,0);
+	\draw[->,thick] (0.5,\ymin) -- (0.5,\ymax);
+
+	% rectangles
+	\foreach \x in {1.0625,1.1875,1.3125,...,3.25} {
+		\draw[blue,thick]
+		  ($(\x - 0.0625, \func)$)
+		  -- ($ (\x + 0.0625, \func) $)
+		;
+		\draw[blue,thin]
+		  ($(\x - 0.0625, \func)$) -- ($(\x - 0.0625, 0)$)
+		  ($ (\x + 0.0625, \func) $) -- ($ (\x + 0.0625, 0) $)
+		;
+	}
+	\foreach \x in {3.3125,3.4375,3.5625,...,4.5} {
+		\draw[red,thick]
+		  ($(\x - 0.0625, \func)$)
+		  -- ($ (\x + 0.0625, \func) $)
+		;
+		\draw[red,thin]
+		  ($(\x - 0.0625, \func)$) -- ($(\x - 0.0625, 0)$)
+		  ($ (\x + 0.0625, \func) $) -- ($ (\x + 0.0625, 0) $)
+		;
+	}
+
+	% example graph
+	\draw[thick, green!33!black, domain=0.655:5.345, smooth] plot (\x,{\func});
+
+\end{tikzpicture}

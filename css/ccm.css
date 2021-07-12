@@ -74,39 +74,148 @@ dt {
 
 
 /* highlight patterns (renamed from identity) ************/
+/*     and facts                              ************/
 /* TODO change these colors to be different from definitions */
-.pretext-content article.identity.theorem-like {
+.pretext-content article.identity.theorem-like,
+.pretext-content article.fact.theorem-like {
   border: solid 2px #1100AA;
   border-radius: 12px;
   padding: 10px;
 }
 
-.pretext-content .identity.theorem-like {
-  border: solid 2px #1100AA;
+.pretext-content .identity.theorem-like,
+.pretext-content .fact.theorem-like {
+    border: solid 2px #1100AA;
   border-radius: 12px;
   padding: 10px;
   background-color: #f4f4fe;
 }
 
-.pretext-content .identity.theorem-like .heading {
-  margin-top: 0;
+.pretext-content .identity.theorem-like .heading,
+.pretext-content .fact.theorem-like .heading {
+    margin-top: 0;
 }
 
-.pretext-content .identity.theorem-like + .sidebyside {
-  margin-top: 1.25em;
+.pretext-content .identity.theorem-like + .sidebyside,
+.pretext-content .fact.theorem-like + .sidebyside {
+    margin-top: 1.25em;
 }
-.pretext-content section article.identity.theorem-like .heading + p {
+
+.pretext-content section article.identity.theorem-like .heading + p,
+.pretext-content section article.fact.theorem-like .heading + p {
   display: block;
 }
 
 /* undo Greg's L */
-.pretext-content article.identity.theorem-like::after {
+.pretext-content article.identity.theorem-like::after,
+.pretext-content article.fact.theorem-like::after {
     content:'';
     border-bottom: none;
     display: none;
     margin: 0px;
     padding-top: 0px;
     width: 0px;
+}
+
+/* undo italics for patterns */
+.pretext-content section article.identity.theorem-like p,
+.pretext-content section article.fact.theorem-like p,
+.pretext-content section article.identity.theorem-like li,
+.pretext-content section article.fact.theorem-like li {
+    font-style: normal;
+}
+/* but then also reverse font-style for li headings */
+.pretext-content section article.identity.theorem-like li > .heading,
+.pretext-content section article.fact.theorem-like li > .heading {
+    font-style: italic;
+}
+
+
+/*********************************************************/
+
+/* highlight principles (renamed from insight) ************/
+/* TODO change these colors to be different from definitions and patterns */
+.pretext-content article.insight.remark-like {
+  border: solid 2px #1100AA;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.pretext-content .insight.remark-like {
+  border: solid 2px #1100AA;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #f4f4fe;
+}
+
+.pretext-content .insight.remark-like .heading {
+  margin-top: 0;
+}
+
+.pretext-content .insight.remark-like + .sidebyside {
+  margin-top: 1.25em;
+}
+.pretext-content section article.insight.remark-like .heading + p {
+  display: block;
+}
+
+/* undo Greg's L */
+.pretext-content article.insight.remark-like::after {
+    content:'';
+    border-bottom: none;
+    display: none;
+    margin: 0px;
+    padding-top: 0px;
+    width: 0px;
+}
+
+/*********************************************************/
+
+/* highlight procedures (renamed from algorithm) ************/
+/* TODO change these colors to be different from others above ? */
+/* Or maybe consolidate these styles into the other .theorem-like styles ? */
+.pretext-content article.algorithm.theorem-like {
+  border: solid 2px #1100AA;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.pretext-content .algorithm.theorem-like {
+  border: solid 2px #1100AA;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #f4f4fe;
+}
+
+.pretext-content .algorithm.theorem-like .heading {
+  margin-top: 0;
+}
+
+.pretext-content .algorithm.theorem-like + .sidebyside {
+  margin-top: 1.25em;
+}
+.pretext-content section article.algorithm.theorem-like .heading + p {
+  display: block;
+}
+
+/* undo Greg's L */
+.pretext-content article.algorithm.theorem-like::after {
+    content:'';
+    border-bottom: none;
+    display: none;
+    margin: 0px;
+    padding-top: 0px;
+    width: 0px;
+}
+
+/* undo italics for patterns */
+.pretext-content section article.algorithm.theorem-like p,
+.pretext-content section article.algorithm.theorem-like li {
+    font-style: normal;
+}
+/* but then also reverse font-style for li headings */
+.pretext-content section article.algorithm.theorem-like li > .heading {
+  font-style: italic;
 }
 
 /*********************************************************/

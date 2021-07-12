@@ -37,18 +37,19 @@ respective owners.
 	<latex-image-preamble>
 		<!-- \usepackage{cancel} -->
 		\usepackage{tikz}
-		<!-- \usepackage{tikz-3dplot}
-		\usepackage{tikz-cd}
-		\usetikzlibrary{matrix}
-		\usetikzlibrary{positioning}
-		\usetikzlibrary{fit}
-		\usetikzlibrary{decorations.pathreplacing} -->
+		<!-- \usepackage{tikz-3dplot} -->
+		<!-- \usepackage{tikz-cd} -->
+		\usetikzlibrary{calc}
+		<!-- \usetikzlibrary{matrix} -->
+		<!-- \usetikzlibrary{positioning} -->
+		<!-- \usetikzlibrary{fit} -->
+		<!-- \usetikzlibrary{decorations.pathreplacing} -->
 	</latex-image-preamble>
 
 	<!-- renamings -->
 	<rename element="identity">Pattern</rename>
-	<!-- <rename element="heuristic">Goal</rename> -->
-	<!-- <rename element="algorithm">Procedure</rename> -->
+	<rename element="insight">Principal</rename>
+	<rename element="algorithm">Procedure</rename>
 	<!-- <rename element="hypothesis">Idea</rename> -->
 	<!-- <rename element="worksheet">Discovery guide</rename> -->
 	<!-- <rename element="activity">Discovery</rename> -->

@@ -13,15 +13,1229 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
+
+<!--
+Approximate accumulation from rate of variation (using step functions).
+Exact accumulation from rate of variation.
+-->
+
 <chapter xml:id="chapter-integ" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Accumulation from rate data</title>
 
-<section xml:id="section-integ-intro">
-<title>TODO</title>
+<section xml:id="section-integ-approx">
+<title>Approximating accumulation using step functions</title>
 
-<p> TODO </p>
+<subsection>
+<title>Simplifying models</title>
+
+<p>
+A complex model may more faithfully capture the behaviour of a system,
+but will be more difficult to use for computations.
+In such a situation,
+we can use a simplified model that is based on the complex one to perform our calculations.
+</p>
+
+<p>
+Consider again our Camrose-Wetaskiwin trip from <xref ref="example-step-car-trip" />.
+A (somewhat) more realistic model appears in <xref ref="figure-integ-camrose-wetaskiwin" />,
+including periods of speeding up and slowing down,
+stopping at traffic lights,
+and slowing down to negotiate the traffic circle at the junction of highways 13 and 21.
+</p>
+
+<figure xml:id="figure-integ-camrose-wetaskiwin">
+	<caption>Graph of a rate-of-travel model.</caption>
+	<image width="80%">
+		<description>Graph of a rate-of-travel model.</description>
+		<latex-image><xi:include href="integ.d/camrose-wetaskiwin.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+This rate function is much more difficult to deal with,
+because the
+<me> \text{amount} = \text{rate} \times \text{duration} </me>
+formula does not apply to the periods where the rate is continually varying.
+However,
+our previous stepped rate function can still be used as a <em>simplified</em> model of the trip.
+</p>
+
+<figure xml:id="figure-integ-camrose-wetaskiwin-simplified">
+	<caption>Simplifying a rate model with a step-function.</caption>
+	<image width="80%">
+		<description>Graph of a rate-of-travel model.</description>
+		<latex-image><xi:include href="integ.d/camrose-wetaskiwin-simplified.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+Using the simplified, stepped rate function model,
+we can obtain an estimate of the distance travelled during the trip by summing up the (oriented) rectangle area,
+as before.
+</p>
+
+</subsection>
+
+<subsection>
+<title>Obtaining better approximations</title>
+
+<question><p>
+	How can we obtain a better estimate without greatly increasing computational complexity?
+</p></question>
+
+<p>
+Continuing our car-trip example,
+the reason our estimate using the simplified, stepped rate function is inaccurate is because the actual rate of travel has variation that the step function does not capture.
+To get a better estimate, we should allow our stepped rate function model to vary more.
+We will still use a step function,
+but with shorter subdomains,
+so that the step function's values can change more often to better keep up with the variations in the more complex model.
+</p>
+
+<figure xml:id="figure-integ-camrose-wetaskiwin-simplified-more-rect">
+	<caption>Using more steps to increase accuracy of accumulation estimate.</caption>
+	<image width="80%">
+		<description>Diagram of using more steps to increase accuracy of accumulation estimate.</description>
+		<latex-image><xi:include href="integ.d/camrose-wetaskiwin-simplified-more-rect.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<insight xml:id="principle-integ-riemann-more-steps">
+	<title>More frequent steps yields better approximation</title>
+	<p>
+	In general,
+	given a rate function <m>r(t)</m>,
+	a Riemann sum using a <xref ref="definition-step-regular-function" text="title" /> that steps more frequently will provide a better estimate of the total accumulation over a specific period compared to a Riemann sum using a regular step function that steps less frequently.
+	</p>
+</insight>
+
+</subsection>
+
+<subsection>
+<title>General form of approximations</title>
+
+<p>
+We want the variation of our simplified, stepped rate function to approximately mimic the variation in the original rate function,
+so we should <q>anchor</q> heights of the step function to specific heights on the rate function.
+And since we are talking about a rate <em>function</em>,
+heights are <em>outputs</em> that are obtained from specific <em>inputs</em>.
+</p>
+
+<p>
+So creating a <xref ref="definition-step-riemann" text="title" /> to approximate the total accumulation of a rate function on a specific domain is essentially a two-step process:
+<ol>
+	<li> split the domain into non-overlapping subdomains </li>
+	<li> choose an input point in each subdomain that will be used to determine the height of the step function on that subdomain. </li>
+</ol>
+The <q>input points</q> in the second step are often called <term>sample points</term>,
+because they are used to <q>sample</q> the value of the rate function on that subdomain.
+</p>
+
+<p> Here is a more detailed procedure. </p>
+
+<algorithm>
+	<title> To create a Riemann sum approximation of total accumulation over a period of time </title>
+	<p>
+	To approximate the total accumulation of a quantity that is varying according to rate function <m>r(t)</m> over time domain <m>a \le t \le b</m> using a Riemann sum.
+	<ol>
+		<li>
+			Split the domain into non-overlapping subdomains <m>t_{k-1} \le t \lt t_k</m>.
+			If a <xref ref="definition-step-regular-function" text="title" /> is to be used,
+			each subdomain should have length <me> \Delta t = \frac{b - a}{n} </me>,
+			where <m>n</m> is the number of subdomains to be created.
+		</li>
+		<li>
+			In each subdomain, choose a sample time <m>t_k^\ast</m>.
+			That is, choose some input time <m>t_k^\ast</m> so that <m>t_{k-1} \le t_k^\ast \lt t_k</m>.
+		</li>
+		<li>
+			On each subdomain, choose the height of the step function <m>s(t)</m> to be <m>h_k = r(t_k^\ast)</m>,
+			so that our step function becomes
+			<me>
+				s(t) = \begin{cases}
+					r(t_1^\ast) \amp t_0 \le t \lt t_1 \\
+					r(t_2^\ast) \amp t_1 \le t \lt t_2 \\
+					r(t_3^\ast) \amp t_2 \le t \lt t_3 \\
+					\amp \vdots \\
+					r(t_n^\ast) \amp t_{n - 1} \le t \lt t_n
+				\end{cases}
+			</me>.
+		</li>
+		<li>
+			Compute the Riemann sum
+			<me> \sum_{k = 1}^{n} h_k \Delta t_k = \sum_{k = 1}^{n} r(t_k^\ast) \Delta t_k </me>.
+		</li>
+	</ol>
+	</p>
+</algorithm>
+
+<figure xml:id="figure-integ-general-riemann">
+	<caption>Rectangular areas corresponding to a Riemann sum for a rate function.</caption>
+	<image width="100%">
+		<description>Rectangular areas corresponding to a Riemann sum for a rate function..</description>
+		<latex-image><xi:include href="integ.d/general-riemann.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+</subsection>
+
+<subsection xml:id="subsection-integ-systematic-riemann">
+<title>Systematic approximation</title>
+
+<p>
+Models are not always graphical <mdash />
+sometimes they are formulas or equations,
+or just data in a computer that we can't <q>see.</q>
+So it is desirable to have systematic methods of choosing subdomains and sample points that can be applied to any rate function to estimate total accumulation over some time period.
+</p>
+
+<p>
+First, we will prefer to use <xref ref="definition-step-regular-function" text="title" />,
+so we will always begin by splitting our time period into subdomains of equal length.
+Next, we have to decide how to choose sample points that will determine our step-function heights on those subdomains;
+this can be done systematically in a number of different ways.
+</p>
+
+<definition>
+	<title>Left Riemann sum</title>
+	<p>
+	Given rate function <m>r(t)</m>,
+	a <term>left Riemann sum</term> for <m>r(t)</m> over time domain <m>a \le t \le b</m>
+	is a <xref ref="definition-step-riemann" text="title" />
+	for a <xref ref="definition-step-regular-function" text="title" />
+	where the step function values are chosen to be the output value of <m>r(t)</m> at the beginning
+	of each subdomain.
+	That is, we choose each subdomain's sample point to be its <em>left</em> endpoint.
+	</p>
+</definition>
+
+<example xml:id="example-integ-left-riemann">
+	<title>A left Riemann sum</title>
+
+	<p> Consider rate function <me> r(t) = -t^2 + 4 t + 11 </me> over domain <m>1 \le t \le 7</m>. </p>
+
+	<p>
+	Suppose we would like to use a <m>3</m>-step regular step function as a simplified rate model.
+	As described in <xref ref="pattern-step-regular-riemann" />,
+	the duration of each value in this step function should be
+	<me> \Delta t = \frac{7 - 1}{3} = 2 </me>.
+	Our subdomain boundaries are
+	<md><mrow> t_0 \amp = 1 \amp t_1 \amp = 3 \amp t_2 \amp = 5 \amp t_3 \amp = 7 </mrow></md>
+	and we choose our sample points to be the left endpoints
+	<md><mrow> t_1^\ast \amp = t_0 = 1 \amp t_2^\ast \amp = t_1 = 3 \amp t_3^\ast \amp = t_2 = 5 </mrow></md>.
+	So for a left Riemann sum, our step function <q>steps</q> should be at heights
+	<md>
+		<mrow> h_1 \amp = r(t_1^\ast) = r(1) = 14 </mrow>
+		<mrow> h_2 \amp = r(t_2^\ast) = r(3) = 14 </mrow>
+		<mrow> h_3 \amp = r(t_3^\ast) = r(5) =  6 </mrow>
+	</md>.
+	</p>
+
+	<figure xml:id="figure-integ-left-riemann">
+		<caption>A left Riemann sum for a parabolic rate function.</caption>
+		<image width="70%">
+			<description>A graph of a left Riemann sum for a parabolic rate function.</description>
+			<latex-image><xi:include href="integ.d/left-riemann-example.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	Calculating our left Riemann sum is the same as adding up the (oriented) areas of the rectangles in <xref ref="figure-integ-left-riemann" />:
+	<me>
+		\sum_{k = 1}^{3} h_k \Delta t
+		= 14 \cdot 2 + 14 \cdot 2 + 6 \cdot 2
+		= 68
+	</me>.
+	(Of course, we could have used <xref ref="pattern-step-regular-riemann" /> again,
+	factored out the common <m>\Delta t</m>.)
+	</p>
+
+</example>
+
+<definition>
+	<title>Right Riemann sum</title>
+	<p>
+	Given rate function <m>r(t)</m>,
+	a <term>right Riemann sum</term> for <m>r(t)</m> over time domain <m>a \le t \le b</m>
+	is a <xref ref="definition-step-riemann" text="title" />
+	for a <xref ref="definition-step-regular-function" text="title" />
+	where the step function values are chosen to be the output value of <m>r(t)</m> at the end
+	(that is, the <em>right</em> endpoint) of each subdomain.
+	</p>
+</definition>
+
+<example xml:id="example-integ-right-riemann">
+	<title>A right Riemann sum</title>
+
+	<p>
+	Consider again the rate function <me> r(t) = -t^2 + 4 t + 11 </me> over domain <m>1 \le t \le 7</m>.
+	Again we will a <m>3</m>-step regular step function as a simplified rate model,
+	so the duration of each value in this step function will be <m> \Delta t = 2 </m> as before,
+	and our subdomain boundaries will be the same as from <xref ref="example-integ-left-riemann" />.
+	We choose our sample points to be right endpoints of these subdomains:
+	<md><mrow> t_1^\ast \amp = t_1 = 3 \amp t_2^\ast \amp = t_2 = 5 \amp t_3^\ast \amp = t_3 = 7 </mrow></md>.
+	So for a right Riemann sum, our step function <q>steps</q> should be at heights
+	<md>
+		<mrow> h_1 \amp = r(t_1^\ast) = r(3) =  14 </mrow>
+		<mrow> h_2 \amp = r(t_2^\ast) = r(5) =   6 </mrow>
+		<mrow> h_3 \amp = r(t_3^\ast) = r(7) = -10 </mrow>
+	</md>.
+	</p>
+
+	<figure xml:id="figure-integ-right-riemann">
+		<caption>A right Riemann sum for a parabolic rate function.</caption>
+		<image width="70%">
+			<description>A graph of a right Riemann sum for a parabolic rate function.</description>
+			<latex-image><xi:include href="integ.d/right-riemann-example.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	Note that in this diagram we have drawn our step function with closed points at the ends of subdomains,
+	to highlight the fact that we are creating a <em>right</em> Riemann sum.
+	The inclusion or exclusion of any one single instant of time will not affect the total accumulation for that subdomain.
+	</p>
+
+	<p>
+	Calculating our right Riemann sum is the same as adding up the (oriented) areas of the rectangles in <xref ref="figure-integ-right-riemann" />:
+	<me>
+		\sum_{k = 1}^{3} h_k \Delta t
+		= 14 \cdot 2 + 6 \cdot 2 + (-10) \cdot 2
+		= 20
+	</me>.
+	</p>
+
+</example>
+
+<definition>
+	<title>Midpoint Riemann sum</title>
+	<p>
+	Given rate function <m>r(t)</m>,
+	a <term>midpoint Riemann sum</term> for <m>r(t)</m> over time domain <m>a \le t \le b</m>
+	is a <xref ref="definition-step-riemann" text="title" />
+	for a <xref ref="definition-step-regular-function" text="title" />
+	where the step function values are chosen to be the output value of <m>r(t)</m> at the midpoint of each subdomain.
+	</p>
+</definition>
+
+<example xml:id="example-integ-midpt-riemann">
+	<title>A midpoint Riemann sum</title>
+
+	<p>
+	We will again use a <m>3</m>-step regular step function as a simplified rate model of
+	the rate function <me> r(t) = -t^2 + 4 t + 11 </me> over domain <m>1 \le t \le 7</m>.
+	Our subdomains are again all of length <m> \Delta t = 2 </m> with boundaries
+	<md><mrow> t_0 \amp = 1 \amp t_1 \amp = 3 \amp t_2 \amp = 5 \amp t_3 \amp = 7 </mrow></md>.
+	We choose our sample points to be the midpoints between these boundaries:
+	<md><mrow> t_1^\ast \amp = 2 \amp t_2^\ast \amp = 4 \amp t_3^\ast \amp = 6 </mrow></md>.
+	So for a midpoint Riemann sum, the heights of our step function <q>steps</q> should be
+	<md>
+		<mrow> h_1 \amp = r(t_1^\ast) = r(2) =  15 </mrow>
+		<mrow> h_2 \amp = r(t_2^\ast) = r(4) =  11 </mrow>
+		<mrow> h_3 \amp = r(t_3^\ast) = r(6) = - 1 </mrow>
+	</md>.
+	</p>
+
+	<figure xml:id="figure-integ-midpt-riemann">
+		<caption>A midpoint Riemann sum for a parabolic rate function.</caption>
+		<image width="70%">
+			<description>A graph of a midpoint Riemann sum for a parabolic rate function.</description>
+			<latex-image><xi:include href="integ.d/midpt-riemann-example.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	Note that in this diagram we have drawn our step function with open points at both ends of each subdomain,
+	instead placing a closed point at each midpoint highlight the fact that we are creating a <em>midpoint</em> Riemann sum.
+	Again, the exclusion of any one single instant of time will not affect the total accumulation for that subdomain.
+	</p>
+
+	<p>
+	Calculating our midpoint Riemann sum is the same as adding up the (oriented) areas of the rectangles in <xref ref="figure-integ-midpt-riemann" />:
+	<me>
+		\sum_{k = 1}^{3} h_k \Delta t
+		= 15 \cdot 2 + 11 \cdot 2 + (-1) \cdot 2
+		= 50
+	</me>.
+	</p>
+
+</example>
+
+<definition>
+	<title>Upper Riemann sum</title>
+	<p>
+	Given rate function <m>r(t)</m>,
+	an <term>upper Riemann sum</term> for <m>r(t)</m> over time domain <m>a \le t \le b</m>
+	is a <xref ref="definition-step-riemann" text="title" />
+	where the step function values are chosen to be the <em>maximum</em> output value that <m>r(t)</m> achieves on each subdomain.
+	</p>
+</definition>
+
+<example xml:id="example-integ-upper-riemann">
+	<title>An upper Riemann sum</title>
+
+	<p>
+	We'll go back to the same setup as all of our previous examples,
+	for rate function <me> r(t) = -t^2 + 4 t + 11 </me> over domain <m>1 \le t \le 7</m>.
+	Looking at the many graphs of this rate function we've already produced,
+	we can see that on the first subdomain <m>1 \le t \le 3</m>,
+	the maximum value of <m>r(t)</m> occurs at the parabola peak at the midpoint.
+	After that, the rate function is falling and the maximum value on each of the next two subdomains will occur at the beginning of that subdomain.
+	So to create an upper Riemann sum we choose sample points
+	<md><mrow> t_1^\ast \amp = 2 \amp t_2^\ast \amp = 3 \amp t_3^\ast \amp = 5 </mrow></md>,
+	and the heights of our step function <q>steps</q> will be
+	<md>
+		<mrow> h_1 \amp = r(t_1^\ast) = r(2) = 15 </mrow>
+		<mrow> h_2 \amp = r(t_2^\ast) = r(3) = 14 </mrow>
+		<mrow> h_3 \amp = r(t_3^\ast) = r(5) =  6 </mrow>
+	</md>.
+	</p>
+
+	<figure xml:id="figure-integ-upper-riemann">
+		<caption>An upper Riemann sum for a parabolic rate function.</caption>
+		<image width="70%">
+			<description>A graph of an upper Riemann sum for a parabolic rate function.</description>
+			<latex-image><xi:include href="integ.d/upper-riemann-example.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p> Notice how the graph of the original rate function stays below the stepped rate function over the entire domain. </p>
+
+	<p>
+	Calculating our upper Riemann sum is the same as adding up the (oriented) areas of the rectangles in <xref ref="figure-integ-upper-riemann" />:
+	<me>
+		\sum_{k = 1}^{3} h_k \Delta t
+		= 15 \cdot 2 + 14 \cdot 2 + 6 \cdot 2
+		= 70
+	</me>.
+	</p>
+
+</example>
+
+<definition>
+	<title>Lower sum</title>
+	<p>
+	Given rate function <m>r(t)</m>,
+	an <term>lower Riemann sum</term> for <m>r(t)</m> over time domain <m>a \le t \le b</m>
+	is a <xref ref="definition-step-riemann" text="title" />
+	where the step function values are chosen to be the <em>minimum</em> output value that <m>r(t)</m> achieves on each subdomain.
+	</p>
+</definition>
+
+<example xml:id="example-integ-lower-riemann">
+	<title>A lower Riemann sum</title>
+
+	<p>
+	Once again we'll use the same setup as all of our previous examples,
+	for rate function <me> r(t) = -t^2 + 4 t + 11 </me> over domain <m>1 \le t \le 7</m>.
+	Looking at the many graphs of this rate function we've already produced,
+	we can see that the rate function is symmetric on the first subdomain <m>1 \le t \le 3</m>,
+	achieving the same minimum value at both the beginning and end of that subdomain.
+	After that, the rate function is falling, so the minimum value on each of the next two subdomains will occur at the end of that subdomain.
+	So to create a lower Riemann sum we choose sample points
+	<md><mrow> t_1^\ast \amp = 1 \amp t_2^\ast \amp = 5 \amp t_3^\ast \amp = 7 </mrow></md>,
+	and the heights of our step function <q>steps</q> will be
+	<md>
+		<mrow> h_1 \amp = r(t_1^\ast) = r(1) =  14 </mrow>
+		<mrow> h_2 \amp = r(t_2^\ast) = r(5) =   6 </mrow>
+		<mrow> h_3 \amp = r(t_3^\ast) = r(7) = -10 </mrow>
+	</md>.
+	</p>
+
+	<p>
+	By a coincidence for this rate function,
+	the step-function heights for this lower Riemann sum have turned out to be the same as for the right Riemann sum.
+	This certainly won't always happen,
+	but since it has for this rate function we won't bother including another diagram of the rectangular areas involved in this Riemann sum <mdash />
+	refer to <xref ref="figure-integ-right-riemann" /> instead.
+	But in that figure,
+	since it is also a diagram of a <em>lower</em> Riemann sum for this rate function,
+	notice how the graph of the rate function stays above the stepped rate function over the entire domain.
+	</p>
+
+	<p>
+	Also because of this coincidence, we don't need to re-calculate the Riemann sum.
+	Looking back at our right Riemann sum calculation,
+	we have
+	<me> \sum_{k = 1}^{3} h_k \Delta t = 20 </me>.
+	</p>
+
+</example>
+
+<p>
+Upper and lower Riemann sums are more difficult to work with for approximations using a step function with many steps,
+since it will be more difficult to determine the maximum or minimum values on each subdomain for a large number of subdomains.
+But they have important properties for the development of our theory.
+</p>
+
+<p>
+When using an upper Riemann sum, on each subdomain the rate function is completely below the level of the simplified, stepped rate function,
+as we saw in <xref ref="figure-integ-upper-riemann" />.
+So the true accumulation for that time duration is less than the accumulation calculated using the step function.
+Since this is true on each subdomain of the step function,
+an upper Riemann sum will always <alert>overestimate</alert> the true accumulation,
+hence the name <term>upper</term> Riemann sum.
+</p>
+
+<p>
+By the same reasoning, a <term>lower</term> Riemann sum will always <alert>underestimate</alert> the true accumulation.
+</p>
+
+<identity xml:id="pattern-integ-upper-lower-sums-bound">
+	<title>Upper and lower Riemann sums bound the true total accumulation value</title>
+	<p>
+	For a rate function <m>r(t)</m> on a domain <m>a \le t \le b</m>,
+	let
+	<ul>
+		<li> <m>A</m> represent the total accumulation (over the stated domain) of the quantity whose variation is modelled by <m>r(t)</m> </li>
+		<li> <m>P</m> represent a subdivision of the domain into subdomains </li>
+		<li> <m>L(P)</m> represent the approximate total accumulation value calculated using a lower Riemann sum with a step function on <m>P</m> </li>
+		<li> <m>U(P)</m> represent the approximate total accumulation value calculated using an upper Riemann sum with a step function on <m>P</m>. </li>
+	</ul>
+	Then, <m> L(P) \le A \le U(P) </m>.
+	</p>
+
+	<aside><title>Terminology</title>
+		<p>
+		The <m>P</m> in <xref ref="pattern-integ-upper-lower-sums-bound" />
+		stands for <term>partition</term>,
+		a common terminology for a subdivision of a domain into subdomains.
+		</p>
+	</aside>
+
+</identity>
+
+</subsection>
+
+<subsection>
+<title>Using Sage to calculate Riemann sums</title>
+
+<p>
+The approximate accumulation values in the various examples of <xref ref="subsection-integ-systematic-riemann" /> are all quite different from each other,
+even though each calculation involves the same rate function and same number of steps.
+This is because using only <m>3</m> steps will not give a very good approximation no matter which scheme of sample points is used,
+so none of these approximations is close to the true accumulation total.
+</p>
+
+<p>
+We need to use many, many more steps to obtain a reasonable approximation,
+but doing such calculations by hand is not a good idea <mdash />
+that's what we have computers for, to compute things.
+</p>
+
+<example>
+	<title>Using Sage to compute a right Riemann sum</title>
+
+	<p>
+	Let's go back to our rate function <me> r(t) = -t^2 + 4 t + 11 </me> over domain <m>1 \le t \le 7</m>,
+	but now let's compute a right Riemann sum with <m>1000</m> steps.
+	We know that each subdomain will have length
+	<me> \Delta t = \frac{7 - 1}{1000} = 0.006 </me>,
+	but we need to know the <em>pattern</em> of step-function heights to be able to enter that pattern into Sage's <c>sum</c> function.
+	Since such heights are obtained by substituting subdomain sample points into the rate function,
+	we really just need to know the pattern of right endpoints to be able to enter a right Riemann sum into Sage.
+	</p>
+
+	<p>
+	The subdomain boundaries are all separated by the subdomain length,
+	so to get from subdomain boundary to the next,
+	we add the subdomain length.
+	<md>
+		<mrow> t_0 \amp = 1 </mrow>
+		<mrow> t_1 \amp = 1 + 0.006 </mrow>
+		<mrow> t_2 \amp = 1.006 + 0.006 </mrow>
+		<mrow> t_3 \amp = 1.012 + 0.006 </mrow>
+		<mrow> \amp \vdots </mrow>
+	</md>
+	At the first right endpoint, <m>t_1</m>, we are one subdomain length away from the starting point <m>1</m>.
+	At the second right endpoint, <m>t_2</m>, we are <em>two</em> subdomain lengths from the starting point <m>1</m>.
+	Continuing the pattern, at the <m>\nth[k]</m> right endpoint, we are <m>k</m> subdomain lengths from the starting point.
+	So a formula in the index <m>k</m> for the right endpoints is
+	<me> t_k^\ast = 1 + k \Delta t </me>,
+	and so the height of the <m>\nth[k]</m> <q>step</q> in our simplifying, stepped rate function is
+	<me> r(t_k^\ast) = r(1 + k \Delta t) </me>.
+	</p>
+
+	<p>
+	We are now ready to enter our right Riemann sum
+	<me> \sum_{k = 1}^{1000} r(1 + k \Delta t) \Delta t = \left(\sum_{k = 1}^{1000} r(1 + k \Delta t)\right) \Delta t </me>.
+	</p>
+
+	<sage>
+		<input>
+			var('k,t')
+			r(t) = -t^2 + 4 * t + 11
+			sum( r(1 + k * 0.006), k, 1, 1000) * 0.006
+		</input>
+		<output> 47.92796399999979 </output>
+	</sage>
+
+</example>
+
+<exercise>
+	<task><p>
+		What happens if you edit the above Sage code to use even more steps,
+		like <m>n = 10000</m> or <m>n = 100000</m>?
+		(Be sure to also change the <m>\Delta t = 0.006</m> value accordingly.)
+	</p></task>
+	<task><p>
+		Edit the above Sage code to compute a <em>left</em> Riemann sum instead.
+		To do this, you will need to come up with a formula in <m>k</m> to describe the <m>\nth[k]</m> left endpoint.
+	</p></task>
+	<task><p>
+		Edit the above Sage code to compute a <em>midpoint</em> Riemann sum instead.
+		To do this, you will need to come up with a formula in <m>k</m> to describe the <m>\nth[k]</m> midpoint.
+	</p></task>
+</exercise>
+
+</subsection>
 
 </section>
+
+
+<section xml:id="section-integ-exact">
+<title>Computing an exact accumulation value using step functions</title>
+
+<p>
+We can combine <xref ref="principle-integ-riemann-more-steps" />
+and <xref ref="pattern-integ-upper-lower-sums-bound" />
+to <q>home in</q> on the exact answer.
+And for a rate function with a continuous graph,
+it turns out we can work exclusively with regular step functions.
+</p>
+
+<fact xml:id="fact-integ-exists-for-continuous">
+	<title>Upper and lower sums <q>squeeze</q> the true total accumulation</title>
+
+	<p>
+	Suppose <m>r(t)</m> is a rate function whose graph is continuous on the domain <m>a \le t \le b</m>,
+	and let <m>A</m> represent the total accumulation (over this domain) of the quantity whose variation is modelled by <m>r(t)</m>.
+	</p>
+
+	<p>
+	For a given number of steps <m>n</m>,
+	let
+	<ul>
+		<li> <m>L(n)</m> represent the approximate total accumulation value calculated using a lower Riemann sum with a regular step function with <m>n</m> steps </li>
+		<li> <m>U(n)</m> represent the approximate total accumulation value calculated using an upper Riemann sum with a regular step function with <m>n</m> steps. </li>
+	</ul>
+	Then <m>A</m> is the one unique value so that
+	<me> L(n) \le A \le U(n) </me>
+	is true for <em>all</em> values of <m>n</m>.
+	</p>
+
+</fact>
+
+<example xml:id="example-integ-squeezing-lower-upper">
+	<title>Numerically computing an exact accumulation value</title>
+
+	<p>
+	Consider rate function <m>r(t) = t^2 + 1</m> on the domain <m>0 \le t \le 1</m>.
+	Since the graph of this rate function always goes up as you move to the right,
+	a left Riemann sum will compute the lower sum and a right Riemann sum will compute the upper sum.
+	</p>
+
+	<p>
+	This time,
+	instead of working with a specific value of <m>n</m>,
+	let's work out the patterns while leaving <m>n</m> unspecified,
+	so that it will be easy to change the value of <m>n</m> in our Sage code.
+	</p>
+
+	<p>
+	To create a regular step function, whether for an upper or lower sum,
+	the subdomain lengths should be
+	<me> \Delta t = \frac{1 - 0}{n} = \frac{1}{n} </me>.
+	Beginning at the left-most subdomain boundary, <m>t_0 = 0</m>,
+	each subsequent subdomain boundary should be <m>\Delta t</m> past the previous one:
+	<md>
+		<mrow> t_0 \amp = 0 </mrow>
+		<mrow> t_1 \amp = 0 + \frac{1}{n} </mrow>
+		<mrow> t_2 \amp = \frac{1}{n} + \frac{1}{n} = \frac{2}{n} </mrow>
+		<mrow> t_3 \amp = \frac{2}{n} + \frac{1}{n} = \frac{3}{n} </mrow>
+		<mrow> \amp \vdots </mrow>
+	</md>
+	And so the pattern of left- and right-endpoints is as follows.
+	<md>
+		<mrow> \text{Left } \amp \text{endpoints} \amp \text{Right } \amp \text{endpoints} </mrow>
+		<mrow> t_1^\ast \amp = t_0 = 0 \amp t_1^\ast \amp = t_1 = \frac{1}{n} </mrow>
+		<mrow> t_2^\ast \amp = t_1 = \frac{1}{n} \amp t_2^\ast \amp = t_2 = \frac{2}{n} </mrow>
+		<mrow> t_3^\ast \amp = t_2 = \frac{2}{n} \amp t_3^\ast \amp = t_3 = \frac{3}{n} </mrow>
+		<mrow> \amp \vdots \amp \amp \vdots </mrow>
+		<mrow> t_k^\ast \amp = t_{k-1} = \frac{k - 1}{n} \amp t_k^\ast \amp = t_k = \frac{k}{n} </mrow>
+		<mrow> \amp \vdots \amp \amp \vdots </mrow>
+		<mrow> t_n^\ast \amp = t_{n-1} = \frac{n - 1}{n} \amp t_n^\ast \amp = t_n = \frac{n}{n} </mrow>
+	</md>
+	Focussing on the pattern in the expressions for <m>t_k^\ast</m> in each scheme to use in Sigma notation
+	(and ultimately in a Sage <c>sum</c> command),
+	the upper and lower Riemann sums are
+	<md>
+		<mrow>
+			\text{Lower: }
+			\sum_{k=1}^{n} r(t_k^\ast) \Delta t
+			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \Delta t
+			= \left (\sum_{k=1}^{n} r\left(\frac{k - 1}{n}\right) \right) \cdot \frac{1}{n}
+		</mrow>
+		<mrow>
+			\text{Upper: }
+			\sum_{k=1}^{n} r(t_k^\ast) \Delta t
+			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \Delta t
+			= \left (\sum_{k=1}^{n} r\left(\frac{k}{n}\right) \right) \cdot \frac{1}{n}
+		</mrow>
+	</md>.
+	The sage cell below is set up to compute both the lower and upper sums,
+	with the number of steps <m>n</m> left as a parameter you can change.
+	Try increasing <m>n</m> a few times, an order of magnitude at a time,
+	to observe these two sums <q>squeezing</q> in closer to the true total accumulation value.
+	(You may need to look closely to see the difference in the two values!)
+	Can you guess the true total accumulation value from the pattern in the results as you increase <m>n</m>?
+	</p>
+
+	<sage>
+		<input>
+			var('k,t')
+			r(t) = t^2 + 1
+			n = 10
+			Lower = sum( r( (k-1) / n ), k, 1, n) / n
+			Upper = sum( r( k / n ), k, 1, n) / n
+			print("Lower =", Lower, "=", Lower.n())
+			print("Upper =", Upper, "=", Upper.n())
+		</input>
+		<output>
+			Lower = 257/200 = 1.28500000000000
+			Upper = 277/200 = 1.38500000000000
+		</output>
+	</sage>
+
+</example>
+
+<warning><p>
+	The <q>coincidence</q> of the lower sum corresponding to the left Riemann sum and the upper sum corresponding to the right Riemann sum was a feature of the particular rate function used in <xref ref="example-integ-squeezing-lower-upper" />,
+	and will not hold true for other rate functions.
+</p></warning>
+
+</section>
+
+
+<section xml:id="section-integ-definite">
+<title>The definite integral</title>
+
+<subsection>
+<title>Definition</title>
+
+<p>
+Even when the graph of the rate function is not continuous,
+we can look to see if a number <m>A</m> that satisfies the conclusion of
+<xref ref="fact-integ-exists-for-continuous" /> exists.
+</p>
+
+<definition xml:id="definition-integ-definite">
+	<title>Definite integral</title>
+
+	<p>
+	Given a function <m>r(t)</m> on domain <m>a \le t \le b</m>,
+	suppose there exists one unique number <m>A</m> so that
+	<me> L(P) \le A \le U(P) </me>
+	for all possible <m>P</m>
+	(where <m>P</m>, <m>L(P)</m>, and <m>U(P)</m> are as in
+	<xref ref="pattern-integ-upper-lower-sums-bound" />).
+	In this case, we say that <m>r(t)</m> is <term>integrable</term> on domain <m>a \le t \le b</m>,
+	call the value <m>A</m> the <term>definite integral of <m>r(t)</m> over domain <m>a \le t \le b</m></term>,
+	and write
+	<me> \ccmint{a}{b}{r(t)}{t} </me>
+	to represent the value of <m>A</m>.
+	The domain endpoints <m>a</m> and <m>b</m> are called the <term>lower</term> and <term>upper bounds of integration</term>,
+	respectively,
+	and the function <m>r(t)</m> is called the <term>integrand</term>,
+	meaning <q>that which is being integrated.</q>
+	</p>
+
+</definition>
+
+<remark><p>
+	We have made the definition of <term>definite integral</term> about a general function <m>r(t)</m>,
+	not specifically about a <em>rate</em> function <m>r(t)</m>.
+	It is possible for a function whose graph is not continuous to fail to be integrable.
+	However, if <m>r(t)</m> is indeed a <em>rate</em> function
+	(whether with continuous graph or not),
+	then it is the rate of variation function for some accumulation function,
+	and so must be integrable because in this case the <m>A</m> value in <xref ref="definition-integ-definite" /> will just be the total accumulation amount over that time domain of the quantity whose rate of variation <m>r(t)</m> models.
+</p></remark>
+
+<p>
+Compare the notation for a Riemann sum on the left with the notation for a definite integral on the right:
+<md>
+	<mrow>
+		\amp \sum_{k = 1}^{n} r(t_k^\ast) \Delta t_k
+		\amp
+		\amp \ccmint{a}{b}{r(t)}{t}
+	</mrow>
+</md>.
+We have replaced the Greek letter <m>\Sigma</m>,
+which corresponds to the letter <em>S</em> in the English alphabet,
+with the integral symbol <m>\int</m>,
+an elongated letter <em>S</em>.
+The lower and upper bounds of the Riemann sum,
+<m>k = 1</m> and <m>k = n</m>,
+have been replaced with the bounds of the domain,
+<m>t = a</m> and <m>t = b</m>.
+The subdomain duration <m>\Delta t_k</m> has been replaced with <m>dt</m>,
+which we think of as an <q>infinitesimal</q> subdomain duration.
+(The Greek letter <m>\delta</m> corresponds to the letter <em>D</em> in the English alphabet.)
+Finally, we have replaced both the <m>t_k^\ast</m> and the <m>t_k</m> in <m>\Delta t_k</m> with just a simple <m>t</m>.
+</p>
+
+<p>
+All of these replacements are tied to the same idea <mdash />
+that the value of the definite integral comes from computing Riemann sums for the function <m>r(t)</m> over the domain <m>a \le t \le b</m> using step functions that step more and more frequently,
+involving subdomains of shorter and shorter durations.
+Eventually, we end up essentially <q>sampling</q> the rate function at every single <m>t</m>-value between <m>t = a</m> and <m>t = b</m>,
+essentially creating a stepped rate function with an infinite number of steps on subdomains of infinitesimal length <m>dt</m>.
+And on such subdomains,
+there is really no difference between sample points that are left endpoints or right endpoints or midpoints or arbitrarily chosen sample points.
+</p>
+
+<figure xml:id="figure-integ-representative-rect-slice">
+	<caption>A rectangular area in a Riemann sum becomes a <q>slice</q> of area in a definite integral.</caption>
+	<sidebyside>
+		<figure xml:id="figure-integ-representative-rect-slice-rect">
+			<caption>A representative rectangular area in a Riemann sum.</caption>
+			<image>
+				<description>A representative rectangular area in a Riemann sum.</description>
+				<latex-image><xi:include href="integ.d/representative-rectangle.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+		<figure xml:id="figure-integ-representative-rect-slice-slice">
+			<caption>A representative <q>slice</q> of area in a definite integral.</caption>
+			<image>
+				<description>A representative <q>slice</q> of area in a definite integral.</description>
+				<latex-image><xi:include href="integ.d/representative-slice.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+	</sidebyside>
+</figure>
+
+</subsection>
+
+<subsection>
+<title>The definite integral as net oriented area</title>
+
+<p>
+Riemann sums using step functions that step more and more frequently correspond to more and more rectangles,
+eventually closely mimicking the area under the function's graph.
+</p>
+
+<figure xml:id="figure-integ-riemann-total-area">
+	<caption>A Riemann sum approximating net oriented area bounded between a graph and the horizontal axis.</caption>
+	<image width="67%">
+		<description>A Riemann sum of rectangular areas approximating net oriented area bounded between a graph and the horizontal axis.</description>
+		<latex-image><xi:include href="integ.d/riemann-total-area.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<insight xml:id="principle-integ-definite-is-area">
+	<title>Graphical interpretation of the definite integral</title>
+	<p>
+	For an integrable function <m>r(t)</m>,
+	the definite integral <me>\ccmint{a}{b}{r(t)}{t}</me> represents the net oriented area bounded between the graph of the function and the horizontal axis over the domain <m>a \le t \le b</m>.
+	</p>
+</insight>
+
+<figure xml:id="figure-integ-definite-as-area">
+	<caption>
+		Interpreting <m>A_1,A_2,A_3</m> as (positive) geometric areas,
+		the definite integral <m>\ccmint{a}{b}{r(t)}{t}</m> will compute to the net area <m>A_1 - A_2 + A_3</m>.
+	</caption>
+	<image width="67%">
+		<description>Interpreting a definite integral as net oriented area.</description>
+		<latex-image><xi:include href="integ.d/net-oriented-area.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<example xml:id="example-integ-accumulation-from-area">
+	<title>Using area to compute accumulation</title>
+
+	<p> Consider the rate function whose graph is shown in <xref ref="figure-integ-accumulation-from-area-rate"/>. </p>
+
+	<figure xml:id="figure-integ-accumulation-from-area-rate">
+		<caption> A rate function. </caption>
+		<image width="60%">
+			<description>Graph of an example rate function.</description>
+			<latex-image><xi:include href="integ.d/accumulation-from-graph-rate.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	Even though the rate function is not constant or a step function,
+	we can still easily compute the total accumulation of the quantity whose rate of variation is modelled
+	by simply calculating the total oriented area bounded between the graph and the horizontal axis.
+	</p>
+
+	<figure xml:id="figure-integ-accumulation-from-area">
+		<caption> Accumulation as net oriented area. </caption>
+		<image width="60%">
+			<description>Graph of an example rate function with bounded oriented area.</description>
+			<latex-image><xi:include href="integ.d/accumulation-from-graph.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	We have two positively oriented trapezoidal areas and a negatively oriented triangular area.
+	Calculating the area of these shapes, we have
+	<md>
+		<mrow>
+			\text{total accumulation}
+			\amp = \left(\frac{1 + 7/3}{2}\right) \cdot 2 - \frac{2/3 \cdot 1}{2} + \left(\frac{1 + 2}{2}\right) \cdot \frac{3}{2}
+		</mrow>
+		<mrow> \amp = \frac{21}{4}</mrow>
+	</md>.
+	</p>
+
+</example>
+
+</subsection>
+
+<subsection>
+<title>Using Sage to compute definite integrals</title>
+
+<p>
+Computing definite integrals with pencil-and-paper
+(whether using Riemann sums or other methods)
+is not a common skill requirement outside of mathematics classes.
+However, understanding how Riemann sums approximate definite integrals is very useful <mdash />
+if you have a quantity you would like to measure,
+and can figure out a way to estimate that quantity using something that looks like a Riemann sum,
+then the desired exact quantity will just be the related definite integral value.
+</p>
+
+<p>
+Once you can see how a definite integral will solve your problem,
+it is time to ask a computer to compute that integral for you.
+The syntax for computing a definite integral in Sage is (unsurprisingly) essentially the same as for computing a sum.
+<cd><cline>
+	integrate(function, variable, start, end)
+</cline></cd>
+(Compare with the Sage summation syntax discussed in <xref ref="subsection-step-sage" />.)
+</p>
+
+<example xml:id="example-integ-definite-int-by-sage">
+	<title>Computing a definite integral with Sage</title>
+
+	<p>
+	In <xref ref="example-integ-squeezing-lower-upper" />,
+	we attempted to approximate the total accumulation over the domain <m>0 \le t \le 1</m> of some quantity whose rate of variation was modelled by the rate function <m>r(t) = t^2 + 1</m>.
+	</p>
+
+	<p>
+	Let's ask Sage to compute the exact accumulation value.
+	The command format is <c>integrate(integrand, variable, start, end)</c>.
+	</p>
+
+	<sage>
+		<input>
+			var('t')
+			integrate(t^2 + 1, t, 0, 1)
+		</input>
+		<output> 4/3 </output>
+	</sage>
+
+	<p>
+	Does this result correspond with what you guessed might be the true accumulation value at the end of <xref ref="example-integ-squeezing-lower-upper" />,
+	based on the pattern of upper and lower Riemann sum results when increasing the number of steps?
+	</p>
+
+</example>
+
+</subsection>
+
+<subsection>
+<title>Properties of the definite integral</title>
+
+<p>
+Given the definite integral's origin in terms of Riemann sums,
+the definite integral satisfies similar properties to summation/Sigma notation.
+</p>
+
+<identity xml:id="pattern-integ-definite-props">
+	<title>Properties of the definite integral</title>
+
+	<p><ol>
+
+		<li xml:id="pattern-integ-definite-props-constant">
+			<title>Integrating a constant</title>
+			<p>
+			A constant function <m>r(t) = c</m> is always integrable,
+			with <me> \ccmint{a}{b}{c}{t} = c \cdot (b - a) </me>,
+			in agreement with the constant-rate formula
+			<me> \text{amount} = \text{rate} \times \text{duration} </me>.
+			</p>
+		</li>
+
+		<li xml:id="pattern-integ-definite-props-homogeneity">
+			<title>Factoring in a definite integral</title>
+			<p>
+			If <m>r(t)</m> is an integrable function and <m>c</m> is a constant,
+			then <me> \ccmint{a}{b}{c r(t)}{t} = c \ccmint{a}{b}{r(t)}{t} </me>.
+			</p>
+		</li>
+
+		<li xml:id="pattern-integ-definite-props-additive">
+			<title>Integrating a combination of rate functions</title>
+			<p>
+			If <m>r_1(t)</m> and <m>r_2(t)</m> are both integrable,
+			then <me> \ccmint{a}{b}{r_1(t) + r_2(t)}{t} = \ccmint{a}{b}{r_1(t)}{t} + \ccmint{a}{b}{r_2(t)}{t} </me>.
+			</p>
+		</li>
+
+		<li xml:id="pattern-integ-definite-props-subdomain">
+			<title>Integrating over a subdomain</title>
+			<p>
+			If function <m>r(t)</m> is integrable over domain <m>a \le t \le b</m>
+			then it is also integrable over any subdomain <m>c \le t \le d</m> that is contained within the original domain.
+			</p>
+		</li>
+
+		<li xml:id="pattern-integ-definite-props-split">
+			<title>Splitting up an integral</title>
+			<p>
+			If <m>r(t)</m> is an integrable function and <m>c</m> is between <m>a</m> and <m>b</m>,
+			then
+			<me> \ccmint{a}{b}{r(t)}{t} = \ccmint{a}{c}{r(t)}{t} + \ccmint{c}{b}{r(t)}{t} </me>.
+			</p>
+		</li>
+
+		<!-- TODO more? or save them for when they are actually needed ? -->
+
+	</ol></p>
+
+</identity>
+
+<p>
+And here are a couple of other conventions,
+meaning they have no formal justification in terms of Riemann sums but instead are intuitively the <q>right</q> thing to do,
+mathematically.
+</p>
+
+<convention xml:id="convention-integ-definite-props">
+	<title>More properties of the definite integral</title>
+
+	<p><ol>
+
+		<li xml:id="convention-integ-definite-props-zero-length">
+			<title>Integrating over a zero-length domain</title>
+			<p>
+			For every function <m>r(t)</m> we set <me> \ccmint{a}{a}{r(t)}{t} = 0 </me>.
+			</p>
+		</li>
+
+		<li xml:id="convention-integ-definite-props-backwards">
+			<title>Integrating in <q>reverse</q></title>
+			<p>
+			If <m>r(t)</m> is integrable on the domain <m>a \le t \le b</m>,
+			then we set <me> \ccmint{b}{a}{c}{t} = - \ccmint{a}{b}{r(t)}{t} </me>.
+			</p>
+		</li>
+
+	</ol></p>
+
+</convention>
+
+<remark>
+
+	<p>
+	<xref ref="convention-integ-definite-props-zero-length" text="type-local">Property</xref>
+	of <xref ref="convention-integ-definite-props" />
+	should make intuitive sense,
+	since if no time is allowed to pass then the quantity whose rate of variance is described by <m>r(t)</m> cannot accumulate or decrease.
+	</p>
+
+	<p>
+	Hopefully <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref>
+	also makes intuitive sense <mdash />
+	an accumulation of some quantity over time would appear to be a <em>loss</em> of quantity if we allowed time to run in reverse,
+	and vice versa.
+	</p>
+
+</remark>
+
+</subsection>
+
+</section>
+
+<section xml:id="section-integ-recover-accumulation">
+<title>Recovering an accumulation function from a rate function</title>
+
+<p>
+Given an integrable rate function for some quantity,
+the definite integral allows us to create a function that could describe the accumulation of that quantity at any point in time in the domain over which the rate function is integrable.
+</p>
+
+<example xml:id="example-integ-air-accum-function">
+	<title>Accumulation of pumped air as a function</title>
+	<p>
+	Consider once again the <em>pump-leak-pump</em> pattern in <xref ref="example-step-air-pump-with-leak" />.
+	Let <m>r(t)</m> represent the rate of variation of the air in the raft
+	(graphed in <xref ref="figure-step-air-pump-leakage" />).
+	Let <m>A_0(t)</m> represent the volume of air accumulated in the raft from fixed starting time <m>t = 0</m> to variable ending time <m>t</m>,
+	with <m>t</m> measured in minutes and <m>A_0(t)</m> measured in cubic metres.
+	In <xref ref="example-step-accumulation-air-pump" />,
+	we calculated
+	<me> A_0(4) = \ccmint{0}{4}{r(t)}{t} = 2.25 </me>.
+	From that calculation,
+	we can easily also extract the quantities
+	<md>
+		<mrow> A_0(1) = \ccmint{0}{1}{r(t)}{t} = 0.5 </mrow>
+		<mrow> A_0(3) = \ccmint{0}{3}{r(t)}{t} = 2 </mrow>
+	</md>.
+	Since no air is leaking or being pumped in the fifth minute,
+	we also have
+	<me> A_0(5) = \ccmint{0}{5}{r(t)}{t} = 2.25 </me>.
+	Finally,
+	in <xref ref="example-step-air-pump-with-leak" /> we also calculated
+	<me> A_0(10) = \ccmint{0}{10}{r(t)}{t} = 2.65 </me>.
+	</p>
+</example>
+
+<p>
+The definite integral notation gives us a way to write a <q>formula</q> for the accumulation function <m>A_0(t)</m>.
+In each of the values of <m>A_0(t)</m> examined in <xref ref="example-integ-air-accum-function" />,
+the lower bound of integration was our fixed starting time <m>0</m>,
+and the upper bound of integration was the new ending time for the time interval over which we wished to measure the accumulation.
+This ending time is our <em>independent variable</em> for the function <m>A_0(t)</m>.
+However, we have a notational problem <mdash />
+we are also using <m>t</m> as the input variable of our rate function.
+The <m>t</m> in <m>r(t)</m> in the definite integral
+<me> A_0(10) = \ccmint{0}{10}{r(t)}{t} </me>
+represents a variable time <em>between</em> <m>t = 0</m> and <m>t = 10</m>,
+and the <m>dt</m> represents a miniscule time period duration,
+so the <m>t</m> in <m>r(t)</m> and <m>dt</m> in the integral notation are serving much different purposes than the <m>t</m> in <m>A_0(t)</m>.
+To separate these roles,
+we'll choose a different letter for the independent variable in the rate function when we choose to have a variable upper bound of integration.
+</p>
+
+<aside>
+	<title>Recall</title>
+	<p>
+	The choice of letter for the independent variable in a function is <q>cosmetic</q> <mdash />
+	writing <m>r(t)</m> or <m>r(x)</m> or <m>r(\alpha)</m> does not change the function,
+	it only changes how we describe the function notationally.
+	</p>
+</aside>
+
+<p>
+Also,
+we used the subscript <m>0</m> on the function <m>A_0(t)</m> in <xref ref="example-integ-air-accum-function" />
+to we indicate that all of the accumulations that we calculated were over a time period beginning at <m>t = 0</m>.
+However,
+there will be instances where we want to measure accumulation from a different starting time other than <m>t = 0</m>,
+in which case we can just change that subscript.
+</p>
+
+<identity xml:id="pattern-integ-definite-integ-as-accum-function">
+	<title>The definite integral as an accumulation function</title>
+	<p>
+	If a rate function <m>r(t)</m> is integrable over time domain <m>s \le t \le u</m>,
+	then the accumulation function for the quantity whose variation is modelled by <m>r(t)</m> is
+	<me> A_s(t) = \ccmint{s}{t}{r(\tau)}{\tau} </me>,
+	where <m>A_s(t)</m> represents the amount accumulated starting at the fixed time <m>s</m> and ending at the variable time <m>t</m>.
+	</p>
+</identity>
+
+<p>
+As a <q>formula</q> for an accumulation function,
+a definite integral is not very convenient <mdash />
+computing a definite integral requires examining patterns of upper and lower sums,
+which is not so easy if the upper bound of integration is a variable.
+Luckily Sage can also handle this for us.
+</p>
+
+<example>
+	<title>Using Sage to compute an accumulation function formula</title>
+	<p>
+	Let's return once again to the example of some quantity whose variation is modelled by the rate function <m>r(t) = t^2 + 1</m>,
+	as in <xref ref="example-integ-squeezing-lower-upper" /> and <xref ref="example-integ-definite-int-by-sage" />.
+	Since we don't have Greek letters on our keyboards,
+	let's use <m>x</m> as the variable of integration,
+	instead of <m>\tau</m>,
+	so that our accumulation function
+	(with fixed starting time <m>t = 0</m>)
+	becomes
+	<me> A_0(t) = \ccmint{0}{t}{x^2 + 1}{x} </me>.
+	</p>
+
+	<p>
+	Recall that the Sage integration command format is <c>integrate(integrand, variable, start, end)</c>.
+	In this format,
+	<c>variable</c>
+	means the letter being used as the integrand function's independent variable,
+	so here we use <m>x</m> in that spot.
+	But our <c>end</c> value is also variable,
+	so we'll have the letter <m>t</m> there instead of a number like before.
+	</p>
+
+	<sage>
+		<input>
+			var('t')
+			integrate(x^2 + 1, x, 0, t)
+		</input>
+		<output> 1/3*t^3 + t </output>
+	</sage>
+
+	<p>
+	Our lower and upper sum calculations in <xref ref="example-integ-squeezing-lower-upper" />
+	hinted that <m>A_0(1)</m> was likely to be <m>1.\overline{3}</m>.
+	Our Sage calculation in <xref ref="example-integ-definite-int-by-sage" /> confirmed the value of <m>A_0(1)</m> to be <m>4/3</m>,
+	and substituting <m>t = 1</m> into the formula returned by Sage above gives the same result.
+	</p>
+
+</example>
+
+<warning>
+	<title>Accumulation ignores initial value</title>
+	<p>
+	If someone on a cross-country road trip averages
+	<quantity>
+		<mag>90</mag>
+		<unit base="meter" prefix="kilo" />
+		<per  base="hour" />
+	</quantity>
+	over
+	<quantity>
+		<mag>10</mag>
+		<unit base="hour" />
+	</quantity>
+	on one of the days of the trip,
+	then we can easily calculate that they travelled approximately
+	<quantity>
+		<mag>900</mag>
+		<unit base="meter" prefix="kilo" />
+	</quantity>
+	that day.
+	<em>But that doesn't tell us where in the country they were at the end of the day.</em>
+	For that information, we need to know <em>where they started</em>
+	(and, in this example, what direction and on which highway they travelled).
+	</p>
+</warning>
+
+<example>
+	<title>Taking initial quantity into account</title>
+	<p>
+	Suppose we observe an initial quantity of <m>5/3</m> units of material,
+	but the quantity of material grows according to rate function <m>r(t) = t^2 + 1</m>.
+	How much total material is present one unit of time later?
+	Using our previous calculation from <xref ref="example-integ-definite-int-by-sage" />,
+	we have
+	<md>
+		<mrow> \text{final amount} \amp = \text{initial amount} + \text{accumulated amount} </mrow>
+		<mrow> \amp = \frac{5}{3} + \frac{4}{3} </mrow>
+		<mrow> \amp = 3 </mrow>
+	</md>.
+	</p>
+</example>
+
+</section>
+
+<!-- TODO integrating with respect of variables other than time -->
 
 <!-- <xi:include href="./integ.d/activities.ptx" />
 <xi:include href="./integ.d/exercises.ptx" /> -->

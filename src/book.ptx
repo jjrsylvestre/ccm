@@ -43,10 +43,6 @@ respective owners.
 
 <xi:include href="./step.ptx" />
 
-<!--
-  Approximate accumulation from rate of variation (using step functions).
-  Exact accumulation from rate of variation.
--->
 <xi:include href="./integ.ptx" />
 
 <!-- Polynomial growth (i.e., accumulation when rate of variation is polynomial). -->

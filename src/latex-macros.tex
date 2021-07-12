@@ -13,3 +13,13 @@
 % *********************************************************************
 
 \newcommand{\unitsp}{\;}
+\newcommand{\nth}[1][n]{{#1}^{\mathrm{th}}}
+
+\newcommand{\intspace}{\;}
+\newcommand{\ccmmint}[6][\int]{#1^{#3}_{#2} #4 \intspace d_{#5}#6}% spaced out integral with measure specified
+% \newcommand{\ccmdmint}[8][\int]{#1^{#3}_{#2} #4 \intspace d_{#5}#6 \, d_{#7}#8}% spaced out integral with two measures specified
+\newcommand{\ccmint}[4]{\ccmmint{#1}{#2}{#3}{}{#4}}% spaced out integral
+% \newcommand{\ccmoint}[3]{\ccmmint[\oint]{#1}{}{#2}{}{#3}}% spaced out loop integral
+\newcommand{\ccmiint}[2]{\ccmint{}{}{#1}{#2}}% spaced out indefinite integral
+% \newcommand{\ccmdblint}[3]{\iint_{#1} #2 \intspace d{#3}}% spaced out double integral
+% \newcommand{\ccmtrpint}[3]{\iiint_{#1} #2 \intspace d{#3}}% spaced out triple integral
