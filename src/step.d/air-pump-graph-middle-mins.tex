@@ -26,7 +26,7 @@
 
 	% rectangle fills
 	\fill[blue!40!white] (0,0.5) rectangle (1,0);
-	\fill[red!40!white] (1,0.75) rectangle (3,0);
+	\fill[green!33!gray] (1,0.75) rectangle (3,0);
 
 	% grid
 	\foreach \x in {-0.5,0,0.5,...,4.5} {
@@ -58,9 +58,9 @@
 	\draw[blue,thick] (start) -- (stop);
 
 	% high
-	\node[red,closedpt] at (1,0.75) (start) {};
-	\node[red,thick,openpt] at (3,0.75) (stop) {};
-	\draw[red,thick] (start) -- (stop);
+	\node[green!33!black,closedpt] at (1,0.75) (start) {};
+	\node[green!33!black,thick,openpt] at (3,0.75) (stop) {};
+	\draw[green!33!black,thick] (start) -- (stop);
 
 	% off
 	\node[blue,closedpt] at (3,0) (start) {};

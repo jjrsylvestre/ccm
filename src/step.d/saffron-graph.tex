@@ -12,52 +12,55 @@
 %
 % *********************************************************************
 
-\newcommand*{\xmin}{-0.5}
-\newcommand*{\xmax}{4.5}
-\newcommand*{\ymin}{-0.25}
-\newcommand*{\ymax}{1}
+\newcommand*{\xmin}{-1}
+\newcommand*{\xmax}{16}
+\newcommand*{\ymin}{-0.5}
+\newcommand*{\ymax}{3.5}
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
 	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	yscale=2
+	xscale=0.333
 ]
 
-	% rectangle fill
-	\fill[green!33!gray] (0,0.5) rectangle (1,0);
-
 	% grid
-	\foreach \x in {-0.5,0,0.5,...,4.5} {
+	\foreach \x in {-1,0,1,...,16} {
 		\draw[very thin,gray] (\x,\ymin) -- (\x,\ymax);
 	}
-	\foreach \y in {-0.25,0,0.25,...,1} {
+	\foreach \x in {5,10,15} {
+		\draw[very thin,black] (\x,\ymin) -- (\x,\ymax);
+	}
+	\foreach \y in {-0.5,0,0.25,...,3.5} {
 		\draw[very thin,gray] (\xmin,\y) -- (\xmax,\y);
 	}
 
 	% label grid
-	\foreach \x in {1,2,3,4} {
-		\node[below] at (\x,0) {$\x$};
+	\foreach \x in {1,5,10} {
+		\node[below] at (\x,0) {${\x}00$};
 	}
-	\foreach \y in {0.5,1} {
-		\node[left] at (0,\y) {$\y$};
-	}
+	\node[left] at (0,1) {$1$};
 
 	% axes
-	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below right] {min};
-	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[above right] {$\mathrm{m}^3/\mathrm{min}$};
+	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below right] {grams};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[above right] {$\$/\mathrm{g}$};
 
-	% off
+	% zero out negative amounts
 	\node[blue,thick,openpt] at (0,0) (stop) {};
 	\draw[blue,thick] (\xmin,0) -- (stop);
 
-	% medium
-	\node[green!33!black,closedpt] at (0,0.5) (start) {};
-	\node[green!33!black,thick,openpt] at (1,0.5) (stop) {};
-	\draw[green!33!black,thick] (start) -- (stop);
+	% first step
+	\node[blue,thick,openpt] at (0,3) (start) {};
+	\node[blue,closedpt] at (5,3) (stop) {};
+	\draw[blue,thick] (start) -- (stop);
 
-	% off
-	\node[blue,closedpt] at (1,0) (start) {};
-	\draw[blue,thick] (start) -- (\xmax,0);
+	% second step
+	\node[blue,thick,openpt] at (5,2.75) (start) {};
+	\node[blue,closedpt] at (10,2.75) (stop) {};
+	\draw[blue,thick] (start) -- (stop);
+
+	% final step
+	\node[blue,thick,openpt] at (10,2.5) (start) {};
+	\draw[blue,thick] (start) -- (\xmax,2.5);
 
 \end{tikzpicture}

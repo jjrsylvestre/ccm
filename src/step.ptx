@@ -142,7 +142,6 @@ we use piecewise notation to specify the constant output values on different sub
 
 <p> The simplest situation to deal with is a step function that <q>steps</q> at regular intervals. </p>
 
-<!-- TODO this definition needs fixing -->
 <definition xml:id="definition-step-regular-function">
 	<title>Regular step function</title>
 	<p>
@@ -273,6 +272,73 @@ so we can still apply the above formula on each of those subdomains and then tot
 
 </example>
 
+<p> Remember that we can have a rate function where the independent variable represents something other than time. </p>
+
+<example xml:id="example-step-accumulation-saffron">
+	<title>Accumulation of cost</title>
+
+	<p>
+	You are ordering a quantity of saffron, a very expensive spice, for your bulk food preparation business.
+	The supplier offers a discount scheme based on the amount you order:
+	<ul>
+		<li> The first <quantity><mag>500</mag><unit base="gram"/></quantity> ordered is priced at $3.00 per gram. </li>
+		<li>
+		Any additional amount ordered <em>above</em> <quantity><mag>500</mag><unit base="gram"/></quantity> is priced at $2.75 per gram,
+		for orders up to <quantity><mag>1</mag><unit base="gram" prefix="kilo"/></quantity> total.
+		For example, if an order of <quantity><mag>600</mag><unit base="gram"/></quantity> is placed,
+		then only the additional <quantity><mag>100</mag><unit base="gram"/></quantity> quantity is charged at $2.75 per gram,
+		while the <q>initial</q> quantity of <quantity><mag>500</mag><unit base="gram"/></quantity> is still charged at $3.00 per gram.
+		</li>
+		<li> Any additional amount above <quantity><mag>1</mag><unit base="gram" prefix="kilo"/></quantity> is priced at $2.50 per gram. </li>
+	</ul>
+	</p>
+
+	<p>
+	The pricing model can be considered a rate function,
+	where the inputs are in units of grams,
+	and the outputs are in units of dollars-per-gram.
+	</p>
+
+	<figure xml:id="figure-step-saffron">
+		<caption>Graph for a saffron pricing model.</caption>
+		<image width="60%">
+			<description>Graph for a saffron pricing model.</description>
+			<latex-image><xi:include href="step.d/saffron-graph.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	In this pricing model,
+	the total <q>accumulated</q> cost of your order of
+	<quantity><mag>1.2</mag><unit base="gram" prefix="kilo"/></quantity>
+	is
+	<md>
+		<mrow>
+			\text{COST} \amp =
+			(3.00 \unitsp \$ / \mathrm{g})
+			\times
+			(500 \unitsp \mathrm{g})
+		</mrow>
+		<mrow>
+			\amp \phantom{=} +
+			(2.75 \unitsp \$ / \mathrm{g})
+			\times
+			(500 \unitsp \mathrm{g})
+		</mrow>
+		<mrow>
+			\amp \phantom{=} +
+			(2.50 \unitsp \$ / \mathrm{g})
+			\times
+			(200 \unitsp \mathrm{g})
+		</mrow>
+		<mrow> \amp = \$ 1500 + \$ 1375 + \$ 500 </mrow>
+		<mrow> \amp = \$ 3375 </mrow>
+	</md>.
+	</p>
+
+</example>
+
+
 </subsection>
 
 
@@ -390,7 +456,7 @@ Graphically,
 	</ul>
 	We are making a graphical connection between the two product calculations
 	<md alignment="gather">
-		<mrow> \text{accumulation} = \text{rate} \times \text{duration} </mrow>
+		<mrow> \text{amount} = \text{rate} \times \text{duration} </mrow>
 		<mrow> \text{area} = \text{height} \times \text{length} </mrow>
 	</md>
 	by interpreting each rate value as a <em>height</em> and each time duration as a <em>length</em> on the rate graph.
@@ -512,10 +578,20 @@ Graphically,
 	</p>
 
 	<p>
-	In fact, we will learn in the next chapter how estimating total accumulation using simplified models involving stepped rate functions can actually help us to calculate total accumulation <em>exactly</em> for more complicated models.
+	In fact, we will learn in the next chapter how estimating accumulation using simplified models involving stepped rate functions can actually help us to calculate accumulation <em>exactly</em> for more complicated models.
 	</p>
 
 </remark>
+
+<exercise>
+	<title>Accumulation of cost</title>
+	<p>
+	In <xref ref="example-step-accumulation-saffron" />,
+	we analyzed a purchasing scenario with a rate function describing variation in cost per unit <em>mass</em>,
+	(whereas our other examples have all involved variation per unit <em>time</em>).
+	Do you see how the total cost calculation in that example corresponds to a sum of areas of rectangles on the rate function graph?
+	</p>
+</exercise>
 
 </subsection>
 
@@ -783,17 +859,19 @@ we can use any start value we like, according to the summation pattern we are tr
 Take care when counting an indexed collection:
 the number of objects is
 <me> (\text{ending index value}) - (\text{starting index value}) + 1 </me>.
-(The <q><m>+ 1</m></q> is because in the subtraction we have <q>taken away</q> every object up to and including the one at the starting index value,
-but we actually want to include that one at the starting index value in the collection being counting.)
+The <q><m>+ 1</m></q> is required because in the subtraction we have <q>taken away</q> every object up to and including the one indexed by the <q>starting index value,</q>
+but we actually want to include that <q>starting</q> object in the collection being counted.
+For example, if we have a sum indexed from <m>k = 1</m> to <m>k = n</m>,
+then we are adding up <m>n</m> terms, not <m>n - 1</m> terms.
 </p>
 
-<example xml:id="example-step-sigma-constant-again">
-	<title>Summing a constant value (again)</title>
+<identity xml:id="identity-step-sigma-constant">
+	<title>Summing a constant value</title>
 	<p>
 	For a constant value <m>c</m> and integers <m>m</m> and <m>n</m> with <m>n \gt m</m>:
 	<me> \sum_{k = m}^{n} c = (n - m + 1) \times c </me>.
 	</p>
-</example>
+</identity>
 
 </subsection>
 
@@ -901,7 +979,60 @@ As well as factoring out of sums, we also know that we may perform a series of a
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-step-sage">
+<title>Summing in Sage</title>
+
+<p>
+Summation based on a pattern can be performed in Sage.
+The syntax is below.
+<cd><cline>
+	sum(pattern, variable, start, end)
+</cline></cd>
+For example, the summation
+<me> \sum_{k=1}^{5} 2 k + 1 </me>
+becomes Sage input
+<cd><cline>
+	sum(2*k + 1, k, 1, 5)
+</cline></cd>
+However, remember that by default the only letter that Sage treats as a variable is <c>x</c>,
+so if we want to use <c>k</c> for our index variable as we've been doing in our Sigma notation,
+we have to first tell Sage that we want <c>k</c> to be treated as a variable.
+</p>
+
+<example xml:id="example-step-sage-sum">
+	<title>Summing in Sage</title>
+
+	<p> Let's try the example command above. </p>
+
+	<sage>
+		<input>
+			var('k')
+			sum(2*k + 1, k, 1, 5)
+		</input>
+		<output> 35 </output>
+	</sage>
+
+</example>
+
+<exercise>
+	<title>Try it yourself</title>
+	<p>
+	Use the blank Sage cell below to compute the sum
+	<me> \sum_{k = 1}^{17} k^2 </me>.
+	(If you've already evaluated the example Sage cell above,
+	you won't need the <c>var('k')</c> command.)
+	</p>
+	<sage>
+		<input></input>
+		<output></output>
+	</sage>
+</exercise>
+
+</subsection>
+
+</section>
+
+<section>
 <title>Riemann sums</title>
 
 <p>
@@ -914,8 +1045,7 @@ the sum is called a <term>Riemann sum</term>.
 	<p>1826 <ndash /> 1866.</p>
 </aside>
 
-<!-- TODO make this an actual definition? -->
-<assemblage>
+<definition xml:id="definition-step-riemann">
 	<title>Riemann sum</title>
 	<p>
 	Suppose <m>s(t)</m> is a step function that takes on values
@@ -934,7 +1064,7 @@ the sum is called a <term>Riemann sum</term>.
 	<me> \sum_{k = 1}^{n} h_k \Delta t_k </me>
 	is called the <term>Riemann sum</term> for <m>s(t)</m> over the domain <m>t_0 \le t \le t_n</m>.
 	</p>
-</assemblage>
+</definition>
 
 <example xml:id="example-step-riemann-air-pump">
 	<title>Riemann sum for the air pump</title>
@@ -992,16 +1122,28 @@ the sum is called a <term>Riemann sum</term>.
 
 <identity xml:id="pattern-step-regular-riemann">
 	<title>Riemann sum for a regular step function</title>
+
 	<p>
 	For a regular step function, we can split the domain into subdomains of equal length,
 	so that <m>\Delta t_k</m> is the same value for each subdomain.
-	Write <m>\Delta t</m> for this common subdomain length.
-	Then we can factor this common length out of our sum,
+	</p>
+
+	<p>
+	Writing <m>\Delta t</m> for this common subdomain length,
+	if the original domain is <m>a \le t \le b</m>
+	then the length of each subdomain should be
+	<me> \Delta t = \frac{b - a}{n} </me>,
+	where <m>n</m> is the number of subdomains.
+	</p>
+
+	<p>
+	Furthermore, we can factor this common length out of our sum,
 	so that
 	<me>
 		\sum_{k = 1}^{n} h_k \Delta t_k
 		= \sum_{k = 1}^{n} h_k \Delta t
 		= \left(\sum_{k = 1}^{n} h_k\right) \Delta t
+		= \left(\sum_{k = 1}^{n} h_k\right) \left( \frac{b - a}{n} \right)
 	</me>.
 	</p>
 </identity>
@@ -1062,60 +1204,8 @@ the sum is called a <term>Riemann sum</term>.
 	(unless the number of rectangles is very, very large).
 </p></remark>
 
-</subsection>
-
-<subsection>
-<title>Summing in Sage</title>
-
-<p>
-Summation based on a pattern can be performed in Sage.
-The syntax is below.
-<cd><cline>
-	sum(pattern, variable, start, end)
-</cline></cd>
-For example, the summation
-<me> \sum_{k=1}^{5} 2 k + 1 </me>
-becomes Sage input
-<cd><cline>
-	sum(2*k + 1, k, 1, 5)
-</cline></cd>
-However, remember that by default the only letter that Sage treats as a variable is <c>x</c>,
-so if we want to use <c>k</c> for our index variable as we've been doing in our Sigma notation,
-we have to first tell Sage that we want <c>k</c> to be treated as a variable.
-</p>
-
-<example xml:id="example-step-sage-sum">
-	<title>Summing in Sage</title>
-
-	<p> Let's try the example command above. </p>
-
-	<sage>
-		<input>
-			var('k')
-			sum(2*k + 1, k, 1, 5)
-		</input>
-		<output> 35 </output>
-	</sage>
-
-</example>
-
-<exercise>
-	<title>Try it yourself</title>
-	<p>
-	Use the blank Sage cell below to compute the sum
-	<me> \sum_{k = 1}^{17} k^2 </me>.
-	(If you've already evaluated the example Sage cell above,
-	you won't need the <c>var('k')</c> command.)
-	</p>
-	<sage>
-		<input></input>
-		<output></output>
-	</sage>
-</exercise>
-
-</subsection>
-
 </section>
+
 
 <!-- <xi:include href="./step.d/activities.ptx" />
 <xi:include href="./step.d/exercises.ptx" /> -->
