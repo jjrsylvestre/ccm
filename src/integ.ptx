@@ -1029,10 +1029,10 @@ mathematically.
 		</li>
 
 		<li xml:id="convention-integ-definite-props-backwards">
-			<title>Integrating in <q>reverse</q></title>
+			<title>Integrating in reverse</title>
 			<p>
 			If <m>r(t)</m> is integrable on the domain <m>a \le t \le b</m>,
-			then we set <me> \ccmint{b}{a}{c}{t} = - \ccmint{a}{b}{r(t)}{t} </me>.
+			then we set <me> \ccmint{b}{a}{r(t)}{t} = - \ccmint{a}{b}{r(t)}{t} </me>.
 			</p>
 		</li>
 
@@ -1231,6 +1231,86 @@ Luckily Sage can also handle this for us.
 		<mrow> \amp = 3 </mrow>
 	</md>.
 	</p>
+</example>
+
+<p>
+Finally,
+we will do one example of using Riemann sums to calculate an actual formula for an accumulation function,
+though in practice we will not often return to <q>first principles</q> to carry out calculations.
+</p>
+
+<example xml:id="example-integ-acc-func-squeezing-lower-upper">
+	<title>Using Riemann sums to compute an accumulation function formula</title>
+
+	<p>
+	Let's return to the rate function <m>r(t) = t^2 + 1</m> from <xref ref="example-integ-squeezing-lower-upper" />
+	over a time domain beginning at <m>t = 0</m>,
+	but this time we will leave the upper bound on this time domain as a variable,
+	in order to obtain an accumulation function in terms of this domain end point instead of just a single accumulation value.
+	Because we want to be able to mimic the calculations from <xref ref="example-integ-squeezing-lower-upper" />,
+	instead of changing the letter for the independent variable in the rate function <m>r(t)</m>,
+	instead we will use the letter <m>z</m> for the variable endpoint of the domain.
+	</p>
+
+	<p>
+	Again, the graph of this rate function always goes up as you move to the right,
+	so a left Riemann sum will compute the lower sum and a right Riemann sum will compute the upper sum.
+	Our analysis here is almost identical to that from <xref ref="example-integ-squeezing-lower-upper" />,
+	except that our subdomain widths are dependent on <m>z</m>:
+	<me> \Delta t = \frac{z - 0}{n} = \frac{z}{n} </me>
+	(where we are still using <m>0</m> as the start of the time domain).
+	Just as before,
+	beginning at the left-most subdomain boundary, <m>t_0 = 0</m>,
+	each subsequent subdomain boundary should be <m>\Delta t</m> past the previous one,
+	so that the pattern of boundaries is
+	<me> t_k = k \cdot \frac{z}{n} </me>.
+	Recall that <m>t_0</m> is the first left-endpoint and <m>t_1</m> is the first right-endpoint.
+	So similar to <xref ref="example-integ-squeezing-lower-upper" />,
+	the pattern of left- and right-endpoints is as follows.
+	<md>
+		<mrow> \text{Left } \amp \text{endpoints} \amp \text{Right } \amp \text{endpoints} </mrow>
+		<mrow> t_k^\ast \amp = t_{k-1} = (k - 1) \cdot \frac{z}{n} \amp t_k^\ast \amp = t_k = k \cdot \frac{z}{n} </mrow>
+	</md>
+	We can now set up our upper and lower Riemann sums:
+	<md>
+		<mrow>
+			\text{Lower: }
+			\sum_{k=1}^{n} r(t_k^\ast) \Delta t
+			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \Delta t
+			= \left (\sum_{k=1}^{n} r\left((k - 1) \cdot \frac{z}{n}\right) \right) \cdot \frac{z}{n}
+		</mrow>
+		<mrow>
+			\text{Upper: }
+			\sum_{k=1}^{n} r(t_k^\ast) \Delta t
+			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \Delta t
+			= \left (\sum_{k=1}^{n} r\left(k \cdot \frac{z}{n}\right) \right) \cdot \frac{z}{n}
+		</mrow>
+	</md>.
+	The sage cell below is set up to compute both the lower and upper sums,
+	with the number of steps <m>n</m> left as a parameter you can change.
+	(The <c>polynomial(RR)</c> part tells Sage to interpret the result as a polynomial with <alert>R</alert>eal coefficients.)
+	Increase <m>n</m> a few times, an order of magnitude at a time,
+	until you can see a pattern emerging,
+	with subsequent lower and upper sum results <q>squeezing</q> to a formula for the accumulation function
+	(with independent variable <m>z</m> instead of <m>t</m>).
+	</p>
+
+	<sage>
+		<input>
+			var('k,t,z')
+			r(t) = t^2 + 1
+			n = 10
+			Lower = sum( r( (k-1) * z / n ), k, 1, n) * z / n
+			Upper = sum( r( k * z / n ), k, 1, n) * z / n
+			print("Lower =", Lower, "=", Lower.polynomial(RR))
+			print("Upper =", Upper, "=", Upper.polynomial(RR))
+		</input>
+		<output>
+			Lower = 1/200*(57*z^2 + 200)*z = 0.285000000000000*z^3 + z
+			Upper = 1/200*(77*z^2 + 200)*z = 0.385000000000000*z^3 + z
+		</output>
+	</sage>
+
 </example>
 
 </section>
