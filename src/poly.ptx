@@ -51,7 +51,7 @@ which can be considered a degree-0 polynomial.
 	from <xref ref="pattern-integ-definite-props" />
 	to easily compute its velocity at any point in time after that,
 	up until the time that the object hits the surface of the planet.
-	<me> v(t) = \ccmint{0}{t}{g}{\tau} = g t </me>.
+	<me> v(t) = \ccmint{0}{t}{g}{u} = g t </me>.
 	</p>
 
 </example>
@@ -118,21 +118,16 @@ which can be considered a degree-0 polynomial.
 	<p>
 	Using the formula for area of a triangle,
 	we obtain
-	<me> \ccmint{0}{t}{v(\tau)}{\tau} = \frac{v(t) \cdot t}{2} = \frac{g t^2}{2} </me>.
+	<me> \ccmint{0}{t}{v(u)}{u} = \frac{v(t) \cdot t}{2} = \frac{g t^2}{2} </me>.
 	</p>
 
-	<p>
-	Let's ask Sage to confirm this for us.
-	Since the Greek letter <m>\tau</m> does not appear on our keyboards,
-	we'll use the letter <m>x</m> for the independent variable in our velocity function,
-	since we'll need <m>t</m> to stand for the variable end point of our integration domain.
-	</p>
+	<p> Let's ask Sage to confirm this for us. </p>
 
 	<sage>
 		<input>
-			var('g,t')
-			v(x) = g * x
-			integrate(v(x),x,0,t)
+			var('g,t,u')
+			v(u) = g * u
+			integrate(v(u),u,0,t)
 		</input>
 		<output> 1/2*g*t^2 </output>
 	</sage>
@@ -146,7 +141,7 @@ We can combine the pattern of the result of <xref ref="example-poly-linear-velo"
 with <xref ref="pattern-poly-constant-rate" /> to deal with all linear rate functions,
 since <xref ref="pattern-integ-definite-props-additive" text="type-local">Equality</xref>
 of <xref ref="pattern-integ-definite-props" /> says that
-<me> \ccmint{0}{t}{ m \tau + b }{\tau} = \ccmint{0}{t}{ m \tau }{\tau} + \ccmint{0}{t}{ b }{\tau} </me>.
+<me> \ccmint{0}{t}{ m u + b }{u} = \ccmint{0}{t}{ m u }{u} + \ccmint{0}{t}{ b }{u} </me>.
 </p>
 
 <identity xml:id="pattern-poly-linear-rate">
@@ -287,7 +282,7 @@ and <xref ref="pattern-integ-definite-props-additive" text="type-local">Equality
 of <xref ref="pattern-integ-definite-props" />,
 we only need a pattern for rate functions that are a power of <m>t</m> in order to be able to handle any polynomial rate function,
 and that pattern appears to be
-<md><mrow xml:id="equation-poly-int-pattern" tag="star"> \ccmint{0}{t}{\tau^m}{\tau} = \frac{t^{m + 1}}{m + 1} </mrow></md>.
+<md><mrow xml:id="equation-poly-int-pattern" tag="star"> \ccmint{0}{t}{u^m}{u} = \frac{t^{m + 1}}{m + 1} </mrow></md>.
 </p>
 
 <example>
@@ -336,7 +331,7 @@ from the fact that we have shifted our <q>initial</q> time.
 			<title>Positive exponents</title>
 			<p>
 			For every positive, real value of exponent <m>m</m>,
-			<me> \ccmint{0}{t}{\tau^m}{\tau} = \frac{t^{m + 1}}{m + 1} </me>
+			<me> \ccmint{0}{t}{u^m}{u} = \frac{t^{m + 1}}{m + 1} </me>
 			for <m>t \ge 0 </m>.
 			</p>
 		</li>
@@ -344,7 +339,7 @@ from the fact that we have shifted our <q>initial</q> time.
 			<title>Negative exponents</title>
 			<p>
 			For every negative, real value of exponent <m>m</m> <em>except</em> <m>m = -1</m>,
-			<me> \ccmint{1}{t}{\tau^m}{\tau} = \frac{t^{m + 1} - 1}{m + 1} </me>
+			<me> \ccmint{1}{t}{u^m}{u} = \frac{t^{m + 1} - 1}{m + 1} </me>
 			for <m>t \gt 0 </m>.
 			</p>
 		</li>
@@ -352,7 +347,7 @@ from the fact that we have shifted our <q>initial</q> time.
 
 </identity>
 
-<p> The case of <me> \ccmint{1}{t}{\frac{1}{\tau}}{\tau} </me> is a special one that we will explore in the next chapter. </p>
+<p> The case of <me> \ccmint{1}{t}{\frac{1}{u}}{u} </me> is a special one that we will explore in the next chapter. </p>
 
 <remark>
 	<title>Negative domains</title>

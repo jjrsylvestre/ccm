@@ -796,7 +796,7 @@ there is really no difference between sample points that are left endpoints or r
 </p>
 
 <figure xml:id="figure-integ-representative-rect-slice">
-	<caption>A rectangular area in a Riemann sum becomes a <q>slice</q> of area in a definite integral.</caption>
+	<caption>A rectangular area in a Riemann sum shrinks to become a <q>slice</q> of area in a definite integral.</caption>
 	<sidebyside>
 		<figure xml:id="figure-integ-representative-rect-slice-rect">
 			<caption>A representative rectangular area in a Riemann sum.</caption>
@@ -1134,10 +1134,10 @@ in which case we can just change that subscript.
 <identity xml:id="pattern-integ-definite-integ-as-accum-function">
 	<title>The definite integral as an accumulation function</title>
 	<p>
-	If a rate function <m>r(t)</m> is integrable over time domain <m>s \le t \le u</m>,
+	If a rate function <m>r(t)</m> is integrable over time domain <m>t_0 \le t \le t_1</m>,
 	then the accumulation function for the quantity whose variation is modelled by <m>r(t)</m> is
-	<me> A_s(t) = \ccmint{s}{t}{r(\tau)}{\tau} </me>,
-	where <m>A_s(t)</m> represents the amount accumulated starting at the fixed time <m>s</m> and ending at the variable time <m>t</m>.
+	<me> A_{t_0}(t) = \ccmint{t_0}{t}{r(u)}{u} </me>,
+	where <m>A_{t_0}(t)</m> represents the amount accumulated starting at the fixed time <m>t_0</m> and ending at the variable time <m>t</m>.
 	</p>
 </identity>
 
@@ -1154,13 +1154,11 @@ Luckily Sage can also handle this for us.
 	<p>
 	Let's return once again to the example of some quantity whose variation is modelled by the rate function <m>r(t) = t^2 + 1</m>,
 	as in <xref ref="example-integ-squeezing-lower-upper" /> and <xref ref="example-integ-definite-int-by-sage" />.
-	Since we don't have Greek letters on our keyboards,
-	let's use <m>x</m> as the variable of integration,
-	instead of <m>\tau</m>,
-	so that our accumulation function
-	(with fixed starting time <m>t = 0</m>)
+	Swapping <m>u</m> for <m>t</m> in our rate function so that <m>t</m> can act as the variable upper bound of integration,
+	our accumulation function
+	(with fixed starting time <m>t_0 = 0</m>)
 	becomes
-	<me> A_0(t) = \ccmint{0}{t}{x^2 + 1}{x} </me>.
+	<me> A_0(t) = \ccmint{0}{t}{u^2 + 1}{u} </me>.
 	</p>
 
 	<p>
@@ -1168,15 +1166,15 @@ Luckily Sage can also handle this for us.
 	In this format,
 	<c>variable</c>
 	means the letter being used as the integrand function's independent variable,
-	so here we use <m>x</m> in that spot.
+	so here we use <m>u</m> in that spot.
 	But our <c>end</c> value is also variable,
 	so we'll have the letter <m>t</m> there instead of a number like before.
 	</p>
 
 	<sage>
 		<input>
-			var('t')
-			integrate(x^2 + 1, x, 0, t)
+			var('t,u')
+			integrate(u^2 + 1, u, 0, t)
 		</input>
 		<output> 1/3*t^3 + t </output>
 	</sage>
