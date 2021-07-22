@@ -1052,8 +1052,23 @@ mathematically.
 	<p>
 	Hopefully <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref>
 	also makes intuitive sense <mdash />
-	an accumulation of some quantity over time would appear to be a <em>loss</em> of quantity if we allowed time to run in reverse,
+	an accumulation of some quantity over time would appear to be a <em>dissipation</em> or <em>loss</em> of quantity if we allowed time to run in reverse,
 	and vice versa.
+	</p>
+
+	<p>
+	In light of the two conventions of <xref ref="convention-integ-definite-props" />,
+	<xref ref="pattern-integ-definite-props-split" text="type-local">Property</xref>
+	of <xref ref="pattern-integ-definite-props" /> is also valid even if <m>c</m> is <em>not</em> between <m>a</m> and <m>b</m>,
+	as long the integrand is integrable over all of the domains involved.
+	For example,
+	when <m>c \gt b</m> then
+	<md>
+		<mrow> \ccmint{a}{b}{r(t)}{t} \amp = \ccmint{a}{c}{r(t)}{t} - \ccmint{b}{c}{r(t)}{t} </mrow>
+		<mrow> \amp = \ccmint{a}{c}{r(t)}{t} - \left( - \ccmint{c}{b}{r(t)}{t} \right) </mrow>
+		<mrow> \amp = \ccmint{a}{c}{r(t)}{t} + \ccmint{c}{b}{r(t)}{t} </mrow>
+	</md>,
+	and similarly when <m>c \lt a</m>.
 	</p>
 
 </remark>

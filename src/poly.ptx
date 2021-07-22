@@ -47,7 +47,7 @@ which can be considered a degree-0 polynomial.
 		<unit base="meter" />
 		<per  base="second" />
 	</quantity>,
-	then we can use <xref ref="pattern-integ-definite-props-constant" text="type-local">Equality</xref>
+	then we can use <xref ref="pattern-integ-definite-props-constant" text="type-local">Property</xref>
 	from <xref ref="pattern-integ-definite-props" />
 	to easily compute its velocity at any point in time after that,
 	up until the time that the object hits the surface of the planet.
@@ -139,7 +139,7 @@ which can be considered a degree-0 polynomial.
 <p>
 We can combine the pattern of the result of <xref ref="example-poly-linear-velo" />
 with <xref ref="pattern-poly-constant-rate" /> to deal with all linear rate functions,
-since <xref ref="pattern-integ-definite-props-additive" text="type-local">Equality</xref>
+since <xref ref="pattern-integ-definite-props-additive" text="type-local">Property</xref>
 of <xref ref="pattern-integ-definite-props" /> says that
 <me> \ccmint{0}{t}{ m u + b }{u} = \ccmint{0}{t}{ m u }{u} + \ccmint{0}{t}{ b }{u} </me>.
 </p>
@@ -277,8 +277,8 @@ Let's ask Sage.
 <p>
 It's true!
 (With some work, this could be verified using lower and upper Riemann sums.)
-Because of <xref ref="pattern-integ-definite-props-homogeneity" text="type-local">Equality</xref>
-and <xref ref="pattern-integ-definite-props-additive" text="type-local">Equality</xref>
+Because of <xref ref="pattern-integ-definite-props-homogeneity" text="type-local">Property</xref>
+and <xref ref="pattern-integ-definite-props-additive" text="type-local">Property</xref>
 of <xref ref="pattern-integ-definite-props" />,
 we only need a pattern for rate functions that are a power of <m>t</m> in order to be able to handle any polynomial rate function,
 and that pattern appears to be
