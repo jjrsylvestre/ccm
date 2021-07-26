@@ -41,16 +41,33 @@ respective owners.
 -->
 <xi:include href="./inf-behaviour.ptx" />
 
+<!--
+  Step functions.
+  Accumulation when rate function is stepped.
+  Sigma notation and Riemann sums.
+-->
 <xi:include href="./step.ptx" />
 
+<!--
+  Approximate accumulation by replacing rate function with step function.
+  Upper and lower sums; exact accumulation from step-function approximations.
+  The definite integral; accumulation function as integral function.
+-->
 <xi:include href="./integ.ptx" />
 
+<!--
+  Polynomial functions and behaviour. ** TODO **
+  Accumulation for constant rate of growth, then linear rate of growth, then generalize to polynomial rate of growth
+  (and also reciprocal powers of t).
+-->
 <xi:include href="./poly.ptx" />
 
+<!--
+  Natural logarithm as accumulation for rate function r(t) = 1/t.
+  Algebraic properties.
+  ** TODO ** Example Models?
+-->
 <xi:include href="./log.ptx" />
-
-<!-- Logistic models, associated differential equations. -->
-<xi:include href="./logistic.ptx" />
 
 <!-- Exponential growth/decay. Exponential function: graph, properties, etc. -->
 <xi:include href="./exp.ptx" />
@@ -97,6 +114,9 @@ respective owners.
 
 <!-- Autonomous differential equations. -->
 <xi:include href="./auto.ptx" />
+
+<!-- Logistic models, associated differential equations. -->
+<xi:include href="./logistic.ptx" />
 
 <!-- -->
 <xi:include href="./backmatter.ptx" />

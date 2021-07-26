@@ -14,11 +14,6 @@ respective owners.
 *********************************************************************-->
 
 
-<!--
-Approximate accumulation from rate of variation (using step functions).
-Exact accumulation from rate of variation.
--->
-
 <chapter xml:id="chapter-integ" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Accumulation from rate data</title>
 

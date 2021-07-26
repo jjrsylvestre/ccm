@@ -16,8 +16,6 @@ respective owners.
 <chapter xml:id="chapter-log" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Logarithmic growth</title>
 
-<!-- Logarithmic growth/decay (i.e., accumulation when rate of variation is 1/x.) Logarithm function: graph, properties, etc. -->
-
 <section xml:id="section-log-definition">
 <title>The natural logarithm</title>
 
