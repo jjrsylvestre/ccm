@@ -47,7 +47,6 @@ respective owners.
 
 <xi:include href="./poly.ptx" />
 
-<!-- Logarithmic growth/decay (i.e., accumulation when rate of variation is 1/x.) Logarithm function: graph, properties, etc. -->
 <xi:include href="./log.ptx" />
 
 <!-- Logistic models, associated differential equations. -->

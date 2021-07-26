@@ -50,6 +50,7 @@ respective owners.
 	<rename element="identity">Pattern</rename>
 	<rename element="insight">Principal</rename>
 	<rename element="algorithm">Procedure</rename>
+	<rename element="proof">Justification</rename>
 	<!-- <rename element="hypothesis">Idea</rename> -->
 	<!-- <rename element="worksheet">Discovery guide</rename> -->
 	<!-- <rename element="activity">Discovery</rename> -->
