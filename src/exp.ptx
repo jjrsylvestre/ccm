@@ -14,12 +14,736 @@ respective owners.
 *********************************************************************-->
 
 <chapter xml:id="chapter-exp" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Exponential growth/decay</title>
+<title>Exponential growth</title>
 
-<section xml:id="section-exp-intro">
-<title>TODO</title>
+<section xml:id="section-exp-functions">
+<title>Exponential functions</title>
 
-<p> TODO </p>
+<example xml:id="example-exp-doubling-rate">
+	<title>A doubling rate of growth</title>
+
+	<p>
+	An environmental scientist is studying the rate of population growth of a species of tree in a geographic area
+	by making yearly observations of new seedlings and newly fallen trees.
+	She observes that the rate of growth is increasingly dramatic,
+	approximately doubling every year.
+	</p>
+
+	<figure xml:id="figure-exp-doubling-points">
+		<caption>
+			Data points for rate of growth of a population.
+			Note that axes are not the same scale.
+		</caption>
+		<image width="75%">
+			<description> Data points for rate of growth of a population. </description>
+			<latex-image><xi:include href="exp.d/trees-points.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	To create a mathematical model from the data points,
+	the researcher fits a curve to them.
+	</p>
+
+	<figure xml:id="figure-exp-doubling-curve">
+		<caption> Fitted curve for rate of growth of a population. </caption>
+		<image width="75%">
+			<description> Fitted curve for rate of growth of a population. </description>
+			<latex-image><xi:include href="exp.d/trees-curve.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+If we assign a scale on both axes in <xref ref="figure-exp-doubling-curve" /> so that the grid lines fall at integer values,
+the the plotted points fall at
+<md>
+	<mrow>
+		r(0) \amp = 1 \amp
+		r(1) \amp = 2 \amp
+		r(2) \amp = 4 \amp
+		r(3) \amp = 8 \amp
+		r(4) \amp = 16
+	</mrow>
+</md>,
+as the height of each data point is double the height of the preceding point,
+in line with the <q>doubling every year</q> observation of the researcher,
+and we can model these data points with the formula
+<me> r(t) = 2^t </me>.
+If we plot some additional points,
+we find the fitted curve matches other values of this rate function.
+</p>
+
+<figure xml:id="figure-exp-base2-more-points">
+	<caption>
+		Plotting function values <m>r(-1) = 2^{-1}</m> and <m>r(1/2) = 2^{1/2}</m>
+		on our <q>doubling</q> model curve.
+	</caption>
+	<image width="75%">
+		<description> Plotting additional rate function values against our <q>doubling</q> model curve. </description>
+		<latex-image><xi:include href="exp.d/base2-recip-root.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+It appears that the model curve matches the values of the function <m>r(t) = 2^t</m> not only at whole, positive exponents but also at
+<ul>
+	<li>
+		negative exponents, which are used to mean <term>reciprocal</term>:
+		<me> 2^{-a} = \frac{1}{2^a} </me>
+	</li>
+	<li>
+		rational exponents, which are used to combine a power with a root:
+		<me> 2^{a/b} = \sqrt[b]{2^a} </me>.
+	</li>
+</ul>
+We are not yet ready to attach a meaning to <em>irrational</em> exponents,
+such as <me> 2^{\pi} </me>,
+but for the moment we will assume that our formula <m> r(t) = 2^t </m> matches our model curve at <em>all</em> values of <m>t</m>.
+</p>
+
+<definition xml:id="definition-exp-func">
+	<title>Exponential function with base <m>a</m></title>
+	<p>
+	For positive constant <m>a</m>,
+	the function <m>f(t) = a^t</m>.
+	</p>
+</definition>
+
+<p>
+Exponential functions come in three varieties:
+<ul>
+	<li> exponential growth when <m> a \gt 1 </m> </li>
+	<li> constant when <m>a = 1</m> </li>
+	<li> exponential decay when <m>0 \lt a \lt 1</m>. </li>
+</ul>
+</p>
+
+<figure xml:id="figure-exp-graphs">
+	<caption>Graphs of exponential functions.</caption>
+	<sidebyside valign="middle"> <!-- widths="" margins=""  -->
+		<figure>
+			<caption> A typical exponential growth graph. </caption>
+			<image width="45%">
+				<description> A typical exponential growth graph. </description>
+				<latex-image><xi:include href="exp.d/generic-growth-graph.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+		<figure>
+			<caption> A typical exponential decay graph. </caption>
+			<image width="45%">
+				<description> A typical exponential decay graph. </description>
+				<latex-image><xi:include href="exp.d/generic-decay-graph.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+	</sidebyside>
+</figure>
+
+</section>
+
+
+<section xml:id="section-exp-basic-props">
+<title>Basic properties of exponential functions</title>
+
+<p> From the graphs in <xref ref="figure-exp-graphs" /> we have some obvious properties. </p>
+
+<identity xml:id="pattern-exp-domain-range">
+	<title>Domain, range, and long-term behaviour</title>
+	<p>
+	The domain of an exponential function covers the whole real number line,
+	with no singular points,
+	</p>
+</identity>
+
+<identity xml:id="pattern-exp-limits">
+	<title>Long-term behaviour</title>
+	<p><ul>
+		<li> <title> Growth </title> <p>
+			When <m>a \gt 1</m>, we have
+			<me> a^t \to \infty \quad \text{ as } \quad t \to \infty </me>
+			and
+			<me> a^t \to 0 \quad \text{ as } \quad t \to -\infty </me>.
+		</p> </li>
+		<li> <title> Decay </title> <p>
+			When <m>0 \lt a \lt 1</m>, we have
+			<me> a^t \to 0 \quad \text{ as } \quad t \to \infty </me>
+			and
+			<me> a^t \to \infty \quad \text{ as } \quad t \to -\infty </me>.
+		</p> </li>
+	</ul></p>
+</identity>
+
+<p> The graphs of all exponential functions look essentially the same because they are all horizontal transformations of each other. </p>
+
+<identity xml:id="pattern-exp-horiz-scale">
+	<title>Horizontal transformations of exponential graphs</title>
+
+	<statement><p>
+		Given two positive bases <m>a</m> and <m>b</m>,
+		the exponential function <m>b^t</m> is a horizontal transformation of the exponential function <m>a^t</m>:
+		<me> b^t = a^{c t}\text{,} \qquad c = \frac{\ln b}{\ln a} </me>.
+		Note that if <m>c</m> is negative,
+		this transformation involves not only a horizontal scale but also a reflection.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		Since the <q>new</q> base <m>b</m> is a positive number,
+		it is in the range of the exponential function <m>a^t</m>.
+		</p>
+
+		<figure xml:id="figure-exp-new-base-on-generic-graph">
+			<caption> New base as an output of an exponential function. </caption>
+			<image width="75%">
+				<description> New base as an output of an exponential function. </description>
+				<latex-image><xi:include href="exp.d/new-base-on-generic-graph.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<p>
+		We can use <xref ref="pattern-log-power" /> to determine the value of <m>t</m> so that <m>a^t = b</m>:
+		<md alignment="gather">
+			<mrow>       a^t = b                   </mrow>
+			<mrow> \ln (a^t) = \ln b               </mrow>
+			<mrow>   t \ln a = \ln b               </mrow>
+			<mrow>         t = \frac{\ln b}{\ln b} </mrow>
+		</md>.
+		Substituting <m>b = a^{(\ln b / \ln a)}</m> into the exponential function formula <m>b^t</m>,
+		we obtain
+		<md>
+			<mrow> b^t \amp = {(a^{(\ln b / \ln a)})}^t </mrow>
+			<mrow> \amp = a^{t (\ln b / \ln a)} </mrow>
+		</md>.
+		</p>
+
+		<figure xml:id="figure-exp-new-base-horiz-scale-graph">
+			<caption> Graph of one exponential function as a horizontal scaling of another. </caption>
+			<image width="75%">
+				<description> Graph of one exponential function as a horizontal scaling of another. </description>
+				<latex-image><xi:include href="exp.d/new-base-horiz-scale-graph.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</proof>
+
+</identity>
+
+<remark><p>
+	The transformation in <xref ref="pattern-exp-horiz-scale" /> will involve a horizontal reflection precisely when one of the bases is greater than one and the other is less than one.
+	That is, when one exponential function is a growth function and the other is a decay function.
+</p></remark>
+
+</section>
+
+<section xml:id="section-exp-natural">
+<title>The natural exponential function</title>
+
+<subsection>
+<title>Euler's number</title>
+
+<p>
+In <xref ref="pattern-exp-horiz-scale" />,
+if we choose <m>a</m> so that <m>\ln a = 1</m>,
+then the comparison between the two exponential formulas becomes much simpler:
+<md><mrow xml:id="equation-exp-pre-natural-comparison" tag="star"> b^t = a^{t \ln b} </mrow></md>.
+Just like we use <m>\pi</m> to represent the special number that corresponds to the area of a unit circle,
+the special number so that <m>\ln a = 1</m> is given its own symbol.
+</p>
+
+<definition xml:id="definition-exp-euler">
+	<title>Euler's number</title>
+
+	<aside>
+		<title>Leonhard Euler</title>
+		<p> 1707 <ndash /> 1783. </p>
+	</aside>
+
+	<p>
+	The real number,
+	denoted by the letter <m>e</m>,
+	so that <m> \ln e = 1 </m>.
+	</p>
+
+</definition>
+
+<figure xml:id="figure-exp-euler">
+	<caption> Euler's number defined relative to the special rate function <m>r(t) = 1/t</m>. </caption>
+	<image width="33%">
+		<description> Euler's number defined relative to a special rate function. </description>
+		<latex-image><xi:include href="exp.d/euler.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+Sage knows about Euler's number <c>e</c>.
+We can express it as a decimal number using the <c>n()</c> method.
+</p>
+
+<sage xml:id="sage-exp-euler-as-number">
+	<input>e.n()</input>
+	<output>2.71828182845905</output>
+</sage>
+
+<p>
+As <m>a = e</m> is the special value that makes <xref ref="equation-exp-pre-natural-comparison" /> work,
+it becomes <q>natural</q> to compare every exponential function to the exponential function with base <m>e</m>.
+</p>
+
+<definition xml:id="definition-exp-natural">
+	<title>Natural exponential function</title>
+	<p> The function <m>\exp(t) = e^t</m>, where the constant base <m>e</m> is Euler's number. </p>
+</definition>
+
+<identity xml:id="pattern-exp-shift-to-natural">
+	<title>Realizing an exponential function as a horizontal transformation of the natural exponential function</title>
+	<p>
+	For every positive base <m>a</m>,
+	we have <me> a^t = e^{t \ln a} </me>.
+	</p>
+</identity>
+
+</subsection>
+
+<subsection>
+<title>The natural exponential function as a reflection of the natural logarithm</title>
+
+<p>
+It is possible to define the natural exponential function without using exponential notation
+<mdash /> this will help us to make sense of how to compute an exponential function's output for irrational inputs.
+Consider what happens when we reflect the graph of the natural logarithm in the line <m>y = t</m>.
+</p>
+
+<figure xml:id="figure-exp-reflect-ln">
+	<caption> A reflection of the graph of the natural logarithm function. </caption>
+	<image width="75%">
+		<description> A reflection of the graph of the natural logarithm function. </description>
+		<latex-image><xi:include href="exp.d/reflect-ln.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+This reflected curve passes the Vertical Line Test, <!-- TODO link to definition -->
+and so it is the graph of some function.
+Indeed, it looks like the graph of an exponential function,
+but which one?
+Let's explore by plotting some points.
+A graph <m>y = f(t)</m> is a collection of input-output pairs <m>(t,y)</m>.
+Reflecting in the line <m>y = t</m> interchanges the coordinates in a point,
+so that if <m>(t,y)</m> is on the graph <m>y = \ln t</m>,
+then <m>(y,t)</m> is on the reflected curve.
+For example,
+from <xref ref="pattern-log-value-at-1" />,
+we have
+<md alignment="gather">
+	<mrow> \ln 1 = 0 </mrow>
+	<mrow> \implies (1,0) \text{ on graph } y = \ln t </mrow>
+	<mrow> \implies (0,1) \text{ on reflected curve } </mrow>
+</md>.
+Now, the point <m>(0,1)</m> is on the graph of <em>every</em> exponential function,
+as <m>a^0 = 1</m> for each positive base <m>a</m>.
+So let's consider some other points.
+Using <xref ref="definition-exp-euler" /> along with <xref ref="pattern-log-power" />,
+we have
+<me> \ln (e^r) = r \ln e = r \cdot 1 </me>,
+so
+<md alignment="gather">
+	<mrow> \ln (e^r) = r </mrow>
+	<mrow> \implies (e^r,r) \text{ on graph } y = \ln t </mrow>
+	<mrow> \implies (r,e^r) \text{ on reflected curve } </mrow>
+</md>.
+</p>
+
+<figure xml:id="figure-exp-points-on-reflect-ln">
+	<caption> Specific points on a reflection of the graph of the natural logarithm function. </caption>
+	<image width="75%">
+		<description> Specific points on a reflection of the graph of the natural logarithm function. </description>
+		<latex-image><xi:include href="exp.d/points-reflect-ln.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+Since <m>(r,e^r)</m> is on the reflected curve for all values of <m>r</m>,
+we can say that this is indeed the graph of the natural exponential function.
+</p>
+
+<identity xml:id="pattern-exp-as-reflection">
+	<title>The natural exponential function as a reflection of the natural logarithm function</title>
+	<p>
+	The natural exponential function <m>\exp(t) = e^t</m> is the unique function whose graph is the reflection in the line <m>y = t</m> of the graph of the natural logarithm function <m>\ln t</m>.
+	</p>
+</identity>
+
+<remark><p> We will explore pairs of functions whose graphs are reflections of each other more in <xref ref="chapter-imp-inv" />. </p></remark>
+
+</subsection>
+
+<subsection>
+<title>Computing values of exponential functions</title>
+
+<p>
+Realizing the natural exponential function as a reflection of the natural logarithm function,
+as in <xref ref="pattern-exp-as-reflection" />,
+tells us (in principle) how to compute expressions like <m>e^\pi</m>.
+</p>
+
+<identity xml:id="pattern-exp-computing-via-ln">
+	<title>Using the natural logarithm to compute values of the natural exponential function</title>
+	<p>
+	The following two equalities are equivalent to each other.
+	<md><mrow> e^w \amp = z \amp \ln z \amp = w </mrow></md>.
+	</p>
+</identity>
+
+<p>
+<xref ref="pattern-exp-computing-via-ln" /> says that computing <m>e^\pi</m> is equivalent to solving <m>\ln z = \pi</m> for <m>z</m>.
+In the Sage cell below, change the value of the <c>z</c> variable
+(which is used as the upper bound of the integration command)
+and re-evaluate until you get reasonably close to the value of <m>\pi</m>.
+(Recall that <m>\ln t</m> is defined as an integral of rate function <m>r(t) = 1/t</m>.)
+The first command in the Sage cell below prints out a numerical approximation of <m>\pi</m>.
+</p>
+
+<sage>
+	<input>
+		var('t')
+		print("pi =", pi.n())
+		z = 1
+		result = integrate(1/t,t,1,z)
+		print("ln", z, "=", result.n())
+	</input>
+	<output>
+		pi = 3.14159265358979
+		ln 1 = 0.000000000000000
+	</output>
+</sage>
+
+<p> Of course, computers and calculators know how to (approximately) compute values of <m>e^t</m> for arbitrary values of <m>t</m>. </p>
+
+<sage>
+	<input>
+		result = e^pi
+		print(result.n())
+	</input>
+	<output> 23.1406926327793 </output>
+</sage>
+
+<p>
+We can combine <xref ref="pattern-exp-computing-via-ln" /> with <xref ref="pattern-exp-shift-to-natural" /> and use a similar method to compute values like
+<me> 2^\pi = e^{\pi \ln 2} </me>
+by solving
+<me> \ln z = \pi \ln 2 </me>.
+Use the Sage cell below to do just that.
+As before,
+you are attempting to refine the value of the <c>z</c> variable until the integration result is very close to <m>\pi \ln 2</m>,
+which the first command computes for you.
+</p>
+
+<sage>
+	<input>
+		var('t')
+		print("pi * ln(2) =", (pi * ln(2)).n())
+		z = 1
+		result = integrate(1/t,t,1,z)
+		print("ln", z, "=", result.n())
+	</input>
+	<output>
+		pi * ln(2) = 2.17758609030360
+		ln 1 = 0.000000000000000
+	</output>
+</sage>
+
+<p>
+When you've had enough of trial-and-error attempts to determine the value of <m>2^\pi</m> above,
+you can ask Sage to compute it for you below.
+</p>
+
+<sage>
+	<input>
+		result = 2^pi
+		print(result.n())
+	</input>
+	<output> 8.82497782707629 </output>
+</sage>
+
+</subsection>
+
+<subsection>
+<title>Undoing the natural exponential and logarithm functions</title>
+
+<p>
+The natural exponential and logarithm functions are not only graphical reflections of each other,
+they <q>reverse</q> each other algebraically,
+just as <em>cube</em> and <em>cube root</em> reverse each other.
+</p>
+
+<aside>
+	<title>Remark</title>
+	<p>
+	You might wonder why <em>square</em> and <em>square root</em> weren't chosen as a comparison pair instead <mdash />
+	the reason is that square root is actually not a perfect reversal of square,
+	as the example <me> \sqrt{(-1)^2} = 1 </me> demonstrates.
+	</p>
+</aside>
+
+<identity xml:id="pattern-exp-ln-inverse">
+	<title>Composing natural exponential and logarithm</title>
+	<p><ol>
+
+		<li xml:id="pattern-exp-ln-inverse-exp-inside-ln"><title>Exponential inside logarithm</title><p>
+			For all <m>a</m>,
+			we have <me> \ln (e^a) = a </me>.
+		</p></li>
+
+		<li xml:id="pattern-exp-ln-inverse-ln-inside-exp"><title>Logarithm inside exponential</title><p>
+			For all <em>positive</em> <m>a</m>,
+			we have <me> e^{\ln a} = a </me>.
+		</p></li>
+
+	</ol></p>
+</identity>
+
+<p>
+We can use the patterns above to solve equations involving <m>\exp</m> and <m>\ln</m>.
+Before we do examples, we continue the analogy with solving equations involving cube and cube root.
+Suppose you wanted to solve the equation <me> \sqrt[3]{t + 1} = 2 </me>.
+The first step is to <q>undo</q> the cube root operation by cubing,
+to free the variable <m>t</m> from being trapped inside the cube root operation.
+But to maintain the equality, we must cube both sides:
+<md>
+	<mrow> {(\sqrt[3]{t + 1})}^3 = 2^3 </mrow>
+	<mrow> t + 1 = 8 </mrow>
+	<mrow> t = 7 </mrow>
+</md>.
+Similarly, to solve the equation <me> {(t + 1)}^3 = 2 </me>,
+the first step is to <q>undo</q> the cube operation on the left by taking the cube root of both sides:
+<md>
+	<mrow> \sqrt[3]{{(t + 1})^3} = \sqrt[3]{2} </mrow>
+	<mrow> t + 1 = \sqrt[3]{2} </mrow>
+	<mrow> t = \sqrt[3]{2} - 1 </mrow>
+</md>.
+We can perform similar algebra using <m>\exp</m> and <m>\ln</m>.
+</p>
+
+<example xml:id="example-exp-solving-exp">
+	<title>Solving an equation involving the natural exponential function</title>
+	<p>
+	To solve the equation <me> e^{t + 1} = 2 </me>,
+	we first <q>undo</q> the exponential by taking the logarithm of both sides and applying
+	<xref ref="pattern-exp-ln-inverse-exp-inside-ln" text="type-local">Property</xref>
+	of <xref ref="pattern-exp-ln-inverse" />:
+	<md>
+		<mrow> \ln (e^{t + 1}) = \ln (2) </mrow>
+		<mrow> t + 1 = \ln (2) </mrow>
+		<mrow> t = \ln 2 - 1 </mrow>
+	</md>.
+	</p>
+</example>
+
+<p>
+Since every exponential is really just a horizontal transformation of the natural one,
+we can use the same technique to solve an equation involving any exponential.
+</p>
+
+<example xml:id="example-exp-solving-different-base-exp">
+	<title>Solving an equation involving an exponential function</title>
+	<p>
+	To solve the equation <me> a^{t + 1} = 2 </me>,
+	we first take the logarithm of both sides and apply <xref ref="pattern-log-power" />:
+	<md>
+		<mrow> \ln (a^{t + 1}) = \ln 2 </mrow>
+		<mrow> (t + 1) \ln a = \ln 2 </mrow>
+		<mrow> t + 1 = \frac{\ln 2}{\ln a} </mrow>
+		<mrow> t = \frac{\ln 2}{\ln a} - 1 </mrow>
+	</md>.
+	</p>
+</example>
+
+<p> Finally, an example with the roles of <m>\exp</m> and <m>\ln</m> reversed. </p>
+
+<example xml:id="example-exp-solving-ln">
+	<title>Solving an equation involving the natural logarithm function</title>
+	<p>
+	To solve the equation <me> \ln (t + 1) = 2 </me>,
+	we first <q>undo</q> the logarithm by taking the natural exponential of both sides and applying
+	<xref ref="pattern-exp-ln-inverse-ln-inside-exp" text="type-local">Property</xref>
+	of <xref ref="pattern-exp-ln-inverse" />:
+	<md>
+		<mrow> e^{\ln (t + 1)} = e^2 </mrow>
+		<mrow> t + 1 = e^2 </mrow>
+		<mrow> t = e^2 - 1 </mrow>
+	</md>.
+	</p>
+</example>
+
+</subsection>
+
+</section>
+
+<section xml:id="section-exp-more-props">
+<title>More properties of exponential functions</title>
+
+<p>
+Now that we have established the <q>reflection</q> relationship between the natural exponential and logarithm functions,
+we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to obtain further properties of exponential functions.
+</p>
+
+<identity xml:id="pattern-exp-sum">
+	<title>Exponential of a sum</title>
+
+	<statement><p>
+		For positive base <m>a</m>,
+		we have <me> a^{u + v} = a^u a^v </me>.
+		In other words, <em>the exponential of a sum is the product of the exponentials</em>.
+	</p></statement>
+
+	<proof><p>
+		From <xref ref="pattern-exp-shift-to-natural" />,
+		we have
+		<me> a^{u + v} = e^{(u + v) \ln a} </me>.
+		From <xref ref="pattern-exp-computing-via-ln" />,
+		<m> z = e^{(u + v) \ln a} </m> should be the unique value so that <m>\ln z = (u + v) \ln a</m>.
+		Let's check whether applying the natural logarithm to <m>a^u a^v</m> evaluates to the same result.
+		Using the properties of the natural logarithm,
+		we have
+		<md>
+			<mrow> \ln (a^u a^v) \amp = \ln (a^u) + \ln (a^v) </mrow>
+			<mrow> \amp = u \ln a + v \ln a </mrow>
+			<mrow> \amp = (u + v) \ln a </mrow>
+		</md>,
+		as desired.
+	</p></proof>
+
+</identity>
+
+<remark><p>
+	Comparing <xref ref="pattern-exp-sum" /> with <xref ref="pattern-log-product" />,
+	the patterns are
+	<blockquote><p>the exponential of a sum is the product of the exponentials</p></blockquote>
+	versus
+	<blockquote><p>the logarithm of a product is the sum of the logarithms.</p></blockquote>
+	The <q>reflection</q> here is the interchanging of the words <em>sum</em> and <em>product</em>.
+	See if you can see the <q>reflection</q> in each of the next two properties,
+	compared to the corresponding property in <xref ref="section-log-props" />.
+	Also see if you can provide a justification for each of these two properties in the same manner as the justification for <xref ref="pattern-exp-shift-to-natural" />.
+</p></remark>
+
+<identity xml:id="pattern-exp-negative">
+	<title>Exponential of a negative</title>
+	<p>
+	For positive base <m>a</m>,
+	we have <me> a^{- u} = \frac{1}{a^u} </me>.
+	In other words, <em>the exponential of a negative is the reciprocal of the exponential</em>.
+	</p>
+</identity>
+
+<identity xml:id="pattern-exp-diff">
+	<title>Exponential of a difference</title>
+	<p>
+	For positive base <m>a</m>,
+	we have <me> a^{u - v} = \frac{a^u}{a^v} </me>.
+	In other words, <em>the exponential of a difference is the quotient of the exponentials</em>.
+	</p>
+</identity>
+
+<p> Here is another algebraic property that doesn't have a corresponding <q>reflected</q> property in <xref ref="section-log-props" />. </p>
+
+<identity xml:id="pattern-exp-exp">
+	<title>Composing exponentials</title>
+
+	<statement><p>
+		For positive base <m>a</m>,
+		we have <me> {(a^u)}^v = a^{u v} </me>.
+	</p></statement>
+
+	<proof><p>
+		From <xref ref="pattern-exp-shift-to-natural" />,
+		we have
+		<md> <mrow> {(a^u)}^v \amp = e^{v \ln (a^u)} \amp a^{u v} \amp = e^{(u v) \ln a} </mrow> </md>.
+		But from <xref ref="pattern-log-power" /> we have <me> \ln (a^u) = u \ln a </me>,
+		so the two exponential expressions above are indeed the same.
+	</p></proof>
+
+</identity>
+
+<note><p>
+	<xref ref="pattern-exp-limits" /> could also be considered a <q>reflection</q> of the corresponding logarithmic pattern
+	<xref ref="pattern-log-limits" />.
+	When we reflect in the line <m>y = t</m>,
+	we reflect the horizontal axis onto the vertical axis,
+	and vice versa.
+	So inputs become outputs and outputs become inputs.
+	If we view the pattern
+	<me> t \to 0^+ \qquad \implies \qquad \ln t \to -\infty </me>
+	from <xref ref="pattern-log-limits" /> as
+	<me> \text{input} \to 0^+ \qquad \text{then} \qquad \text{output} \to -\infty </me>,
+	then the <q>reflected</q> pattern for the exponential function is
+	<me> \text{output} \to 0^+ \qquad \\text{when} \qquad \text{input} \to -\infty </me>,
+	so that
+	<me> t \to -\infty \qquad \implies \qquad \exp t \to 0^+ </me>,
+	meaning that the exponential graph heads towards <m>0</m> from above as the input goes off to the left.
+</p></note>
+
+</section>
+
+<section xml:id="section-exp-rate">
+<title>Exponential rate</title>
+
+<p>
+Suppose we have an exponential rate function, <m>r(t) = e^t</m>.
+This means that the rate of variation of some quantity is experiencing exponential growth,
+similar to the <em>rate doubles every year</em> pattern in <xref ref="example-exp-doubling-rate" />.
+Let's see what kind of accumulation values we get for
+<me> A_0(t) = \ccmint{0}{t}{e^u}{u} </me>.
+In the Sage cell below, try different values for the variable upper bound <c>t</c> and look for the pattern.
+</p>
+
+<sage>
+	<input>
+		var('u')
+		t = 1
+		integrate(e^u,u,0,t)
+	</input>
+	<output>e - 1</output>
+</sage>
+
+<p>
+So it appears that an exponential rate of variation leads to exponential accumulation.
+The extra <q>minus one</q> is essentially a correction for the fact that an exponential function has initial value <m>e^0 = 1</m>,
+whereas accumulation should always be zero if no time has elapsed.
+</p>
+
+<p>
+In the case that the exponential rate function has a different base,
+we need a correction factor,
+similar to <xref ref="pattern-poly-int-power" />.
+</p>
+
+<identity xml:id="pattern-exp-integral">
+	<title>Integral of an exponential function</title>
+	<p>
+	For rate function <m>r(t) = a^t</m>
+	(with positive base <m>a</m>),
+	we have <me> \ccmint{0}{t}{a^u}{u} = \frac{a^t}{\ln a} - 1 </me>.
+	A quantity experiencing an exponential rate of variation can itself be modelled by an exponential function
+	<me> q(t) = \frac{a^t}{\ln a} + (q_0 - 1) </me>,
+	where <m>q_0 = q(0)</m> is the initial amount.
+	</p>
+</identity>
+
+<note><p>
+	If we have <m>a = e</m>,
+	then <m>\ln a = 1</m> and the integral in <xref ref="pattern-exp-integral" /> matches tha pattern from the Sage calculation above.
+</p></note>
+
+<figure xml:id="figure-exp-integral">
+	<caption> Area under the natural exponential function is measured by the natural exponential function. </caption>
+	<image width="75%">
+		<description> Graph demonstrating that the area under the natural exponential function is measured by the natural exponential function. </description>
+		<latex-image><xi:include href="exp.d/natural-integral.tex" parse="text" /></latex-image>
+	</image>
+</figure>
 
 </section>
 
