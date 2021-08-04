@@ -506,7 +506,7 @@ Graphically,
 		<unit base="meter" prefix="kilo" />
 		<per  base="hour" />
 	</quantity>
-	to reach your final destination.
+	to reach the final destination.
 	</p>
 
 	<p> With this model, our rate function is stepped. </p>
