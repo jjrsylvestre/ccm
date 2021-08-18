@@ -12,53 +12,59 @@
 %
 % *********************************************************************
 
-\newcommand*{\xmin}{0.5}
-\newcommand*{\xmax}{6}
-\newcommand*{\ymin}{-2.5}
-\newcommand*{\ymax}{5}
-\newcommand*{\func}{\x * \x * \x - 9 * \x * \x + 23 * \x - 14}
+\newcommand*{\xmin}{-5}
+\newcommand*{\xmax}{25}
+\newcommand*{\ymin}{-5}
+\newcommand*{\ymax}{55}
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
 	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	xscale=1.33,
-	yscale=0.66
+	xscale=0.35,
+	yscale=0.1
 ]
 
-	\fill[blue!40!white]
-	  (1.5,0) -- (1.5,3.625)
-	  plot[domain=1.5:3.254, smooth] (\x,{\func})
-	  -- (1.5,0)
-	;
-	\fill[red!40!white]
-	  plot[domain=3.254:4.861, smooth] (\x,{\func})
-	  -- (3.254,0)
-	;
-	\fill[blue!40!white]
-	  plot[domain=4.861:5.35, smooth] (\x,{\func})
-	  -- (5.35,0) -- (4.861,0)
-	;
-
 	% grid
-	\foreach \x in {0.5,1,1.5,...,6} {
+	\foreach \x in {\xmin,0,5,...,\xmax} {
 		\draw[very thin,gray] (\x,\ymin) -- (\x,\ymax);
 	}
-	\foreach \y in {-2.5,-2,-1.5,...,5} {
+	\foreach \y in {\ymin,0,5,...,\ymax} {
 		\draw[very thin,gray] (\xmin,\y) -- (\xmax,\y);
 	}
 
-	\node[below] at (1.5,0) {$a$};
-	\node[blue] at (2.25,1.5) {$A_1$};
-	\node[red] at (4.2,-0.75) {$A_2$};
-	\node[below] at (5.35,0) {$b$};
-	\node[blue] at (5.15,0.7) {$A_3$};
+	% label grid
+	\foreach \x in {5} {
+		\node[below] at (\x,0) {$\x$};
+	}
+	\foreach \y in {5} {
+		\node[left] at (0,\y) {$\y$};
+	}
 
 	% axes
-	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[above left] {$t$};
-	\draw[->,thick] (0.5,\ymin) -- (0.5,\ymax) node[below right] {$r(t)$};
+	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[above right] {s};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[above right] {L};
 
-	% example graph
-	\draw[thick, green!33!black, domain=0.655:5.385, smooth] plot (\x,{\func});
+	\draw[blue,very thick]
+	  (\xmin, 50)
+	  -- (0, 50)
+	  cos (0.1,45)
+	  sin (0.2,40)
+	  -- (5,40)
+	  cos (5.1,35)
+	  sin (5.2,30)
+	  -- (10,30)
+	  cos (10.1,25)
+	  sin (10.2,20)
+	  -- (15,20)
+	  cos (15.1,15)
+	  sin (15.2,10)
+	  -- (20,10)
+	  cos (20.1,5)
+	  sin (20.2,0)
+	  -- (24.8,0)
+	;
+
+	\node[blue,thick] at (17.5,7.5) {$q(t)$};
 
 \end{tikzpicture}

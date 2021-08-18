@@ -45,7 +45,7 @@ which can be considered a degree-0 polynomial.
 	If the object is dropped with initial velocity
 	<quantity>
 		<mag>0</mag>
-		<unit base="meter" />
+		<unit base="metre" />
 		<per  base="second" />
 	</quantity>,
 	then we can use <xref ref="pattern-integ-definite-props-constant" text="type-local">Property</xref>
@@ -117,7 +117,8 @@ which can be considered a degree-0 polynomial.
 	</figure>
 
 	<p>
-	Using the formula for area of a triangle,
+	The triangle in <xref ref="figure-poly-linear-accumulation-from-area" /> has height <m>v(t)</m> and base length <m>t</m>.
+	So, using the formula for area of a triangle,
 	we obtain
 	<me> \ccmint{0}{t}{v(u)}{u} = \frac{v(t) \cdot t}{2} = \frac{g t^2}{2} </me>.
 	</p>
@@ -155,7 +156,7 @@ of <xref ref="pattern-integ-definite-props" /> says that
 	</p>
 </identity>
 
-<example>
+<example xml:id="example-poly-parabolic-motion">
 	<title>Parabolic motion</title>
 
 	<p>

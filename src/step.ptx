@@ -33,7 +33,7 @@ respective owners.
 			low
 			(<quantity>
 				<mag>0.25</mag>
-				<unit base="meter" exp="3"/>
+				<unit base="metre" exp="3"/>
 				<per  base="minute" />
 			</quantity>)
 		</li>
@@ -42,7 +42,7 @@ respective owners.
 			medium
 			(<quantity>
 				<mag>0.5</mag>
-				<unit base="meter" exp="3"/>
+				<unit base="metre" exp="3"/>
 				<per  base="minute" />
 			</quantity>)
 		</li>
@@ -51,7 +51,7 @@ respective owners.
 			high
 			(<quantity>
 				<mag>0.75</mag>
-				<unit base="meter" exp="3"/>
+				<unit base="metre" exp="3"/>
 				<per  base="minute" />
 			</quantity>).
 		</li>
@@ -204,7 +204,7 @@ so we can still apply the above formula on each of those subdomains and then tot
 	pumping air at a rate of
 	<quantity>
 		<mag>0.5</mag>
-		<unit base="meter" exp="3"/>
+		<unit base="metre" exp="3"/>
 		<per  base="minute" />
 	</quantity>
 	for one minute accumulates
@@ -479,7 +479,7 @@ Graphically,
 	at the posted Camrose city speed limit of
 	<quantity>
 		<mag>50</mag>
-		<unit base="meter" prefix="kilo" />
+		<unit base="metre" prefix="kilo" />
 		<per  base="hour" />
 	</quantity>
 	to get out onto the highway,
@@ -491,7 +491,7 @@ Graphically,
 	at the posted highway speed limit of
 	<quantity>
 		<mag>100</mag>
-		<unit base="meter" prefix="kilo" />
+		<unit base="metre" prefix="kilo" />
 		<per  base="hour" />
 	</quantity>
 	to reach Wetaskiwin,
@@ -503,7 +503,7 @@ Graphically,
 	at the posted Wetaskiwin city speed limit of
 	<quantity>
 		<mag>50</mag>
-		<unit base="meter" prefix="kilo" />
+		<unit base="metre" prefix="kilo" />
 		<per  base="hour" />
 	</quantity>
 	to reach the final destination.
@@ -559,14 +559,14 @@ Graphically,
 	Moreover, it is unlikely the car was travelling at <em>exactly</em>
 	<quantity>
 		<mag>50</mag>
-		<unit base="meter" prefix="kilo" />
+		<unit base="metre" prefix="kilo" />
 		<per  base="hour" />
 	</quantity>
 	during the city portions of the trip,
 	or at <em>exactly</em>
 	<quantity>
 		<mag>100</mag>
-		<unit base="meter" prefix="kilo" />
+		<unit base="metre" prefix="kilo" />
 		<per  base="hour" />
 	</quantity>
 	during the highway portion <mdash />
@@ -609,7 +609,7 @@ Graphically,
 	a previously patched leak begins leaking again at a rate of
 	<quantity>
 		<mag>0.2</mag>
-		<unit base="meter" exp="3"/>
+		<unit base="metre" exp="3"/>
 		<per  base="minute" />
 	</quantity>,
 	and three minutes pass before you notice, quickly slap a piece of tape over the leak,
@@ -667,7 +667,7 @@ and so we should interpret the rate of air leakage as a <em>negative</em> rate o
 The static period between the initial inflation and the start of the leakage could also be interpreted as a period with rate
 <quantity>
 	<mag>0</mag>
-	<unit base="meter" exp="3"/>
+	<unit base="metre" exp="3"/>
 	<per  base="minute" />
 </quantity>.
 <md>
@@ -1058,10 +1058,10 @@ the sum is called a <term>Riemann sum</term>.
 			h_n \amp t_{n - 1} \le t \lt t_n
 		\end{cases}
 	</me>.
-	If we write <m>\Delta t_k</m> to represent the length of the subdomain <m>t_{k - 1} \le t \lt t_k</m> so that
-	<me> \Delta t_k = t_k - t_{k - 1} </me>,
+	If we write <m>\change{t_k}</m> to represent the length of the subdomain <m>t_{k - 1} \le t \lt t_k</m> so that
+	<me> \change{t_k} = t_k - t_{k - 1} </me>,
 	then the sum of (oriented) rectangle areas
-	<me> \sum_{k = 1}^{n} h_k \Delta t_k </me>
+	<me> \sum_{k = 1}^{n} h_k \change{t_k} </me>
 	is called the <term>Riemann sum</term> for <m>s(t)</m> over the domain <m>t_0 \le t \le t_n</m>.
 	</p>
 </definition>
@@ -1095,18 +1095,18 @@ the sum is called a <term>Riemann sum</term>.
 	<p>
 	The subdomain lengths are as follows.
 	<md>
-		<mrow> \Delta t_1 \amp = t_1 - t_0 = 1 </mrow>
-		<mrow> \Delta t_2 \amp = t_2 - t_1 = 2 </mrow>
-		<mrow> \Delta t_3 \amp = t_3 - t_2 = 1 </mrow>
-		<mrow> \Delta t_4 \amp = t_4 - t_3 = 1 </mrow>
-		<mrow> \Delta t_5 \amp = t_5 - t_4 = 3 </mrow>
-		<mrow> \Delta t_6 \amp = t_6 - t_5 = 2 </mrow>
+		<mrow> \change{t_1} \amp = t_1 - t_0 = 1 </mrow>
+		<mrow> \change{t_2} \amp = t_2 - t_1 = 2 </mrow>
+		<mrow> \change{t_3} \amp = t_3 - t_2 = 1 </mrow>
+		<mrow> \change{t_4} \amp = t_4 - t_3 = 1 </mrow>
+		<mrow> \change{t_5} \amp = t_5 - t_4 = 3 </mrow>
+		<mrow> \change{t_6} \amp = t_6 - t_5 = 2 </mrow>
 	</md>
 	Then our Riemann sum is
 	<md>
 		<mrow>
-			\sum_{k = 1}^{6} h_k \Delta t_k
-			\amp = h_1 \Delta t_1 + h_2 \Delta t_2 + h_3 \Delta t_3 + h_4 \Delta t_4 + h_5 \Delta t_5 + h_6 \Delta t_6
+			\sum_{k = 1}^{6} h_k \change{t_k}
+			\amp = h_1 \change{t_1} + h_2 \change{t_2} + h_3 \change{t_3} + h_4 \change{t_4} + h_5 \change{t_5} + h_6 \change{t_6}
 		</mrow>
 		<mrow>
 			\amp = 0.5 \cdot 1 + 0.75 \cdot 2 + 0.25 \cdot 1 + 0 \cdot 1 + (-0.2) \cdot 3 + 0.5 \cdot 2
@@ -1125,14 +1125,14 @@ the sum is called a <term>Riemann sum</term>.
 
 	<p>
 	For a regular step function, we can split the domain into subdomains of equal length,
-	so that <m>\Delta t_k</m> is the same value for each subdomain.
+	so that <m>\change{t_k}</m> is the same value for each subdomain.
 	</p>
 
 	<p>
-	Writing <m>\Delta t</m> for this common subdomain length,
+	Writing <m>\change{t}</m> for this common subdomain length,
 	if the original domain is <m>a \le t \le b</m>
 	then the length of each subdomain should be
-	<me> \Delta t = \frac{b - a}{n} </me>,
+	<me> \change{t} = \frac{b - a}{n} </me>,
 	where <m>n</m> is the number of subdomains.
 	</p>
 
@@ -1140,9 +1140,9 @@ the sum is called a <term>Riemann sum</term>.
 	Furthermore, we can factor this common length out of our sum,
 	so that
 	<me>
-		\sum_{k = 1}^{n} h_k \Delta t_k
-		= \sum_{k = 1}^{n} h_k \Delta t
-		= \left(\sum_{k = 1}^{n} h_k\right) \Delta t
+		\sum_{k = 1}^{n} h_k \change{t_k}
+		= \sum_{k = 1}^{n} h_k \change{t}
+		= \left(\sum_{k = 1}^{n} h_k\right) \change{t}
 		= \left(\sum_{k = 1}^{n} h_k\right) \left( \frac{b - a}{n} \right)
 	</me>.
 	</p>
@@ -1171,11 +1171,11 @@ the sum is called a <term>Riemann sum</term>.
 	we have
 	<md>
 		<mrow>
-			\sum_{k = 1}^{10} h_k \Delta t
-			\amp = \left(\sum_{k = 1}^{10} h_k\right) \Delta t
+			\sum_{k = 1}^{10} h_k \change{t}
+			\amp = \left(\sum_{k = 1}^{10} h_k\right) \change{t}
 		</mrow>
 		<mrow>
-			\amp = (h_1 + h_2 + h_3 + h_4 + h_5 + h_6 + h_7 + h_8 + h_9 + h_{10}) \Delta t
+			\amp = (h_1 + h_2 + h_3 + h_4 + h_5 + h_6 + h_7 + h_8 + h_9 + h_{10}) \change{t}
 		</mrow>
 		<mrow>
 			\amp = (0.5 + 0.75 + 0.75 + 0.25 + 0 + (-0.2) + (-0.2) + (-0.2) + 0.5 + 0.5) \cdot 1

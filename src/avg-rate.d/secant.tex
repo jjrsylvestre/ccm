@@ -16,7 +16,7 @@
 \newcommand*{\xmax}{6}
 \newcommand*{\ymin}{-2.5}
 \newcommand*{\ymax}{5}
-\newcommand*{\func}{\x * \x * \x - 9 * \x * \x + 23 * \x - 14}
+\newcommand*{\func}{\x * \x * \x * \x / 4 - 3 * \x * \x * \x + 23 * \x * \x / 2 - 14 * \x + 3}
 
 \begin{tikzpicture}
 [
@@ -26,20 +26,6 @@
 	yscale=0.66
 ]
 
-	\fill[blue!40!white]
-	  (1.5,0) -- (1.5,3.625)
-	  plot[domain=1.5:3.254, smooth] (\x,{\func})
-	  -- (1.5,0)
-	;
-	\fill[red!40!white]
-	  plot[domain=3.254:4.861, smooth] (\x,{\func})
-	  -- (3.254,0)
-	;
-	\fill[blue!40!white]
-	  plot[domain=4.861:5.35, smooth] (\x,{\func})
-	  -- (5.35,0) -- (4.861,0)
-	;
-
 	% grid
 	\foreach \x in {0.5,1,1.5,...,6} {
 		\draw[very thin,gray] (\x,\ymin) -- (\x,\ymax);
@@ -48,17 +34,25 @@
 		\draw[very thin,gray] (\xmin,\y) -- (\xmax,\y);
 	}
 
-	\node[below] at (1.5,0) {$a$};
-	\node[blue] at (2.25,1.5) {$A_1$};
-	\node[red] at (4.2,-0.75) {$A_2$};
-	\node[below] at (5.35,0) {$b$};
-	\node[blue] at (5.15,0.7) {$A_3$};
+	% example graph
+	\draw[thick, blue, domain=0.5:5.685, smooth, thick] plot (\x,{\func});
 
 	% axes
-	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[above left] {$t$};
-	\draw[->,thick] (0.5,\ymin) -- (0.5,\ymax) node[below right] {$r(t)$};
+	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below left] {$t$};
+	\draw[->,thick] (0.5,\ymin) -- (0.5,\ymax) node[below right] {$q(t)$};
 
-	% example graph
-	\draw[thick, green!33!black, domain=0.655:5.385, smooth] plot (\x,{\func});
+	\node[closedpt, green!33!black] at (1.5,-0.984) (start) {};
+	\node[closedpt, green!33!black] at (5.35,2.68) (end) {};
+
+	\draw[green!33!black, thick] (start) -- node[above,sloped,rotate=-17] {$\scriptstyle \avg{r} \; = \; \mathrm{slope}$} (end);
+	\draw[dashed,thin] (end) -- (5.35,0);
+
+	\node[below] at (1.5,0) {$t_0$};
+	\node[below] at (5.35,0) (t1) {$t_1$};
+
+	\draw[dashed] (start) -- (5.35, -0.984) -- (t1);
+
+	\draw[green!33!black,<->] (1.5,-1.25) -- node[below] {$\change{t}$} (5.35,-1.25);
+	\draw[green!33!black,<->] (5.55,2.68) -- node[right] {$\change{q}$} (5.55,-0.984);
 
 \end{tikzpicture}

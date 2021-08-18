@@ -48,7 +48,7 @@ respective owners.
 
 	<!-- renamings -->
 	<rename element="identity">Pattern</rename>
-	<rename element="insight">Principal</rename>
+	<rename element="insight">Principle</rename>
 	<rename element="algorithm">Procedure</rename>
 	<rename element="proof">Justification</rename>
 	<!-- <rename element="hypothesis">Idea</rename> -->

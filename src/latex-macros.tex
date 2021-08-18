@@ -23,3 +23,19 @@
 \newcommand{\ccmiint}[2]{\ccmint{}{}{#1}{#2}}% spaced out indefinite integral
 % \newcommand{\ccmdblint}[3]{\iint_{#1} #2 \intspace d{#3}}% spaced out double integral
 % \newcommand{\ccmtrpint}[3]{\iiint_{#1} #2 \intspace d{#3}}% spaced out triple integral
+
+\newcommand{\avg}[1]{{#1}_{\mathrm{avg}}}
+
+\newcommand{\bbrac}[1]{\bigl(#1\bigr)}% slightly larger enclosing brackets
+
+\newcommand{\change}[1]{\Delta #1}
+\newcommand{\slope}[2]{{ \change{#1} \over \change{#2} }}
+
+\newcommand{\dd}[2]{\frac{d{#1}}{d#2}}% Leibniz derivative
+\newcommand{\ddx}[1][x]{\dd{}{#1}}% Leibniz differential operator
+\newcommand{\ddt}[1][t]{\dd{}{#1}}% Leibniz differential operator
+\newcommand{\dydx}{\dd{y}{x}}% Leibniz derivative, filled in
+\newcommand{\dxdt}{\dd{x}{t}}% Leibniz derivative, filled in
+\newcommand{\dydt}{\dd{y}{t}}% Leibniz derivative, filled in
+
+\newcommand{\funceval}[2]{\left.#1\right\rvert_{#2}}

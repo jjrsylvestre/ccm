@@ -20,7 +20,7 @@ respective owners.
 <section xml:id="section-integ-approx">
 <title>Approximating accumulation using step functions</title>
 
-<subsection>
+<subsection xml:id="subsection-integ-simplifying-models">
 <title>Simplifying models</title>
 
 <p>
@@ -136,7 +136,7 @@ because they are used to <q>sample</q> the value of the rate function on that su
 		<li>
 			Split the domain into non-overlapping subdomains <m>t_{k-1} \le t \lt t_k</m>.
 			If a <xref ref="definition-step-regular-function" text="title" /> is to be used,
-			each subdomain should have length <me> \Delta t = \frac{b - a}{n} </me>,
+			each subdomain should have length <me> \change{t} = \frac{b - a}{n} </me>,
 			where <m>n</m> is the number of subdomains to be created.
 		</li>
 		<li>
@@ -158,7 +158,7 @@ because they are used to <q>sample</q> the value of the rate function on that su
 		</li>
 		<li>
 			Compute the Riemann sum
-			<me> \sum_{k = 1}^{n} h_k \Delta t_k = \sum_{k = 1}^{n} r(t_k^\ast) \Delta t_k </me>.
+			<me> \sum_{k = 1}^{n} h_k \change{t_k} = \sum_{k = 1}^{n} r(t_k^\ast) \change{t_k} </me>.
 		</li>
 	</ol>
 	</p>
@@ -213,7 +213,7 @@ this can be done systematically in a number of different ways.
 	Suppose we would like to use a <m>3</m>-step regular step function as a simplified rate model.
 	As described in <xref ref="pattern-step-regular-riemann" />,
 	the duration of each value in this step function should be
-	<me> \Delta t = \frac{7 - 1}{3} = 2 </me>.
+	<me> \change{t} = \frac{7 - 1}{3} = 2 </me>.
 	Our subdomain boundaries are
 	<md><mrow> t_0 \amp = 1 \amp t_1 \amp = 3 \amp t_2 \amp = 5 \amp t_3 \amp = 7 </mrow></md>
 	and we choose our sample points to be the left endpoints
@@ -237,12 +237,12 @@ this can be done systematically in a number of different ways.
 	<p>
 	Calculating our left Riemann sum is the same as adding up the (oriented) areas of the rectangles in <xref ref="figure-integ-left-riemann" />:
 	<me>
-		\sum_{k = 1}^{3} h_k \Delta t
+		\sum_{k = 1}^{3} h_k \change{t}
 		= 14 \cdot 2 + 14 \cdot 2 + 6 \cdot 2
 		= 68
 	</me>.
 	(Of course, we could have used <xref ref="pattern-step-regular-riemann" /> again,
-	factored out the common <m>\Delta t</m>.)
+	factored out the common <m>\change{t}</m>.)
 	</p>
 
 </example>
@@ -265,7 +265,7 @@ this can be done systematically in a number of different ways.
 	<p>
 	Consider again the rate function <me> r(t) = -t^2 + 4 t + 11 </me> over domain <m>1 \le t \le 7</m>.
 	Again we will a <m>3</m>-step regular step function as a simplified rate model,
-	so the duration of each value in this step function will be <m> \Delta t = 2 </m> as before,
+	so the duration of each value in this step function will be <m> \change{t} = 2 </m> as before,
 	and our subdomain boundaries will be the same as from <xref ref="example-integ-left-riemann" />.
 	We choose our sample points to be right endpoints of these subdomains:
 	<md><mrow> t_1^\ast \amp = t_1 = 3 \amp t_2^\ast \amp = t_2 = 5 \amp t_3^\ast \amp = t_3 = 7 </mrow></md>.
@@ -294,7 +294,7 @@ this can be done systematically in a number of different ways.
 	<p>
 	Calculating our right Riemann sum is the same as adding up the (oriented) areas of the rectangles in <xref ref="figure-integ-right-riemann" />:
 	<me>
-		\sum_{k = 1}^{3} h_k \Delta t
+		\sum_{k = 1}^{3} h_k \change{t}
 		= 14 \cdot 2 + 6 \cdot 2 + (-10) \cdot 2
 		= 20
 	</me>.
@@ -319,7 +319,7 @@ this can be done systematically in a number of different ways.
 	<p>
 	We will again use a <m>3</m>-step regular step function as a simplified rate model of
 	the rate function <me> r(t) = -t^2 + 4 t + 11 </me> over domain <m>1 \le t \le 7</m>.
-	Our subdomains are again all of length <m> \Delta t = 2 </m> with boundaries
+	Our subdomains are again all of length <m> \change{t} = 2 </m> with boundaries
 	<md><mrow> t_0 \amp = 1 \amp t_1 \amp = 3 \amp t_2 \amp = 5 \amp t_3 \amp = 7 </mrow></md>.
 	We choose our sample points to be the midpoints between these boundaries:
 	<md><mrow> t_1^\ast \amp = 2 \amp t_2^\ast \amp = 4 \amp t_3^\ast \amp = 6 </mrow></md>.
@@ -348,7 +348,7 @@ this can be done systematically in a number of different ways.
 	<p>
 	Calculating our midpoint Riemann sum is the same as adding up the (oriented) areas of the rectangles in <xref ref="figure-integ-midpt-riemann" />:
 	<me>
-		\sum_{k = 1}^{3} h_k \Delta t
+		\sum_{k = 1}^{3} h_k \change{t}
 		= 15 \cdot 2 + 11 \cdot 2 + (-1) \cdot 2
 		= 50
 	</me>.
@@ -399,7 +399,7 @@ this can be done systematically in a number of different ways.
 	<p>
 	Calculating our upper Riemann sum is the same as adding up the (oriented) areas of the rectangles in <xref ref="figure-integ-upper-riemann" />:
 	<me>
-		\sum_{k = 1}^{3} h_k \Delta t
+		\sum_{k = 1}^{3} h_k \change{t}
 		= 15 \cdot 2 + 14 \cdot 2 + 6 \cdot 2
 		= 70
 	</me>.
@@ -452,7 +452,7 @@ this can be done systematically in a number of different ways.
 	Also because of this coincidence, we don't need to re-calculate the Riemann sum.
 	Looking back at our right Riemann sum calculation,
 	we have
-	<me> \sum_{k = 1}^{3} h_k \Delta t = 20 </me>.
+	<me> \sum_{k = 1}^{3} h_k \change{t} = 20 </me>.
 	</p>
 
 </example>
@@ -525,7 +525,7 @@ that's what we have computers for, to compute things.
 	Let's go back to our rate function <me> r(t) = -t^2 + 4 t + 11 </me> over domain <m>1 \le t \le 7</m>,
 	but now let's compute a right Riemann sum with <m>1000</m> steps.
 	We know that each subdomain will have length
-	<me> \Delta t = \frac{7 - 1}{1000} = 0.006 </me>,
+	<me> \change{t} = \frac{7 - 1}{1000} = 0.006 </me>,
 	but we need to know the <em>pattern</em> of step-function heights to be able to enter that pattern into Sage's <c>sum</c> function.
 	Since such heights are obtained by substituting subdomain sample points into the rate function,
 	we really just need to know the pattern of right endpoints to be able to enter a right Riemann sum into Sage.
@@ -546,14 +546,14 @@ that's what we have computers for, to compute things.
 	At the second right endpoint, <m>t_2</m>, we are <em>two</em> subdomain lengths from the starting point <m>1</m>.
 	Continuing the pattern, at the <m>\nth[k]</m> right endpoint, we are <m>k</m> subdomain lengths from the starting point.
 	So a formula in the index <m>k</m> for the right endpoints is
-	<me> t_k^\ast = 1 + k \Delta t </me>,
+	<me> t_k^\ast = 1 + k \change{t} </me>,
 	and so the height of the <m>\nth[k]</m> <q>step</q> in our simplifying, stepped rate function is
-	<me> r(t_k^\ast) = r(1 + k \Delta t) </me>.
+	<me> r(t_k^\ast) = r(1 + k \change{t}) </me>.
 	</p>
 
 	<p>
 	We are now ready to enter our right Riemann sum
-	<me> \sum_{k = 1}^{1000} r(1 + k \Delta t) \Delta t = \left(\sum_{k = 1}^{1000} r(1 + k \Delta t)\right) \Delta t </me>.
+	<me> \sum_{k = 1}^{1000} r(1 + k \change{t}) \change{t} = \left(\sum_{k = 1}^{1000} r(1 + k \change{t})\right) \change{t} </me>.
 	</p>
 
 	<sage>
@@ -571,7 +571,7 @@ that's what we have computers for, to compute things.
 	<task><p>
 		What happens if you edit the above Sage code to use even more steps,
 		like <m>n = 10000</m> or <m>n = 100000</m>?
-		(Be sure to also change the <m>\Delta t = 0.006</m> value accordingly.)
+		(Be sure to also change the <m>\change{t} = 0.006</m> value accordingly.)
 	</p></task>
 	<task><p>
 		Edit the above Sage code to compute a <em>left</em> Riemann sum instead.
@@ -640,9 +640,9 @@ it turns out we can work exclusively with regular step functions.
 	<p>
 	To create a regular step function, whether for an upper or lower sum,
 	the subdomain lengths should be
-	<me> \Delta t = \frac{1 - 0}{n} = \frac{1}{n} </me>.
+	<me> \change{t} = \frac{1 - 0}{n} = \frac{1}{n} </me>.
 	Beginning at the left-most subdomain boundary, <m>t_0 = 0</m>,
-	each subsequent subdomain boundary should be <m>\Delta t</m> past the previous one:
+	each subsequent subdomain boundary should be <m>\change{t}</m> past the previous one:
 	<md>
 		<mrow> t_0 \amp = 0 </mrow>
 		<mrow> t_1 \amp = 0 + \frac{1}{n} </mrow>
@@ -667,14 +667,14 @@ it turns out we can work exclusively with regular step functions.
 	<md>
 		<mrow>
 			\text{Lower: }
-			\sum_{k=1}^{n} r(t_k^\ast) \Delta t
-			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \Delta t
+			\sum_{k=1}^{n} r(t_k^\ast) \change{t}
+			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \change{t}
 			= \left (\sum_{k=1}^{n} r\left(\frac{k - 1}{n}\right) \right) \cdot \frac{1}{n}
 		</mrow>
 		<mrow>
 			\text{Upper: }
-			\sum_{k=1}^{n} r(t_k^\ast) \Delta t
-			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \Delta t
+			\sum_{k=1}^{n} r(t_k^\ast) \change{t}
+			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \change{t}
 			= \left (\sum_{k=1}^{n} r\left(\frac{k}{n}\right) \right) \cdot \frac{1}{n}
 		</mrow>
 	</md>.
@@ -761,7 +761,7 @@ we can look to see if a number <m>A</m> that satisfies the conclusion of
 Compare the notation for a Riemann sum on the left with the notation for a definite integral on the right:
 <md>
 	<mrow>
-		\amp \sum_{k = 1}^{n} r(t_k^\ast) \Delta t_k
+		\amp \sum_{k = 1}^{n} r(t_k^\ast) \change{t_k}
 		\amp
 		\amp \ccmint{a}{b}{r(t)}{t}
 	</mrow>
@@ -774,10 +774,10 @@ The lower and upper bounds of the Riemann sum,
 <m>k = 1</m> and <m>k = n</m>,
 have been replaced with the bounds of the domain,
 <m>t = a</m> and <m>t = b</m>.
-The subdomain duration <m>\Delta t_k</m> has been replaced with <m>dt</m>,
+The subdomain duration <m>\change{t_k}</m> has been replaced with <m>dt</m>,
 which we think of as an <q>infinitesimal</q> subdomain duration.
-(The Greek letter <m>\delta</m> corresponds to the letter <em>D</em> in the English alphabet.)
-Finally, we have replaced both the <m>t_k^\ast</m> and the <m>t_k</m> in <m>\Delta t_k</m> with just a simple <m>t</m>.
+(The Greek letter <m>\Delta</m> corresponds to the letter <em>D</em> in the English alphabet.)
+Finally, we have replaced both the <m>t_k^\ast</m> and the <m>t_k</m> in <m>\change{t_k}</m> with just a simple <m>t</m>.
 </p>
 
 <p>
@@ -1204,7 +1204,7 @@ Luckily Sage can also handle this for us.
 	If someone on a cross-country road trip averages
 	<quantity>
 		<mag>90</mag>
-		<unit base="meter" prefix="kilo" />
+		<unit base="metre" prefix="kilo" />
 		<per  base="hour" />
 	</quantity>
 	over
@@ -1216,7 +1216,7 @@ Luckily Sage can also handle this for us.
 	then we can easily calculate that they travelled approximately
 	<quantity>
 		<mag>900</mag>
-		<unit base="meter" prefix="kilo" />
+		<unit base="metre" prefix="kilo" />
 	</quantity>
 	that day.
 	<em>But that doesn't tell us where in the country they were at the end of the day.</em>
@@ -1265,11 +1265,11 @@ though in practice we will not often return to <q>first principles</q> to carry 
 	so a left Riemann sum will compute the lower sum and a right Riemann sum will compute the upper sum.
 	Our analysis here is almost identical to that from <xref ref="example-integ-squeezing-lower-upper" />,
 	except that our subdomain widths are dependent on <m>z</m>:
-	<me> \Delta t = \frac{z - 0}{n} = \frac{z}{n} </me>
+	<me> \change{t} = \frac{z - 0}{n} = \frac{z}{n} </me>
 	(where we are still using <m>0</m> as the start of the time domain).
 	Just as before,
 	beginning at the left-most subdomain boundary, <m>t_0 = 0</m>,
-	each subsequent subdomain boundary should be <m>\Delta t</m> past the previous one,
+	each subsequent subdomain boundary should be <m>\change{t}</m> past the previous one,
 	so that the pattern of boundaries is
 	<me> t_k = k \cdot \frac{z}{n} </me>.
 	Recall that <m>t_0</m> is the first left-endpoint and <m>t_1</m> is the first right-endpoint.
@@ -1283,14 +1283,14 @@ though in practice we will not often return to <q>first principles</q> to carry 
 	<md>
 		<mrow>
 			\text{Lower: }
-			\sum_{k=1}^{n} r(t_k^\ast) \Delta t
-			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \Delta t
+			\sum_{k=1}^{n} r(t_k^\ast) \change{t}
+			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \change{t}
 			= \left (\sum_{k=1}^{n} r\left((k - 1) \cdot \frac{z}{n}\right) \right) \cdot \frac{z}{n}
 		</mrow>
 		<mrow>
 			\text{Upper: }
-			\sum_{k=1}^{n} r(t_k^\ast) \Delta t
-			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \Delta t
+			\sum_{k=1}^{n} r(t_k^\ast) \change{t}
+			= \left( \sum_{k=1}^{n} r(t_k^\ast) \right) \change{t}
 			= \left (\sum_{k=1}^{n} r\left(k \cdot \frac{z}{n}\right) \right) \cdot \frac{z}{n}
 		</mrow>
 	</md>.

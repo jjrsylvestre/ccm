@@ -16,12 +16,1244 @@ respective owners.
 <chapter xml:id="chapter-avg-rate" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Average and instantaneous rates</title>
 
-<section xml:id="section-avg-rate">
-<title>TODO</title>
+<!-- Average rate of accumulation. Differentials and approximate rate of accumulation. -->
 
-<p> TODO </p>
+<section xml:id="section-avg-rate-intro">
+<title>Averaging variation over an extended time period</title>
+
+<example xml:id="example-avg-rate-rainfall">
+	<title>Average rainfall</title>
+
+	<p>
+	A rainfall gauge is essentially a graduated cylinder that collects rain as it falls.
+	But instead of being marked with volume measurements,
+	it is marked with height measurements.
+	</p>
+
+	<p>
+	With rain in the forecast,
+	you decide to set out a rain gauge at 10 o'clock in the evening,
+	even though it is not currently raining.
+	You check on the rain gauge at 8 o'clock the next morning,
+	and find that it has collected an amount of water so that the gauge reads
+	<quantity><mag>4</mag><unit base="metre" prefix="milli"></unit></quantity>.
+	This measurement means that if the ground was perfectly flat and impermeable so that the rain could neither run off nor be absorbed by the ground,
+	you'd be standing in a large puddle
+	<quantity><mag>4</mag><unit base="metre" prefix="milli"></unit></quantity>
+	deep.
+	</p>
+
+	<p>
+	So the average rate of accumulation over those 10 hours was
+	<quantity><mag>0.4</mag><unit base="metre" prefix="milli" /><per base="hour" /></quantity>.
+	</p>
+
+</example>
+
+<p>
+The average rate of accumulation measurement in <xref ref="example-avg-rate-rainfall" /> does not provide any information about the intensity of the weather that produced the rain.
+Was the accumulation caused by a light drizzle for most of the night,
+or by a sudden downpour that only lasted a few minutes at some point?
+There is no way to tell because this was not observed.
+<em>Average</em> rate of accumulation replaces all the minute-to-minute or second-to-second variation in the actual rate of accumulation with a single, constant rate of accumulation,
+similarly to our use of step functions in <xref ref="chapter-step" />.
+</p>
+
+<definition xml:id="definition-avg-rate">
+	<title>Average rate of accumulation</title>
+	<p> The constant rate of accumulation that produces the same accumulation amount over a given time period. </p>
+</definition>
+
+<p>
+Calculating average rate of accumulation from a quantity model is simple <mdash />
+simply divide the accumulation amount by the time duration.
+</p>
+
+<example xml:id="example-avg-rate-speed">
+	<title>Average speed</title>
+
+	<p>
+	Consider again our Camrose-Wetaskiwin trip from <xref ref="example-step-car-trip" />,
+	also discussed in <xref ref="subsection-integ-simplifying-models" />.
+	The actual total distance travelled according to the <q>more realistic</q> rate model in <xref ref="figure-integ-camrose-wetaskiwin" /> is approximately
+	<quantity><mag>50.5</mag><unit base="metre" prefix="kilo" /></quantity>,
+	and the trip lasts a total of
+	<quantity><mag>39</mag><unit base="minute" /></quantity>,
+	for an average speed of
+	<!-- <me> \frac{50.5}{39/60} \approx <quantity><mag>77.7</mag><unit base="metre" prefix="kilo" /><per base="hour" /></quantity> </me>. -->
+	<me> \frac{50.5}{39/60} \approx 77.7 </me>
+	in kilometres per hour.
+	If it were possible to go from parked to full speed instantaneously,
+	maintain that full speed constantly over the full
+	<quantity><mag>39</mag><unit base="minute" /></quantity>,
+	and then go from full speed to parked again instantaneously at the destination,
+	then the exact same distance of
+	<quantity><mag>50.5</mag><unit base="metre" prefix="kilo" /></quantity>
+	would be traversed over such a trip.
+	In <xref ref="figure-avg-rate-camrose-wetaskiwin" />,
+	this equality of distances is represented by equality of the red and blue areas.
+	</p>
+
+	<aside><p> We take <q>average speed</q> to mean <q>average rate of accumulation of distance</q>. </p></aside>
+
+	<figure xml:id="figure-avg-rate-camrose-wetaskiwin">
+		<caption> Maintaining a constant speed at the average speed value traverses the same distance. </caption>
+		<image width="80%">
+			<description>Graph comparing accumulation as area between constant average rate and variable rate in a rate-of-travel model.</description>
+			<latex-image><xi:include href="avg-rate.d/camrose-wetaskiwin.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+We won't always use <m>t = 0</m> as the start of the time interval,
+nor will it always be the case that the initial quantity is assumed to be <m>0</m>,
+so here is a formula that takes both those possibilities into account.
+</p>
+
+<identity xml:id="pattern-avg-rate">
+	<title>Average rate of accumulation formula</title>
+	<p>
+	Given model <m>q(t)</m> representing the amount of some quantity,
+	the average rate of accumulation over the time interval <m>t_0 \le t \le t_1</m> is
+	<me> \avg{r} = \slope{q}{t} = \frac{ q(t_1) - q(t_0) }{ t_1 - t_0 } </me>.
+	</p>
+</identity>
+
+<remark><p>
+	The formula in <xref ref="pattern-avg-rate" /> is an example of what is called a <term>difference quotient</term>,
+	as it is literally a <q>quotient of two differences.</q>
+</p></remark>
+
+<p>
+We can interpret the formula in <xref ref="pattern-avg-rate" /> in words as
+<me> \text{avg rate} = \frac{\text{accumulation}}{\text{duration}} </me>,
+where <me> \text{accumulation} = (\text{final quantity}) - (\text{initial quantity}) </me>.
+</p>
+
+<example>
+	<title>Calculating average rate of accumulation from quantity</title>
+	<p>
+	You check your investment account and find a balance of <m>\$10,385.92</m>.
+	Four weeks later, you check again and find a balance of <m>\$10,593.64</m>.
+	So over that time period, your account has accumulated
+	<me> 10,593.64 - 10,385.92 = 207.72 </me>
+	dollars,
+	at an average rate of
+	<me> \frac{207.72}{4} = 51.93 </me>
+	dollars per week.
+	</p>
+</example>
+
+<example xml:id="example-avg-rate-from-quantity-model">
+	<title>Calculating average rate of accumulation from a quantity model</title>
+
+	<p>
+	Consider an object launched upward with initial velocity
+	<quantity>
+		<mag>30</mag>
+		<unit base="metre" />
+		<per base="second" />
+	</quantity>,
+	from the surface of an airless planet where acceleration due to gravity is
+	<quantity>
+		<mag>10</mag>
+		<unit base="metre" />
+		<per base="second" exp="2" />
+	</quantity>.
+	According to the analysis <xref ref="example-poly-parabolic-motion" />,
+	the objects height above the surface at any time <m>t \ge 0</m> can be determined using the model
+	<me> h(t) = -5 t^2 + 30 t </me>,
+	with <m>t</m> measured in seconds.
+	(In <xref ref="example-poly-parabolic-motion" /> we used the traditional physics notation <m>s(t)</m> to represent the position function,
+	but here we will use <m>h(t)</m> in its place to avoid confusion with the use of the letter s to represent seconds as the unit of time.)
+	</p>
+
+	<p>
+	The <q>quantity</q> being measured here is <em>height above the surface</em>,
+	and we consider motion to be an accumulation (or loss) of height.
+	In this case, <q>average rate of accumulation</q> really means <q>average velocity</q>.
+	</p>
+
+	<p>
+	Suppose we would like to calculate the average velocity over the time domain <m>1 \le t \le 3</m>.
+	The endpoint heights are
+	<md>
+		<mrow>
+			h(1) \amp = -5 \cdot 1^2 + 30 \cdot 1
+			\amp
+			h(3) \amp = -5 \cdot 3^2 + 30 \cdot 3
+		</mrow>
+		<mrow>
+			\amp = 25 \text{,}
+			\amp
+			\amp = 45 \text{.}
+		</mrow>
+	</md>
+	Using <xref ref="pattern-avg-rate" />,
+	we have
+	<md>
+		<mrow> \avg{v} \amp = \slope{h}{t} </mrow>
+		<mrow> \amp = \frac{ h(3) - h(1) }{ 3 - 1 } </mrow>
+		<mrow> \amp = \frac{ 45 - 25 }{ 3 - 1 } </mrow>
+		<mrow> \amp = \frac{ 20 }{ 2 } </mrow>
+		<mrow> \amp = 10 </mrow>
+	</md>
+	metres per second.
+	</p>
+
+</example>
 
 </section>
+
+<section xml:id="section-avg-rate-graph">
+<title>Graphical interpretations of average rate of accumulation</title>
+
+<p>
+We can interpret average rate of accumulation graphically in two ways <mdash />
+on the rate graph, and on the quantity graph.
+</p>
+
+<p>
+On the rate graph,
+the interpretation is precisely just a graphical restatement of the definition
+(<xref ref="definition-avg-rate" />),
+as accumulation is equal to total (oriented) area under the rate graph
+(<xref ref="principle-integ-definite-is-area" />).
+</p>
+
+<insight xml:id="principle-avg-rate-area-on-rate-graph">
+	<title>Graphical interpretation of an average rate on the rate graph</title>
+	<p> The average rate of accumulation is the constant rate value that will create the same (oriented) area amount over the same domain. </p>
+</insight>
+
+<figure xml:id="figure-avg-rate-area-on-rate-graph">
+	<caption>
+		Interpreting accumulation as the net oriented area under the rate graph over time domain <m> t_0 \le t \le t_1 </m>,
+		the rectangle of height <m>\avg{r}</m> bounds an equivalent area over that domain,
+		so that the rectangular green area is exactly equal to the total of the blue area and the (negative) red area.
+	</caption>
+	<image width="67%">
+		<description>Interpreting an average rate graphically as bounding an equivalent area.</description>
+		<latex-image><xi:include href="avg-rate.d/bound-same-area.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+But on the quantity graph,
+the formula
+<me> \avg{r} = \slope{q}{t} = \frac{ q(t_1) - q(t_0) }{ t_1 - t_0 } </me>
+leads to a completely interpretation.
+The points <m>\bbrac{t_0, q(t_0)}</m> and <m>\bbrac{t_1, q(t_1)}</m> lie on the graph of the rate function,
+the line segment connecting them is called a <term>secant line</term> for the graph,
+and the formula for <m>\avg{r}</m> above is just the <em>rise-over-run</em> formula for the slope of that secant line.
+</p>
+
+<insight xml:id="principle-avg-rate-secant-slope-on-quantity-graph">
+	<title>Graphical interpretation of an average rate on the quantity graph</title>
+	<p> The average rate of accumulation is the slope of the secant line connecting the points on the quantity graph at the endpoints of the domain. </p>
+</insight>
+
+<figure xml:id="figure-avg-rate-slope-on-quantity-graph">
+	<caption> Average rate of accumulation as a slope on the quantity graph. </caption>
+	<image width="67%">
+		<description>Interpreting an average rate graphically as a slope of a secant line.</description>
+		<latex-image><xi:include href="avg-rate.d/secant.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<example>
+	<title>Average velocity</title>
+
+	<p>
+	Let's return to the situation of <xref ref="example-avg-rate-from-quantity-model" />.
+	We have previously plotted both position and velocity graphs for this parabolic motion in <xref ref="figure-poly-parabolic-motion" />.
+	According to <xref ref="principle-avg-rate-secant-slope-on-quantity-graph" />,
+	the average velocity of
+	<quantity>
+		<mag>10</mag>
+		<unit base="metre" />
+		<per base="second" />
+	</quantity>
+	that we calculated represents the slope of a secant line on the position graph.
+	</p>
+
+	<figure xml:id="figure-avg-rate-secant-on-height-graph">
+		<caption> An average velocity as a secant-line slope on the position graph. </caption>
+		<image width="60%">
+			<description>An average velocity as a secant-line slope on the position graph.</description>
+			<latex-image><xi:include href="avg-rate.d/parabolic-motion-secant.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	At the same time,
+	if we use the calculated <m>\avg{v}</m> as a constant velocity over the same time domain,
+	we achieve the same accumulation of height.
+	According to <xref ref="principle-avg-rate-area-on-rate-graph" />,
+	this means that the green and red areas in <xref ref="figure-avg-rate-area-on-velocity-graph" /> are the same.
+	</p>
+
+	<figure xml:id="figure-avg-rate-area-on-velocity-graph">
+		<caption> An average velocity as an <q>equivalent</q> constant velocity on the velocity graph. </caption>
+		<image width="60%">
+			<description>An average velocity as an <q>equivalent</q> constant velocity on the velocity graph.</description>
+			<latex-image><xi:include href="avg-rate.d/parabolic-motion-area.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<example>
+	<title>Average rate for a linear quantity model</title>
+
+	<p>
+	Suppose we have a linear quantity model
+	<me> q(t) = m t + q_0 </me>,
+	where <m>q_0 = q(0)</m> is the initial quantity.
+	Over any time domain <m>t_0 \le t \le t_1</m>,
+	the average rate of accumulation is
+	<md>
+		<mrow> \avg{r} \amp = \slope{q}{t} </mrow>
+		<mrow> \amp = \frac{ q(t_1) - q(t_0) }{ t_1 - t_0 } </mrow>
+		<mrow> \amp = \frac{ (m t_1 + q_0) - (m t_0 + q_0) }{ t_1 - t_0 } </mrow>
+		<mrow> \amp = \frac{ m (t_1 - t_0) }{ t_1 - t_0 } </mrow>
+		<mrow> \amp = m </mrow>
+	</md>.
+	The average rate of accumulation is the same, no matter what time domain is used,
+	and is equal to the slope of the quantity's graph,
+	so that our model could be expressed as
+	<me> q(t) = \avg{r} t + q_0 </me>.
+	</p>
+
+	<figure xml:id="figure-avg-rate-secant-on-linear">
+		<caption> A secant on a linear quantity graph is parallel to the graph. </caption>
+		<image width="60%">
+			<description> A graph depicting the fact that a secant on a linear quantity graph is parallel to the graph. </description>
+			<latex-image><xi:include href="avg-rate.d/linear-quantity.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	According to <xref ref="pattern-poly-constant-rate" />,
+	a linear quantity model arises from a constant rate model.
+	So it is not surprising that the average rate of change is always the same value for a linear quantity model <mdash />
+	the average of a constant is that constant.
+	</p>
+
+</example>
+
+</section>
+
+<section>
+<title>Approximating instantaneous rate of accumulation</title>
+
+<p>
+Observing that your rain gauge has collected
+<quantity><mag>4</mag><unit base="metre" prefix="milli" /></quantity>
+of water over
+<quantity><mag>10</mag><unit base="hour" /></quantity>
+says nothing about how intense the rainfall was at any given moment during that time.
+We'll need more data to be more specific.
+</p>
+
+<example xml:id="example-avg-rate-multi-day-car-trip">
+	<title>A multi-day road trip</title>
+
+	<p>
+	You drive from Edmonton to Toronto,
+	a total distance of approximately
+	<quantity><mag>3375</mag><unit base="metre" prefix="kilo" /></quantity>.
+	The trip takes a total of
+	<quantity><mag>35</mag><unit base="hour" /></quantity>
+	of driving time split over three days,
+	for a total-trip average speed of approximately
+	<me> \frac{3375}{35} = 96.4 </me>
+	kilometres per hour.
+	</p>
+
+	<p>
+	However, on the first day you are driving on straight, flat, Prairie highways with higher speed limits,
+	and cover
+	<quantity><mag>1305</mag><unit base="metre" prefix="kilo" /></quantity>
+	over
+	<quantity><mag>13</mag><unit base="hour" /></quantity>
+	of driving,
+	for a first-day average speed of approximately
+	<me> \frac{1305}{13} = 100.4 </me>
+	kilometres per hour.
+	</p>
+
+	<p>
+	The second day is much more of a slog through never-ending Northwestern Ontario on two-lane highways with lower speed limits,
+	through hilly terrain with lots of transport trucks and camper-trailers but few opportunities to pass.
+	You cover
+	<quantity><mag>1385</mag><unit base="metre" prefix="kilo" /></quantity>,
+	but it takes you
+	<quantity><mag>15</mag><unit base="hour" /></quantity>
+	of driving,
+	for a second-day average speed of approximately
+	<me> \frac{1385}{15} = 92.3 </me>
+	kilometres per hour.
+	</p>
+
+	<p>
+	The final stretch is better <mdash />
+	still a lot of hilly terrain until you get into Southern Ontario,
+	but many more stretches of divided highway with two lanes in each direction and higher speed limits.
+	The last
+	<quantity><mag>685</mag><unit base="metre" prefix="kilo" /></quantity>
+	takes you
+	<quantity><mag>7</mag><unit base="hour" /></quantity>,
+	for a final-day average speed of approximately
+	<me> \frac{685}{7} = 97.9 </me>
+	kilometres per hour.
+	</p>
+
+</example>
+
+<p>
+<xref ref="example-avg-rate-multi-day-car-trip" />
+demonstrates that we can be more precise about rate behaviour by <q>zooming in</q> from <q>global</q> data to more <q>local</q> data.
+In <xref ref="example-avg-rate-multi-day-car-trip" />,
+this <q>zooming in</q> is from whole-trip to day-by-day.
+We start to see patterns of variation in the rate of accumulation if we consider shorter time durations.
+What if we take this idea further?
+</p>
+
+<example xml:id="example-avg-rate-speedometer">
+	<title>Designing a basic speedometer</title>
+
+	<p>
+	One of your hobbies is building remote-controlled (RC) vehicles.
+	You would like your current model to wirelessly relay data to a communication app on your phone that will let you monitor its speed as close to real-time as possible.
+	A <term>tachometer</term> is a device that counts revolutions of a rotating object.
+	You install one on the rear axle of your RC vehicle,
+	and interface it to the Bluetooth module on the control board.
+	Your phone app now receives axle revolution counts every
+	<quantity><mag>100</mag><unit base="second" prefix="milli" /></quantity>.
+	(Assume that the tachometer is reasonably high-precision,
+	so that fractional revolutions are reported.)
+	How can you use this data to get an idea of the vehicle's speed?
+	</p>
+
+	<p>
+	Let <m>q(t)</m> represent the quantity of axle revolutions reported at time <m>t</m>,
+	where <m>t</m> is measured in milliseconds.
+	Then <me> \change{q} = q(t) - q(t - 100) </me>
+	represents the number of revolutions in a given
+	<quantity><mag>100</mag><unit base="second" prefix="milli" /></quantity> interval,
+	The rear wheels on the RC vehicle measure <quantity><mag>108</mag><unit base="metre" prefix="milli" /></quantity> in diameter,
+	so that the distance travelled in a <quantity><mag>100</mag><unit base="second" prefix="milli" /></quantity> interval is
+	<me> \change{s} = 108 \pi \change{q} </me>.
+	So you program the app on your phone to display the result of calculating
+	<me> \slope{s}{t} = \frac{ 108 \pi \bbrac{ q(t) - q(t - 100) } }{100} \cdot \frac{3600}{1000} </me>,
+	where
+	<ul>
+		<li> <m>q(t)</m> represents the most recent tachometer reading </li>
+		<li> <m>q(t - 100)</m> represents the previous tachometer reading </li>
+		<li> the extra factor of <m>3600 / 1000</m> is to convert from millimetres per millisecond to kilometres per hour. </li>
+	</ul>
+	</p>
+
+</example>
+
+<p>
+Both <xref ref="example-avg-rate-multi-day-car-trip" />
+and <xref ref="example-avg-rate-speedometer" />
+demonstrate the same pattern <mdash />
+we can break the time domain up into smaller subdomains of length <m>\change{t}</m> to get more precise information.
+On a short enough time domain,
+as in <xref ref="example-avg-rate-speedometer" />,
+our average rate calculations give us a pretty good idea of the actual rate.
+</p>
+
+<insight xml:id="principle-avg-rage-approximates-instant-rate">
+	<title>Average rate of accumulation over short domains approximates actual rate of accumulation</title>
+	<p>
+	In general,
+	given a quantity function <m>q(t)</m> over a time domain <m>t_0 \le t \le t_1</m> so that
+	<me> \change{t} = t_1 - t_0 </me>
+	is sufficiently small,
+	it is reasonable to approximate
+	<me> r(t) \approx \avg{r} </me>
+	for all <m>t</m> in that time domain.
+	</p>
+</insight>
+
+<remark><p>
+	The meaning of <q>sufficiently small</q> is relative to the particular quantity function <m>q(t)</m>,
+	the time domain considered,
+	and what one is willing to accept as <q>reasonable</q> in the approximation.
+</p></remark>
+
+<p>
+The reason that we need <m>\change{t}</m> to be small for the approximation to be <q>reasonable</q> is that if <m>\change{t}</m> is too long,
+we will capture information that is irrelevant to the current rate of accumulation.
+Here is an extreme example to illustrate this.
+</p>
+
+<example xml:id="example-avg-rate-bailing-tub">
+	<title>Bailing a tub by the bucket-full</title>
+
+	<p>
+	You are slowly bailing out a
+	<quantity><mag>50</mag><unit base="liter" /></quantity>
+	tub using a
+	<quantity><mag>10</mag><unit base="liter" /></quantity>
+	pail.
+	You are able to fill and empty a pail-full every
+	<quantity><mag>5</mag><unit base="second" /></quantity>.
+	(Let's assume you are able to get a full pail even when there is only
+	<quantity><mag>10</mag><unit base="liter" /></quantity>
+	left in the tub.)
+	</p>
+
+	<figure xml:id="figure-avg-rate-bailing-graph">
+		<caption> Quantity of water in tub during emptying. </caption>
+		<image width="60%">
+			<description> A graph of volume versus time for the process of bailing water out of a tub. </description>
+			<latex-image><xi:include href="avg-rate.d/tub-step.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	If we compute <m>\avg{r}</m> over the full time domain <m> 0 \le t \le 25</m>,
+	we obtain
+	<md>
+		<mrow> \avg{r} \amp = \slope{q}{t} </mrow>
+		<mrow> \amp = \frac{ q(25) - q(0) }{ 25 - 0 } </mrow>
+		<mrow> \amp = \frac{ 0 - 50 }{ 25 } </mrow>
+		<mrow> \amp = -2 </mrow>
+	</md>
+	in litres per second,
+	where we have obtained a negative result because the tub was losing water rather than accumulating water.
+	This value represents the slope of the red line segment in
+	<xref ref="figure-avg-rate-bailing-slopes" />.
+	</p>
+
+	<p>
+	But clearly the rate of accumulation (or, really, the rate of <em>loss</em>) of water in the tub is
+	<quantity><mag>0</mag><unit base="liter" /><per base="second" /></quantity>
+	at any instant between scoops with the pail.
+	That is, we expect <m>r(t) = 0</m> for every value of <m>t</m> outside of the times that the pail is being filled from the tub.
+	We can better approximate these instantaneous rate of accumulation values with an average rate of accumulation calculation over a shorter time domain,
+	so that we focus only on <q>local</q> data rather than using the entire <q>global</q> collection of data.
+	For example, over the time domain <m>6 \le t \le 9</m>,
+	we have
+	<md>
+		<mrow> \avg{r} \amp = \slope{q}{t} </mrow>
+		<mrow> \amp = \frac{ q(9) - q(6) }{ 9 - 6 } </mrow>
+		<mrow> \amp = \frac{ 30 - 30 }{ 3 } </mrow>
+		<mrow> \amp = 0 </mrow>
+	</md>.
+	This value represents the slope of the green line segment in
+	<xref ref="figure-avg-rate-bailing-slopes" />.
+	</p>
+
+	<figure xml:id="figure-avg-rate-bailing-slopes">
+		<caption> Two secant lines on the quantity graph. </caption>
+		<image width="60%">
+			<description>
+				A graph of volume versus time for the process of bailing water out of a tub,
+				including two secant lines.
+			</description>
+			<latex-image><xi:include href="avg-rate.d/tub-slopes.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<insight xml:id="principle-avg-rage-shorter-duration">
+	<title>Shorter time domain yields better approximation</title>
+	<p>
+	In general,
+	given a quantity function <m>q(t)</m>,
+	an average rate calculation over a shorter time domain will yield a better approximation of the actual rate of change,
+	compared to an average rate calculation over a longer time domain.
+	</p>
+</insight>
+
+<remark><p><ul>
+	<li>
+		Compare <xref ref="principle-avg-rage-shorter-duration" />
+		with <xref ref="principle-integ-riemann-more-steps" /> <mdash />
+		both involve obtaining a better approximation by using smaller values of <m>\change{t}</m>.
+	</li>
+	<li>
+		It is possible to come up with <q>wild</q> examples where <xref ref="principle-avg-rage-shorter-duration" /> does not hold,
+		which is why we have the proviso <q>In general.</q>
+	</li>
+</ul></p></remark>
+
+</section>
+
+<section>
+<title>Calculating instantaneous rate of accumulation</title>
+
+<p>
+Suppose we have a quantity model <m>q(t)</m> and we want to calculate a specific rate value <m>r(t^\ast)</m> exactly.
+Just as we computed exact accumulation values from approximations of (hopefully) increasing accuracy,
+we take the same approach here.
+But to see a pattern of increasing accuracy in a collection of approximations,
+we need a more systematic approach than just <q>compute <m>\avg{r}</m> over a short time domain containing <m>t^\ast</m>.</q>
+Here are three such approaches.
+</p>
+
+<aside><title>Notation</title><p>
+	Here <m>t^\ast</m> does not indicate a <q>sample point</q> in a Riemann sum <mdash />
+	instead the asterisk just marks this <m>t</m> value as of <q>special</q> interest.
+</p></aside>
+
+<definition xml:id="definition-avg-rate-three-standard-approximations">
+	<title>Three standard difference approximations to rate</title>
+
+	<p>
+	Assume a small value of <m>\change{t}</m> has been chosen
+
+	<ul>
+
+		<li>
+			<title>Forward difference approximation at <m>t^\ast</m></title>
+			<p>
+			The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast \le t \le t^\ast + \change{t} </me>,
+			so that <me> r(t^\ast) \approx \frac{ q(t^\ast + \change{t}) - q(t^\ast) }{ \change{t} } </me>.
+			</p>
+		</li>
+
+		<li>
+			<title>Backward difference approximation at <m>t^\ast</m></title>
+			<p>
+			The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast - \change{t} \le t \le t^\ast </me>,
+			so that <me> r(t^\ast) \approx \frac{ q(t^\ast) - q(t^\ast - \change{t}) }{ \change{t} } </me>.
+			</p>
+		</li>
+
+		<li>
+			<title>Central difference approximation at <m>t^\ast</m></title>
+			<p>
+			The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast - c \le t \le t^\ast + c </me> for
+			<me> c = {\change{t} \over 2} </me>,
+			so that <me> r(t^\ast) \approx \frac{ q(t^\ast + c) - q(t^\ast - c) }{ \change{t} } </me>.
+			</p>
+		</li>
+
+	</ul>
+
+	</p>
+
+</definition>
+
+<figure xml:id="figure-avg-rate-forward-backward-central">
+	<caption>
+		Secant lines whose slopes represent the forward (green), backward (red), and central (blue) approximations to rate.
+	</caption>
+	<image width="67%">
+		<description>Secant lines on a graph whose slopes represent the forward, backward, and central approximations to rate.</description>
+		<latex-image><xi:include href="avg-rate.d/forward-backward-central.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<remark><p><ul>
+
+	<li>
+		Since <me> \frac{ q(t^\ast) - q(t^\ast - \change{t}) }{ \change{t} } = \frac{ q(t^\ast - \change{t}) - q(t^\ast) }{ - \change{t} } </me>,
+		the forward and backward approximations can be unified into one by using the formula for the forward difference approximation but allowing <m>\change{t}</m> to be chosen as either a positive or negative value.
+	</li>
+
+	<li>
+		The central difference formula could also be written as
+		<me> \frac{ q(t^\ast + c) - q(t^\ast - c) }{ 2 c } </me>.
+	</li>
+
+</ul></p></remark>
+
+<p>
+Just as we took the number of rectangles <m>n</m> to be larger and larger in upper and lower sum approximations to accumulation and looked for a pattern,
+here we want to take <m>\change{t}</m> to be smaller and smaller and look for a pattern in the above approximations.
+</p>
+
+<example xml:id="example-avg-rate-cubic-instant-rate">
+	<title>Instantaneous rate for a cubic quantity model</title>
+
+	<p>
+	Suppose we have quantity model <m>q(t) = t^3</m>.
+	Let's use Sage to calculate average-rate approximations to the actual rate <m>r(t^\ast)</m> for <m>t^\ast = 2</m>.
+	Since Sage doesn't like Greek letters very much,
+	we'll write <c>dt</c> in place of <m>\change{t}</m>.
+	We'll also write <c>u</c> in place of <m>t^\ast</m>.
+	</p>
+
+	<sage>
+
+		<input>
+			var('t,u')
+			q(t) = t^3
+			u = 2
+			dt = 0.5
+			forward = ( q(u + dt) - q(u) ) / dt
+			backward = ( q(u) - q(u - dt) ) / dt
+			central = ( q(u + dt / 2) - q(u - dt / 2) ) / dt
+			print("forward  =", forward)
+			print("backward =", backward)
+			print("central  =", central)
+		</input>
+
+		<output>
+			forward  = 15.2500000000000
+			backward = 9.25000000000000
+			central  = 12.0625000000000
+		</output>
+
+	</sage>
+
+	<p>
+	After evaluating the Sage cell above,
+	change the value of <c>dt</c> to something smaller and re-evaluate.
+	Repeat with smaller and smaller values of <c>dt</c> until the forward, backward, and central difference approximations all seem to be <q>converging</q> to a single value.
+	</p>
+
+</example>
+
+</section>
+
+<section>
+<title>The derivative</title>
+
+<p>
+In many cases we can use average-rate approximations with smaller and smaller <m>\change{t}</m> and observe an obvious pattern toward some specific value.
+When approximating accumulation with Riemann sums,
+we obtained the definite integral value by observing the upper and lower sums <q>squeezing</q> together toward a specific value.
+Unfortunately, there is no systematic way an <q>upper average rate</q> or <q>lower average rate</q> to squeeze together,
+so we will have to be a little more subtle.
+</p>
+
+<definition xml:id="definition-avg-rate-derivative-value">
+	<title>Derivative value</title>
+
+	<p>
+	Given a function <m>q(t)</m> on domain <m>a \le t \le b</m>
+	and a specific time <m>t^\ast</m> strictly within that domain
+	(so that <m>a \lt t^\ast \lt b</m>),
+	suppose there exists one unique number <m>d</m> so that values of average rate calculations
+	<me> \slope{q}{t} </me>
+	over subdomains containing <m>t^\ast</m> can be made arbitrarily close to <m>d</m> by taking <m>\change{t}</m> sufficiently small.
+	</p>
+
+	<p>
+	In this case, we say that <m>q(t)</m> is <term>differentiable</term> at <m>t = t^\ast</m>,
+	call the value <m>d</m> the <term>derivative of <m>q(t)</m> at <m>t = t^\ast</m></term>,
+	and write <me> \funceval{\ddt{q}}{t = t^\ast} </me> to represent the value of <m>d</m>.
+	</p>
+
+</definition>
+
+<remark><title>Derivative versus rate</title><p>
+	Given that we use average rate calculations over short time domains to approximate actual rate,
+	we expect that <me> \funceval{\ddt{q}}{t = t^\ast} = r(t^\ast) </me> will be true,
+	and in fact we will be able to theoretically justify this in later chapters.
+</p></remark>
+
+<p>
+Compare the notation
+<me> \slope{q}{t} \to \ddt{q} </me>
+with the previous notation
+<me> \sum_{k = 1}^{n} r(t_k^\ast) \change{t_k} \to \ccmint{a}{b}{r(t)}{t} </me>.
+In both situations, we are computing approximations that (we hope) are more and more accurate,
+until they are so close we can't tell the difference.
+And in both notational choices,
+<m>\change{t}</m> becomes <m>dt</m>,
+signally to the reader that we have let our approximations become <q>infinitely close</q> to the <q>actual</q> value by considering time subdomain(s) of <q>infinitesimal</q> length.
+</p>
+
+<p>
+Now, what does <q>arbitrarily close</q> and <q>sufficiently small</q> mean?
+Arbitrarily close means that we may choose any error bounds around the proposed value <m>d</m> that we like,
+and in response we will be able to set a <q>maximum</q> <m>\change{t}</m> so that the result of <em>every</em> average rate calculation over a time subdomain containing <m>t^\ast</m> and of that maximum <m>\change{t}</m> length or smaller will fall within our error bounds around <m>d</m>.
+That is, given an arbitrary error bound <m>\epsilon \gt 0</m>,
+we expect to always find that
+<me> \slope{q}{t} = d \pm \epsilon </me>,
+as long as the average rate is calculated over a domain containing <m>t^\ast</m> and with <m>\change{t}</m> smaller than some particular maximum.
+(Changing the error bound value <m>\epsilon</m> will likely require a different maximum <m>\change{t}</m> value <mdash />
+in general, we expect tighter error bounds around <m>d</m> to require a smaller maximum <m>\change{t}</m> value.)
+</p>
+
+<remark><p>
+	It was not necessary to have this sort of <q>error bound</q> reasoning in the definition of the <xref ref="definition-integ-definite" text="title" />,
+	as the upper and lower sums effectively acted as the error bounds.
+</p></remark>
+
+<example xml:id="example-avg-rate-within-error-bound">
+	<title>Determining rate within a given constraint</title>
+
+	<p>
+	Let's revisit <xref ref="example-avg-rate-cubic-instant-rate" />.
+	Hopefully you found that the three average-rate approximations to <m>r(2)</m> all became close to <m>12</m> as <m>\change{t}</m>
+	(<c>dt</c> in the Sage code)
+	was made smaller.
+	</p>
+
+	<p>
+	Below is some Sage code to test an arbitrarily chosen error bound around <m>12</m>.
+	(We use <c>e</c> in place of the Greek letter <m>\epsilon</m>.)
+	Try to determine a small enough <m>\change{t}</m> value
+	(again, represented as <c>dt</c> in the Sage code) so that all three of the forward, backward, and central approximations
+	are no more than the value of <c>e</c> away from <m>12</m>.
+	</p>
+
+	<p>
+	Once you've done this,
+	try changing <c>e</c> to a smaller value,
+	and see if the previous value of <c>dt</c> still works,
+	or whether you need to make it smaller.
+	</p>
+
+	<sage>
+
+		<input>
+			var('t,u')
+			q(t) = t^3
+			u = 2
+			dt = 0.5
+			e = 0.1
+			forward = ( q(u + dt) - q(u) ) / dt
+			backward = ( q(u) - q(u - dt) ) / dt
+			central = ( q(u + dt / 2) - q(u - dt / 2) ) / dt
+			print("forward =", forward)
+			print("Is forward approximation between", 12 - e, "and", 12 + e, "?")
+			print()
+			print("backward =", backward)
+			print("Is backward approximation between", 12 - e, "and", 12 + e, "?")
+			print()
+			print("central =", central)
+			print("Is central approximation between", 12 - e, "and", 12 + e, "?")
+		</input>
+
+		<output>
+			forward = 15.2500000000000
+			Difference between 12 and forward = -3.25000000000000
+
+			backward = 9.25000000000000
+			Difference between 12 and backward = 2.75000000000000
+
+			central = 12.0625000000000
+			Difference between 12 and central = -0.0625000000000000
+		</output>
+
+	</sage>
+
+</example>
+
+</section>
+
+<section>
+<title>Graphical interpretation of the derivative</title>
+
+<subsection xml:id="subsection-avg-rate-tangents">
+<title>Tangent lines</title>
+
+<p>
+Consider what happens on the quantity graph when we form the forward, backward, and central approximations to the quantity's rate of accumulation at a specific time <m>t = t^\ast</m> for several iterations of smaller <m>\change{t}</m> values.
+For emphasis, we will extend the associated secant line segments to actual lines.
+</p>
+
+<figure xml:id="figure-avg-rate-converging-to-tangent">
+	<caption>
+		Three iterations of secant lines whose slopes represent the forward (green), backward (red), and central (blue) approximations to rate,
+		using decreasing values of <m>\change{t}</m>.
+	</caption>
+
+	<sbsgroup width="67%">
+
+		<sidebyside><figure xml:id="figure-avg-rate-converging-to-tangent-1">
+			<caption>Somewhat large <m>\change{t}</m>.</caption>
+			<image>
+				<description>
+					Secant lines on a graph whose slopes represent the forward, backward, and central approximations to rate,
+					using a somewhat long time subdomain.
+				</description>
+				<latex-image><xi:include href="avg-rate.d/forward-backward-central-to-tangent-1.tex" parse="text" /></latex-image>
+			</image>
+		</figure></sidebyside>
+
+		<sidebyside><figure xml:id="figure-avg-rate-converging-to-tangent-2">
+			<caption>Smaller <m>\change{t}</m>.</caption>
+			<image>
+				<description>
+					Secant lines on a graph whose slopes represent the forward, backward, and central approximations to rate,
+					using a shorter time subdomain.
+				</description>
+				<latex-image><xi:include href="avg-rate.d/forward-backward-central-to-tangent-2.tex" parse="text" /></latex-image>
+			</image>
+		</figure></sidebyside>
+
+		<sidebyside><figure xml:id="figure-avg-rate-converging-to-tangent-3">
+			<caption>Small <m>\change{t}</m>.</caption>
+			<image>
+				<description>
+					Secant lines on a graph whose slopes represent the forward, backward, and central approximations to rate,
+					using a very short time subdomain.
+				</description>
+				<latex-image><xi:include href="avg-rate.d/forward-backward-central-to-tangent-3.tex" parse="text" /></latex-image>
+			</image>
+		</figure></sidebyside>
+
+	</sbsgroup>
+
+</figure>
+
+<p>
+When <m>q(t)</m> is differentiable at <m>t = t^\ast</m>,
+by definition the slopes of the three lines in each of the subfigures of <xref ref="figure-avg-rate-converging-to-tangent" />
+must become arbitrarily close to some specific value as <m>\change{t}</m> is made smaller,
+hence arbitrarily close to each other.
+As you can see in the sequence in <xref ref="figure-avg-rate-converging-to-tangent" />,
+not only do these three lines become closer to being parallel as <m>\change{t}</m> becomes smaller,
+it is appears that if we continued to make <m>\change{t}</m> smaller they would <q>converge</q> to becoming the <em>exact same line</em>.
+We could think of this one line that the three are converging toward as the case of <m>\change{t}</m> becoming <m>dt</m> <mdash />
+a secant line over a subdomain containing <m>t^\ast</m> of length so small that the endpoints of the subdomain are essentially at <m>t^\ast</m> as well.
+</p>
+
+<figure xml:id="figure-avg-rate-tangent-line">
+	<caption>A <q>secant</q> line over a subdomain of <q>infinitesimal length</q> <m>dt</m>.</caption>
+	<image width="67%">
+		<description> A <q>secant</q> line on a graph over an infinitesimally short time subdomain. </description>
+		<latex-image><xi:include href="avg-rate.d/tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p> The line in <xref ref="figure-avg-rate-tangent-line" /> has a special name. </p>
+
+<definition xml:id="definition-avg-rage-tangent-line">
+	<title>Tangent line</title>
+	<p>
+	If <m>q(t)</m> is differentiable at <m>t = t^\ast</m>,
+	then the line that passes through the point <m>\bbrac{ t^\ast, q(t^\ast) }</m> with slope
+	<me> \funceval{\ddt{q}}{t = t^\ast} </me>
+	is called the <term>tangent line</term> to the graph of <m>q(t)</m> at <m>t = t^\ast</m>.
+	</p>
+</definition>
+
+<identity xml:id="pattern-avg-rate-tangent-line-equation">
+	<title>Equation of a tangent line</title>
+	<p>
+	If <m>q(t)</m> is differentiable at <m>t = t^\ast</m>,
+	then the equation of the tangent line to the graph of <m>q(t)</m> at <m>t = t^\ast</m> is
+	<me> y = m t + b </me>
+	where
+	<md>
+		<mrow>
+			m \amp = \funceval{\ddt{q}}{t = t^\ast}
+			\text{,}
+			b \amp = q(t^\ast) - m t^\ast
+			\text{.}
+		</mrow>
+	</md>
+	</p>
+</identity>
+
+<example>
+	<title>Determining a tangent line equation</title>
+
+	<p>
+	Once again, let's revisit the quantity function <m>q(t) = t^3</m> previously analysed
+	in <xref ref="example-avg-rate-cubic-instant-rate" />
+	and <xref ref="example-avg-rate-within-error-bound" />,
+	where we found that
+	<me> \funceval{\ddt{q}}{t = 2} = 12 </me>.
+	So the tangent line through the point <m>(2, 8)</m> with slope <m>m = 12</m> is
+	<md>
+		<mrow> y \amp = 12 t + (8 - 12 \cdot 2) </mrow>
+		<mrow> \amp = 12 t - 16 </mrow>
+	</md>
+	</p>
+
+	<figure>
+		<caption> A tangent line to the graph of <m>q(t) = t^3</m>. </caption>
+		<image width="67%">
+			<description> A tangent line on the cubic graph. </description>
+			<latex-image><xi:include href="avg-rate.d/example-tangent.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</subsection>
+
+<subsection>
+<title>Local linearity</title>
+
+<p>
+Another way to think of both the derivative value and the tangent line is through the concept of <term>local linearization</term>.
+Graphically, shrinking <m>\change{t}</m> is similar to <q>zooming in</q> on the point <m>\bbrac{ t^\ast, q(t^\ast) }</m> on the graph of <m>q(t)</m>.
+In <xref ref="figure-avg-rate-local-linearity" />,
+a blue box of width <m>\change{t}</m> is drawn around the point <m>\bbrac{ t^\ast, q(t^\ast) }</m>,
+and then that square is used as the frame for the next zoom level with a smaller <m>\change{t}</m>.
+</p>
+
+<figure xml:id="figure-avg-rate-local-linearity">
+	<caption> Zooming in to see the <term>local linearity</term> of a graph. </caption>
+
+	<sbsgroup>
+
+		<sidebyside widths="67%"><figure xml:id="figure-avg-rate-local-linearity-1">
+			<image>
+				<description> Graph with a box that will be zoomed into next. </description>
+				<latex-image><xi:include href="avg-rate.d/local-linearity-1.tex" parse="text" /></latex-image>
+			</image>
+		</figure></sidebyside>
+
+		<sidebyside widths="45% 45%">
+
+			<figure xml:id="figure-avg-rate-local-linearity-2">
+				<image>
+					<description> Graph with a box that will be zoomed into next. </description>
+					<latex-image><xi:include href="avg-rate.d/local-linearity-2.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure xml:id="figure-avg-rate-local-linearity-3">
+				<image>
+					<description> Graph with a box that will be zoomed into next. </description>
+					<latex-image><xi:include href="avg-rate.d/local-linearity-3.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+		<sidebyside widths="45% 45%">
+
+			<figure xml:id="figure-avg-rate-local-linearity-4">
+				<image>
+					<description> Graph with a box that will be zoomed into next. </description>
+					<latex-image><xi:include href="avg-rate.d/local-linearity-4.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure xml:id="figure-avg-rate-local-linearity-5">
+				<image>
+					<description> Graph with a box that will be zoomed into next. </description>
+					<latex-image><xi:include href="avg-rate.d/local-linearity-5.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</sbsgroup>
+
+</figure>
+
+<p>
+As you can see in <xref ref="figure-avg-rate-local-linearity" />,
+zooming in around a point excludes more and more of the variation in the graph,
+until the graph becomes essentially linear through the point being considered.
+Not every point on every graph will exhibit this kind of pattern when zooming in,
+but it will always be present at differentiable points,
+with the derivative value describing the slope of that essentially linear piece of the graph.
+</p>
+
+</subsection>
+
+</section>
+
+<section>
+<title>Some non-differentiable examples</title>
+
+<subsection>
+<title>Cusps</title>
+
+<example>
+	<title>Measuring distance rather than displacement</title>
+
+	<p>
+	A sensor is placed to measure the <em>distance</em> of some object from the sensor.
+	For a period of time, the object moves directly toward the sensor at a constant rate,
+	then passes by it and continues on the same path at the same rate away from the sensor.
+	A typical plot of the data capture by the sensor appears in <xref ref="figure-avg-rate-sensor-distance" />.
+	</p>
+
+	<figure xml:id="figure-avg-rate-sensor-distance">
+		<caption>
+			Graph of distance from a sensor of an object in motion (blue),
+			with backward (red), forward (green), and central (purple) secant lines.
+		</caption>
+		<image width="67%">
+			<description>
+				A graph of an object's distance from a sensor as the object travels toward and then away from the sensor, with accompanying secant lines.
+			</description>
+			<latex-image><xi:include href="avg-rate.d/tangent.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	The distance graph is a V-shape,
+	as in <xref ref="figure-avg-rate-sensor-distance" />,
+	where <m>t = t^\ast</m> is the instant that the object passes the sensor.
+	We can see that no matter how far we zoom in around <m>t = t^\ast</m>,
+	the graph will always have a V-shape there,
+	and will never by locally linear around <m>t = t^\ast</m>.
+	So we expect the function to not be differentiable at <m>t = t^\ast</m>.
+	Indeed,
+	if we compute forward, backward, and central average-rate approximations to the rate at <m>t = t^\ast</m>,
+	we will always find that the forward average rate is <m>r</m> (the slope of the right <q>arm</q> of the V-shape),
+	the backward average rate is <m>- r</m> (the slope of the left <q>arm</q> of the V-shape),
+	and the central average rate is <m>0</m>,
+	where <m>r</m> is the constant rate of travel of the object.
+	So if we choose an error bound of <m>\epsilon = r/2</m>, say,
+	it will be impossible to shrink <m>\change{t}</m> so that all three approximations are within the error bound of some proposed rate value,
+	no matter what proposed rate value is tried.
+	</p>
+
+</example>
+
+<p>
+The sharp corner at <m>t = t^\ast</m> in <xref ref="figure-avg-rate-sensor-distance" /> is called a <term>cusp</term>,
+and functions with such a feature are never differentiable at that point.
+</p>
+
+</subsection>
+
+<subsection>
+<title>Jump discontinuities</title>
+
+<!-- TODO reference jump discontinuity from preliminary chapters ? -->
+
+<example>
+	<title>Differentiability of step functions</title>
+
+	<p>
+	Returning to <xref ref="example-avg-rate-bailing-tub" />,
+	it would be non-trivial to devise a model for the changing water level during the short periods of time where a full pail is being lifted out of the tub.
+	The model graphed in <xref ref="figure-avg-rate-bailing-graph" /> is a crude attempt to make the graph appear to be realistic,
+	but often when modelling it is more expedient to <em>not</em> attempt to realistically model every aspect of the system,
+	using a simplified model instead.
+	In this case,
+	it is very easy to create a simple model for the amount of water in the tank by using a step function.
+	</p>
+
+	<figure xml:id="figure-avg-rate-simplified-bailing-graph">
+		<caption> Quantity of water in tub during emptying as a step function. </caption>
+		<image width="60%">
+			<description> A graph of a step function as volume versus time modelling the process of bailing water out of a tub. </description>
+			<latex-image><xi:include href="avg-rate.d/tub-stepped.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	Consider the point on the graph at <m>t = 5</m>.
+	If we <q>zoomed in</q> around this point,
+	we would see only a line <em>segment</em> on the right,
+	but nothing on the left.
+	Since we do not see a linear graph through the point being considered,
+	we would not call this graph locally linear at <m>t = 5</m>,
+	and so we should expect <m>q(t)</m> to not be differentiable at <m>t = 5</m>.
+	</p>
+
+	<p>
+	Also consider what would happen if we calculated some average rates around <m>t = 5</m> for small <m>\change{t}</m>.
+	Backward and central average rates would be large negative values,
+	since the corresponding secant lines would have left endpoints on the upper step at output level <m>40</m> and right endpoints on the lower step at output level <m>30</m>.
+	But forward average rates would always be <m>0</m>,
+	since the corresponding secant lines would have both endpoints on the lower step.
+	There is no possibility that these average rates could all be made close enough to each other to fit in an arbitrarily small error bound around some proposed rate value,
+	so the function is not differentiable at <m>t = 5</m>.
+	</p>
+
+	<p> And the same would be true at all times where the step function <q>steps</q>. </p>
+
+</example>
+
+</subsection>
+
+
+<subsection>
+<title>Singularities</title>
+
+<example>
+
+	<p>
+	Consider a model function <me> q(t) = \frac{1}{(t-2)^2} </me>.
+	This function has a singularity at <m>t = 2</m>,
+	where <m>q(t) \to \infty</m> for both <m>t \to 2^\plus</m> and <m>t \to 2^\minus</m>.
+	</p>
+
+	<p>
+	Consider some average rate calculations around <m>t = 2</m>.
+	Note that the definition of
+	<xref ref="definition-avg-rate-derivative-value" text="title" />
+	does specifically reference
+	the <xref ref="definition-avg-rate-three-standard-approximations" text="title" />
+	<mdash />
+	for a given maximum <m>\change{t}</m>,
+	we should consider <em>all</em> average-rate approximations of rate that involve that <m>\change{t}</m> or smaller.
+	</p>
+
+	<figure xml:id="figure-avg-rate-secant-on-singularity">
+		<caption> Average rates near a singularity as secant-line slopes. </caption>
+		<image width="60%">
+			<description>Average rates near a singularity as secant-line slopes on the quantity graph.</description>
+			<latex-image><xi:include href="avg-rate.d/singularity-secants.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	From <xref ref="figure-avg-rate-secant-on-singularity" />,
+	hopefully it is obvious that no matter how tightly around <m>t = 2</m> we restrict ourselves,
+	we can always create average rate calculations with results that are arbitrarily large and positive
+	(for example, by sliding the right endpoint of the green secant line upwards),
+	others that are arbitrarily large and negative
+	(for example, by sliding the left endpoint of the red secant line upwards),
+	and others that are exactly <m>0</m>
+	(for example, the purple secant line, or any similar horizontal secant line above it).
+	Even worse,
+	it is not possible to calculate forward or backward average-rate approximations,
+	since <m>q(2)</m> is undefined.
+	</p>
+
+	<p> For these reasons, this function is not differentiable at the singularity at <m>t = 2</m>. </p>
+
+</example>
+
+</subsection>
+
+
+<subsection>
+<title>Vertical tangents</title>
+
+<example>
+	<title>Vertical tangent</title>
+
+	<p>
+	Now consider a shifted cube-root function,
+	<me> q(t) = 1 + \sqrt[3]{t - 1} </me>,
+	and picture a secant line about <m>t = 1</m>.
+	</p>
+
+	<figure xml:id="figure-avg-rate-secant-on-vertical-tangent">
+		<caption> Average rate as a secant-line slope near an instantaneously vertical point. </caption>
+		<image width="60%">
+			<description>Average rate as a secant-line slope near an instantaneously vertical point.</description>
+			<latex-image><xi:include href="avg-rate.d/vertical-secant.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	As the red endpoints of the secant line in <xref ref="figure-avg-rate-secant-on-vertical-tangent" /> are drawn closer to <m>t = 1</m> to shrink <m>\change{t}</m> in the average rate calculation,
+	the line segment will become more steep and its slope
+	(representing the average rate)
+	will become larger without bound.
+	We could imagine that the result of the <em>secant-lines-become-tangent-line</em> process from <xref ref="subsection-avg-rate-tangents" /> is a vertical line at <m>t = 1</m> running through the graph at the point <m>(1,1)</m>,
+	but we can't say that the function is differentiable at <m>t = 1</m> because a vertical line has undefined slope,
+	and the <em>increasing-without-bound</em> average rate values do not display a pattern that converge to a specific number.
+	</p>
+
+</example>
+
+</subsection>
+
+</section>
+
 
 <!-- <xi:include href="./avg-rate.d/activities.ptx" />
 <xi:include href="./avg-rate.d/exercises.ptx" /> -->

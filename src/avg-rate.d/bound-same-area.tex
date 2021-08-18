@@ -26,20 +26,6 @@
 	yscale=0.66
 ]
 
-	\fill[blue!40!white]
-	  (1.5,0) -- (1.5,3.625)
-	  plot[domain=1.5:3.254, smooth] (\x,{\func})
-	  -- (1.5,0)
-	;
-	\fill[red!40!white]
-	  plot[domain=3.254:4.861, smooth] (\x,{\func})
-	  -- (3.254,0)
-	;
-	\fill[blue!40!white]
-	  plot[domain=4.861:5.35, smooth] (\x,{\func})
-	  -- (5.35,0) -- (4.861,0)
-	;
-
 	% grid
 	\foreach \x in {0.5,1,1.5,...,6} {
 		\draw[very thin,gray] (\x,\ymin) -- (\x,\ymax);
@@ -48,17 +34,48 @@
 		\draw[very thin,gray] (\xmin,\y) -- (\xmax,\y);
 	}
 
-	\node[below] at (1.5,0) {$a$};
-	\node[blue] at (2.25,1.5) {$A_1$};
-	\node[red] at (4.2,-0.75) {$A_2$};
-	\node[below] at (5.35,0) {$b$};
-	\node[blue] at (5.15,0.7) {$A_3$};
+	\fill[blue!40!white, opacity=0.7]
+	  (1.5,0) -- (1.5,3.625)
+	  plot[domain=1.5:3.254, smooth] (\x,{\func})
+	  -- (1.5,0)
+	;
+	\fill[red!40!white, opacity=0.7]
+	  plot[domain=3.254:4.861, smooth] (\x,{\func})
+	  -- (3.254,0)
+	;
+	\fill[blue!40!white, opacity=0.7]
+	  plot[domain=4.861:5.35, smooth] (\x,{\func})
+	  -- (5.35,0) -- (4.861,0)
+	;
+
+	\node[left] at (0.5,0.908) {$\avg{r}$};
+	\draw[dashed] (0.5,0.908) -- (1.5,0.908);
+
+	% example graph
+	\draw[thick, blue, domain=0.655:5.385, smooth, thick] plot (\x,{\func});
+
+	\fill[green!40!white, opacity=0.5] (1.5,0) -- (1.5,0.908) -- (5.35,0.908) -- (5.35,0) -- cycle;
 
 	% axes
 	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[above left] {$t$};
 	\draw[->,thick] (0.5,\ymin) -- (0.5,\ymax) node[below right] {$r(t)$};
 
-	% example graph
-	\draw[thick, green!33!black, domain=0.655:5.385, smooth] plot (\x,{\func});
+	\node[openpt, green!33!black] at (1.5,0) (startbelow) {};
+	\node[closedpt, green!33!black] at (1.5,0.908) (start) {};
+	\node[openpt, green!33!black] at (5.35,0.908) (end) {};
+	\node[closedpt, green!33!black] at (5.35,0) (endbelow) {};
+
+	\draw[green!33!black, thick]
+	  (\xmin,0) -- (startbelow)
+	  (start) -- (end)
+	  (endbelow) -- (\xmax,0)
+	;
+	\draw[green!33!black, thin]
+	  (startbelow) -- (start)
+	  (endbelow) -- (end)
+	;
+
+	\node[below] at (1.5,0) {$t_0$};
+	\node[below] at (5.35,0) {$t_1$};
 
 \end{tikzpicture}

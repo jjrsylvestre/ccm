@@ -273,7 +273,7 @@ What does it do to a reciprocal?
 		Because of the shape of the graph of the rate function,
 		this sample point will appear at the left endpoint of the base of the rectangular area.
 		Mark the right endpoint as <m>s'</m>,
-		so that <me> \Delta s = s' - s </me>
+		so that <me> \change{s} = s' - s </me>
 		</p>
 
 		<figure xml:id="figure-log-slice-recip-before">
@@ -304,16 +304,16 @@ What does it do to a reciprocal?
 		To relate the areas of these two rectangles,
 		first calculate
 		<md>
-			<mrow> \Delta u \amp = u - u' </mrow>
+			<mrow> \change{u} \amp = u - u' </mrow>
 			<mrow> \amp = \frac{1}{s} - \frac{1}{s'} </mrow>
 			<mrow> \amp = \frac{s' - s}{s s'} </mrow>
-			<mrow> \amp = \frac{1}{s s'} \, \Delta s </mrow>
+			<mrow> \amp = \frac{1}{s s'} \, \change{s} </mrow>
 		</md>.
 		So the area of the rectangle in <xref ref="figure-log-slice-recip-after" /> is
 		<md>
-			<mrow> r(u') \, \Delta u \amp = \frac{1}{u'} \cdot (u - u') </mrow>
-			<mrow> \amp = \frac{1}{1 / s'} \cdot \frac{1}{s s'} \, \Delta s </mrow>
-			<mrow> \amp = \frac{1}{s} \Delta s </mrow>
+			<mrow> r(u') \, \change{u} \amp = \frac{1}{u'} \cdot (u - u') </mrow>
+			<mrow> \amp = \frac{1}{1 / s'} \cdot \frac{1}{s s'} \, \change{s} </mrow>
+			<mrow> \amp = \frac{1}{s} \change{s} </mrow>
 		</md>,
 		which is exactly equal to the area of the rectangle in <xref ref="figure-log-slice-recip-before" />.
 		</p>
