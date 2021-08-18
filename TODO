@@ -1,0 +1,4 @@
+* change "rate of variation" to "rate of accumulation"
+* fill opacity on graphs with grid lines
+* some "Pattern" statements (<identity> element) might be better as "Principle" statements (<insight> element) ?
+* sed -i -e 's/interval/domain/'  (but do it by hand...)
