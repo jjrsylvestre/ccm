@@ -80,7 +80,7 @@ which can be considered a degree-0 polynomial.
 	</p>
 </identity>
 
-<p> We will verify <xref ref="pattern-poly-linear-quantity" /> mathematically in <xref ref="chapter-instant-rate" />. </p>
+<p> We will verify <xref ref="pattern-poly-linear-quantity" /> mathematically in <xref ref="chapter-deriv" />. </p>
 
 </section>
 
@@ -129,7 +129,7 @@ which can be considered a degree-0 polynomial.
 		<input>
 			var('g,t,u')
 			v(u) = g * u
-			integrate(v(u),u,0,t)
+			v.integrate(u, 0, t)
 		</input>
 		<output> 1/2*g*t^2 </output>
 	</sage>
@@ -271,7 +271,7 @@ Let's ask Sage.
 	<input>
 		var('t')
 		r(x) = x^2
-		integrate(r(x),x,0,t)
+		r.integrate(x, 0, t)
 	</input>
 	<output> 1/3*t^3 </output>
 </sage>
@@ -287,7 +287,7 @@ and that pattern appears to be
 <md><mrow xml:id="equation-poly-int-pattern" tag="star"> \ccmint{0}{t}{u^m}{u} = \frac{t^{m + 1}}{m + 1} </mrow></md>.
 </p>
 
-<example>
+<example xml:id="example-poly-quantity-from-rate">
 	<title>Obtaining a quantity model from a polynomial rate function</title>
 	<p>
 	For rate function <me> r(t) = 3 t^5 - 37 t^4 + 22 t^3 + 7 t^2 - t + 56 </me>,
@@ -313,7 +313,7 @@ where we tell Sage a little extra information about our variable domain end time
 		var('t')
 		assume(t &gt; 1)
 		r(x) = x^(-2)
-		integrate(r(x),x,1,t)
+		r.integrate(x, 1, t)
 	</input>
 	<output> -1/t + 1 </output>
 </sage>
@@ -329,7 +329,7 @@ from the fact that we have shifted our <q>initial</q> time.
 	<title>Integral of a power of <m>t</m></title>
 
 	<ol>
-		<li>
+		<li xml:id="pattern-poly-int-power-positive-exp">
 			<title>Positive exponents</title>
 			<p>
 			For every positive, real value of exponent <m>m</m>,
@@ -337,7 +337,7 @@ from the fact that we have shifted our <q>initial</q> time.
 			for <m>t \ge 0 </m>.
 			</p>
 		</li>
-		<li>
+		<li xml:id="pattern-poly-int-power-negative-exp">
 			<title>Negative exponents</title>
 			<p>
 			For every negative, real value of exponent <m>m</m> <em>except</em> <m>m = -1</m>,
@@ -373,6 +373,17 @@ from the fact that we have shifted our <q>initial</q> time.
 	</p>
 
 </remark>
+
+<p> Finally, let's record the pattern for polynomials that we used in <xref ref="example-poly-quantity-from-rate" />. </p>
+
+<identity xml:id="pattern-poly-quantity-from-rate">
+	<title>Integral of a polynomial</title>
+	<p>
+	For rate function <me> r(t) = r_0 + r_1 t + r_2 t^2 + \dotsb + r_m t^m </me>,
+	we have
+	<me> \ccmint{0}{t}{r(u)}{u} = r_0 t + \frac{r_1}{2} t^2 + \frac{r_2}{3} t^3 + \dotsb + \frac{r_{m - 1}}{m} t^m + \frac{r_m}{m + 1} t^{m + 1} </me>.
+	</p>
+</identity>
 
 </section>
 

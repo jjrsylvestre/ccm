@@ -26,10 +26,9 @@ respective owners.
 	<!-- this is the default, but supresses a warning -->
 	<cross-references text="type-global" />
 
-	<!-- not yet -->
-	<!-- <latex-preamble>
+	<latex-preamble>
 		<package>cancel</package>
-	</latex-preamble> -->
+	</latex-preamble>
 
 	<macros> <xi:include href="./latex-macros.tex" parse="text" /> </macros>
 

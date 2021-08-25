@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2021 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<!--
+  Exact rate of variation from approximate rate of variation.
+  Rate of variation formulas (polynomial, logarithmic, exponential, trig).
+-->
+
+<chapter xml:id="chapter-deriv" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>The derivative function</title>
+
+<section xml:id="section-deriv-intro">
+<title>Definition</title>
+
+<p>
+In <xref ref="section-integ-definite" />,
+we turned the process of calculating an accumulation for a rate model over a specific time interval into a function by replacing the specific end time with a variable one.
+The resulting function accepted inputs that represented that variable end time,
+and returned outputs that represented accumulation values over time domains of different lengths,
+but always with the same start time.
+</p>
+
+<p>
+The process of computing derivative values can be turned into a function in a much simpler way.
+In <xref ref="section-avg-rate-derivative" />,
+we defined a <xref ref="definition-avg-rate-derivative-value" text="title" /> at a specific input time for a given quantity function.
+To turn this process into a function, we merely have to replace <q>at a specific time</q> with <q>at a variable time</q>,
+so that the new <term>derivative function</term> takes a time as input and,
+if the quantity function is differentiable at that input time,
+returns the associated derivative value.
+</p>
+
+<definition xml:id="definition-deriv">
+	<title>Derivative function</title>
+	<p>
+	Given quantity function <m>q(t)</m>,
+	the associated <term>derivative function</term> is the function <m>q'(t)</m> so that
+	<me>q'(t) = \ddt{q} </me>
+	if <m>q</m> is differentiable at <m>t</m>,
+	and <m>q'(t)</m> is undefined if <m>q</m> is not differentiable at <m>t</m>.
+	</p>
+</definition>
+
+<paragraphs>
+	<title>Notation</title>
+
+	<p>
+	We use <m>q'(t)</m> when we want to refer to the derivative function for <m>q</m> in function notation,
+	while we use <me>\ddt{q}</me> to represent an input-output formula in <m>t</m> for <m>q'</m>.
+	Of course, both of these forms are relative to the initial choice of letter <m>q</m> <mdash />
+	if we were dealing with a position function <m>s(t)</m> as our quantity function,
+	then we would use <m>s'(t)</m> and <me>\ddt{s}</me> to refer to the derivative.
+	In some contexts,
+	particularly physics,
+	you might see <m>\dot{q}</m> used to representative the derivative function for <m>q(t)</m>.
+	</p>
+
+	<p>
+	It is also common practice in mathematics and other science disciplines to use a <q>bare</q> <m>\opddt</m> as an <term>operator</term> that applies the differentiation process to a function or formula.
+	For example,
+	notation in the form
+	<me> \ddt{e^t} = \text{(some formula)} </me>
+	or
+	<me> \opddt e^t = \text{(some formula)} </me>,
+	is meant to be read as <q><em>a formula for the derivative function associated to the exponential function is</em> (some formula).</q>
+	Or, more simply,
+	<q><em>the derivative of the exponential function is</em> (some formula)</q> <mdash />
+	that is, the symbol <m>\opddt</m> represents the phrase <q><em>the derivative of</em>.</q>
+	</p>
+
+</paragraphs>
+
+<insight xml:id="principle-deriv-equals-rate">
+	<title>Derivative function provides a rate model</title>
+	<p>
+	If <m>q(t)</m> is a differentiable quantity model,
+	then <m>q'(t)</m> is a rate model for that quantity.
+	</p>
+</insight>
+
+<p>
+We won't be able to verify <xref ref="principle-deriv-equals-rate" />
+until <xref ref="chapter-fund-thm" />,
+where we will see that if we start with a rate model <m>r(t)</m>,
+use an accumulation function to create an associated quantity model
+<me> q(t) = q(t_0) + \ccmint{t_0}{t}{r(u)}{u} </me>,
+then this quantity model will be differentiable and its derivative function will be exactly the rate function we began with:
+<me> q'(t) = r(t) </me>.
+Intuitively it seems simple that the above description is a circular process,
+so of course we should return back to the rate function we began with.
+But mathematically, it is far from obvious that the processes behind the two concepts <term>integral</term> and <term>derivative</term> are reverse processes.
+</p>
+
+</section>
+
+<section xml:id="section-deriv-algebraically">
+<title>Computing algebraically</title>
+
+<p>
+In <xref ref="section-avg-rate-derivative" />,
+we calculated individual derivative values by looking for patterns in average-rate approximations to rate at a specific time as we made <m>\change{t}</m> smaller.
+By replacing the specific time <m>t^\ast</m> with a variable time <m>t</m> and working conceptually with a time domain of <q>infinitesimal</q> length <m>dt</m> instead of a time domain of substantial length <m>\change{t}</m>,
+in many cases we can obtain a formula for all output values of <m>q'(t)</m>.
+We think of <m>dt</m> as being so small as to be negligible,
+but always consider <m>dt \neq 0</m>
+(or else the denominator of <m>dt</m> represents division by zero).
+</p>
+
+<p>
+For this, we will exclusively use the forward approximation formula,
+so that the approximation at a specific point in time
+<me>
+	\funceval{\ddt{q}}{t = t^\ast}
+	\approx \slope{q}{t}
+	= \frac{ q(t^\ast + \change{t}) - q(t^\ast) }{ \change{t} }
+</me>
+becomes the general, exact formula
+<me> \ddt{q} = \frac{ q(t + dt) - q(t) }{ dt } </me>.
+The key to the process is to not consider the <q>infinitesimal</q> length <m>dt</m> negligible too early,
+since if we take <m>dt \approx 0</m> right away,
+we will always end up with
+<md>
+	<mrow> \ddt{q} \amp = \frac{ q(t + 0) - q(t) }{ 0 } </mrow>
+	<mrow> \amp = \frac{ 0 }{ 0 } </mrow>
+</md>,
+which is undefined.
+Instead,
+we simplify as much as possible until we can definitively see the effect of <m>dt \to 0</m>.
+</p>
+
+<p> Here is a basic example of the process. </p>
+
+<example xml:id="example-deriv-parabolic-motion">
+	<title>Velocity for parabolic motion</title>
+
+	<p>
+	Let's return to the example situation we made us of repeatedly in <xref ref="chapter-poly" />
+	of an object launched from the surface of an airless planet whose motion is then determined by the gravitational pull of the planet.
+	(See <xref ref="example-poly-constant-accel" />,
+	<xref ref="example-poly-linear-velo" />,
+	and <xref ref="example-poly-parabolic-motion" />.)
+	In those examples,
+	we began with a constant acceleration model and traced it back to a parabolic position model
+	<me> s(t) = -\frac{g}{2} t^2 + v_0 t </me>.
+	For simplicity in this example,
+	let's use actual numbers for <m>g</m> and <m>v_0</m> <mdash />
+	say, <m>g = 4</m> and <m>v_0 = 6</m>.
+	Our positional model is then
+	<me> s(t) = -2 t^2 + 6 t </me>,
+	and we have
+	<md>
+		<mrow> s(t + dt) \amp = -2 (t + dt)^2 + 6 (t + dt) </mrow>
+		<mrow> \amp = -2 (t^2 + 2 t dt + dt^2) + 6 (t + dt) </mrow>
+		<mrow> \amp = -2 t^2 - 4 t dt - 2 dt^2 + 6 t + 6 dt </mrow>
+	</md>,
+	so that
+	<md>
+		<mrow> s(t + dt) - s(t) \amp = (\bcancel{-2 t^2} - 4 t dt - 2 dt^2 + \bcancel{6 t} + 6 dt) - (\bcancel{-2 t^2} + \bcancel{6 t}) </mrow>
+		<mrow> \amp = - 4 t dt - 2 dt^2 + 6 dt </mrow>
+		<mrow> \amp = (- 4 t + 6 - 2 dt) dt </mrow>
+	</md>.
+	Therefore,
+	<md>
+		<mrow> \ddt{s} \amp = \frac{ s(t + dt) - s(t) }{ dt } </mrow>
+		<mrow> \amp = \frac{ (- 4 t + 6 - 2 dt) \bcancel{dt} }{ \bcancel{dt} } </mrow>
+		<mrow> \amp = - 4 t + 6 - 2 dt </mrow>
+	</md>.
+	Now treating <m>dt</m> as negligible, we can clearly see that
+	<me> \ddt{s} = -4 t + 6 </me>.
+	</p>
+
+	<p>
+	In <xref ref="example-poly-parabolic-motion" />,
+	we obtained the position model
+	<me> s(t) = -\frac{g}{2} t^2 + v_0 t </me>
+	from the velocity model
+	<me> v(t) = -g t + v_0 </me>.
+	Substituting in the values for <m>g</m> and <m>v_0</m> chosen in this example,
+	we have
+	<me> v(t) = -2 t + 6 </me>,
+	which matches exactly with our <m>ds/dt</m> formula calculated above.
+	So, taking <m>ds/dt</m> as a formula for the derivative function <m>s'(t)</m>,
+	we have
+	<me> s'(t) = v(t) </me>
+	as expected.
+	</p>
+
+</example>
+
+</section>
+
+<section xml:id="section-deriv-basic-formulas">
+<title>Fundamental differentiation formulas and principles</title>
+
+<subsection>
+<title>Two fundamental formulas</title>
+
+<p>
+Function formulas are built out of the independent variable and constants.
+So we'll start by analysing the two simplest possible quantity models built on those two components.
+</p>
+
+<identity xml:id="pattern-deriv-constant">
+	<title>Derivative of a constant</title>
+
+	<statement><p>
+		For any constant <m>c</m>, we have <me> \ddt{c} = 0 </me>.
+		That is, <alert>the derivative of a constant is zero</alert>.
+	</p></statement>
+
+	<proof><p>
+		Consider quantity function <m>q(t) = c</m>.
+		Then also <m>q(t + dt) = c</m>,
+		so <me> q(t + dt) - q(t) = 0 </me>.
+		Therefore, <me> \ddt{q} = \frac{ q(t + dt) - q(t) }{ dt } = \frac{0}{dt} </me>.
+		In an actual average-rate approximation
+		(that is, with <m>dt \neq 0</m>),
+		this would always compute to <m>0</m>.
+		So, in fact, these approximations would not be approximations but instead they are already the exact value,
+		and it is correct to write
+		<me> \ddt{q} = \frac{0}{dt} = 0 </me>.
+		We are not making the mistake of taking <m>0/0 = 0</m> to be true,
+		because we think of our infinitesimal time domain length <m>dt</m> as being so small as to be negligible,
+		but we always consider <m>dt \neq 0</m> to be true.
+	</p></proof>
+
+</identity>
+
+<identity xml:id="pattern-deriv-var">
+	<title>Derivative of the independent variable</title>
+
+	<statement><p> We have <me> \ddt{t} = 1 </me>. </p></statement>
+
+	<proof><p>
+		Consider quantity function <m>q(t) = t</m>.
+		Then <m>q(t + dt) = t + dt</m>,
+		so <me> q(t + dt) - q(t) = dt </me>.
+		Therefore,
+		<md>
+			<mrow> \ddt{q} \amp = \frac{ q(t + dt) - q(t) }{ dt } </mrow>
+			<mrow> \amp = \frac{ dt }{ dt } </mrow>
+			<mrow> \amp = 1 </mrow>
+		</md>.
+		Again, there is no <m>0/0</m> error here,
+		as we think of <m>dt</m> as negligible but nonzero.
+	</p></proof>
+
+</identity>
+
+</subsection>
+
+<subsection>
+<title>Scaling and adding quantities does the same to the derivative</title>
+
+<p> Now we'll work a little more generally to develop two algebraic rules for derivatives. </p>
+
+<identity xml:id="pattern-deriv-scale">
+	<title>Derivative of a scaled quantity</title>
+
+	<statement><p>
+		If <m>q(t)</m> is a differentiable quantity function,
+		then for any constant <m>c</m> we have <me> \opddt (c q) = c \, \ddt{q} </me>.
+		That is, <alert>the derivative of a constant multiple is the constant multiple of the derivative</alert>.
+	</p></statement>
+
+	<proof><p>
+		Consider quantity function <m>p(t) = c q(t)</m>.
+		Then <me> p(t + dt) = c q(t + dt) </me>,
+		so
+		<md>
+			<mrow> p(t + dt) - p(t) \amp = c q(t + dt) - c q(t) </mrow>
+			<mrow> \amp = c \bbrac{ q(t + dt) - q(t) } </mrow>
+		</md>.
+		Therefore,
+		<md>
+			<mrow> \ddt{p} \amp = \frac{ p(t + dt) - p(t) }{ dt } </mrow>
+			<mrow> \amp = \frac{c \bbrac{ q(t + dt) - q(t) } }{ dt } </mrow>
+			<mrow> \amp = c \, \frac{\bbrac{ q(t + dt) - q(t) } }{ dt } </mrow>
+			<mrow> \amp = c \, \ddt{q} </mrow>
+		</md>,
+		as claimed.
+	</p></proof>
+
+</identity>
+
+<example>
+	In <xref ref="example-deriv-parabolic-motion" />,
+	for <me> s(t) = -2 t^2 + 6 t </me>
+	we computed <me> \ddt{s} = -4 t + 6 </me>.
+	So if we had
+	<md>
+		<mrow>
+			q(t) \amp = t^2 - 3 t
+			\amp \amp\implies \amp
+			q(t) \amp = \left(- {1 \over 2}\right) \, s(t)
+		</mrow>
+	</md>,
+	then
+	<md>
+		<mrow> \ddt{q} \amp = \left(- {1 \over 2}\right) \, \ddt{s} </mrow>
+		<mrow> \amp = \left(- {1 \over 2}\right) \, (-4 t + 6) </mrow>
+		<mrow> \amp = 2 t - 3 </mrow>
+	</md>.
+</example>
+
+<identity xml:id="pattern-deriv-sum">
+	<title>Derivative of a sum of quantities</title>
+
+	<statement><p>
+		If <m>q_1(t)</m> and <m>q_2(t)</m> are differentiable quantity functions,
+		then <me>\opddt (q_1 + q_2) = \ddt{q_1} + \ddt{q_2} </me>.
+		That is, <alert>the derivative of a sum is the sum of the derivatives</alert>.
+	</p></statement>
+
+	<proof><p>
+		Consider quantity function <me>p(t) = q_1(t) + q_2(t)</me>.
+		Then <me> p(t + dt) = q_1(t + dt) + q_2(t + dt) </me>,
+		so
+		<md>
+			<mrow> p(t + dt) - p(t) \amp = \bbrac{ q_1(t + dt) + q_2(t + dt) } - \bbrac{ q_1(t) + q_2(t) } </mrow>
+			<mrow> \amp = \bbrac{ q_1(t + dt) - q_1(t) } + \bbrac{ q_2(t + dt) - q_2(t)} </mrow>
+		</md>.
+		Therefore,
+		<md>
+			<mrow> \ddt{p} \amp = \frac{ p(t + dt) - p(t) }{ dt } </mrow>
+			<mrow> \amp = \frac{ \bbrac{ q_1(t + dt) - q_1(t) } + \bbrac{ q_2(t + dt) - q_2(t)} }{ dt } </mrow>
+			<mrow> \amp = \frac{ \bbrac{ q_1(t + dt) - q_1(t) } }{ dt } + \frac{ \bbrac{ q_2(t + dt) - q_2(t)} }{ dt } </mrow>
+			<mrow> \amp = \ddt{q_1} + \ddt{q_2} </mrow>
+		</md>,
+		as claimed.
+	</p></proof>
+
+</identity>
+
+<example xml:id="example-deriv-linear">
+	<title>Derivative of a linear quantity function</title>
+
+	<p>
+	For <me> q(t) = r t + q_0 </me>,
+	we may apply a combination of our rules and basic formulas so far:
+	<md>
+		<mrow> \ddt{q} \amp = \opddt (r t + q_0) </mrow>
+		<mrow> \amp = \opddt (r t) + \ddt{q_0} \amp \amp\text{(i)} </mrow>
+		<mrow> \amp = \opddt (r t) + 0 \amp \amp\text{(ii)} </mrow>
+		<mrow> \amp = r \ddt{t} \amp \amp\text{(iii)} </mrow>
+		<mrow> \amp = r \cdot 1 \amp \amp\text{(iv)} </mrow>
+		<mrow> \amp = r </mrow>
+	</md>,
+	with step justifications
+	<ol label="(i)">
+		<li> <xref ref="pattern-deriv-sum" /> </li>
+		<li> <xref ref="pattern-deriv-constant" /> </li>
+		<li> <xref ref="pattern-deriv-scale" /> </li>
+		<li> <xref ref="pattern-deriv-var" />. </li>
+	</ol>
+	</p>
+
+</example>
+
+<p>
+If we accept <xref ref="principle-deriv-equals-rate" />,
+then in <xref ref="example-deriv-linear" /> we have successfully reversed <xref ref="pattern-poly-constant-rate" /> <mdash />
+a linear quantity model represents a quantity that varies at a constant rate,
+and a quantity that varies at a constant rate can be modelled by a linear function.
+</p>
+
+<p>
+In fact,
+a function is forced to be linear by the property of exhibiting a uniformly constant rate.
+Graphically, this corresponds to exhibiting a constant slope,
+so that an average rate calculation
+<me> \slope{q}{t} </me>
+between any pair of points on the graph leads to the same result.
+(See <xref ref="example-avg-rate-linear-quantity" />,
+and <xref ref="figure-avg-rate-secant-on-linear" /> in particular.)
+</p>
+
+<p>
+By definition,
+a tangent line to a quantity's graph meets that graph at a particular point with slope equal to the quantity's derivative value there.
+<xref ref="example-deriv-linear" /> shows that the slope of that tangent line will be the same as the slope of the quantity's graph,
+so in fact they will be the same line.
+</p>
+
+<identity xml:id="pattern-deriv-tangent-to-a-line">
+	<title>Tangent to a line</title>
+	<p>
+	A linear quantity function is differentiable at every input time,
+	and the tangent line at every point on the quantity's graph is the same line as the graph itself.
+	</p>
+</identity>
+
+<p>
+Finally,
+consider the special case of <xref ref="pattern-deriv-sum" />
+where the second function is a constant function:
+if <me> q(t) = q_1(t) + c </me>,
+then
+<md>
+	<mrow> \ddt{q} \amp = \opddt (q_1 + c) </mrow>
+	<mrow> \amp = \ddt{q_1} + \ddt{c} </mrow>
+	<mrow> \amp = \ddt{q_1} + 0 </mrow>
+	<mrow> \amp = \ddt{q_1} </mrow>
+</md>.
+</p>
+
+<identity xml:id="pattern-deriv-vertical-shift">
+	<title>Derivative of a vertical shift</title>
+	<p>
+	Suppose quantity functions <m>q_1</m> and <m>q_2</m> are vertical shifts of each other,
+	so that there exists a constant <m>c</m> with
+	<me> q_2(t) = q_1(t) + c </me>.
+	Then the two functions are differentiable at the same input values,
+	with <me> \ddt{q_1} = \ddt{q_2} </me>.
+	</p>
+</identity>
+
+</subsection>
+
+</section>
+
+<section>
+<title>Derivatives of polynomials</title>
+
+<p>
+Polynomials are built out of constants and powers of the independent variable.
+We already know the derivatives for constants and the independent variable itself,
+so let's tackle higher powers.
+We've already carried out one example involving <m>t^2</m>
+(<xref ref="example-deriv-parabolic-motion" />),
+so let's try a cubic.
+</p>
+
+<example xml:id="example-deriv-cubic">
+	<title>Derivative of the basic cubic function</title>
+	<p>
+	For <m>q(t) = t^3</m>,
+	we have <me> q(t + dt) = (t + dt)^3 </me>.
+	This <em>sum-inside-a-power</em> formula is an example of a <term>binomial expression</term>,
+	and there is a formula for expanding it:
+	<me> (t + dt)^3 = t^3 + 3 t^2 dt + 3 t dt^2 + dt^3 </me>.
+	So we have
+	<md>
+		<mrow> q(t + dt) - q(t) \amp = (\bcancel{t^3} + 3 t^2 dt + 3 t dt^2 + dt^3) - \bcancel{t^3} </mrow>
+		<mrow> \amp = 3 t^2 dt + 3 t dt^2 + dt^3 </mrow>
+		<mrow> \amp = (3 t^2 + 3 t dt + dt^2) dt </mrow>
+	</md>,
+	leading to
+	<md>
+		<mrow> \ddt{q} \amp = \frac{ q(t + dt) - q(t) }{ dt } </mrow>
+		<mrow> \amp = \frac{ (3 t^2 + 3 t dt + dt^2) \bcancel{dt} }{ \bcancel{dt} } </mrow>
+		<mrow> \amp = 3 t^2 + 3 t dt + dt^2 </mrow>
+	</md>.
+	Treating <m>dt \approx 0</m> as negligible at this point gives us
+	<md>
+		<mrow> \ddt{q} \amp = 3 t^2 + \cancelto{0}{3 t dt} + \cancelto{0}{dt^2} </mrow>
+		<mrow> \amp = 3 t^2 </mrow>.
+	</md>.
+	</p>
+</example>
+
+<p> Let's investigate what happens if we go back-and-forth through our two processes. </p>
+
+<example>
+	<title>Derivative of the quantity model for a quadratic rate model</title>
+	<p>
+	Suppose we start with <m>r(t) = t^2</m>.
+	<xref ref="pattern-poly-int-power-positive-exp" text="type-local">Pattern</xref>
+	of <xref ref="pattern-poly-int-power" />
+	says that the associated quantity model will be <me> q(t) = \frac{t^3}{3} + q_0 </me>,
+	where <m>q_0 = q(0)</m> is the initial quantity.
+	The constant denominator is actually a scale factor:
+	<me> q(t) = \frac{1}{3} \, t^3 + q_0 </me>.
+	Apply <xref ref="pattern-deriv-scale" /> and <xref ref="pattern-deriv-sum" />,
+	as well as our result from <xref ref="example-deriv-cubic" />:
+	<md>
+		<mrow> \ddt{q} \amp = \opddt \left(\frac{1}{3} \, t^3 + q_0\right) </mrow>
+		<mrow> \amp = \frac{1}{3} \, \ddt{(t^3)} + \ddt{q_0} </mrow>
+		<mrow> \amp = \frac{1}{3} \, (3 t^2) + 0 </mrow>
+		<mrow> \amp = t^2 </mrow>
+		<mrow> \amp = r(t) </mrow>
+	</md>.
+	So the derivative process has successfully returned our original rate function.
+	</p>
+</example>
+
+<p>
+<xref ref="pattern-poly-int-power-positive-exp" text="type-local">Pattern</xref>
+of <xref ref="pattern-poly-int-power" />
+could be described in words as follows:
+<em>to obtain the accumulation function for a power of <m>t</m>, increase the exponent and then divide by that new exponent</em>.
+The differentiation pattern should be the reverse of this pattern.
+To reverse a multi-step pattern,
+we need to both reverse the steps but also reverse the <em>order</em> of the steps.
+With this in mind,
+and also using the result of <xref ref="example-deriv-cubic" /> as inspiration,
+we might guess that the pattern is:
+<em>to obtain the derivative function for a power of <m>t</m>, multiply by the exponent and then decrease the exponent</em>.
+</p>
+
+<identity xml:id="pattern-deriv-power">
+	<title>Derivative of a power</title>
+
+	<statement><p>
+		The quantity function <m>q(t) = t^n</m> is differentiable everywhere that it is defined,
+		with <me>\ddt{(t^n)} = n t^{n - 1} </me>.
+	</p></statement>
+
+	<proof>
+		<title>Justification for positive, integer <m>n</m></title>
+
+		<p>
+		We follow the template of <xref ref="example-deriv-cubic" />.
+		For quantity function <me>q(t) = t^n</me>,
+		we have
+		<md>
+			<mrow> q(t + dt) \amp = (t + dt)^n </mrow>
+			<mrow> \amp = t^n + b_1 t^{n - 1} dt + b_2 t^{n - 2} dt^2 + \dotsb + b_{n - 1} t dt^{n - 1} + dt^n </mrow>
+		</md>,
+		where <m>b_1,b_2,\dotsc,b_{n-1}</m> are the so-called <term>binomial coefficients</term> for the expansion of a binomial expression of the form <m>(x+y)^n</m>.
+		Therefore,
+		<md>
+			<mrow> q(t + dt) - q(t) \amp = (\bcancel{t^n} + b_1 t^{n - 1} dt + b_2 t^{n - 2} dt^2 + \dotsb + b_{n - 1} t dt^{n - 1} + dt^n) - \bcancel{t^n} </mrow>
+			<mrow> \amp = (b_1 t^{n - 1} + b_2 t^{n - 2} dt + \dotsb + b_{n - 1} t dt^{n - 2} + dt^{n - 1}) dt </mrow>
+		</md>,
+		and so
+		<md>
+			<mrow> \ddt{q} \amp = \frac{ q(t + dt) - q(t) }{ dt } </mrow>
+			<mrow> \amp = \frac{ (b_1 t^{n - 1} + b_2 t^{n - 2} dt + \dotsb + b_{n - 1} t dt^{n - 2} + dt^{n - 1}) \bcancel{dt} }{ \bcancel{dt} } </mrow>
+			<mrow> \amp = b_1 t^{n - 1} + b_2 t^{n - 2} dt + \dotsb + b_{n - 1} t dt^{n - 2} + dt^{n - 1} </mrow>
+		</md>.
+		Treating <m>dt \approx 0</m> as negligible at this point gives us
+		<md>
+			<mrow> \ddt{q} \amp = b_1 t^{n - 1} + \cancelto{0}{b_2 t^{n - 2} dt} + \dotsb + \cancelto{0}{b_{n - 1} t dt^{n - 2}} + \cancelto{0}{dt^{n - 1}} </mrow>
+			<mrow>  \amp = b_1 t^{n - 1} </mrow>
+		</md>.
+		Finally,
+		it turns out that the first binomial coefficient <m>b_1</m> for the expansion of a binomial expression of the form <m>(x+y)^n</m> is <m>b_1 = n</m>
+		(refer to the <term>Binomial Theorem</term>), <!-- TODO give a reference? -->
+		so that <me> \ddt{(t^n)} = n t^{n - 1} </me>, as claimed.
+		</p>
+
+	</proof>
+
+</identity>
+
+<remark>
+	<title>Non-positive and/or non-integer exponents</title>
+	<p>
+	While our justification is only valid for positive, integer exponents <m>n</m>,
+	<xref ref="pattern-deriv-power" /> itself is valid for <em>all</em> exponents,
+	and we will justify this in later chapters after we have a few more techniques and patterns available to us.
+	In the meantime,
+	recall that for negative exponents we cannot attach a derivative value to the quantity function at the singularity at <m>t = 0</m>
+	(see <xref ref="subsection-avg-rage-non-diff-singular" />),
+	which the reason for including the phrase <q>everywhere that it is defined</q> in the statement of the pattern.
+	We could also consider the pattern to be true for <m>n = 0</m>,
+	since in that case the quantity function satisfies
+	<md> <mrow> q(t) \amp = t^0 = 1 \amp \text{for } t \amp \gt 0 </mrow> </md>,
+	while <xref ref="pattern-deriv-power" /> gives
+	<me> \ddt{(t^0)} = 0 t^{-1} = 0 </me>
+	(again assuming <m>t \gt 0</m>).
+	So in some sense <xref ref="pattern-deriv-power" /> <q>contains</q> <xref ref="pattern-deriv-constant" />.
+	(And, for that matter, it also <q>contains</q> <xref ref="pattern-deriv-var" /> when we take <m>n = 1</m>.)
+	</p>
+</remark>
+
+<p> Here are a couple examples of using <xref ref="pattern-deriv-power" />. </p>
+
+<example xml:id="example-deriv-neg-exponent">
+	<title>Derivative of a power with a negative exponent</title>
+	<p><md><mrow> q(t) \amp = t^{-3} \amp \amp\implies \amp \ddt{q} \amp = -3 t^{-4} </mrow></md></p>
+</example>
+
+<note><p>
+	While we might describe part of <xref ref="pattern-deriv-power" /> as <em>decrease the exponent</em>,
+	this does not mean decrease the <em>magnitude</em> of the exponent <mdash />
+	a common mistake in applying <xref ref="pattern-deriv-power" /> is to use <m>t^{-2}</m> in the derivative formula for <m>t^{-3}</m>,
+	instead of <m>t^{-4}</m> as in <xref ref="example-deriv-neg-exponent" />.
+</p></note>
+
+<example xml:id="example-deriv-irrational-exponent">
+	<title>Derivative of a power with an irrational exponent</title>
+	<p><md><mrow> q(t) \amp = t^\pi \amp \amp\implies \amp \ddt{q} \amp = \pi t^{\pi - 1} </mrow></md></p>
+</example>
+
+<p>
+Finally,
+we can combine <xref ref="pattern-deriv-power" /> with <xref ref="pattern-deriv-scale" /> and <xref ref="pattern-deriv-sum" />
+to obtain a general formula for the derivative function of any polynomial.
+We will leave the justification up to you, the reader.
+</p>
+
+<identity xml:id="pattern-deriv-poly">
+	<title>Derivative of a polynomial</title>
+	<p>
+	A polynomial quantity function <me> q(t) = a_0 + a_1 t + a_2 t^2 + \dotsb + a_n t^n </me> is differentiable at all input values,
+	with <me>\ddt{q} = a_1 + 2 a_2 t + 3 a_3 t^2 + \dotsb + n a_n t^{n - 1} </me>.
+	</p>
+</identity>
+
+<example>
+	<title>Derivative of a polynomial</title>
+	<p><md alignment="gather">
+		<mrow> q(t) = 3 t^5 - 4 t^3 + t^2 + 7 t + 6 </mrow>
+		<mrow> \implies \qquad q'(t) = 15 t^4 - 12 t^2 + 2 t + 7 </mrow>
+	</md></p>
+</example>
+
+<exercise><p>
+	Verify for yourself that beginning with a polynomial rate function
+	<me> r(t) = r_0 + r_1 t + r_2 t^2 + \dotsb + r_m t^m </me>,
+	applying <xref ref="pattern-poly-quantity-from-rate" /> to obtain an associated quantity model
+	(don't forget to include the initial value),
+	and then applying <xref ref="pattern-deriv-poly" /> to obtain the derivative function of that quantity function will return you back to the original rate function.
+</p></exercise>
+
+</section>
+
+
+<section>
+<title>Derivatives of the natural logarithm and exponential functions</title>
+
+<subsection>
+<title>The natural logarithm</title>
+
+<p>
+If we accept <xref ref="principle-deriv-equals-rate" />,
+then <xref ref="definition-log-natural" />
+tells us how to differentiate the natural logarithm function.
+</p>
+
+<identity xml:id="pattern-deriv-log">
+	<title>Derivative of the natural logarithm</title>
+	<p>
+	The natural logarithm function is differentiable for all <m>t \gt 0</m>,
+	with <me> \ddt{(\ln t)} = \frac{1}{t} </me>.
+	</p>
+</identity>
+
+<p>
+It is common to extend the domain of the natural logarithm by composing with the absolute value function:
+whereas <m>\ln t</m> is defined only for <m>t \gt 0</m>,
+<m>\ln \abs{t}</m> is defined for all <m>t</m> except at the singularity at <m>t = 0</m>.
+For this function,
+a negative input has the same output value as the corresponding positive input of the same magnitude,
+so the graph is symmetric about the vertical axis.
+</p>
+
+<figure xml:id="figure-deriv-natural-log-abs">
+	<caption> Graph of the quantity function <m>q(t) = \ln \abs{t}</m>. </caption>
+	<image width="67%">
+		<description>Graph of the natural logarithm composed with the absolute value.</description>
+		<latex-image><xi:include href="deriv.d/ln-abs.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+Consider a point on the graph in <xref ref="figure-deriv-natural-log-abs" /> at <m>t = a</m> with <m>a \lt 0</m>.
+There is a corresponding point at the same height at <m>t = \abs{a}</m>.
+As <m>\abs{a} > 0</m>,
+this second point is on the graph of <m>y = \ln t</m>,
+and so we know its derivative value as
+<me> \funceval{\ddt{(\ln t)}}{t = \abs{a}} = {1 \over \abs{a}} </me>.
+This derivative value describes the slope of the tangent line at this point.
+The derivative value
+<me> \funceval{\ddt{(\ln \abs{t})}}{t = a} </me>
+describes the slope of the tangent line at the original point.
+But since these two points are reflections of each other in the vertical axis,
+we can see that the two slopes will be equal in magnitude but have opposite signs.
+</p>
+
+<figure xml:id="figure-deriv-reflect-in-natural-log-abs">
+	<caption>
+		Two tangent lines at reflected points on the graph of the quantity function <m>q(t) = \ln \abs{t}</m>.
+	</caption>
+	<image width="67%">
+		<description>
+			Two tangent lines at reflected points on the graph of the natural logarithm composed with the absolute value.
+		</description>
+		<latex-image><xi:include href="deriv.d/ln-abs-reflect.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+So by symmetry we have
+<me> \funceval{\ddt{(\ln \abs{t})}}{t = a} = - {1 \over \abs{a}} = \frac{1}{- \abs{a}} </me>.
+However, as <m>a</m> was negative to begin with,
+<me> - \abs{a} = a </me>,
+and we end up with
+<me> \funceval{\ddt{(\ln \abs{t})}}{t = a} = - {1 \over \abs{a}} = \frac{1}{a} </me>,
+which is the same <q>one-over</q> formula as for the derivative of the natural logarithm.
+</p>
+
+<identity xml:id="pattern-deriv-abs-log">
+	<title>Derivative of the natural logarithm composed with </title>
+	<p>
+	The quantity function <m>q(t) = \ln\abs{a}</m> is differentiable for all <m>t \neq 0</m>,
+	with <me> \ddt{(\ln\abs{t})} = \frac{1}{t} </me>.
+	</p>
+</identity>
+
+</subsection>
+
+<subsection>
+<title>The natural exponential</title>
+
+<p>
+Again,
+if we accept <xref ref="principle-deriv-equals-rate" />,
+then <xref ref="pattern-exp-integral" />
+tells us how to differentiate the natural exponential function.
+In particular,
+<xref ref="pattern-exp-integral" />
+says that rate function <m>r(t) = e^t</m> leads to the accumulation function <m>A_0(t) = e^t - 1</m>.
+If we assume that <m>q(0) = 0</m>,
+then this accumulation function is also the quantity function:
+<me> q(t) = e^t - 1 </me>,
+and <xref ref="principle-deriv-equals-rate" />
+tells us to expect that
+<me> \opddt (e^t - 1) = r(t) = e^t </me>.
+Now, the quantity functions
+<md>
+	<mrow>
+		q(t) \amp = e^t - 1
+		\amp
+		q(t) \amp = e^t
+	</mrow>
+</md>
+are vertical shifts of one another,
+so <xref ref="pattern-deriv-vertical-shift" /> tells us that they have the same derivative.
+</p>
+
+<identity xml:id="pattern-deriv-exp">
+	<title>Derivative of the natural exponential</title>
+	<p>
+	The natural exponential function is differentiable for all <m>t</m>,
+	with <me> \ddt{e^t} = e^t </me>.
+	</p>
+</identity>
+
+<p>
+This is a remarkable fact!
+It says that a quantity that experiences exponential growth will also have a rate function that grows exponentially.
+This is why exponential growth can be both exciting
+(when considering compounding of gains in your investment account, for example)
+and terrifying
+(when considering unchecked spread of a virus in a population, for example).
+<mdash /> the more there is, the sooner there will be a lot more than that.
+</p>
+
+</subsection>
+
+</section>
+
+<section>
+<title>Calculating derivatives with Sage</title>
+
+<p>
+Of course,
+Sage can symbolically calculate derivatives.
+Here is the syntax for computing a derivative formula in Sage.
+<cd><cline>
+	derivative(formula, variable)
+</cline></cd>
+Alternatively,
+you can define a function and then apply the <c>derivative</c> method to it.
+<cd>
+	<cline> q(t) = some_formula </cline>
+	<cline> q.derivative() </cline>
+</cd>
+If you need a specific derivative value,
+you can use the <c>substitute</c> method with the first syntax option above.
+In the second syntax option,
+a function is returned to that can be evaluated with function notation.
+<cd>
+	<cline> q(t) = some_formula </cline>
+	<cline> r = q.derivative() </cline>
+	<cline> r(some_number) </cline>
+</cd>
+</p>
+
+<p> Here is an example using both syntax variations. </p>
+
+<example xml:id="example-deriv-tangent-line">
+<title>Using Sage to compute the equation of a tangent line</title>
+
+<p>
+Consider function
+<me> q(t) = t^3 - 2 t + 5 </me>.
+What is the equation of the tangent line to the graph of this function at the point
+<me> q(1) = 4 </me>?
+It is not too difficult to use <xref ref="pattern-deriv-poly" /> to carry this out with pencil-and-paper,
+but let's use Sage.
+</p>
+
+<sage>
+	<input>
+		var('t')
+		dqdt = derivative(t^3 - 2*t + 5, t)
+		slope = dqdt.substitute(t = 1)
+		print("dqdt =", dqdt)
+		print("slope at t=1 is", slope)
+	</input>
+	<output>
+		dqdt = 3*t^2 - 2
+		slope at t=1 is 1
+	</output>
+</sage>
+
+<p>
+Now we apply <xref ref="pattern-avg-rate-tangent-line-equation" /> to get tangent line equation
+<md>
+	<mrow> y \amp = 1 t + (4 - 1 \cdot 1) </mrow>
+	<mrow> \amp = t + 3 </mrow>
+</md>.
+</p>
+
+<p>
+Here is the same calculation,
+but using function notation.
+</p>
+
+<sage>
+	<input>
+		q(t) = t^3 - 2*t + 5
+		dqdt = q.derivative()
+		slope = dqdt(1)
+		line = slope * t + (q(1) - slope * 1)
+		print("dqdt is the function")
+		print(dqdt)
+		print()
+		print("slope at t=1 is", slope)
+		print()
+		print("equation of tangent line at t=1 is")
+		print("y =", line)
+	</input>
+	<output>
+		dqdt is the function
+		t |--> 3*t^2 - 2
+
+		slope at t=1 is 1
+
+		equation of tangent line at t=1 is
+		y = t + 3
+	</output>
+</sage>
+
+</example>
+
+</section>
+
+<!-- <xi:include href="./instant-rate.d/activities.ptx" />
+<xi:include href="./instant-rate.d/exercises.ptx" /> -->
+
+</chapter>

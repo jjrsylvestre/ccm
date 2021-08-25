@@ -81,26 +81,28 @@ respective owners.
 <!-- Models & differential equations where solution is periodic, with examples from the sciences. -->
 <xi:include href="./pmodels.ptx" />
 
+<!-- Average rate of accumulation. Differentials and approximate rate of accumulation. -->
 <xi:include href="./avg-rate.ptx" />
 
 <!--
   Exact rate of variation from approximate rate of variation.
   Rate of variation formulas (polynomial, logarithmic, exponential, trig).
 -->
-<xi:include href="./instant-rate.ptx" />
+<xi:include href="./deriv.ptx" />
+
+<!-- Average value of a function. Mean Value Theorems. Fundamental Theorem. -->
+<xi:include href="./fund-thm.ptx" />
+
+<!-- Chain rule. Reversing the chain rule (substitution). -->
+<xi:include href="./chain.ptx" />
 
 <!--
   Implicit differentiation.
   One-to-one and inverse functions.
   Rate of variation for inverse functions.
+  *** Related rates ? See Bill's comment in topic list doc on google drive ***
 -->
 <xi:include href="./imp-inv.ptx" />
-
-<!-- Average value of a function. Mean Value Theorems. Fundamental Theorem. -->
-<xi:include href="./fund-thm.ptx" />
-
-<!-- Chain rule. Reversing the chain rule (substitution). *** Related rates ? See Bill's comment in topic list doc on google drive *** -->
-<xi:include href="./chain.ptx" />
 
 <!-- Product rule. Linear differential equations and integrating factors. -->
 <xi:include href="./product.ptx" />

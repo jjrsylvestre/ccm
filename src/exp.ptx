@@ -705,7 +705,7 @@ In the Sage cell below, try different values for the variable upper bound <c>t</
 		t = 1
 		integrate(e^u,u,0,t)
 	</input>
-	<output>e - 1</output>
+	<output>e^t - 1</output>
 </sage>
 
 <p>
@@ -722,6 +722,7 @@ similar to <xref ref="pattern-poly-int-power" />.
 
 <identity xml:id="pattern-exp-integral">
 	<title>Integral of an exponential function</title>
+
 	<p>
 	For rate function <m>r(t) = a^t</m>
 	(with positive base <m>a</m>),
@@ -730,12 +731,14 @@ similar to <xref ref="pattern-poly-int-power" />.
 	<me> q(t) = \frac{a^t}{\ln a} + (q_0 - 1) </me>,
 	where <m>q_0 = q(0)</m> is the initial amount.
 	</p>
-</identity>
 
-<note><p>
-	If we have <m>a = e</m>,
-	then <m>\ln a = 1</m> and the integral in <xref ref="pattern-exp-integral" /> matches tha pattern from the Sage calculation above.
-</p></note>
+	<p>
+	In the case of the natural exponential function as the rate function
+	(that is, where <m>a = e</m>),
+	then since <m>\ln e = 1</m> we have <me> \ccmint{0}{t}{a^u}{u} = e^t - 1 </me>.
+	</p>
+
+</identity>
 
 <figure xml:id="figure-exp-integral">
 	<caption> Area under the natural exponential function is measured by the natural exponential function. </caption>

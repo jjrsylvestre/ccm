@@ -911,6 +911,12 @@ The syntax for computing a definite integral in Sage is (unsurprisingly) essenti
 	integrate(function, variable, start, end)
 </cline></cd>
 (Compare with the Sage summation syntax discussed in <xref ref="subsection-step-sage" />.)
+Alternatively,
+you can define a function and then apply the <c>integrate</c> method to it.
+<cd>
+	<cline> r(t) = some_formula </cline>
+	<cline> r.integrate(variable, start, end) </cline>
+</cd>
 </p>
 
 <example xml:id="example-integ-definite-int-by-sage">
@@ -930,6 +936,17 @@ The syntax for computing a definite integral in Sage is (unsurprisingly) essenti
 		<input>
 			var('t')
 			integrate(t^2 + 1, t, 0, 1)
+		</input>
+		<output> 4/3 </output>
+	</sage>
+
+	<p> And here it is using a function definition. </p>
+
+	<sage>
+		<input>
+			var('t')
+			r(t) = t^2 + 1
+			r.integrate(t, 0, 1)
 		</input>
 		<output> 4/3 </output>
 	</sage>
@@ -1176,7 +1193,7 @@ Luckily Sage can also handle this for us.
 	In this format,
 	<c>variable</c>
 	means the letter being used as the integrand function's independent variable,
-	so here we use <m>u</m> in that spot.
+	so here we use <c>u</c> in that spot.
 	But our <c>end</c> value is also variable,
 	so we'll have the letter <m>t</m> there instead of a number like before.
 	</p>
