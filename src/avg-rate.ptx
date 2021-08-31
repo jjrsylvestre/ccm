@@ -1252,6 +1252,41 @@ and functions with such a feature are never differentiable at that point.
 
 </subsection>
 
+<conclusion>
+
+<p>
+In <xref ref="subsection-avg-rage-non-diff-jump" /> and <xref ref="subsection-avg-rage-non-diff-singular" />,
+we observed that two different kinds of function discontinuities lead to non-differentiability,
+and the same is true in general.
+</p>
+
+<identity xml:id="pattern-avg-rate-discont-implies-not-diff">
+	<title>Discontinuous implies non-differentiable</title>
+	<p>
+	If a function is discontinuous at some value of <m>t</m>,
+	then it cannot be differentiable there.
+	</p>
+</identity>
+
+<p>
+Note that, among other types of discontinuities,
+<xref ref="pattern-avg-rate-discont-implies-not-diff" /> may be applied to all values of <m>t</m> that are <em>not</em> in the domain of the function,
+since at such points we would not be able to form either the forward or backward average-rate approximations to rate.
+</p>
+
+<warning>
+	<title>Functions can be non-differentiable even if continuous</title>
+	<p>
+	Functions are always non-differentiable at discontinuities,
+	but that is not the only they can fail to be differentiable,
+	as we observed in <xref ref="subsection-avg-rage-non-diff-cusps" />
+	and <xref ref="subsection-avg-rage-non-diff-vertical" />.
+	</p>
+</warning>
+
+
+</conclusion>
+
 </section>
 
 
