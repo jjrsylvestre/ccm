@@ -13,13 +13,1229 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
+<!--
+	Functions.
+	Graphs of functions. Vertical line test.
+	Piecewise functions.
+	Continuous functions.
+	Transformations of functions/graphs.
+	TODO: functions in Sage?
+-->
+
 <chapter xml:id="chapter-funcs" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Functions and graphs</title>
 
 <section xml:id="section-funcs-intro">
-<title>TODO</title>
+<title>Basics</title>
 
-<p> TODO </p>
+<p>
+A function is an <em>input-output</em> process.
+While more generally a function definition can specify <em>any</em> kind of input and <em>any</em> kind of output,
+for us a function will always be <em>one number in, one number out</em>.
+</p>
+
+<figure xml:id="figure-funcs-input-output-schematic">
+	<caption> Schematic of a function as an input-output process. </caption>
+	<image width="50%">
+		<description>Schematic of a function as an input-output process.</description>
+		<latex-image><xi:include href="funcs.d/in-out.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+There are three components to function notation <m>f(t)</m>:
+<dl>
+
+	<li>
+		<title>input</title>
+		<p>
+		The input value is represented by the independent variable <m>t</m> and is placed inside parentheses.
+		</p>
+	</li>
+
+	<li>
+		<title>output</title>
+		<p>
+		The full expression <m>f(t)</m> represents the output value that corresponds to the particular input value <m>t</m>.
+		</p>
+	</li>
+
+	<li>
+		<title>name</title>
+		<p>
+		The name of a function is often represented by the letter <m>f</m>
+		(for <em>f</em>unction),
+		but other letters can be used.
+		</p>
+	</li>
+
+</dl>
+Some functions have special names;
+for example:
+<ul>
+	<li>
+		<m>\sin</m>, <m>\cos</m>, and <m>\tan</m> for the trigonometric sine, cosine, and tangent functions
+	</li>
+	<li>
+		<m>\ln</m> and <m>\exp</m> for the natural logarithm and exponential functions.
+	</li>
+</ul>
+</p>
+
+<p>
+	<alert>A function is not a formula.</alert>
+	A formula is just one way to describe the input-output process of a function,
+	but there are other ways to do so, including:
+	<ul>
+		<li> a table of values </li>
+		<li> a graph </li>
+		<li> a description in words. </li>
+	</ul>
+</p>
+
+<example xml:id="example-funcs-by-desc">
+	<title>A function defined by a description</title>
+	<p>
+	A device that measures wind speed is called an <term>anemometer</term>.
+	Suppose an anemometer is set up in the quad of the Augustana Campus.
+	For <m>t</m> representing time measured in seconds from the instant the anemometer is fully set up and operational,
+	let <m>w(t)</m> represent the wind speed measured by the device at time <m>t</m>,
+	in kilometres per hour.
+	</p>
+</example>
+
+<p>
+It would be pretty difficult to come up with a formula in <m>t</m> that describes the function in <xref ref="example-funcs-by-desc" />.
+However, as we'll see in <xref ref="example-funcs-piecewise-table" />,
+it's possible (but tedious) to create a <q>formula</q> for a function that has initially been defined by a table of values,
+as in <xref ref="example-funcs-by-table" />.
+</p>
+
+<example xml:id="example-funcs-by-table">
+	<title>A function defined by a table of values</title>
+	<p>
+	Let <m>f</m> represent the function produces outputs <m>f(t)</m> from inputs <m>t</m> according to the following table.
+	</p>
+	<tabular top="medium" bottom="medium" halign="center">
+		<col right="minor" /><col /><col /><col />
+		<row bottom="minor">
+				<cell><m>t</m></cell>
+				<cell><m>0</m></cell>
+				<cell><m>1</m></cell>
+				<cell><m>2</m></cell>
+				<cell><m>3</m></cell>
+				<cell><m>\pi</m></cell>
+		</row>
+		<row>
+				<cell><m>f(t)</m></cell>
+				<cell><m>0</m></cell>
+				<cell><m>1/3</m></cell>
+				<cell><m>-2</m></cell>
+				<cell><m>2</m></cell>
+				<cell><m>\sqrt{5}</m></cell>
+		</row>
+	</tabular>
+	<p>
+	For example,
+	the table says that <m>f(1) = 1/3</m>.
+	</p>
+</example>
+
+<p>
+The information in <xref ref="example-funcs-by-table" /> seems incomplete <mdash />
+how can we determine <m>f(-1)</m> or <m>f(1/2)</m> from the table?
+Since the function description does not specify how to determine output values for these inputs,
+we must accept that there are no such output values <m>f(-1)</m> and <m>f(1/2)</m>.
+</p>
+
+<definition xml:id="definition-funcs-domain">
+	<title>Domain of a function</title>
+	<p>
+	The set of all values of the independent variable <m>t</m> that can be used as an input value for the function,
+	in the sense that there is an associated output value.
+	For values of <m>t</m> that are not in the domain,
+	we say that the output value <m>f(t)</m> is <term>undefined</term>.
+	</p>
+</definition>
+
+<example xml:id="example-funcs-domain-table-and-desc">
+
+	<p>
+	If we assume that the anemometer in <xref ref="example-funcs-by-desc" /> could continuously record wind speed measurements,
+	then the domain of the <m>w</m> function in that example is <m>t \ge 0</m>,
+	and the function is undefined for <m>t \lt 0</m>.
+	</p>
+
+	<p>
+	The domain of the function <m>f</m> from <xref ref="example-funcs-by-table" /> is merely the set of values <m> t = 0, 1, 2, 3, \pi </m>,
+	and <m>f(t)</m> is undefined for all other values of <m>t</m>.
+	</p>
+
+</example>
+
+<p>
+Technically,
+the domain of a function is part of its definition,
+but it is often not explicitly specified.
+In that case,
+we should assume that the domain is as large as possible,
+and includes all possible input values that <q>make sense</q> in the function definition.
+</p>
+
+<example>
+	<title>An implicit domain</title>
+	<p>
+	Let <m>f</m> represent the function described by the input-output formula
+	<me> f(t) = \frac{1}{t} </me>.
+	The domain of this function is <m>t \neq 0</m>,
+	meaning the set of all input values <em>except</em> <m>t = 0</m>,
+	since at <m>t = 0</m> the output formula would involve division by zero.
+	</p>
+</example>
+
+<p>
+However,
+sometimes we want to restrict the possible input values for some reason,
+even if the description of the function's input-output process could allow other input values.
+</p>
+
+<example>
+	<title>A restricted domain</title>
+	<p>
+	Let <m>f</m> represent the function
+	<md><mrow> f(t) \amp = t^2 \amp t \amp \ge 0 </mrow></md>.
+	Here the domain is explicitly specified as being <m>t \ge 0</m>.
+	So even though the formula <m>(-1)^2</m> is defined,
+	technically the output value <m>f(-1)</m> is <em>undefined</em> because we have specified in the function definition that the input-output formula <m>t \mapsto t^2</m> only applies for <m>t \ge 0</m>.
+	</p>
+</example>
+
+<p> We often also want to determine the <term>range</term> of possible output values of a function. </p>
+
+<definition xml:id="definition-funcs-range">
+	<title>Range of a function</title>
+	<p> The set of all output values that can be achieved by a function. </p>
+</definition>
+
+<example><p>
+	The function <me> f(t) = \frac{1}{t^2} </me> only outputs positive values.
+	But is every positive value an <em>actual</em> output of the function?
+	Yes, because if <m>y</m> is a positive number,
+	there is at least one example of an input value so that <m>f(t) = y</m>;
+	in particular,
+	<md><mrow>
+		t \amp = \frac{1}{\sqrt{y}}
+		\amp
+		f(t) \amp = \frac{1}{{1/\sqrt{y}}^2} = y
+	</mrow></md>.
+	So the range of this function is the set of all positive numbers.
+</p></example>
+
+<example>
+	<title>A restricted domain could restrict the range</title>
+	<p>
+	The function <m>f(t) = t^3</m> has the entire set of real numbers <m>\R</m> for its range,
+	as every real number is the cube of another number.
+	However,
+	the function
+	<md><mrow> g(t) \amp = t^3 \amp t \amp \ge 0 </mrow></md>
+	has range <m> g(t) \ge 0 </m>,
+	since by discarding negative inputs we will no longer achieve any negative outputs.
+	</p>
+</example>
+
+</section>
+
+<section>
+<title>Graph of a function</title>
+
+<definition xml:id="definition-funcs-graph">
+	<title>Graph of a function</title>
+	<p> The collection of all input-output pairs <m>\bbrac{t, f(t)}</m> in the Cartesian plane. </p>
+</definition>
+
+<p>
+For a point <m>(t,y)</m> in the Cartesian plane,
+the property of being on the graph or not on the graph of a function <m>f</m> is precisely determined by whether or not <m>f(t) = y</m> is true.
+</p>
+
+<example>
+	<title>Parabola</title>
+
+	<p> The graph of the function <m>f(t) = t^2</m> creates a curve in a shape called a <term>parabola</term>. </p>
+
+	<figure xml:id="figure-funcs-parabola">
+		<caption>
+			The parabolic graph of the function <m>f(t) = t^2</m>,
+			including two representative points:
+			one on the graph and one not on the graph.
+		</caption>
+		<image width="75%">
+			<description> Parabolic graph of the basic quadratic function. </description>
+			<latex-image><xi:include href="funcs.d/parabola.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	In <xref ref="figure-funcs-parabola" />,
+	the point <m>(2,4)</m> appears on the graph because for <m>t = 2</m> and <m>y = 4</m>,
+	the equality <m>f(t) = y</m> is true,
+	whereas the point <m>(-1,6)</m> appears displaced from the graph because for <m>t = -1</m> and <m>y = 6</m>,
+	the equality <m>f(t) = y</m> is not true.
+	</p>
+
+</example>
+
+<p> A graph is not necessarily a curve. </p>
+
+<example>
+	<title>A graph as a collection of points</title>
+
+	<p>
+	Consider again the function in <xref ref="example-funcs-by-table" />,
+	which was defined by a table of values.
+	Since the table only defines five input-output pairs,
+	the graph consists of only five isolated points.
+	</p>
+
+	<figure xml:id="figure-funcs-discrete">
+		<caption> An example graph that consists of only five points. </caption>
+		<image width="75%">
+			<description> An example graph that consists of only five points. </description>
+			<latex-image><xi:include href="funcs.d/discrete.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+Every function can be associated with a collection of points in the Cartesian plane representing input-output pairs,
+and for many of the functions we study this collection of points will <q>join together</q> to form a curve.
+Is the opposite true?
+Is every curve in the Cartesian plane the graph of a function?
+</p>
+
+<identity xml:id="pattern-funcs-VLT">
+	<title>Vertical Line Test</title>
+	<p> A curve in the Cartesian plane is the graph of a function if and only if every vertical line intersects the graph only once or not at all. </p>
+</identity>
+
+<p>
+The <q>only once</q> part of <xref ref="pattern-funcs-VLT" /> represents the fact that a function should associate one and only one output value to each input value in the domain.
+If some vertical line intersects the curve more than once,
+then those intersection points associate different output values to the same input value,
+which a function cannot do.
+The <q>or not at all</q> part of <xref ref="pattern-funcs-VLT" /> covers the situation of a vertical line at a <m>t</m>-position that is not in the domain of the function,
+in which case there is no corresponding point on the graph for a vertical line at that <m>t</m>-position to intersect.
+</p>
+
+<figure xml:id="figure-funcs-VLT">
+	<caption> Illustrations of the Vertical Line Test. </caption>
+
+	<sidebyside widths="45% 45%">
+
+		<figure xml:id="figure-funcs-VLT-1">
+			<caption> A curve that passes the Vertical Line Test. </caption>
+			<image>
+				<description> A curve that passes the Vertical Line Test. </description>
+				<latex-image><xi:include href="funcs.d/vlt1.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-funcs-VLT-2">
+			<caption> A curve that does not pass the Vertical Line Test. </caption>
+			<image>
+				<description> A curve that does not pass the Vertical Line Test. </description>
+				<latex-image><xi:include href="funcs.d/vlt2.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+<p>
+If a curve passes the Vertical Line Test,
+of what function will it be the graph?
+Remember that a function can be described as an input-output process in several different ways.
+To describe a function via a graph,
+assign an output value <m>f(t)</m> to each input value <m>t</m> as follows:
+<ul>
+
+	<li>
+		if the vertical line at position <m>t</m> does not intersect the graph,
+		leave <m>f(t)</m> undefined
+	</li>
+
+	<li>
+		if the vertical line at position <m>t</m> does intersect the graph and the graph passes the Vertical Line Test,
+		then we can assume that there is only one such point of intersection,
+		so set <m>f(t)</m> to be the second coordinate of that point.
+	</li>
+
+</ul>
+</p>
+
+</section>
+
+<section>
+<title>Piecewise functions</title>
+
+<p>
+Sometimes we want to <q>stitch together</q> several formulas,
+so that one formula applies to one subdomain,
+another formula applies to another subdomain,
+and so on.
+</p>
+
+<example xml:id="example-funcs-commissions">
+	<title>Salary with commission</title>
+
+	<p>
+	Salespeople at a particular store make a base salary of $4000 per month,
+	on top of which they make a $10 commission on every unit they sell.
+	As an additional incentive,
+	after the first 100 units they sell in a month,
+	the commission on additional units sold is $15.
+	</p>
+
+	<p>
+	Let <m>q</m> represent the number of units sold in a month by any one salesperson,
+	and let <m>s(q)</m> represent the salary to be paid to that employee.
+	In the domain <m> 0 \le q \le 100 </m> we have <me> s(q) = 4000 + 10 q </me>.
+	But on the domain <m> q \gt 100 </m> we have <me> s(q) = 4000 + 10 q + 5 (q - 100) </me>.
+	</p>
+
+</example>
+
+<p>
+We can collect together several formulas into one function definition with some notation.
+For example,
+the salary function from <xref ref="example-funcs-commissions" /> can be expressed as
+<me>
+	s(q) = \begin{cases}
+		4000 + 10 q \amp 0 \le q \le 100 \\
+		4000 + 10 q + 5 (q - 100) \amp q \gt 100
+	\end{cases}
+</me>.
+The format of this notation begins with a large left brace,
+which alerts the reader that the formulas on the right are to be grouped together as cases in the definition of the function.
+Then we have the formulas and their associated domain of application,
+one per line.
+It's important that the subdomains don't overlap,
+so that we haven't defined a particular output value in more than one way.
+However, there is no requirement that the subdomains meet <mdash />
+the function can be left undefined at input values between the subdomains.
+</p>
+
+<p>
+A function that is defined in pieces in this way is called,
+fittingly,
+a <term>piecewise function</term>.
+As you can imagine, a piecewise function will also have a graph that appears to be built out of pieces.
+</p>
+
+<example xml:id="example-funcs-piecewise-graph">
+	<title>Graph of a piecewise function</title>
+
+	<p>
+	Consider the piecewise function
+	<me>
+		f(t) = \begin{cases}
+			t^2 \amp 0 \le t \le 2 \\
+			6 - t \amp t \gt 2
+		\end{cases}
+	</me>,
+	the graph of which appears in <xref ref="figure-funcs-piecewise" />.
+	Notice how the graph is made of part parabola,
+	and part line.
+	</p>
+
+	<figure xml:id="figure-funcs-piecewise">
+		<caption> Graph of a piecewise-defined function. </caption>
+		<image width="66%">
+			<description> Graph of a piecewise-defined function. </description>
+			<latex-image><xi:include href="funcs.d/piecewise.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+When creating a piecewise-defined function,
+there is no requirement that the pieces of the graph meet at the transition points.
+</p>
+
+<example xml:id="example-funcs-piecewise-graph-2">
+	<title>A piecewise function with a <q>jump</q> in its graph</title>
+
+	<p>
+	Now consider the piecewise function
+	<me>
+		g(t) = \begin{cases}
+			t^2 \amp 0 \le t \le 2 \\
+			4 - t \amp t \gt 2
+		\end{cases}
+	</me>,
+	the graph of which appears in <xref ref="figure-funcs-piecewise-2" />.
+	At <m>t = 2</m>,
+	the parabola portion on the left ends at height <m>4</m> but the line begins at height <m>2</m>,
+	so the two <q>pieces</q> of graph do not meet at the transition point.
+	Also notice that we have drawn a closed point at <m>(2,4)</m> at the <q>end</q> of the parabola portion of the graph,
+	but have drawn an open point at <m>(2,2)</m> at the <q>beginning</q> of the line portion.
+	This represents the fact that the parabola subdomain <m>0 \le t \le 2</m> contains the input value <m>t = 2</m> while the line subdomain <m>t \gt 2</m> does not,
+	so the piecewise definition dictates that the formula <m>g(t) = t^2</m> applies when <m>t = 2</m>.
+	</p>
+
+	<figure xml:id="figure-funcs-piecewise-2">
+		<caption> Graph of a piecewise-defined function with a <q>jump</q> in values. </caption>
+		<image width="66%">
+			<description> Graph of a piecewise-defined function with a <q>jump</q> in values. </description>
+			<latex-image><xi:include href="funcs.d/piecewise-2.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p> A piecewise-defined function can be built out of more than two pieces. </p>
+
+<example xml:id="example-funcs-piecewise-many">
+	<title>A piecewise function in many pieces</title>
+
+	<p>
+	Now consider the piecewise function
+	<me>
+		g(t) = \begin{cases}
+			0 \amp t \lt 0 \\
+			t^2 \amp 0 \le t \le 2 \\
+			5 \amp 2 \lt t \lt 3 \\
+			10 - 2 t \amp 3 \le t \le 5 \\
+			0 \amp t \gt 5
+		\end{cases}
+	</me>,
+	the graph of which appears in <xref ref="figure-funcs-piecewise-many" />.
+	</p>
+
+	<figure xml:id="figure-funcs-piecewise-many">
+		<caption> Graph of a piecewise-defined function with many pieces. </caption>
+		<image width="75%">
+			<description> Graph of a piecewise-defined function with many pieces. </description>
+			<latex-image><xi:include href="funcs.d/piecewise-many.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+We can use this notation to define a <q>formula</q> for a function that as been defined by a table of values,
+but it is not really any different than writing down a table of values.
+</p>
+
+<example xml:id="example-funcs-piecewise-table">
+	<title>Piecewise table of values</title>
+	<p>
+	Here is the function from <xref ref="example-funcs-by-table" /> in piecewise-function notation.
+	<me>
+		f(t) = \begin{cases}
+			0 \amp t = 0 \\
+			1/3 \amp t = 1 \\
+			-2 \amp t = 2 \\
+			2 \amp t = 3 \\
+			\sqrt{5} \amp t = \pi
+		\end{cases}
+	</me>.
+	This function is still only defined at a handful of points <mdash />
+	for example, <m>f(1/2)</m> is undefined because there is no listed formula whose associated subdomain is or contains <m>t = 1/2</m>.
+	</p>
+</example>
+
+</section>
+
+
+<section>
+<title>Continuous functions</title>
+
+<p>
+The graphs in <xref ref="figure-funcs-piecewise-2" />
+and <xref ref="figure-funcs-piecewise-many" />
+have an odd feature <mdash />
+they approach one value then suddenly jump to a different value.
+We'll call this type of feature a <term>point of discontinuity</term>.
+</p>
+
+<definition xml:id="definition-funcs-point-continuous">
+	<title>Continuous at a point</title>
+	<p>
+	A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being with some arbitrarily small error bound around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small subdomain around <m>t_0</m>.
+	Otherwise, the function is said to be <term>discontinuous</term> at that point.
+	</p>
+</definition>
+
+<p>
+In other words,
+a function is continuous at a point if <m>f(t) \approx f(t_0)</m> whenever <m>t \approx t_0</m>,
+and we can always make the first approximation better and better by tightening the second approximation.
+</p>
+
+<example>
+	<title>Testing the definition of continuity</title>
+
+	<p>
+	The function <m>f(t)</m> in <xref ref="example-funcs-piecewise-graph-2" /> is discontinuous at <m>t = 2</m>.
+	It has value <m>f(2) = 4</m> there,
+	but if <m>t</m> is slightly bigger than <m>2</m> then <m>f(t) \approx 2</m>.
+	In particular, we set an error bound of <m>1</m>,
+	then there is no way to make <m>f(t) = f(2) \pm 1</m> true for all <m>t \approx 2</m>,
+	no matter how small a subdomain around <m>t = 2</m> that we take for the meaning of <m>t \approx 2</m>.
+	</p>
+
+	<p>
+	On the other hand,
+	that same function <em>is</em> continuous at <m>t = 1</m>.
+	No matter how small an error bound <m>E</m> we use,
+	it is always possible to restrict <m>t</m> to some small subdomain around <m>t = 1</m> so that <m>f(t) = f(1) \pm E</m> is true for all <m>t</m> within that subdomain.
+	</p>
+
+	<figure xml:id="figure-funcs-discont-cont">
+		<caption> A point of discontinuity and one of continuity. </caption>
+
+		<sidebyside widths="45% 45%">
+
+			<figure>
+				<caption>
+					Using error bound <m>E = 1</m>,
+					there will always be values of <m>f(t)</m> for <m>t \approx 2</m> that are outside of the range <m>f(2) \pm 1</m>
+					(represented by the part of the graph highlighted red),
+					no matter how small of a subdomain around <m>t = 2</m> we take <m>t \approx 2</m> to mean.
+				</caption>
+				<image>
+					<description> Error bounds around a point of discontinuity. </description>
+					<latex-image><xi:include href="funcs.d/piecewise-2-discont.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption>
+					Using <em>any</em> error bound,
+					we can always restrict the domain around <m>t=1</m> so that <m>f(t) = f(1) \pm E</m> is true for all <m>t \approx 1</m>.
+				</caption>
+				<image>
+					<description> Error bounds around a point of continuity. </description>
+					<latex-image><xi:include href="funcs.d/piecewise-2-cont.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</figure>
+
+</example>
+
+<p>
+Graphically,
+we think of a function as being continuous at an input value <m>t = t_0</m> if its graph <q>flows through</q> the point <m>\bbrac{t_0, f(t_0)}</m>,
+while the graph near a point of discontinuity features some sort of gap or jump.
+In particular,
+a function will always be discontinuous at a point that is not in its domain,
+since then there is no value <m>f(t_0)</m> with which to compare its <q>nearby</q> values.
+</p>
+
+<p>
+Discussing continuity point-by-point is tedious;
+we generally just look for likely spots for discontinuities.
+(See below for examples.)
+Between discontinuities, we  make a blanket pronouncement of continuity.
+</p>
+
+<definition xml:id="definition-funcs-domain-continuous">
+	<title>Continuous on a subdomain</title>
+
+	<p> A function <m>f(t)</m> is said to be <term>continuous on a specific subdomain</term> if it is continuous at every point in that subdomain. </p>
+
+	<p>
+	If a function is continuous on its entire domain we will say exactly that:
+	the function is <term>continuous on its domain</term>.
+	If we just say that a function is <term>continuous</term>,
+	we mean that the function is continuous at all real input values.
+	</p>
+
+</definition>
+
+<p> We will encounter three basic types of discontinuities. </p>
+
+<paragraphs>
+	<title>Jump discontinuities</title>
+
+	<p>
+	This occurs when a function suddenly jumps in value,
+	hence the name.
+	</p>
+
+	<figure xml:id="figure-funcs-jump-discont">
+		<caption> Two examples of jump discontinuities. </caption>
+
+		<sidebyside widths="45% 45%">
+
+			<figure>
+				<caption> A piecewise function can often (but not always!) jump values at transition points. </caption>
+				<image>
+					<description> A piecewise function with a jump discontinuity. </description>
+					<latex-image><xi:include href="funcs.d/jump-discont-1.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption>
+					Sometimes the output of a function at one specific input location is specially defined,
+					creating a jump discontinuity.
+				</caption>
+				<image>
+					<description> A function with a redefined point creating a jump discontinuity. </description>
+					<latex-image><xi:include href="funcs.d/jump-discont-2.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</figure>
+
+</paragraphs>
+
+<paragraphs>
+	<title>Removable discontinuities</title>
+
+	<p>
+	You might think of this kind of discontinuity as a <q>hole in the graph</q>.
+	For example, for the function <me> f(t) = \frac{t^2 - 1}{t - 1} </me>,
+	for <em>most</em> values of <m>t</m> we can simplify the input-output formula to
+	<md>
+		<mrow> f(t) \amp = \frac{t^2 - 1}{t - 1} </mrow>
+		<mrow> \amp = \frac{(t + 1) \bcancel{(t - 1)}}{\bcancel{t - 1}} </mrow>
+		<mrow> \amp = t + 1</mrow>
+	</md>,
+	so that the function's graph is essentially a line.
+	But the algebra above is <em>not</em> valid for <m>t = 1</m>,
+	because in that case our algebra is
+	<md>
+		<mrow> \frac{t^2 - 1}{t - 1} \amp = \frac{(t + 1) (t - 1)}{t - 1} </mrow>
+		<mrow> \amp = \frac{(2) \bcancel{(0)}}{\bcancel{0}} </mrow>
+		<mrow> \amp = 2</mrow>
+	</md>,
+	which is incorrect because you cannot <q>cancel</q> division by zero.
+	So our function is actually undefined at <m>t = 1</m>,
+	and its graph just has a hole there.
+	</p>
+
+	<figure>
+		<caption> A graph with a discontinuity caused by an undefined value. </caption>
+		<image width="50%">
+			<description> A graph with a discontinuity caused by an undefined value. </description>
+			<latex-image><xi:include href="funcs.d/hole.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	Why not just define <m>f(t) = t + 1</m> in the first place?
+	Our function might be created as the ratio of two other quantities,
+	where the numerator is a model for some quantity,
+	the denominator is a model for a separate quantity,
+	and we want the function to track their ratio.
+	In this case,
+	it is important to record that the ratio is undefined when the second quantity is zero.
+	</p>
+
+	<p>
+	However, the fact that <m>f(t) = t + 1</m> is true for <q>almost all</q> input values justifies the terminology <term>removable discontinuity</term> <mdash/>
+	we could <q>remove</q> the discontinuity by replacing <m>f(t)</m> by the continuous function <m>g(t) = t + 1</m>,
+	so that <m>g(t) = f(t)</m> is true for <q>almost all</q> input values.
+	Thus <m>g</m> <q>fixes</q> the discontinuity in <m>f</m>,
+	and so is called a <term>continuous extension</term> of <m>f</m>.
+	</p>
+
+</paragraphs>
+
+<paragraphs>
+	<title>Singularities</title>
+
+	<p>
+	Some functions have a different kind of hole in their domain,
+	near which the function values <q>explode</q>.
+	</p>
+
+	<figure xml:id="figure-funcs-singularity">
+		<caption>
+			The graph of <m>f(t) = 1/(t - 2)^2</m>,
+			with a singularity at <m>t = 2</m>.
+		</caption>
+		<image width="50%">
+			<description> A graph of a function with a discontinuity caused by a singularity. </description>
+			<latex-image><xi:include href="funcs.d/singular.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	We will call such an input location a <term>singularity</term> for the function.
+	The vertical line at that location
+	(as represented by a dashed line in the example graph in <xref ref="figure-funcs-singularity" />)
+	is called a <term>vertical asymptote</term> for the function's graph.
+	</p>
+
+	<p> We will study singularities and vertical asymptotes more in <xref ref="chapter-inf-behaviour" />. </p>
+
+</paragraphs>
+
+</section>
+
+
+<section>
+<title>Graph transformations</title>
+
+
+<introduction>
+
+<p>
+Sketching graphs by plotting a few points and then connecting the dots is not a good strategy in general,
+unless you are a computer and can plot millions of points.
+The issue is that you may overlook important features that occur between the points you plotted.
+</p>
+
+<p>
+For example, consider function <me> f(t) = \frac{2}{2 t - 1} </me>.
+On a set of axes,
+plot points at integer values of <m>t</m>: <me> t = -2, -1, 0, 1, 2</me>.
+Then join your points together smoothly to make a <q>graph</q> for <m>f(t)</m>.
+Finally, get an online graphing app to graph <m>f(t)</m> for you and compare with your <q>graph</q> <mdash />
+you will find that they are very different.
+</p>
+
+<p>
+A better strategy is to become familiar with a set family of reference graphs,
+and try to interpret graphs of similar functions as transformations of the reference graphs.
+We often will still plot a few <q>anchor</q> points to keep track of as we perform the transformations,
+but mainly we want to use the relationships between the graph at hand and a reference graph.
+</p>
+
+</introduction>
+
+<subsection>
+<title>Vertical transformations</title>
+
+<subsubsection>
+<title>Vertical shift</title>
+
+<p>
+If we take an <q>old</q> function and add some fixed value to every output,
+we create a <q>new</q> function whose graph is moved up
+(if the added fixed value is positive)
+or down
+(if the added fixed value is negative).
+Accordingly, for
+<me> g(t) = f(t) + C </me>,
+we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
+</p>
+
+<example xml:id="example-funcs-vshift">
+	<title>Vertical shifts of the square root function</title>
+
+	<p>
+	To graph either of
+	<md><mrow> g(t) \amp = \sqrt{t} + 2 \amp h(t) \amp = \sqrt{t} - 2 </mrow></md>,
+	we relate each of them to the function <m>f(t) = \sqrt{t} </m>,
+	whose graph we should know as one-half of a sideways parabola.
+	Some anchor points we might focus on to help us draw the shifted graph are at <m>t = 0</m> and <m>t = 1</m>.
+	<md>
+		<mrow> f(0) \amp = 0             \amp f(1) \amp = 1             </mrow>
+		<mrow> g(0) \amp = f(0) + 2 = 2  \amp g(1) \amp = f(1) + 2 = 3  </mrow>
+		<mrow> h(0) \amp = f(0) - 2 = -2 \amp h(1) \amp = f(1) - 2 = -1 </mrow>
+	</md>
+	</p>
+
+	<figure xml:id="figure-funcs-vshifts">
+		<caption>
+			Two vertical shifts of the graph of <m>f(t) = \sqrt{t}</m>,
+			one up and one down.
+		</caption>
+		<image width="67%">
+			<description>
+				Two vertical shifts of the graph of the square root function,
+				one up and one down.
+			</description>
+			<latex-image><xi:include href="funcs.d/vshifts.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</subsubsection>
+
+<subsubsection>
+<title>Vertical scaling</title>
+
+<p>
+If we take an <q>old</q> function and multiply every output by some fixed, positive scale factor,
+we create a <q>new</q> function whose graph has been stretched away from the horizontal axis
+(if the scale factor is greater than <m>1</m>)
+or compressed towards the horizontal axis
+(if the scale factor is less than <m>1</m>).
+Accordingly, for
+<me> g(t) = k f(t) </me>,
+we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
+</p>
+
+<example xml:id="example-funcs-vscale">
+	<title>Vertical scalings of the square root function</title>
+
+	<p>
+	To graph either of
+	<md><mrow> g(t) \amp = 2 \sqrt{t} \amp h(t) \amp = \frac{\sqrt{t}}{2} </mrow></md>,
+	again we relate each of them to the graph of the function <m>f(t) = \sqrt{t} </m>,
+	and again focus on anchor points at <m>t = 0</m> and <m>t = 1</m>.
+	<md>
+		<mrow> f(0) \amp = 0                  \amp f(1) \amp = 1                            </mrow>
+		<mrow> g(0) \amp = 2 f(0) = 0         \amp g(1) \amp = 2 f(1) = 2                   </mrow>
+		<mrow> h(0) \amp = \frac{f(0)}{2} = 0 \amp h(1) \amp = \frac{f(1)}{2} = \frac{1}{2} </mrow>
+	</md>
+	</p>
+
+	<figure xml:id="figure-funcs-vscales">
+		<caption>
+			Two vertical scales of the graph of <m>f(t) = \sqrt{t}</m>,
+			one stretched and one compressed.
+		</caption>
+		<image width="67%">
+			<description>
+				Two vertical scales of the graph of the square root function,
+				one stretched and one compressed.
+			</description>
+			<latex-image><xi:include href="funcs.d/vscales.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</subsubsection>
+
+<subsubsection>
+<title>Vertical reflection</title>
+
+<p>
+If we take an <q>old</q> function and change the sign of every output,
+we create a <q>new</q> function whose graph has been reflected in the horizontal axis.
+Accordingly, for
+<me> g(t) = - f(t) </me>,
+we call <m>g</m> a <term>vertical reflection</term> of <m>f</m>.
+Similarly,
+if we have
+<me> g(t) = k f(t) </me>
+with <m>k</m> negative,
+then <m>g</m> will be both a scaling and reflection of <m>f</m>.
+</p>
+
+<example xml:id="example-funcs-vrefl">
+	<title>Vertical reflection of the square root function</title>
+
+	<p>
+	To graph
+	<me> g(t) = - \sqrt{t} </me>
+	again we relate it to the graph of the function <m>f(t) = \sqrt{t} </m>,
+	and again focus on anchor points at <m>t = 0</m> and <m>t = 1</m>.
+	<md>
+		<mrow> f(0) \amp = 0                  \amp f(1) \amp = 1           </mrow>
+		<mrow> g(0) \amp = - f(0) = 0         \amp g(1) \amp = - f(1) = -1 </mrow>
+	</md>
+	</p>
+
+	<figure xml:id="figure-funcs-vrefl">
+		<caption> Vertical reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
+		<image width="67%">
+			<description> Vertical reflection of the graph of the square root function. </description>
+			<latex-image><xi:include href="funcs.d/vrefl.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</subsubsection>
+
+<conclusion>
+	<title>Summary of vertical transformations</title>
+
+	<p><ul>
+
+		<li>
+			<title>Shifts</title>
+			<p>
+				For a positive constant,
+				adding that constant to a function shifts its graph up by that amount,
+				while subtracting that constant shifts its graph down.
+			</p>
+		</li>
+
+		<li>
+			<title>Scaling</title>
+			Multiplying a function by a positive scale factor that is greater than one stretches the graph away from the horizontal axis by that factor,
+			while a positive scale factor that is less than one compresses the graph towards the horizontal axis.
+		</li>
+
+		<li>
+			<title>Reflection</title>
+			Multiplying a function by a negative scale factor (or by <m>-1</m>)
+			reflects the graph in the horizontal axis (as well as any scaling effect).
+		</li>
+
+	</ul></p>
+
+</conclusion>
+
+</subsection>
+
+<subsection>
+<title>Horizontal transformations</title>
+
+<introduction><p>
+	Vertical shifts and scales follow an intuitive patter:
+	<ul>
+		<li> adding shifts up while subtracting shifts down </li>
+		<li>
+			a scale factor greater than one stretches while a scale factor less than one compresses.
+		</li>
+	</ul>
+	We will see that horizontal shifts and scales reverse these patterns.
+	For that reason,
+	we will investigate horizontal shifts in terms of <em>subtracting</em> either a positive or negative shift term
+	and horizontal scales in terms of <em>dividing</em> by a scale factor that is either greater or less than one.
+</p></introduction>
+
+<subsubsection>
+<title>Horizontal shift</title>
+
+<p>
+If we subtract a positive constant from the independent variable <em>before</em> using it as the input for a function,
+we are essentially causing output values to occur <q>later.</q>
+For example,
+for <m>g(t) = f(t - 2)</m>,
+the <q>old</q> function's initial output value <m>f(0)</m> occurs at <m>t = 2</m> for the <q>new</q> function:
+<me> g(2) = f(2 - 2) = f(0) </me>.
+So subtracting a positive constant from the independent variable shifts the graph to the right by that amount.
+</p>
+
+<p>
+On the other hand,
+if we subtract a negative constant from the independent variable
+(so, in effect, <em>adding</em> a positive constant),
+we cause output values to occur <q>earlier</q>.
+For example,
+for <m>g(t) = f\bbrac{t - (-2)}</m>,
+the initial value of the <q>new</q> function is the same as the <q>old</q> function's value at <m>t = 2</m>:
+<me> g(0) = f\bbrac{0 - (-2)} = f(2) </me>.
+So subtracting a negative constant from the independent variable shifts the graph to the left by that amount.
+</p>
+
+<p>
+In either case,
+we call the <q>new</q> function a <term>horizontal shift</term> of the <q>old</q> function.
+</p>
+
+<example xml:id="example-funcs-hshift">
+	<title>Horizontal shifts of the square root function</title>
+
+	<p>
+	To graph either of
+	<md><mrow>
+		g(t) \amp = \sqrt{t - 2}
+		\amp
+		h(t) \amp = \sqrt{t + 2} = \sqrt{t - (-2)}
+	</mrow></md>,
+	we relate each of them to the function <m>f(t) = \sqrt{t} </m>.
+	Now when we choose and track anchor points
+	(again at <m>t = 0</m> and <m>t = 1</m> for <m>f</m>),
+	we want to determine what new independent variable value will produce the same output.
+	<md>
+		<mrow> f(0)  \amp = 0                          \amp f(1)  \amp = 1                         </mrow>
+		<mrow> g(2)  \amp = f(2 - 2) = f(0)            \amp g(3)  \amp = f(3 - 2) = f(1)           </mrow>
+		<mrow> h(-2) \amp = f\bbrac{-2 - (- 2)} = f(0) \amp h(-1) \amp = f\bbrac{-1 - (-2)} = f(1) </mrow>
+	</md>
+	</p>
+
+	<figure xml:id="figure-funcs-hshifts">
+		<caption>
+			Two horizontal shifts of the graph of <m>f(t) = \sqrt{t}</m>,
+			one right and one left.
+		</caption>
+		<image width="67%">
+			<description>
+				Two horizontal shifts of the graph of the square root function,
+				one right and one left.
+			</description>
+			<latex-image><xi:include href="funcs.d/hshifts.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</subsubsection>
+
+<subsubsection>
+<title>Horizontal scaling</title>
+
+<p>
+If we divide the independent variable by a positive constant that is greater than 1 before using it as the input for a function,
+we again are causing output values to occur <q>later,</q>
+at least for positive inputs.
+For example,
+for <m>g(t) = f(t/2)</m>,
+the value <m>f(1)</m> achieved by the <q>old</q> function at <m>t = 1</m> won't be achieved by the <q>new</q> function until <m>t = 2</m>:
+<me> g(2) = f(2 / 2) = f(1) </me>.
+However, this effect is symmetric about the vertical axis <mdash />
+using our same example <m>g(t) = f(t/2)</m>
+the value <m>f(-1)</m> achieved by the <q>old</q> function at <m>t = -1</m> is achieved by the <q>new</q> function until <m>t = -2</m>:
+<me> g(-2) = f(-2 / 2) = f(-1) </me>.
+Overall, the effect is to stretch the graph of the <q>old</q> function away from the vertical axis.
+</p>
+
+<p>
+Dividing the independent variable by a positive constant that is less than 1 has the opposite effect,
+so that outputs of the old function are <q>pulled in</q> towards the vertical axis.
+For example,
+for <m>g(t) = f\bbrac{t / 0.5}</m>,
+the output value of the <q>old</q> function at <m>t = 2</m> becomes the output value of the <q>new</q> function at <m>t = 1</m>:
+<me> g(1) = f(1 / 0.5) = f(2) </me>.
+Again, the effect is symmetric about the vertical axis,
+so that the overall effect is to compress the graph of the <q>old</q> function towards the vertical axis.
+</p>
+
+<p>
+In either case,
+we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q> function.
+</p>
+
+<example xml:id="example-funcs-hscale">
+	<title>Horizontal scalings of the square root function</title>
+
+	<p>
+	To graph either of
+	<md><mrow> g(t) \amp = \sqrt{t / 2} \amp h(t) \amp = \sqrt{2 t} = \sqrt{t / 0.5} </mrow></md>,
+	again we relate each of them to the graph of the function <m>f(t) = \sqrt{t} </m>.
+	And again when we track anchor points
+	(again at <m>t = 0</m> and <m>t = 1</m> for <m>f</m>),
+	we want to determine what new independent variable value will produce the same output.
+	But we can immediately say that the anchor point at <m>t = 0</m> won't move,
+	so we'll focus on the one at <m>t = 1</m>.
+	<md>
+		<mrow> f(1)   \amp = 1                               </mrow>
+		<mrow> g(2)   \amp = f(2 / 2) = f(1)                 </mrow>
+		<mrow> h(1/2) \amp = f\bbrac{ (1/2) / (1/2) } = f(1) </mrow>
+	</md>
+	</p>
+
+	<figure xml:id="figure-funcs-hscales">
+		<caption>
+			Two horizontal scales of the graph of <m>f(t) = \sqrt{t}</m>,
+			one stretched and one compressed.
+		</caption>
+		<image width="75%">
+			<description>
+				Two horizontal scales of the graph of the square root function,
+				one stretched and one compressed.
+			</description>
+			<latex-image><xi:include href="funcs.d/hscales.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<remark><p>
+	Sometimes it is possible to re-interpret a horizontal scale as a vertical scale or vice versa,
+	depending on the algebraic properties of the function's formula.
+	For example, for
+	<me> g(t) = \sqrt{t \over 2} = {\sqrt{t} \over \sqrt{2}} </me>
+	from <xref ref="example-funcs-hscale" />,
+	we could interpret the <q>new</q> function as either a horizontal stretch by a factor of <m>2</m> or as a vertical compression by a factor of <m>\sqrt{2}</m>.
+</p></remark>
+
+</subsubsection>
+
+<subsubsection>
+<title>Horizontal reflection</title>
+
+<p>
+If we take an <q>old</q> function and change the sign of inputs before they are used,
+we create a <q>new</q> function whose graph has been reflected in the vertical axis.
+Accordingly, for
+<me> g(t) = f(- t) </me>,
+we call <m>g</m> a <term>horizontal reflection</term> of <m>f</m>.
+Similarly,
+if we have
+<me> g(t) = f(t / c) </me>
+with <m>c</m> negative,
+then <m>g</m> will be both a scaling and reflection of <m>f</m>.
+</p>
+
+<example xml:id="example-funcs-hrefl">
+	<title>Horizontal reflection of the square root function</title>
+
+	<p>
+	To graph
+	<me> g(t) = \sqrt{- t} </me>
+	again we relate it to the graph of the function <m>f(t) = \sqrt{t} </m>.
+	It may seem like the formula for <m>g(t)</m> makes no sense,
+	since the square root of a negative number is undefined.
+	However,
+	we are implicitly also reflecting the domain of <m>f</m> to create the domain of <m>g</m>:
+	if <m>t \le 0</m>, then <m>- t \ge 0</m>,
+	and in this case <m>\sqrt{- t}</m> will make sense.
+	</p>
+
+	<p>
+	Again we'll focus on anchor points at <m>t = 0</m> and <m>t = 1</m>,
+	and again for each anchor point we need to determine what new independent variable value will produce the same output.
+	<md>
+		<mrow> f(0) \amp = 0      \amp f(1)   \amp = 1                     </mrow>
+		<mrow> g(- 0) \amp = f(0) \amp g(- 1) \amp = f\bbrac{-(-1)} = f(1) </mrow>
+	</md>
+	</p>
+
+	<figure xml:id="figure-funcs-hrefl">
+		<caption> Horizontal reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
+		<image width="67%">
+			<description> Horizontal reflection of the graph of the square root function. </description>
+			<latex-image><xi:include href="funcs.d/hrefl.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</subsubsection>
+
+<conclusion>
+	<title>Summary of horizontal transformations</title>
+
+	<p><ul>
+
+		<li>
+			<title>Shifts</title>
+			<p>
+				Subtracting a positive constant from the independent variable of a function shifts its graph to the right by that amount,
+				while subtracting a negative constant shifts its graph to the left.
+			</p>
+		</li>
+
+		<li>
+			<title>Scaling</title>
+			Dividing the independent variable of a function by a positive scale factor that is greater than one stretches the graph away from the vertical axis by that factor,
+			while dividing by a positive scale factor that is less than one compresses the graph towards the vertical axis.
+		</li>
+
+		<li>
+			<title>Reflection</title>
+			Replacing the independent variable in a function by its negative reflects the graph in the vertical axis.
+		</li>
+
+	</ul></p>
+
+</conclusion>
+
+</subsection>
 
 </section>
 
