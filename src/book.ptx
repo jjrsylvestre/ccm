@@ -25,14 +25,15 @@ respective owners.
 <!-- -->
 <xi:include href="./frontmatter.ptx" />
 
-<!-- Variables, constants, and parameters. Change and variation. -->
+<!--
+  Variables, constants, and parameters.
+  Change and variation.
+  Linear relationships and constant rate.
+-->
 <xi:include href="./vars.ptx" />
 
 <!-- Functions, accumulation, and rate of variation. Graphs of functions. Transformations of functions/graphs. -->
 <xi:include href="./funcs.ptx" />
-
-<!-- Modelling accumulation and rate of variation. Differential equation examples (but no solving). -->
-<xi:include href="./models.ptx" />
 
 <!--
   Long-term behaviour: horizontal asymptotes (i.e., informal treatment of limits as x → ∞).
@@ -40,6 +41,9 @@ respective owners.
   Connections to differential equations.
 -->
 <xi:include href="./inf-behaviour.ptx" />
+
+<!-- Modelling accumulation and rate of variation. Differential equation examples (but no solving). -->
+<xi:include href="./models.ptx" />
 
 <!--
   Step functions.

@@ -13,15 +13,396 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
+<!--
+  Variables, constants, and parameters.
+  Change and variation.
+  Linear relationships and constant rate.
+-->
+
 <chapter xml:id="chapter-vars" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Variables and change</title>
+<title>Variables and variation</title>
 
 <section xml:id="section-vars-intro">
 <title>Variables, constants, and parameters</title>
 
-<p> TODO </p>
+<p>
+The use of symbols and alphabetic letters to represent numbers both known and unknown dates back millennia and was practised in numerous ancient cultures around the world.
+</p>
+
+<p>
+We often use letters or symbols to represent quantities that maintain a constant value,
+which we (unsurprisingly) refer to as <term>constants</term>.
+Two familiar examples are the use of the Greek letter <m>\pi</m> to represent the common ratio of circumference to diameter that every circle exhibits
+and the use of the ordinary letter <m>c</m> to represent the speed of light in a vacuum.
+</p>
+
+<p>
+While <m>\pi</m> and <m>c</m> are <q>known</q> constants
+(to the extent that the value of <m>\pi</m> can be <q>known</q>),
+an <em>unknown</em> value is sometimes referred to as a <term>constant</term> as well,
+and is assigned a letter like <m>C</m> or <m>K</m> to represent it,
+in the case the unknown value is known or assumed to be literally constant (unchanging) in its context.
+For example, a pair of parallel lines remain the same, fixed, perpendicular distance <m>d</m> apart along their lengths.
+While we have chosen to use a <q>variable</q> <m>d</m> to represent this value,
+it is unchanging in its context of two particular lines:
+no matter what perpendicular segment between the two lines is considered,
+the length <m>d</m> of that segment is always the same.
+However, it is an <em>unknown</em> constant as it is dependent on the particular pair of lines considered <mdash />
+a different pair of parallel lines might have a different constant distance <m>d</m> between them.
+</p>
+
+<p>
+A quantity whose value can be controlled is often referred to as a <term>parameter</term>.
+It often represents a choice that can be made in creating or defining some mathematical object,
+and can be used to <term>parametrize</term> (or index) the entire collection of objects that can be created.
+For example, the collection of all lines in the Cartesian <m>xy</m>-plane that pass through the origin can be parametrized by their slopes <mdash />
+for each slope value <m>m</m>,
+we can create a line through the origin with equation <me> y = m x </me>.
+For a particular such line the slope value <m>m</m> is constant,
+but a different slope creates a different line.
+</p>
+
+<p>
+The letters <m>x</m> and <m>y</m> in the line-equation example above play a different role than the letter <m>m</m>.
+A line is a collection of points,
+and we think of these points as being at <term>varying</term> positions along the line,
+where <m>x</m> and <m>y</m> represent the coordinates of any one of these points.
+Any quantity that can vary will be represented by a <term>variable</term>.
+</p>
+
+<p>
+Of course, how we categorize a quantity is based on point of view <mdash />
+a single line has a constant slope,
+it's when we want to consider a family of lines with the same form of equation that slope becomes a parameter.
+How we refer to any letter that represents a quantity <mdash />
+as <term>constant</term>, <term>parameter</term>, or <term>variable</term> <mdash />
+indicates to the reader or listener a particular role that we wish that letter to play.
+</p>
 
 </section>
+
+
+<section xml:id="section-vars-accumulation">
+<title>Accumulation</title>
+
+<p>
+When a quantity is variable,
+we often want to compare its values at different data points to identify trends.
+When the quantity grows larger,
+we think of it as accumulating,
+and when it becomes smaller,
+we think of it as diminishing or dissipating.
+However, we will use the same word <term>accumulation</term> for both situations,
+using positive and negative to distinguish between the two.
+</p>
+
+<definition xml:id="definition-vars-accumulation">
+	<title>Accumulation of a variable quantity</title>
+	For variable quantity <m>q</m>,
+	the <term>accumulation</term> between data points <m>q_1</m> and <m>q_2</m> is
+	<me> \change{q} = q_2 - q_1 </me>.
+</definition>
+
+<p>
+Notice the following.
+<md>
+	<mrow> q_2 \gt q_1 \amp \implies \change{q} \gt 0 </mrow>
+	<mrow> q_2 \lt q_1 \amp \implies \change{q} \lt 0 </mrow>
+</md>
+So a positive accumulation indicates that the quantity has increased from the first to second data points,
+and a negative accumulation indicates that the quantity has decreased.
+</p>
+
+<example xml:id="example-vars-rain">
+	<title>Accumulation of rain</title>
+	<p>
+	You leave a one litre container out in the rain,
+	and when the rain stops it is a quarter-full.
+	A few days of sunny weather later and half of that has evaporated.
+	So over the rainy period the accumulation in millilitres was approximately
+	<md>
+		<mrow> \change{q} \amp = q_2 - q_1 </mrow>
+		<mrow> \amp = 250 - 0 </mrow>
+		<mrow> \amp = 250 </mrow>
+	</md>,
+	while over the sunny period the accumulation was approximately
+	<md>
+		<mrow> \change{q} \amp = q_3 - q_2 </mrow>
+		<mrow> \amp = 125 - 250 </mrow>
+		<mrow> \amp = - 125 </mrow>
+	</md>.
+	</p>
+</example>
+
+</section>
+
+
+<section xml:id="section-vars-rate-variation">
+<title>Rate of variation</title>
+
+<p>
+It is often the case that two quantities are varying in tandem,
+and we wish to compare the amounts by which they vary.
+</p>
+
+<example>
+	<title>Volume varies by depth</title>
+
+	<p>
+	A graduated cylinder is a vessel for measuring a volume of liquid using a ruled scale printed vertically on its side.
+	It works because at a constant diameter,
+	the volume can be directly related to depth by
+	<me> V = \frac{\pi d^2 h}{4} </me>,
+	where <m>d</m> is the diameter and <m>h</m> is the depth (or height) in the cylinder.
+	</p>
+
+	<p>
+	When designing a graduated cylinder for manufacture,
+	what diameter should be chosen so that the ruled markings can be printed as millimetres,
+	with each centimetre of depth corresponding to <m>10</m> cubic centimetres of volume?
+	A variation in height corresponds to a variation in volume,
+	so that two different depths <m>h_1</m> and <m>h_2</m> with corresponding volumes <m>V_1</m> and <m>V_2</m>,
+	we have
+	<md>
+		<mrow> \change{V} \amp = V_2 - V_1 </mrow>
+		<mrow> \amp = \frac{\pi d^2 h_2}{4} - \frac{\pi d^2 h_1}{4} </mrow>
+		<mrow> \amp = \frac{\pi d^2}{4} (h_2 - h_1) </mrow>
+		<mrow> \amp = \frac{\pi d^2}{4} \change{h} </mrow>
+	</md>.
+	If we turn this into a ratio <m>\change{V}/\change{h}</m>,
+	we can directly see how a variation in depth leads to a variation in volume.
+	<me> \slope{V}{h} = \frac{\pi d^2}{4} </me>.
+	We can think of this ratio as describing <em>variation in volume per unit variation in depth</em>.
+	This is because if <m>\change{h} = 1</m>,
+	then <me> \slope{V}{h} = \frac{\change{V}}{1} = \change{V} </me>.
+	So whenever the depth changes by <m>1</m> centimetre, the volume will change by
+	<me> \frac{\pi d^2}{4} </me>
+	cubic centimetres.
+	But if the depth changes by <m>20</m> centimetres,
+	then the volume will change by
+	<me> 20 \cdot \frac{\pi d^2}{4} = 5 \pi d^2 </me>
+	cubic centimetres.
+	</p>
+
+	<figure xml:id="figure-vars-cylinder-delta-volume">
+		<caption> Variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </caption>
+		<image width="50%">
+			<description> A diagram illustrating a variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </description>
+			<latex-image><xi:include href="vars.d/cylinder.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	We can now answer the original question:
+	the requirement that each centimetre of change in depth correspond to <m>10</m> cubic centimetres change in volume can be stated as
+	<me> \slope{V}{h} = 10 </me>
+	if was assume that both the diameter <m>d</m> and the depth <m>h</m> are measured in centimetres.
+	Solving,
+	we obtain
+	<md>
+		<mrow> \frac{\pi d^2}{4} \amp = 10 </mrow>
+		<mrow> d^2 \amp = {40 \over \pi} </mrow>
+		<mrow> d \amp = 2 \sqrt{10 \over \pi} </mrow>
+	</md>,
+	where we discard the negative solution since we want diameter to be a positive quantity.
+	So the diameter should approximately
+	<quantity><mag>3.57</mag><unit base="meter" prefix="centi" /></quantity>.
+	</p>
+
+</example>
+
+<definition xml:id="definition-vars-avg-rate">
+	<title>Average rate of variation</title>
+	<p>
+	If <m>q</m> and <m>t</m> are two quantities that are varying in tandem,
+	so that a variation in one of the quantities is always accompanied by a corresponding variation in the other,
+	then a ratio
+	<me> \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </me>
+	is called an <term>(average) rate of variation</term> between data points <m>(t_1,q_1)</m> and <m>(t_2,q_2)</m>.
+	</p>
+</definition>
+
+<p>
+As suggested by the choice of placing <m>t_1</m> and <m>t_2</m> as the first coordinate in the data points,
+the quantity whose variation is used as the denominator in a rate ratio is usually considered to the be <term>independent variable</term>,
+while the other quantity is thought of as the <term>dependent variable</term>.
+That is,
+using the variables <m>q</m> and <m>t</m>,
+we think of variation in <m>t</m> as causing or <q>driving</q> the variation in <m>q</m>.
+We have chosen the variable <m>t</m> to represent the <q>general</q> independent variable instead of the more traditional variable <m>x</m> because we will usually consider <em>time</em> as the ultimate <q>independent variable,</q>
+and we want to invoke the intuition of a quantity varying over some period of time when we make general statements.
+However, in many situations the independent variable will represent something other than time.
+For example, in economics you might model variations in cost of production as the number of units being produced varies.
+</p>
+
+<p>
+The following example from physics with time as the independent variable should be familiar to you.
+</p>
+
+<example xml:id="example-vars-average-speed">
+	<title>Average speed</title>
+	<p>
+	Suppose you drive
+	<quantity><mag>100</mag><unit base="meter" prefix="kilo" /></quantity>
+	in about an hour.
+	If we let <m>d</m> represent distance from the starting point of the trip and <m>t</m> represent time,
+	then
+	<me> \slope{d}{t} = {100 \over 1} = 100 </me>
+	represents your average speed in kilometres per hour.
+	</p>
+</example>
+
+<p>
+We will study average rate of variation further in later chapters.
+<!-- TODO in chapter-avg-rate -->
+</p>
+
+</section>
+
+
+<section xml:id="section-vars-constant-variation">
+<title>Constant variation</title>
+
+<p>
+Normally we think of rate of variation as itself being a quantity that varies.
+For example,
+in <xref ref="example-vars-average-speed" />,
+you likely didn't leave your parking spot at
+<quantity><mag>100</mag><unit base="meter" prefix="kilo" /><per base="hour" /></quantity>
+and you likely didn't crash into your destination at
+<quantity><mag>100</mag><unit base="meter" prefix="kilo" /><per base="hour" /></quantity>.
+Along the way, you would have sped up and slowed down at various points of the trip,
+perhaps even stopped completely at traffic lights.
+If we calculated an average rate of variation over the first five minutes of the trip,
+while you were travelling on city streets to get out onto the highway,
+the result would likely have been much lower than
+<quantity><mag>100</mag><unit base="meter" prefix="kilo" /><per base="hour" /></quantity>.
+</p>
+
+<p>
+So a pair of quantities that vary in tandem so that the average rate of variation between them is always the same is a special situation.
+</p>
+
+<example xml:id="example-vars-constant-rate">
+	<title>Varying quantities at a constant rate</title>
+	<p>
+	Suppose <m>q</m> and <m>t</m> are quantities so that <m>q</m> varies as <m>t</m> varies,
+	and it is measured that
+	<me> \slope{q}{t} = {1 \over 2} </me>
+	is always true between every pair of data points.
+	Then we can predict the quantity <m>q</m> at any level of quantity <m>t</m> just from a single data point.
+	For example, suppose we know an <q>initial</q> data point where <m>q = 1</m> when <m>t = 0</m>.
+	Then using <m>q_1 = 1</m> and <m>t_1 = 0</m> in any average rate calculation will tell us the second data point.
+	For example, if we use <m>t = 4</m> for the second data point,
+	we can calculate the corresponding <m>q</m>-value as follows.
+	<md>
+		<mrow> \slope{q}{t} \amp = {1 \over 2} </mrow>
+		<mrow> \frac{q_2 - 1}{t_2 - 0} \amp = {1 \over 2} </mrow>
+		<mrow> \frac{q_2 - 1}{4 - 0} \amp = {1 \over 2} </mrow>
+		<mrow> q_2 - 1 \amp = {4 \over 2} </mrow>
+		<mrow> q_2 \amp = 3 </mrow>
+	</md>
+	We can use a similar calculation to determine the <m>q</m>-value corresponding to <em>any</em> value of <m>t</m>.
+	In <xref ref="figure-vars-constant-rate-data-points" />,
+	we have plotted some example data points obtained in this way on a set of <m>tq</m>-axes.
+	From these data points,
+	we observe a clear linear relationship between <m>q</m> and <m>t</m>.
+	</p>
+
+	<figure xml:id="figure-vars-constant-rate-data-points">
+		<caption> Data points and trend line for a quantity varying at a constant rate. </caption>
+		<image width="60%">
+			<description> Data points and trend line for a quantity varying at a constant rate. </description>
+			<latex-image><xi:include href="vars.d/constant-rate-data-points.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<identity xml:id="pattern-vars-constant-rate">
+	<title>Constant rate means linear relationship</title>
+	<p>
+	If <m>q</m> and <m>t</m> are two quantities that are varying in tandem so that
+	<me> \slope{q}{t} </me>
+	is constant,
+	then <m>q</m> and <m>t</m> are linearly related by
+	<me> q = m t + q_0 </me>,
+	where <m>m</m> is the constant value of <m>\change{q}/\change{t}</m> and <m>q_0</m> is the <q>initial value</q> of quantity <m>q</m> corresponding to <m>t = 0</m>.
+	</p>
+</identity>
+
+<p>
+Graphically,
+when two quantities exhibit a constant rate of variation,
+we can plot the relationship between <m>q</m> and <m>t</m> on a set of <m>tq</m>-axes and obtain a line with equation as in <xref ref="pattern-vars-constant-rate" />,
+where the slope of the line is
+<me> m = \slope{q}{t} </me>
+and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
+</p>
+
+<example xml:id="example-vars-linear-no-intercept">
+	<title>Determining linear relation for quantity with constant rate of variation</title>
+	<p>
+	Suppose <m>q</m> and <m>t</m> are quantities so that <m>q</m> exhibits a constant rate of variation relative to <m>t</m>,
+	with <me> \slope{q}{t} = -2 </me>
+	for all pairs of data points.
+	Then using <xref ref="pattern-vars-constant-rate" />,
+	we can say that
+	<me> q = -2 t + q_0 </me>.
+	However, suppose we don't know the data point at <m>t = 0</m>,
+	but instead know that <m>q = 1</m> when <m>t = 3</m>.
+	Then
+	<md alignment="gather">
+		<mrow> q = -2 t + q_0 </mrow>.
+		<mrow> 1 = -2 \cdot 3 + q_0 </mrow>
+		<mrow> 1 = q_0 - 6 </mrow>
+		<mrow> q_0 = 7 </mrow>
+	</md>.
+	With this information,
+	we can plot the linear relationship between <m>q</m> and <m>t</m> on a set of <m>tq</m>-axes.
+	</p>
+
+	<figure xml:id="figure-vars-constant-rate-neg-slope">
+		<caption> Linear relationship for a quantity varying at a constant, negative rate. </caption>
+		<image width="60%">
+			<description> Graph and linear relationship for a quantity varying at a constant, negative rate. </description>
+			<latex-image><xi:include href="vars.d/constant-rate-neg-slope.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	In <xref ref="figure-vars-constant-rate-neg-slope" />,
+	we see that the plotted line crosses the <m>q</m>-axis at <m>q_0 = 7</m>.
+	Interpreting <me> \slope{q}{t} = -2 </me> as the <em>variation in <m>q</m> per unit variation in <m>t</m></em>,
+	we also see that the plotted line descends two units for each unit increase in <m>t</m>.
+	</p>
+
+</example>
+
+<p>
+Compare the graphs in <xref ref="figure-vars-constant-rate-data-points" />
+and <xref ref="figure-vars-constant-rate-neg-slope" />.
+In the first graph,
+the line goes up as it goes to the right,
+as we expect from its positive slope.
+In the second graph,
+the line goes down as it goes to the right,
+as we expect from its negative slope.
+</p>
+
+<identity xml:id="pattern-vars-inc-dec">
+	<title>Increasing/decreasing at a constant rate</title>
+	<p>
+	Suppose quantity <m>q</m> varies at a constant rate relative to quantity <m>t</m>.
+	If that constant rate is positive,
+	then <alert>values of <m>q</m> increase as <m>t</m> increases</alert>.
+	If that constant rate is negative,
+	then <alert>values of <m>q</m> decrease as <m>t</m> increases</alert>.
+	</p>
+</identity>
+
+</section>
+
 
 <!-- <xi:include href="./vars.d/activities.ptx" />
 <xi:include href="./vars.d/exercises.ptx" /> -->
