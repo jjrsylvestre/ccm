@@ -1,3 +1,7 @@
+* change all use of \over to \frac
+* rate of growth comparison to polynomial in both exp and log chapters
+  (with reference to relevant section in inf-behaviour)
+* relative growth: "of at most the order of" in periodic chapter
 * change "rate of variation" to "rate of accumulation"
 * fill opacity on graphs with grid lines
 * some "Pattern" statements (<identity> element) might be better as "Principle" statements (<insight> element) ?

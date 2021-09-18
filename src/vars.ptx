@@ -205,7 +205,7 @@ and we wish to compare the amounts by which they vary.
 		<mrow> d \amp = 2 \sqrt{10 \over \pi} </mrow>
 	</md>,
 	where we discard the negative solution since we want diameter to be a positive quantity.
-	So the diameter should approximately
+	So the diameter should be approximately
 	<quantity><mag>3.57</mag><unit base="meter" prefix="centi" /></quantity>.
 	</p>
 
@@ -287,10 +287,10 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 	<title>Varying quantities at a constant rate</title>
 	<p>
 	Suppose <m>q</m> and <m>t</m> are quantities so that <m>q</m> varies as <m>t</m> varies,
-	and it is measured that
+	and it is observed that
 	<me> \slope{q}{t} = {1 \over 2} </me>
-	is always true between every pair of data points.
-	Then we can predict the quantity <m>q</m> at any level of quantity <m>t</m> just from a single data point.
+	seems to always be true between every pair of data points.
+	Then we can predict the quantity <m>q</m> at any level of quantity <m>t</m> using only a single known data point.
 	For example, suppose we know an <q>initial</q> data point where <m>q = 1</m> when <m>t = 0</m>.
 	Then using <m>q_1 = 1</m> and <m>t_1 = 0</m> in any average rate calculation will tell us the second data point.
 	For example, if we use <m>t = 4</m> for the second data point,
@@ -341,7 +341,7 @@ and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
 </p>
 
 <example xml:id="example-vars-linear-no-intercept">
-	<title>Determining linear relation for quantity with constant rate of variation</title>
+	<title>Determining linear relation for a quantity with constant rate of variation</title>
 	<p>
 	Suppose <m>q</m> and <m>t</m> are quantities so that <m>q</m> exhibits a constant rate of variation relative to <m>t</m>,
 	with <me> \slope{q}{t} = -2 </me>

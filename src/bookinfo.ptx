@@ -50,6 +50,7 @@ respective owners.
 	<rename element="insight">Principle</rename>
 	<rename element="algorithm">Procedure</rename>
 	<rename element="proof">Justification</rename>
+	<rename element="heuristic">Strategy</rename>
 	<!-- <rename element="hypothesis">Idea</rename> -->
 	<!-- <rename element="worksheet">Discovery guide</rename> -->
 	<!-- <rename element="activity">Discovery</rename> -->

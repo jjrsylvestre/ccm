@@ -16,12 +16,1070 @@ respective owners.
 <chapter xml:id="chapter-inf-behaviour" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Long-term and singular behaviour</title>
 
-<section xml:id="section-inf-behaviour-intro">
-<title>TODO</title>
+<section xml:id="section-inf-behaviour-horiz">
+<title>Long-term behaviour</title>
 
-<p> TODO </p>
+<introduction><p>
+	As we will explore further in subsequent chapters,
+	we often create mathematical functions to model physical systems and patterns.
+	We use models to predict the behaviour of a system,
+	and one of the most natural questions to try to answer using a model is
+	<q>What will happen a long time from now?</q>
+	For some models,
+	the answer might be that the system's output approaches some <q>steady state</q> value.
+	For other models,
+	the answer might be that the system's output grows without bound.
+	In this section,
+	we develop a process for detecting these patterns.
+</p></introduction>
+
+<subsection>
+<title>Definition and first examples</title>
+
+<definition xml:id="definition-inf-behaviour-horiz">
+	<title>Long-term behaviour</title>
+	<p>
+	Suppose <m>f(t)</m> is a function whose domain contains an infinite subdomain <m>t \gt t_0</m>.
+	<ol>
+
+		<li>
+			<title>Unbounded growth</title>
+			<p>
+			We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to \infty </me>
+			to mean that output values of <m>f(t)</m> eventually become and stay positive and arbitrarily large in magnitude.
+			</p>
+		</li>
+
+		<li>
+			<title>Unbounded decay</title>
+			<p>
+			We write <me> f(t) \to - \infty \qquad \text{as} \qquad t \to \infty </me>
+			to mean that output values of <m>f(t)</m> eventually become and stay negative and arbitrarily large in magnitude.
+			</p>
+		</li>
+
+		<li>
+			<title>Approaching steady-state</title>
+			<p>
+			For some steady-state output value <m>L</m>,
+			we write <me> f(t) \to L \qquad \text{as} \qquad t \to \infty </me>
+			to mean that output values of <m>f(t)</m> eventually become and stay arbitrarily close to <m>L</m>.
+			</p>
+		</li>
+
+	</ol>
+	</p>
+</definition>
+
+<warning>
+	<title>Infinity is not a number</title>
+	<p>
+	There is a reason we write <m>f(t) \to \infty</m> instead of <m>f(t) = \infty</m>.
+	Infinity is not a number,
+	so it is not permitted as an output of a function.
+	Instead, we use the <q>idea</q> of infinity to indicate unbounded behaviour.
+	</p>
+	<aside><p>
+		It is possible to create mathematical systems where infinity <em>can</em> be considered a number,
+		but such discussion is beyond the scope of this course.
+	</p></aside>
+</warning>
+
+<p>
+There are words and phrases in <xref ref="definition-inf-behaviour-horiz" /> that have special, technical meanings in mathematics,
+and it's important to understand their technical meanings in order to be able to properly verify these definitions in more complex examples.
+</p>
+
+<p>
+For the case of <m>f(t) \to \infty</m>,
+<term>arbitrarily large</term> means the function's output values are able to grow larger than <em>every</em> proposed upper limit level,
+no matter how large,
+<em>and stay above that level</em> forever more.
+In this case,
+<term>eventually</term> means that for a particular proposed upper limit level,
+we may have to go very far out into the domain to achieve outputs that grow and stay larger than the proposed limit,
+and how far out we need to go to observe this behaviour will vary depending on the size of the proposed upper limit level that we need to beat.
+For the case of <m>f(t) \to -\infty</m>,
+we want to demonstrate that the function's output values will eventually fall <em>below</em> every proposed <em>lower</em> limit level,
+and stay below that level forever more.
+</p>
+
+<p>
+<term>Arbitrarily close</term> means that we are always able to restrict the function's output values to within a small error bound around <m>L</m>,
+no matter show small the proposed error bound,
+so that the function's output values move and then stay within that error bound forever more.
+Here,
+<term>eventually</term> has a similar meaning as before,
+where we may need to go very far out into the domain to achieve outputs that move and stay within the proposed error bounds,
+and how far out we need to go to observe this behaviour will vary depending on the size of the error bound.
+</p>
+
+<warning><p>
+	You should not take <me> f(t) \to L \qquad \text{as} \qquad t \to \infty </me>
+	to mean <q>eventually <m>f(t) = L</m>,</q>
+	nor should you take it to mean <q><m>f(t)</m> becomes close to <m>L</m> but never actually equals <m>L</m>.</q>
+	Either situation <em>could</em> happen (though obviously not both simultaneously for a particular function),
+	but neither <em>needs</em> to happen.
+	For example,
+	<!-- in a later chapter -->
+	in <xref ref="chapter-periodic" />
+	we will see examples of functions that oscillate between values above and below a certain level <m>L</m>,
+	crossing that level as it moves from one to the other,
+	while still <q>narrowing down</q> to becoming closer and closer to <m>L</m>.
+</p></warning>
+
+<example xml:id="example-inf-behaviour-parabola">
+	<title>Unbounded growth of the square function</title>
+
+	<p>
+	For function <m>f(t) = t^2</m>,
+	we have <m>f(t) \to \infty</m> as <m>t \to \infty</m>.
+	By this we mean that no upper bound can be put on the growth of this function.
+	For example the output values eventually get above <m>100</m>,
+	as they stay above that level for all <m>t \gt 10</m>.
+	And the output values also eventually get above <m>100</m> trillion,
+	as they stay above that level for all <m>t \gt {10}^7</m>.
+	And if <m>M</m> represents the largest number you can think of plus one,
+	then the output values also grow above that level,
+	staying above it for all <m>t \gt \sqrt{M}</m>.
+	</p>
+
+	<figure xml:id="figure-inf-behaviour-parabola">
+		<caption> The function <m>f(t) = t^2</m> grows beyond any potential ceiling. </caption>
+		<image width="40%">
+			<description>
+				Graph demonstrating that a parabola grows beyond any potential ceiling.
+			</description>
+			<latex-image><xi:include href="inf-behaviour.d/unbdd-growth-parabola.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<example xml:id="example-inf-behaviour-steady-state-one-over-sq">
+	<title>Approaching steady-state</title>
+
+	<p>
+	Consider function <me> f(t) = 2 + {1 \over t^2} </me>.
+	Large values of <m>t</m> make the fraction part of the formula very small,
+	and the larger <m>t</m> gets,
+	the smaller that fraction gets.
+	So we might guess that <me> f(t) \to 2 \qquad \text{as} \qquad t \to \infty</me>.
+	</p>
+
+	<p>
+	To verify this,
+	we should consider different error bounds around that proposed <q>steady-state</q> output level.
+	<ul>
+
+		<li>
+			Do values of <m>f(t)</m> eventually move and stay within the range <m>2 \pm 1</m>?
+			Yes, they will do so for all <m>t \gt 1</m>.
+		</li>
+
+		<li>
+			Do values of <m>f(t)</m> eventually move and stay within the range  <m>2 \pm {1 \over {100}}</m>?
+			Yes, they will do so for all <m>t \gt 10</m>.
+		</li>
+
+		<li>
+			Do values of <m>f(t)</m> eventually move and stay within the range of <m>2</m> plus or minus one one-hundred-trillionth?
+			Yes, they will do so for all <m>t \gt {10}^7</m>.
+		</li>
+
+	</ul>
+	Ultimately, you can ask the above question with any error bound <m>E</m> you like,
+	and the answer will always be
+	<q>Yes, for all <m>t \gt 1/\sqrt{E}</m>.</q>
+	This verifies that output values of <m>f(t)</m> become arbitrarily close to <m>2</m> in the long-term.
+	</p>
+
+	<figure xml:id="figure-inf-behaviour-error-bounds">
+		<caption> The function <m>f(t) = 2 + 1/t^2</m> eventually moves within every arbitrary set of error bounds. </caption>
+		<image width="50%">
+			<description>
+				Graph demonstrating that a shifted reciprocal power function eventually moves within every arbitrary set of error bounds.
+			</description>
+			<latex-image><xi:include href="inf-behaviour.d/error-bounds.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+When steady-state long-term behaviour <m>f(t) \to L</m> occurs,
+as in <xref ref="example-inf-behaviour-steady-state-one-over-sq" />,
+we often place a dashed horizontal line at that level when drawing the function's graph.
+</p>
+
+<definition xml:id="definition-inf-behaviour-hasymp">
+	<title>Horizontal asymptote</title>
+	<p>
+	A horizontal line that a function's graph approaches,
+	becoming closer and closer to it as one goes further out on the graph.
+	</p>
+</definition>
+
+<figure xml:id="figure-inf-behaviour-horiz-asymp">
+	<caption> The graph of <m>f(t) = 2 + 1/t^2</m> approaches a horizontal asymptote at height <m>2</m>. </caption>
+	<image width="40%">
+		<description>
+			A function's graph approaching a horizontal asymptote.
+		</description>
+		<latex-image><xi:include href="inf-behaviour.d/horiz-asymp.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+Finally, here is an example where the long-term behaviour does not fall into any of the categories in
+<xref ref="definition-inf-behaviour-horiz" />.
+</p>
+
+<example>
+	<title>Modelling pulsar emissions</title>
+
+	<p>
+	A <term>pulsar</term> is a type of star that only emits electromagnetic radiation from its magnetic poles.
+	As a pulsar rotates,
+	its emissions become visible to anyone in the path of its beam for a split second before the beam rotates away from the observer again.
+	Essentially, a pulsar is an enormous strobe light in space.
+	If we create a simple model function <m>R(t)</m> of the radiation received by an observer,
+	we might come up with something like the graph in <xref ref="figure-inf-behaviour-pulsar" />
+	with there are repeating, short <q>on</q> and <q>off</q> periods,
+	with a constant emission level of <m>R_0</m> during the <q>on</q> periods.
+	</p>
+
+	<figure xml:id="figure-inf-behaviour-pulsar">
+		<caption> A model of the observed on/off pattern of a pulsar. </caption>
+		<image width="90%">
+			<description>
+				A graphical model of the observed on/off pattern of a pulsar.
+			</description>
+			<latex-image><xi:include href="inf-behaviour.d/pulsar.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	It would not be appropriate to write either <m>R(t) \to \pm \infty</m> as <m>t \to \infty</m>,
+	as clearly the functions values are neither growing nor decaying,
+	only flip-flopping.
+	And it would also not be appropriate to write either <m>R(t) \to R_0</m> or <m>R(t) \to 0</m> as <m>t \to \infty</m>,
+	for the following reason.
+	If we take an error bound smaller than <m>R_0/2</m>, say,
+	then the function's output values will not move and <em>stay</em> within that error bound of either proposed steady-state output level,
+	since after a very short time of moving within that bound it will once again flop out of the bound.
+	And no matter how far out on the timeline we go,
+	we always see this same behaviour of not staying within a small error bound around any one value.
+	</p>
+
+	<p>
+	In reality,
+	a pulsar loses energy over tens of millions of years,
+	slowing down and eventually <q>turning off.</q>
+	So the fact that our mathematical analysis above is at odds with our expectations from knowledge of physics is a good indication that our simple model is only appropriate for short-term analysis,
+	and a more sophisticated model should be used for long-term analysis.
+	</p>
+
+</example>
+
+
+</subsection>
+
+<subsection xml:id="subsection-inf-behaviour-patterns">
+<title>Fundamental long-term behaviour patterns</title>
+
+<p>
+Here are some simple but fundamental patterns that we will use to analyze more complex examples,
+by recognizing these patterns as <q>pieces</q> of the more complex ones.
+</p>
+
+<identity xml:id="pattern-inf-behaviour-constant">
+	<title>Long-term behaviour of constants</title>
+	<p>
+	A constant function <m>f(t) = c</m> always satisfies <m>f(t) \to c</m> as <m>t \to \infty</m>,
+	since a function that stays at the single output level <m>c</m> will always stay within every possible error bound around <m>c</m>.
+	</p>
+</identity>
+
+<identity xml:id="pattern-inf-behaviour-lines">
+	<title>Long-term behaviour of lines</title>
+	<p>
+	For linear function <m>q(t) = m t + q_0</m>,
+	we have
+	<me> q(t) \to \pm \infty \qquad \text{as} \qquad t \to \infty </me>,
+	where the <em>plus-or-minus</em> depends on whether the constant rate factor <m>m</m> is positive or negative.
+	</p>
+</identity>
+
+<identity xml:id="pattern-inf-behaviour-powers">
+	<title>Long-term behaviour of powers</title>
+	<p>
+	For power function <m>p(t) = t^m</m> with a positive exponent <m>m</m>,
+	we have
+	<me> p(t) \to \infty \qquad \text{as} \qquad t \to \infty </me>.
+	</p>
+</identity>
+
+<identity xml:id="pattern-inf-behaviour-reciprocal-powers">
+	<title>Long-term behaviour of reciprocal powers</title>
+	<p>
+	For every positive exponent <m>m</m>,
+	the function <me> f(t) = {1 \over t^m} </me> will exhibit long-term behaviour
+	<me> f(t) \to 0 \qquad \text{as} \qquad t \to \infty </me>.
+	</p>
+</identity>
+
+<p> We can turn <xref ref="pattern-inf-behaviour-reciprocal-powers" /> into a more general pattern. </p>
+
+<identity xml:id="pattern-inf-behaviour-reciprocal-of-inf">
+	<title>Long-term behaviour of reciprocals</title>
+	<p>
+	If <m>f(t)</m> is a function for which we know that
+	<me> f(t) \to \pm \infty \qquad \text{as} \qquad t \to \infty </me>
+	(where the <em>plus-or-minus</em> means that we know that one or the other is true),
+	then the reciprocal function <me> g(t) = {1 \over {f(t)}} </me>
+	will satisfy
+	<me> g(t) \to 0 \qquad \text{as} \qquad t \to \infty </me>.
+	</p>
+</identity>
+
+<warning>
+	<title>Converse of <xref ref="pattern-inf-behaviour-reciprocal-of-inf" /></title>
+	<p>
+	We have to be careful with attempting to reverse <xref ref="pattern-inf-behaviour-reciprocal-of-inf" />.
+	If we have a function <m>f(t)</m> for which we know that
+	<me> f(t) \to 0 \qquad \text{as} \qquad t \to \infty </me>,
+	it <em>may</em> be the case that the reciprocal function <me> g(t) = {1 \over {f(t)}}</me> satisfies one of
+	<me> g(t) \to \pm \infty \qquad \text{as} \qquad t \to \infty </me>,
+	but it may not.
+	For example, it could be that <m>f(t) \to 0</m> occurs by oscillating between positive and negative values but with ever-decreasing <q>peaks,</q>
+	making the reciprocal function <m>g(t)</m> oscillate between large positive and large negative output values.
+	Even worse,
+	the function <m>f(t)</m> may cross the <m>0</m> level an infinite number of times as it oscillates,
+	making the output value of the reciprocal function <m>g(t)</m> undefined at all of those input values.
+	</p>
+</warning>
+
+</subsection>
+
+<subsection>
+<title>Analyzing more complex examples</title>
+
+<p>
+In general,
+we analyze more complex examples by breaking them into pieces.
+</p>
+
+<example>
+	<title>Combination of different behaviours</title>
+	<p>
+	Consider function <me> f(t) = 2 + {1 \over {t^2}} - t^2 </me>.
+	Individually,
+	we know that
+	<md>
+		<mrow>
+			2 \amp \to 2 \amp
+			{1 \over {t^2}} \amp \to 0 \amp
+			t^2 \to \infty
+		</mrow>
+	</md>
+	as <m>t \to \infty</m>.
+	So overall,
+	the outputs of <m>f(t)</m> will get large in the long-term.
+	However, noticing the minus sign in front of the <m>t^2</m> term in the formula for <m>f(t)</m>,
+	we conclude
+	<me> f(t) \to -\infty \qquad \text{as} \qquad t \to \infty </me>.
+	</p>
+</example>
+
+<example xml:id="example-inf-behaviour-rational-infinities">
+	<title>A rational expression of <q>infinities</q></title>
+
+	<p>
+	Consider rational function <me> f(t) = \frac{2 t^4 - 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6} </me>.
+	Based on <xref ref="pattern-inf-behaviour-reciprocal-powers" />,
+	every nonconstant term in both numerator and denominator approaches one of <m>\pm \infty</m>.
+	Will the two <q>infinities</q> in the denominator <q>cancel</q> each other because of the minus sign between them?
+	Will the <q>infinities</q> in the numerator and denominator <q>cancel</q> each other,
+	resulting in a ratio approaching <m>1</m>?
+	</p>
+
+	<p>
+	Obtaining the answers to both questions requires considering the relative sizes involved.
+	We are not literally adding, subtracting, and dividing infinities in this expression <mdash />
+	we are looking for a pattern in the actual output values for large <em>but finite</em> values of <m>t</m>.
+	And for large powers of <m>t</m>, <em>the larger the exponent, the larger the result</em>.
+	For example, when considering the
+	<me> 2 t^4 - 3 t^3 </me>
+	in the numerator,
+	<m>t^4</m> is much, much larger than <m>t^3</m> when a large <m>t</m> is input.
+	So much larger, in fact, that even though <m>3 t^3</m> is large itself,
+	subtracting it from <m>2 t^4</m> does not have much of an effect on the <m>2 t^4</m>.
+	And if subtracting <m>3 t^3</m> has a negligible effect,
+	we may as well also ignore the extra <m>t + 4</m> in the numerator,
+	which is much smaller still.
+	So we can actually write
+	<me> 2 t^4 - 3 t^3 + t + 4 \approx 2 t^4 </me>
+	for large values of <m>t</m>.
+	Similarly, in the denominator we can write
+	<me> 3 t^4 + 4 t^3 + 6 \approx 3 t^4 </me>
+	for large values of <m>t</m>.
+	</p>
+
+	<p>
+	In this way,
+	for large values of <m>t</m> we can focus on the <term>dominant terms</term> in numerator and denominator:
+	<me> f(t) \approx \frac{2 t^4}{3 t^4} = {2 \over 3} </me>.
+	The larger <m>t</m> gets,
+	the more negligible the non-dominant terms become, and the more accurate the approximation above becomes,
+	so we conclude that
+	<me> f(t) \to {2 \over 3} \qquad \text{as} \qquad t \to \infty </me>.
+	</p>
+
+</example>
+
+<warning>
+	<title>Infinity is not a number</title>
+	<p>
+	Do <alert>not</alert> perform arithmetic with infinities.
+	In particular,
+	<md><mrow> \infty - \infty \amp \neq 0 \amp {\infty \over \infty} \neq 1 </mrow></md>.
+	</p>
+</warning>
+
+<p>
+We can make the concept of <term>dominant terms</term> more precise by using
+<xref ref="pattern-inf-behaviour-reciprocal-powers" />.
+(Or, when appropriate, <xref ref="pattern-inf-behaviour-reciprocal-of-inf" />.)
+We can do this by forming ratios inside the overall ratio to more directly compare <q>large</q> terms to see who is dominant.
+</p>
+
+<heuristic xml:id="strategy-inf-behaviour-dominant-terms">
+	<title>Comparing terms as <m>t \to \infty</m> in a rational expression </title>
+	<p>
+	To determine dominant terms as <m>t \to \infty</m> in a rational expression,
+	divide each term in both numerator and denominator by the
+	<em>largest term in the denominator</em>.
+	After simplifying and applying <xref ref="pattern-inf-behaviour-reciprocal-of-inf" />,
+	whatever is left are the dominant terms.
+	</p>
+</heuristic>
+
+<example xml:id="example-inf-behaviour-ratio-by-ratios">
+	<title>Determining dominant terms</title>
+	<p>
+	Let's return to the function from <xref ref="example-inf-behaviour-rational-infinities" />.
+	We identity the <m>t^3</m> as the largest expression in the denominator,
+	so we will compare every other term in the ratio to that by dividing.
+	<md>
+		<mrow> f(t) \amp = \frac{2 t^4 - 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6} </mrow>
+		<mrow> \amp = \frac{2 t^4 - 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6} \cdot \frac{ 1/t^4 }{ 1/t^4 } </mrow>
+		<mrow> \amp = \frac{(2 t^4 / t^4) - (3 t^3 / t^4) + (t / t^4) + (4 / t^4)}{(3 t^4 / t^4) + (4 t^3 / t^4) + (6 / t^4)} </mrow>
+		<mrow> \amp = \frac{2 - (3 / t) + (1 / t^3) + (4 / t^4)}{3 + (4 / t) + (6 / t^4)} </mrow>
+	</md>.
+	Note that the second line above is justified by the fact that for <m>t \neq 0</m> we have
+	<me> \frac{ 1/t^4 }{ 1/t^4 } = 1 </me>,
+	and multiplying by <m>1</m> has no effect.
+	In the last line, every term that still has a power of <m>t</m> in the denominator is eventually arbitrarily close to <m>0</m> by <xref ref="pattern-inf-behaviour-reciprocal-powers" />.
+	With this knowledge,
+	we can say
+	<md>
+		<mrow> f(t) \amp = \frac{2 - (3 / t) + (1 / t^3) + (4 / t^4)}{3 + (4 / t) + (6 / t^4)} </mrow>
+		<mrow> \amp \approx \frac{2 + 0 - 0 + 0}{3 - 0 - 0} </mrow>
+		<mrow> \amp = {2 \over 3} </mrow>
+	</md>,
+	and we come to the same conclusion
+	<me> f(t) \to {2 \over 3} \qquad \text{as} \qquad t \to \infty </me>
+	as in <xref ref="example-inf-behaviour-rational-infinities" />.
+</p>
+</example>
+
+<exercise xml:id="checkpoint-inf-behaviour-dominant-term-possibilities">
+	<title>Comparing dominant terms</title>
+	<p>
+	Carry out a similar analysis as in <xref ref="example-inf-behaviour-ratio-by-ratios" />
+	for
+	<md>
+		<mrow>
+			g(t) \amp = \frac{2 t^5 - 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6}
+			\amp
+			h(t) \amp = \frac{2 t^4 - 3 t^3 + t + 4}{3 t^5 + 4 t^3 + 6}
+		</mrow>
+	</md>.
+	How do the relative sizes of the dominant terms affect the result?
+	</p>
+</exercise>
+
+</subsection>
+
+<subsection>
+<title>Ancient behaviour</title>
+
+<p>
+The question <q>What will happen a long time from now?</q> has a flipped version:
+if we have a model for how a system has behaved in recent experience,
+we might want to extrapolate backwards and ask
+<q>What happened a long time ago?</q>
+Similar to the patterns in <xref ref="definition-inf-behaviour-horiz" />,
+we write
+<me> f(t) \to \pm \infty \qquad \text{as} \qquad t \to -\infty </me>
+or
+<me> f(t) \to L \qquad \text{as} \qquad t \to -\infty </me>
+when the function <m>f(t)</m> exhibits the appropriate behaviour for large but negative values of <m>t</m>.
+When verifying these behaviours in examples from the definitions for <m>t \to -\infty</m>,
+the process is essentially the same as that used in
+<xref ref="example-inf-behaviour-parabola" /> and <xref ref="example-inf-behaviour-steady-state-one-over-sq" />,
+except that we now take <term>eventually</term> to mean that the behaviour
+(above/below a certain proposed boundary level or within certain proposed error bounds)
+must hold on a subdomain <m>t \lt t_1</m> for some large, negative <m>t_1</m>.
+</p>
+
+<p>
+Most of the same patterns described in <xref ref="subsection-inf-behaviour-patterns" /> still hold,
+with the following alterations.
+<ol>
+
+	<li>
+		The <em>plus-or-minus</em> in <xref ref="pattern-inf-behaviour-lines" /> is flipped,
+		so that a linear expression satisfies
+		<me> m t + q_0 \to \mp \infty \qquad \text{as} \qquad t \to -\infty </me>,
+		where the <em>minus-or-plus</em> depends on whether the constant rate factor <m>m</m> is positive or negative.
+	</li>
+
+	<li>
+
+		<p>
+		For (positive) integer exponents in <xref ref="pattern-inf-behaviour-powers" />,
+		the pattern becomes
+		<me> t^m \to \pm \infty \qquad \text{as} \qquad t \to - \infty </me>,
+		where the <em>plus-or-minus</em> depends on whether the exponent is even or odd.
+		</p>
+
+		<p>
+		When the exponent is not an integer,
+		then some care must be taken in even considering <m>t \to -\infty</m>.
+		For example,
+		if <m>m = 1/2</m> then there are no negative numbers in the domain of <m>f(t) = t^{1/2} = \sqrt{t}</m>,
+		and so looking for a pattern in the output values for this function as <m>t \to -\infty</m> makes no sense.
+		</p>
+
+	</li>
+
+	<li>
+		Since <m>- 0 = 0</m>,
+		we don't have the even/odd split in <xref ref="pattern-inf-behaviour-reciprocal-powers" /> that we have in <xref ref="pattern-inf-behaviour-powers" />,
+		but the same warning about taking care when the exponent is not an integer applies.
+	</li>
+
+</ol>
+</p>
+
+<example xml:id="example-inf-behaviour-neg-rational-infinities">
+	<title>A rational expression of <q>infinities</q> for <m>t \to -\infty</m></title>
+
+	<p>
+	Let's revisit
+	<me> f(t) = \frac{2 t^4 - 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6} </me>
+	from <xref ref="example-inf-behaviour-ratio-by-ratios" />.
+	The algebraic analysis in that example still holds to allow us to say
+	<me> f(t) \approx \frac{2 t^4}{3 t^4} = {2 \over 3} </me>
+	for all large and <em>negative</em> values of <m>t</m>.
+	This works because whether
+	<me> t^m \to \infty \qquad \text{or} \qquad t^m \to -\infty </me>
+	as <m>t \to -\infty</m>
+	(depending on whether the exponent <m>m</m> is even or odd),
+	in both cases it will be true that
+	<me> \frac{1}{t^m} \to 0 \qquad \text{as} \qquad t \to -\infty </me>.
+	So we can still use <term>dominant terms</term> to analyze the ancient behaviour of a rational function like this,
+	and in this case we see that the ancient behaviour and the long-term behaviour are identical.
+	</p>
+
+	<figure xml:id="figure-inf-behaviour-two-sided-horiz-asymp">
+		<caption> A function with a symmetric horizontal asymptote. </caption>
+		<image width="90%">
+			<description>
+				The graph of a function with a symmetric horizontal asymptote.
+			</description>
+			<latex-image><xi:include href="inf-behaviour.d/two-sided-horiz-asymp.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<warning>
+	<title>Ancient and long-term behaviour can be different</title>
+	<p>
+	We should not take from <xref ref="example-inf-behaviour-neg-rational-infinities" /> that the behaviour as <m>t \to -\infty</m> will always be the same as the behaviour as <m>t \to \infty</m>.
+	</p>
+</warning>
+
+<example xml:id="example-inf-behaviour-non-symmetric-hasymps">
+	<title>Different analyses may be required for <m>t \to \pm \infty</m></title>
+
+	<p>
+	For function <me> f(t) = \frac{\sqrt{2 t^2 + 1}}{3 t - 5} </me>,
+	first consider <m>t \to \infty</m>.
+	Analyzing dominant terms,
+	we may consider both the <q>plus one</q> in the numerator and the <q>minus five</q> in the denominator as negligible for large values of <m>t</m>,
+	so that
+	<md>
+		<mrow> f(t) \amp \approx \frac{\sqrt{2 t^2}}{3 t} </mrow>
+		<mrow> \amp = \frac{t \sqrt{2}}{3 t} </mrow>
+		<mrow> \amp = \frac{\sqrt{2}}{3} </mrow>
+	</md>.
+	So we conclude that <me> f(t) \to \frac{\sqrt{2}}{3} \qquad \text{as} \qquad t \to \infty </me>.
+	</p>
+
+	<p>
+	For <m>t \to -\infty</m> our analysis of dominant terms above remains the same,
+	but there is one algebraic manipulation that is only valid for positive values of <m>t</m>.
+	The simplification <me> \sqrt{2 t^2} = t \sqrt{2} </me> is <em>not</em> valid for negative values of <m>t</m>,
+	which is what we are considering when we analyze <m>t \to -\infty</m>.
+	For example, for <m>t = -1</m> we have
+	<md>
+		<mrow> \sqrt{2 t^2} \amp = \sqrt{2 {(-1)}^2} \amp t \sqrt{2} \amp = (-1) \sqrt{2} </mrow>
+		<mrow> \amp = \sqrt{2} \amp t \sqrt{2} \amp = -\sqrt{2} </mrow>
+	</md>
+	and the two expressions are not equal.
+	Ignoring the <m>2</m> for the moment,
+	the correct simplification in all cases is <me> \sqrt{t^2} = \abs{t} </me>,
+	it's just that when <m>t</m> is positive we can ignore the absolute value brackets.
+	</p>
+
+	<p>
+	Reworking our algebraic manipulations then,
+	for large and <em>negative</em> values of <m>t</m> we have
+	<md>
+		<mrow> f(t) \amp \approx \frac{\sqrt{2 t^2}}{3 t} </mrow>
+		<mrow> \amp = \frac{\sqrt{2} \abs{t}}{3 t} </mrow>
+	</md>.
+	Now, <me> \frac{\abs{t}}{t} = - 1 </me>,
+	when <m>t</m> is negative since the numerator and denominator have the same magnitude but one is positive and the other is negative.
+	So we have <me> f(t) \approx - \frac{\sqrt{2}}{3}</me> for large, negative values of <m>t</m>
+	and we conclude that <me> f(t) \to - \frac{\sqrt{2}}{3} \qquad \text{as} \qquad t \to -\infty </me>.
+	</p>
+
+	<figure xml:id="figure-inf-behaviour-separate-two-sided-horiz-asymp">
+		<caption> A graph with two different horizontal asymptotes. </caption>
+		<image width="75%">
+			<description>
+				The graph of a function with two different horizontal asymptotes.
+			</description>
+			<latex-image><xi:include href="inf-behaviour.d/separate-two-sided-horiz-asymp.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</subsection>
+
+<subsection>
+<title>Slant asymptotes</title>
+
+<p> Sometimes we can be more informative about the patterns <m>f(t) \to \pm \infty</m>. </p>
+
+<example xml:id="example-inf-behaviour-eventually-linear">
+	<title>An <q>eventually linear</q> function</title>
+	<p>
+	In your analysis of
+	<me> g(t) = \frac{2 t^5 - 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6} </me>
+	in <xref ref="checkpoint-inf-behaviour-dominant-term-possibilities" />,
+	you should have found that
+	<me> g(t) \approx \frac{2 t}{3} </me>
+	for large values of <m>t</m>,
+	whether positive or negative.
+	From this we can conclude that
+	<me> g(t) \to \infty \qquad \text{as} \qquad t \to \infty </me>
+	and
+	<me> g(t) \to -\infty \qquad \text{as} \qquad t \to -\infty </me>.
+	However, the expression
+	<me> g(t) \approx \frac{2}{3} t </me>
+	is actually more informative about exactly <em>how</em> <m>g(t) \to \pm \infty</m>;
+	in particular, it says that <m>g(t)</m> is essentially linear for large values of <m>t</m>,
+	growing at approximately constant rate <m>2/3</m>.
+	</p>
+
+	<figure xml:id="figure-inf-behaviour-slant-asymp">
+		<caption>
+			A graph with a slant asymptote.
+			The graph will slowly approach the dashed line both to the upper right and the lower left.
+		</caption>
+		<image width="90%">
+			<description>
+				The graph of a function with a slant asymptote.
+			</description>
+			<latex-image><xi:include href="inf-behaviour.d/slant-asymp.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<definition xml:id="definition-inf-behaviour-slant-asymp">
+	<title>Slant asymptote</title>
+	<p>
+	A line with non-zero slope that a function's graph approaches,
+	becoming closer and closer to it as one goes further out on the graph.
+	</p>
+</definition>
+
+</subsection>
+
+<!-- TODO Sage ? -->
 
 </section>
+
+<section>
+<title>Comparing growth of two functions</title>
+
+<p>
+There are two simple algebraic ways we can compare two expressions <m>A</m> and <m>B</m>:
+using a difference <m>A - B</m> or using a ratio <m>A / B</m>.
+However, the result of a difference is dependent on both magnitude and the combination of signs of <m>A</m> and <m>B</m>,
+whereas a ratio tends to keep the matters of signs and relative magnitudes separate.
+Furthermore,
+we can more easily perform algebraic manipulations in a ratio without changing the actual value of it.
+</p>
+
+<p>
+In the case of two functions <m>f(t)</m> and <m>g(t)</m> which both satisfy
+<md><mrow> f(t) \amp \to \infty \amp g(t) \amp \to \infty </mrow></md>
+as <m>t \to \infty</m>,
+we can compare how fast each grows to <m>\infty</m> by forming a ratio of their output values and re-analyzing as <m>t \to \infty</m>.
+Effectively,
+this pits them against each other in a race to <m>\infty</m>.
+</p>
+
+<definition xml:id="definition-inf-behaviour-relative-rates">
+	<title>Relative rates of growth</title>
+	<p>
+	Assume functions <m>f(t)</m> and <m>g(t)</m> both satisfy
+	<md><mrow> f(t) \amp \to \infty \amp g(t) \amp \to \infty </mrow></md>
+	as <m>t \to \infty</m>.
+	<ol>
+
+		<li>
+			<title>Faster growth</title>
+			<p>
+			If <me> \frac{f(t)}{g(t)} \to \infty \text{ as } t \to \infty </me>
+			then we say that <m>f(t)</m> <term>grows faster than</term> <m>g(t)</m>.
+			</p>
+		</li>
+
+		<li>
+			<title>Slower growth</title>
+			<p>
+			If <me> \frac{f(t)}{g(t)} \to 0 \text{ as } t \to \infty </me>
+			then we say that <m>f(t)</m> <term>grows more slowly than</term> <m>g(t)</m>.
+			</p>
+		</li>
+
+		<li>
+			<title>Comparable growth</title>
+			<p>
+			If <me> \frac{f(t)}{g(t)} \to L \text{ as } t \to \infty </me>
+			where <m>L</m> is a positive, finite number,
+			then we say that <m>f(t)</m> and <m>g(t)</m> <term>grow at comparable rates</term>.
+			</p>
+		</li>
+
+	</ol>
+	</p>
+</definition>
+
+<remark><p>
+	In the third case in <xref ref="definition-inf-behaviour-relative-rates" />,
+	it is not necessary for <m>L</m> to be <m>1</m> to be able to say that <m>f(t)</m> and <m>g(t)</m> grow at comparable rates <mdash />
+	any other value for <m>L</m> represents an approximate scale factor between <m>g(t)</m> and <m>f(t)</m> as they grow in tandem.
+</p></remark>
+
+<p>
+We will revisit this concept of <term>relative rate of growth</term> several times in later chapters as we grow our stable of important functions.
+For now,
+here are some simple examples based on computations we have already performed.
+</p>
+
+<example>
+	<title>Growing at a faster rate</title>
+	<p>
+	We can re-interpret the calculations of <xref ref="example-inf-behaviour-eventually-linear" />
+	by setting
+	<md><mrow>
+		f(t) \amp = 2 t^5 - 3 t^3 + t + 4
+		\amp
+		g(t) = 3 t^4 + 4 t^3 + 6
+	</mrow></md>.
+	These two function satisfy
+	<md><mrow> f(t) \amp \to \infty \amp g(t) \amp \to \infty </mrow></md>
+	as <m>t \to \infty</m>.
+	In that previous example,
+	we analyzed the long-term behaviour of the ratio of these two functions and found that
+	<me> \frac{f(t)}{g(t)} \to \infty \qquad \text{as} \qquad t \to \infty </me>,
+	which tells us that <m>f(t)</m> grows faster than <m>g(t)</m>.
+	</p>
+</example>
+
+<example>
+	<title>Growing at a comparable rate</title>
+	<p>
+	We can re-interpret the calculations of <xref ref="example-inf-behaviour-non-symmetric-hasymps" />
+	by setting
+	<md><mrow>
+		f(t) \amp = \sqrt{2 t^2 + 1}
+		\amp
+		g(t) = 3 t - 5
+	</mrow></md>.
+	These two function satisfy
+	<md><mrow> f(t) \amp \to \infty \amp g(t) \amp \to \infty </mrow></md>
+	as <m>t \to \infty</m>.
+	In that previous example,
+	we analyzed the long-term behaviour of the ratio of these two functions and found that
+	<me> \frac{f(t)}{g(t)} \to \frac{\sqrt{2}}{3} \qquad \text{as} \qquad t \to \infty </me>,
+	which tells us that <m>f(t)</m> and <m>g(t)</m> grow at comparable rates,
+	though eventually <me> f(t) \approx \frac{\sqrt{2}}{3} \, g(t) </me>.
+	</p>
+</example>
+
+</section>
+
+
+<section>
+<title>Singular behaviour</title>
+
+<subsection>
+<title>Concept, definition, and basic examples</title>
+
+<p>
+With a mathematical for a system in hand,
+another natural question to ask is
+<q>Are there any input values near which the output values become unbounded?</q>
+(For example,
+if you have a mathematical model of an energy supply,
+you might want to know if there are any particular operating states that cause it to create an enormous surge of energy.)
+</p>
+
+<definition xml:id="definition-inf-behaviour-singular">
+	<title>Singular behaviour</title>
+	<p>
+	<ol>
+
+		<li>
+			<title>Growth singularity</title>
+			<p>
+				We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to c </me>
+				to mean that output values of <m>f(t)</m> become arbitrarily large and positive for all inputs <m>t</m> sufficiently close to (but not equal to) <m>c</m>.
+			</p>
+		</li>
+
+		<li>
+			<title>Decay singularity</title>
+			<p>
+				We write <me> f(t) \to -\infty \qquad \text{as} \qquad t \to c </me>
+				to mean that output values of <m>f(t)</m> become arbitrarily large and negative for all inputs <m>t</m> sufficiently close to (but not equal to) <m>c</m>.
+			</p>
+		</li>
+
+	</ol>
+	In either case,
+	we say that <m>f(t)</m> has a <term>singularity</term> at <m>t = c</m>.
+	</p>
+</definition>
+
+<p>
+In <xref ref="definition-inf-behaviour-singular" />,
+<term>arbitrarily large</term> means just the same as it did when we defined long-term behaviour.
+And <term>sufficiently close</term> means essentially the same as <term>arbitrarily close</term>,
+except
+<ol>
+
+	<li>
+		the change from <term>arbitrarily</term> to <term>sufficiently</term> reflects the fact that we are in control of how close to <m>c</m> we need to restrict <m>t</m> to be in order to achieve the arbitrarily large outputs
+	</li>
+
+	<li>
+		we are a bit looser in that we don't necessarily require symmetric error bounds around <m>t = c</m>.
+	</li>
+
+</ol>
+</p>
+
+<example xml:id="example-inf-behaviour-1-over-square-singularity">
+	<title>The prototypical growth singularity</title>
+	<p>
+	Consider values of the function <me>f(t) = \frac{1}{t^2}</me> near <m>t = 0</m>.
+	We can't actually evaluate <m>f(0)</m> because that involves division by zero.
+	But if <m>t \approx 0</m> then <m>f(t)</m> is very large and positive.
+	<ul>
+
+		<li>
+			Do values of <m>f(t)</m> grow at least as large as <m>100</m> for <m>t \approx 0</m>?
+			Yes, they will do so for all <m>t</m> in the subdomain <m>0 \pm 0.1</m> (excluding <m>t = 0</m>).
+		</li>
+
+		<li>
+			Do values of <m>f(t)</m> grow at least as large as <m>100</m> trillion for <m>t \approx 0</m>?
+			Yes, they will do so for all <m>t</m> in the subdomain <m>0 \pm {10}^{-7}</m> (excluding <m>t = 0</m>).
+		</li>
+
+	</ul>
+	In fact,
+	you can answer the above question for every proposed upper limit value <m>M</m>
+	by restricting <m>t</m> to be within the subdomain <me>0 \pm \frac{1}{\sqrt{M}} </me>
+	(excluding <m>t = 0</m>, as always).
+	From this we conclude
+	<me> f(t) \to \infty \qquad \text{as} \qquad t \to 0 </me>,
+	and so <m>f(t)</m> has a singularity at <m>t = 0</m>.
+	</p>
+</example>
+
+<warning>
+	<title>Infinity is not a number</title>
+	<p>
+	As we've already warned before,
+	you should not attempt to perform arithmetic with <m>\infty</m>.
+	</p>
+</warning>
+
+<example><p>
+	Consider <me> f(t) = \frac{1}{t^4} - \frac{1}{t^2} </me>.
+	In <xref ref="example-inf-behaviour-1-over-square-singularity" />,
+	we have already demonstrated that <me> \frac{1}{t^2} \to \infty \qquad \text{as} \qquad t \to 0 </me>.
+	A similar analysis would show that <me> \frac{1}{t^4} \to \infty \qquad \text{as} \qquad t \to 0 </me>.
+	So it would seem that in the difference in the formula for <m>f(t)</m>,
+	the two infinities would cancel, and we should have <m>f(t) \approx 0</m> for <m>t \approx 0</m>.
+	But this is not the case,
+	since if we use a common denominator we have
+	<md>
+		<mrow> f(t) \amp = \frac{1}{t^4} - \frac{1}{t^2} </mrow>
+		<mrow> \amp = \frac{1 - t^2}{t^4} </mrow>
+	</md>.
+	For <m>t \approx 0</m>, the numerator of this new formula for <m>f(t)</m> is approximately <m>1</m>,
+	but the denominator is very small and positive,
+	so the ratio is very large.
+	That is, <m>f(t)</m> has a singularity at <m>t = 0</m> with
+	<me> f(t) \to \infty \qquad \text{as} \qquad t \to 0 </me>.
+	Looking back at the original difference formula for <m>f(t)</m>,
+	we can interpret this as saying that for <m>t \approx 0</m>,
+	the size of <m>1/t^4</m> is so large as to make the subtraction of <m>1/t^2</m> negligible.
+</p></example>
+
+</subsection>
+
+<subsection>
+<title>One-sided singularities</title>
+
+<p>
+For some functions,
+it is the case that the values become large and positive on one side of a singularity and large and negative on the other side.
+To handle this sort of situation,
+we make the following definition.
+</p>
+
+<definition xml:id="definition-inf-behaviour-one-sided-singular">
+	<title>One-sided singular behaviour</title>
+	<p>
+	<ol>
+
+		<li>
+			<title>Right-hand singularity</title>
+			<p>
+				We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to c^+ </me>
+				to mean that output values of <m>f(t)</m> become arbitrarily large and positive for all inputs <m>t</m> sufficiently close to but strictly greater than <m>c</m>.
+			</p>
+		</li>
+
+		<li>
+			<title>Left-hand singularity</title>
+			<p>
+				We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to c^- </me>
+				to mean that output values of <m>f(t)</m> become arbitrarily large and positive for all inputs <m>t</m> sufficiently close to but strictly less than <m>c</m>.
+			</p>
+		</li>
+
+	</ol>
+	And we can make similar definitions for the meanings of <m>f(t) \to -\infty</m> as <m>t \to c^+</m> or as <m>t \to c^-</m>.
+	</p>
+</definition>
+
+<example xml:id="example-inf-behaviour-two-sided-singularity">
+	<title>A function with different one-sided singular behaviours</title>
+	<p>
+	Consider function <me> f(t) = \frac{t - 2}{t - 1} </me>.
+	For <m>t \approx 1</m> but greater than <m>1</m>,
+	the numerator is approximately <m>-1</m> but the denominator is small and positive,
+	making the ratio very large and negative.
+	Hence <me> f(t) \to -\infty \qquad \text{as} \qquad t \to 1^+ </me>.
+	For <m>t \approx 1</m> but less than <m>1</m>,
+	the numerator is still approximately <m>-1</m> but the denominator is now small and negative,
+	making the ratio very large and positive.
+	Hence <me> f(t) \to \infty \qquad \text{as} \qquad t \to 1^- </me>.
+	</p>
+</example>
+
+<subsection>
+<title>Vertical asymptotes</title>
+
+<p>
+Recall that,
+graphically,
+long-term behaviour
+<me> f(t) \to \mathrm{constant} \qquad \text{as} \qquad t \to \infty </me>
+means the function's graph is approaching a <xref ref="definition-inf-behaviour-hasymp" text="title" />
+at the height of the constant that the output levels are approaching.
+For singular behaviour
+<me> f(t) \to \infty \qquad \text{as} \qquad t \to \mathrm{constant} </me>
+this is reversed,
+so that the function's graph is approaching a <em>vertical</em> line at a specific value of <m>t</m>.
+</p>
+
+<definition xml:id="definition-inf-behaviour-vasymp">
+	<title>Vertical asymptote</title>
+	<p>
+	A vertical line that a function's graph approaches,
+	becoming closer and closer to it as the inputs are made closer to the location of the vertical line.
+	</p>
+</definition>
+
+<figure xml:id="figure-inf-behaviour-vert-asymp">
+	<caption> Two kinds of vertical asymptotes. </caption>
+
+	<sidebyside widths="33% 33%">
+
+		<figure xml:id="figure-inf-behaviour-vert-asymp-1">
+			<caption>
+				A function that displays the same behaviour on either side of a vertical asymptote.
+				(From <xref ref="example-inf-behaviour-1-over-square-singularity" />.)
+			</caption>
+			<image>
+				<description>
+					The graph of a function that displays the same behaviour on either side of a vertical asymptote.
+				</description>
+				<latex-image><xi:include href="inf-behaviour.d/vert-asymp-1.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-inf-behaviour-vert-asymp-2">
+			<caption>
+				A function that displays different behaviours on either side of a vertical asymptote.
+				(From <xref ref="example-inf-behaviour-two-sided-singularity" />.)
+			</caption>
+			<image>
+				<description>
+					The graph of a function that displays different behaviours on either side of a vertical asymptote.
+				</description>
+				<latex-image><xi:include href="inf-behaviour.d/vert-asymp-2.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+</subsection>
+
+</subsection>
+
+</section>
+
 
 <!-- <xi:include href="./inf-behaviour.d/activities.ptx" />
 <xi:include href="./inf-behaviour.d/exercises.ptx" /> -->
