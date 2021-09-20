@@ -93,24 +93,6 @@ for example:
 	</ul>
 </p>
 
-<example xml:id="example-funcs-by-desc">
-	<title>A function defined by a description</title>
-	<p>
-	A device that measures wind speed is called an <term>anemometer</term>.
-	Suppose an anemometer is set up in the quad of the Augustana Campus.
-	For <m>t</m> representing time measured in seconds from the instant the anemometer is fully set up and operational,
-	let <m>w(t)</m> represent the wind speed measured by the device at time <m>t</m>,
-	in kilometres per hour.
-	</p>
-</example>
-
-<p>
-It would be pretty difficult to come up with a formula in <m>t</m> that describes the function in <xref ref="example-funcs-by-desc" />.
-However, as we'll see in <xref ref="example-funcs-piecewise-table" />,
-it's possible (but tedious) to create a <q>formula</q> for a function that has initially been defined by a table of values,
-as in <xref ref="example-funcs-by-table" />.
-</p>
-
 <example xml:id="example-funcs-by-table">
 	<title>A function defined by a table of values</title>
 	<p>
@@ -140,6 +122,24 @@ as in <xref ref="example-funcs-by-table" />.
 	the table says that <m>f(1) = 1/3</m>.
 	</p>
 </example>
+
+<example xml:id="example-funcs-by-desc">
+	<title>A function defined by a description</title>
+	<p>
+	A device that measures wind speed is called an <term>anemometer</term>.
+	Suppose an anemometer is set up in the quad of the Augustana Campus.
+	For <m>t</m> representing time measured in seconds from the instant the anemometer is fully set up and operational,
+	let <m>w(t)</m> represent the wind speed measured by the device at time <m>t</m>,
+	in kilometres per hour.
+	</p>
+</example>
+
+<p>
+It would be pretty difficult to come up with a formula in <m>t</m> that describes the function in <xref ref="example-funcs-by-desc" />.
+However, as we'll see in <xref ref="example-funcs-piecewise-table" />,
+it's possible (but tedious) to create a <q>formula</q> for a function that has initially been defined by a table of values,
+as in <xref ref="example-funcs-by-table" />.
+</p>
 
 <p>
 The information in <xref ref="example-funcs-by-table" /> seems incomplete <mdash />
