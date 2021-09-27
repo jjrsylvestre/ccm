@@ -270,7 +270,7 @@ the property of being on the graph or not on the graph of a function <m>f</m> is
 			including two representative points:
 			one on the graph and one not on the graph.
 		</caption>
-		<image width="75%">
+		<image width="60%">
 			<description> Parabolic graph of the basic quadratic function. </description>
 			<latex-image><xi:include href="funcs.d/parabola.tex" parse="text" /></latex-image>
 		</image>
@@ -300,7 +300,7 @@ the property of being on the graph or not on the graph of a function <m>f</m> is
 
 	<figure xml:id="figure-funcs-discrete">
 		<caption> An example graph that consists of only five points. </caption>
-		<image width="75%">
+		<image width="33%">
 			<description> An example graph that consists of only five points. </description>
 			<latex-image><xi:include href="funcs.d/discrete.tex" parse="text" /></latex-image>
 		</image>
@@ -332,7 +332,7 @@ in which case there is no corresponding point on the graph for a vertical line a
 <figure xml:id="figure-funcs-VLT">
 	<caption> Illustrations of the Vertical Line Test. </caption>
 
-	<sidebyside widths="45% 45%">
+	<sidebyside widths="40% 35%">
 
 		<figure xml:id="figure-funcs-VLT-1">
 			<caption> A curve that passes the Vertical Line Test. </caption>
@@ -453,7 +453,7 @@ As you can imagine, a piecewise function will also have a graph that appears to 
 
 	<figure xml:id="figure-funcs-piecewise">
 		<caption> Graph of a piecewise-defined function. </caption>
-		<image width="66%">
+		<image width="50%">
 			<description> Graph of a piecewise-defined function. </description>
 			<latex-image><xi:include href="funcs.d/piecewise.tex" parse="text" /></latex-image>
 		</image>
@@ -489,7 +489,7 @@ there is no requirement that the pieces of the graph meet at the transition poin
 
 	<figure xml:id="figure-funcs-piecewise-2">
 		<caption> Graph of a piecewise-defined function with a <q>jump</q> in values. </caption>
-		<image width="66%">
+		<image width="50%">
 			<description> Graph of a piecewise-defined function with a <q>jump</q> in values. </description>
 			<latex-image><xi:include href="funcs.d/piecewise-2.tex" parse="text" /></latex-image>
 		</image>
@@ -505,7 +505,7 @@ there is no requirement that the pieces of the graph meet at the transition poin
 	<p>
 	Now consider the piecewise function
 	<me>
-		g(t) = \begin{cases}
+		h(t) = \begin{cases}
 			0 \amp t \lt 0 \\
 			t^2 \amp 0 \le t \le 2 \\
 			5 \amp 2 \lt t \lt 3 \\
@@ -518,7 +518,7 @@ there is no requirement that the pieces of the graph meet at the transition poin
 
 	<figure xml:id="figure-funcs-piecewise-many">
 		<caption> Graph of a piecewise-defined function with many pieces. </caption>
-		<image width="75%">
+		<image width="66%">
 			<description> Graph of a piecewise-defined function with many pieces. </description>
 			<latex-image><xi:include href="funcs.d/piecewise-many.tex" parse="text" /></latex-image>
 		</image>
@@ -566,7 +566,7 @@ We'll call this type of feature a <term>point of discontinuity</term>.
 <definition xml:id="definition-funcs-point-continuous">
 	<title>Continuous at a point</title>
 	<p>
-	A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being with some arbitrarily small error bound around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small subdomain around <m>t_0</m>.
+	A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small error bound around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small subdomain around <m>t_0</m>.
 	Otherwise, the function is said to be <term>discontinuous</term> at that point.
 	</p>
 </definition>
@@ -585,7 +585,7 @@ and we can always make the first approximation better and better by tightening t
 	It has value <m>f(2) = 4</m> there,
 	but if <m>t</m> is slightly bigger than <m>2</m> then <m>f(t) \approx 2</m>.
 	In particular, we set an error bound of <m>1</m>,
-	then there is no way to make <m>f(t) = f(2) \pm 1</m> true for all <m>t \approx 2</m>,
+	then there is no way to make <m>f(t) \approx f(2) \pm 1</m> true for all <m>t \approx 2</m>,
 	no matter how small a subdomain around <m>t = 2</m> that we take for the meaning of <m>t \approx 2</m>.
 	</p>
 
@@ -593,7 +593,7 @@ and we can always make the first approximation better and better by tightening t
 	On the other hand,
 	that same function <em>is</em> continuous at <m>t = 1</m>.
 	No matter how small an error bound <m>E</m> we use,
-	it is always possible to restrict <m>t</m> to some small subdomain around <m>t = 1</m> so that <m>f(t) = f(1) \pm E</m> is true for all <m>t</m> within that subdomain.
+	it is always possible to restrict <m>t</m> to some small subdomain around <m>t = 1</m> so that <m>f(t) \approx f(1) \pm E</m> is true for all <m>t</m> within that subdomain.
 	</p>
 
 	<figure xml:id="figure-funcs-discont-cont">
@@ -617,7 +617,7 @@ and we can always make the first approximation better and better by tightening t
 			<figure>
 				<caption>
 					Using <em>any</em> error bound,
-					we can always restrict the domain around <m>t=1</m> so that <m>f(t) = f(1) \pm E</m> is true for all <m>t \approx 1</m>.
+					we can always restrict the domain around <m>t=1</m> so that <m>f(t) \approx f(1) \pm E</m> is true for all <m>t \approx 1</m>.
 				</caption>
 				<image>
 					<description> Error bounds around a point of continuity. </description>
@@ -728,7 +728,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 
 	<figure>
 		<caption> A graph with a discontinuity caused by an undefined value. </caption>
-		<image width="50%">
+		<image width="33%">
 			<description> A graph with a discontinuity caused by an undefined value. </description>
 			<latex-image><xi:include href="funcs.d/hole.tex" parse="text" /></latex-image>
 		</image>

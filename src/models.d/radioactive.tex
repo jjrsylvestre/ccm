@@ -13,31 +13,30 @@
 % *********************************************************************
 
 \newcommand*{\xmin}{-0.5}
-\newcommand*{\xmax}{5}
-\newcommand*{\ymin}{-2.5}
-\newcommand*{\ymax}{4.5}
+\newcommand*{\xmax}{6.5}
+\newcommand*{\ymin}{-0.5}
+\newcommand*{\ymax}{6.5}
+
+%
+% to maintain all segments at same length L
+% (in this case L = 0.2)
+% use
+%   delta-x = (L/2) / sqrt(1 + m^2)
+%   delta-y = m * (L/2) / sqrt(1 + m^2)
+% (the L/2 is because we draw two segments, each from centre out to either right or left)
+%
 
 \begin{tikzpicture}
-[
-	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
-	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	yscale=0.5
-]
 
 	% axes
-	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[above] {$t$};
-	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$g(t)$};
+	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below] {$t$};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$q(t)$};
 
-	% graph
-	\draw[thick, blue, domain=0:2, smooth] plot (\x,{\x * \x});
-
-	\node[closedpt,blue] at (0,0) {};
-	\node[closedpt,blue] at (2,4) (p) {};
-	\node[openpt,blue] at (2,2) (l) {};
-
-	\draw[dashed]
-		(p) -- (l)
-		(l) -- (2,0) node[below] {$2$};
-	\draw[thick, blue] (l) -- (5,-1);
+	\foreach \x in {0,0.5,1,...,6} {
+		\foreach \y in {0,0.5,1,...,6} {
+			\draw (\x,\y) -- ++($({0.1/sqrt(1+\y*\y/4)},{-0.1*\y/sqrt(1+\y*\y/4)/2})$);
+			\draw (\x,\y) -- ++($({-0.1/sqrt(1+\y*\y/4)},{0.1*\y/sqrt(1+\y*\y/4)/2})$);
+		}
+	}
 
 \end{tikzpicture}

@@ -13,13 +13,726 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
+<!-- Modelling accumulation and rate of variation. Differential equation examples (but no solving). -->
+
 <chapter xml:id="chapter-models" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Models</title>
 
 <section xml:id="section-models-intro">
-<title>TODO</title>
+<title>Functions modelling quantity and rate</title>
 
-<p> TODO </p>
+<p>
+We saw in <xref ref="section-vars-constant-variation" />
+that when two quantities are varying in tandem so that the average rate of accumulation of one relative to the other is always constant,
+then we can express one of the quantities as a linear function of the other.
+What if the rate of accumulation is also varying?
+Then we might want a function to model it as well.
+</p>
+
+<example>
+	<title>A piecewise rate function</title>
+
+	<p>
+	In <xref ref="example-funcs-commissions" />,
+	we modelled the salary of salespeople who were paid a base salary,
+	commission on each sale, and a bonus commission on each sale above some threshold.
+	The model we came up with for the salary <m>s(q)</m> as a function of the number of units <m>q</m> sold was
+	<me>
+		s(q) = \begin{cases}
+			4000 + 10 q \amp 0 \le q \le 100 \\
+			4000 + 10 q + 5 (q - 100) \amp q \gt 100
+		\end{cases}
+	</me>.
+	Simplifying the second formula in the piecewise definition,
+	we can write
+	<me>
+		s(q) = \begin{cases}
+			4000 + 10 q \amp 0 \le q \le 100 \\
+			3500 + 15 q \amp q \gt 100
+		\end{cases}
+	</me>.
+	That rate of accumulation of salary relative to number of units sold is constant <mdash />
+	salary increases by <m>10</m> dollars per extra unit sold <mdash />
+	up until the threshold where the bonus kicks in,
+	at <m>q = 100</m>.
+	After that,
+	the rate of accumulation jumps to a new level <mdash />
+	salary increases by <m>15</m> dollars per extra unit sold.
+	To keep track of how the rate varies,
+	we create a function to model the rate:
+	<me>
+		r(q) = \begin{cases}
+			10 \amp 0 \le q \le 100 \\
+			15 \amp q \gt 100
+		\end{cases}
+	</me>.
+	We know that the constant rate for a linear function is just the slope of the line,
+	so essentially we have just extracted the slopes of the two <q>pieces</q> of <m>s(q)</m> on their respective subdomains.
+	</p>
+
+</example>
+
+<p> A rate of accumulation can vary a lot more than just jumping from one value to another. </p>
+
+<example>
+	<title>Varying speed</title>
+
+	<p>
+	You get in your car and pull out,
+	then accelerate up to the city speed limit of
+	<quantity>
+		<mag>50</mag>
+		<unit base="metre" prefix="kilo" />
+		<per base="hour" />
+	</quantity>.
+	With a stop light ahead,
+	you slow down to a stop,
+	wait for the light to turn green,
+	then get back up to speed.
+	A little later you merge onto the highway and accelerate some more.
+	</p>
+
+	<p>
+	In the case of forward motion,
+	speed represents the rate of accumulation of mileage.
+	And in the scenario described above,
+	speed is itself varying.
+	</p>
+
+	<figure xml:id="figure-models-speed">
+		<caption>Graph of a rate-of-travel model.</caption>
+		<image width="80%">
+			<description>Graph of a rate-of-travel model.</description>
+			<latex-image><xi:include href="models.d/speed.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	In <xref ref="figure-models-speed" />,
+	the plotted curve passes the <xref ref="pattern-funcs-VLT" text="title" />,
+	and so represents the graph of a function <mdash />
+	a <em>rate</em> function, <m>r(t)</m>.
+	</p>
+
+</example>
+
+</section>
+
+<section>
+<title>Rate equations</title>
+
+<p>
+It is usually difficult to immediately write down a function for a varying quantity.
+Being able to do so is equivalent to predicting both <q>past</q> and <q>future</q> values of the quantity for any input value.
+When we model a system,
+it is usually easier to model the variation itself.
+But again, not immediately as a rate function
+(which is effectively just as difficult as trying to determine a quantity function directly).
+Instead,
+we try to model how the variation in the quantity is affected by the quantity itself.
+</p>
+
+<p>
+For example,
+consider trying to model a population of some species of animal over time.
+It would be very difficult to make an exact prediction like
+<q>In <m>t</m> years I think the population size will be <m>P</m>.</q>
+It is much more reasonable to express patterns like
+<q>More animals means more offspring means more animals.</q>
+In other words,
+the rate of accumulation could initially be modelled not directly in terms of time but indirectly in terms of the population size <mdash />
+large population means high rate of accumulation,
+small population means low rate of accumulation.
+The next step in analyzing the situation would be to try to make this observation more precise using an equation relating the rate to the quantity size.
+</p>
+
+<definition xml:id="definition-models-diff-eqn">
+	<title>Rate equation</title>
+	<p>
+	Let <m>q(t)</m> represent a quantity function
+	(whose formula is unknown)
+	and let <m>r(t)</m> represent the rate function that models the rate of accumulation of the quantity
+	(also unknown).
+	A <term>rate equation</term>
+	(or <term>differential equation</term>)
+	is an equation relating <m>r(t)</m> to <m>q(t)</m>.
+	</p>
+</definition>
+
+<note>
+	<title>Equation versus formula</title>
+	<p>
+	There is a difference between a <term>formula</term> for a function and an <term>equation</term>.
+	An equation expresses an equality of two different formulas,
+	while a function formula describes the input-output process of the function.
+	For example, the expression <m>r(t) = t^2</m> is not a rate equation
+	(even though it contains an equals sign),
+	it is a formula defining a rate function.
+	</p>
+</note>
+
+<example xml:id="example-models-radioactive-decay">
+	<title>Radioactive decay</title>
+
+	<p>
+	Physicists observed long ago that radioactive material decays at a rate that is proportional to the amount of material left.
+	That is,
+	if <m>q(t)</m> models the amount of some sample of radioactive material remaining after a period of time measured by <m>t</m>,
+	and <m>r(t)</m> models the rate of variation of the amount of material,
+	then there is a positive constant <m>k</m> so that
+	<md><mrow xml:id="equation-models-radioactive" tag="star"> \frac{r(t)}{q(t)} = - k </mrow></md>.
+	(The negative is because we expect the rate to be negative because the quantity is decreasing,
+	but the quantity itself will always be a positive amount.)
+	</p>
+
+	<p>
+	We can re-arrange <xref ref="equation-models-radioactive" /> to
+	<me> r(t) = - k q(t) </me>,
+	a rate equation relating rate to quantity.
+	Even though this is a linear relationship between <m>r</m> and <m>q</m>,
+	the model for <m>q(t)</m> in terms of <m>t</m> is definitely not linear,
+	as we will see
+	in <xref ref="chapter-separable" />.
+	<!-- in a later chapter -->
+	</p>
+
+</example>
+
+<example xml:id="example-models-mixing">
+	<title>Mixing problem</title>
+
+	<p>
+	A
+	<quantity><mag>1000</mag><unit base="liter" /></quantity>
+	tank of salt water (brine) is being fed by a supply of fresh brine of concentration
+	<quantity><mag>15</mag><unit base="gram" /><per base="liter" /></quantity>
+	at a rate of
+	<quantity><mag>2</mag><unit base="liter" /><per base="second" /></quantity>.
+	To maintain a constant volume,
+	old brine is also being drained from the tank at the same rate of
+	<quantity><mag>2</mag><unit base="liter" /><per base="second" /></quantity>.
+	We assume that the tank is well-mixed,
+	so that there are no pockets of higher or lower concentration brine within the tank.
+	</p>
+
+	<figure xml:id="figure-models-brine-tank">
+		<caption>Brine entering and being drained from a tank so that volume is held constant.</caption>
+		<image width="50%">
+			<description>Diagram of brine entering and being drained from a tank so that volume is held constant.</description>
+			<latex-image><xi:include href="models.d/mixing.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	Let <m>q(t)</m> represent the amount of salt in the tank in grams at <m>t</m> seconds after the system starts up,
+	and let <m>r(t)</m> represent the rate of accumulation of salt in the tank in grams per second.
+	This rate function is dependent on how much salt is in the tank,
+	because even through brine both enters and drains from the tank at a constant rate,
+	how much salt exits the tank through the drain depends on how much salt is in the tank at that moment.
+	</p>
+
+	<p>
+	Is the amount of salt increasing or decreasing?
+	We seem to have both behaviours at once,
+	since salt is entering through the fresh brine supply and is being lost through the drained liquid.
+	The actual rate of variation of the quantity of salt is the net effect:
+	<me> r(t) = (\text{rate in }) - (\text{rate out}) </me>.
+	Let's analyze these one at a time.
+	The rate of salt entering is
+	<md>
+		<mrow> \text{rate in} \amp = (15 \; \mathrm{g}/\mathrm{L}) (2 \; \mathrm{L}/\mathrm{s}) </mrow>
+		<mrow> \amp = 30 \; \mathrm{g}/\mathrm{s} </mrow>
+	</md>.
+	We can use the same calculation formula of <em>concentration-times-flow-rate</em> to calculate the rate out,
+	where here we want to use the concentration of the mixed solution in the tank.
+	Except we don't know the concentration because it is varying!
+	However, since the volume in the tank is staying constant at
+	<quantity><mag>1000</mag><unit base="liter" /></quantity>,
+	then at any given moment if we knew the value of <m>q(t)</m> the concentration in the tank would be
+	<me> \frac{q(t)}{1000} </me>.
+	Thus,
+	<md>
+		<mrow> \text{rate in} \amp = \left(\frac{q(t)}{1000} \; \mathrm{g}/\mathrm{L}\right) (2 \; \mathrm{L}/\mathrm{s}) </mrow>
+		<mrow> \amp = \frac{q(t)}{500} \; \mathrm{g}/\mathrm{s} </mrow>
+	</md>.
+	Combining the last two calculations yields rate equation
+	<me> r(t) = 30 - \frac{q(t)}{500} </me>.
+	</p>
+
+</example>
+
+<p> A rate function can also involve the independent variable <m>t</m>. </p>
+
+<example xml:id="example-models-rate-eqn-involving-t">
+	<title>A completely made-up rate equation</title>
+	<p>
+	If <m>q(t)</m> represents some quantity that is changing over time,
+	and <m>r(t)</m> models the rate of accumulation of that quantity,
+	then the equation
+	<me> r(t) = \frac{q(t) \bbrac{1 - q(t)}}{t + 1} </me>
+	is a rate equation.
+	</p>
+</example>
+
+<p>
+However, a rate equation should not <em>only</em> involve the independent variable <m>t</m>,
+since then that would just be a rate <em>formula</em>.
+</p>
+
+<p>
+After forming a rate equation to model a system,
+our goal is to recover a formula for the quantity function so that we can make predictions about the behaviour of the system.
+</p>
+
+<definition xml:id="definition-models-solution">
+	<title>Solution to a rate equation</title>
+	<p>
+	Given a rate equation
+	<me> r(t) = \text{some formula in } t \text{ and } q(t) </me>,
+	a <term>solution</term> is a function <m>q(t)</m> that,
+	when substituted into the right-hand side of the rate equation,
+	gives the correct rate function <m>r(t)</m> for that particular <m>q(t)</m>.
+	</p>
+</definition>
+
+<example xml:id="example-models-linear-soln-to-rate-eqn">
+	<title>A simple rate equation with a simple solution</title>
+	<p>
+	Suppose we have an unknown quantity <m>q(t)</m> that satisfies the rate equation
+	<me> r(t) = q(t) - 5 t </me>.
+	Could any linear quantity models satisfy this equation?
+	That is, are there any values of <m>m</m> and <m>q_0</m> so that
+	<me> q(t) = m t + q_0 </me>
+	is a solution to this rate equation?
+	We know that a linear quantity function has a constant rate function,
+	so we can compare left-hand and right-hand sides in the rate equation to see when they are equal.
+	<md>
+		<mrow> \mathrm{LHS} \amp = r(t) \amp \mathrm{RHS} \amp = q(t) - 5 t </mrow>
+		<mrow> \amp = m \amp \amp = (m t + q_0) - 5 t </mrow>
+		<mrow> \amp \amp \amp = (m - 5) t + q_0 </mrow>
+	</md>.
+	Now, we don't want to set these two expressions to be equal and solve for <m>t</m>,
+	because we don't want them to be equal for just one value of <m>t</m>,
+	<em>we want them to be equal for <em>all</em> values of <m>t</m></em>.
+	That is, we need them to be the same function.
+	And since the left-hand side is a constant function,
+	we will only get equality if the right-hand side is also a constant function,
+	which requires <me> m - 5 = 0 </me>,
+	or <m>m = 5</m>.
+	In that case,
+	we are left with just <m>q_0</m> on the right-hand side,
+	so matching left with right we also need <m>q_0 = 5</m>.
+	This tells us that the only linear quantity model that solves the rate equation is
+	<me> q(t) = 5 t + 5 </me>.
+	</p>
+</example>
+
+<p>
+A rate equation can have many different solutions.
+In <xref ref="example-models-linear-soln-to-rate-eqn" />,
+we found that there was just one linear solution to that particular rate equation,
+but there could be other, non-linear solutions.
+Generally when we try to <q>solve</q> a rate equation,
+we are looking for <em>all possible</em> solution functions <m>q(t)</m>,
+not just individual solutions of a particular form.
+</p>
+
+<remark><p>
+	We will often refer to a single solution to a rate equation as a <term>particular solution</term>,
+	to distinguish it from the definition below.
+</p></remark>
+
+<definition>
+	<title>General solution to a rate equation</title>
+	<p>
+	Given a rate equation
+	<me> r(t) = \text{some formula in } t \text{ and } q(t) </me>,
+	the <term>general solution</term> is a formula involving the independent variable <m>t</m> and one or more parameters,
+	so that
+	<ul>
+
+		<li>
+			choosing particular value(s) for the parameter(s) provides a formula for a particular solution function <m>q(t)</m>
+		</li>
+
+		<li>
+			<em>every</em> particular solution can be recovered from choosing particular parameter value(s).
+		</li>
+
+	</ul>
+	</p>
+</definition>
+
+<example xml:id="example-models-general-solution">
+	<title>A general solution based on one parameter</title>
+
+	<p>
+	Consider the rate equation <me> r(t) = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </me>.
+	We will learn a technique for solving this equation
+	in <xref ref="chapter-separable" />,
+	<!-- in a later chapter, -->
+	and when that technique is successfully applied it leads to general solution
+	<me> q(t) = \frac{c (t + 1)}{c t + 1} </me>
+	involving the parameter <m>c</m>.
+	From this we can obtain many different particular solutions,
+	one for each value of <m>c</m>.
+	</p>
+
+	<p>
+	For example,
+	<me> c = 1 \qquad \implies \qquad q(t) = \frac{t + 1}{t + 1} = 1 </me>,
+	so in fact in this case we have a constant solution.
+	Is it actually a solution?
+	We know that a constant function isn't varying,
+	so its rate of variation is <m>0</m>.
+	That is,
+	<me> q(t) = 1 \qquad \implies \qquad r(t) = 0 </me>.
+	In this case,
+	<md>
+		<mrow> \mathrm{LHS} \amp = r(t) \amp \mathrm{RHS} \amp = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </mrow>
+		<mrow> \amp = 0 \amp \amp = \frac{1 \cdot \bbrac{1 - 1}}{t + 1} </mrow>
+		<mrow> \amp \amp \amp = 0 </mrow>
+	</md>,
+	and so we have <m>\mathrm{LHS} = \mathrm{RHS}</m>,
+	as desired.
+	</p>
+
+	<p>
+	But other values of <m>c</m> provide different solution functions.
+	For example,
+	<md>
+		<mrow> c = -1 \qquad \implies \qquad q(t) = - \frac{t + 1}{- t + 1} </mrow>
+		<mrow> c = \sqrt{2} \qquad \implies \qquad q(t) = \frac{\sqrt{2} (t + 1)}{\sqrt{2} t + 1} </mrow>
+		<mrow> c = \pi \qquad \implies \qquad q(t) = \frac{\pi (t + 1)}{\pi t + 1} </mrow>
+	</md>.
+	We wouldn't want to verify that each of these is a solution one-by-one using the LHS vs RHS method as above,
+	instead we can just do it all at once with the general solution expression.
+	Later in the course we will learn techniques for computing a rate function formula from a quantity function formula.
+	For now,
+	let's just ask the computer algebra system Sage to compute the rate function for us.
+	The math word for computing a rate function from a quantity function is <term>differentiate</term>,
+	and that is also the name of the Sage command.
+	</p>
+
+	<sage>
+		<input>
+			var('c,t')
+			q(t) =  (c * (t + 1)) / (c * t + 1)
+			q.differentiate()
+		</input>
+		<output>
+			t |--> (-c^2*(t + 1)/(c*t + 1)^2 + c/(c*t + 1))
+		</output>
+	</sage>
+
+	<p>
+	The <c>t |--></c> portion of the Sage output says that the rate function also uses input variable <m>t</m>,
+	and then the formula for the rate function follows:
+	<me> r(t) = \frac{-c^2 (t + 1)}{{(c t + 1)}^2} + \frac{c}{c t + 1} </me>.
+	To verify that the general solution formula always provides a solution to the rate equation,
+	no matter the value of the parameter <m>c</m>,
+	we would substitute
+	<me> q(t) = \frac{c (t + 1)}{c t + 1} </me>
+	into the left-hand side of the rate equation and manipulate it algebraically until it resembles the rate function <m>r(t)</m> above.
+	</p>
+
+</example>
+
+<exercise><p>
+	Carry out the verification of the general solution to the rate equation in
+	<xref ref="example-models-general-solution" />,
+	using the process described at the end of that example.
+</p></exercise>
+
+<p>
+When we have a general solution in hand,
+how do we decide what to take as the value(s) of the parameter(s)?
+A rate equation says that the rate of accumulation of some quantity depends on how much of the quantity is present,
+so it follows that how the system behaves will differ depending on the initial amount.
+That is,
+choosing parameter value(s) should be done to match a desired initial state of the system.
+</p>
+
+<definition>
+	<title>Initial value problem</title>
+	<p> A rate equation together with a data point <m>q(0) = q_0</m> representing the initial amount data point. </p>
+</definition>
+
+<remark><p>
+	Technically, there is no reason to require that the <q>initial</q> data point be at <m>t = 0</m> <mdash />
+	any single data point should be enough to turn a general solution into a particular solution that matches that data point.
+</p></remark>
+
+<example>
+	<title>Obtaining a particular solution from an initial condition</title>
+	<p>
+	Let's return to the rate equation and general solution from <xref ref="example-models-general-solution" />.
+	Suppose we want the particular solution that satisfies initial condition
+	<me> q(0) = 7 </me>.
+	Then
+	<md>
+		<mrow> q(t) = \frac{c (t + 1)}{c t + 1}  \qquad \implies \qquad q(0) \amp = \frac{c (0 + 1)}{0 + 1} </mrow>
+		<mrow> \amp = c </mrow>
+	</md>.
+	So to get <m>q(0) = 7</m> we need <m>c = 7</m>,
+	and the particular solution we were looking for is
+	<me> q(t) = \frac{7 (t + 1)}{7 t + 1} </me>.
+	</p>
+</example>
+
+<warnging><p>
+	While it will often be the case,
+	it won't <em>always</em> happen that the parameter in the general solution ends up representing the initial amount <m>q(0)</m>.
+</p></warnging>
+
+</section>
+
+<section>
+<title>Direction fields</title>
+
+<p>
+Even though we haven't yet developed any techniques for solving rate equations,
+we can still get an idea of what solutions look like graphically from the rate formula in a rate equation.
+Suppose we have
+<me> r(t) = \text{some formula in } t \text{ and } q(t) </me>.
+Then the formula on the right will tells us the rate of variation at any data point <m>\bbrac{t_0, q(t_0)}</m>.
+That is,
+if we assume that a particular solution with <q>initial</q> condition <m>\bbrac{t_0, q(t_0)}</m> is possible,
+then the formula on the right tells us what the rate of variation of <m>q</m> is for that solution function at that time.
+To turn this kind of information into a picture,
+we make a simplifying assumption.
+</p>
+
+<!-- TODO add a reference back to this assumption in the average/instant rate chapter -->
+<assumption xml:id="assumption-models-locally-linear">
+	<title>Solution functions should be <em>locally linear</em></title>
+	<p>
+	We assume that a function <m>q(t)</m> that can be a particular solution to a rate equation is sufficiently <q>nice</q> to satisfy the following property:
+	at each data point <m>\bbrac{t_0, q(t_0)}</m>,
+	if we take a small enough time interval around <m>t = t_0</m> the associated rate function <m>r(t)</m> be approximately constant.
+	</p>
+</assumption>
+
+<remark><p>
+	<xref ref="assumption-models-locally-linear" /> will be central to developing techniques for recovering a rate function from a quantity function.
+</p></remark>
+
+<p>
+To put <xref ref="assumption-models-locally-linear" /> in other words,
+for such a quantity function,
+over a small enough time interval there isn't enough time for the rate of variation to vary much.
+(We could say the same about the quantity function itself,
+but assuming the quantity function is approximately constant isn't useful because we the whole idea of a rate equation is to model how <m>q(t)</m> is varying.)
+</p>
+
+<p>
+The point of making this assumption is to say we expect solution functions to be <term>locally linear</term>:
+a function with a constant rate must be linear,
+so if a function has <em>approximately</em> constant rate over a small time interval,
+then it must be <em>approximately</em> linear over that time interval.
+Recalling that graphically a constant rate corresponds to the slope of the linear function,
+at each data point <m>\bbrac{t_0, q(t_0)}</m> that we consider,
+if there exists a solution with that <q>initial</q> condition,
+then the graph of the solution function
+<ul>
+	<li> must pass through that point in the <m>tq</m>-plane </li>
+	<li>
+		must have a graph that is approximately linear for a short time interval around that data point,
+		with slope equal to the rate predicted by the rate equation for that data point.
+	</li>
+</ul>
+We can use this assumption to make a graphical picture of what particular solutions approximately look like by making a grid of data points in the <m>tq</m>-plane,
+and then at each point drawing a small line segment with the corresponding slope predicted by the rate equation for that data point.
+Such a diagram is called a <term>direction field</term> (or <term>slope field</term>).
+</p>
+
+<example>
+	<title>Direction field for radioactive decay</title>
+
+	<p>
+	Let's return to the rate equation
+	<me> r(t) = - k q(t) </me>
+	from <xref ref="example-models-radioactive-decay" />,
+	and for the purposes of this example,
+	let's take <m>k = 1/2</m>,
+	so that <me> r(t) = - frac{q(t)}{2} </me> .
+	If the graph of a potential solution passes through the data point <m>(1,4)</m>,
+	then <m>q(1) = 4</m> and
+	<md>
+		<mrow> r(1) \amp = - \frac{q(1)}{2} </mrow>
+		<mrow> \amp = - \frac{4}{2} </mrow>
+		<mrow> \amp = - 2 </mrow>
+	</md>.
+	So in our direction field we will draw a little line segment at position <m>(1,4)</m> with slope <m>-2</m>.
+	But notice what happens if we consider a different potential solution that passes through the data point <m>(3,4)</m>.
+	Then <m>q(3) = 4</m> and
+	<md>
+		<mrow> r(3) \amp = - \frac{q(3)}{2} </mrow>
+		<mrow> \amp = - \frac{4}{2} </mrow>
+		<mrow> \amp = - 2 </mrow>
+	</md>.
+	So in our direction field we will also draw a little line segment at position <m>(3,4)</m> with slope <m>-2</m>.
+	</p>
+
+	<p>
+	It's not a coincidence that we got the same rate value in both of our example calculations above <mdash />
+	since the rate equation does not involve the independent variable <m>t</m>,
+	different potential solutions that pass through the same output level but at different <m>t</m>-positions will do so with the same rate value.
+	For example, any solution that hits <m>q(t_0) = 4</m> at some <m>t = t_0</m> must have <m>r(t_0) = -2</m> there.
+	With this in mind,
+	we can set up a table to record some <m>r(t)</m> values from potential <m>q(t)</m> values.
+	</p>
+
+	<tabular top="medium" bottom="medium" halign="center">
+		<col right="minor" /><col /><col /><col />
+		<row bottom="minor">
+				<cell><m>q(t)</m></cell>
+				<cell><m>0</m></cell>
+				<cell><m>1</m></cell>
+				<cell><m>2</m></cell>
+				<cell><m>3</m></cell>
+				<cell><m>4</m></cell>
+				<cell><m>5</m></cell>
+				<cell><m>6</m></cell>
+		</row>
+		<row>
+				<cell><m>r(t)</m></cell>
+				<cell><m>0</m></cell>
+				<cell><m>-1/2</m></cell>
+				<cell><m>-1</m></cell>
+				<cell><m>-3/2</m></cell>
+				<cell><m>-2</m></cell>
+				<cell><m>-5/2</m></cell>
+				<cell><m>-6</m></cell>
+		</row>
+	</tabular>
+
+	<p>
+	Then when we draw our direction field for this rate equation below in <xref ref="figure-models-radioactive-slopes" />,
+	we use the same slope value for grid points that are at the same <m>q</m>-level.
+	</p>
+
+	<figure xml:id="figure-models-radioactive-slopes">
+	<caption> Direction field for a rate equation modelling radioactive decay. </caption>
+		<image width="50%">
+			<description> Direction field for a rate equation modelling radioactive decay. </description>
+			<latex-image><xi:include href="models.d/radioactive.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	From the direction field,
+	we can see the overall behaviour that individual solutions exhibit <mdash />
+	when there is a lot of material (large <m>q(t)</m>) then it decays rapidly,
+	and where is little material the decay occurs much more slowly.
+	</p>
+
+	<p>
+	We can attempt to draw in what graphs of solutions corresponding to different initial condition values <m>q(0)</m> might look like.
+	</p>
+
+	<figure xml:id="figure-models-radioactive-int-curves">
+		<caption> Several solution curves superimposed onto the direction field for a rate equation modelling radioactive decay. </caption>
+		<image width="50%">
+			<description> Several solution curves superimposed onto the direction field for a rate equation modelling radioactive decay. </description>
+			<latex-image><xi:include href="models.d/radioactive-int-curves.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	In <xref ref="figure-models-radioactive-int-curves" />,
+	we see that the solution curves follow the general direction of the direction field.
+	</p>
+
+	<p>
+	We can even use the direction field and representative solution curves to make predictions about solutions,
+	such as long-term behaviour.
+	For example,
+	it appears that no matter the initial amount <m>q(0)</m>,
+	all solution functions will satisfy
+	<me> q(t) \to 0 \qquad \text{as} \qquad t \to \infty </me>.
+	</p>
+
+</example>
+
+<example>
+	<title>A direction field that varies in both horizontal and vertical</title>
+	<p>
+	Now let's try plotting a direction field for the rate equation in <xref ref="example-models-rate-eqn-involving-t" />.
+	This example is slightly different from the last in that the rate equation involves the independent variable as well,
+	so the slopes of our line segments will vary more.
+	</p>
+
+	<p>
+	Our rate equation in that example was
+	<me> r(t) = \frac{q(t) \bbrac{1 - q(t)}}{t + 1} </me>.
+	Here is an example slope calculation for one of the line segments in the direction field.
+	If we assume that there exists a solution function <m>q(t)</m> whose graph passes through the point <m>(1,-2)</m>,
+	then that means <m>q(1) = -2</m>,
+	and so
+	<md>
+		<mrow> r(t) \amp = \frac{q(t) \bbrac{1 - q(t)}}{t + 1} </mrow>
+		<mrow> \amp = \frac{-2 \bbrac{1 - (-2)}}{1 + 1} </mrow>
+		<mrow> \amp = \frac{-2 \cdot 3}{2} </mrow>
+		<mrow> \amp = - 3 </mrow>
+	</md>.
+	So in our direction field we should draw a little line segment at point <m>(1,-2)</m> with slope <m>-3</m>.
+	To get an actual direction field,
+	we repeat the above calculation at a number of points in a grid.
+	In <xref ref="figure-models-dirfield-vary-all-dirs" />,
+	we have carried this out for
+	<md><mrow> 0 \le \amp t \le 4, \amp -4 \le \amp q(t) \le 4 </mrow></md>,
+	with grid points spaced a half-unit apart.
+	</p>
+
+	<figure xml:id="figure-models-dirfield-vary-all-dirs">
+		<caption> Direction field for a rate equation involving both the dependent and independent variables. </caption>
+		<image width="33%">
+			<description> Direction field for a rate equation involving both the dependent and independent variables. </description>
+			<latex-image><xi:include href="models.d/dirfield.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	In this direction field,
+	we can see a few different kinds of behaviours on the domain <m>t \ge 0</m>.
+	First,
+	we can see two <term>equilibrium</term> or <q>steady-state</q> solutions at <m>q(t) = 1</m> and <m>q(t) = 0</m>.
+	(The slope segments at <m>q(t) = 0</m> are hidden by the <m>t</m>-axis,
+	but they are also horizontal there.)
+	Second,
+	when the initial amount <m>q(0)</m> is positive,
+	the solutions appear to tend to <m>1</m> over the long term.
+	That is, when <m>q(0) \gt 0</m>,
+	it appears that we will have
+	<me> q(t) \to 1 \qquad \text{as} \qquad t \to \infty </me>.
+	However, when the initial amount <m>q(0)</m> is negative,
+	the solutions appear to eventually head sharply downward.
+	That is, when <m>q(0) \lt 0</m>,
+	it appears that we will have
+	<me> q(t) \to -\infty \qquad \text{as} \qquad t \to \infty </me>.
+	</p>
+
+	<figure xml:id="figure-models-dirfield-vary-all-dirs-int-curves">
+		<caption> Several solution curves superimposed onto the direction field for a rate equation. </caption>
+		<image width="33%">
+			<description> Several solution curves superimposed onto the direction field for a rate equation. </description>
+			<latex-image><xi:include href="models.d/dirfield-int-curves.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<definition>
+	<title>Integral curve</title>
+	<p> A curve in the <m>tq</m>-plane that follows the direction field for a specific rate equation. </p>
+</definition>
+
+<warning><p>
+	Integral curves do not always represent solution functions,
+	as they sometimes fail the <xref ref="pattern-funcs-VLT" text="title" />.
+	But even in that case we can usually <q>snip</q> them into pieces of the curve so that each individual piece is the graph of a solution function.
+</p></warning>
 
 </section>
 

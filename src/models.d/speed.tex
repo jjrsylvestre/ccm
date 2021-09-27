@@ -12,32 +12,52 @@
 %
 % *********************************************************************
 
-\newcommand*{\xmin}{-0.5}
-\newcommand*{\xmax}{5}
-\newcommand*{\ymin}{-2.5}
-\newcommand*{\ymax}{4.5}
+\newcommand*{\xmin}{-5}
+\newcommand*{\xmax}{25}
+\newcommand*{\ymin}{-10}
+\newcommand*{\ymax}{110}
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
 	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	yscale=0.5
+	xscale=0.3,
+	yscale=0.03
 ]
 
+	% grid
+	\foreach \x in {-5,0,5,...,\xmax} {
+		\draw[very thin,gray] (\x,\ymin) -- (\x,\ymax);
+	}
+	\foreach \y in {-10,0,10,...,\ymax} {
+		\draw[very thin,gray] (\xmin,\y) -- (\xmax,\y);
+	}
+
+	% label grid
+	% \node[below] at (6,0) {$0.1$};
+	\foreach \y in {10,50,100} {
+		\node[left] at (0,\y) {$\y$};
+	}
+
 	% axes
-	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[above] {$t$};
-	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$g(t)$};
+	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below right] {hr};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[above right] {$\mathrm{km}/\mathrm{hr}$};
 
-	% graph
-	\draw[thick, blue, domain=0:2, smooth] plot (\x,{\x * \x});
-
-	\node[closedpt,blue] at (0,0) {};
-	\node[closedpt,blue] at (2,4) (p) {};
-	\node[openpt,blue] at (2,2) (l) {};
-
-	\draw[dashed]
-		(p) -- (l)
-		(l) -- (2,0) node[below] {$2$};
-	\draw[thick, blue] (l) -- (5,-1);
+	% continuous graph
+	\draw[red!75!black,very thick]
+	  (\xmin,0) -- (0,0)
+	  cos ( 0.5,  25)
+	  sin ( 1,  50)
+	  --  ( 5,  50)
+	  cos ( 5.5,  25)
+	  sin ( 6,   0)
+	  --  ( 7,   0)
+	  cos ( 7.5,  25)
+	  sin ( 8,  50)
+	  --  ( 16,  50)
+	  cos ( 16.5,  75)
+	  sin ( 17, 100)
+	  --  ( 25, 100)
+	;
 
 \end{tikzpicture}

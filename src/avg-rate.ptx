@@ -773,7 +773,7 @@ Arbitrarily close means that we may choose any error bounds around the proposed 
 and in response we will be able to set a <q>maximum</q> <m>\change{t}</m> so that the result of <em>every</em> average rate calculation over a time subdomain containing <m>t^\ast</m> and of that maximum <m>\change{t}</m> length or smaller will fall within our error bounds around <m>d</m>.
 That is, given an arbitrary error bound <m>\epsilon \gt 0</m>,
 we expect to always find that
-<me> \slope{q}{t} = d \pm \epsilon </me>,
+<me> \slope{q}{t} \approx d \pm \epsilon </me>,
 as long as the average rate is calculated over a domain containing <m>t^\ast</m> and with <m>\change{t}</m> smaller than some particular maximum.
 (Changing the error bound value <m>\epsilon</m> will likely require a different maximum <m>\change{t}</m> value <mdash />
 in general, we expect tighter error bounds around <m>d</m> to require a smaller maximum <m>\change{t}</m> value.)

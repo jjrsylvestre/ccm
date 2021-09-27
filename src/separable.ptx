@@ -13,7 +13,7 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
-<chapter xml:id="chapter-sep" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="chapter-separable" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Separable models</title>
 
 <section xml:id="section-sep-intro">
