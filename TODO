@@ -1,3 +1,9 @@
+* Example with title
+  <title>A restricted domain could restrict the range</title>
+  in funcs.ptx:
+  consider both t^3 and t^2
+  --- restricting domain for one restricts range,
+      restricting domain for the other does not.
 * change all use of \over to \frac
 * rate of growth comparison to polynomial in both exp and log chapters
   (with reference to relevant section in inf-behaviour)
