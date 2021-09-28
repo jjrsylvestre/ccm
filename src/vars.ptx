@@ -20,7 +20,7 @@ respective owners.
 -->
 
 <chapter xml:id="chapter-vars" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Variables and variation</title>
+<title>Variables and change</title>
 
 <section xml:id="section-vars-intro">
 <title>Variables, constants, and parameters</title>
@@ -83,23 +83,19 @@ indicates to the reader or listener a particular role that we wish that letter t
 
 
 <section xml:id="section-vars-accumulation">
-<title>Accumulation</title>
+<title>Change</title>
 
 <p>
 When a quantity is variable,
 we often want to compare its values at different data points to identify trends.
-When the quantity grows larger,
-we think of it as accumulating,
-and when it becomes smaller,
-we think of it as diminishing or dissipating.
-However, we will use the same word <term>accumulation</term> for both situations,
-using positive and negative to distinguish between the two.
+Whether the quantity grows larger or becomes smaller,
+we often want to measure how it has changed.
 </p>
 
 <definition xml:id="definition-vars-accumulation">
-	<title>Accumulation of a variable quantity</title>
+	<title>Change in value of a variable quantity</title>
 	For variable quantity <m>q</m>,
-	the <term>accumulation</term> between data points <m>q_1</m> and <m>q_2</m> is
+	the <term>change</term> between data points <m>q_1</m> and <m>q_2</m> is
 	<me> \change{q} = q_2 - q_1 </me>.
 </definition>
 
@@ -109,23 +105,24 @@ Notice the following.
 	<mrow> q_2 \gt q_1 \amp \implies \change{q} \gt 0 </mrow>
 	<mrow> q_2 \lt q_1 \amp \implies \change{q} \lt 0 </mrow>
 </md>
-So a positive accumulation indicates that the quantity has increased from the first to second data points,
-and a negative accumulation indicates that the quantity has decreased.
+So a positive change indicates that the quantity has increased from the first to second data points,
+and a negative change indicates that the quantity has decreased.
 </p>
 
 <example xml:id="example-vars-rain">
 	<title>Accumulation of rain</title>
 	<p>
-	You leave a one litre container out in the rain,
+	You leave an empty one litre container out in the rain,
 	and when the rain stops it is a quarter-full.
 	A few days of sunny weather later and half of that has evaporated.
-	So over the rainy period the accumulation in millilitres was approximately
+	So over the rainy period,
+	the change (in millilitres) in the amount of liquid in the container was approximately
 	<md>
 		<mrow> \change{q} \amp = q_2 - q_1 </mrow>
 		<mrow> \amp = 250 - 0 </mrow>
 		<mrow> \amp = 250 </mrow>
 	</md>,
-	while over the sunny period the accumulation was approximately
+	while over the sunny period the change in amount of liquid was approximately
 	<md>
 		<mrow> \change{q} \amp = q_3 - q_2 </mrow>
 		<mrow> \amp = 125 - 250 </mrow>
@@ -138,7 +135,7 @@ and a negative accumulation indicates that the quantity has decreased.
 
 
 <section xml:id="section-vars-rate-variation">
-<title>Rate of variation</title>
+<title>Rate of change</title>
 
 <p>
 It is often the case that two quantities are varying in tandem,
@@ -160,7 +157,7 @@ and we wish to compare the amounts by which they vary.
 	When designing a graduated cylinder for manufacture,
 	what diameter should be chosen so that the ruled markings can be printed as millimetres,
 	with each centimetre of depth corresponding to <m>10</m> cubic centimetres of volume?
-	A variation in height corresponds to a variation in volume,
+	A change in depth corresponds to a change in volume,
 	so that two different depths <m>h_1</m> and <m>h_2</m> with corresponding volumes <m>V_1</m> and <m>V_2</m>,
 	we have
 	<md>
@@ -170,9 +167,9 @@ and we wish to compare the amounts by which they vary.
 		<mrow> \amp = \frac{\pi d^2}{4} \change{h} </mrow>
 	</md>.
 	If we turn this into a ratio <m>\change{V}/\change{h}</m>,
-	we can directly see how a variation in depth leads to a variation in volume.
+	we can directly see how a change in depth leads to a change in volume.
 	<me> \slope{V}{h} = \frac{\pi d^2}{4} </me>.
-	We can think of this ratio as describing <em>variation in volume per unit variation in depth</em>.
+	We can think of this ratio as describing <em>change in volume per unit change in depth</em>.
 	This is because if <m>\change{h} = 1</m>,
 	then <me> \slope{V}{h} = \frac{\change{V}}{1} = \change{V} </me>.
 	So whenever the depth changes by <m>1</m> centimetre, the volume will change by
@@ -185,9 +182,9 @@ and we wish to compare the amounts by which they vary.
 	</p>
 
 	<figure xml:id="figure-vars-cylinder-delta-volume">
-		<caption> Variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </caption>
+		<caption> Change in liquid depth in a cylinder accompanied by corresponding change in volume. </caption>
 		<image width="50%">
-			<description> A diagram illustrating a variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </description>
+			<description> A diagram illustrating a change in liquid depth in a cylinder accompanied by corresponding change in volume. </description>
 			<latex-image><xi:include href="vars.d/cylinder.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -212,23 +209,23 @@ and we wish to compare the amounts by which they vary.
 </example>
 
 <definition xml:id="definition-vars-avg-rate">
-	<title>Average rate of variation</title>
+	<title>Average rate of change</title>
 	<p>
 	If <m>q</m> and <m>t</m> are two quantities that are varying in tandem,
-	so that a variation in one of the quantities is always accompanied by a corresponding variation in the other,
+	so that a change in one of the quantities is always accompanied by a corresponding change in the other,
 	then a ratio
 	<me> \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </me>
-	is called an <term>(average) rate of variation</term> between data points <m>(t_1,q_1)</m> and <m>(t_2,q_2)</m>.
+	is called an <term>(average) rate of change</term> between data points <m>(t_1,q_1)</m> and <m>(t_2,q_2)</m>.
 	</p>
 </definition>
 
 <p>
 As suggested by the choice of placing <m>t_1</m> and <m>t_2</m> as the first coordinate in the data points,
-the quantity whose variation is used as the denominator in a rate ratio is usually considered to the be <term>independent variable</term>,
+the quantity whose amount of change is used as the denominator in a rate ratio is usually considered to the be <term>independent variable</term>,
 while the other quantity is thought of as the <term>dependent variable</term>.
 That is,
 using the variables <m>q</m> and <m>t</m>,
-we think of variation in <m>t</m> as causing or <q>driving</q> the variation in <m>q</m>.
+we think of variations in <m>t</m> as causing or <q>driving</q> the variation in <m>q</m>.
 We have chosen the variable <m>t</m> to represent the <q>general</q> independent variable instead of the more traditional variable <m>x</m> because we will usually consider <em>time</em> as the ultimate <q>independent variable,</q>
 and we want to invoke the intuition of a quantity varying over some period of time when we make general statements.
 However, in many situations the independent variable will represent something other than time.
@@ -253,18 +250,19 @@ The following example from physics with time as the independent variable should 
 </example>
 
 <p>
-We will study average rate of variation further in later chapters.
-<!-- TODO in chapter-avg-rate -->
+We will study average rate of change further
+<!-- in later chapters. -->
+in <xref ref="chapter-avg-rate" />.
 </p>
 
 </section>
 
 
 <section xml:id="section-vars-constant-variation">
-<title>Constant variation</title>
+<title>Constant rate of change</title>
 
 <p>
-Normally we think of rate of variation as itself being a quantity that varies.
+Normally we think of rate of change as itself being a quantity that varies.
 For example,
 in <xref ref="example-vars-average-speed" />,
 you likely didn't leave your parking spot at
@@ -273,14 +271,14 @@ and you likely didn't crash into your destination at
 <quantity><mag>100</mag><unit base="meter" prefix="kilo" /><per base="hour" /></quantity>.
 Along the way, you would have sped up and slowed down at various points of the trip,
 perhaps even stopped completely at traffic lights.
-If we calculated an average rate of variation over the first five minutes of the trip,
+If we calculated an average rate of change over the first five minutes of the trip,
 while you were travelling on city streets to get out onto the highway,
 the result would likely have been much lower than
 <quantity><mag>100</mag><unit base="meter" prefix="kilo" /><per base="hour" /></quantity>.
 </p>
 
 <p>
-So a pair of quantities that vary in tandem so that the average rate of variation between them is always the same is a special situation.
+So a pair of quantities that vary in tandem so that the average rate of change between them is always the same is a special situation.
 </p>
 
 <example xml:id="example-vars-constant-rate">
@@ -333,7 +331,7 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 
 <p>
 Graphically,
-when two quantities exhibit a constant rate of variation,
+when two quantities exhibit a constant rate of change between them,
 we can plot the relationship between <m>q</m> and <m>t</m> on a set of <m>tq</m>-axes and obtain a line with equation as in <xref ref="pattern-vars-constant-rate" />,
 where the slope of the line is
 <me> m = \slope{q}{t} </me>
@@ -341,9 +339,9 @@ and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
 </p>
 
 <example xml:id="example-vars-linear-no-intercept">
-	<title>Determining linear relation for a quantity with constant rate of variation</title>
+	<title>Determining linear relation for a quantity with constant rate of change</title>
 	<p>
-	Suppose <m>q</m> and <m>t</m> are quantities so that <m>q</m> exhibits a constant rate of variation relative to <m>t</m>,
+	Suppose <m>q</m> and <m>t</m> are quantities so that <m>q</m> exhibits a constant rate of change relative to <m>t</m>,
 	with <me> \slope{q}{t} = -2 </me>
 	for all pairs of data points.
 	Then using <xref ref="pattern-vars-constant-rate" />,
@@ -373,7 +371,7 @@ and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
 	<p>
 	In <xref ref="figure-vars-constant-rate-neg-slope" />,
 	we see that the plotted line crosses the <m>q</m>-axis at <m>q_0 = 7</m>.
-	Interpreting <me> \slope{q}{t} = -2 </me> as the <em>variation in <m>q</m> per unit variation in <m>t</m></em>,
+	Interpreting <me> \slope{q}{t} = -2 </me> as the <em>change in <m>q</m> per unit change in <m>t</m></em>,
 	we also see that the plotted line descends two units for each unit increase in <m>t</m>.
 	</p>
 

@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2021 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<chapter xml:id="chapter-limits" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Limits and continuity</title>
+
+<section xml:id="section-limits-intro">
+<title>Motivation</title>
+
+<p>
+An average rate of change calculation can be useful,
+but it doesn't tell you what was happening at any given moment.
+For example,
+if you leave an empty container outside over night and it collects some amount of rain water,
+dividing volume by time to get the average rate of change of the amount of liquid in the container doesn't tell you whether there was a steady drizzle all night or a sudden downpour for a few minutes at some point.
+To determine how things were changing instant to instant,
+we need to measure over much smaller time intervals.
+</p>
+
+<p>
+But how <q>small</q> is a small enough time interval?
+For rainfall, maybe second to second.
+If you are measuring the movement of electrons,
+a second is still much too large of a time interval.
+</p>
+
+<p>
+To get around this problem,
+in theory we decide that <em>no time interval is small enough to measure <em>instantaneous</em> rate of change</em>.
+We try to predict the result if we were able to measure average rates of change over smaller and smaller time intervals,
+forever.
+The result of this prediction process is called a <term>limit</term>.
+</p>
+
+<example xml:id="example-limits-avg-rate">
+	<title>Limit of average rate of change calculations</title>
+	<p>
+	Suppose we have some quantity modelled by <m>q(t) = t^3</m>,
+	with <m>t</m> in seconds.
+	How fast is the quantity changing at the instant <m>t = 1</m>?
+	To answer, we compute average rates of change over shorter and shorter time intervals around <m>t = 1</m>,
+	and look for a pattern.
+	<md>
+		<mrow> 0 \amp \le t \le 2 \amp \slope{q}{t} \amp = \frac{2^3 - 0^3}{2 - 0} = 4 </mrow>
+		<mrow> 0.9 \amp \le t \le 1.1 \amp \slope{q}{t} \amp = \frac{1.1^3 - 0.9^3}{1.1 - 0.9} = 3.01 </mrow>
+		<mrow> 0.99 \amp \le t \le 1.01 \amp \slope{q}{t} \amp = \frac{1.01^3 - 0.99^3}{1.01 - 0.99} = 3.0001 </mrow>
+		<mrow> 0.999 \amp \le t \le 1.001 \amp \slope{q}{t} \amp = \frac{1.001^3 - 0.999^3}{1.001 - 0.999} = 3.000001 </mrow>
+	</md>
+	If we imagine continuing this process forever,
+	it seems like the average rate of change results will continually get closer to <m>3</m>.
+	We call this value the <term>limit</term> of the process,
+	and can think of it as the <term>instantaneous rate of change</term> at the instant <m>t = 1</m>.
+	</p>
+</example>
+
+<p>
+In <xref ref="example-limits-avg-rate" />,
+we considered a limiting process for successive average rate calculations.
+Each average rate calculation had the same form:
+we compared a data point a little after <m>t = 1</m> with a data point a little before <m>t = 1</m>.
+That is,
+we computed
+<me> \text{average rate } = \frac{(1 + h)^3 - (1 - h)^3}{(1 + h) - (1 - h)} </me>
+where first <m>h</m> was <m>1</m>, then <m>0.1</m>, then <m>0.01</m>, and so on.
+So really the limiting process was carried out on the function
+<me> AV(h) = \frac{(1 + h)^3 - (1 - h)^3}{(1 + h) - (1 - h)} </me>
+for smaller and smaller values of <m>h</m>,
+where we have named this function <m>AV</m> to stand for <alert>AV</alert>erage rate of change.
+Our conclusion could be expressed as saying
+<me> AV(h) \approx 3 </me>
+is always true for <me> h \approx 0 </me>.
+Note that we can't actually compute <m>AV(0)</m>,
+however,
+since that would involve division by <m>0</m>.
+</p>
+
+<p>
+In the rest of this chapter,
+we will investigate a limiting process for arbitrary functions,
+and return to the pattern of a limiting process for average rate of change in
+<xref ref="chapter-avg-rate" />.
+<!-- a later chapter. -->
+</p>
+
+</section>
+
+<section>
+<title>Definition and first examples</title>
+
+<p>
+Motivated by <xref ref="example-limits-avg-rate" />,
+a limiting process tries to answer the following question for a function <m>f(t)</m> and a specific point <m>t = c</m>:
+Is there some particular value <m>L</m> so that
+<me> f(t) \approx L </me>
+is always true for <me> t \approx c \qquad \text{but} \qquad t \neq c </me>?
+In answering this question,
+we have to take care with what <q>approximately equal to <m>L</m></q> and <q>approximately equal to <m>t_0</m></q> mean.
+</p>
+
+<definition xml:id="definition-limits">
+	<title>Limit of a function</title>
+	<p>
+	We write
+	<me> f(t) \to L \qquad \text{as} \qquad t \to c</me>
+	or <me> \lim_{t \to c} f(t) = L </me>
+	if values of <m>f(t)</m> can be made arbitrarily close to <m>L</m> for all <m>t</m> sufficiently close to <m>c</m> but not equal to <m>c</m>.
+	If there is no such value <m>L</m>,
+	then we say the limit doesn't exist.
+	</p>
+</definition>
+
+<remark>
+	<title>Limits measure <q>nearby</q> behaviour</title>
+	<p>
+	If <m>t = c</m> is in the domain of <m>f(t)</m>,
+	we can easily answer the question of what <m>f</m> is doing at <m>t = c</m> by just evaluating <m>f(c)</m>.
+	The limit instead tries to measure if there is any pattern to the output values of <m>f(t)</m> for input values that are close (but not equal) to <m>c</m>,
+	and the two are not necessarily always the same.
+	</p>
+</remark>
+
+<example xml:id="example-limits-square-func">
+	<title>Limit of a square function</title>
+	<p>
+	For <m>f(t) = t^2</m>,
+	we have <me> \lim_{t \to 2} f(t) = 4</me>,
+	since clearly <m> t^2 \approx 4 </m> is true for all <m> t \approx 2 </m>.
+	</p>
+
+	<figure>
+		<caption> For the square function, output values remain near <m>4</m> when input values are taken near <m>2</m>. </caption>
+		<image width="33%">
+			<description> A graph demonstrating that for the square function, output values remain near 4 when input values are taken near 2. </description>
+			<latex-image><xi:include href="limits.d/parabola.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<example xml:id="example-limits-modified-square-func">
+	<title>Limit of a modified square function</title>
+	<p>
+	Now consider the function <me> g(t) = \begin{cases} t^2, \amp t \neq 2 \\ 2, \amp t = 2 \end{cases} </me>.
+	In this case,
+	we still have <me> \lim_{t \to 2} g(t) = 4</me>,
+	because when we consider <m>t \approx 2 </m> but <m>t \neq 2</m>,
+	the piecewise definition says that we should use the formula <m>g(t) = t^2</m>.
+	And <m> t^2 \approx 4 </m> is still true for all <m> t \approx 2 </m>.
+	</p>
+
+	<figure>
+		<caption> For a modified square function, output values remain near <m>4</m> when input values are taken near <m>2</m>. </caption>
+		<image width="40%">
+			<description> A graph demonstrating that for a modified square function, output values remain near 4 when input values are taken near 2. </description>
+			<latex-image><xi:include href="limits.d/parabola-2.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<warning>
+	<title>Value at <m>t = c</m> is irrelevant to the limit</title>
+	<p>
+	In both <xref ref="example-limits-square-func" /> and <xref ref="example-limits-modified-square-func" />,
+	the limit value exists,
+	but in the first case we found
+	<me> \lim_{t \to 2} f(t) = f(2) </me>
+	whereas in the second case we found
+	<me> \lim_{t \to 2} g(t) \neq g(2) </me>.
+	</p>
+</warning>
+
+<example xml:id="example-limits-dne" >
+	<title>A limit that doesn't exist</title>
+
+	<p>
+	Now consider the function <me> h(t) = \begin{cases} t^2, \amp t \le 2 \\ 4 - t, \amp t \gt 2 \end{cases} </me>.
+	</p>
+
+	<figure xml:id="figure-limits-dne">
+		<caption> Output values for this piecewise function do not stay close to one particular value for <m>t \approx 2</m>. </caption>
+		<image width="66%">
+			<description> A graph of a piecewise function where not all output values remain near a particular value for inputs near 2. </description>
+			<latex-image><xi:include href="limits.d/piecewise-limit.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	In <xref ref="figure-limits-dne" />,
+	we see that <me> h(t) \approx 4 </me> is true for some values of <m>t</m> close to <m>2</m> (in green),
+	while <me> h(t) \approx 2 </me> is true for other values of <m>t</m> close to <m>2</m> (in red).
+	Since there is no one value <m>L</m> so that
+	<me> h(t) \approx L </me> is <em>always</em> true for all values of <m>t</m> close (but not equal) to <m>2</m>,
+	we say that <me> \lim_{t \to 2} h(t)</me>
+	does not exist.
+	</p>
+
+</example>
+
+<p>
+What is meant by <em>arbitrarily close</em> and <em>sufficiently close</em> in <xref ref="definition-limits" />?
+It means that
+no matter how <em>close</em> we mean by <q>close to <m>L</m>,</q>
+there is a way to define <q>close to <m>c</m></q>
+so that it will indeed be the case that <me> f(t) \approx L </me> is true for all <me> t \approx c \qquad\text{but}\qquad t \neq c </me>.
+</p>
+
+<example>
+	<title>Testing the definition of limit</title>
+	<p>
+	Let's revisit <me> \lim_{t \to 2} t^2 = 4 </me>
+	from <xref ref="example-limits-square-func" />,
+	where <m>L = 4</m> and <m>c = 2</m>.
+	<ul>
+		<li>
+			If we take <q>close to <m>L</m></q> to mean <q>within <m>1</m> unit of <m>L = 4</m></q>,
+			then <me> f(t) \approx 4 </me> is true for all <me> \sqrt{3} \le t \le \sqrt{5} </me>,
+			excluding <m>t = 2</m>.
+		</li>
+		<li>
+			If we take <q>close to <m>L</m></q> to mean <q>within <m>0.1</m> units of <m>L = 4</m></q>,
+			then <me> f(t) \approx 4 </me> is true for all <me> \sqrt{3.9} \le t \le \sqrt{4.1} </me>,
+			excluding <m>t = 2</m>.
+		</li>
+		<li>
+			If we take <q>close to <m>L</m></q> to mean <q>within <m>\epsilon</m> units of <m>L = 4</m></q>,
+			where <m>\epsilon</m> is the smallest (positive) number you can think of,
+			then <me> f(t) \approx 4 </me> is true for all <me> \sqrt{4 - \epsilon} \le t \le \sqrt{4 + \epsilon} </me>,
+			excluding <m>t = 2</m>.
+		</li>
+	</ul>
+	</p>
+
+	<figure xml:id="figure-limits-epsilon-bounds">
+		<caption> When the limit exists, outputs can be restricted to remain arbitrarily close to the limiting value as long as inputs are restricted to being sufficiently close around the input point of interest. </caption>
+		<image width="66%">
+			<description> A graph demonstrating that when the limit exists, outputs can be restricted to remain arbitrarily close to the limiting value as long as inputs are restricted to being sufficiently close around the input point of interest. </description>
+			<latex-image><xi:include href="limits.d/parabola-with-bounds.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<example>
+	<title>Verifying that a proposed limit value is incorrect</title>
+
+	<p>
+	Now let's revisit the <me> \lim_{t \to 2} h(t) </me>
+	for <me> h(t) = \begin{cases} t^2, \amp t \le 2 \\ 4 - t, \amp t \gt 2 \end{cases} </me>
+	from <xref ref="example-limits-dne" />.
+	Suppose we think the limit value is <m>4</m>,
+	since <m>h(2) = 4</m>.
+	If we are generous with our definition of <q>close to <m>L = 4</m></q>
+	and take it to mean <q>within <m>3</m> units of <m>L = 4</m></q>,
+	then yes, <me> h(t) \approx 4 </me> is true for all <me> 1 \lt t \lt 3 </me>,
+	excluding <m>t = 2</m>.
+	But if we tighten our definition of <q>close to <m>L = 4</m></q>
+	and take it to mean <q>within <m>1</m> units of <m>L = 4</m></q>,
+	then there will always be some <m>t</m> close to <m>2</m> for which <m>h(t)</m> is approximately <m>2</m> instead of <m>4</m>,
+	no matter how <q>close</q> we take <q><m>t</m> close to <m>2</m></q> to mean.
+	</p>
+
+	<figure xml:id="figure-limits-dne-bounds">
+		<caption>
+			A generous definition of <q>close</q> might be achieved,
+			but a tighter definition of <q>close</q> cannot.
+		</caption>
+
+		<sidebyside widths="45% 45%">
+
+			<figure>
+				<caption>
+					It is possible to restrict to the range <m>1 \lt h(t) \lt 7</m>
+					by restricting <m>t</m> to be in the domain <m>1 \lt t \lt 3</m>.
+				</caption>
+				<image>
+					<description> A generous definition of close can be achieved. </description>
+					<latex-image><xi:include href="limits.d/testing-dne-1.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption>
+					It is not possible to restrict to the range <m>3 \lt h(t) \lt 5</m>,
+					no matter how closely we restrict <m>t</m> around <m>2</m>.
+				</caption>
+				<image>
+					<description> A tighter definition of close cannot be achieved. </description>
+					<latex-image><xi:include href="limits.d/testing-dne-2.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</figure>
+
+	<p> Note that similar reasoning can be used to confirm that <me> \lim_{t \to 2} h(t) = 2 </me> is also incorrect. </p>
+
+</example>
+
+</section>
+
+
+<section>
+<title>Computing limits algebraically</title>
+
+<p>
+A numerical approach like the one used in <xref ref="example-limits-avg-rate" /> is good to get an idea of what the value of a limit might be,
+but an algebraic approach is preferred as it usually leaves no doubt as to the limit value.
+A particular form of limit that we will want to be able to compute is called <term>0/0 form</term>,
+as that is the result if we just try to evaluate with <m>t = c</m> instead of considering <m>t \approx c</m> but <m>t \neq c</m>.
+</p>
+
+<example xml:id="example-limits-pre-cancelling-00">
+	<title>Pre-cancelling zeros</title>
+
+	<p>
+	Consider <me> \lim_{t \to 1} \frac{t^2 - 1}{t - 1} </me>.
+	If we just consider <m>t \approx 1</m>, then also <m>t^2 \approx 1</m>,
+	which leads to
+	<md><mrow> t^2 - 1 \amp \approx 0 \amp t - 1 \amp \approx 0 </mrow></md>.
+	This gives us
+	<me> \frac{t^2 - 1}{t - 1} \approx \frac{0}{0} </me>,
+	which makes no sense.
+	Instead, let's manipulate the function algebraically first:
+	<md>
+		<mrow> \frac{t^2 - 1}{t - 1} \amp = \frac{(t - 1) (t + 1)}{t - 1} </mrow>
+		<mrow> \amp = \frac{\bcancel{(t - 1)} (t + 1)}{\bcancel{t - 1}} </mrow>
+		<mrow> \amp = t + 1 </mrow>
+	</md>.
+	Now we can say that
+	<me> \frac{t^2 - 1}{t - 1} = t + 1 \approx 2 </me>
+	whenever <m>t \approx 1</m> but <m>t \neq 1</m>,
+	so <me> \lim_{t \to 1} \frac{t^2 - 1}{t - 1} = 2</me>.
+	</p>
+
+	<p>
+	Note that <alert>the assumption <m>t \neq 1</m> is critical to the algebra</alert>.
+	If <m>t = 1</m> were part of our consideration,
+	then the cancellation step in the algebra above would actually be performing
+	<me> \frac{\bcancel{0}}{\bcancel{0}} = 1 </me>,
+	which makes no sense.
+	</p>
+
+</example>
+
+<example>
+	<title>Rationalizing</title>
+	<p>
+	Consider <me> \lim_{t \to 1} \frac{\sqrt{t} - 1}{t - 1} </me>.
+	Again, immediately considering <m>t \approx 1</m> leads to <m>0/0</m> form:
+	<me> \frac{\sqrt{t} - 1}{t - 1} \approx \frac{0}{0} </me>.
+	As this does not tell us the limit value (if any),
+	we need to try to manipulate algebraically.
+	The problem is the pesky square root in the numerator.
+	However, we can rationalize the numerator by multiplying by its conjugate.
+	<md>
+		<mrow> \frac{\sqrt{t} - 1}{t - 1} \amp = \frac{\sqrt{t} - 1}{t - 1} \cdot \frac{\sqrt{t} + 1}{\sqrt{t} + 1} </mrow>
+		<mrow> \amp = \frac{(\sqrt{t} - 1)(\sqrt{t} + 1)}{(t - 1)(\sqrt{t} + 1)} </mrow>
+		<mrow> \amp = \frac{{(\sqrt{t})}^2 - 1^2}{(t - 1)(\sqrt{t} + 1)} </mrow>
+		<mrow> \amp = \frac{\bcancel{t - 1}}{\bcancel{(t - 1)}(\sqrt{t} + 1)} </mrow>
+		<mrow> \amp = \frac{1}{\sqrt{t} + 1} </mrow>
+		<mrow> \amp \approx \frac{1}{2} </mrow>
+	</md>
+	when <m>t \approx 1</m> but <m>t \neq 1</m>.
+	In the first step of the algebra above,
+	we are effectively multiplying by <m>1</m>.
+	But we have chosen this particular version of multiplying by <m>1</m> so that when we expand the new numerator we get a difference of squares as a result.
+	</p>
+	<p>
+	From the algebra above,
+	we can conclude that <me> \lim_{t \to 1} \frac{\sqrt{t} - 1}{t - 1} = \frac{1}{2} </me>.
+	</p>
+</example>
+
+<p>
+Since <alert>becoming proficient limit evaluators is not a goal of this course</alert>,
+we leave further examples to the further development of the limiting process applied to average rate of change expressions in <xref ref="chapter-avg-rate" />.
+</p>
+
+</section>
+
+<section>
+<title>Continuous functions</title>
+
+<p>
+The graphs in <xref ref="figure-funcs-piecewise-2" />
+and <xref ref="figure-funcs-piecewise-many" />
+have an odd feature <mdash />
+they approach one value then suddenly jump to a different value.
+We'll call this type of feature a <term>point of discontinuity</term>.
+We can detect this kind of behaviour by comparing a functions behaviour <em>near</em> a particular input value (using a limit) to its behaviour <em>at</em> that input value (by evaluation).
+A function is continuous when these two behaviours agree,
+and discontinuous when they disagree.
+</p>
+
+<definition xml:id="definition-limits-point-continuous">
+	<title>Continuous at a point</title>
+	<p>
+	A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = c</m> if the limit of <m>f(t)</m> as <m>t \to c</m> exists and satisfies
+	<me> \lim_{t \to c} f(t) = f(c) </me>.
+	Otherwise, the function is said to be <term>discontinuous</term> at that point.
+	</p>
+</definition>
+
+<example><p>
+	The calculation in <xref ref="example-limits-square-func" /> verifies that <m>f(t) = t^2</m> is continuous at <m>t = 2</m>,
+	since we had
+	<me> \lim_{t \to 2} f(t) = 4 = f(2) </me>.
+</p></example>
+
+<example><p>
+	The calculation in <xref ref="example-limits-modified-square-func" /> verifies that the modified square function
+	<me> g(t) = \begin{cases} t^2, \amp t \neq 2 \\ 2, \amp t = 2 \end{cases} </me>
+	is discontinuous at <m>t = 2</m>,
+	since we had
+	<me> \lim_{t \to 2} g(t) = 4 \neq g(2) </me>.
+</p></example>
+
+<example><p>
+	The calculation in <xref ref="example-limits-dne" /> verifies that the piecewise function
+	<me> h(t) = \begin{cases} t^2, \amp t \le 2 \\ 4 - t, \amp t \gt 2 \end{cases} </me>
+	is discontinuous at <m>t = 2</m>.
+	Since we decided that <me> \lim_{t \to 2} h(t)</me> does not exist,
+	it is not possible for
+	<me> \lim_{t \to 2} h(t) = h(2) </me>
+	to be true as we cannot compare the number <m>h(2)</m> to a non-existent number.
+</p></example>
+
+<identity xml:id="pattern-limits-notin-domain-or-limit-dne">
+	<title>Discontinuous when either function or limit is undefined</title>
+	<p>
+	If either <m>c</m> is not in the domain of <m>f(t)</m> or <me> \lim_{t \to c} f(t) </me>
+	does not exist,
+	then it is not possible for <me> \lim_{t \to c} f(t) = f(c) </me>
+	to be true and <m>f</m> must be discontinuous at <m>t = c</m>.
+	</p>
+</identity>
+
+<p>
+Graphically,
+we think of a function as being continuous at an input value <m>t = c</m> if its graph <q>flows continuously through</q> the point <m>\bbrac{c, f(c)}</m>,
+while the graph near a point of discontinuity features some sort of gap or jump.
+In particular,
+as noted in <xref ref="pattern-limits-notin-domain-or-limit-dne" />,
+a function will always be discontinuous at a point that is not in its domain.
+</p>
+
+<p>
+Discussing continuity point-by-point is tedious;
+we generally just look for likely spots for discontinuities.
+(See below for examples.)
+Between discontinuities, we  make a blanket pronouncement of continuity.
+</p>
+
+<definition xml:id="definition-limits-domain-continuous">
+	<title>Continuous on a subdomain</title>
+
+	<p> A function <m>f(t)</m> is said to be <term>continuous on a specific subdomain</term> if it is continuous at every point in that subdomain. </p>
+
+	<p>
+	If a function is continuous on its entire domain we will say exactly that:
+	the function is <term>continuous on its domain</term>.
+	If we just say that a function is <term>continuous</term>,
+	we mean that the function is continuous at all real input values.
+	</p>
+
+</definition>
+
+<p> We will encounter three basic types of discontinuities. </p>
+
+<paragraphs>
+	<title>Jump discontinuities</title>
+
+	<p>
+	This occurs when a function suddenly jumps in value,
+	hence the name.
+	</p>
+
+	<figure xml:id="figure-limits-jump-discont">
+		<caption> Two examples of jump discontinuities. </caption>
+
+		<sidebyside widths="45% 45%">
+
+			<figure>
+				<caption> A piecewise function can often (but not always!) jump values at transition points. </caption>
+				<image>
+					<description> A piecewise function with a jump discontinuity. </description>
+					<latex-image><xi:include href="limits.d/jump-discont-1.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption>
+					Sometimes the output of a function at one specific input location is specially defined,
+					creating a jump discontinuity.
+				</caption>
+				<image>
+					<description> A function with a redefined point creating a jump discontinuity. </description>
+					<latex-image><xi:include href="limits.d/jump-discont-2.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</figure>
+
+</paragraphs>
+
+<paragraphs>
+	<title>Removable discontinuities</title>
+
+	<p>
+	You might think of this kind of discontinuity as a <q>hole in the graph</q>.
+	For example, for the function <me> f(t) = \frac{t^2 - 1}{t - 1} </me>,
+	for <em>most</em> values of <m>t</m> we can simplify the input-output formula to
+	<me> f(t) = \frac{t^2 - 1}{t - 1} = t + 1 </me>,
+	just as we did in <xref ref="example-limits-pre-cancelling-00" />.
+	This result says that the function's graph is essentially a line.
+	But as noted in that example,
+	the algebra that led to this simplified formula is <em>not</em> valid for <m>t = 1</m>.
+	Our function is actually undefined at <m>t = 1</m>,
+	and its graph just has a hole there.
+	</p>
+
+	<figure>
+		<caption> A graph with a discontinuity caused by an undefined value. </caption>
+		<image width="33%">
+			<description> A graph with a discontinuity caused by an undefined value. </description>
+			<latex-image><xi:include href="limits.d/hole.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	Why not just define <m>f(t) = t + 1</m> in the first place?
+	Our function might be created as the ratio of two other quantities,
+	where the numerator is a model for some quantity,
+	the denominator is a model for a separate quantity,
+	and we want the function to track their ratio.
+	In this case,
+	it is important to record that the ratio is undefined when the second quantity is zero.
+	</p>
+
+	<p>
+	However, the fact that <m>f(t) = t + 1</m> is true for <q>almost all</q> input values justifies the terminology <term>removable discontinuity</term> <mdash/>
+	we could <q>remove</q> the discontinuity by replacing <m>f(t)</m> by the continuous function <m>g(t) = t + 1</m>,
+	so that <m>g(t) = f(t)</m> is true for <q>almost all</q> input values.
+	Thus <m>g</m> <q>fixes</q> the discontinuity in <m>f</m>,
+	and so is called a <term>continuous extension</term> of <m>f</m>.
+	</p>
+
+</paragraphs>
+
+<paragraphs>
+	<title>Singularities</title>
+
+	<p>
+	Some functions have a different kind of hole in their domain,
+	near which the function values <q>explode</q>.
+	</p>
+
+	<figure xml:id="figure-limits-singularity">
+		<caption>
+			The graph of <m>f(t) = 1/(t - 2)^2</m>,
+			with a singularity at <m>t = 2</m>.
+		</caption>
+		<image width="50%">
+			<description> A graph of a function with a discontinuity caused by a singularity. </description>
+			<latex-image><xi:include href="limits.d/singular.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	We will call such an input location a <term>singularity</term> for the function.
+	The vertical line at that location
+	(as represented by a dashed line in the example graph in <xref ref="figure-limits-singularity" />)
+	is called a <term>vertical asymptote</term> for the function's graph.
+	</p>
+
+	<p> We will study singularities and vertical asymptotes more in <xref ref="chapter-inf-behaviour" />. </p>
+
+</paragraphs>
+
+</section>
+
+<!-- <xi:include href="./funcs.d/activities.ptx" />
+<xi:include href="./funcs.d/exercises.ptx" /> -->
+
+</chapter>

@@ -46,6 +46,7 @@ respective owners.
 			<title>Unbounded growth</title>
 			<p>
 			We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to \infty </me>
+			or <me> \lim_{t \to \infty} f(t) = \infty </me>
 			to mean that output values of <m>f(t)</m> eventually become and stay positive and arbitrarily large in magnitude.
 			</p>
 		</li>
@@ -54,6 +55,7 @@ respective owners.
 			<title>Unbounded decay</title>
 			<p>
 			We write <me> f(t) \to - \infty \qquad \text{as} \qquad t \to \infty </me>
+			or <me> \lim_{t \to \infty} f(t) = - \infty </me>
 			to mean that output values of <m>f(t)</m> eventually become and stay negative and arbitrarily large in magnitude.
 			</p>
 		</li>
@@ -63,6 +65,7 @@ respective owners.
 			<p>
 			For some steady-state output value <m>L</m>,
 			we write <me> f(t) \to L \qquad \text{as} \qquad t \to \infty </me>
+			or <me> \lim_{t \to \infty} f(t) = L </me>
 			to mean that output values of <m>f(t)</m> eventually become and stay arbitrarily close to <m>L</m>.
 			</p>
 		</li>
@@ -105,13 +108,13 @@ and stay below that level forever more.
 </p>
 
 <p>
-<term>Arbitrarily close</term> means that we are always able to restrict the function's output values to within a small error bound around <m>L</m>,
-no matter show small the proposed error bound,
-so that the function's output values move and then stay within that error bound forever more.
+<term>Arbitrarily close</term> means that we are always able to restrict the function's output values to within a small range containing <m>L</m>,
+no matter show small the proposed range,
+so that the function's output values move and then stay within that range forever more.
 Here,
 <term>eventually</term> has a similar meaning as before,
-where we may need to go very far out into the domain to achieve outputs that move and stay within the proposed error bounds,
-and how far out we need to go to observe this behaviour will vary depending on the size of the error bound.
+where we may need to go very far out into the domain to achieve outputs that move and stay within the proposed range round <m>L</m>,
+and how far out we need to go to observe this behaviour will vary depending on the size of the range.
 </p>
 
 <warning><p>
@@ -169,16 +172,16 @@ and how far out we need to go to observe this behaviour will vary depending on t
 
 	<p>
 	To verify this,
-	we should consider different error bounds around that proposed <q>steady-state</q> output level.
+	we should consider different ranges around that proposed <q>steady-state</q> output level.
 	<ul>
 
 		<li>
-			Do values of <m>f(t)</m> eventually move and stay within the range <m>2 \pm 1</m>?
+			Do values of <m>f(t)</m> eventually move and stay within the range <m>1 \lt f(t) \lt 3</m>?
 			Yes, they will do so for all <m>t \gt 1</m>.
 		</li>
 
 		<li>
-			Do values of <m>f(t)</m> eventually move and stay within the range  <m>2 \pm {1 \over {100}}</m>?
+			Do values of <m>f(t)</m> eventually move and stay within the range <m>1.99 \lt f(t) \lt 2.01</m>?
 			Yes, they will do so for all <m>t \gt 10</m>.
 		</li>
 
@@ -188,17 +191,17 @@ and how far out we need to go to observe this behaviour will vary depending on t
 		</li>
 
 	</ul>
-	Ultimately, you can ask the above question with any error bound <m>E</m> you like,
+	Ultimately, you can ask the above question with small range <me> 2 - \epsilon \lt f(t) \lt 2 + \epsilon </me> you like,
 	and the answer will always be
-	<q>Yes, for all <m>t \gt 1/\sqrt{E}</m>.</q>
+	<q>Yes, for all <m>t \gt 1/\sqrt{\epsilon}</m>.</q>
 	This verifies that output values of <m>f(t)</m> become arbitrarily close to <m>2</m> in the long-term.
 	</p>
 
 	<figure xml:id="figure-inf-behaviour-error-bounds">
-		<caption> The function <m>f(t) = 2 + 1/t^2</m> eventually moves within every arbitrary set of error bounds. </caption>
+		<caption> The function <m>f(t) = 2 + 1/t^2</m> eventually moves within any arbitrary range containing <m>L = 2</m>. </caption>
 		<image width="50%">
 			<description>
-				Graph demonstrating that a shifted reciprocal power function eventually moves within every arbitrary set of error bounds.
+				Graph demonstrating that a shifted reciprocal power function eventually moves within any arbitrarily small range containing a proposed limit value.
 			</description>
 			<latex-image><xi:include href="inf-behaviour.d/error-bounds.tex" parse="text" /></latex-image>
 		</image>
@@ -265,11 +268,15 @@ Finally, here is an example where the long-term behaviour does not fall into any
 	only flip-flopping.
 	And it would also not be appropriate to write either <m>R(t) \to R_0</m> or <m>R(t) \to 0</m> as <m>t \to \infty</m>,
 	for the following reason.
-	If we take an error bound smaller than <m>R_0/2</m>, say,
-	then the function's output values will not move and <em>stay</em> within that error bound of either proposed steady-state output level,
-	since after a very short time of moving within that bound it will once again flop out of the bound.
-	And no matter how far out on the timeline we go,
-	we always see this same behaviour of not staying within a small error bound around any one value.
+	If we consider the range
+	<me> \frac{R_0}{2} \lt R(t) \lt \frac{3 R_0}{2} </me>
+	which contains <m>R_0</m>,
+	then the function's output values will not move and <em>stay</em> within that range since after a very short time of moving within that bound it will once again flop out of the bound.
+	And a similar argument can be made about the range
+	<me> -\frac{R_0}{2} \lt R(t) \lt \frac{R_0}{2} </me>
+	containing <m>0</m>.
+	No matter how far out on the timeline we go,
+	we always see this same behaviour of not staying within a small range around any one particular output level.
 	</p>
 
 	<p>
@@ -297,7 +304,7 @@ by recognizing these patterns as <q>pieces</q> of the more complex ones.
 	<title>Long-term behaviour of constants</title>
 	<p>
 	A constant function <m>f(t) = c</m> always satisfies <m>f(t) \to c</m> as <m>t \to \infty</m>,
-	since a function that stays at the single output level <m>c</m> will always stay within every possible error bound around <m>c</m>.
+	since a function that stays at the single output level <m>c</m> will always stay within every possible small range containing <m>c</m>.
 	</p>
 </identity>
 
@@ -530,7 +537,7 @@ When verifying these behaviours in examples from the definitions for <m>t \to -\
 the process is essentially the same as that used in
 <xref ref="example-inf-behaviour-parabola" /> and <xref ref="example-inf-behaviour-steady-state-one-over-sq" />,
 except that we now take <term>eventually</term> to mean that the behaviour
-(above/below a certain proposed boundary level or within certain proposed error bounds)
+(above/below a certain proposed boundary level or within a certain range containing a proposed limiting value)
 must hold on a subdomain <m>t \lt t_1</m> for some large, negative <m>t_1</m>.
 </p>
 
@@ -896,7 +903,8 @@ except
 	</li>
 
 	<li>
-		we are a bit looser in that we don't necessarily require symmetric error bounds around <m>t = c</m>.
+		just like when testing limits,
+		we are a bit looser in that we don't necessarily require a domain that is symmetric about <m>t = c</m>.
 	</li>
 
 </ol>

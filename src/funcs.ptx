@@ -400,10 +400,10 @@ and so on.
 	</p>
 
 	<p>
-	Let <m>q</m> represent the number of units sold in a month by any one salesperson,
-	and let <m>s(q)</m> represent the salary to be paid to that employee.
-	In the domain <m> 0 \le q \le 100 </m> we have <me> s(q) = 4000 + 10 q </me>.
-	But on the domain <m> q \gt 100 </m> we have <me> s(q) = 4000 + 10 q + 5 (q - 100) </me>.
+	Let <m>u</m> represent the number of units sold in a month by any one salesperson,
+	and let <m>s(u)</m> represent the salary to be paid to that employee.
+	In the domain <m> 0 \le u \le 100 </m> we have <me> s(u) = 4000 + 10 u </me>.
+	But on the domain <m> u \gt 100 </m> we have <me> s(u) = 4000 + 10 u + 5 (u - 100) </me>.
 	</p>
 
 </example>
@@ -413,9 +413,9 @@ We can collect together several formulas into one function definition with some 
 For example,
 the salary function from <xref ref="example-funcs-commissions" /> can be expressed as
 <me>
-	s(q) = \begin{cases}
-		4000 + 10 q \amp 0 \le q \le 100 \\
-		4000 + 10 q + 5 (q - 100) \amp q \gt 100
+	s(u) = \begin{cases}
+		4000 + 10 u \amp 0 \le u \le 100 \\
+		4000 + 10 u + 5 (u - 100) \amp u \gt 100
 	\end{cases}
 </me>.
 The format of this notation begins with a large left brace,
@@ -550,242 +550,6 @@ but it is not really any different than writing down a table of values.
 </example>
 
 </section>
-
-
-<section>
-<title>Continuous functions</title>
-
-<p>
-The graphs in <xref ref="figure-funcs-piecewise-2" />
-and <xref ref="figure-funcs-piecewise-many" />
-have an odd feature <mdash />
-they approach one value then suddenly jump to a different value.
-We'll call this type of feature a <term>point of discontinuity</term>.
-</p>
-
-<definition xml:id="definition-funcs-point-continuous">
-	<title>Continuous at a point</title>
-	<p>
-	A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small error bound around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small subdomain around <m>t_0</m>.
-	Otherwise, the function is said to be <term>discontinuous</term> at that point.
-	</p>
-</definition>
-
-<p>
-In other words,
-a function is continuous at a point if <m>f(t) \approx f(t_0)</m> whenever <m>t \approx t_0</m>,
-and we can always make the first approximation better and better by tightening the second approximation.
-</p>
-
-<example>
-	<title>Testing the definition of continuity</title>
-
-	<p>
-	The function <m>f(t)</m> in <xref ref="example-funcs-piecewise-graph-2" /> is discontinuous at <m>t = 2</m>.
-	It has value <m>f(2) = 4</m> there,
-	but if <m>t</m> is slightly bigger than <m>2</m> then <m>f(t) \approx 2</m>.
-	In particular, we set an error bound of <m>1</m>,
-	then there is no way to make <m>f(t) \approx f(2) \pm 1</m> true for all <m>t \approx 2</m>,
-	no matter how small a subdomain around <m>t = 2</m> that we take for the meaning of <m>t \approx 2</m>.
-	</p>
-
-	<p>
-	On the other hand,
-	that same function <em>is</em> continuous at <m>t = 1</m>.
-	No matter how small an error bound <m>E</m> we use,
-	it is always possible to restrict <m>t</m> to some small subdomain around <m>t = 1</m> so that <m>f(t) \approx f(1) \pm E</m> is true for all <m>t</m> within that subdomain.
-	</p>
-
-	<figure xml:id="figure-funcs-discont-cont">
-		<caption> A point of discontinuity and one of continuity. </caption>
-
-		<sidebyside widths="45% 45%">
-
-			<figure>
-				<caption>
-					Using error bound <m>E = 1</m>,
-					there will always be values of <m>f(t)</m> for <m>t \approx 2</m> that are outside of the range <m>f(2) \pm 1</m>
-					(represented by the part of the graph highlighted red),
-					no matter how small of a subdomain around <m>t = 2</m> we take <m>t \approx 2</m> to mean.
-				</caption>
-				<image>
-					<description> Error bounds around a point of discontinuity. </description>
-					<latex-image><xi:include href="funcs.d/piecewise-2-discont.tex" parse="text" /></latex-image>
-				</image>
-			</figure>
-
-			<figure>
-				<caption>
-					Using <em>any</em> error bound,
-					we can always restrict the domain around <m>t=1</m> so that <m>f(t) \approx f(1) \pm E</m> is true for all <m>t \approx 1</m>.
-				</caption>
-				<image>
-					<description> Error bounds around a point of continuity. </description>
-					<latex-image><xi:include href="funcs.d/piecewise-2-cont.tex" parse="text" /></latex-image>
-				</image>
-			</figure>
-
-		</sidebyside>
-
-	</figure>
-
-</example>
-
-<p>
-Graphically,
-we think of a function as being continuous at an input value <m>t = t_0</m> if its graph <q>flows through</q> the point <m>\bbrac{t_0, f(t_0)}</m>,
-while the graph near a point of discontinuity features some sort of gap or jump.
-In particular,
-a function will always be discontinuous at a point that is not in its domain,
-since then there is no value <m>f(t_0)</m> with which to compare its <q>nearby</q> values.
-</p>
-
-<p>
-Discussing continuity point-by-point is tedious;
-we generally just look for likely spots for discontinuities.
-(See below for examples.)
-Between discontinuities, we  make a blanket pronouncement of continuity.
-</p>
-
-<definition xml:id="definition-funcs-domain-continuous">
-	<title>Continuous on a subdomain</title>
-
-	<p> A function <m>f(t)</m> is said to be <term>continuous on a specific subdomain</term> if it is continuous at every point in that subdomain. </p>
-
-	<p>
-	If a function is continuous on its entire domain we will say exactly that:
-	the function is <term>continuous on its domain</term>.
-	If we just say that a function is <term>continuous</term>,
-	we mean that the function is continuous at all real input values.
-	</p>
-
-</definition>
-
-<p> We will encounter three basic types of discontinuities. </p>
-
-<paragraphs>
-	<title>Jump discontinuities</title>
-
-	<p>
-	This occurs when a function suddenly jumps in value,
-	hence the name.
-	</p>
-
-	<figure xml:id="figure-funcs-jump-discont">
-		<caption> Two examples of jump discontinuities. </caption>
-
-		<sidebyside widths="45% 45%">
-
-			<figure>
-				<caption> A piecewise function can often (but not always!) jump values at transition points. </caption>
-				<image>
-					<description> A piecewise function with a jump discontinuity. </description>
-					<latex-image><xi:include href="funcs.d/jump-discont-1.tex" parse="text" /></latex-image>
-				</image>
-			</figure>
-
-			<figure>
-				<caption>
-					Sometimes the output of a function at one specific input location is specially defined,
-					creating a jump discontinuity.
-				</caption>
-				<image>
-					<description> A function with a redefined point creating a jump discontinuity. </description>
-					<latex-image><xi:include href="funcs.d/jump-discont-2.tex" parse="text" /></latex-image>
-				</image>
-			</figure>
-
-		</sidebyside>
-
-	</figure>
-
-</paragraphs>
-
-<paragraphs>
-	<title>Removable discontinuities</title>
-
-	<p>
-	You might think of this kind of discontinuity as a <q>hole in the graph</q>.
-	For example, for the function <me> f(t) = \frac{t^2 - 1}{t - 1} </me>,
-	for <em>most</em> values of <m>t</m> we can simplify the input-output formula to
-	<md>
-		<mrow> f(t) \amp = \frac{t^2 - 1}{t - 1} </mrow>
-		<mrow> \amp = \frac{(t + 1) \bcancel{(t - 1)}}{\bcancel{t - 1}} </mrow>
-		<mrow> \amp = t + 1</mrow>
-	</md>,
-	so that the function's graph is essentially a line.
-	But the algebra above is <em>not</em> valid for <m>t = 1</m>,
-	because in that case our algebra is
-	<md>
-		<mrow> \frac{t^2 - 1}{t - 1} \amp = \frac{(t + 1) (t - 1)}{t - 1} </mrow>
-		<mrow> \amp = \frac{(2) \bcancel{(0)}}{\bcancel{0}} </mrow>
-		<mrow> \amp = 2</mrow>
-	</md>,
-	which is incorrect because you cannot <q>cancel</q> division by zero.
-	So our function is actually undefined at <m>t = 1</m>,
-	and its graph just has a hole there.
-	</p>
-
-	<figure>
-		<caption> A graph with a discontinuity caused by an undefined value. </caption>
-		<image width="33%">
-			<description> A graph with a discontinuity caused by an undefined value. </description>
-			<latex-image><xi:include href="funcs.d/hole.tex" parse="text" /></latex-image>
-		</image>
-	</figure>
-
-	<p>
-	Why not just define <m>f(t) = t + 1</m> in the first place?
-	Our function might be created as the ratio of two other quantities,
-	where the numerator is a model for some quantity,
-	the denominator is a model for a separate quantity,
-	and we want the function to track their ratio.
-	In this case,
-	it is important to record that the ratio is undefined when the second quantity is zero.
-	</p>
-
-	<p>
-	However, the fact that <m>f(t) = t + 1</m> is true for <q>almost all</q> input values justifies the terminology <term>removable discontinuity</term> <mdash/>
-	we could <q>remove</q> the discontinuity by replacing <m>f(t)</m> by the continuous function <m>g(t) = t + 1</m>,
-	so that <m>g(t) = f(t)</m> is true for <q>almost all</q> input values.
-	Thus <m>g</m> <q>fixes</q> the discontinuity in <m>f</m>,
-	and so is called a <term>continuous extension</term> of <m>f</m>.
-	</p>
-
-</paragraphs>
-
-<paragraphs>
-	<title>Singularities</title>
-
-	<p>
-	Some functions have a different kind of hole in their domain,
-	near which the function values <q>explode</q>.
-	</p>
-
-	<figure xml:id="figure-funcs-singularity">
-		<caption>
-			The graph of <m>f(t) = 1/(t - 2)^2</m>,
-			with a singularity at <m>t = 2</m>.
-		</caption>
-		<image width="50%">
-			<description> A graph of a function with a discontinuity caused by a singularity. </description>
-			<latex-image><xi:include href="funcs.d/singular.tex" parse="text" /></latex-image>
-		</image>
-	</figure>
-
-	<p>
-	We will call such an input location a <term>singularity</term> for the function.
-	The vertical line at that location
-	(as represented by a dashed line in the example graph in <xref ref="figure-funcs-singularity" />)
-	is called a <term>vertical asymptote</term> for the function's graph.
-	</p>
-
-	<p> We will study singularities and vertical asymptotes more in <xref ref="chapter-inf-behaviour" />. </p>
-
-</paragraphs>
-
-</section>
-
 
 <section>
 <title>Graph transformations</title>

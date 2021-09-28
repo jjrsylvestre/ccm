@@ -19,7 +19,7 @@ respective owners.
 <xi:include href="./bookinfo.ptx" />
 
 <book xml:id="calculus-concepts-modelling-book">
-<title>Calculus Concepts and Modelling</title>
+<title>Traditional Calculus Concepts and Modelling</title>
 <subtitle>An introduction to the concepts of calculus</subtitle>
 
 <!-- -->
@@ -35,12 +35,24 @@ respective owners.
 <!-- Functions, accumulation, and rate of variation. Graphs of functions. Transformations of functions/graphs. -->
 <xi:include href="./funcs.ptx" />
 
+<!-- Functions, accumulation, and rate of variation. Graphs of functions. Transformations of functions/graphs. -->
+<xi:include href="./limits.ptx" />
+
 <!--
   Long-term behaviour: horizontal asymptotes (i.e., informal treatment of limits as x → ∞).
   Singular behaviour: vertical asymptotes (i.e., informal treatment of limits where y →∞).
   Connections to differential equations.
 -->
 <xi:include href="./inf-behaviour.ptx" />
+
+<!-- Average rate of accumulation. Differentials and approximate rate of accumulation. -->
+<xi:include href="./avg-rate.ptx" />
+
+<!--
+  Exact rate of variation from approximate rate of variation.
+  Rate of variation formulas (polynomial, logarithmic, exponential, trig).
+-->
+<xi:include href="./deriv.ptx" />
 
 <!-- Modelling accumulation and rate of variation. Differential equation examples (but no solving). -->
 <xi:include href="./models.ptx" />
@@ -84,15 +96,6 @@ respective owners.
 
 <!-- Models & differential equations where solution is periodic, with examples from the sciences. -->
 <xi:include href="./pmodels.ptx" />
-
-<!-- Average rate of accumulation. Differentials and approximate rate of accumulation. -->
-<xi:include href="./avg-rate.ptx" />
-
-<!--
-  Exact rate of variation from approximate rate of variation.
-  Rate of variation formulas (polynomial, logarithmic, exponential, trig).
--->
-<xi:include href="./deriv.ptx" />
 
 <!-- Average value of a function. Mean Value Theorems. Fundamental Theorem. -->
 <xi:include href="./fund-thm.ptx" />
