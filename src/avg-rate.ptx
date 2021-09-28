@@ -736,7 +736,7 @@ so we will have to be a little more subtle.
 	Given a function <m>q(t)</m> on domain <m>a \le t \le b</m>
 	and a specific time <m>t^\ast</m> strictly within that domain
 	(so that <m>a \lt t^\ast \lt b</m>),
-	suppose there exists one unique number <m>d</m> so that values of average rate calculations
+	suppose there exists one unique number <m>d</m> so that all values of average rate calculations
 	<me> \slope{q}{t} </me>
 	over subdomains containing <m>t^\ast</m> can be made arbitrarily close to <m>d</m> by taking <m>\change{t}</m> sufficiently small.
 	</p>
@@ -768,20 +768,22 @@ signally to the reader that we have let our approximations become <q>infinitely 
 </p>
 
 <p>
-Now, what does <q>arbitrarily close</q> and <q>sufficiently small</q> mean?
-Arbitrarily close means that we may choose any error bounds around the proposed value <m>d</m> that we like,
-and in response we will be able to set a <q>maximum</q> <m>\change{t}</m> so that the result of <em>every</em> average rate calculation over a time subdomain containing <m>t^\ast</m> and of that maximum <m>\change{t}</m> length or smaller will fall within our error bounds around <m>d</m>.
-That is, given an arbitrary error bound <m>\epsilon \gt 0</m>,
-we expect to always find that
-<me> \slope{q}{t} \approx d \pm \epsilon </me>,
-as long as the average rate is calculated over a domain containing <m>t^\ast</m> and with <m>\change{t}</m> smaller than some particular maximum.
-(Changing the error bound value <m>\epsilon</m> will likely require a different maximum <m>\change{t}</m> value <mdash />
-in general, we expect tighter error bounds around <m>d</m> to require a smaller maximum <m>\change{t}</m> value.)
+Now, what does <em>arbitrarily close</em> and <em>sufficiently small</em> mean?
+We have encountered these terms before in <xref ref="chapter-inf-behaviour" />,
+and they mean the same thing here.
+Here is a reminder of what they mean in the context of <xref ref="definition-avg-rate-derivative-value" />.
+<em>Arbitrarily close</em> means that we may choose any small range around the proposed value <m>d</m> that we like,
+and in response we will be able to set a <q>maximum</q> <m>\change{t}</m> so that the result of <em>every</em> average rate calculation over a time subdomain containing <m>t^\ast</m> and of that maximum <m>\change{t}</m> length or smaller will fall within our proposed range around <m>d</m>.
+That is, given a small positive <m>\epsilon</m> we expect to always find that
+<me> d - \epsilon \lt \slope{q}{t} \lt d + \epsilon </me>
+for all average rate calculations calculated over a domain containing <m>t^\ast</m> and with <m>\change{t}</m> smaller than some particular maximum.
+(Making the range around <m>d</m> smaller by changing the value of <m>\epsilon</m> will likely require a different maximum <m>\change{t}</m> value <mdash />
+in general, we expect a smaller range around <m>d</m> to require a smaller maximum <m>\change{t}</m> value.)
 </p>
 
 <remark><p>
-	It was not necessary to have this sort of <q>error bound</q> reasoning in the definition of the <xref ref="definition-integ-definite" text="title" />,
-	as the upper and lower sums effectively acted as the error bounds.
+	It was not necessary to have this sort of <q>restrict to a small range around <m>d</m></q> reasoning in the definition of the <xref ref="definition-integ-definite" text="title" />,
+	as the upper and lower sums effectively acted as boundaries of a small range around the definite integral value.
 </p></remark>
 
 <example xml:id="example-avg-rate-within-error-bound">
@@ -789,13 +791,14 @@ in general, we expect tighter error bounds around <m>d</m> to require a smaller 
 
 	<p>
 	Let's revisit <xref ref="example-avg-rate-cubic-instant-rate" />.
-	Hopefully you found that the three average-rate approximations to <m>r(2)</m> all became close to <m>12</m> as <m>\change{t}</m>
+	Hopefully you found that the three average-rate approximations to <m>r(2)</m> all became close to <m>d = 12</m> as <m>\change{t}</m>
 	(<c>dt</c> in the Sage code)
 	was made smaller.
 	</p>
 
 	<p>
-	Below is some Sage code to test an arbitrarily chosen error bound around <m>12</m>.
+	Below is some Sage code to test an arbitrarily chosen range around <m>12</m>,
+	<me> 12 - \epsilon \lt \slope{q}{t} \lt 12 + \epsilon </me>.
 	(We use <c>e</c> in place of the Greek letter <m>\epsilon</m>.)
 	Try to determine a small enough <m>\change{t}</m> value
 	(again, represented as <c>dt</c> in the Sage code) so that all three of the forward, backward, and central approximations
@@ -1082,7 +1085,7 @@ with the derivative value describing the slope of that essentially linear piece 
 			<description>
 				A graph of an object's distance from a sensor as the object travels toward and then away from the sensor, with accompanying secant lines.
 			</description>
-			<latex-image><xi:include href="avg-rate.d/tangent.tex" parse="text" /></latex-image>
+			<latex-image><xi:include href="avg-rate.d/distance.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
 
@@ -1100,9 +1103,8 @@ with the derivative value describing the slope of that essentially linear piece 
 	the backward average rate is <m>- r</m> (the slope of the left <q>arm</q> of the V-shape),
 	and the central average rate is <m>0</m>,
 	where <m>r</m> is the constant rate of travel of the object.
-	So if we choose an error bound of <m>\epsilon = r/2</m>, say,
-	it will be impossible to shrink <m>\change{t}</m> so that all three approximations are within the error bound of some proposed rate value,
-	no matter what proposed rate value is tried.
+	If we choose a small enough range around any one of those three average rate values,
+	it will be impossible to shrink <m>\change{t}</m> so that all three approximations are within that range.
 	</p>
 
 </example>
@@ -1156,7 +1158,7 @@ and functions with such a feature are never differentiable at that point.
 	since the corresponding secant lines would have left endpoints on the upper step at output level <m>40</m> and right endpoints on the lower step at output level <m>30</m>.
 	But forward average rates would always be <m>0</m>,
 	since the corresponding secant lines would have both endpoints on the lower step.
-	There is no possibility that these average rates could all be made close enough to each other to fit in an arbitrarily small error bound around some proposed rate value,
+	There is no possibility that these average rates could all be made close enough to each other to fit in an arbitrarily small range around some proposed rate value,
 	so the function is not differentiable at <m>t = 5</m>.
 	</p>
 

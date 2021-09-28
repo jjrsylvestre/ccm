@@ -33,8 +33,8 @@
 	\draw[thick, blue, domain=0.46:1.225, smooth] plot (\x,{2 + 1 / (\x * \x)});
 	\draw[thick, red, domain=1.225:\xmax, smooth] plot (\x,{2 + 1 / (\x * \x)});
 	\draw[dashed] (\xmax,2) -- (0,2) node[left] {$2$};
-	\draw[dashed,red] (\xmax,1.333) -- (0,1.333) node[left] {$\scriptstyle 2 - E$};
-	\draw[dashed,red] (\xmax,2.666) -- (0,2.666) node[left] {$\scriptstyle 2 + E$};
+	\draw[dashed,red] (\xmax,1.333) -- (0,1.333) node[left] {$\scriptstyle 2 - \epsilon$};
+	\draw[dashed,red] (\xmax,2.666) -- (0,2.666) node[left] {$\scriptstyle 2 + \epsilon$};
 	\draw[dashed,red] (1.225,2.666) -- (1.224,0) node[below] {$\frac{1}{\sqrt{E}}$};
 
 \end{tikzpicture}
