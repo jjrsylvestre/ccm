@@ -244,8 +244,8 @@ as accumulation is equal to total (oriented) area under the rate graph
 But on the quantity graph,
 the formula
 <me> \avg{r} = \slope{q}{t} = \frac{ q(t_1) - q(t_0) }{ t_1 - t_0 } </me>
-leads to a completely interpretation.
-The points <m>\bbrac{t_0, q(t_0)}</m> and <m>\bbrac{t_1, q(t_1)}</m> lie on the graph of the rate function,
+leads to a completely different interpretation.
+The data points <m>\bbrac{t_0, q(t_0)}</m> and <m>\bbrac{t_1, q(t_1)}</m> used in the average rate calculation represent points on the graph of the quantity function,
 the line segment connecting them is called a <term>secant line</term> for the graph,
 and the formula for <m>\avg{r}</m> above is just the <em>rise-over-run</em> formula for the slope of that secant line.
 </p>
