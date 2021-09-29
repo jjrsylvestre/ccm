@@ -708,6 +708,55 @@ with the following alterations.
 	growing at approximately constant rate <m>2/3</m>.
 	</p>
 
+	<p>
+	However, there may be an <q>offset</q> to how it grows linearly.
+	To see this,
+	let's investigate how more closely how the numerator and denominator polynomials relate.
+	In the numerator, the only term that matters is the <m>2 t^5</m> since the other terms are <q>small</q> compared to the <m>3 t^4</m> in the denominator:
+	<md>
+		<mrow> g(t) \amp = \frac{2 t^5 - 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6} </mrow>
+		<mrow> \amp = \frac{2 t^5}{3 t^4 + 4 t^3 + 6} + \frac{- 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6} </mrow>
+		<mrow> \amp \approx \frac{2 t^5}{3 t^4 + 4 t^3 + 6} </mrow>
+	</md>,
+	where the <em>approximately equal</em> is true for large <m>t</m>.
+	Now let's make the numerator look more like the denominator.
+	<md>
+		<mrow> g(t) \amp \approx \frac{2 t^5}{3 t^4 + 4 t^3 + 6} </mrow>
+		<mrow> \amp = 2 t \cdot \frac{t^4}{3 t^4 + 4 t^3 + 6} </mrow>
+		<mrow> \amp = \frac{2}{3} \, t \cdot \frac{3 t^4}{3 t^4 + 4 t^3 + 6} </mrow>
+		<mrow> \amp = \frac{2}{3} \, t \cdot \frac{3 t^4 + 4 t^3 + 6 - (4 t^3 + 6)}{3 t^4 + 4 t^3 + 6} </mrow>
+	</md>.
+	In this last step, we have added and then immediately subtracted some terms to make the numerator look even more like the denominator,
+	while maintaining equality with the previous expression.
+	Continuing,
+	<md>
+		<mrow> g(t) \amp \approx \frac{2}{3} \, t \cdot \frac{3 t^4 + 4 t^3 + 6 - (4 t^3 + 6)}{3 t^4 + 4 t^3 + 6} </mrow>
+		<mrow>
+			\amp =
+			\frac{2}{3} \, t \cdot \frac{3 t^4 + 4 t^3 + 6}{3 t^4 + 4 t^3 + 6}
+			- \frac{2}{3} \, t \cdot \frac{4 t^3 + 6}{3 t^4 + 4 t^3 + 6}
+		</mrow>
+		<mrow>
+			\amp =
+			\frac{2}{3} \, t \cdot 1
+			- \frac{2}{3} \cdot \frac{4 t^4 + 6 t}{3 t^4 + 4 t^3 + 6}
+		</mrow>
+	</md>.
+	Looking at the dominant terms in the remaining rational expression,
+	we have
+	<md>
+		<mrow>
+			g(t) \amp \approx
+			\frac{2}{3} \, t
+			- \frac{2}{3} \cdot \frac{4}{3}
+		</mrow>
+		<mrow> \amp = \frac{2}{3} \, t - \frac{8}{9} </mrow>
+	</md>.
+	We conclude that for large <m>t</m>,
+	the graph of <m>g(t)</m> will look like the line
+	<me> y = \frac{2}{3} \, t - \frac{8}{9} </me>.
+	</p>
+
 	<figure xml:id="figure-inf-behaviour-slant-asymp">
 		<caption>
 			A graph with a slant asymptote.
