@@ -555,7 +555,7 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 	from <xref ref="example-models-radioactive-decay" />,
 	and for the purposes of this example,
 	let's take <m>k = 1/2</m>,
-	so that <me> r(t) = - frac{q(t)}{2} </me> .
+	so that <me> r(t) = - \frac{q(t)}{2} </me>.
 	If the graph of a potential solution passes through the data point <m>(1,4)</m>,
 	then <m>q(1) = 4</m> and
 	<md>

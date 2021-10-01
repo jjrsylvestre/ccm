@@ -711,7 +711,7 @@ with the following alterations.
 	<p>
 	However, there may be an <q>offset</q> to how it grows linearly.
 	To see this,
-	let's investigate how more closely how the numerator and denominator polynomials relate.
+	let's investigate more closely how the numerator and denominator polynomials relate.
 	In the numerator, the only term that matters is the <m>2 t^5</m> since the other terms are <q>small</q> compared to the <m>3 t^4</m> in the denominator:
 	<md>
 		<mrow> g(t) \amp = \frac{2 t^5 - 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6} </mrow>
