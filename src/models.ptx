@@ -78,7 +78,7 @@ So, unless <m>q</m> is a linear function,
 
 <p> A rate of accumulation can vary a lot more than just jumping from one value to another. </p>
 
-<example>
+<example xml:id="example-models-speed">
 	<title>Varying speed</title>
 
 	<p>
@@ -118,6 +118,29 @@ So, unless <m>q</m> is a linear function,
 	in this case, a <em>velocity</em> function, <m>v(t)</m>.
 	</p>
 
+</example>
+
+<p>
+In <xref ref="example-models-speed" />,
+the quantity function <m>q(t)</m> would represent the car's odometer reading at time <m>t</m>,
+and the associated rate-of-change function <m>q'(t)</m> would represent the car's speedometer reading at time <m>t</m>,
+and both are varying.
+We could imagine many other scenarios involving a varying quantity and a varying associated derivative function.
+</p>
+
+<example>
+	<title>Measuring water flow</title>
+	<p>
+	A drain pipe empties into a covered reservoir.
+	Let <m>q(t)</m> represents the volume of water (in litres) in the reservoir at time <m>t</m>.
+	Then as rain water falls, is collected and routed through the drain pipe and accumulates in the reservoir,
+	the quantity function <m>q(t)</m> varies.
+	To measure how it varies,
+	a flow meter is installed in the drain pipe to measure the rate of water flow into the reservoir in litres per second.
+	If water only enters the reservoir through the drain pipe,
+	then the rate of accumulation of water in the reservoir is the same as the rate of flow of water in the drain pipe.
+	Therefore, the rate-of-change function <m>q'(t)</m> associated to the varying quantity function <m>q(t)</m> is precisely the reading on the flow meter at time <m>t</m>.
+	</p>
 </example>
 
 </section>
