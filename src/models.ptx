@@ -537,7 +537,7 @@ we make a simplifying assumption.
 	<p>
 	We assume that a function <m>q(t)</m> that can be a particular solution to a differential equation is sufficiently <q>nice</q> to satisfy the following property:
 	at each data point <m>\bbrac{t_0, q(t_0)}</m>,
-	over a sufficiently small time interval around <m>t = t_0</m> the associated rate-of-change function <m>q'(t)</m> will be approximately constant.
+	over a sufficiently small time interval around <m>t = t_0</m> the associated rate-of-change function <m>q'(t)</m> will be approximately constant over that interval.
 	</p>
 </assumption>
 
@@ -697,9 +697,8 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 	then that means <m>q(1) = -2</m>,
 	and so
 	<md>
-		<mrow> dq/dt \amp = \frac{q(t) \bbrac{1 - q(t)}}{t + 1} </mrow>
-		<mrow> \amp = \frac{-2 \bbrac{1 - (-2)}}{1 + 1} </mrow>
-		<mrow> \amp = \frac{-2 \cdot 3}{2} </mrow>
+		<mrow> \funceval{\ddt{q}}{t = 1} \amp = \frac{q(1) \bbrac{1 - q(1)}}{1 + 1} </mrow>
+		<mrow> \amp = \frac{-2 \bbrac{1 - (-2)}}{2} </mrow>
 		<mrow> \amp = - 3 </mrow>
 	</md>.
 	So in our direction field we should draw a little line segment at point <m>(1,-2)</m> with slope <m>-3</m>.
