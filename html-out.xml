@@ -35,6 +35,8 @@ respective owners.
 		<!-- "structural" resets chapter numbering at beginning of new part -->
 		<!-- <divisions part-structure="decorative" /> -->
 
+		<divisions level="3" />
+
 	</numbering>
 
 </publication>

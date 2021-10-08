@@ -16,8 +16,444 @@ respective owners.
 <chapter xml:id="chapter-poly" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Polynomial growth</title>
 
-<!-- TODO intro about polynomial functions? -->
-<!-- TODO rename to "Power and polynomial growth" -->
+<!-- TODO put note about changes to integ chapter in traditional version -->
+
+<section xml:id="section-poly-intro">
+<title>Power and polynomial functions</title>
+
+<subsection>
+<title>Definitions</title>
+
+<p>
+A polynomial is the result of performing algebra in one variable when you restrict yourself to the operations of addition, subtraction, and multiplication.
+(Keep in mind that a power with a positive integer exponent just represents repeated multiplication.)
+The generic form of a polynomial in the variable <m>t</m> is
+<me> p(t) = a_0 + a_1 t + a_2 t^2 + a_3 t^3 + \dotsb + a_{n-1} t^{n-1} + a_n t^n </me>
+where we assume <m>a_n \neq 0</m>
+(since otherwise we would have omitted that term and terminated the polynomial at a lower power of <m>t</m>).
+The constants <m>a_0, a_1, \dotsc, a_n</m> are called the <term>coefficients</term> of the polynomial,
+and the highest exponent <m>n</m> is called the <term>degree</term>.
+</p>
+
+<p>
+A polynomial that consists of just a single term,
+<me> p(t) = a_n t^n </me>,
+is called a <term>power function</term>.
+For <m>n \ge 2</m> and even,
+the graph of a power function is essentially a parabola,
+while for <m>n \ge 3</m> and odd,
+the graph of a power function is essentially a parabola with one arm flipped vertically.
+In both cases, higher values of <m>n</m> flatten out the bottom and steepen the sides.
+</p>
+
+<figure xml:id="figure-poly-powers">
+	<caption>Graphs of basic power functions.</caption>
+
+	<sidebyside valign="middle" widths="45% 45%"> <!--  margins=""  -->
+
+		<figure xml:id="figure-poly-powers-even">
+			<caption>Graphs of power functions of even degree.</caption>
+			<image>
+				<description>Graphs of power functions of even degree.</description>
+				<latex-image><xi:include href="poly.d/even.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-poly-powers-odd">
+			<caption>Graphs of power functions of odd degree.</caption>
+			<image>
+				<description>Graphs of power functions of odd degree.</description>
+				<latex-image><xi:include href="poly.d/odd.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+<p>
+Solving <m>p(t) = 0</m> for <m>p</m> a polynomial is of fundamental importance in algebra.
+A solution to <m>p(t) = 0</m> is called a <term>root</term> of <m>p</m>,
+and graphically these solutions coincide with horizontal intercepts of the polynomial's graph.
+The meaning of the term <term><m>\nth</m> root</term> of a number is tied to the roots of polynomials,
+as a square root <m>\sqrt{a}</m> means the (positive) root of the equation <me>t^2 - a = 0</me>,
+a cube root <m>\sqrt[3]{a}</m> means the unique real root of the equation <me>t^3 - a = 0</me>,
+and so on.
+</p>
+
+</subsection>
+
+<subsection>
+<title>Polynomials of small degree</title>
+
+<introduction><p>
+	Since we often factor polynomials into factors that are polynomials of smaller degree,
+	polynomials of small degree are of special interest.
+</p></introduction>
+
+<subsubsection><title>Constant polynomials</title><p>
+	A polynomial of degree <m>0</m> is just a a constant function,
+	and its graph is a horizontal line.
+	The zero function <m>p(t) = 0</m> can be considered a polynomial,
+	though, depending on the context,
+	it may be appropriate to say that the zero polynomial has <em>no</em> degree to distinguish it from non-zero constant polynomials.
+	However, we will just lump the zero polynomial in with the constant polynomials.
+</p></subsubsection>
+
+<subsubsection><title>Linear polynomials</title><p>
+	A polynomial of degree <m>1</m>,
+	<me> p(t) = a_0 + a_1 t </me>,
+	is called a <term>linear polynomial</term> because its graph is a line,
+	with vertical intercept <m>a_0</m> and slope <m>a_1</m>,
+	as usual.
+	The root of a linear polynomial is easy to determine:
+	<md><mrow> a_0 + a_1 t \amp = 0 \amp \amp\implies \amp t \amp = - \frac{a_0}{a_1} </mrow></md>.
+</p></subsubsection>
+
+<subsubsection>
+<title>Quadratic polynomials</title>
+
+<p>
+A polynomial of degree <m>2</m>,
+<me> p(t) = a_0 + a_1 t + a_2 t^2 </me>,
+is called a <term>quadratic polynomial</term>.
+Its graph is always a parabola, though it may be shifted and/or reflected.
+If the parabola opens upward we say that it is <term>concave up</term>,
+and if it opens downward we say that it is <term>concave down</term>.
+Which of these two shapes the parabola exhibits is determined by <m>a_2 \gt 0</m> or <m>a_2 \lt 0</m>,
+respectively.
+The <term>vertex</term> of a parabola is the point where a concave up parabola reaches its minimum height,
+or where a concave down parabola reaches its maximum height.
+</p>
+
+<p>
+A power function of degree <m>2</m>, <m> p(t) = a_2 t^2 </m>,
+has its vertex at the origin.
+For other degree-<m>2</m> polynomials,
+we can determine the location of the vertex of its graph by <term>completing the square</term>.
+</p>
+
+<example>
+	<title>Completing the square</title>
+
+	<p>
+	Consider polynomial <me> p(t) = 6 + 10 t - 2 t^2 </me>.
+	First, we note that this parabola is concave down because of the negative coefficient on the <m>t^2</m> term.
+	After factoring out that coefficient,
+	we complete the square by manipulating the constant term to create a <term>perfect square</term>.
+	<!-- the color command messes up the spacing in front of the plus, and \: = \medmuskip, the spacing around binary operators -->
+	<md>
+		<mrow> p(t) \amp = - 2 t^2 + 10 t - 6 </mrow>
+		<mrow> \amp = - 2 (t^2 - 5 t + 3) </mrow>
+		<mrow> \amp = - 2 \left( t^2 - 5 t \: {\color{red} + {\left(\frac{5}{2}\right)}^2 - {\left(\frac{5}{2}\right)}^2} + 3 \right) </mrow>
+		<mrow> \amp = - 2 \left[ {\left(t - \frac{5}{2}\right)}^2 - \frac{25}{4} + 3 \right] </mrow>
+		<mrow> \amp = - 2 \left[ {\left(t - \frac{5}{2}\right)}^2 - \frac{13}{4} \right] </mrow>
+		<mrow> \amp = - 2 {\left(t - \frac{5}{2}\right)}^2 + \frac{13}{2}</mrow>
+	</md>
+	Using our knowledge of transformations of graphs from <xref ref="section-funcs-transformations" />,
+	we interpret the last formula above as a combination of transformations of the standard parabola <m>f(t) = t^2</m>,
+	in the order listed:
+	<ul>
+		<li> horizontal shift by <m>5/2</m> to the right </li>
+		<li> vertical stretch by a factor of <m>2</m> </li>
+		<li> vertical reflection </li>
+		<li> vertical shift by <m>13/2</m> up. </li>
+	</ul>
+	The two shifts put the vertex at the point <m>(5/2,13/2)</m>,
+	and the vertical reflection reminds us that the parabola is concave down.
+	</p>
+
+	<figure xml:id="figure-poly-complete-the-square">
+		<caption> Graph of a parabola whose shape and location were determined by completing the square. </caption>
+		<image width="50%">
+			<description>Graph of a parabola whose shape and location were determined by completing the square.</description>
+			<latex-image><xi:include href="poly.d/complete-sq.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+By considering different shifts and vertical reflections of parabolas,
+we can see that a quadratic polynomial can have no roots, one unique root, or two distinct roots.
+If we write our quadratic polynomial as
+<me> a t^2 + b t + c </me>,
+then whether this polynomial has none, one, or two roots is determined by the <term>discriminant</term>
+<me> b^2 - 4 a c </me>.
+<dl>
+
+	<li>
+		<title>no roots</title>
+		<p>
+		when <m>b^2 - 4 a c \lt 0</m>;
+		a concave up parabola with vertex above the horizontal axis or a concave down parabola with vertex below the horizontal axis
+		</p>
+	</li>
+
+	<li>
+		<title>one unique root</title>
+		<p>
+		when <m>b^2 - 4 a c = 0</m>;
+		a parabola with vertex on the horizontal axis
+		</p>
+	</li>
+
+	<li>
+		<title>two distinct roots</title>
+		<p>
+		when <m>b^2 - 4 a c \gt 0</m>;
+		a concave up parabola with vertex below the horizontal axis or a concave down parabola with vertex above the horizontal axis
+		</p>
+	</li>
+
+</dl>
+In any case,
+there exists a formula for the roots of quadratic polynomial.
+</p>
+
+<identity xml:id="pattern-poly-quadratic-formula">
+	<title>Quadratic formula</title>
+	<p>
+	If the discriminant satisfies <m>b^2 - 4 a c \ge 0</m>,
+	then the roots of <me> a t^2 + b t + c = 0 </me>
+	are <md><mrow> t \amp = \frac{-b - \sqrt{b^2 - 4 a c}}{2 a} \amp t \amp = \frac{-b + \sqrt{b^2 - 4 a c}}{2 a} </mrow></md>,
+	where these two roots are one and the same in the case that <m>b^2 - 4 a c = 0</m>.
+	</p>
+</identity>
+
+</subsubsection>
+
+<subsubsection>
+<title>Cubic polynomials</title>
+
+<p>
+The graph of a cubic polynomial often follows an <q>up-down-up</q> or <q>down-up-down</q> pattern,
+as in <xref ref="figure-poly-two-cubics" />.
+</p>
+
+<figure xml:id="figure-poly-two-cubics">
+	<caption>Typical graphs of cubic functions.</caption>
+
+	<sidebyside valign="middle" widths="45% 45%"> <!--  margins=""  -->
+
+		<figure xml:id="figure-poly-two-cubics-1">
+			<caption>Graph of a cubic that follows an <q>up-down-up</q> pattern.</caption>
+			<image>
+				<description>Graph of a cubic that follows an <q>up-down-up</q> pattern.</description>
+				<latex-image><xi:include href="poly.d/cubic-1.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-poly-two-cubics-2">
+			<caption>Graph of a cubic that follows an <q>down-up-down</q> pattern.</caption>
+			<image>
+				<description>Graph of a cubic that follows an <q>down-up-down</q> pattern.</description>
+				<latex-image><xi:include href="poly.d/cubic-2.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+<p>
+The axes have been intentionally omitted from the graphs in <xref ref="figure-poly-two-cubics" />,
+so that you can imagine different vertical shifts of these graphs.
+In particular, the dashed lines indicate different possible locations of the horizontal axis,
+demonstrating the possibility for one, two, or three roots for a cubic polynomial.
+</p>
+
+</subsubsection>
+
+</subsection>
+
+<subsection>
+<title>Roots and factoring</title>
+
+<p>
+The shape of graphs and roots of higher degree polynomials is obviously more complicated.
+There exist formulas for the roots of cubic and quartic (degree-<m>4</m>) polynomials similar to the <xref ref="pattern-poly-quadratic-formula" />,
+but already there is (famously) no such general formula possible for quintic (degree-<m>5</m>) polynomials.
+However, we can say something about the <em>number</em> of roots of a polynomial.
+</p>
+
+<theorem xml:id="theorem-poly-fundamental">
+	<title>Fundamental Theorem of Algebra</title>
+	<p> A polynomial of degree <m>n</m> can have no more than <m>n</m> roots. </p>
+</theorem>
+
+<p> The reason for this is that solving for roots and factoring are equivalent tasks. </p>
+
+<identity xml:id="pattern-poly-factor-root">
+	<title>Root implies linear factor</title>
+	<p>
+	If <m>p(t)</m> is a polynomial of degree <m>n</m>,
+	then <m>t = a</m> is a root of <m>p(t) = 0</m> if and only if there exists a polynomial <m>q(t)</m> of degree <m>n - 1</m> so that
+	<me> p(t) = (t - a) q(t) </me>.
+	</p>
+</identity>
+
+<p>
+<xref ref="pattern-poly-factor-root" /> is the reason the <xref ref="theorem-poly-fundamental" text="title" /> is true:
+if every root means we can factor out a linear factor,
+then <m>n</m> roots means <m>n</m> linear factors,
+at which point we will have reached the degree of the polynomial and can factor no further.
+</p>
+
+<example>
+	<title>Factoring out a root</title>
+
+	<p>
+	Clearly <m>t = -1</m> is a root of <m>p(t) = t^4 - 1</m>.
+	This means that we can factor
+	<me> \bbrac{t - (-1)} = (t + 1) </me>
+	out of <m>p</m>.
+	</p>
+
+	<tabular halign="center">
+		<row>
+			<cell />
+			<cell bottom="minor"><m>\color{red} t^3</m></cell>
+			<cell bottom="minor"><m>\color{blue} -</m></cell>
+			<cell bottom="minor"><m>\color{blue} t^2</m></cell>
+			<cell bottom="minor"><m>\color{green} +</m></cell>
+			<cell bottom="minor"><m>\color{green} t</m></cell>
+			<cell bottom="minor"><m>\color{purple} -</m></cell>
+			<cell bottom="minor"><m>\color{purple} 1</m></cell>
+			<cell bottom="minor" />
+			<cell bottom="minor" />
+		</row>
+		<row>
+			<cell right="minor"><m>t + 1</m></cell>
+			<cell><m>t^4</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>0 t^3</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>0 t^2</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>0 t</m></cell>
+			<cell><m>-</m></cell>
+			<cell><m>1</m></cell>
+		</row>
+		<row>
+			<cell><m>-</m></cell>
+			<cell bottom="minor"><m>\color{red} t^4</m></cell>
+			<cell bottom="minor"><m>\color{red} +</m></cell>
+			<cell bottom="minor"><m>\color{red} t^3</m></cell>
+			<cell />
+			<cell><m>\downarrow</m></cell>
+			<cell />
+			<cell><m>\downarrow</m></cell>
+			<cell />
+			<cell><m>\downarrow</m></cell>
+		</row>
+		<row>
+			<cell />
+			<cell />
+			<cell />
+			<cell><m>- t^3</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>0 t^2</m></cell>
+		</row>
+		<row>
+			<cell />
+			<cell />
+			<cell><m>-</m></cell>
+			<cell bottom="minor"><m>\color{blue} - t^3</m></cell>
+			<cell bottom="minor"><m>\color{blue} -</m></cell>
+			<cell bottom="minor"><m>\color{blue} t^2</m></cell>
+		</row>
+		<row>
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell><m>t^2</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>0 t</m></cell>
+		</row>
+		<row>
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell><m>-</m></cell>
+			<cell bottom="minor"><m>\color{green} t^2</m></cell>
+			<cell bottom="minor"><m>\color{green} +</m></cell>
+			<cell bottom="minor"><m>\color{green} t</m></cell>
+		</row>
+		<row>
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell><m>- t</m></cell>
+			<cell><m>-</m></cell>
+			<cell><m>1</m></cell>
+		</row>
+		<row>
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell bottom="minor"><m>\color{purple} - t</m></cell>
+			<cell bottom="minor"><m>\color{purple} -</m></cell>
+			<cell bottom="minor"><m>\color{purple} 1</m></cell>
+		</row>
+		<row>
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell><m>0</m></cell>
+		</row>
+	</tabular>
+
+	<p>
+	The remainder of <m>0</m> tells us that <m>t + 1</m> does indeed divide evenly into <m>t^4 - 1</m>,
+	and the quotient result at the top says
+	<me> t^4 - 1 = (t + 1) (t^3 - t^2 + t - 1) </me>.
+	</p>
+
+</example>
+
+<fact>
+	<title>Factorization of polynomials</title>
+	<p>
+	Every polynomial can be factored into a product of
+	<ul>
+		<li>
+			a constant,
+			by factoring out the <q>leading</q> coefficient <m>a_n</m>
+		</li>
+		<li>
+			some number of linear factors <m>(t - r)</m>,
+			where each such <m>r</m> is a root of the polynomial
+		</li>
+		<li>
+			some number of <term>irreducible</term> quadratic factors <m>(t^2 + b t + c)</m>,
+			where <m>b^2 - 4 c \lt 0 </m>, so that the quadratic has no roots and cannot be factored further.
+		</li>
+	</ul>
+	</p>
+</fact>
+
+</subsection>
+
+</section>
+
 
 <section xml:id="section-poly-constant-var">
 <title>Constant rate of variation</title>
@@ -25,6 +461,7 @@ respective owners.
 <p>
 The simplest type of polynomial is a constant function,
 which can be considered a degree-0 polynomial.
+We have already seen in <xref ref="pattern-vars-constant-rate" /> that a constant rate of variation always corresponds to a linear quantity function.
 </p>
 
 <example xml:id="example-poly-constant-accel">
@@ -48,11 +485,12 @@ which can be considered a degree-0 polynomial.
 		<unit base="metre" />
 		<per  base="second" />
 	</quantity>,
-	then we can use <xref ref="pattern-integ-definite-props-constant" text="type-local">Property</xref>
-	from <xref ref="pattern-integ-definite-props" />
-	to easily compute its velocity at any point in time after that,
-	up until the time that the object hits the surface of the planet.
-	<me> v(t) = \ccmint{0}{t}{g}{u} = g t </me>.
+	then we can use either <xref ref="pattern-integ-definite-integ-to-quantity-function" />
+	(just as in <xref ref="example-integ-constant-rate-to-linear" />)
+	or <xref ref="pattern-vars-constant-rate" />
+	to compute its velocity at any point in time after that,
+	up until the time that the object hits the surface of the planet:
+	<me> v(t) = 0 + \ccmint{0}{t}{g}{u} = g t </me>.
 	</p>
 
 </example>
@@ -80,7 +518,13 @@ which can be considered a degree-0 polynomial.
 	</p>
 </identity>
 
-<p> We will verify <xref ref="pattern-poly-linear-quantity" /> mathematically in <xref ref="chapter-deriv" />. </p>
+<p>
+While <xref ref="pattern-poly-constant-rate" /> is just a restatement of
+<xref ref="pattern-vars-constant-rate" />,
+<xref ref="pattern-poly-linear-quantity" /> is new,
+though it should have been expected.
+We will verify this new statement mathematically in <xref ref="chapter-deriv" />.
+</p>
 
 </section>
 

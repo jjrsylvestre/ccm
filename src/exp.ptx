@@ -324,7 +324,7 @@ Consider what happens when we reflect the graph of the natural logarithm in the 
 </figure>
 
 <p>
-This reflected curve passes the Vertical Line Test, <!-- TODO link to definition -->
+This reflected curve passes the <xref ref="pattern-funcs-VLT" text="title" />,
 and so it is the graph of some function.
 Indeed, it looks like the graph of an exponential function,
 but which one?

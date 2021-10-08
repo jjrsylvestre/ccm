@@ -795,7 +795,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 </section>
 
 
-<section>
+<section xml:id="section-funcs-transformations">
 <title>Graph transformations</title>
 
 

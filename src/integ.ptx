@@ -1090,7 +1090,10 @@ mathematically.
 </section>
 
 <section xml:id="section-integ-recover-accumulation">
-<title>Recovering an accumulation function from a rate function</title>
+<title>Recovering a quantity function from a rate function</title>
+
+<subsection>
+<title>The definite integral as an accumulation function</title>
 
 <p>
 Given an integrable rate function for some quantity,
@@ -1176,7 +1179,7 @@ which is not so easy if the upper bound of integration is a variable.
 Luckily Sage can also handle this for us.
 </p>
 
-<example>
+<example xml:id="example-integ-sage-accumulation-function">
 	<title>Using Sage to compute an accumulation function formula</title>
 	<p>
 	Let's return once again to the example of some quantity whose variation is modelled by the rate function <m>r(t) = t^2 + 1</m>,
@@ -1242,7 +1245,7 @@ Luckily Sage can also handle this for us.
 	</p>
 </warning>
 
-<example>
+<example xml:id="example-integ-initial-plus-accumulation">
 	<title>Taking initial quantity into account</title>
 	<p>
 	Suppose we observe an initial quantity of <m>5/3</m> units of material,
@@ -1337,6 +1340,91 @@ though in practice we will not often return to <q>first principles</q> to carry 
 	</sage>
 
 </example>
+
+</subsection>
+
+<subsection>
+<title>Accumulation versus quantity</title>
+
+<p>
+However, accumulation is not the whole story.
+To know the total quantity at a given time,
+we need to know the <q>initial amount</q> as well:
+<me> \text{final amount} \amp = \text{initial amount} + \text{accumulated amount} </me>.
+</p>
+
+<identity xml:id="pattern-integ-definite-integ-to-quantity-function">
+	<title>Recovering a quantity function using a definite integral</title>
+	<p>
+	Suppose <m>q(t)</m> is a varying quantity,
+	and assume that the associated rate function <m>r(t)</m> is integrable over the domain <m>t_0 \le t \le t_1</m>.
+	If the <q>initial</q> quantity <m>q(t_0)</m> is known,
+	then <me> q(t) = q(t_0) + A_{t_0}(t) = q(t_0) + \ccmint{t_0}{t}{r(u)}{u} </me>
+	is provides a formula for the quantity function over the domain <m>t_0 \le t \le t_1</m>.
+	</p>
+</identity>
+
+<remark><p>
+	In fact,
+	it is not necessary that the <q>initial</q> quantity is taken to mean the left endpoint of the domain.
+	That is,
+	<xref ref="pattern-integ-definite-integ-to-quantity-function" /> can be broadened in the following way.
+	If <m>r(t)</m> is integrable over the domain <m>a \le t \le b</m> and <m>t_0</m> is any choice of point in that domain at which the <q>initial</q> value <m>q(t_0)</m> is known,
+	then the formula for <m>q(t)</m> in <xref ref="pattern-integ-definite-integ-to-quantity-function" /> is still valid over the whole domain <m>a \le t \le b</m>,
+	not just on <m>t_0 \le t \le b</m>.
+	For those <m>t</m> in <m>a \le t \lt t_0</m>,
+	we just use
+	<xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref>
+	from <xref ref="convention-integ-definite-props" />
+	when interpreting <me> \ccmint{t_0}{t}{r(u)}{u} </me>
+	so that in this case
+	<me> q(t) = q(t_0) + \ccmint{t_0}{t}{r(u)}{u} = q(t_0) - \ccmint{t}{t_0}{r(u)}{u} </me>
+	means <em>the <q>initial</q> quantity minus the some of the amount that accumulated before that <q>initial</q> time</em>.
+</p></remark>
+
+<example>
+	<title>Combining initial amount with an accumulation function</title>
+	<p>
+	In <xref ref="example-integ-sage-accumulation-function" />,
+	we had Sage calculate an accumulation function for the rate function <m>r(t) = t^2 + 1</m>:
+	<me> A_0(t) = \ccmint{0}{t}{u^2 + 1}{u} = \frac{t^3}{3} + t </me>.
+	This formula how much <em>extra</em> quantity will have accumulated between initial time <m>0</m> and an end time <m>t</m>.
+	Suppose we have a varying quantity <m>q(t)</m> and we know both that the associated rate function is <m>r(t) = t^2 + 1</m> and that the initial quantity is <m>q(0) = 4</m>,
+	then we can combine these to determine the final quantity:
+	<me> q(t) = q(0) + A_0(t) = 4 + \frac{t^3}{3} + t </me>.
+	</p>
+</example>
+
+<example xml:id="example-integ-constant-rate-to-linear">
+	<title>Constant rate implies linear quantity model</title>
+
+	<p>
+	We can combine <xref ref="pattern-integ-definite-integ-to-quantity-function" />
+	with <xref ref="pattern-integ-definite-props-constant" text="type-local">Property</xref>
+	of <xref ref="pattern-integ-definite-props" />
+	in the case of a constant rate function to recover <xref ref="pattern-vars-constant-rate" />.
+	</p>
+
+	<p>
+	Suppose <m>q(t)</m> is a quantity that is varying at a constant rate <m>r(t) = c</m>.
+	Using <xref ref="pattern-integ-definite-props-constant" text="type-local">Property</xref>
+	of <xref ref="pattern-integ-definite-props" />,
+	we can calculate the accumulation function <m>A_0(t)</m> as
+	<md>
+		<mrow> A_0(t) \amp = \ccmint{0}{t}{r(u)}{u} </mrow>
+		<mrow> \amp = \ccmint{0}{t}{c}{u} </mrow>
+		<mrow> \amp = c \cdot (t - 0) </mrow>
+		<mrow> \amp = c t </mrow>
+	</md>.
+	Combining this accumulation function with an initial value <m>q_0 = q(0)</m>,
+	<xref ref="pattern-integ-definite-integ-to-quantity-function" /> gives us
+	<me> q(t) = q(0) + A_0(t) = q_0 + c t </me>,
+	exactly as in <xref ref="pattern-vars-constant-rate" />.
+	</p>
+
+</example>
+
+</subsection>
 
 </section>
 

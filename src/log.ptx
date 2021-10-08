@@ -38,7 +38,9 @@ For convenience, we will also give this special accumulation function a name.
 
 <figure xml:id="figure-log-positive-values">
 	<caption>The natural logarithm as accumulation under <m>r(t) = 1/t</m>.</caption>
+
 	<sidebyside valign="middle"> <!-- widths="" margins=""  -->
+
 		<figure>
 			<caption>An accumulation under <m>r(t) = 1/t</m>.</caption>
 			<image width="45%">
@@ -46,6 +48,7 @@ For convenience, we will also give this special accumulation function a name.
 				<latex-image><xi:include href="log.d/log-accumulation-positive.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
+
 		<figure xml:id="figure-log-positive-values-height">
 			<caption>The corresponding accumulation value.</caption>
 			<image width="45%">
@@ -53,7 +56,9 @@ For convenience, we will also give this special accumulation function a name.
 				<latex-image><xi:include href="log.d/log-value-positive.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
+
 	</sidebyside>
+
 </figure>
 
 <p>
