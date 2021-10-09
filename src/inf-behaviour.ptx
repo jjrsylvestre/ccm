@@ -476,7 +476,7 @@ We can do this by forming ratios inside the overall ratio to more directly compa
 	<title>Determining dominant terms</title>
 	<p>
 	Let's return to the function from <xref ref="example-inf-behaviour-rational-infinities" />.
-	We identity the <m>t^3</m> as the largest expression in the denominator,
+	We identify the <m>t^4</m> as the largest expression in the denominator,
 	so we will compare every other term in the ratio to that by dividing.
 	<md>
 		<mrow> f(t) \amp = \frac{2 t^4 - 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6} </mrow>
@@ -645,7 +645,7 @@ with the following alterations.
 	For example, for <m>t = -1</m> we have
 	<md>
 		<mrow> \sqrt{2 t^2} \amp = \sqrt{2 {(-1)}^2} \amp t \sqrt{2} \amp = (-1) \sqrt{2} </mrow>
-		<mrow> \amp = \sqrt{2} \amp t \sqrt{2} \amp = -\sqrt{2} </mrow>
+		<mrow> \amp = \sqrt{2} \amp \amp = -\sqrt{2} </mrow>
 	</md>
 	and the two expressions are not equal.
 	Ignoring the <m>2</m> for the moment,
