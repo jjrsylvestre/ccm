@@ -1350,7 +1350,7 @@ though in practice we will not often return to <q>first principles</q> to carry 
 However, accumulation is not the whole story.
 To know the total quantity at a given time,
 we need to know the <q>initial amount</q> as well:
-<me> \text{final amount} \amp = \text{initial amount} + \text{accumulated amount} </me>.
+<me> \text{final amount} = \text{initial amount} + \text{accumulated amount} </me>.
 </p>
 
 <identity xml:id="pattern-integ-definite-integ-to-quantity-function">
@@ -1379,7 +1379,7 @@ we need to know the <q>initial amount</q> as well:
 	when interpreting <me> \ccmint{t_0}{t}{r(u)}{u} </me>
 	so that in this case
 	<me> q(t) = q(t_0) + \ccmint{t_0}{t}{r(u)}{u} = q(t_0) - \ccmint{t}{t_0}{r(u)}{u} </me>
-	means <em>the <q>initial</q> quantity minus the some of the amount that accumulated before that <q>initial</q> time</em>.
+	means <em>the <q>initial</q> quantity minus some of the amount that accumulated before that <q>initial</q> time</em>.
 </p></remark>
 
 <example>

@@ -564,8 +564,8 @@ we might guess that the pattern is:
 	and we will justify this in later chapters after we have a few more techniques and patterns available to us.
 	In the meantime,
 	recall that for negative exponents we cannot attach a derivative value to the quantity function at the singularity at <m>t = 0</m>
-	(see <xref ref="subsection-avg-rage-non-diff-singular" />),
-	which the reason for including the phrase <q>everywhere that it is defined</q> in the statement of the pattern.
+	(see <xref ref="subsection-avg-rate-non-diff-singular" />),
+	which is the reason for including the phrase <q>everywhere that it is defined</q> in the statement of the pattern.
 	We could also consider the pattern to be true for <m>n = 0</m>,
 	since in that case the quantity function satisfies
 	<md> <mrow> q(t) \amp = t^0 = 1 \amp \text{for } t \amp \gt 0 </mrow> </md>,
@@ -586,7 +586,8 @@ we might guess that the pattern is:
 
 <note><p>
 	While we might describe part of <xref ref="pattern-deriv-power" /> as <em>decrease the exponent</em>,
-	this does not mean decrease the <em>magnitude</em> of the exponent <mdash />
+	this does not mean decrease the <em>magnitude</em> of the exponent.
+	For example,
 	a common mistake in applying <xref ref="pattern-deriv-power" /> is to use <m>t^{-2}</m> in the derivative formula for <m>t^{-3}</m>,
 	instead of <m>t^{-4}</m> as in <xref ref="example-deriv-neg-exponent" />.
 </p></note>

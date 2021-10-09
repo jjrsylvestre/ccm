@@ -523,7 +523,9 @@ While <xref ref="pattern-poly-constant-rate" /> is just a restatement of
 <xref ref="pattern-vars-constant-rate" />,
 <xref ref="pattern-poly-linear-quantity" /> is new,
 though it should have been expected.
-We will verify this new statement mathematically in <xref ref="chapter-deriv" />.
+We will verify this new statement mathematically
+in <xref ref="chapter-deriv" />.
+<!-- in a later chapter. -->
 </p>
 
 </section>
