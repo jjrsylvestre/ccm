@@ -551,7 +551,7 @@ but it is not really any different than writing down a table of values.
 
 </section>
 
-<section>
+<section xml:id="section-funcs-transformations">
 <title>Graph transformations</title>
 
 

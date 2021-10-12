@@ -120,7 +120,7 @@ where <me> \text{change in quantity} = (\text{final quantity}) - (\text{initial 
 	</quantity>
 	will experience parabolic motion,
 	so that its height above the surface at time <m>t</m> can be expressed as
-	<me> h(t) = -5 t^2 + 30 t </me>,
+	<me> h(t) = -\frac{10}{2} t^2 + 30 t = - 5 t^2 + 30 t </me>,
 	with <m>t</m> measured in seconds.
 	In this scenario, with both positive (upward) and negative (downward) directions of travel possible,
 	an average rate of change represents an average <em>velocity</em> rather than an average speed as in previous motion examples.
@@ -420,7 +420,7 @@ as in <xref ref="example-avg-rate-speedometer" />,
 our average rate calculations give us a pretty good idea of the <em>instantaneous</em> rate.
 </p>
 
-<insight xml:id="principle-avg-rage-approximates-instant-rate">
+<insight xml:id="principle-avg-rate-approximates-instant-rate">
 	<title>Average rate of change over short domains approximates instantaneous rate of change</title>
 	<p>
 	In general,
@@ -514,7 +514,7 @@ Here is an extreme example to illustrate this.
 
 </example>
 
-<insight xml:id="principle-avg-rage-shorter-duration">
+<insight xml:id="principle-avg-rate-shorter-duration">
 	<title>Shorter time domain yields better approximation</title>
 	<p>
 	In general,
@@ -531,7 +531,7 @@ Here is an extreme example to illustrate this.
 
 <p>
 Suppose we have a quantity model <m>q(t)</m> and we want to calculate a specific instantaneous rate of change value at a specific instant <m>t^\ast</m>.
-The idea in <xref ref="principle-avg-rage-shorter-duration" /> is precisely the situation that we developed the idea of <term>limit</term> to handle:
+The idea in <xref ref="principle-avg-rate-shorter-duration" /> is precisely the situation that we developed the idea of <term>limit</term> to handle:
 can we find some pattern in the values of
 <me> \slope{q}{t} </me>
 as we take <m>\change{t} \to 0</m>?
@@ -853,7 +853,7 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 
 <p> The line in <xref ref="figure-avg-rate-tangent-line" /> has a special name. </p>
 
-<definition xml:id="definition-avg-rage-tangent-line">
+<definition xml:id="definition-avg-rate-tangent-line">
 	<title>Tangent line</title>
 	<p>
 	If <m>q(t)</m> is differentiable at <m>t = t^\ast</m>,
@@ -986,10 +986,10 @@ with the derivative value describing the slope of that essentially linear piece 
 
 </section>
 
-<section xml:id="section-avg-rage-non-diff">
+<section xml:id="section-avg-rate-non-diff">
 <title>Some non-differentiable examples</title>
 
-<subsection xml:id="subsection-avg-rage-non-diff-cusps">
+<subsection xml:id="subsection-avg-rate-non-diff-cusps">
 <title>Cusps</title>
 
 <example>
@@ -1042,7 +1042,7 @@ and functions with such a feature are never differentiable at that point.
 
 </subsection>
 
-<subsection xml:id="subsection-avg-rage-non-diff-jump">
+<subsection xml:id="subsection-avg-rate-non-diff-jump">
 <title>Jump discontinuities</title>
 
 <!-- TODO reference jump discontinuity from preliminary chapters ? -->
@@ -1097,7 +1097,7 @@ and functions with such a feature are never differentiable at that point.
 </subsection>
 
 
-<subsection xml:id="subsection-avg-rage-non-diff-singular">
+<subsection xml:id="subsection-avg-rate-non-diff-singular">
 <title>Singularities</title>
 
 <example>
@@ -1148,7 +1148,7 @@ and functions with such a feature are never differentiable at that point.
 </subsection>
 
 
-<subsection xml:id="subsection-avg-rage-non-diff-vertical">
+<subsection xml:id="subsection-avg-rate-non-diff-vertical">
 <title>Vertical tangents</title>
 
 <example>
@@ -1185,7 +1185,7 @@ and functions with such a feature are never differentiable at that point.
 <conclusion>
 
 <p>
-In <xref ref="subsection-avg-rage-non-diff-jump" /> and <xref ref="subsection-avg-rage-non-diff-singular" />,
+In <xref ref="subsection-avg-rate-non-diff-jump" /> and <xref ref="subsection-avg-rate-non-diff-singular" />,
 we observed that two different kinds of function discontinuities lead to non-differentiability,
 and the same is true in general.
 </p>
@@ -1209,8 +1209,8 @@ since at such points we would not be able to form either the forward or backward
 	<p>
 	Functions are always non-differentiable at discontinuities,
 	but that is not the only they can fail to be differentiable,
-	as we observed in <xref ref="subsection-avg-rage-non-diff-cusps" />
-	and <xref ref="subsection-avg-rage-non-diff-vertical" />.
+	as we observed in <xref ref="subsection-avg-rate-non-diff-cusps" />
+	and <xref ref="subsection-avg-rate-non-diff-vertical" />.
 	</p>
 </warning>
 

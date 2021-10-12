@@ -127,7 +127,7 @@ but as we leave <m>t</m> unspecified this will do the work of computing the deri
 	</md>.
 	Therefore,
 	<md>
-		<mrow> \slope{h}{t} \amp = \frac{ h(t + \change{t}) - s(t) }{ \change{t} } </mrow>
+		<mrow> \slope{h}{t} \amp = \frac{ h(t + \change{t}) - h(t) }{ \change{t} } </mrow>
 		<mrow> \amp = \frac{ (- 10 t + 30 - 5 \change{t}) \bcancel{\change{t}} }{ \bcancel{\change{t}} } </mrow>
 		<mrow> \amp = - 10 t + 30 - 5 \change{t} </mrow>
 	</md>.
@@ -145,7 +145,7 @@ but as we leave <m>t</m> unspecified this will do the work of computing the deri
 	<me> q'(1) = 20 </me>.
 	Comparing that with our average rate computation in <xref ref="example-avg-rate-from-quantity-model" />,
 	it's no surprise that our previous average velocity calculation is not a good estimate of the instantaneous velocity,
-	as <m>2</m> seconds is too long of a time interval to give a good estimate.
+	as <m>2</m> seconds is too long of a time interval to give a good estimate for this model.
 	</p>
 
 </example>

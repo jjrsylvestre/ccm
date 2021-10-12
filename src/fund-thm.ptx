@@ -16,6 +16,11 @@ respective owners.
 <chapter xml:id="chapter-fund-thm" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Average value and the Fundamental Theorem</title>
 
+<!--
+	TODO there are some things that could be transferred into here
+	     currently commented out in avg-rate.ptx
+-->
+
 <section xml:id="section-fund-thm">
 <title>TODO</title>
 

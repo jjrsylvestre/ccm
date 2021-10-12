@@ -66,7 +66,7 @@ So, unless <m>q</m> is a linear function,
 	</me>.
 	Note that the salary function is not differentiable at <m>u = 100</m> because it has a cusp,
 	and so the piecewise definition of <m>s'(u)</m> above leaves the derivative function undefined there.
-	(See <xref ref="subsection-avg-rage-non-diff-cusps" />.)
+	(See <xref ref="subsection-avg-rate-non-diff-cusps" />.)
 	</p>
 
 	<p>
@@ -222,7 +222,7 @@ The next step in analyzing the situation would be to try to make this observatio
 	the model for <m>q(t)</m> in terms of <m>t</m> is definitely not linear,
 	as we will see
 	in <xref ref="chapter-separable" />.
-	<!-- in a later chapter -->
+	<!-- in a later chapter. -->
 	</p>
 
 </example>

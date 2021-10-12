@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2021 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<chapter xml:id="chapter-poly" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Polynomial growth</title>
+
+<!-- TODO intro about polynomial functions? -->
+<!-- TODO rename to "Power and polynomial growth" -->
+
+<section xml:id="section-poly-constant-var">
+<title>Constant rate of variation</title>
+
+<p>
+The simplest type of polynomial is a constant function,
+which can be considered a degree-0 polynomial.
+</p>
+
+<example xml:id="example-poly-constant-accel">
+	<title>Constant acceleration</title>
+
+	<p>
+	Variation in the velocity of an objection in motion is called <term>acceleration</term>.
+	A small object dropped over the surface of an airless planet will experience constant acceleration toward the planet's surface.
+	We usually denote this constant acceleration as <m>g</m>,
+	since its cause is gravity.
+	If we measure velocity in metres per second,
+	then variation of velocity measures how many metres per second change we have per second,
+	so that <m>g</m> is measured in metres per second per second
+	(or <q>metres per second-squared</q>).
+	</p>
+
+	<p>
+	If the object is dropped with initial velocity
+	<quantity>
+		<mag>0</mag>
+		<unit base="metre" />
+		<per  base="second" />
+	</quantity>,
+	then we can use <xref ref="pattern-integ-definite-props-constant" text="type-local">Property</xref>
+	from <xref ref="pattern-integ-definite-props" />
+	to easily compute its velocity at any point in time after that,
+	up until the time that the object hits the surface of the planet.
+	<me> v(t) = \ccmint{0}{t}{g}{u} = g t </me>.
+	</p>
+
+</example>
+
+<identity xml:id="pattern-poly-constant-rate">
+	<title>Constant rate of variation</title>
+	<p>
+	If a quantity experiences a constant rate of variation <m>r(t) = c</m>
+	then the quantity itself can be modelled by a linear function
+	<me> q(t) = c t + q_0 </me>
+	where <m>q_0 = q(0)</m> is the initial amount.
+	</p>
+</identity>
+
+<p> <xref ref="pattern-poly-constant-rate" /> can be interpreted in reverse as well. </p>
+
+<identity xml:id="pattern-poly-linear-quantity">
+	<title>Linear quantity model</title>
+	<p>
+	If a quantity is modelled by a linear function
+	<me> q(t) = m t + b </me>,
+	then the rate of variation is constant,
+	equal to the slope of the linear function's graph:
+	<me> r(t) = m </me>.
+	</p>
+</identity>
+
+<p> We will verify <xref ref="pattern-poly-linear-quantity" /> mathematically in <xref ref="chapter-deriv" />. </p>
+
+</section>
+
+<section xml:id="section-poly-linear-var">
+<title>Linear rate of variation</title>
+
+<p> Next we consider a linear rate of variation. </p>
+
+<example xml:id="example-poly-linear-velo">
+	<title>Linear velocity</title>
+
+	<p>
+	In <xref ref="example-poly-constant-accel" />,
+	we saw that a constant acceleration model led to a linear velocity model.
+	But velocity itself is the rate of variation of position.
+	So we can integrate velocity to obtain a model of the accumulation of distance from the starting position,
+	otherwise known as <term>displacement</term>.
+	</p>
+
+	<p>
+	To simplify things, let us label the starting position as <q>position 0</q> so that displacement is the same as position.
+	Our rate function is <m>v(t) = g t</m> over a time domain beginning at <m>t = 0</m> and ending at the variable time <m>t = z</m>.
+	Since our graph is linear,
+	we can easily compute the accumulation for this rate function as an area under the graph,
+	similarly to <xref ref="example-integ-accumulation-from-area" />.
+	</p>
+
+	<figure xml:id="figure-poly-linear-accumulation-from-area">
+		<caption> Accumulation of displacement as net oriented area under a velocity graph. </caption>
+		<image width="60%">
+			<description>Graph of a velocity function with bounded oriented area as accumulation of displacement.</description>
+			<latex-image><xi:include href="poly.d/linear-accumulation-from-graph.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	The triangle in <xref ref="figure-poly-linear-accumulation-from-area" /> has height <m>v(t)</m> and base length <m>t</m>.
+	So, using the formula for area of a triangle,
+	we obtain
+	<me> \ccmint{0}{t}{v(u)}{u} = \frac{v(t) \cdot t}{2} = \frac{g t^2}{2} </me>.
+	</p>
+
+	<p> Let's ask Sage to confirm this for us. </p>
+
+	<sage>
+		<input>
+			var('g,t,u')
+			v(u) = g * u
+			v.integrate(u, 0, t)
+		</input>
+		<output> 1/2*g*t^2 </output>
+	</sage>
+
+	<p> So it seems that a linear rate function leads to parabolic growth/decay. </p>
+
+</example>
+
+<p>
+We can combine the pattern of the result of <xref ref="example-poly-linear-velo" />
+with <xref ref="pattern-poly-constant-rate" /> to deal with all linear rate functions,
+since <xref ref="pattern-integ-definite-props-additive" text="type-local">Property</xref>
+of <xref ref="pattern-integ-definite-props" /> says that
+<me> \ccmint{0}{t}{ m u + b }{u} = \ccmint{0}{t}{ m u }{u} + \ccmint{0}{t}{ b }{u} </me>.
+</p>
+
+<identity xml:id="pattern-poly-linear-rate">
+	<title>Linear rate of variation</title>
+	<p>
+	If a quantity experiences a linear rate of variation in the form <m>r(t) = m t + b</m>
+	then the quantity itself can be modelled by the quadratic function
+	<me> q(t) = \frac{m}{2} t^2 + b t + q_0 </me>
+	where <m>q_0 = q(0)</m> is the initial amount.
+	</p>
+</identity>
+
+<example xml:id="example-poly-parabolic-motion">
+	<title>Parabolic motion</title>
+
+	<p>
+	An object is thrown upwards from the surface of an airless planet with an initial velocity of <m>v_0</m> metres per second.
+	We would like to model the height of the object above the planet's surface as a function in time.
+	We start as before with the acceleration function <m>a(t)</m>.
+	As the object is initially moving <em>upwards</em> and the gravity of the planet pulls the object <em>downwards</em>,
+	this time we will take the constant acceleration to be a negative function:
+	<me> a(t) = - g </me>, where <m>g</m> represents the acceleration due to gravity in metres per second per second.
+	Since acceleration is the rate of variation of velocity,
+	<xref ref="pattern-poly-constant-rate" />
+	tells us that the velocity of the object can be modelled as
+	<me> v(t) = -g t + v_0 </me>.
+	And velocity is the rate of variation of position,
+	so from <xref ref="pattern-poly-constant-rate" />,
+	the position of the object (as a height above the surface) can be modelled as
+	<me> s(t) = -\frac{g}{2} t^2 + v_0 t </me>
+	if we take the initial position to be <m>s(0) = 0</m> at the surface of the planet.
+	</p>
+
+	<p>
+	There are some natural questions about the object's motion that arise.
+	<ul>
+
+		<li>
+			<title>When does the object return to the surface?</title>
+			<p>
+			To answer this,
+			we want to solve for <m>t</m> in the instances where <m>s(t) = 0</m>.
+			We can do this by factoring;
+			for convenience we will also factor out the fraction.
+			<me> s(t) = -\frac{g}{2} t^2 + v_0 t = \frac{t}{2} ( - g t + 2 v_0 ) </me>
+			From the factored form,
+			we can see that the object will be at the position of the surface when <m>t = 0</m>
+			(as we assumed)
+			and when
+			<md>
+				<mrow> - g t + 2 v_0 = 0 </mrow>
+				<mrow> \implies \quad t = \frac{2 v_0}{g} </mrow>
+			</md>.
+			</p>
+		</li>
+
+		<li>
+			<title>With what velocity does it strike the surface?</title>
+			<p>
+			We just need to substitute the time of return into the velocity model:
+			<me> v(2 v_0 / g) = - g (2 v_0 / g) + v_0 = - v_0 </me>.
+			Considering the symmetry of the parabolic position function (see <xref ref="figure-poly-parabolic-motion" />)
+			it makes sense that the object returns to the surface at the same speed that it left the surface,
+			but oppositely directed.
+			</p>
+		</li>
+
+		<li>
+			<title> When does the object reach its maximum height? </title>
+			<p>
+			From the symmetry of the parabolic position function (again see <xref ref="figure-poly-parabolic-motion" />),
+			we expect that the object will reach its maximum height halfway between its departure from and return to the surface,
+			at <me> t = \frac{v_0}{g} </me>.
+			</p>
+		</li>
+
+		<li>
+			<title>
+				What is the maximum height achieved?
+				What is the velocity at the instant the maximum height is reached?
+			</title>
+			<p>
+			Substituting the <q>halfway</q> time into the position and velocity functions,
+			we have
+			<md>
+				<mrow> \text{max height} = s(v_0 / g) = \frac{v_0^2}{2 g} </mrow>
+				<mrow> v(v_0 / g) = 0 </mrow>
+			</md>.
+			The fact that the velocity is <m>0</m> at the maximum height should not be a surprise <mdash />
+			when the object is thrown upwards,
+			it immediately begins to slow down because of gravity pulling back down,
+			until it momentarily stops at its maximum height before beginning to descend.
+			</p>
+		</li>
+
+	</ul>
+	</p>
+
+	<figure xml:id="figure-poly-parabolic-motion">
+		<caption> A position and velocity graph for parabolic motion due to gravity. </caption>
+		<image width="60%">
+			<description>A position and velocity graph for parabolic motion due to gravity.</description>
+			<latex-image><xi:include href="poly.d/parabolic-motion.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</section>
+
+<section xml:id="section-poly-higher-degree-var">
+<title>Polynomial rate of variation</title>
+
+<p>
+A pattern is beginning to emerge:
+<ul>
+	<li> a constant rate model leads to a linear quantity model </li>
+	<li> a linear rate model leads to a quadratic quantity model. </li>
+</ul>
+We might guess that a quadratic rate model should lead to a cubic quantity model.
+Let's ask Sage.
+</p>
+
+<sage>
+	<input>
+		var('t')
+		r(x) = x^2
+		r.integrate(x, 0, t)
+	</input>
+	<output> 1/3*t^3 </output>
+</sage>
+
+<p>
+It's true!
+(With some work, this could be verified using lower and upper Riemann sums.)
+Because of <xref ref="pattern-integ-definite-props-homogeneity" text="type-local">Property</xref>
+and <xref ref="pattern-integ-definite-props-additive" text="type-local">Property</xref>
+of <xref ref="pattern-integ-definite-props" />,
+we only need a pattern for rate functions that are a power of <m>t</m> in order to be able to handle any polynomial rate function,
+and that pattern appears to be
+<md><mrow xml:id="equation-poly-int-pattern" tag="star"> \ccmint{0}{t}{u^m}{u} = \frac{t^{m + 1}}{m + 1} </mrow></md>.
+</p>
+
+<example xml:id="example-poly-quantity-from-rate">
+	<title>Obtaining a quantity model from a polynomial rate function</title>
+	<p>
+	For rate function <me> r(t) = 3 t^5 - 37 t^4 + 22 t^3 + 7 t^2 - t + 56 </me>,
+	the associated quantity model is <me> q(t) = 3 \cdot \frac{t^6}{6} - 37 \cdot \frac{t^5}{5} + 22 \cdot \frac{t^4}{4} + 7 \cdot \frac{t^3}{3} - \frac{t^2}{2} + 56 t + q_0 </me>,
+	where <m>q_0 = q(0)</m> is the initial quantity.
+	</p>
+</example>
+
+<p>
+In fact,
+the pattern of <xref ref="equation-poly-int-pattern" /> is valid for <em>all</em> constant exponents <m>m</m>,
+with one important exception that we state below.
+But because negative powers of <m>t</m> exhibit singular behaviour at <m>t = 0</m>,
+we'll have to choose another time to act as the <q>initial</q> time.
+The next logical choice for a <q>standard</q> initial time is <m>t = 1</m> for domains of positive time.
+Let's ask Sage about accumulation for rate function <m>r(t) = t^{-2}</m> on a domain starting at <m>t = 1</m> and ending at a variable time.
+Note the extra <c>assume</c> command in this code block,
+where we tell Sage a little extra information about our variable domain end time so that Sage knows we are avoiding the singularity at <m>t = 0</m>
+</p>
+
+<sage>
+	<input>
+		var('t')
+		assume(t &gt; 1)
+		r(x) = x^(-2)
+		r.integrate(x, 1, t)
+	</input>
+	<output> -1/t + 1 </output>
+</sage>
+
+<p>
+If we rewrite the Sage result as <me> \frac{t^{-1}}{-1} + 1 </me>,
+then it essentially fits the pattern of <xref ref="equation-poly-int-pattern" /> for <m>m = -2</m>,
+and we can think of the extra <em>plus-<m>1</m></em> as an <q>initial value correction term</q>
+from the fact that we have shifted our <q>initial</q> time.
+</p>
+
+<identity xml:id="pattern-poly-int-power">
+	<title>Integral of a power of <m>t</m></title>
+
+	<ol>
+		<li xml:id="pattern-poly-int-power-positive-exp">
+			<title>Positive exponents</title>
+			<p>
+			For every positive, real value of exponent <m>m</m>,
+			<me> \ccmint{0}{t}{u^m}{u} = \frac{t^{m + 1}}{m + 1} </me>
+			for <m>t \ge 0 </m>.
+			</p>
+		</li>
+		<li xml:id="pattern-poly-int-power-negative-exp">
+			<title>Negative exponents</title>
+			<p>
+			For every negative, real value of exponent <m>m</m> <em>except</em> <m>m = -1</m>,
+			<me> \ccmint{1}{t}{u^m}{u} = \frac{t^{m + 1} - 1}{m + 1} </me>
+			for <m>t \gt 0 </m>.
+			</p>
+		</li>
+	</ol>
+
+</identity>
+
+<p> The case of <me> \ccmint{1}{t}{\frac{1}{u}}{u} </me> is a special one that we will explore in the next chapter. </p>
+
+<remark>
+	<title>Negative domains</title>
+
+	<p>
+	The results of <xref ref="pattern-poly-int-power" /> hold over negative domains as well.
+	The formula for positive exponents is valid as-is for <m>t \lt 0</m>,
+	as long as the rate function <m>r(t) = t^m</m> is defined there.
+	(For example, the formula would <em>not</em> be valid for <me> r(t) = t^{1/2} = \sqrt{t} </me>,
+	since that rate function is only defined for <m>t \ge 0</m>.)
+	For negative exponents,
+	a very similar formula can be obtained for <m>t \lt 0</m> using a lower bound of <m>t = -1</m>,
+	again for those exponents where a negative domain makes sense for the rate function.
+	</p>
+
+	<p>
+	Also note that for a power of <m>t</m> whose domain extends into the negatives,
+	its graph will always exhibit either even or odd symmetry,
+	so accumulation over a negative domain can always be determined from the accumulation over the <q>mirror image</q> positive domain,
+	and then taking into account the symmetry of those two accumulation areas under the rate graph.
+	</p>
+
+</remark>
+
+<p> Finally, let's record the pattern for polynomials that we used in <xref ref="example-poly-quantity-from-rate" />. </p>
+
+<identity xml:id="pattern-poly-quantity-from-rate">
+	<title>Integral of a polynomial</title>
+	<p>
+	For rate function <me> r(t) = r_0 + r_1 t + r_2 t^2 + \dotsb + r_m t^m </me>,
+	we have
+	<me> \ccmint{0}{t}{r(u)}{u} = r_0 t + \frac{r_1}{2} t^2 + \frac{r_2}{3} t^3 + \dotsb + \frac{r_{m - 1}}{m} t^m + \frac{r_m}{m + 1} t^{m + 1} </me>.
+	</p>
+</identity>
+
+</section>
+
+<!-- <xi:include href="./poly.d/activities.ptx" />
+<xi:include href="./poly.d/exercises.ptx" /> -->
+
+</chapter>
