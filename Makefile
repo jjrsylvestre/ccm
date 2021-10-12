@@ -8,7 +8,7 @@ SOURCES = \
 BRANDLOGO=AUG-Colour.png
 ROOTDOCNAME=book
 SERVEPORT=8082
-BUILDDIR=${XDG_RUNTIME_DIR}/pretext/ccm
+BUILDDIR=${XDG_RUNTIME_DIR}/pretext/tccm
 PRETEXT=/opt/pretext/pretext/pretext
 #PRETEXT=./pretext/pretext/pretext
 
