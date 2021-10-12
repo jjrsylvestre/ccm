@@ -58,6 +58,22 @@ respective owners.
 <xi:include href="./models.ptx" />
 
 <!--
+  Polynomial functions and behaviour. ** TODO **
+  Accumulation for constant rate of growth, then linear rate of growth, then generalize to polynomial rate of growth
+  (and also reciprocal powers of t).
+-->
+<xi:include href="./poly.ptx" />
+
+<!-- Exponential growth/decay. Exponential function: graph, properties, etc. -->
+<xi:include href="./exp.ptx" />
+
+<!-- Periodic growth/decay. Trig functions: graphs, properties, etc. -->
+<xi:include href="./periodic.ptx" />
+
+<!-- Models & differential equations where solution is periodic, with examples from the sciences. -->
+<xi:include href="./pmodels.ptx" />
+
+<!--
   Step functions.
   Accumulation when rate function is stepped.
   Sigma notation and Riemann sums.
@@ -72,33 +88,17 @@ respective owners.
 <xi:include href="./integ.ptx" />
 
 <!--
-  Polynomial functions and behaviour. ** TODO **
-  Accumulation for constant rate of growth, then linear rate of growth, then generalize to polynomial rate of growth
-  (and also reciprocal powers of t).
--->
-<xi:include href="./poly.ptx" />
-
-<!--
   Natural logarithm as accumulation for rate function r(t) = 1/t.
   Algebraic properties.
   ** TODO ** Example Models?
 -->
 <xi:include href="./log.ptx" />
 
-<!-- Exponential growth/decay. Exponential function: graph, properties, etc. -->
-<xi:include href="./exp.ptx" />
+<!-- Average value of a function. Mean Value Theorems. Fundamental Theorem. -->
+<xi:include href="./fund-thm.ptx" />
 
 <!-- Accumulation when rate of variation is exponential. Separable differential equations. -->
 <xi:include href="./separable.ptx" />
-
-<!-- Periodic growth/decay. Trig functions: graphs, properties, etc. -->
-<xi:include href="./periodic.ptx" />
-
-<!-- Models & differential equations where solution is periodic, with examples from the sciences. -->
-<xi:include href="./pmodels.ptx" />
-
-<!-- Average value of a function. Mean Value Theorems. Fundamental Theorem. -->
-<xi:include href="./fund-thm.ptx" />
 
 <!-- Chain rule. Reversing the chain rule (substitution). -->
 <xi:include href="./chain.ptx" />
