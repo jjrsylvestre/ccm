@@ -19,12 +19,18 @@
 
 %
 % to maintain all segments at same length L
-% (in this case L = 0.2)
 % use
 %   delta-x = (L/2) / sqrt(1 + m^2)
 %   delta-y = m * (L/2) / sqrt(1 + m^2)
 % (the L/2 is because we draw two segments, each from centre out to either right or left)
 %
+
+% the rate function
+\newcommand*{\dfslope}{- \y / 2}
+%
+\newcommand*{\halfsegmentlen}{0.15}  % (L = 0.3)
+\newcommand*{\dfdeltax}{\halfsegmentlen/sqrt(1+(\dfslope)^2)}
+\newcommand*{\dfdeltay}{\dfslope * \halfsegmentlen/sqrt(1+(\dfslope)^2)}
 
 \begin{tikzpicture}
 
@@ -41,8 +47,8 @@
 
 	\foreach \x in {0,0.5,1,...,6} {
 		\foreach \y in {0,0.5,1,...,6} {
-			\draw (\x,\y) -- ++($({0.1/sqrt(1+\y*\y/4)},{-0.1*\y/sqrt(1+\y*\y/4)/2})$);
-			\draw (\x,\y) -- ++($({-0.1/sqrt(1+\y*\y/4)},{0.1*\y/sqrt(1+\y*\y/4)/2})$);
+			\draw (\x,\y) -- ++($({\dfdeltax},{\dfdeltay})$);
+			\draw (\x,\y) -- ++($({-\dfdeltax},{-\dfdeltay})$);
 		}
 	}
 
