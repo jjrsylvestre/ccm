@@ -154,10 +154,11 @@ Exponential functions come in three varieties:
 <p> From the graphs in <xref ref="figure-exp-graphs" /> we have some obvious properties. </p>
 
 <identity xml:id="pattern-exp-domain-range">
-	<title>Domain, range, and long-term behaviour</title>
+	<title>Domain and range</title>
 	<p>
 	The domain of an exponential function covers the whole real number line,
 	with no singular points,
+	and the range consists of all positive real numbers.
 	</p>
 </identity>
 
@@ -213,19 +214,16 @@ Exponential functions come in three varieties:
 			<mrow>       a^t = b                   </mrow>
 			<mrow> \ln (a^t) = \ln b               </mrow>
 			<mrow>   t \ln a = \ln b               </mrow>
-			<mrow>         t = \frac{\ln b}{\ln b} </mrow>
+			<mrow>         t = \frac{\ln b}{\ln a} </mrow>
 		</md>.
 		Substituting <m>b = a^{(\ln b / \ln a)}</m> into the exponential function formula <m>b^t</m>,
 		we obtain
-		<md>
-			<mrow> b^t \amp = {(a^{(\ln b / \ln a)})}^t </mrow>
-			<mrow> \amp = a^{t (\ln b / \ln a)} </mrow>
-		</md>.
+		<me> b^t = {(a^{(\ln b / \ln a)})}^t = a^{t (\ln b / \ln a)} </me>.
 		</p>
 
 		<figure xml:id="figure-exp-new-base-horiz-scale-graph">
 			<caption> Graph of one exponential function as a horizontal scaling of another. </caption>
-			<image width="75%">
+			<image width="66%">
 				<description> Graph of one exponential function as a horizontal scaling of another. </description>
 				<latex-image><xi:include href="exp.d/new-base-horiz-scale-graph.tex" parse="text" /></latex-image>
 			</image>
