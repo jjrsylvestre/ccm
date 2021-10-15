@@ -13,6 +13,8 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
+<!-- TODO go back through old exponential chapter and move lots of omitted stuff here -->
+
 <chapter xml:id="chapter-log" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Logarithmic growth</title>
 
@@ -20,7 +22,8 @@ respective owners.
 <title>The natural logarithm</title>
 
 <p>
-<xref ref="pattern-poly-int-power" /> tells us how to calculate a quantity's accumulation for any rate model that is a power of <m>t</m>,
+TODO-FIX <!-- <xref ref="pattern-poly-int-power" /> -->
+tells us how to calculate a quantity's accumulation for any rate model that is a power of <m>t</m>,
 <em>except</em> for the special case of <m>r(t) = t^{-1}</m>.
 It turns out there is no simple formula for the accumulation for this special rate function,
 so we will have to resort to using integral notation to represent it.

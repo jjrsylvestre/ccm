@@ -28,7 +28,7 @@
 
 	% axes
 	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below] {$t$};
-	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$r(t) = 1/t$};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$f(t) = 1/t$};
 
 	% graph
 	\draw[thick, blue, domain=0.333:3.333, smooth] plot (\x,{1 / \x});
@@ -39,7 +39,7 @@
 	\draw[blue] (right) -- (2.718,0);
 	\node[below] at (2.718,0) {$e$};
 
-	\node at (2.5,2) (int) {$\displaystyle \ccmint{1}{e}{\frac{1}{t}}{t} = 1$};
+	\node at (2.5,2) (int) {Area $= 1$};
 	\draw[very thin] (int) -- (1.75,0.333);
 
 \end{tikzpicture}
