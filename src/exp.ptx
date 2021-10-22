@@ -106,9 +106,16 @@ but for the moment we will assume that our formula <m> r(t) = 2^t </m> matches o
 	<title>Exponential function with base <m>a</m></title>
 	<p>
 	For positive constant <m>a</m>,
-	the function <m>f(t) = a^t</m>.
+	the <term>exponential function with base <m>a</m></term> is the function <m>f(t) = c a^t</m>,
+	where the constant <m>c</m> represents the initial value <m>c = f(0)</m>.
 	</p>
 </definition>
+
+<p>
+As the constant <m>c</m> merely represents a vertical scaling and/or reflection
+(if <m>c</m> is negative),
+we will focus our further investigation of exponential functions on the case <m>c = 1</m>.
+</p>
 
 <p>
 Exponential functions come in three varieties:
