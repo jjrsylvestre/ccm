@@ -95,6 +95,59 @@ for <m>0 \lt t \lt 1</m> is the <em>negative</em> of the accumulation that occur
 	</sidebyside>
 </figure>
 
+<example xml:id="example-log-definite-integral">
+	<title>Using the natural logarithm to represent integral values</title>
+	<p>
+	Suppose we would like to calculate
+	<me> \ccmint{3}{4}{ t + \frac{1}{t} }{t} </me>.
+	Similarly to <xref ref="example-poly-definite-integral" />,
+	we split into two integrals,
+	and then use
+	<xref ref="pattern-integ-definite-props-split" text="type-local">Property</xref>
+	of <xref ref="pattern-integ-definite-props" />
+	to re-base our integrals to match our formulas.
+	<md>
+
+		<mrow>
+			\ccmint{3}{4}{ t + \frac{1}{t} }{t}
+			\amp = \ccmint{3}{4}{t}{t} + \ccmint{3}{4}{\frac{1}{t}}{t}
+		</mrow>
+
+		<mrow>
+			\amp =
+			\left(
+				\ccmint{0}{4}{t}{t}
+				- \ccmint{0}{3}{t}{t}
+			\right)
+			+ \left(
+				\ccmint{1}{4}{\frac{1}{t}}{t}
+				- \ccmint{1}{3}{\frac{1}{t}}{t}
+			\right)
+		</mrow>
+
+		<mrow>
+			\amp =
+			\left( \frac{4^2}{2} - \frac{3^2}{2} \right)
+			+ ( \ln 4 - \ln 3 )
+		</mrow>
+
+		<mrow> \amp = \frac{7}{2} + \ln \left(\frac{4}{3}\right) </mrow>
+
+	</md>
+	</p>
+</example>
+
+<remark><p>
+	It might seem like <q>cheating</q> to write <m>\ln 4</m> as the value of
+	<me> \ccmint{1}{4}{\frac{1}{t}}{t} </me>,
+	since <xref ref="definition-log-natural" /> says that to calculate <m>\ln 4</m> we would need to calculate that very integral
+	(and similarly for <m>\ln 3</m>).
+	But this is an acceptable way to represent the value of this integral,
+	as there are several ways to numerically approximate values of the natural logarithm <mdash />
+	using Riemann sums, for example.
+	Your calculator even has a <m>\ln</m> button.
+</p></remark>
+
 </section>
 
 <section xml:id="section-log-props">

@@ -76,14 +76,12 @@ respective owners.
 <!-- Exponential growth/decay. Exponential function: graph, properties, etc. -->
 <xi:include href="./exp.ptx" />
 
-<!-- Accumulation when rate of variation is exponential. Separable differential equations. -->
-<xi:include href="./separable.ptx" />
-
 <!-- Periodic growth/decay. Trig functions: graphs, properties, etc. -->
 <xi:include href="./periodic.ptx" />
 
 <!-- Models & differential equations where solution is periodic, with examples from the sciences. -->
-<xi:include href="./pmodels.ptx" />
+<!-- OMIT -->
+<!-- <xi:include href="./pmodels.ptx" /> -->
 
 <!-- Average rate of accumulation. Differentials and approximate rate of accumulation. -->
 <xi:include href="./avg-rate.ptx" />
@@ -99,6 +97,9 @@ respective owners.
 
 <!-- Chain rule. Reversing the chain rule (substitution). -->
 <xi:include href="./chain.ptx" />
+
+<!-- Separable differential equations. -->
+<xi:include href="./separable.ptx" />
 
 <!--
   Implicit differentiation.

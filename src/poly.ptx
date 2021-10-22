@@ -831,6 +831,97 @@ from the fact that we have shifted our <q>initial</q> time.
 	</p>
 </identity>
 
+<example xml:id="example-poly-definite-integral">
+	<title>Using <xref ref="pattern-poly-int-power" /> and <xref ref="pattern-poly-quantity-from-rate" /></title>
+	<p>
+	Suppose we want to compute <me> \ccmint{3}{7}{ 4 - 5 t^2 + 9 t^{13} + \frac{11}{t^4} }{t} </me>.
+	The formulas
+	in <xref ref="pattern-poly-int-power" />
+	and <xref ref="pattern-poly-quantity-from-rate" />
+	involve a lower bound of <m>0</m> or <m>1</m>.
+	We can use the properties in <xref ref="pattern-integ-definite-props" /> to change the bounds of integration to match.
+	<md>
+
+		<mrow> \amp \ccmint{2}{5}{ 4 - 5 t^2 + 9 t^3 + \frac{11}{t^4} }{t} </mrow>
+
+		<mrow>
+			\amp
+			= \ccmint{2}{5}{ 4 - 5 t^2 + 9 t^3 }{t}
+			+ 11 \ccmint{2}{5}{ t^{-4} }{t} \amp \amp\text{(i)}
+		</mrow>
+
+		<mrow>
+			\amp =
+			\left(
+				\ccmint{0}{5}{ 4 - 5 t^2 + 9 t^3 }{t}
+				- \ccmint{0}{2}{ 4 - 5 t^2 + 9 t^3 }{t}
+			\right)
+		</mrow>
+		<mrow>
+			\amp \qquad {} +
+			11 \left(
+				\ccmint{1}{5}{ t^{-4} }{t}
+				- \ccmint{1}{2}{ t^{-4} }{t}
+			\right)
+			\amp \amp\text{(ii)}
+		</mrow>
+
+		<mrow>
+			\amp =
+			\bbrac{
+				(4 \cdot 5 - \frac{5}{3} \cdot 5^3 + \frac{9}{4} 5^4)
+				- (4 \cdot 2 - \frac{5}{3} \cdot 2^3 + \frac{9}{4} 2^4)
+			}
+		</mrow>
+		<mrow>
+			\amp \qquad {} +
+			11 \left(
+				\frac{5^{-3} - 1}{-3}
+				- \frac{2^{-3} - 1}{-3}
+			\right)
+			\amp \amp\text{(iii)}
+		</mrow>
+
+		<mrow> \amp = \frac{1187679}{1000} </mrow>
+
+	</md>
+	The steps above are justified as follows.
+	<ol label="(i)">
+
+		<li>
+			<xref ref="pattern-integ-definite-props-homogeneity" text="type-local">Property</xref>
+			and <xref ref="pattern-integ-definite-props-additive" text="type-local">Property</xref>
+			of <xref ref="pattern-integ-definite-props" />.
+		</li>
+
+		<li>
+			<xref ref="pattern-integ-definite-props-split" text="type-local">Property</xref>
+			of <xref ref="pattern-integ-definite-props" />,
+			where we use
+			<md alignment="gather">
+				<mrow>
+					\ccmint{0}{5}{ 4 - 5 t^2 + 9 t^3 }{t}
+					= \ccmint{0}{2}{ 4 - 5 t^2 + 9 t^3 }{t} + \ccmint{2}{5}{ 4 - 5 t^2 + 9 t^3 }{t}
+				</mrow>
+				<mrow>
+					\ccmint{1}{5}{ t^{-4} }{t}
+					= \ccmint{1}{2}{ t^{-4} }{t} + \ccmint{2}{5}{ t^{-4} }{t}
+				</mrow>
+			</md>.
+			Note that we have used a lower bound of <m>0</m> for the first integral and a lower bound of <m>1</m> for the second to match the different cases of
+			<xref ref="pattern-poly-int-power" />.
+		</li>
+
+		<li>
+			Applying <xref ref="pattern-poly-quantity-from-rate" /> to the first pair of integrals
+			and <xref ref="pattern-poly-int-power-negative-exp" text="type-local">Formula</xref>
+			from <xref ref="pattern-poly-int-power" /> to the second pair.
+		</li>
+
+	</ol>
+	</p>
+</example>
+
 </section>
 
 <!-- <xi:include href="./poly.d/activities.ptx" />
