@@ -14,12 +14,708 @@ respective owners.
 *********************************************************************-->
 
 <chapter xml:id="chapter-periodic" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Periodic growth/decay</title>
+<title>Trigonometric functions</title>
 
-<section xml:id="section-periodic-intro">
-<title>TODO</title>
+<section xml:id="section-periodic-behaviour">
+<title>Periodic behaviour</title>
 
-<p> TODO </p>
+<example xml:id="example-periodic-spring">
+	<title>Oscillation of a mass on a spring</title>
+
+	<p>
+	Consider a spring with a mass attached to one end and the other end attached to a wall.
+	For simplicity,
+	we will assume that the mass rests on a frictionless surface.
+	Let <m>s(t)</m> represent the position of the spring relative to the wall at time <m>t</m>,
+	and let <m>s_{\mathrm{eq}}</m> represent the <q>equilibrium</q> position.
+	</p>
+
+	<figure>
+		<caption>A mass attached to a spring.</caption>
+
+		<sbsgroup width="80%">
+
+			<sidebyside><figure>
+				<caption>
+					At the equilibrium position,
+					where the spring is neither compressed nor stretched.
+				</caption>
+				<image>
+					<description>A mass attached to a spring, at equilibrium position.</description>
+					<latex-image><xi:include href="periodic.d/mass-equil.tex" parse="text" /></latex-image>
+				</image>
+			</figure></sidebyside>
+
+			<sidebyside><figure>
+				<caption>
+					At a negative position,
+					where the spring is compressed.
+				</caption>
+				<image>
+					<description>A mass attached to a spring, at a negative position with the spring compressed.</description>
+					<latex-image><xi:include href="periodic.d/mass-compressed.tex" parse="text" /></latex-image>
+				</image>
+			</figure></sidebyside>
+
+			<sidebyside><figure>
+				<caption>
+					At a positive position,
+					where the spring is stretched.
+				</caption>
+				<image>
+					<description>A mass attached to a spring, at a positive position with the spring stretched.</description>
+					<latex-image><xi:include href="periodic.d/mass-stretched.tex" parse="text" /></latex-image>
+				</image>
+			</figure></sidebyside>
+
+		</sbsgroup>
+
+	</figure>
+
+	<p>
+	Imagine what will happen if the mass is held at a position that compresses the spring,
+	and then is released.
+	The initial velocity of the mass is <m>0</m>,
+	as it is starting from rest,
+	but the force of the spring causes it to accelerate.
+	The mass reaches its highest velocity as it passes the equilibrium position,
+	since past that point the spring is now stretched and begins to pull back on the mass.
+	The force of the stretched spring now causes the spring to slow down,
+	stop,
+	and begin to move back towards the wall.
+	We now consider the mass to have negative velocity as it is moving in the opposite direction,
+	and its distance from the wall is now decreasing.
+	The mass reaches its largest negative velocity as it again passes the equilibrium position
+	before slowing down, stopping,
+	and repeating the motion all over again.
+	</p>
+
+	<figure xml:id="figure-periodic-velocity-spring-mass">
+		<caption> A velocity graph for a mass attached to a spring. </caption>
+		<image width="50%">
+			<description> A velocity graph for a mass attached to a spring. </description>
+			<latex-image><xi:include href="periodic.d/sine-for-spring.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	Now consider the position function <m>s(t)</m>.
+	For simplicity,
+	let's label the equilibrium position as <m>s = 0</m>,
+	so that positions closer to the wall than equilibrium and negative,
+	and positions farther from the wall are positive.
+	If the mass begins at position <m>s(0) = -A</m>
+	(with <m>A</m> positive),
+	it will reach the equilibrium position <m>s(t) = 0</m> at the same time that the velocity is at its peak,
+	and will by symmetry will the position <m>s(t) = A</m> will be the furthest from the wall it reaches,
+	at the same time that velocity is a gain <m>0</m>.
+	Then its position will return back to <m>s(t) = -A</m> following the same pattern in reverse.
+	</p>
+
+	<figure xml:id="figure-periodic-position-spring-mass">
+		<caption> A position graph for a mass attached to a spring. </caption>
+		<image width="50%">
+			<description> A position graph for a mass attached to a spring. </description>
+			<latex-image><xi:include href="periodic.d/cos-for-spring.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+The repetitive motion in <xref ref="example-periodic-spring" /> is called <term>periodic</term>.
+The <term>period</term> is the time duration required to complete one cycle of the repetition.
+The smoothly oscillating functions in <xref ref="figure-periodic-position-spring-mass" />
+are called <term>sinusoidal functions</term>.
+<!-- There are two basic sinusoidal functions:
+the sine and cosine functions. -->
+</p>
+
+<!-- TODO sidebyside figures of sin and cos -->
+
+<!-- TODO amplitude, frequency, period, bias, phase shift -->
+
+</section>
+
+<section>
+<title>Radian measure</title>
+
+<p>
+A circle with radius <m>R = 1</m> has circumference <m>C = 2 \pi</m>.
+This means that if we cut the circle and <q>unrolled</q> it into a straight line segment,
+its length would be <m>2 \pi</m>.
+</p>
+
+<figure xml:id="figure-periodic-full-circumference">
+	<caption> An unrolled circle of radius <m>1</m>. </caption>
+	<image width="75%">
+		<description> An unrolled unit circle. </description>
+		<latex-image><xi:include href="periodic.d/circumference.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+Given two points on the circle, we may ask the question:
+<q>What is the distance along the circle between these two points?</q>
+</p>
+
+<figure xml:id="figure-periodic-partial-circumference">
+	<caption> A straightened arc of a unit circle. </caption>
+	<image width="75%">
+		<description> A straightened arc of a unit circle. </description>
+		<latex-image><xi:include href="periodic.d/arc.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p> Such a distance along a circle is called an <term>arc length</term>. </p>
+
+<p>
+If we draw line segments from the centre of the circle to each of two points on the circle,
+an angle is created.
+</p>
+
+<definition>
+	<title>Radian measure of an angle</title>
+
+	<p>
+	Given an angle formed by two line segments that meet at a vertex,
+	extend the segments in the direction away from the vertex until each has length at least <m>1</m> unit,
+	if necessary.
+	Then the circle of radius <m>R = 1</m> centred at the vertex will cut the two segments.
+	Define the <term>radian measure</term> of this angle to be the arc length between the points where the circle cuts the segments.
+	</p>
+
+</definition>
+
+<figure xml:id="figure-periodic-radian">
+	<caption> Radian measure of an angle equals arc length along a unit circle. </caption>
+	<image width="50%">
+		<description> Radian measure of an angle equals arc length along a unit circle. </description>
+		<latex-image><xi:include href="periodic.d/radian.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+For example,
+a right angle creates an arc that is one quarter of a circle,
+and so has radian measure <me> \frac{2 \pi}{4} = \frac{\pi}{2} </me>.
+A <m>45 \degree</m> angle will create an arc half the length of that for a right angle,
+and so has radian measure <m>\pi / 4</m>.
+</p>
+
+<figure xml:id="figure-periodic-radian-two-examples">
+	<caption> Two example radian measures. </caption>
+
+	<sidebyside widths="45% 45%">
+
+		<figure xml:id="figure-periodic-radian-two-examples-right">
+			<caption> Radian measure of a right angle. </caption>
+			<image>
+				<description> Radian measure of a right angle. </description>
+				<latex-image><xi:include href="periodic.d/radian-right.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-periodic-radian-two-examples-45">
+			<caption> Radian measure of a <m>45 \degree</m> angle. </caption>
+			<image>
+				<description> Radian measure of a 45-degree angle. </description>
+				<latex-image><xi:include href="periodic.d/radian-45.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+<p>
+Here are some common radian measures,
+with the corresponding angle measure in degrees.
+</p>
+
+<figure xml:id="figure-periodic-table-radian-measure">
+	<caption>Some common radian measures.</caption>
+	<tabular halign="center">
+		<col right="minor" /><col />
+		<row bottom="minor"> <cell>Degrees</cell> <cell>Radians</cell> </row>
+		<row> <cell><m>0 \degree</m></cell> <cell>0</cell> </row>
+		<row> <cell><m>30 \degree</m></cell> <cell><m>\frac{\pi}{6}</m></cell> </row>
+		<row> <cell><m>45 \degree</m></cell> <cell><m>\frac{\pi}{4}</m></cell> </row>
+		<row> <cell><m>60 \degree</m></cell> <cell><m>\frac{\pi}{3}</m></cell> </row>
+		<row> <cell><m>90 \degree</m></cell> <cell><m>\frac{\pi}{2}</m></cell> </row>
+		<row> <cell><m>120 \degree</m></cell> <cell><m>\frac{2 \pi}{3}</m></cell> </row>
+		<row> <cell><m>135 \degree</m></cell> <cell><m>\frac{3 \pi}{4}</m></cell> </row>
+		<row> <cell><m>150 \degree</m></cell> <cell><m>\frac{5 \pi}{6}</m></cell> </row>
+		<row> <cell><m>180 \degree</m></cell> <cell><m>\pi</m></cell> </row>
+		<row> <cell><m>270 \degree</m></cell> <cell><m>\frac{3 \pi}{2}</m></cell> </row>
+		<row> <cell><m>360 \degree</m></cell> <cell><m>2 \pi</m></cell> </row>
+	</tabular>
+</figure>
+
+<p>
+In general, we can convert between degrees and radians by the relation
+<me> 1 \degree = \frac{2 \pi}{360} \text{ radians} </me>.
+</p>
+
+<p>
+Finally,
+by allowing both positive- and negative-measure angles,
+we can take direction into account.
+To do this,
+we label one of the two points on the circle as <q>first</q> and the other as <q>second</q>.
+Then an angle that opens <em>counter-clockwise</em> from first point to second point is considered positive,
+while an angle that opens <em>clockwise</em> from first point to second point is considered negative.
+</p>
+
+<!-- TODO figure ? -->
+
+<p>
+When working with the unit circle centred at the origin in the Cartesian plane,
+we generally take the point <m>(1,0)</m> as the <q>first</q> point to act as a reference point.
+</p>
+
+<!-- TODO figure ? -->
+
+</section>
+
+<section>
+<title>The six trigonometric functions</title>
+
+<p>
+The most basic form of periodic behaviour is to repeatedly traverse a circle,
+so that every period is one traversal of the circle.
+</p>
+
+<figure xml:id="figure-periodic-traverse-circle">
+	<caption> Traversing the unit circle. </caption>
+	<image width="50%">
+		<description> Traversing the unit circle. </description>
+		<latex-image><xi:include href="periodic.d/traverse-circle.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+Consider how the <m>x</m>-coordinate varies as we traverse the unit circle,
+starting at the point <m>(1,0)</m> on the <m>x</m>-axis and moving counter-clockwise.
+In particular,
+let's match <m>x</m>-coordinates of positions along the circle to angles,
+with variable <m>t</m> representing the angle between the radius to the reference point <m>(1,0)</m> and the radius to the position point,
+as in <xref ref="figure-periodic-traverse-circle" />.
+Starting at the reference point <m>(1,0)</m> on the positive <m>x</m>-axis,
+we observe the following.
+<ul>
+
+	<li>
+		The <m>x</m>-coordinate decreases from <m>x = 1</m> at <m>t = 0</m> to <m>x = 0</m> at the point <m>(0,1)</m> on the positive <m>y</m>-axis,
+		where <m>t = \pi/2</m>.
+	</li>
+
+	<li>
+		From there,
+		the <m>x</m>-coordinate continues to decrease to <m>x = -1</m> when it reaches the point <m>(-1,0)</m> on the negative <m>x</m>-axis,
+		where <m>t = \pi</m>.
+	</li>
+
+	<li>
+		From there,
+		the <m>x</m>-coordinate increases through <m>x = 0</m> at the point <m>(0,-1)</m> on the negative <m>y</m>-axis
+		(where <m>t = 3\pi / 2</m>)
+		back to <m>x = 1</m> when it returns to the reference point <m>(1,0)</m>.
+		Even though this is at <m>t = 0</m>,
+		we consider it to be <m>t = 2 \pi</m>,
+		since we have now made one full traversal of the circumference of the circle.
+	</li>
+
+</ul>
+Traversing the circle a second (or third, or fourth) time just repeats this behaviour.
+And if we traverse the circle in reverse
+(so that now <m>t</m> is considered negative),
+we observe the above behaviour in reverse.
+Here is the graph of <em>angle-versus-<m>x</m>-coordinate</em> formed by this behaviour.
+</p>
+
+<figure xml:id="figure-periodic-cos-graph">
+	<caption>
+		Graph of the cosine function,
+		which tracks the <m>x</m>-coordinate of positions on the unit circle.
+	</caption>
+	<image width="100%">
+		<description> Graph of the cosine function. </description>
+		<latex-image><xi:include href="periodic.d/cos.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<definition>
+	<title>The cosine function</title>
+	<p>
+	Given input value <m>t</m>,
+	the output value <m>\cos(t)</m> is taken to be the <m>x</m>-coordinate of the point <m>(x,y)</m> on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
+	</p>
+</definition>
+
+<p>
+Also consider how the <m>y</m>-coordinate varies as we traverse the unit circle,
+and how that variation tracks the variation in the angle <m>t</m>.
+With an analysis similar to the one above for the variation in the <m>x</m>-coordinate of the position,
+we arrive at the following graph of <em>angle-versus-<m>y</m>-coordinate</em>.
+</p>
+
+<figure xml:id="figure-periodic-sin-graph">
+	<caption>
+		Graph of the cosine function,
+		which tracks the <m>x</m>-coordinate of positions on the unit circle.
+	</caption>
+	<image width="100%">
+		<description> Graph of the sine function. </description>
+		<latex-image><xi:include href="periodic.d/sin.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+
+<definition>
+	<title>The sine function</title>
+	<p>
+	Given input value <m>t</m>,
+	the output value <m>\sin(t)</m> is taken to be the <m>y</m>-coordinate of the point <m>(x,y)</m> on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
+	</p>
+</definition>
+
+<p>
+Due to the abundance of symmetry in a circle,
+the graphs of the sine and cosine also display many instances of symmetry,
+which we can express as transformations of functions.
+</p>
+
+<identity xml:id="pattern-periodic-sin-cos-identities">
+	<title>Identities involving sine and cosine</title>
+	<p>
+	The sine and cosine functions satisfy the following identities.
+	<md>
+		<mrow>
+			\sin(-t) \amp = - \sin(t)
+			\amp
+			\cos(-t) \amp = \cos(t)
+		</mrow>
+		<mrow>
+			\sin(t - \pi/2) \amp = - \cos(t)
+			\amp
+			\cos(t - \pi/2) \amp = \sin(t)
+		</mrow>
+		<mrow>
+			\sin(t + \pi/2) \amp = \cos(t)
+			\amp
+			\cos(t + \pi/2) \amp = - \sin(t)
+		</mrow>
+	</md>
+	<me> {\bbrac{\cos(t)}}^2 + {\bbrac{\sin(t)}}^2 = 1 </me>
+	</p>
+</identity>
+
+
+<p>
+In <xref ref="section-periodic-trig-triangles" />
+we will review the connection between trigonometry and the geometry of right triangles;
+specifically, ratios of sides in a right triangle.
+With that goal in mind,
+we make the following definitions of four more trigonometric functions as ratios.
+</p>
+
+<definition xml:id="definition-periodic-tan-cot-sec-csc">
+	<title>The tangent function and reciprocal trigonometric functions</title>
+	<p>
+	Given input value <m>t</m>,
+	let <m>(x,y)</m> represent the point on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
+	Then we define the <term>tangent</term>, <term>cotangent</term>, <term>secant</term>, and <term>cosecant</term> functions by
+	<md>
+		<mrow> \tan t \amp = \frac{y}{x} \amp \sec t \amp = \frac{1}{x} </mrow>
+		<mrow> \cot t \amp = \frac{x}{y} \amp \csc t \amp = \frac{1}{y} </mrow>
+	</md>.
+	</p>
+</definition>
+
+<!-- TODO graphs of these new trig functions -->
+
+<identity>
+	<title>Rational/reciprocal relationships between trigonometric functions</title>
+
+	<statement><p>
+		We have
+		<md>
+			<mrow>
+				\tan t \amp = \frac{\sin t}{\cos t}
+				\amp
+				\sec t \amp = \frac{1}{\cos t}
+			</mrow>
+			<mrow>
+				\cot t \amp = \frac{1}{\tan t} = \frac{\cos t}{\sin t}
+				\amp
+				\csc t \amp = \frac{1}{\sin t}
+			</mrow>
+		</md>
+	</p></statement>
+
+	<proof><p>
+		With angle <m>t</m> and point <m>(x,y)</m> on the unit circle as in <xref ref="definition-periodic-tan-cot-sec-csc" />,
+		we have
+		<md>
+			<mrow>
+				\cos t \amp = x
+				\amp
+				\tan t \amp = \frac{y}{x}
+				\amp
+				\sec t \amp = \frac{1}{x}
+			</mrow>
+			<mrow>
+				\sin t \amp = y
+				\amp
+				\cot t \amp = \frac{x}{y}
+				\amp
+				\csc t \amp = \frac{1}{y}
+			</mrow>
+		</md>,
+		and the relationships in the pattern statement follow immediately.
+	</p></proof>
+
+</identity>
+
+</section>
+
+<section xml:id="section-periodic-trig-triangles">
+<title>Trigonometry in triangles</title>
+
+<p>
+Given a right triangle,
+we can draw a unit circle centred at the vertex opposite the hypotenuse.
+This circle will either cut the hypotenuse or we may extend the hypotenuse until it reaches the circle.
+Treating one of the triangle's legs as representing the positive <m>x</m>-axis,
+we may use the angle formed by the hypotenuse and that leg as the input to the trigonometric functions.
+</p>
+
+<figure xml:id="figure-periodic-cut-extend-right-triangle">
+	<caption>Creating a similar right triangle in a unit circle.</caption>
+
+	<sidebyside widths="45% 45%">
+
+		<figure>
+			<caption> Cutting a right triangle with a unit circle. </caption>
+			<image>
+				<description> Cutting a right triangle with a unit circle. </description>
+				<latex-image><xi:include href="periodic.d/cut-right-1.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure>
+			<caption> Extending a right triangle within a unit circle. </caption>
+			<image>
+				<description> Extending a right triangle within a unit circle. </description>
+				<latex-image><xi:include href="periodic.d/cut-right-2.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+<p>
+In both cases demonstrated in <xref ref="figure-periodic-cut-extend-right-triangle" />,
+the two triangles are <term>similar triangles</term>,
+which means that a ratio of side lengths in one of the triangles will equal the ratio of corresponding side lengths in the other triangle.
+Therefore,
+<md>
+	<mrow>
+		\cos \theta \amp = \frac{x}{1} = \frac{a}{c}
+		\amp
+		\sin \theta \amp = \frac{y}{1} = \frac{b}{c}
+		\amp
+		\tan \theta \amp = \frac{y}{x} = \frac{b}{a}
+	</mrow>
+</md>,
+leading to the familiar acronyms SOH CAH TOA:
+<md>
+	<mrow>
+		\cos \theta \amp = \frac{\mathrm{adj}}{\mathrm{hyp}}
+		\amp
+		\sin \theta \amp = \frac{\mathrm{opp}}{\mathrm{hyp}}
+		\amp
+		\tan \theta \amp = \frac{\mathrm{opp}}{\mathrm{adj}}
+	</mrow>
+</md>.
+</p>
+
+<figure>
+	<caption>SOH CAH TOA.</caption>
+	<image width="33%">
+		<description>SOH CAH TOA.</description>
+		<latex-image><xi:include href="periodic.d/soh-cah-toa.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+</section>
+
+<section>
+<title>Trigonometric rate functions</title>
+
+<p>
+<xref ref="example-periodic-spring" /> has already provided us with an example of a rate/position function pair involving trigonometric functions.
+Suppose we take the motion in that example to have an amplitude of <m>1</m>,
+so that when the object is stopped at maximum compression of the spring and at maximum stretch of the spring,
+it is <m>1</m> unit away from the central equilibrium position.
+And suppose we assume that the time units are normalized so that one full period of the motion,
+from compressed spring to stretched back to compressed,
+represents the time domain <m>0 \le t \le 2 \pi</m>.
+Then the velocity can be modelled by the sine function and the position can be modelled by the negative of the cosine function:
+<md><mrow> v(t) \amp = \sin t \amp s(t) = - \cos t </mrow></md>.
+The reason that we have the <em>negative</em> of the cosine function as the position function is because we took the central equilibrium position to be <m>s = 0</m>,
+with <m>s \lt 0</m> representing a position closer to the wall and <m>s \gt 0</m> representing a position further from the wall compared to the centre position.
+So when the object is released from a stop at a compressed position,
+we are taking <m>s(0) = -1</m>.
+And from the there the object moves forward,
+so that the position values increase and the velocity values becomes positive.
+</p>
+
+<p>
+As the object begins to move,
+it accumulates displacement from the initial position <m>s(0) = -1</m>:
+<md>
+	<mrow> s(t) \amp = s(0) + \ccmint{0}{t}{v(u)}{u} </mrow>
+	<mrow> \amp = -1 + \ccmint{0}{t}{\sin(u)}{u} </mrow>
+</md>.
+On the other hand,
+we have already modelled position as <m>s(t) = - \cos(t)</m>:
+<me> - \cos(t) = -1 + \ccmint{0}{t}{\sin(u)}{u} </me>.
+</p>
+
+<identity xml:id="pattern-periodic-int-sin">
+	<title>Accumulation when rate function is sine</title>
+	<p>
+	For all values of <m>t</m>,
+	<me> \ccmint{0}{t}{\sin(u)}{u} = 1 - \cos(t) </me>.
+	</p>
+</identity>
+
+<p>
+For a cosine rate function,
+we can use the fact that cosine is just a horizontal shift of the sine function:
+<me> \cos(t) = \sin(t + \pi/2) </me>.
+(See <xref ref="pattern-periodic-sin-cos-identities" />.)
+Accordingly, if we shift time so that we consider the velocity of the object in <xref ref="example-periodic-spring" /> as being modelled by <m>v(t) = \cos(t)</m>,
+then we can just shift our position function by the same amount:
+<md>
+	<mrow>
+		v(t) \amp = \cos(t)
+		\amp
+		s(t) \amp = -\cos(t + \pi/2)
+	</mrow>
+	<mrow>
+		\amp = \sin(t + \pi/2)
+		\amp
+		\amp = - \bbrac{-\sin(t)}
+	</mrow>
+	<mrow>
+		\amp \amp \amp = \sin(t)
+	</mrow>
+</md>.
+Essentially,
+we have shifted time so that <m>t = 0</m> means the moment that the object first moves through the equilibrium position at <m>s = 0</m> with its maximum positive velocity.
+Again,
+we think of the object as accumulating displacement from its initial position:
+<md>
+	<mrow> s(t) \amp = s(0) + \ccmint{0}{t}{v(u)}{u} </mrow>
+	<mrow> \amp = 0 + \ccmint{0}{t}{\cos(u)}{u} </mrow>
+</md>.
+As we have decided that position in this shifted scenario should be modelled as <m>s(t) = \sin(t)</m>,
+we have
+<me> \sin(t) = 0 + \ccmint{0}{t}{\cos(u)}{u} </me>.
+</p>
+
+<identity xml:id="pattern-periodic-int-cos">
+	<title>Accumulation when rate function is cosine</title>
+	<p>
+	For all values of <m>t</m>,
+	<me> \ccmint{0}{t}{\cos(u)}{u} = \sin(t) </me>.
+	</p>
+</identity>
+
+<example>
+	<title>Computing an accumulation for a rate function involving sine and cosine</title>
+
+	<p>
+	Suppose we would like to compute <me> \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{ 3 \sin(t) + 5 \cos(t) }{t} </me>.
+	As usual, we use <xref ref="pattern-integ-definite-props" /> to split into separate integrals and factor out the constant multiples:
+	<me>
+		\ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{ 3 \sin(t) + 5 \cos(t) }{t}
+		= 3 \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{\sin(t)}{t}
+		+ 5 \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{\cos(t)}{t}
+	</me>.
+	Let's continue by computing these two integrals separately.
+	As we've done before in other examples,
+	we use
+	<xref ref="pattern-integ-definite-props-split" />
+	of <xref ref="pattern-integ-definite-props" />
+	to manipulate the bounds of integration so that we can use our formulas from
+	<xref ref="pattern-periodic-int-sin" /> and <xref ref="pattern-periodic-int-cos" />,
+	which both involve a lower bound of <m>0</m>.
+	<md>
+		<mrow>
+			\amp \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{\sin(t)}{t}
+			\amp
+			\amp \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{\cos(t)}{t}
+		</mrow>
+		<mrow>
+			\amp \qquad
+			= \ccmint{0}{\frac{3 \pi}{2}}{\sin(t)}{t}
+			- \ccmint{0}{\frac{\pi}{2}}{\sin(t)}{t}
+			\amp
+			\amp \qquad
+			= \ccmint{0}{\frac{3 \pi}{2}}{\cos(t)}{t}
+			- \ccmint{0}{\frac{\pi}{2}}{\cos(t)}{t}
+		</mrow>
+		<mrow>
+			\amp \qquad = \bbrac{1 - \cos(3 \pi / 2)} - \bbrac{1 - \cos(\pi/2)}
+			\amp
+			\amp \qquad = \sin(3 \pi / 2) - \sin (\pi / 2)
+		</mrow>
+		<mrow>
+			\amp \qquad = (1 - 0) - (1 - 0)
+			\amp
+			\amp \qquad = -1 - 1
+		</mrow>
+		<mrow>
+			\amp \qquad = 0
+			\amp
+			\amp \qquad = -2
+		</mrow>
+	</md>
+	We should have expected that the integral on the left would evaluate to <m>0</m>,
+	by the symmetry of the rate function <m>\sin(t)</m> <mdash />
+	the positively-oriented area over the domain <m>\pi / 2 \le t \le \pi</m>
+	is the same magnitude as the negatively-oriented area over the domain <m>\pi \le t \le 3 \pi / 2</m>,
+	and so cancel out when combined over the domain <m>\pi / 2 \le t \le 3 \pi / 2</m>.
+	</p>
+
+	<p>
+	Finally, we combine the two results above to compute the original integral.
+	<md>
+
+		<mrow>
+			\ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{ 3 \sin(t) + 5 \cos(t) }{t}
+			\amp = 3 \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{\sin(t)}{t}
+			+ 5 \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{\cos(t)}{t}
+		</mrow>
+
+		<mrow> \amp = 3 \cdot 0 + 5 \cdot (-2) </mrow>
+
+		<mrow> \amp = -10 </mrow>
+
+	</md>
+	</p>
+</example>
+
+<p>
+We will learn how to determine accumulation for a rate function modelled by the tangent function
+in <xref ref="chapter-chain" />.
+<!-- in a later chapter. -->
+</p>
 
 </section>
 

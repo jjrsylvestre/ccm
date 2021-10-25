@@ -1,0 +1,43 @@
+% *********************************************************************
+% © 2021 Jeremy Sylvestre
+%
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License, Version 1.3 or
+% any later version published by the Free Software Foundation; with no
+% Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+% copy of the license is included in the appendix entitled “GNU Free
+% Documentation License” that appears in the output document of this
+% PreTeXt source code. All trademarks™ are the registered® marks of
+% their respective owners.
+%
+% *********************************************************************
+
+\begin{tikzpicture}
+[
+	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
+	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
+	scale=2
+]
+
+	\node[closedpt] at (0,0) (o) {};
+
+	\draw[thick] (o) to node[below] {$a$} (2.165,0) to node[right] {$b$} (2.165,1.25) to node[above] {$c$} (o);
+	\draw[thin] (2.065,0) -- (2.065,0.1) -- (2.165,0.1);
+
+	\draw[thick] (0.866,0.5) to node[left] {$\scriptstyle y$} (0.866,0);
+	\draw[thin] (0.766,0) -- (0.766,0.1) -- (0.866,0.1);
+
+	\draw[dashed] (1,0) arc (0:360:1cm);
+	% \draw[red,very thick] (1,0) arc (0:60:1cm);
+	% \draw[white,fill=white] (1,0) circle (0.03cm);
+	% \node[openpt,red] at (1,0) (r) {};
+	% \draw[white,fill=white] (0.5,0.866) circle (0.03cm);
+	% \node[openpt,red] at (0.5,0.866) (r2) {};
+
+	\draw[dashed,very thin] (o) to node[above] {$\scriptstyle 1$} (0.866,0.5);
+	\draw[dashed,very thin] (o) to node[above,xshift=0.2cm] {$\scriptstyle x$} (0.866,0);
+
+	\draw (0.4,0) arc (0:30:0.4);
+	\node at (0.29,0.078) {$\scriptstyle \theta$};
+
+\end{tikzpicture}

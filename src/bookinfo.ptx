@@ -28,6 +28,7 @@ respective owners.
 
 	<latex-preamble>
 		<package>cancel</package>
+		<package>gensymb</package>
 	</latex-preamble>
 
 	<macros> <xi:include href="./latex-macros.tex" parse="text" /> </macros>
@@ -36,7 +37,8 @@ respective owners.
 	<latex-image-preamble>
 		<!-- \usepackage{cancel} -->
 		\usepackage{tikz}
-		<!-- \usepackage{tikz-3dplot} -->
+		\usepackage{tikz-3dplot}
+		\usepackage{pgfplots}
 		<!-- \usepackage{tikz-cd} -->
 		\usetikzlibrary{calc}
 		<!-- \usetikzlibrary{matrix} -->

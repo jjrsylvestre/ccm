@@ -1,3 +1,8 @@
+* Maybe make a general pattern of horizontal shift/scale/reflection for definite integrals in the integ chapter,
+  --> then discussion in the log chapter can be sipmlified.
+  --> discussion of int(cos) can be simplified too?
+* Add statements about continuity to poly, log, exp, trig.
+* Regular Riemann sum example in step function chapter needs to have a Δt different from 1 ...
 * Example with title
   <title>A restricted domain could restrict the range</title>
   in funcs.ptx:
