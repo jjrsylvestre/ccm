@@ -92,7 +92,8 @@ returns the associated derivative value.
 
 <p>
 We won't be able to verify <xref ref="principle-deriv-equals-rate" />
-until <xref ref="chapter-fund-thm" />,
+<!-- until <xref ref="chapter-fund-thm" />, -->
+a later chapter,
 where we will see that if we start with a rate model <m>r(t)</m>,
 use an accumulation function to create an associated quantity model
 <me> q(t) = q(t_0) + \ccmint{t_0}{t}{r(u)}{u} </me>,
@@ -264,7 +265,7 @@ So we'll start by analysing the two simplest possible quantity models built on t
 <subsection>
 <title>Scaling and adding quantities does the same to the derivative</title>
 
-<p> Now we'll work a little more generally to develop two algebraic rules for derivatives. </p>
+<p> Now we'll work a little more generally to develop some algebraic rules for derivatives. </p>
 
 <identity xml:id="pattern-deriv-scale">
 	<title>Derivative of a scaled quantity</title>
@@ -294,6 +295,28 @@ So we'll start by analysing the two simplest possible quantity models built on t
 	</p></proof>
 
 </identity>
+
+<figure xml:id="figure-deriv-tangent-v-scale">
+	<caption> Scaling a tangent line scales its slope. </caption>
+	<image width="50%">
+		<description>A tangent to a graph and a scaled tangent to a scaled graph.</description>
+		<latex-image><xi:include href="deriv.d/v-scaled-tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+<xref ref="pattern-deriv-h-scale" /> applies equally well when the vertical scale factor is negative.
+Thinking in terms of tangent lines,
+if we reflect vertically then the rise becomes negative while the run stays the same.
+</p>
+
+<figure xml:id="figure-deriv-tangent-v-reflect">
+	<caption> Reflecting a tangent line makes its slope negative. </caption>
+	<image width="50%">
+		<description>A tangent to a graph and a reflected tangent to a reflected graph.</description>
+		<latex-image><xi:include href="deriv.d/v-reflect-tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
 
 <example>
 	In <xref ref="example-deriv-parabolic-motion" />,
@@ -403,8 +426,7 @@ so in fact they will be the same line.
 </identity>
 
 <p>
-Finally,
-consider the special case of <xref ref="pattern-deriv-sum" />
+Now consider the special case of <xref ref="pattern-deriv-sum" />
 where the second function is a constant function:
 if <me> q(t) = q_1(t) + c </me>,
 then
@@ -426,6 +448,170 @@ then
 	with <me> \ddt{q_1} = \ddt{q_2} </me>.
 	</p>
 </identity>
+
+<figure xml:id="figure-deriv-tangent-v-shift">
+	<caption> Shifting a tangent line does not change its slope. </caption>
+	<image width="50%">
+		<description>A tangent to a graph and a shifted tangent to a shifted graph.</description>
+		<latex-image><xi:include href="deriv.d/v-shifted-tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+Finally,
+let's consider the effect of horizontal transformations on derivative.
+</p>
+
+<identity xml:id="pattern-deriv-h-shift">
+	<title>Derivative of a horizontally-shifted quantity function</title>
+
+	<statement><p>
+		If we shift a differentiable quantity function <m>p(t)</m> to create a new function <me> q(t) = p(t - c) </me>,
+		then the new function is also differentiable,
+		and the associated derivative function is also a shift: <me> q'(t) = p'(t - c) </me>.
+	</p></statement>
+
+	<proof><title>Justification idea</title>
+		<p>
+		Instead of carrying out a detailed calculation of <m>dq / dt</m>,
+		let's just argue in terms of the concept of the derivative.
+		If the value of <m>dq / dt</m> at a particular time <m>t = t_0</m> represents the rate of variation of <m>q</m> at that time,
+		but <me> q(t) = p(t - c) </me>,
+		then we are really just measuring the rate of variation of <m>p</m> at the <q>earlier</q> time <m>t = t_0 -c</m>.
+		</p>
+	</proof>
+
+</identity>
+
+<figure xml:id="figure-deriv-tangent-h-shift">
+	<caption> Shifting a tangent line does not change its slope. </caption>
+	<image width="50%">
+		<description>A tangent to a graph and a shifted tangent to a shifted graph.</description>
+		<latex-image><xi:include href="deriv.d/h-shifted-tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<identity xml:id="pattern-deriv-h-scale">
+	<title>Derivative of a horizontally-scaled quantity function</title>
+
+	<statement><p>
+		If we horizontally scale a differentiable quantity function <m>p(t)</m> to create a new function <me> q(t) = p(a t) </me>,
+		then the new function is also differentiable,
+		and the associated derivative function is also a scaling,
+		but both vertically and horizontally by the same factor: <me> q'(t) = a p'(a t) </me>.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		First let's examine the pattern of average rate calculations for the scaled quantity function:
+		<md>
+
+			<mrow> \slope{q}{t} \amp = \frac{q(t_2) - q(t_1)}{t_2 - t_1} </mrow>
+
+			<mrow> \amp = \frac{p(a t_2) - p(a t_1)}{t_2 - t_1} </mrow>
+
+		</md>.
+		This almost looks like an average rate calculation for <m>p</m>,
+		but the two times in the denominator don't match the times used in the numerator.
+		Let's fix that:
+		<md>
+
+			<mrow> \slope{q}{t} \amp = \frac{p(a t_2) - p(a t_1)}{t_2 - t_1} \cdot \frac{a}{a} </mrow>
+
+			<mrow> \amp = a \cdot \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1} </mrow>
+
+		</md>.
+		So an average rate calculation for <m>q</m> over domain <m>t_1 \le t \le t_2</m> is a scaling of an average rate calculation for <m>p</m> over domain <m>a t_1 \le t \le a t_2</m>.
+		</p>
+
+		<figure xml:id="figure-deriv-h-scaled-avg-rate">
+			<caption>
+				An average rate calculation on one graph stretched into an average rate calculation on another.
+				Note that in the case that <m>a \gt 1</m>
+				(which is what is pictured here),
+				then the graph of <m>q</m> is a <em>compression</em> of the graph of <m>p</m>.
+				And notice how this makes the slope of the secant line on the graph of <m>q</m> <em>steeper</em> than the slope of the secant line on the graph of <m>p</m>.
+			</caption>
+
+			<sidebyside widths="25% 50%">
+
+				<figure xml:id="figure-deriv-h-scaled-avg-rate-1">
+					<caption>
+						A secant line representing an average rate on a compressed graph.
+					</caption>
+					<image>
+						<description>
+							A secant line representing an average rate on a compressed graph.
+						</description>
+						<latex-image><xi:include href="deriv.d/h-scaled-avg-rate-1.tex" parse="text" /></latex-image>
+					</image>
+				</figure>
+
+				<figure xml:id="figure-deriv-h-scaled-avg-rate-2">
+					<caption>
+						A stretched secant line representing an average rate on the original graph.
+					</caption>
+					<image>
+						<description>
+							A stretched secant line representing an average rate on the original graph.
+						</description>
+						<latex-image><xi:include href="deriv.d/h-scaled-avg-rate-2.tex" parse="text" /></latex-image>
+					</image>
+				</figure>
+
+			</sidebyside>
+
+		</figure>
+
+		<p>
+		If we are considering a specific time <m>t = t^\ast</m>,
+		our calculations above say that <em>every</em> average rate calculation for <m>q</m> on a domain containing <m>t^\ast</m> can be converted into a scaled average rate calculation for <m>p</m> on a domain containing <m>a t^\ast</m>,
+		since <me> t_1 \le t^\ast \le t_2 \qquad \implies a t_1 \le a t^\ast \le a t_2 </me>.
+		Referring back to <xref ref="definition-avg-rate-derivative-value" />,
+		since <m>p</m> is assumed to be differentiable,
+		<me> p'(a t^\ast) \approx \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1} </me>,
+		where the approximation can be made arbitrarily close by taking <me> a \change{t} = a t_2 - a t_1 </me> sufficiently small.
+		If we take <m>\change{t}</m> small enough so that <m>a \change{t}</m> can be described as <q>sufficiently small</q> in this sense,
+		then
+		<md>
+			<mrow> p'(a t^\ast) \amp \approx \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1}  </mrow>
+			<mrow> a p'(a t^\ast) \amp \approx a \cdot \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1}  </mrow>
+			<mrow> a p'(a t^\ast) \amp \approx \slope{q}{t} </mrow>
+		</md>,
+		satisfying <xref ref="definition-avg-rate-derivative-value" /> for <m>q</m> at <m>t = t^\ast</m>.
+		That is,
+		<me> q'(t^\ast) = a p'(a t^\ast) </me>,
+		as desired.
+		</p>
+
+	</proof>
+
+</identity>
+
+<p>
+<xref ref="pattern-deriv-h-scale" /> applies equally well when the horizontal scale factor is negative.
+Thinking in terms of tangent lines,
+if we reflect horizontally then the rise becomes negative because the second point has become the first, and vice versa.
+Meanwhile, the <em>amount</em> of run stays the same.
+</p>
+
+<figure xml:id="figure-deriv-tangent-h-reflect">
+	<caption> Reflecting a tangent line makes its slope negative. </caption>
+	<image width="50%">
+		<description>A tangent to a graph and a reflected tangent to a reflected graph.</description>
+		<latex-image><xi:include href="deriv.d/h-reflect-tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+We need some basic example derivatives to work with before we can consider examples of the previous two patterns,
+which is what the next section is about.
+Once you have studied the derivatives of some familiar functions,
+see <xref ref="example-deriv-h-transform-log" /> for an example of applying
+<xref ref="pattern-deriv-h-shift" /> and <xref ref="pattern-deriv-h-scale" />.
+</p>
+
 
 </subsection>
 
@@ -706,12 +892,27 @@ which is the same <q>one-over</q> formula as for the derivative of the natural l
 </p>
 
 <identity xml:id="pattern-deriv-abs-log">
-	<title>Derivative of the natural logarithm composed with </title>
+	<title>Derivative of the natural logarithm composed with the absolute value</title>
 	<p>
 	The quantity function <m>q(t) = \ln\abs{a}</m> is differentiable for all <m>t \neq 0</m>,
 	with <me> \ddt{(\ln\abs{t})} = \frac{1}{t} </me>.
 	</p>
 </identity>
+
+<example xml:id="example-deriv-h-transform-log">
+	<title>Derivative of a horizontally transformed logarithm</title>
+	<p>
+	To calculate <me> \opddt \ln\abs{3 t - 5} </me>,
+	start with <m>p_1(t) = \ln \abs{t}</m>.
+	Then <xref ref="pattern-deriv-abs-log" /> says that <me> p'(t) = \frac{1}{t} </me>.
+	Now consider <me> p_2(t) = p_1(t - 5) = \ln \abs{t - 5} </me>.
+	<xref ref="pattern-deriv-h-shift" /> says that <me> p_2'(t) = p_1'(t - 5) = \frac{1}{t - 5} </me>.
+	Finally, consider <me> q(t) = p_2(3 t) = \ln \abs{3 t - 5} </me>,
+	the function whose derivative we would like to calculate.
+	<xref ref="pattern-deriv-h-scale" /> tells us <me> q'(t) = 3 p_2'(3 t) = \frac{3}{3 t - 5} </me>.
+	So we have determined that <me> \opddt \ln\abs{3 t - 5} = q'(t) = \frac{3}{3 t - 5} </me>.
+	</p>
+</example>
 
 </subsection>
 
@@ -749,6 +950,7 @@ so <xref ref="pattern-deriv-vertical-shift" /> tells us that they have the same 
 	<p>
 	The natural exponential function is differentiable for all <m>t</m>,
 	with <me> \ddt{e^t} = e^t </me>.
+	In function notation, this says that <me> \exp'(t) = \exp(t) </me>.
 	</p>
 </identity>
 
@@ -762,7 +964,327 @@ and terrifying
 <mdash /> the more there is, the sooner there will be a lot more than that.
 </p>
 
+<p>
+In this direction,
+we can now combine <xref ref="pattern-deriv-exp" /> with <xref ref="pattern-deriv-h-scale" /> to verify exponential solutions to rate equations where the rate is proportional to the quantity,
+as in our <xref ref="example-models-radioactive-decay" text="title" /> example.
+</p>
+
+<example>
+	<title>Verifying an exponential solution to a proportional rate equation</title>
+
+	<p>
+	Suppose <m>q(t)</m> is a quantity function whose rate of variation is proportional to the quantity,
+	with proportionality constant <m>k</m>.
+	Let's take our proportionality constant to be <m>k = 3</m>,
+	so that
+	<md><mrow xml:id="equation-deriv-proportional-rate-eqn" tag="star"> r(t) = 3 q(t) </mrow></md>.
+	We expect <me> r(t) = q'(t) </me>,
+	so we are looking for a function whose derivative is a multiple of that original function.
+	The pattern <me> \ddt{e^t} = e^t </me> is almost correct,
+	but the <q>multiple</q> is only <m>1</m>.
+	However,
+	we know from <xref ref="pattern-deriv-h-scale" /> that introducing a horizontal scale factor into the quantity function also introduces a vertical scale factor into the derivative function.
+	In this case,
+	if we take <me> q(t) = exp(3 t) </me>,
+	then <xref ref="pattern-deriv-h-scale" /> says that
+	<md>
+		<mrow> q'(t) \amp = 3 \exp'(3 t) </mrow>
+		<mrow> \amp = 3 \exp(k t) </mrow>
+		<mrow> \amp = 3 q(t) </mrow>
+	</md>.
+	This shows that <m>q(t) = e^{3 t}</m> is a solution to the rate equation in
+	<xref ref="equation-deriv-proportional-rate-eqn" />.
+	</p>
+
+	<p>
+	This is only one particular solution to <xref ref="equation-deriv-proportional-rate-eqn" />.
+	Can we guess at the general solution by introducing some parameter?
+	Our particular solution above has initial value <me> q(0) = e^{3 \cdot 0} = 1 </me>.
+	But exponential growth or decay does not turn into some other behaviour if there is a different initial value <mdash />
+	otherwise a horizontal shift (so that the point in time that is considered <m>t = 0</m> is shifted)
+	would change the type of graph,
+	which is not possible.
+	For example,
+	see our direction field for <m>k = -1/2</m>
+	(<xref ref="figure-models-radioactive-int-curves" />)
+	<mdash /> the example solution curves all look like exponential decay no matter the initial value.
+	</p>
+
+	<p>
+	Recall from <xref ref="definition-exp-func" /> that introducing a constant multiple in an exponential function changes the initial amount.
+	So let's try <me> q(t) = A e^{3 t} </me>,
+	where <m>A</m> represents the initial amount <m>A = q(0)</m>.
+	Now using <xref ref="pattern-deriv-scale" /> for our first step,
+	we have
+	<md>
+		<mrow> q'(t) \amp = \opddt \bbrac{A \exp(3 t)} </mrow>
+		<mrow> \amp = A \opddt \bbrac{\exp(3 t)} </mrow>
+		<mrow> \amp = A \bbrac{3 \exp'(3 t)} </mrow>
+		<mrow> \amp = 3 A \exp(3 t) </mrow>
+		<mrow> \amp = 3 q(t) </mrow>
+	</md>.
+	This verifies that for <em>every</em> possible initial value <m>A</m>,
+	the exponential function <m>q(t) = A e^{3 t}</m>
+	is a solution to the rate equation in <xref ref="equation-deriv-proportional-rate-eqn" />.
+	</p>
+
+</example>
+
+<identity xml:id="pattern-deriv-proportional-rate-eqn-gen-soln">
+	<title>General solution to a proportional rate equation</title>
+	<p>
+	For each constant of proportionality <m>k</m>,
+	the general solution to the rate equation <me> r(t) = k q(t) </me>
+	is <me> q(t) = A e^{k t} </me>,
+	where the parameter <m>A</m> represents the initial quantity <m>q(0)</m>.
+	</p>
+</identity>
+
 </subsection>
+
+</section>
+
+<section>
+<title>Derivatives of the sine and cosine functions</title>
+
+<p>
+Looking at <xref ref="pattern-periodic-int-sin" />,
+<xref ref="principle-deriv-equals-rate" /> tells us to expect that
+<me> \opddt (1 - \cos(t)) = \sin(t) </me>.
+If this is true,
+then <xref ref="pattern-deriv-vertical-shift" /> tells us that <me> \opddt (- \cos(t)) = \sin(t) </me>
+as well.
+Finally, applying <xref ref="pattern-deriv-scale" /> would lead us to
+<me> \opddt \cos(t) = - \sin(t) </me>.
+We will verify this fact using the definition of derivative,
+but first we need a special property of the sine and cosine functions,
+each.
+</p>
+
+<figure xml:id="figure-deriv-cos-vs-1-and-sin-vs-t">
+	<caption> Comparing cosine to <m>1</m> and sine to <m>t</m>. </caption>
+
+	<sidebyside widths="45% 45%">
+
+		<figure xml:id="figure-deriv-cos-vs-1-and-sin-vs-t-cos">
+			<caption> Comparing cosine to <m>1</m>. </caption>
+			<image>
+				<description> Comparing the graph of the cosine function to the horizontal line at 1. </description>
+				<latex-image><xi:include href="deriv.d/cos-vs-1.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-deriv-cos-vs-1-and-sin-vs-t-sin">
+			<caption> Comparing sine to <m>t</m>. </caption>
+			<image>
+				<description> Comparing the graph of the sine function to the line with slope 1. </description>
+				<latex-image><xi:include href="deriv.d/sin-vs-t.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+<p>
+Examining the graphs of these trigonometric functions,
+we clearly see that for <m>t \approx 0</m> we have <m>\cos(t) \approx 0</m>,
+and it also appears that <m>\sin(t)</m> because very close to the line <m>y = t</m>.
+But in each of these cases we can say something much stronger about how close these approximations are relative to how small <m>t</m> is.
+</p>
+
+<identity xml:id="pattern-deriv-sin-over-theta">
+	<title>Sine at small inputs</title>
+
+	<statement><p>
+		For small values of <m>t</m>
+		(that is, for <m>t \approx 0</m>),
+		we have <m>\sin(t) \approx t</m>.
+		In fact,
+		we can say that values of <me> \frac{\sin(t)}{t} </me> become arbitrarily close to <m>1</m> for non-zero values of <m>t</m> sufficiently close to <m>0</m>.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		We will verify the statement for <em>positive</em> values of <m>t \approx 0</m>;
+		the justification for negative values of <m>t</m> is similar.
+		</p>
+
+		<p>
+		Recall that values of <m>\sin(t)</m> represent the <m>y</m>-coordinate of a position on the unit circle.
+		That is,
+		in <xref ref="figure-deriv-trig-ineq" />,
+		the value of <m>\sin(t)</m> is the equal to the triangle side length marked <m>y</m>.
+		</p>
+
+		<figure xml:id="figure-deriv-trig-ineq">
+			<caption>
+				Diagram comparing the values of <m>\sin(t)</m>,
+				<m>\cos(t)</m>,
+				and <m>t</m>.
+			</caption>
+			<image width="25%">
+				<description>Diagram comparing the values of the sine and cosine functions with the angle measure.</description>
+				<latex-image><xi:include href="deriv.d/trig-ineq.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<p>
+		Now, we have <m>y \lt a</m> because <m>a</m> is the length of the hypotenuse in a right triangle and <m>y</m> is the length of one of the legs of that triangle.
+		We also have <m>a \lt t</m> because the arc that <m>t</m> measures has the same endpoints as the segment measured by <m>a</m>,
+		but takes the segment is a straight path between those points.
+		Going out further, for a similar reason we can say <m>t \lt b + d</m>.
+		But also <m>d \lt c</m> because <m>c</m> is a hypotenuse and <m>d</m> is a leg.
+		And we have <m>b + c = \tan(t)</m> by using <em>opposite-over-adjacent</em> in the large right triangle.
+		So we finally have
+		<me> \sin(t) = y \lt a \lt t \lt b + d \lt b + c = \tan(t) </me>.
+		Splitting in two at <m>t</m> and doing a little re-arranging,
+		we have
+		<md>
+			<mrow> \sin(t) \amp\lt t \amp t \amp \lt \tan(t) </mrow>
+			<mrow> \frac{\sin(t)}{t} \amp\lt 1 \amp t \amp \lt \frac{\sin(t)}{\cos(t)} </mrow>
+			<mrow> \amp\amp \cos(t) \amp \lt \frac{\sin(t)}{t} </mrow>
+		</md>.
+		(Note that for <m>t \approx 0</m> but positive, the value of <m>\cos(t)</m> is also positive,
+		so multiplying or dividing both sides of an inequality by either <m>t</m> or <m>\cos(t)</m> will not reverse the inequality.)
+		</p>
+
+		<p>
+		Combining these inequalities, we have
+		<me>
+			\cos(t) \lt \frac{\sin(t)}{t} \lt 1
+			\qquad \text{for} \qquad t \approx 0^+
+		</me>,
+		where the superscript <m>+</m> indicates that <m>t</m> is assumed to be positive.
+		This inequality says that the graph of <m>\sin(t)/t</m>,
+		whatever it might look like,
+		must be confined to the shaded region in <xref ref="figure-deriv-trig-squeeze" /> below.
+		For <m>t \approx 0^+</m>,
+		this graph must be <em>squeezed</em> into the little wedge in the upper-left corner of the shaded region,
+		very close to a height of <m>1</m>,
+		and so we conclude
+		<me> \frac{\sin(t)}{t} \approx 1 \qquad \text{for} \qquad t \approx 0^+
+		</me>.
+		</p>
+
+		<figure xml:id="figure-deriv-trig-squeeze">
+			<caption>
+				For <m>0 \lt t \lt \pi/2</m>, the graph of <m>\sin(t)/t</m> must be confined to the shaded region.
+			</caption>
+			<image width="35%">
+				<description>Diagram illustrating a region to which the graph of sine divided by independent variable must be confined.</description>
+				<latex-image><xi:include href="deriv.d/squeeze-sin-over-t.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</proof>
+
+</identity>
+
+<p>
+The following corresponding property of the cosine function can be justified in a similar manner.
+</p>
+
+<identity xml:id="pattern-deriv-cos-over-theta">
+	<title>Cosine at small inputs</title>
+	<p>
+		For small values of <m>t</m>
+		(that is, for <m>t \approx 0</m>),
+		we obviously have <m>\cos(t) \approx 1</m>.
+		But this approximation becomes so tight that we can say
+		we can say that values of <me> \frac{\cos(t) - 1}{t} </me> become arbitrarily close to <m>0</m> for non-zero values of <m>t</m> sufficiently close to <m>0</m>.
+	</p>
+</identity>
+
+<remark><p>
+	The statement that <me> \frac{\cos(t) - 1}{t} \approx 0 </me> for <m>t \approx 0</m> says something stronger than just <m>\cos(t) \approx 1</m>.
+	In the ratio <me> \frac{\cos(t) - 1}{t} </me>,
+	both the numerator and denominator are approximately <m>0</m> for small values of <m>t</m>.
+	But similarly to <xref ref="section-inf-behaviour-relative-growth" />,
+	it becomes a <q>race</q> to <m>0</m>.
+	The fact that <me> \frac{\cos(t) - 1}{t} \approx 0 </me>
+	says that the numerator <q>wins</q> the race,
+	so that the approximation <m>\cos(t) \approx 1</m> must be very tight compared to <m>t \approx 0</m>
+	since if it were the other way around then we would expect the expression <me> \frac{\cos(t) - 1}{t} </me> to have a singularity at <m>t = 0</m>.
+</p></remark>
+
+<identity xml:id="pattern-deriv-cos">
+	<title>Derivative of the cosine function</title>
+
+	<statement><p>
+		The cosine function is differentiable for all <m>t</m>,
+		with <me> \opddt \cos(t) = - \sin(t) </me>.
+	</p></statement>
+
+	<proof><p>
+		As usual, we start with
+		<me> \opddt \cos(t) = \frac{ \cos(t + dt) - \cos(t) }{ dt } </me>.
+		Using the addition identity for cosine,
+		we have <me> \cos(t + dt) = \cos(t) \cos(dt) - \sin(t) \sin(dt) </me>.
+		Therefore,
+		<md>
+
+			<mrow> \opddt \cos(t) \amp = \frac{ \cos(t + dt) - \cos(t) }{ dt } </mrow>
+
+			<mrow> \amp = \frac{ \cos(t) \cos(dt) - \sin(t) \sin(dt) - \cos(t) }{ dt } </mrow>
+
+			<mrow> \amp = \cos(t) \cdot \frac{ \cos(dt) - 1 }{dt} - \sin(t) \cdot \frac{ \sin(dt) }{ dt } </mrow>
+
+		</md>.
+		For <m>dt \approx 0</m>,
+		using <xref ref="pattern-deriv-sin-over-theta" />
+		and <xref ref="pattern-deriv-cos-over-theta" />
+		we effectively have
+		<md>
+			<mrow>
+				\frac{ \cos(dt) - 1 }{dt} \amp = 0
+				\amp
+				\frac{ \sin(dt) }{dt} \amp = 1
+			</mrow>
+		</md>,
+		so
+		<md>
+
+			<mrow> \opddt \cos(t) \amp = \cos(t) \cdot 0 - \sin(t) \cdot 1 </mrow>
+
+			<mrow> \amp = - \sin(t) </mrow>
+
+		</md>,
+		as desired.
+
+	</p></proof>
+
+</identity>
+
+<p>
+Similarly,
+combining <xref ref="pattern-periodic-int-cos" />
+with <xref ref="principle-deriv-equals-rate" /> tells us to expect that
+<me> \opddt \sin(t) = \cos(t) </me>,
+and this is in fact the case.
+</p>
+
+<identity xml:id="pattern-deriv-sin">
+	<title>Derivative of the sine function</title>
+
+	<statement><p>
+		The sine function is differentiable for all <m>t</m>,
+		with <me> \opddt \sin(t) = - \cos(t) </me>.
+	</p></statement>
+
+	<proof><title>Justification idea</title><p>
+		Apply the same sort of reasoning as in the justification for
+		<xref ref="pattern-deriv-cos" />,
+		beginning by applying an addition identity to <m>\sin(t + dt)</m> in
+		<me> \opddt \sin(t) = \frac{ \sin(t + dt) - \sin(t) }{ dt } </me>,
+		and then applying <xref ref="pattern-deriv-sin-over-theta" />
+		and <xref ref="pattern-deriv-cos-over-theta" />
+		as appropriate.
+	</p></proof>
+
+</identity>
 
 </section>
 
