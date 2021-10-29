@@ -1,3 +1,7 @@
+* More clarity and maybe examples for negative domains of power function, both for m>0 and m<0.
+* Should the two formulas for the integral of a power function formula in poly.tex just be merged into one, based at t=1?
+  Then could just add a remark about basing at t=0....
+  OR add a remark unifying the two formulas.
 * Maybe make a general pattern of horizontal shift/scale/reflection for definite integrals in the integ chapter,
   --> then discussion in the log chapter can be sipmlified.
   --> discussion of int(cos) can be simplified too?
