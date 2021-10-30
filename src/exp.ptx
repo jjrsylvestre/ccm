@@ -693,7 +693,7 @@ we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to ob
 	from <xref ref="pattern-log-limits" /> as
 	<me> \text{input} \to 0^+ \qquad \text{then} \qquad \text{output} \to -\infty </me>,
 	then the <q>reflected</q> pattern for the exponential function is
-	<me> \text{output} \to 0^+ \qquad \\text{when} \qquad \text{input} \to -\infty </me>,
+	<me> \text{output} \to 0^+ \qquad \text{when} \qquad \text{input} \to -\infty </me>,
 	so that
 	<me> t \to -\infty \qquad \implies \qquad \exp t \to 0^+ </me>,
 	meaning that the exponential graph heads towards <m>0</m> from above as the input goes off to the left.
@@ -740,9 +740,9 @@ similar to <xref ref="pattern-poly-int-power" />.
 	<p>
 	For rate function <m>r(t) = a^t</m>
 	(with positive base <m>a</m>),
-	we have <me> \ccmint{0}{t}{a^u}{u} = \frac{a^t}{\ln a} - 1 </me>.
+	we have <me> \ccmint{0}{t}{a^u}{u} = \frac{a^t - 1}{\ln a} </me>.
 	A quantity experiencing an exponential rate of variation can itself be modelled by an exponential function
-	<me> q(t) = \frac{a^t}{\ln a} + (q_0 - 1) </me>,
+	<me> q(t) = q_0 + \frac{a^t - 1}{\ln a} </me>,
 	where <m>q_0 = q(0)</m> is the initial amount.
 	</p>
 

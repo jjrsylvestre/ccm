@@ -949,6 +949,7 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 		<mrow>
 			m \amp = \funceval{\ddt{q}}{t = t^\ast}
 			\text{,}
+			\amp
 			b \amp = q(t^\ast) - m t^\ast
 			\text{.}
 		</mrow>

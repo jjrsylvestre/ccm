@@ -834,7 +834,7 @@ from the fact that we have shifted our <q>initial</q> time.
 <example xml:id="example-poly-definite-integral">
 	<title>Using <xref ref="pattern-poly-int-power" /> and <xref ref="pattern-poly-quantity-from-rate" /></title>
 	<p>
-	Suppose we want to compute <me> \ccmint{3}{7}{ 4 - 5 t^2 + 9 t^{13} + \frac{11}{t^4} }{t} </me>.
+	Suppose we want to compute <me> \ccmint{2}{5}{ 4 - 5 t^2 + 9 t^{13} + \frac{11}{t^4} }{t} </me>.
 	The formulas
 	in <xref ref="pattern-poly-int-power" />
 	and <xref ref="pattern-poly-quantity-from-rate" />
