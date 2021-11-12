@@ -92,8 +92,8 @@ returns the associated derivative value.
 
 <p>
 We won't be able to verify <xref ref="principle-deriv-equals-rate" />
-<!-- until <xref ref="chapter-fund-thm" />, -->
-a later chapter,
+until <xref ref="chapter-fund-thm" />,
+<!-- a later chapter, -->
 where we will see that if we start with a rate model <m>r(t)</m>,
 use an accumulation function to create an associated quantity model
 <me> q(t) = q(t_0) + \ccmint{t_0}{t}{r(u)}{u} </me>,
@@ -986,11 +986,11 @@ as in our <xref ref="example-models-radioactive-decay" text="title" /> example.
 	However,
 	we know from <xref ref="pattern-deriv-h-scale" /> that introducing a horizontal scale factor into the quantity function also introduces a vertical scale factor into the derivative function.
 	In this case,
-	if we take <me> q(t) = exp(3 t) </me>,
+	if we take <me> q(t) = \exp(3 t) </me>,
 	then <xref ref="pattern-deriv-h-scale" /> says that
 	<md>
 		<mrow> q'(t) \amp = 3 \exp'(3 t) </mrow>
-		<mrow> \amp = 3 \exp(k t) </mrow>
+		<mrow> \amp = 3 \exp(3 t) </mrow>
 		<mrow> \amp = 3 q(t) </mrow>
 	</md>.
 	This shows that <m>q(t) = e^{3 t}</m> is a solution to the rate equation in
@@ -1271,7 +1271,7 @@ and this is in fact the case.
 
 	<statement><p>
 		The sine function is differentiable for all <m>t</m>,
-		with <me> \opddt \sin(t) = - \cos(t) </me>.
+		with <me> \opddt \sin(t) = \cos(t) </me>.
 	</p></statement>
 
 	<proof><title>Justification idea</title><p>
