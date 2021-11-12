@@ -27,7 +27,7 @@ respective owners.
 	For simplicity,
 	we will assume that the mass rests on a frictionless surface.
 	Let <m>s(t)</m> represent the position of the spring relative to the wall at time <m>t</m>,
-	and let <m>s_{\mathrm{eq}}</m> represent the <q>equilibrium</q> position.
+	and let <m>\rmsubscript{s}{eq}</m> represent the <q>equilibrium</q> position.
 	</p>
 
 	<figure>
@@ -552,7 +552,7 @@ leading to the familiar acronyms SOH CAH TOA:
 
 </section>
 
-<section>
+<section xml:id="section-periodic-trig-accumulation">
 <title>Trigonometric rate functions</title>
 
 <p>

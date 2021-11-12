@@ -12,47 +12,41 @@
 %
 % *********************************************************************
 
-\newcommand*{\xmin}{-2}
-\newcommand*{\xmax}{2}
-\newcommand*{\ymin}{-0.5}
-\newcommand*{\ymax}{3}
+\newcommand*{\xmin}{0}
+\newcommand*{\xmax}{2.4}
+\newcommand*{\ymin}{0}
+\newcommand*{\ymax}{30}
+\newcommand*{\func}{\x * \x * \x * \x * 50 / 7 - 6 * \x * \x * \x * 40 / 7 + 72 * \x * \x * 4 / 7 + 10}
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
-	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt}
+	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
+	yscale=0.15,
+	xscale=2
 ]
 
 	% grid
-	\foreach \x in {-2,-1.5,-1,...,2} {
+	\foreach \x in {0,0.4,0.8,1.2,1.6,2.0,2.4} {
 		\draw[very thin,gray] (\x,\ymin) -- (\x,\ymax);
 	}
-	\foreach \y in {-0.5,0,0.5,...,3} {
+	\foreach \y in {0,5,10,...,30} {
 		\draw[very thin,gray] (\xmin,\y) -- (\xmax,\y);
 	}
 
 	% label grid
-	\foreach \x in {-1,1} {
-		\node[below] at (\x,0) {$\x$};
+	\node[below] at (1.2,0) {$12$};
+	\node[below] at (2.4,0) {$24$};
+	\foreach \y in {10,20,30} {
+		\node[left] at (0,\y) {$\y$};
 	}
-	\foreach \y in {1} {
-		\node[left] at (0,1) {$\y$};
-	}
-
-	% example tick marks if not using grid
-	% \draw (-1,0.1) -- (-1,-0.1) node[below] {$\scriptstyle -1$};
-	% \draw (1,0.1) -- (1,-0.1) node[below] {$\scriptstyle 1$};
-	% \draw (0.1,1) -- (-0.1,1) node[left] {$\scriptstyle 1$};
+	\node[below left] at (0,0) {$0$};
 
 	% axes
-	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below right] {$x$};
-	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[above right] {$y$};
+	\draw[->,thick] (\xmin,0) to node[below,yshift=-0.5cm] {hours} (\xmax,0);
+	\draw[->,thick] (0,\ymin) to node[rotate=90,yshift=0.8cm] {degrees Celsius} (0,\ymax);
 
-	% example graph
-	\draw[thick, blue, domain=-1.732:1.732,smooth] plot (\x,{\x * \x});
-
-	% example points
-	\node[blue,closedpt] at (0.5,2) (cl) [label=above left:$h$] {};
-	\node[blue,openpt] at (1.5,0.5) (op) [label=above right:$q$] {};
+	% graph
+	\draw[thick, blue, domain=0:2.4, smooth] plot (\x,{\func});
 
 \end{tikzpicture}
