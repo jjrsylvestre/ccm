@@ -14,7 +14,9 @@ respective owners.
 *********************************************************************-->
 
 <chapter xml:id="chapter-separable" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Separable models</title>
+<title>Reversing the Chain Rule</title>
+
+<!-- TODO substitution in integrals -->
 
 <section xml:id="section-sep-intro">
 <title>TODO</title>

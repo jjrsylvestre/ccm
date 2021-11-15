@@ -697,7 +697,7 @@ we might guess that the pattern is:
 </p>
 
 <identity xml:id="pattern-deriv-power">
-	<title>Derivative of a power</title>
+	<title>Derivative of a power function</title>
 
 	<statement><p>
 		The quantity function <m>q(t) = t^n</m> is differentiable everywhere that it is defined,

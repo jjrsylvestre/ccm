@@ -40,15 +40,23 @@
 \newcommand{\bbrac}[1]{\bigl(#1\bigr)}% slightly larger enclosing brackets
 
 \newcommand{\change}[1]{\Delta #1}
-\newcommand{\slope}[2]{{ \change{#1} \over \change{#2} }}
+\newcommand{\slope}[2]{\frac{\change{#1}}{\change{#2}}}
+\newcommand{\inlineslope}[2]{\change{#1}/\change{#2}}
 
 \newcommand{\dd}[2]{\frac{d{#1}}{d#2}}% Leibniz derivative
-\newcommand{\ddx}[2][x]{\dd{#2}{#1}}% Leibniz derivative for d/dx
-\newcommand{\ddt}[2][t]{\dd{#2}{#1}}% Leibniz differential for d/dt
+\newcommand{\ddx}[1]{\dd{#1}{x}}% Leibniz derivative for d/dx
+\newcommand{\ddt}[1]{\dd{#1}{t}}% Leibniz differential for d/dt
+\newcommand{\ddy}[1]{\dd{#1}{y}}% Leibniz derivative for d/dy
+\newcommand{\ddu}[1]{\dd{#1}{u}}% Leibniz derivative for d/du
 \newcommand{\opddx}[1][x]{\dd{}{#1}}% Leibniz operator
 \newcommand{\opddt}[1][t]{\dd{}{#1}}% Leibniz operator
-\newcommand{\dydx}{\dd{y}{x}}% Leibniz derivative, filled in
-\newcommand{\dxdt}{\dd{x}{t}}% Leibniz derivative, filled in
-\newcommand{\dydt}{\dd{y}{t}}% Leibniz derivative, filled in
+\newcommand{\opddy}[1][y]{\dd{}{#1}}% Leibniz operator
+\newcommand{\dydx}{\ddx{y}}% Leibniz derivative, filled in
+\newcommand{\dxdt}{\ddt{x}}% Leibniz derivative, filled in
+\newcommand{\dydt}{\ddt{y}}% Leibniz derivative, filled in
+\newcommand{\dqdt}{\ddt{q}}% Leibniz derivative, filled in
+\newcommand{\dudt}{\ddt{u}}% Leibniz derivative, filled in
+\newcommand{\dqdu}{\ddu{q}}% Leibniz derivative, filled in
 
 \newcommand{\funceval}[2]{\left.#1\right\rvert_{#2}}
+\newcommand{\comp}[2]{{#1} \circ {#2}}% composite of two functions, note the order

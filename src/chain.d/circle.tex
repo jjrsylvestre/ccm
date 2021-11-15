@@ -12,28 +12,32 @@
 %
 % *********************************************************************
 
+\newcommand*{\xmin}{-1.25}
+\newcommand*{\xmax}{1.25}
+\newcommand*{\ymin}{-1.25}
+\newcommand*{\ymax}{1.25}
+
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
 	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	scale=2
+	scale=1.5
 ]
 
+	% axes
+	\draw[->,thick] (\xmin,0) -- (\xmax,0);
+	\draw[->,thick] (0,\ymin) -- (0,\ymax);
+
 	\node[closedpt] at (0,0) (o) {};
+	\node[closedpt] at (0.866,0.5) (xy) {};
 
-	\draw[thick] (o) to node[below] {$x$} (2.165,0) to node[left] {$y$} (2.165,1.25) to node[above] {$1$} (o);
-	\draw[thin] (2.065,0) -- (2.065,0.1) -- (2.165,0.1);
-
-	\draw[dashed] (2.165,0) -- (2.5,0);
-
-	\draw[thick] (0.866,0.5) to node[right] {$b$} (0.866,0);
+	\draw[thick] (0.866,0.5) to node[left] {$\scriptstyle y$} (0.866,0);
 	\draw[thin] (0.766,0) -- (0.766,0.1) -- (0.866,0.1);
 
-	\draw[dashed] (2.5,0) arc (0:90:2.5cm);
-	\draw[dashed] (2.5,0) arc (0:-15:2.5cm);
+	\draw[dashed] (1,0) arc (0:360:1cm);
 
-	\draw[dashed,very thin] (o) to node[above] {$c$} (0.866,0.5);
-	\draw[dashed,very thin] (o) to node[below,xshift=0.2cm] {$a$} (0.866,0);
+	\draw[thick] (o) to node[above] {$\scriptstyle 1$} (xy) node[above right] {$\scriptstyle (x,y)$};
+	\draw[thick] (o) to node[below,xshift=0.2cm] {$\scriptstyle x$} (0.866,0);
 
 	\draw (0.4,0) arc (0:30:0.4);
 	\node at (0.29,0.078) {$\scriptstyle \theta$};

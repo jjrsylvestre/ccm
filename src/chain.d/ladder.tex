@@ -16,26 +16,30 @@
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
 	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	scale=2
+	scale=1
 ]
 
-	\node[closedpt] at (0,0) (o) {};
+	\node[closedpt] at (1.5,0) (trail) {};
+	\node[closedpt] at (0,2.598) (lead) {};
 
-	\draw[thick] (o) to node[below] {$x$} (2.165,0) to node[left] {$y$} (2.165,1.25) to node[above] {$1$} (o);
-	\draw[thin] (2.065,0) -- (2.065,0.1) -- (2.165,0.1);
+	\draw[thick] (trail) to node[above right] {$3\:\mathrm{m}$} (lead);
 
-	\draw[dashed] (2.165,0) -- (2.5,0);
+	\draw[thick,dotted] (2,0.1) -- (0.1,0.1) -- (0.1,3);
+	\draw[thick,dotted] (2,-0.1) -- (-0.1,-0.1) -- (-0.1,3);
 
-	\draw[thick] (0.866,0.5) to node[right] {$b$} (0.866,0);
-	\draw[thin] (0.766,0) -- (0.766,0.1) -- (0.866,0.1);
+	\node at (0.75,-0.5) (x) {$x$};
+	\draw[thin] (0,-0.4) -- (0,-0.6);
+	\draw[thin] (1.5,-0.4) -- (1.5,-0.6);
+	\draw[thin] (0,-0.5) -- (x);
+	\draw[thin,->] (x) -- (1.5,-0.5);
 
-	\draw[dashed] (2.5,0) arc (0:90:2.5cm);
-	\draw[dashed] (2.5,0) arc (0:-15:2.5cm);
+	\node at (-0.5,1.299) (y) {$y$};
+	\draw[thin] (-0.4,0) -- (-0.6,0);
+	\draw[thin] (-0.4,2.598) -- (-0.6,2.598);
+	\draw[thin] (-0.5,0) -- (y);
+	\draw[thin,->] (y) -- (-0.5,2.598);
 
-	\draw[dashed,very thin] (o) to node[above] {$c$} (0.866,0.5);
-	\draw[dashed,very thin] (o) to node[below,xshift=0.2cm] {$a$} (0.866,0);
-
-	\draw (0.4,0) arc (0:30:0.4);
-	\node at (0.29,0.078) {$\scriptstyle \theta$};
+	\draw[->] (1.8,-0.8) -- node[below] {$1\:\mathrm{m}/\mathrm{min}$} (1.2,-0.8);
+	\draw[->] (-0.8,2.298) -- node[left] {?} (-0.8,2.898);
 
 \end{tikzpicture}

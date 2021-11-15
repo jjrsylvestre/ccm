@@ -169,7 +169,7 @@ and we wish to compare the amounts by which they vary.
 		<mrow> \amp = \frac{\pi d^2}{4} (h_2 - h_1) </mrow>
 		<mrow> \amp = \frac{\pi d^2}{4} \change{h} </mrow>
 	</md>.
-	If we turn this into a ratio <m>\change{V}/\change{h}</m>,
+	If we turn this into a ratio <m>\inlineslope{V}{h}</m>,
 	we can directly see how a variation in depth leads to a variation in volume.
 	<me> \slope{V}{h} = \frac{\pi d^2}{4} </me>.
 	We can think of this ratio as describing <em>variation in volume per unit variation in depth</em>.
@@ -327,7 +327,7 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 	is constant,
 	then <m>q</m> and <m>t</m> are linearly related by
 	<me> q = m t + q_0 </me>,
-	where <m>m</m> is the constant value of <m>\change{q}/\change{t}</m> and <m>q_0</m> is the <q>initial value</q> of quantity <m>q</m> corresponding to <m>t = 0</m>.
+	where <m>m</m> is the constant value of <m>\inlineslope{q}{t}</m> and <m>q_0</m> is the <q>initial value</q> of quantity <m>q</m> corresponding to <m>t = 0</m>.
 	</p>
 </identity>
 

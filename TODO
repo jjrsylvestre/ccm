@@ -1,3 +1,6 @@
+* add a \jint{0}{c}{r(t)}{t} version of \jint{0}{t}{r(u)}{u} formulas.
+* \ddt{q} into \dqdt, \ddu{q} or \dd{q}{u} into \dqdu
+* avg-rate chapter: need to do some examples of forward/backward/central difference approximate, rather than just Sage examples.
 * More clarity and maybe examples for negative domains of power function, both for m>0 and m<0.
 * Should the two formulas for the integral of a power function formula in poly.tex just be merged into one, based at t=1?
   Then could just add a remark about basing at t=0....
