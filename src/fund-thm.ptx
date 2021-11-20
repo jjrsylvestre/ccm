@@ -831,13 +831,15 @@ where the shift term is <me> C = \ccmint{a_1}{a_2}{f(u)}{u} </me>.
 		<mrow>
 			A_0(t) \amp = \ccmint{0}{t}{\cos(u)}{u}
 			\amp
-			A_{-\pi}(t) \amp = \ccmint{-\pi}{t}{\cos(u)}{u}
+			A_{-\pi/2}(t) \amp = \ccmint{-\pi}{t}{\cos(u)}{u}
 		</mrow>
 	</md>.
 	We know from <xref ref="pattern-periodic-int-cos" /> that
 	<me> A_0(t) = \sin(t) </me>.
-	We could also compute <me> \ccmint{-\pi}{0}{\cos(u)}{u} = 1 </me>,
-	and so <me> A_{-\pi}(t) = 1 + \sin(t) </me>.
+	We could also compute <me> \ccmint{-\pi/2}{0}{\cos(u)}{u} = 1 </me>.
+	(Using the symmetry of the cosine graph,
+	this is one-half of the accumulation we calculated in <xref ref="example-fund-thm-cos-avg" />.)
+	So <me> A_{-\pi/2}(t) = 1 + \sin(t) </me>.
 	</p>
 </example>
 
@@ -1001,13 +1003,13 @@ So now
 </md>.
 </p>
 
-<fact xml:id="fact-fund-thm-def-int-by-antideriv">
+<identity xml:id="pattern-fund-thm-def-int-by-antideriv">
 	<title>Definite integrals via antiderivatives</title>
 	<p>
 	If <m>f(t)</m> is a continuous function and <m>F(t)</m> is <emph>any</emph> choice of antiderivative for <m>f(t)</m>,
 	then <me> \ccmint{a}{b}{f(t)}{t} = F(b) - F(a) </me>.
 	</p>
-</fact>
+</identity>
 
 <example>
 	<title>Definite integral of a power function</title>
