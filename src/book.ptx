@@ -102,7 +102,7 @@ respective owners.
 <xi:include href="./chain.ptx" />
 
 <!-- Reversing the chain rule (substitution). Separable differential equations. -->
-<xi:include href="./separable.ptx" />
+<xi:include href="./substitution.ptx" />
 
 <!--
   Composition of functions.

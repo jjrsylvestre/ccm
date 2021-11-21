@@ -1,3 +1,4 @@
+* using u for \ccmint{a}{t}{r(u)}{du} was a bad idea? Now it interferes with u for substitution...
 * add a \jint{0}{c}{r(t)}{t} version of \jint{0}{t}{r(u)}{u} formulas.
 * \ddt{q} into \dqdt, \ddu{q} or \dd{q}{u} into \dqdu
 * avg-rate chapter: need to do some examples of forward/backward/central difference approximate, rather than just Sage examples.

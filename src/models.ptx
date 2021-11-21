@@ -216,8 +216,7 @@ The next step in analyzing the situation would be to try to make this observatio
 	Even though this is a linear relationship between <m>r</m> and <m>q</m>,
 	the model for <m>q(t)</m> in terms of <m>t</m> is definitely not linear,
 	as we will see
-	in <xref ref="chapter-separable" />.
-	<!-- in a later chapter. -->
+	in <xref ref="chapter-substitution" />.
 	</p>
 
 </example>
@@ -393,8 +392,7 @@ not just individual solutions of a particular form.
 	<p>
 	Consider the rate equation <me> r(t) = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </me>.
 	We will learn a technique for solving this equation
-	in <xref ref="chapter-separable" />,
-	<!-- in a later chapter, -->
+	in <xref ref="chapter-substitution" />,
 	and when that technique is successfully applied it leads to general solution
 	<me> q(t) = \frac{c (t + 1)}{c t + 1} </me>
 	involving the parameter <m>c</m>.

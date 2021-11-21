@@ -970,7 +970,7 @@ we can now combine <xref ref="pattern-deriv-exp" /> with <xref ref="pattern-deri
 as in our <xref ref="example-models-radioactive-decay" text="title" /> example.
 </p>
 
-<example>
+<example xml:id="example-deriv-solution-to-proportional-rate-equation">
 	<title>Verifying an exponential solution to a proportional rate equation</title>
 
 	<p>

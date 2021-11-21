@@ -365,6 +365,7 @@ by making a substitution.
 		<mrow> \ddt{q} \amp = \ddu{q} \cdot \dudt </mrow>
 		<mrow> \amp = \frac{1}{2 \sqrt{u}} \cdot 2 t </mrow>
 		<mrow> \amp = \frac{2 t}{2 \sqrt{t^2 + 1}} </mrow>
+		<mrow> \amp = \frac{t}{\sqrt{t^2 + 1}} </mrow>
 	</md>.
 	</p>
 </example>

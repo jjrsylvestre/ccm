@@ -1088,7 +1088,7 @@ So now
 </example>
 
 <remark><p>
-	With <xref ref="fact-fund-thm-def-int-by-antideriv" />,
+	With <xref ref="pattern-fund-thm-def-int-by-antideriv" />,
 	we have effectively completed the circle.
 	For quantity function <m>q(t)</m> over domain <m>t_1 \le t \le t_2</m>,
 	we have
@@ -1099,7 +1099,7 @@ So now
 	On the other hand,
 	we now know that the derivative function <m>r(t) = q'(t)</m> describes the rate of accumulation of <m>q(t)</m>,
 	so we expect a definite integral of <m>q'(t)</m> to also represent an accumulation.
-	<xref ref="fact-fund-thm-def-int-by-antideriv" /> confirms this,
+	<xref ref="pattern-fund-thm-def-int-by-antideriv" /> confirms this,
 	since <m>q(t)</m> is obviously an antiderivative of its own derivative,
 	so
 	<me> \ccmint{t_1}{t_2}{q'(t)}{t} = q(t_2) - q(t_1) = \text{accumulation} </me>.

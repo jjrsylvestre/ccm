@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2021 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<chapter xml:id="chapter-substitution" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Reversing the Chain Rule</title>
+
+<section xml:id="section-substitution">
+<title>Integrating a derivative</title>
+
+<!--   FIRST GO ... TOO COMPLICATED
+
+<p>
+<xref ref="theorem-fund-thm" text="title" />
+says that if we create an accumulation function <m>A(t)</m> out of a function <m>f(t)</m>,
+then we in fact have created an antiderivatitve for <m>f(t)</m>:
+<me> A(t) = \ccmint{t_0}{t}{f(w)}{dw} \qquad\implies\qquad A'(t) = f(t) </me>.
+(Here we are using <m>w</m> as the variable of integration because we are about to use the variable <m>u</m> for another purpose.)
+</p>
+
+<p>
+What if we repeat the above for a derivative function?
+Suppose <m>u(t)</m> is a differentiable function.
+Then
+<me> A(t) = \ccmint{t_0}{t}{u'(w)}{dw} \qquad\implies\qquad A'(t) = u'(t) </me>.
+We know that two functions that have the same derivative must be vertical shifts of one another
+(<xref ref="fact-fund-thm-antideriv-v-shifts" />),
+so
+<me> A(t) = u(t) + C </me>
+for some constant <m>C</m>.
+</p>
+
+<p>
+Let's analyze this using Riemann sums.
+We have <me> \ccmint{t_0}{t}{u'(w)}{dw} \approx \sum_{k=1}^n u'(w_k^\ast) \change{w} </me>.
+At each sample point <m>w_k^\ast</m>,
+we can also approximate the derivative value by an average rate value over the same subdomain of width <m>dw</m> from which <m>w_k^\ast</m> was taken:
+<me> u'(w_k^\ast) = \funceval{\dd{u}{w}}{w = w_k^\ast} \approx \slope{u}{w} </me>,
+where <me> \slope{u}{w} = \frac{u(w_k) - u(w_{k-1})}{\change{w}} </me>.
+This gives us
+<md>
+	<mrow> \ccmint{t_0}{t}{u'(w)}{dw} \amp \approx \sum_{k=1}^n u'(w_k^\ast) \change{w} </mrow>
+	<mrow> \amp \approx \sum_{k=1}^n \frac{\change{u}}{\cancel{\change{w}}} \, \cancel{\change{w}} </mrow>
+	<mrow> \amp = \sum_{k=1}^n \change{u} </mrow>
+	<mrow> \amp = \sum_{k=1}^n 1 \cdot \change{u} </mrow>
+</md>.
+This looks like a Riemann sum,
+but where <m>u</m> is the <emph>independent</emph> variable instead of a dependent variable,
+and the function used is just the constant function <m>1</m>:
+<me> \sum_{k=1}^n 1 \cdot \change{u} \approx \ccmint{t_0}{t}{1}{u} </me>.
+Since <m>u(t)</m> is assumed to be differentiable,
+we may make <m>\change{u}</m> arbitrarily small by taking <m>\change{w}</m> sufficiently small,
+so all of the approximations above can be made arbitrarily good:
+<me> \ccmint{t_0}{t}{\dd{u}{w}}{w} = \ccmint{t_0}{t}{1}{u} </me>.
+Normally, we don't bother to write the integrand <m>1</m> inside the second integral:
+<me> \ccmint{t_0}{t}{\dd{u}{w}}{w} = \ccmint{t_0}{t}{}{u} </me>.
+Choosing <m>u</m> as an antiderivative of <m>1</m> relative to the independent variable <m>u</m>,
+we apply <xref ref="pattern-fund-thm-def-int-by-antideriv" /> to get
+<md>
+	<mrow> \ccmint{t_0}{t}{\dd{u}{w}}{w} \amp = \ccmint{t_0}{t}{}{u} </mrow>
+	<mrow> \amp = \funceval{u}{t} - \funceval{u}{t = t_0} </mrow>
+	<mrow> \amp = u(t) - u(t_0) </mrow>
+</md>
+which is a vertical shift of <m>u(t)</m> as expected from our initial analysis above.
+</p>
+-->
+
+<p>
+<xref ref="pattern-fund-thm-def-int-by-antideriv" /> tells us that we may use an antiderivative to compute an integral:
+<me> \ccmint{a}{b}{q(t)}{t} = Q(b) - Q(a) </me>
+if <m>Q'(t) = q(t)</m>.
+What if we apply the above to an integral of a derivative?
+A function is an antiderivative of its own derivative,
+so we have
+<me> \ccmint{a}{b}{q'(t)}{t} = q(b) - q(a) </me>.
+Since <m>q'(t)</m> is the rate of accumulation of the quantity <m>q(t)</m>,
+this equality is stating the obvious:
+accumulation is equal to accumulation.
+</p>
+
+<p>
+In differential notation,
+we could write
+<md><mrow xml:id="equation-substitution-integral-of-deriv" tag="star">
+	\ccmint{a}{b}{\dqdt}{t} = q(b) - q(a)
+</mrow></md>.
+Recall that this integral is a sum of small
+<me> \text{accumulation} = \text{rate} \times \text{duration} </me>
+calculations over tiny time intervals of duration <m>dt</m>.
+But also, <m>dq/dt</m> is essentially an average rate calculation over a short time interval of duration <m>dt</m>.
+If we assume that these two calculations are aligned to use the same <m>dt</m> <q>value</q>,
+we could write <me> \dqdt \, dt = dq </me>,
+and so
+<md><mrow xml:id="equation-substitution-convert-integral-of-deriv" tag="dstar">
+	\ccmint{a}{b}{\dqdt}{t} = \ccmint{q(a)}{q(b)}{}{q}
+</mrow></md>.
+Notice that we have changed the bounds of integration to reflect the fact that in our second integral,
+<m>q</m> is now being considered as the <emph>independent</emph> variable instead of the dependent one.
+Finally,
+we apply <xref ref="pattern-integ-definite-props-constant" text="type-local">Property</xref>
+of <xref ref="pattern-integ-definite-props" />
+to this new integral to obtain
+<md>
+	<mrow> \ccmint{a}{b}{\dqdt}{t} \amp = \ccmint{q(a)}{q(b)}{}{q} </mrow>
+	<mrow> \amp = \ccmint{q(a)}{q(b)}{1}{q} </mrow>
+	<mrow> \amp = 1 \cdot \bbrac{q(b) - q(a)} </mrow>
+	<mrow> \amp = q(b) - q(a) </mrow>
+</md>,
+just as in <xref ref="equation-substitution-integral-of-deriv" />.
+</p>
+
+<aside><title>Note</title><p>
+	We could make this discussion more precise by considering an actual Riemann sum involving <m>\change{q}</m> and <m>\change{t}</m>,
+	but we won't purse that here.
+</p></aside>
+
+<example>
+	<title>Integrating a derivative</title>
+	<p>
+	Consider <m>q(t) = \sin(t)</m>,
+	so that <m>q'(t) = \cos(t)</m>.
+	Then
+	<me> dq = \dqdt \, dt = \cos(t) dt </me>,
+	so we can compute
+	<md>
+		<mrow> \ccmint{-\pi/2}{\pi/2}{\cos(t)}{t} \amp = \ccmint{\sin(-\pi/2)}{\sin(\pi/2)}{}{q} </mrow>
+		<mrow> \amp = \ccmint{\sin(-\pi/2)}{\sin(\pi/2)}{}{q} </mrow>
+		<mrow> \amp = \ccmint{-1}{1}{}{q} </mrow>
+		<mrow> \amp = 1 - (-1) </mrow>
+		<mrow> \amp = 2 </mrow>
+	</md>,
+	which agrees with the many previous computations of this accumulation that we have made before.
+	</p>
+</example>
+
+<p>
+What if we apply all of the above to a derivative that has been calculated using the chain rule?
+Suppose <m>q</m> is a function of <m>u</m> and <m>u</m> is a function of <m>t</m>.
+Then ultimately <m>q</m> is a function of <m>t</m>,
+and the <xref ref="pattern-chain-differential-version" text="title" /> says that
+<me> \dqdt = \dqdu \cdot \dudt </me>.
+If we are computing an integral
+<me> \ccmint{a}{b}{\dqdt}{t} </me>,
+we would need to know <m>q(t)</m> in order to use an analysis like that in <xref ref="equation-substitution-convert-integral-of-deriv" />.
+So instead, we will use <m>u</m> as an <emph>intermediate</emph> variable:
+<me> \dqdt \, dt = \dqdu \cdot \dudt \, dt = \dqdu \, du </me>,
+giving us
+<me> \ccmint{a}{b}{\dqdt}{t} = \ccmint{u(a)}{u(b)}{\dqdu}{u} </me>.
+The hope is that this second integral is either something for which we already have a formula,
+or for which it is simpler to guess an antiderivative.
+</p>
+
+<example xml:id="example-substitution-integral-of-chain">
+	<title>Integrating the Chain Rule</title>
+	<p>
+	Consider <m>q(t) = \sqrt{t^2 + 1}</m>.
+	In <xref ref="example-chain-radical" /> we used the substitution <m>u = t^2 + 1</m> to compute
+	<me> q'(t) = \frac{t}{\sqrt{t^2 + 1}} = \frac{2 t}{2 \sqrt{t^2 + 1}} </me>,
+	where <m>du/dt = 2 t</m>.
+	Let's pretend we don't know the formula for <m>q(t)</m> and work in reverse.
+	We can use <m>u</m> to compute
+	<md>
+		<mrow>
+			\ccmint{2}{3}{\frac{t}{\sqrt{t^2 + 1}}}{t}
+			\amp = \ccmint{2}{3}{\frac{2 t}{2 \sqrt{t^2 + 1}}}{t}
+		</mrow>
+		<mrow> \amp = \ccmint{2}{3}{\frac{1}{2 \sqrt{t^2 + 1}} \cdot (2 t)}{t} </mrow>
+		<mrow> \amp = \ccmint{2}{3}{\frac{1}{2 \sqrt{t^2 + 1}} \cdot \dudt}{t} </mrow>
+		<mrow> \amp = \ccmint{5}{10}{\frac{1}{2 \sqrt{u}}}{u}                  </mrow>
+	</md>,
+	where we have adjusted the bounds of integration to
+	<md>
+		<mrow> u(2) \amp = 2^2 + 1 \amp u(3) \amp = 3^2 + 1 </mrow>
+		<mrow> \amp = 5 \amp \amp = 9 </mrow>
+	</md>
+	when we converted to an integral in terms of <m>u</m>.
+	This new integral is one we know how to deal with:
+	<md>
+		<mrow>
+			\ccmint{2}{3}{\frac{t}{\sqrt{t^2 + 1}}}{t}
+			\amp = \ccmint{5}{10}{\frac{1}{2 \sqrt{u}}}{u}
+		</mrow>
+		<mrow> \amp = \frac{1}{2} \ccmint{5}{10}{u^{-1/2}}{u} </mrow>
+	</md>
+	Using antiderivative <me> U(t) = \frac{u^{1/2}}{1/2} </me>,
+	we have
+	<md>
+		<mrow>
+			\ccmint{2}{3}{\frac{t}{\sqrt{t^2 + 1}}}{t}
+			\amp = \frac{1}{2} \ccmint{5}{10}{u^{-1/2}}{u}
+		</mrow>
+		<mrow> \amp = \cancel{\frac{1}{2}} \left( \frac{{10}^{1/2}}{\cancel{1/2}} - \frac{5^{1/2}}{\cancel{1/2}} \right) </mrow>
+		<mrow> \amp = \sqrt{10} - \sqrt{5} </mrow>
+	</md>.
+	Remembering that we actually <emph>do</emph> know <m>q(t)</m>,
+	notice that this result is the same as computing
+	<me> \ccmint{2}{3}{\dqdt}{t} = q(3) - q(2) </me>.
+	</p>
+</example>
+
+</section>
+
+<section>
+<title>Method of substitution</title>
+
+<p>
+In general,
+it is difficult to recognize an integrand as a derivative function that is the result of a chain rule.
+Even in <xref ref="example-substitution-integral-of-chain" />,
+we had to go backwards one step from the final result of <xref ref="example-chain-radical" /> by reintroducing the <m>2</m> in both numerator and denominator in order to make it work.
+So we create a slightly more general procedure that can be tried when we merely <emph>suspect</emph> that we have such an integrand that might be the result of a chain rule.
+</p>
+
+<algorithm xml:id="procedure-substitution">
+	<title>Method of substitution</title>
+	<p>
+	If <m>f(t)</m> is a function that can be expressed as <me> f(t) = g(t) \, \dudt </me>,
+	where <m>g(t)</m> can be converted into a function of <m>u</m> alone by substituting <m>u = u(t)</m>,
+	then <me> \ccmint{a}{b}{f(t)}{t} = \ccmint{u(a)}{u(b)}{g(u)}{u} </me>.
+	</p>
+</algorithm>
+
+<remark>
+	<title>Method of substitution is structured <q>trial-and-error</q></title>
+	<p>
+	When we try this method,
+	usually we guess at <m>u</m> first and tweak <m>g</m> to match.
+	But it is often not obvious what <m>u</m> to try <mdash />
+	sometimes we try some version of <m>u</m> and it leads to a dead end.
+	In that case,
+	we either try a different substitution by choosing a different <m>u</m>,
+	or we try a different method all together.
+	No matter what we try,
+	our strategy when using substitution is to
+	<alert>
+		recognize the integrand as a product of two functions,
+		where the second is related to the derivative of some <q>part</q> of the first
+	</alert>.
+	</p>
+</remark>
+
+<example>
+	<title>Integral of a horizontal scaling</title>
+	<p>
+	For <me> \ccmint{0}{\pi/10}{\cos(5 t)}{t} </me>,
+	consider <m>u = 5 t</m> with <m>du/dt = 5</m>.
+	Since our integrand doesn't involve a multiple of <m>5</m> <emph>outside</emph> of the cosine function,
+	we need to introduce one:
+	<me> \cos(t) = \frac{\cos(5 t)}{5} \cdot 5 = \frac{\cos(5 t)}{5} \cdot \dudt </me>.
+	So our <m>g(t)</m> is <me> g(t) = \frac{\cos(5 t)}{5} \qquad\implies\qquad g(u) = \frac{\cos(u)}{5} </me>,
+	and our new bounds of integration are
+	<md>
+		<mrow> u(0) \amp = 5 \cdot 0 \amp u(\pi/10) \amp = 5 \cdot \pi/10 </mrow>
+		<mrow> \amp = 0 \amp \amp = \pi/2 </mrow>
+	</md>
+	and we can calculate
+	<md>
+		<mrow> \ccmint{0}{\pi/10}{\cos(5 t)}{t} \amp = \ccmint{0}{\pi/2}{\frac{\cos(u)}{5}}{u} </mrow>
+		<mrow> \amp = \frac{1}{5} \ccmint{0}{\pi/2}{\cos(u)}{u} </mrow>
+		<mrow> \amp = \frac{1}{5} \bbrac{\sin(\pi/2) - \sin(0)} </mrow>
+		<mrow> \amp = \frac{1}{5} (1 - 0) </mrow>
+		<mrow> \amp = \frac{1}{5} </mrow>
+	</md>,
+	where we have used the antiderivative <m>\sin(u)</m> for <m>\cos(u)</m>.
+	</p>
+</example>
+
+<example xml:id="example-substitution-hshift">
+	<title>Integral of a horizontal shift</title>
+	<p>
+	For <me> \ccmint{0}{e^3 - 1}{\frac{1}{t + 1}}{t} </me>,
+	we could probably guess an antiderivative involving a logarithm.
+	But we can also be more systematic using substitution.
+	Using
+	<me> u = t + 1 \qquad\implies\qquad \dudt = 1 </me>
+	and
+	<md>
+		<mrow> u(0) \amp = 0 + 1 \amp u(e^3 - 1) \amp = (e^3 - 1) + 1 </mrow>
+		<mrow> \amp = 1 \amp \amp = e^3 </mrow>
+	</md>
+	we have
+	<md>
+		<mrow> \ccmint{0}{e^3 - 1}{\frac{1}{t + 1}}{t} \amp = \ccmint{0}{e^3 - 1}{\frac{du/dt}{t + 1}}{t} </mrow>
+		<mrow> \amp = \ccmint{1}{e^3}{\frac{1}{u}}{u} </mrow>
+	</md>.
+	Using the antiderivative <m>\ln\abs{u}</m> for <m>1/u</m>,
+	we have
+	<md>
+		<mrow> \ccmint{0}{e^3 - 1}{\frac{1}{t + 1}}{t} \amp = \ln\abs{e^3} - \ln\abs{1} </mrow>
+		<mrow> \amp = 3 - 0 </mrow>
+		<mrow> \amp = 3 </mrow>
+	</md>.
+	</p>
+</example>
+
+<example>
+	<title>Another trig example</title>
+	<p>
+	For <me> \ccmint{0}{\pi/2}{\cos(t) \sin^2(t)}{t} </me>,
+	we recognize that <m>\cos(t)</m> is the derivative of <m>\sin(t)</m>,
+	so if we substitute
+	<md><mrow> u \amp = \sin(t) \amp \dudt \amp = \cos(t) </mrow></md>
+	and
+	<md><mrow> u(0) \amp = 0 \amp u(\pi/2) = 1 </mrow></md>
+	we have
+	<md>
+		<mrow>
+			\ccmint{0}{\pi/2}{\cos(t) \sin^2(t)}{t}
+			\amp = \ccmint{0}{\pi/2}{{\bbrac{\sin(t)}}^2 \dudt}{t}
+		</mrow>
+		<mrow> \amp = \ccmint{0}{1}{u^2}{u} </mrow>
+		<mrow> \amp = \frac{1^3}{3} - \frac{0^3}{3} </mrow>
+		<mrow> \amp = \frac{1}{3} </mrow>
+	</md>.
+	</p>
+</example>
+
+<p> We can also use substitution to compute indefinite integrals. </p>
+
+<example>
+	<title>Substitution in an indefinite integral</title>
+	<p>
+	For <me> \ccmiint{t e^{t^2}}{t} </me> we recognize <m>d(t^2)/dt = 2 t</m>,
+	so let's try substituting <m>u = t^2</m>.
+	As with a previous example,
+	the factor of <m>2</m> in <m>du/dt</m> is missing in our integrand,
+	so we must artificially introduce it.
+	<md>
+		<mrow> \ccmiint{t e^{t^2}}{t} \amp = \ccmiint{\frac{e^{t^2}}{2} \cdot (2 t)}{t} </mrow>
+		<mrow> \amp = \ccmiint{\frac{e^{t^2}}{2} \cdot \dudt }{t} </mrow>
+		<mrow> \amp = \ccmiint{\frac{e^u}{2}}{u} </mrow>
+		<mrow> \amp = \frac{e^u}{2} + C </mrow>
+	</md>.
+	However,
+	we weren't interested in the antidervivatives of <m>g(u) = e^u/2</m>,
+	we wanted the antiderivatives of <m>f(t) = t e^{t^2}</m>.
+	We need to substitute back in for <m>u</m>:
+	<md>
+		<mrow> \ccmiint{t e^{t^2}}{t} \amp = \frac{e^u}{2} + C </mrow>
+		<mrow> \amp = \frac{e^{t^2}}{2} + C </mrow>
+	</md>.
+	</p>
+</example>
+
+<p> Sometimes there are multiple choices for the substitution. </p>
+
+<example xml:id="example-substitution-two-choices">
+	<title>Choosing the substitution</title>
+	<p>
+	For <me> \ccmiint{\sin(t) \cos(t)}{t} </me>,
+	each of the two factors in the integrand is related to the derivative of the other.
+	Let's choose <m>u = \sin(t)</m> so that <m>du/dt = \cos(t)</m>.
+	Then,
+	<md>
+		<mrow> \ccmiint{\sin(t) \cos(t)}{t} \amp = \ccmiint{\sin(t) \cdot \dudt}{t} </mrow>
+		<mrow> \amp = \ccmiint{u}{u} </mrow>
+		<mrow> \amp = \frac{u^2}{2} + C </mrow>
+		<mrow> \amp = \frac{\sin^2(t)}{2} + C </mrow>
+	</md>.
+	</p>
+</example>
+
+<exercise>
+	<title>Choosing a different substitution</title>
+	<p>
+	Repeat <xref ref="example-substitution-two-choices" />,
+	but this time choose <m>u = \cos(t)</m>.
+	You will arrive at a seemingly different answer,
+	but <xref ref="fact-fund-thm-antideriv-v-shifts" /> says that your result should be a vertical shift of the result computed in <xref ref="example-substitution-two-choices" />.
+	Determine how.
+	</p>
+</exercise>
+
+<p>
+Somewhat similar to <xref ref="example-substitution-hshift" />,
+we can sometimes use substitution to <q>shift</q> a complicated expression to another place in the integrand.
+</p>
+
+<example>
+	<title>Shifting a sum from the denominator to the numerator</title>
+	<p>
+	For <me> \ccmiint{\frac{t^5}{t^2 + 1}}{t} </me>,
+	the integrand would be easier to deal with if there wasn't a plus sign in the denominator.
+	So let's try substituting <m>u = t^2 + 1</m>.
+	Since <m>du/dt = 2 t</m>,
+	we first reorganize the integrand,
+	artificially introducing that factor of <m>2</m>.
+	<md>
+		<mrow> \ccmiint{\frac{t^5}{t^2 + 1}}{t} \amp = \ccmiint{\frac{ 2 t \cdot t^4 }{2 (t^2 + 1)}}{t} </mrow>
+		<mrow> \amp = \ccmiint{\frac{t^4}{2 (t^2 + 1)} \cdot (2 t)}{t} </mrow>
+		<mrow> \amp = \ccmiint{\frac{t^4}{2 (t^2 + 1)} \cdot \dudt}{t} </mrow>
+	</md>.
+	What about that numerator of <m>t^4</m>?
+	Luckily, it can be expressed as a function of <m>u</m>:
+	<md alignment="gather">
+		<mrow> t^2 + 1 = u </mrow>
+		<mrow> t^2 = u - 1 </mrow>
+		<mrow> t^4 = (u - 1)^2 </mrow>
+	</md>.
+	So
+	<md>
+		<mrow> \ccmiint{\frac{t^5}{t^2 + 1}}{t} \amp = \ccmiint{\frac{t^4}{2 (t^2 + 1)} \cdot \dudt}{t} </mrow>
+		<mrow> \amp = \ccmiint{\frac{(u - 1)^2}{2 u}}{u} </mrow>
+	</md>.
+	Now that we have shifted the sum in the original denominator to be a difference in the numerator,
+	we can manipulate the integrand algebraically before integrating:
+	<md>
+		<mrow> \ccmiint{\frac{t^5}{t^2 + 1}}{t} \amp = \ccmiint{\frac{(u - 1)^2}{2 u}}{u}  </mrow>
+		<mrow> \amp = \ccmiint{\frac{u^2 - 2 u + 1}{2 u}}{u}                               </mrow>
+		<mrow> \amp = \ccmiint{\frac{u}{2} - 1 + \frac{1}{2 u}}{u}                         </mrow>
+		<mrow> \amp = \frac{u^2}{4} - u + \frac{1}{2} \ln\abs{u} + C                       </mrow>
+		<mrow> \amp = \frac{(t^2 + 1)^2}{4} - (t^2 + 1) + \frac{1}{2} \ln\abs{t^2 + 1} + C </mrow>
+	</md>.
+	</p>
+</example>
+
+</section>
+
+<section>
+<title>Separable rate equations</title>
+
+<p>
+Recall that a rate equation relates a quantity to its rate of variation.
+Our goal in solving a rate equation is to relate the quantity directly to the independent variable.
+Since a rate of variation is a derivative function,
+ultimately solving a rate equation involves recognizing and reversing the differentiation.
+When we can <q>separate</q> the variables involved in a rate function to either side of a rate equation,
+on one side we can reverse the differentiation by reversing the chain rule.
+</p>
+
+<example xml:id="example-substitution-first-separable">
+	<title>A first example</title>
+
+	<p>
+	Consider the rate equation <me> r(t) = \frac{t^2 + 1}{q(t) + 1} </me>.
+	Let's simply write <m>q</m> instead of <m>q(t)</m>.
+	But let's also replace <m>r(t)</m> with <m>dq/dt</m>,
+	since <m>dq/dt</m> is the rate of variation of <m>q</m>.
+	Finally, we'll also do a little algebraic rearrangement.
+	<md alignment="gather">
+		<mrow>                  r(t) = \frac{t^2 + 1}{q(t) + 1} </mrow>
+		<mrow>                 \dqdt = \frac{t^2 + 1}{q + 1}                </mrow>
+		<mrow>         (q + 1) \dqdt = t^2 + 1                              </mrow>
+		<mrow> q \cdot \dqdt + \dqdt = t^2 + 1                              </mrow>
+	</md>.
+	The first term on the left now looks the type of result we would obtain when applying the chain rule during an implicit differentiation computation.
+	In particular,
+	<md>
+		<mrow> \opddt \left( \frac{q^2}{2} \right) \amp = \frac{1}{2} \ddq{(q^2)} \dqdt </mrow>
+		<mrow> \amp = \frac{1}{\cancel{2}} (\cancel{2} q) \dqdt </mrow>
+		<mrow> \amp = q \, \dqdt </mrow>
+	</md>
+	So,
+	in effect we can <q>factor</q> the <m>d/dt</m> operator out of the left-hand side of the last equation above:
+	<md alignment="gather">
+		<mrow> q \cdot \dqdt + \dqdt = t^2 + 1  </mrow>
+		<mrow> \implies \qquad \opddt \left( \frac{q^2}{2} + q \right) = t^2 + 1  </mrow>
+	</md>.
+	To obtain an equation involving <m>q</m> and <m>t</m> but <emph>without</emph> any differentiation,
+	we need to undo the differentiation <emph>on both sides</emph>.
+	<md alignment="gather">
+		<mrow> \opddt \left( \frac{q^2}{2} + q \right) = t^2 + 1 </mrow>
+		<mrow> \implies \qquad \frac{q^2}{2} + q = \frac{t^3}{3} + t + C</mrow>
+	</md>.
+	Notice that we have introduced an unknown vertical shift,
+	since an equality of two derivatives does not mean that the two original functions are equal.
+	</p>
+
+	<p>
+	So far, we have obtained an implicit expression relating <m>q</m> to <m>t</m>.
+	It's not always possible to isolate <m>q</m>,
+	but in this case we can use the <xref ref="pattern-poly-quadratic-formula" text="title" />
+	to obtain a <q>lower</q> and an <q>upper</q> solution:
+	<md alignment="gather">
+		<mrow> \frac{q^2}{2} + q = \frac{t^3}{3} + t + C</mrow>
+		<mrow> 3 q^2 + 6 q = 2 t^3 + 6 t + C </mrow>
+		<mrow> 3 q^2 + 6 q - (2 t^3 + 6 t + C) = 0 </mrow>
+	</md>.
+	<md>
+		<mrow>
+			q(t) \amp = \frac{-6 - \sqrt{36 - 12 (2 t^3 + 6 t + C)}}{6}
+			\amp
+			q(t) \amp = \frac{-6 + \sqrt{36 + 12 (2 t^3 + 6 t + C)}}{6}
+		</mrow>
+		<mrow>
+			\amp = -1 - \sqrt{1 - 2 t^3 / 3 - 2 t + C}
+			\amp
+			\amp = -1 + \sqrt{1 - 2 t^3 / 3 - 2 t + C}
+		</mrow>
+		<mrow>
+			\amp = -1 - \sqrt{C - 2 t^3 / 3 - 2 t}
+			\amp
+			\amp = -1 + \sqrt{C - 2 t^3 / 3 - 2 t}
+		</mrow>
+	</md>.
+	Notice when we perform algebraic operations involving <m>C</m>,
+	we haven't bothered to alter it,
+	since if <m>C</m> is an arbitrary value,
+	then so is <m>6 C</m>, for example.
+	In fact,
+	under the square root sign we have even absorbed the extra <m>1</m> into the constant <m>C</m>,
+	since <m>1 + C</m> is just as arbitrary as <m>C</m> itself.
+	</p>
+
+	<p>
+	Our two classes of solutions both involve the parameter <m>C</m>,
+	which would have to be determined using a known or desired initial value.
+	For example, if we wanted a solution of the <q>upper</q> type that satisfied <m>q(0) = 4</m>,
+	we could solve for <m>C</m>:
+	<md alignment="gather">
+		<mrow> 4 = -1 + \sqrt{C - 2 0^3 / 3 - 2 \cdot 0} </mrow>
+		<mrow> 5 = \sqrt{C} </mrow>
+		<mrow> 25 = C </mrow>
+	</md>.
+	So the solution that satisfies <m>q(0) = 4</m> is
+	<me> q(t) = -1 + \sqrt{25 - 2 t^3 / 3 - 2 t} </me>.
+	</p>
+
+</example>
+
+<definition>
+	<title>Separable rate equation</title>
+	<p>
+	A rate equation that can be expressed in the form
+	<me> M(q) \cdot \dqdt = N(t) </me>
+	for some functions <m>M</m> and <m>N</m> is called <term>separable</term>.
+	</p>
+</definition>
+
+<p>
+Ultimately,
+the problem in <xref ref="example-substitution-first-separable" /> was solved by reversing differentiation,
+also known as <emph>antidifferentiating</emph>.
+</p>
+
+<algorithm>
+	<title>Solving a separable rate equation</title>
+	<p>
+	To solve <me> M(q) \cdot \dqdt = N(t) </me>,
+	integrate both sides:
+	<md alignment="gather">
+		<mrow> M(q) \cdot \dqdt = N(t) </mrow>
+		<mrow> \ccmiint{M(q) \cdot \dqdt}{t} = \ccmiint{N(t)}{t} </mrow>
+		<mrow> \ccmiint{M(q)}{q} = \ccmiint{N(t)}{t} </mrow>
+	</md>,
+	introducing an arbitrary constant of integration on one side only.
+	</p>
+</algorithm>
+
+<example>
+	<title>Solving exponential decay</title>
+
+	<p>
+	Let's once again revisit <xref ref="example-models-radioactive-decay" />,
+	which involved the rate equation
+	<me> \frac{r(t)}{q(t)} = - k </me>.
+	In <xref ref="example-deriv-solution-to-proportional-rate-equation" />
+	we verified that an horizontally-transformed exponential function can be a solution to this type of rate equation.
+	Now we'll solve this equation to verify that exponential functions are the <emph>only</emph> possible solutions.
+	<md alignment="gather">
+		<mrow> \frac{1}{q} \cdot \dqdt = -k </mrow>
+		<mrow> \ccmiint{\frac{1}{q} \cdot \dqdt}{t} = \ccmiint{-k}{t} </mrow>
+		<mrow> \ccmiint{\frac{1}{q}}{q} = \ccmiint{-k}{t} </mrow>
+		<mrow> \ln\abs{q} = -k t + C </mrow>
+	</md>.
+	To isolate <m>q</m>,
+	we undo the logarithm by taking the exponential of each side.
+	<md alignment="gather">
+		<mrow> \exp\bbrac{\ln\abs{q}} = e^{-k t + C} </mrow>
+		<mrow> \abs{q} = e^C \cdot e^{-k t}  </mrow>
+	</md>.
+	Now, the exponentials on the left are always positive,
+	but the <m>q</m> inside the absolute value brackets could be positive or negative,
+	so again we really have a <q>lower</q> and <q>upper</q> solution
+	<md><mrow> q \amp = e^C \cdot e^{-k t} \amp q \amp = - e^C \cdot e^{-k t} </mrow></md>
+	However, as <m>C</m> is an arbitrary constant,
+	together <m>\pm e^C</m> can take on any non-zero value,
+	so we unify these two solutions by letting <m>A</m> represent either of <m>\pm e^C</m>:
+	<me> q(t) = A e^{-k t} </me>.
+	Notice that <m>A</m> represents the initial value <m>q(0)</m>,
+	since <m>e^0 = 1</m>.
+	</p>
+
+	<p>
+	One last thing to consider is that if <m>A = \pm e^C</m>,
+	then <m>A = 0</m> is not possible.
+	And that's good,
+	because <m>q = 0</m> would not work in
+	<me> \frac{r(t)}{q(t)} = - k </me>.
+	However,
+	if we rearrange this to
+	<me> r(t) = - k q(t) </me>,
+	then <m>q(t) = 0</m> would in fact be a solution,
+	since then <m>q'(t) = 0</m> also,
+	so
+	<md>
+		<mrow> \text{LHS} \amp = r(t) \amp \text{RHS} \amp = -k q(t) </mrow>
+		<mrow> \amp = q'(t) \amp \text{RHS} \amp = -k \cdot 0 </mrow>
+		<mrow> \amp = 0 \amp \text{RHS} \amp = 0 </mrow>
+	</md>.
+	</p>
+
+</example>
+
+<p>
+As one last example,
+let's return to the rate equation from <xref ref="example-models-general-solution" />.
+</p>
+
+<example xml:id="example-substitution-solve-previous-example">
+
+	<p>
+	In <xref ref="example-models-general-solution" /> we considered the rate equation
+	<me> r(t) = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </me>.
+	This is somewhat similar to <xref ref="example-substitution-first-separable" />,
+	except this time the solution will involve logarithms,
+	because after separating variables we will have reciprocal functions on both sides.
+	<me> \frac{1}{q (1 - q)} \cdot \dqdt = \frac{1}{t + 1} </me>.
+	Because of the product in the denominator,
+	the left-hand side looks like something you get after obtaining a common denominator.
+	In fact, combining <me> \frac{1}{q} + \frac{1}{1 - q} </me>
+	into a single fraction leads to our left-hand side above (without the <m>dq/dt</m>).
+	<md>
+		<mrow> \left(\frac{1}{q} + \frac{1}{1 - q}\right) \cdot \dqdt = \frac{1}{t + 1} </mrow>
+		<mrow> \ccmiint{\frac{1}{q} + \frac{1}{1 - q}}{q} = \ccmiint{\frac{1}{t + 1}}{t} </mrow>
+	</md>
+	For each of the right-hand side and the second term on the left-hand side,
+	we could perform a substitution similarly to <xref ref="example-substitution-hshift" />,
+	but we can probably just guess-and-check these antiderivatives using the logarithm:
+	<me> \ln\abs{q} - \ln\abs{1 - q} = \ln\abs{t + 1} + C </me>,
+	where the original addition on the left has turned into subtraction to correct the extra negative we would get from the chain rule if we differentiated <m>\ln\abs{1 - q}</m> to check our answer.
+	</p>
+
+	<p>
+	Finally,
+	we would like to solve for <m>q</m> if possible.
+	We use the properties of the logarithm to combine the two terms on the left,
+	and then apply the exponential function to <q>undo</q> the logarithm.
+	<md alignment="gather">
+		<mrow> \ln\abs{\frac{q}{1 - q}} = \ln\abs{t + 1} + C </mrow>
+		<mrow> \exp\left(\ln\abs{\frac{q}{1 - q}}\right) = \exp\bbrac{\ln\abs{t + 1} + C} </mrow>
+		<mrow> \abs{\frac{q}{1 - q}} = \exp\bbrac{\ln\abs{t + 1}} \cdot e^C </mrow>
+		<mrow> \abs{\frac{q}{1 - q}} = e^C \abs{t + 1} </mrow>
+		<mrow> \frac{q}{1 - q} = \pm e^C (t + 1) </mrow>
+	</md>
+	Replace <m>\pm e^C</m> with arbitrary <m>A</m>:
+	<md alignment ="gather">
+		<mrow> q = A (t + 1)(1 - q) </mrow>
+		<mrow> q = A (t + 1) - A (t + 1) q </mrow>
+		<mrow> q +  A (t + 1) q = A (t + 1) </mrow>
+		<mrow> \bbrac{ 1 +  A (t + 1) } q = A (t + 1) </mrow>
+		<mrow> q(t) = \frac{A (t + 1)}{ 1 +  A (t + 1) } </mrow>
+	</md>,
+	where <m>A</m> is an arbitrary constant.
+	This general solution appears different from the one previously provided in <xref ref="example-models-general-solution" />,
+	but this solution can be converted into that solution by substituting <me> A = \frac{c}{1 -c} </me>,
+	where <m>c</m> also represents an arbitrary constant.
+	</p>
+
+</example>
+
+<exercise><p>
+	In <xref ref="example-substitution-solve-previous-example" />,
+	letting <m>A</m> represent <m>\pm e^C</m> implies that <m>A</m> cannot be zero,
+	since an exponential is never <m>0</m>.
+	Verify that setting <m>A = 0</m> in the final formula for <m>q(t)</m> actually does lead to a valid particular solution,
+	by substituting that version of <m>q(t)</m> (and its derivative) into the left-hand and right-hand sides of the original rate equation.
+</p></exercise>
+
+
+</section>
+
+<!-- <xi:include href="./separable.d/activities.ptx" />
+<xi:include href="./separable.d/exercises.ptx" /> -->
+
+</chapter>
