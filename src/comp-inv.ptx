@@ -32,11 +32,11 @@ the inner component is a polynomial function and the outer component is the squa
 It is just a matter of changing perspective on the function from a single input-output process to a <emph>chain</emph> of two (or more) input-output processes.
 </p>
 
-<figure xml:id="figure-chain-composite-input-output-schematic">
+<figure xml:id="figure-comp-inv-input-output-schematic">
 	<caption> Schematic of a function as a chained multi-step input-output process. </caption>
-	<image width="66%">
+	<image width="50%">
 		<description>Schematic of a function as a chained multi-step input-output process.</description>
-		<latex-image><xi:include href="chain.d/inner-outer.tex" parse="text" /></latex-image>
+		<latex-image><xi:include href="comp-inv.d/inner-outer.tex" parse="text" /></latex-image>
 	</image>
 </figure>
 
@@ -52,7 +52,46 @@ It is just a matter of changing perspective on the function from a single input-
 </definition>
 
 <example>
-	<title>Composing TODO CONTINUE</title>
+	<title>Composing a polynomial with a root</title>
+	<p>
+	Consider functions
+	<md><mrow> f(t) \amp = t^3 + t - 1 \amp g(t) \amp = \sqrt{t} </mrow></md>.
+	Then
+	<md>
+		<mrow> (\comp{g}{f})(t) \amp = g\bbrac{f(t)} </mrow>
+		<mrow> \amp = \sqrt{f(t)} </mrow>
+		<mrow> \amp = \sqrt{t^3 + t - 1} </mrow>
+	</md>.
+	Notice that if we form the composition in the other order,
+	we don't get the same result:
+	<md>
+		<mrow> (\comp{f}{g})(t) \amp = f\bbrac{g(t)} </mrow>
+		<mrow> \amp = {\bbrac{g(t)}}^3 + g(t) - 1 </mrow>
+		<mrow> \amp = (\sqrt{t})^3 + \sqrt{t} - 1 </mrow>
+		<mrow> \amp = t^{3/2} + t^{1/2} - 1 </mrow>
+	</md>.
+	</p>
+</example>
+
+<example>
+	<title>Transformations are compositions with a linear function</title>
+	<p>
+	Consider functions
+	<md><mrow> f(t) \amp = 4 t - 5 \amp g(t) \amp = \sqrt{t} </mrow></md>.
+	Then composing in the order <m>\comp{g}{f}</m> has the effect of <em>horizontally</em> transforming <m>g(t)</m>:
+	<md>
+		<mrow> (\comp{g}{f})(t) \amp = g\bbrac{f(t)} </mrow>
+		<mrow> \amp = \sqrt{f(t)} </mrow>
+		<mrow> \amp = \sqrt{4 t - 5} </mrow>
+	</md>.
+	On the other hand,
+	composing in the order <m>\comp{f}{g}</m> has the effect of <em>vertically</em> transforming <m>g(t)</m>:
+	<md>
+		<mrow> (\comp{f}{g})(t) \amp = f\bbrac{g(t)} </mrow>
+		<mrow> \amp = 4 g(t) - 5 </mrow>
+		<mrow> \amp = 4 \sqrt{t} - 5 </mrow>
+	</md>.
+	</p>
 </example>
 
 <p>
@@ -61,9 +100,833 @@ More important than computing composite functions is recognizing an existing fun
 
 <example>
 	<title>Recognizing a composite function</title>
+	<p>
+	The function <m>h(t) = e^{t^2 + 1}</m> is a composition of the natural exponential function with a polynomial.
+	Writing <m>\exp(t) = e^t</m> as usual,
+	and also <m>f(t) = t^2 + 1</m>,
+	then
+	<md>
+		<mrow> (\comp{\exp}{f})(t) \amp = \exp\bbrac{f(t)} </mrow>
+		<mrow> \amp = e^{f(t)} </mrow>
+		<mrow> \amp = e^{t^2 + 1} </mrow>
+	</md>,
+	so we can say <me> h = \comp{\exp}{f} </me>.
+	</p>
 </example>
 
-<!-- TODO view horizontal transformations as compositions? -->
+<p> We can also have compositions of more than two functions. </p>
+
+<example>
+	<title>A composition of four functions</title>
+	<p>
+	Consider the function <me> h(t) = e^{\sqrt{\abs{\cos(t)}}} </me>.
+	Working from the outside inward,
+	we can write <me> h = \comp{\exp}{\comp{\sqrtop}{\comp{\absop}{\cos}}} </me>.
+	To verify that this is correct,
+	we can compute:
+	<md>
+		<mrow>
+			(\comp{\exp}{\comp{\sqrtop}{\comp{\absop}{\cos}}})(t)
+			\amp = \exp\bbrac{ (\comp{\sqrtop}{\comp{\absop}{\cos}})(t) }
+		</mrow>
+		<mrow> \amp = e^{ \sqrtop\bbrac{(\comp{\absop}{\cos})(t)} } </mrow>
+		<mrow> \amp = e^{ \sqrt{ \absop\bbrac{\cos(t)} } } </mrow>
+		<mrow> \amp = e^{ \sqrt{ \abs{\cos(t)} } } </mrow>
+	</md>,
+	which is exactly the formula for <m>h(t)</m>.
+	</p>
+</example>
+
+<p>
+Finally, here is a version of the <xref ref="pattern-chain-differential-version" text="title" /> in terms of composition of functions.
+</p>
+
+<identity xml:id="pattern-comp-inv-chain-function-version">
+	<title>Chain Rule</title>
+
+	<statement>
+		<p>
+		If function <m>g(t)</m> is differentiable at <m>t = c</m>
+		and function <m>f(t)</m> is differentiable at <m>t = g(c)</m>,
+		then the composition <m>\comp{f}{g}</m> is differentiable at <m>t = c</m>,
+		with <me> (\comp{f}{g})'(c) = f'\bbrac{g(c)} \cdot g'(c) </me>.
+		</p>
+	</statement>
+
+	<proof><p>
+		If we set <m>u = g(t)</m>,
+		then we may regard the composite
+		<me> (\comp{f}{g})(t) = f\bbrac{g(t)} = f(u) </me> as a function of <m>u</m>.
+		Using our inital version of the <xref ref="pattern-chain-differential-version" text="title" />,
+		we have
+		<md>
+			<mrow> \opddt \, (\comp{f}{g})(t) \amp = \opddt \, f(u) </mrow>
+			<mrow> \amp = \opddu \, f(u) \cdot \dudt </mrow>
+			<mrow> \amp = f'(u) \cdot g'(t) </mrow>
+			<mrow> \amp = f'\bbrac{g(t)} \cdot g'(t) </mrow>
+		</md>,
+		as required.
+	</p></proof>
+
+</identity>
+
+</section>
+
+<section xml:id="section-comp-inv-inv">
+<title>Inverse functions</title>
+
+<example xml:id="example-comp-inv-rain">
+	<title>Outputs as inputs</title>
+
+	<p>
+	Suppose a reservoir is filled with water to a depth of <quantity><mag>3</mag><unit base="meter" /></quantity>.
+	A period of steady, heavy rain begins,
+	and it is observed that the depth of water is increasing by <quantity><mag>50</mag><unit base="meter" prefix="centi" /><per base="hour" /></quantity>.
+	Knowing that a constant variation must mean a linear quantity,
+	we can create quantity model <me> D(t) = 0.5 t + 3 </me> for the depth of water in metres at time <m>t</m> hours after it began raining.
+	</p>
+
+	<p>
+	With our model expressed as a function of time,
+	we can directly answer questions like <q>What will the depth be <quantity><mag>1</mag><unit base="hour" /></quantity> after the rain began?</q>
+	But often we want to answer questions like <q>If it keeps raining at this rate, how long until the reservoir overflows?</q>
+	In other words, <q>How long must it rain at this rate for the water to reach a specific depth <m>D_0</m>?</q>
+	To answer this type of question directly,
+	we need a formula where <m>D</m> is the <em>input</em> and <m>t</m> is the <em>output</em>:
+	<md align="gather">
+		<mrow> D = 0.5 t + 3 </mrow>
+		<mrow> D - 3 = 0.5 t </mrow>
+		<mrow> t = 2 (D - 3) </mrow>
+	</md>.
+	</p>
+
+</example>
+
+<p>
+Not every function can be <q>inverted</q> as in <xref ref="example-comp-inv-rain" />.
+To isolate the old independent variable,
+we need to be able to <q>undo</q> whatever operations have been applied.
+The key is to recognize that in special situations, computing a composition has a simplifying effect.
+</p>
+
+<example xml:id="example-comp-inv-undo-cube">
+	<title>Undoing cube and cube root</title>
+	<p>
+	Consider functions
+	<md><mrow> f(t) \amp = t^3 \amp g(t) \amp = \sqrt[3]{t} </mrow></md>.
+	Let's compute both compositions <m>\comp{f}{g}</m> and <m>\comp{g}{f}</m>:
+	<md>
+		<mrow>
+			(\comp{f}{g})(t) \amp = f\bbrac{g(t)}
+			\amp
+			(\comp{g}{f})(t) \amp = g\bbrac{f(t)}
+		</mrow>
+		<mrow>
+			\amp = {\bbrac{g(t)}}^3
+			\amp
+			\amp = \sqrt[3]{f(t)}
+		</mrow>
+		<mrow>
+			\amp = {(\sqrt[3]{t})}^3
+			\amp
+			\amp = \sqrt[3]{t^3}
+		</mrow>
+		<mrow>
+			\amp = t
+			\amp
+			\amp = t
+		</mrow>
+	</md>.
+	</p>
+</example>
+
+<definition xml:id="definition-comp-inv-inv">
+	<title>Inverse functions</title>
+	<p>
+	If <m>f(t)</m> and <m>g(t)</m> are functions so that
+	<me> f\bbrac{g(t)} = t </me> for all <m>t</m> in the domain of <m>g</m>
+	and
+	<me> g\bbrac{f(t)} = t </me> for all <m>t</m> in the domain of <m>f</m>,
+	then <m>f</m> and <m>g</m> are a pair of <term>inverse functions</term>.
+	</p>
+	<p>A function for which a corresponding inverse exists is called <term>intertible</term>.</p>
+</definition>
+
+<remark>
+	<title>Inverses are unique</title>
+	<p>
+	Not every function has an corresponding inverse function,
+	but when a function <m>f</m> <em>does</em> have an inverse,
+	that inverse function is unique in the sense that no other function can be an inverse for <m>f</m>.
+	</p>
+</remark>
+
+<p>
+Because an invertible function <m>f</m> has only one unique inverse function,
+we can unambiguously write <m>\inv{f}</m> to mean <term>the inverse function for <m>f</m></term>,
+and the requirements of <xref ref="definition-comp-inv-inv" /> become
+<md><mrow> \inv{f}\bbrac{f(t)} \amp = t \amp f\bbrac{\inv{f}(t)} \amp = t </mrow></md>.
+</p>
+
+<warning><p>
+	In this case, <alert>the negative exponent in <m>\inv{f}</m> does not mean reciprocal</alert>.
+	A reciprocal is a <em>type</em> of inverse,
+	since division is the reverse process to multiplication.
+	But function inverses are more general,
+	as not every function involves a multiplication process.
+	So, in general,
+	<m>\inv{f}(t)</m> does <alert>not</alert> mean <m>1/f(t)</m>.
+</p></warning>
+
+<example>
+	<title>Cube and cube root are inverse functions</title>
+	<p>
+	We can now say that <xref ref="example-comp-inv-undo-cube" /> demonstrates that the cube and cube-root functions are inverses of each other.
+	That is,
+	if <m>f(t) = t^3</m>, then <m>\inv{f}(t) = \sqrt[3]{t}</m>.
+	Or if we write <m>g(t) = \sqrt[3]{t}</m>,
+	then <m>\inv{g}(t) = t^3</m>.
+	</p>
+</example>
+
+<identity xml:id="pattern-comp-inv-inv-inv">
+	<title>A function is the inverse of its inverse</title>
+	<p>
+	If function <m>f</m> has an inverse function <m>\inv{f}</m>,
+	then also <m>f</m> is the inverse of <m>\inv{f}</m>,
+	so that <me> \inv{(\inv{f})} = f </me>.
+	</p>
+</identity>
+
+<p>
+Some functions don't have an inverse function,
+even when is seems like they should.
+</p>
+
+<example xml:id="example-comp-inv-square">
+	<title>Square and square root</title>
+	<p>
+	Consider functions
+	<md><mrow> f(t) \amp = t^2 \amp g(t) \amp = \sqrt{t} </mrow></md>.
+	Let's compute both compositions <m>\comp{f}{g}</m> and <m>\comp{g}{f}</m>:
+	<md>
+		<mrow>
+			(\comp{f}{g})(t) \amp = f\bbrac{g(t)}
+			\amp
+			(\comp{g}{f})(t) \amp = g\bbrac{f(t)}
+		</mrow>
+		<mrow>
+			\amp = {\bbrac{g(t)}}^2
+			\amp
+			\amp = \sqrt{f(t)}
+		</mrow>
+		<mrow>
+			\amp = {(\sqrt{t})}^2
+			\amp
+			\amp = \sqrt{t^2}
+		</mrow>
+		<mrow>
+			\amp = t
+			\amp
+			\amp = \abs{t}
+		</mrow>
+	</md>.
+	So the square and square root functions are <em>not</em> inverses of each other.
+	</p>
+</example>
+
+<p>
+The problem in <xref ref="example-comp-inv-square" /> is that in the first calculation,
+we must use the domain of the square root function,
+since <m>t \lt 0</m> makes the formula <m>{(\sqrt{t})}^2</m> undefined.
+But in the second calculation,
+we assume that we are using the domain of the square function,
+and in that case negative <m>t</m> are permitted but do not result back at <m>t</m> when composed.
+For example,
+<me> \sqrt{{(-1)}^2} = \sqrt{1} = 1 \neq -1 </me>.
+We will fix this problem later in this chapter,
+so that the square root function <em>is</em> the inverse of a version of the square function.
+</p>
+
+<p>
+If we suspect a function is invertible but don't know an inverse function for it,
+is there a way we can attempt to compute an inverse?
+Consider again the example of cube and cube root.
+The two equalities
+<md><mrow xml:id="equation-comp-inv-two-cubed-cube-root" tag="star"> 2^3 \amp = 8 \amp \sqrt[3]{8} \amp = 2 </mrow></md>
+both state the same relationship between the numbers <m>2</m> and <m>8</m>.
+It's only the point of view that has changed:
+in the first equality we think of <m>2</m> as the input into the cube process with <m>8</m> as the corresponding output,
+whereas in the second equality we think of <m>8</m> as the input into the cube-root process with <m>2</m> as the corresponding output.
+This reveals why composing the two processes together returns us back to where we started:
+<md><mrow> \sqrt[3]{2^3} \amp = 2 \amp {(\sqrt[3]{8})}^3 \amp = 8 </mrow></md>.
+</p>
+
+<figure xml:id="figure-comp-inv-cube-root-back-and-forth">
+	<caption>
+		An input of <m>2</m> for the cube function produces an output of <m>8</m>.
+		Given that output value of <m>8</m>,
+		we can also trace that output to the input <m>2</m> that produced it,
+		which corresponds to an input of <m>8</m> for the cube-root function.
+	</caption>
+
+	<sidebyside widths="45% 45%">
+
+		<figure xml:id="figure-comp-inv-cube-root-back-and-forth-cube">
+			<caption> Forward and and reverse on the cube graph. </caption>
+			<image>
+				<description>
+					Diagram illustrating the input-output and corresponding output-input processes on the cube function's graph.
+				</description>
+				<latex-image><xi:include href="comp-inv.d/cube-back-and-forth.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-comp-inv-cube-root-back-and-forth-root">
+			<caption> Forward and and reverse on the cube-root graph. </caption>
+			<image>
+				<description>
+					Diagram illustrating the input-output and corresponding output-input processes on the cube-root-graph.
+				</description>
+				<latex-image><xi:include href="comp-inv.d/cube-root-back-and-forth.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+
+<p>
+So in an inverse function, <em>input-to-output relationships are reversed</em>,
+This tells us how to attempt to compute an inverse function formula:
+interchange the roles of input and output,
+just as in <xref ref="example-comp-inv-rain" />.
+</p>
+
+<example xml:id="example-comp-inv-compute-inverse-works">
+	<title>Computing an inverse function formula</title>
+
+	<p>
+	Consider the function <me> f(t) = {(2 t + 3)}^3 </me>.
+	Let's write <m>y</m> as the output variable,
+	so that <m>(t,y)</m> is an input-output pair whenever <me> y = (2 t + 3)^3 </me>.
+	If <m>f(t)</m> is invertible,
+	then,
+	exactly as in <xref ref="equation-comp-inv-two-cubed-cube-root" />,
+	the inverse function should maintain the same relationship between input <m>t</m> and output <m>y</m>,
+	just with their roles reversed:
+	<md alignment="gather">
+		<mrow> y = {(2 t + 3)}^3 </mrow>
+		<mrow> y^{1/3} = {\bbrac{(2 t + 3)^3}}^{1/3} </mrow>
+		<mrow> \sqrt[3]{y} = 2 t + 3 </mrow>
+		<mrow> \sqrt[3]{y} - 3 = 2 y </mrow>
+		<mrow> t = \frac{\sqrt[3]{y} - 3}{2} </mrow>
+	</md>.
+	In this form,
+	the relationship between <m>t</m> and <m>y</m> is preserved,
+	but with <m>t</m> expressed as a formula in <m>y</m> we can view <m>y</m> as the input and <m>t</m> as the output.
+	</p>
+
+	<p>
+	The reversed formula above tells us the formula for the inverse function:
+	<me> \inv{f}(t) = \frac{\sqrt[3]{t} - 3}{2} </me>.
+	If we consider an input-output formula as a sequence of calculation instructions
+	(paying proper mind to BEDMAS),
+	it makes sense that these two formulas are inverse:
+	to compute an output for <m>f(t)</m>, one must
+	<ol>
+		<li> multiply the input by <m>2</m> </li>
+		<li> then add <m>3</m> to that result </li>
+		<li> then compute the cube of that result, </li>
+	</ol>
+	whereas to compute an output for <m>\inv{f}(t)</m>, one must
+	<ol>
+		<li> compute the cube-root of the input, </li>
+		<li> then subtract <m>3</m> from that result </li>
+		<li> then divide that result by <m>2</m>. </li>
+	</ol>
+	Notice that the two sequences of operations <em>involve the opposite operations in the reverse order</em>,
+	which confirms that if we bothered to compute both compositions,
+	we should find
+	<md><mrow> \inv{f}\bbrac{f(t)} \amp = t \amp f\bbrac{\inv{f}(t)} \amp = t </mrow></md>,
+	as required by <xref ref="definition-comp-inv-inv" />.
+	</p>
+
+</example>
+
+</section>
+
+<section>
+<title>One-to-one functions</title>
+
+<p> How can we tell whether a function is invertible in the first place? </p>
+
+<example xml:id="example-comp-inv-compute-inverse-fails">
+	<title>A function without an inverse</title>
+	<p>
+	If we try to apply the same procedure as in <xref ref="example-comp-inv-compute-inverse-works" />
+	to <me> f(t) = {(2 t + 3)}^2 </me>,
+	we run into a problem:
+	there are two different ways we could isolate <m>t</m>.
+	If we set <me> y = {(2 t + 3)}^2 </me>,
+	then certainly <m>y</m> can't be negative and we can take its square root.
+	But there are two different numbers whose square is the right-hand side above:
+	<md>
+		<mrow> \sqrt{y} \amp = 2 t + 3 \amp \sqrt{y} \amp = -(2 t + 3) </mrow>
+		<mrow> \sqrt{y} - 3 \amp = 2 t \amp \sqrt{y} + 3 \amp = -2 t </mrow>
+		<mrow> t \amp = \frac{\sqrt{y} - 3}{2} \amp t \amp = \frac{\sqrt{y} + 3}{-2} </mrow>
+	</md>.
+	Neither function
+	<md><mrow> g_1(t) \amp = \frac{\sqrt{t} - 3}{2} \amp g_2(t) \amp = - \frac{\sqrt{t} + 3}{2} </mrow></md>
+	will universally satisfy <me> g\bbrac{f(t)} = t </me>
+	for <em>all</em> <m>t</m> in the domain of <m>f</m>,
+	so we cannot say that either one is the inverse function of <m>f</m>.
+	</p>
+</example>
+
+<example xml:id="example-comp-inv-compute-inverse-really-fails">
+	<title>A function that really, really doesn't have an inverse</title>
+	<p>
+	Consider function <m>f(t) = t^4 + 2 t^3 - 7 t^2 + t - 5</m>.
+	The <xref ref="theorem-poly-fundamental" text="title" /> says that the equation
+	<md alignment="gather">
+		<mrow> y = t^4 + 2 t^3 - 7 t^2 + t - 5 </mrow>
+		<mrow> \implies \qquad t^4 + 2 t^3 - 7 t^2 + t - (5 + y) = 0 </mrow>
+	</md>
+	could have up to <m>4</m> solutions for <m>t</m>,
+	depending on the value of <m>y</m>.
+	</p>
+</example>
+
+<p>
+The equality <me> \inv{q}\bbrac{q(t)} = t </me>
+is actually stating the purpose of an inverse function:
+to answer the question
+<em><q>Given an output <m>q(t)</m>, what input <m>t</m> produced it?</q></em>
+The reason that <xref ref="example-comp-inv-compute-inverse-works" /> works
+but <xref ref="example-comp-inv-compute-inverse-fails" />
+and <xref ref="example-comp-inv-compute-inverse-really-fails" />
+don't is that in that first example,
+every output value <m>y</m> can be traced back to a <em>single</em> corresponding input value <m>t</m>,
+but in the other two examples some output values could correspond to <em>two or more</em> input values.
+</p>
+
+<definition xml:id="definition-comp-inv-one-one">
+	<title>One-to-one function</title>
+	<p>
+	A function <m>f</m> is called <term>one-to-one</term> if for every output value <m>y</m> in the range of <m>f</m> there is <em>one and only one</em> corresponding input value <m>t</m> so that <m>f(t) = y</m>.
+	</p>
+</definition>
+
+<warning>
+	<title>Don't get mixed up!</title>
+	<p>
+	A common mistake is to mix up the above definition with the statement <em>every input produces exactly one output</em>,
+	but <alert>every function does that!</alert>
+	(That is the idea behind the <xref ref="pattern-funcs-VLT" text="title" />.)
+	The correct (shortened) version of <xref ref="definition-comp-inv-one-one" /> is to say that
+	<em>a function is one-to-one if every output is produced by exactly one input</em>.
+	</p>
+</warning>
+
+<example>
+	<title>A shifted cube function is one-to-one</title>
+
+	<p>
+	The range of the function <m>f(t) = t^3 + 4</m> is all of <m>\R</m>,
+	and for each output value <m>y = f(t)</m> in that range,
+	there is exactly one input <m>t = \sqrt[3]{y - 4}</m> that produces that output.
+	</p>
+
+	<figure xml:id="figure-comp-inv-shifted-cube-in-reverse">
+		<caption> Tracing an output back to the input for a vertically shifted cube function. </caption>
+		<image width="50%">
+			<description>
+				Diagram illustrating the result of tracing an output back to the input for a vertically shifted cube function.
+			</description>
+			<latex-image><xi:include href="comp-inv.d/shifted-cube.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<example>
+	<title>The sine function is not one-to-one</title>
+
+	<p>
+	The range of the function <m>\sin(t)</m> is <m>-1 \le y \le 1</m>,
+	but there are output values in that range which have <em>many</em> corresponding input values.
+	For example,
+	<m>\sin(t) = 1</m>
+	occurs at positive inputs <me> t = \frac{\pi}{2}, \frac{5 \pi}{2}, \frac{9 \pi}{2}, \dotsc </me>
+	and also at negative inputs <me> t = - \frac{3 \pi}{2}, - \frac{7 \pi}{2}, - \frac{11 \pi}{2}, \dotsc </me>.
+	</p>
+
+	<figure xml:id="figure-comp-inv-sin-repeated-output">
+		<caption> Many different input values produce the same output value <m>1</m> for the sine function. </caption>
+		<image width="45%">
+			<description>
+				Diagram illustrating that many different input values produce the same output value <m>1</m> for the sine function the input-output and corresponding output-input processes.
+			</description>
+			<latex-image><xi:include href="comp-inv.d/cube-back-and-forth.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+The diagrams in <xref ref="figure-comp-inv-shifted-cube-in-reverse" />
+and <xref ref="figure-comp-inv-sin-repeated-output" />
+suggest a graphical test for the property of <term>one-to-one</term>. </p>
+
+<identity xml:id="pattern-comp-inv-HLT">
+	<title>Horizontal Line Test</title>
+	<p>
+	A function is one-to-one if its graph exhibits the following property:
+	a horizontal line that intersects the graph must do so <em>only once</em>.
+	</p>
+</identity>
+
+<figure xml:id="figure-comp-inv-fail-HLT">
+	<caption> The graph of a function that fails the Horizontal Line Test. </caption>
+	<image width="55%">
+		<description>
+			The graph of a function that fails the Horizontal Line Test.
+		</description>
+		<latex-image><xi:include href="comp-inv.d/fail-HLT.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<remark><p>
+	In the <xref ref="pattern-comp-inv-HLT" text="title" />,
+	it's fine if there are horizontal lines that do not intersect the graph at all <mdash />
+	this just indicates that <m>y</m>-value at the height of that line is not in the range of the function.
+	But if some horizontal line intersects the graph more than once,
+	then those different intersection points represent input-output pairs with the same output value but different input values,
+	as in <xref ref="figure-comp-inv-fail-HLT" />.
+</p></remark>
+
+<example>
+	<title>The square function fails the Horizontal Line Test</title>
+
+	<p>
+	The function <m>f(t) = t^2</m> fails the <xref ref="pattern-comp-inv-HLT" text="title" /> for many horizontal lines.
+	In fact, every horizontal line at height <m>y \gt 0</m> will intersect the graph twice.
+	</p>
+
+	<figure xml:id="figure-comp-inv-parabola-fail-HLT">
+		<caption>
+			For all <m>y \gt 0</m>,
+			there are two inputs that produce that output level.
+		</caption>
+		<image width="40%">
+			<description>
+				A graph demonstrating that the square function fails the Horizontal Line Test.
+			</description>
+			<latex-image><xi:include href="comp-inv.d/fail-parabola.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+The <xref ref="definition-comp-inv-one-one" text="custom">one-to-one property</xref> is exactly what lets us form an inverse <em>function</em>.
+</p>
+
+<fact xml:id="fact-comp-inv-one-to-one">
+	<title>A one-to-one function is invertible</title>
+	<p>
+	Every one-to-one function <m>f</m> is invertible,
+	where <m>\inv{f}(y) = t</m> for the inverse function precisely when <m>f(t) = y</m> for the original function.
+	In this case the inverse function is also one-to-one,
+	with <m>\inv{(\inv{f})} = f</m>.
+	</p>
+</fact>
+
+<p>
+And because creating an inverse function is essentially interchanging the roles of <em>input</em> and <em>output</em> variables,
+we have the following further properties.
+</p>
+
+<identity xml:id="pattern-comp-inv-domain-range-swap">
+	<title>Domain and range of an inverse function</title>
+	<p>
+	The domain of an inverse function <m>\inv{f}</m> is precisely the range of the of the original function <m>f</m>,
+	and the range of an inverse function is precisely the domain of the original function.
+	</p>
+</identity>
+
+</section>
+
+<section>
+<title>Graph of an inverse function</title>
+
+<p>
+If creating an inverse function interchanges the roles <em>input</em> and <em>output</em> variables,
+then creating the graph of an inverse function interchanges the horizontal and vertical axes.
+</p>
+
+<identity xml:id="pattern-comp-inv-reflect-graph">
+	<title>Graphs of inverse functions are reflections</title>
+	<p>
+	If <m>f</m> is an invertible function,
+	then the graph <m>y = \inv{f}(t)</m> can be obtained by reflecting the graph <m>y = f(t)</m> in the line <m>y = t</m>.
+	</p>
+</identity>
+
+<example>
+	<title>Graphs of the natural logarithm and exponential functions</title>
+
+	<p>
+	The graph of the natural logarithm clearly passes the <xref ref="pattern-comp-inv-HLT" text="title" />.
+	We have previously explored how the graph of the natural exponential function lines up with the reflection of the graph of the natural logarithm in the line <m>y = t</m>.
+	(See <xref ref="pattern-exp-as-reflection" />.)
+	</p>
+
+	<figure xml:id="figure-comp-inv-reflect-ln">
+		<caption> The natural exponential graph is a reflection of the natural logarithm graph. </caption>
+		<image width="75%">
+			<description> A diagram illustrating that the natural exponential graph is a reflection of the natural logarithm graph. </description>
+			<latex-image><xi:include href="comp-inv.d/reflect-ln.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	This tells us that
+	<md><mrow> \inv{\ln}(t) \amp = \exp(t) \amp \inv{\exp}(t) \amp = \ln(t) </mrow></md>.
+	We already knew that
+	<me> \ln(e^t) = t \ln e = t </me>,
+	and this now also confirms that
+	<me> e^{\ln(t)} = t </me>.
+	</p>
+
+</example>
+
+<p>
+When we reflect in the line <m>y = t</m>,
+a horizontal line becomes a vertical line.
+So when we verify the <xref ref="pattern-comp-inv-HLT" text="title" /> for an invertible function <m>f</m>,
+it is equivalent to verifying the <xref ref="pattern-funcs-VLT" text="title" /> for its inverse function.
+</p>
+
+<example>
+	<title>Restricting the domain to create an invertible function</title>
+
+	<p>
+	We know that the square function <m>f(t) = t^2</m> fails the <xref ref="pattern-comp-inv-HLT" text="title" />,
+	but we also know that the square root function is <em>sort of</em> like an inverse function for the square function.
+	</p>
+
+	<figure xml:id="figure-comp-inv-square-HLT-vs-sqrt-VLT">
+		<caption>
+			The square function fails the Horizontal Line Test but the square root function passes the Vertical Line test.
+		</caption>
+
+		<sidebyside widths="40% 40%">
+
+			<figure xml:id="figure-comp-inv-square-HLT-vs-sqrt-VLT-square">
+				<caption> The square function. </caption>
+				<image>
+					<description>
+						Graph of the square function with a typical horizontal line.
+					</description>
+					<latex-image><xi:include href="comp-inv.d/fail-parabola-2.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure xml:id="figure-comp-inv-square-HLT-vs-sqrt-VLT-root">
+				<caption> The graph of the square root function is a reflection of only <q>half</q> of the graph of the square function. </caption>
+				<image>
+					<description>
+						Diagram illustrating that the graph of the square root function is a reflection of only <q>half</q> of the graph of the square function.
+					</description>
+					<latex-image><xi:include href="comp-inv.d/sqrt-pass-VLT.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</figure>
+
+	<p>
+	As we see in <xref ref="figure-comp-inv-square-HLT-vs-sqrt-VLT-square" />,
+	the graph of <m>g(t) = \sqrt{t}</m> is in fact the reflection of <em>part</em> of the graph of <m>f(t) = t^2</m>,
+	and the graph of <m>g(t)</m> passes the <xref ref="pattern-funcs-VLT" text="title" /> because the <q>bottom half</q> of this sideways parabola is not actually part of the graph.
+	This indicates how we should <q>fix</q> the square function so that the square root function is actually its inverse:
+	just remove the <q>left</q> half of the upright parabola.
+	In other words,
+	suppose we create a new square function with a restricted domain that cuts off the portion of the graph that is causing the Horizontal Line Test to fail: <md><mrow> h(t) \amp = t^2 \amp t \amp \ge 0 </mrow></md>.
+	Then the new graph of this new function becomes one-to-one and hence the function is invertible.
+	And, in fact, <m>\inv{h}(t) = \sqrt{t}</m>.
+	</p>
+
+	<figure xml:id="figure-comp-inv-reflect-parabola">
+		<caption>
+			Restricting the domain of the square function creates a one-to-one graph,
+			and if we reflect this half-a-parabola in the line <m>y = t</m> the result is the graph of the square root function.
+		</caption>
+		<image width="35%">
+			<description>Diagram illustrating that the graph of the square root function is a reflection of one-half of the graph of the square function.</description>
+			<latex-image><xi:include href="comp-inv.d/reflect-parabola-sqrt.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	We have fixed also fixed the problem where <me> g\bbrac{f(t)} = \sqrt{t^2} = \abs{t} \neq t </me>
+	(as in <xref ref="example-comp-inv-square" />).
+	When we now compute <m>g\bbrac{h(t)}</m>,
+	we assume that <m>t</m> is in the domain of <m>h</m>,
+	which has been restricted to <m>t \ge 0</m>.
+	In that case, <me> g\bbrac{h(t)} = \sqrt{t^2} = \abs{t} = t </me>.
+	</p>
+
+</example>
+
+</section>
+
+
+<section>
+<title>Derivative of an inverse function</title>
+
+<p>
+If the graphs of a function and its inverse are related as in the previous section,
+then <em>slopes</em> on the graphs should also be related.
+</p>
+
+<example>
+	<title>Derivatives of the cube and cube root functions</title>
+
+	<p>
+	Even though <xref ref="pattern-deriv-power" /> allows us to directly compute formulas for the derivatives of both <m>q(t) = t^3</m> and <m>\inv{q}(t) = t^{1/3}</m>,
+	let's explore the relationship between their derivatives.
+	</p>
+
+	<p>
+	To compute a <xref ref="definition-avg-rate-derivative-value" text="title" /> like <m>q'(2)</m> from the definition,
+	we should first approximate that instantaneous rate with an average rate calculation over a short time interval containing <m>2</m>.
+	So suppose we choose <m>t_1 \le 2</m> and <m>t_2 \ge 2</m> so that <m>\Delta t = t_2 - t_1</m> is small but not zero.
+	The corresponding average rate value <me> \frac{\text{rise}}{\text{run}} = \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </me>
+	is the slope of the secant line between the points <m>(t_1,q_1)</m> and <m>(t_2,q_2)</m>.
+	</p>
+
+	<figure xml:id="figure-comp-inv-cube-root-secants">
+		<caption>
+			Interchanging horizontal and vertical axes causes slopes to become reciprocals.
+		</caption>
+
+		<sidebyside widths="45% 45%">
+
+			<figure xml:id="figure-comp-inv-cube-root-secants-cube">
+				<caption> A secant line around <m>t = 2</m> on the cube graph. </caption>
+				<image>
+					<description>
+						Diagram illustrating a secant line on the cube graph.
+					</description>
+					<latex-image><xi:include href="comp-inv.d/cube-secant.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure xml:id="figure-comp-inv-cube-root-secants-root">
+				<caption> A secant line around <m>q = 8</m> on the cube-root graph. </caption>
+				<image>
+					<description>
+						Diagram illustrating a secant line on the cube-root graph.
+					</description>
+					<latex-image><xi:include href="comp-inv.d/cube-root-secant.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</figure>
+
+	<p>
+	Notice that in <xref ref="figure-comp-inv-cube-root-secants-root" />,
+	which is the graph of the cube root function,
+	we have labelled the horizontal axis as <m>q</m> and the vertical axis as <m>t</m>,
+	to match our idea that <em>the inverse function interchanges the roles of input and output</em>.
+	So while <m>q_1 \le 8 \le q_2</m> creates a small <em>range</em> around <m>q = 8</m> on the vertical axis for the cube graph,
+	it also creates a small <em>domain</em> around <m>q = 8</m> on the horizontal axis for the cube root graph.
+	This allows us to relate the derivative value <m>q'(2)</m> not to <m>(\inv{q})'(2)</m> but to <m>(\inv{q})'(8)</m>.
+	On the second graph,
+	the slope of the reflected secant line must be calculated as
+	<me> \frac{\text{rise}}{\text{run}} = \slope{t}{q} = \frac{t_2 - t_1}{q_2 - q_1} </me>.
+	The result is that <em>an average rate for the inverse function is the reciprocal of a corresponding average rate for the original function</em>.
+	Since this is true about <em>every</em> average rate function calculation,
+	we conclude that there should also be a reciprocal relationship for the derivatives of the two functions.
+	</p>
+
+	<p>
+	Let's test out this conclusion.
+	On the one hand,
+	we know <m>q'(t) = 3 t^2</m>,
+	so <m>q'(2) = 12</m>.
+	On the other hand,
+	we can also use <xref ref="pattern-deriv-power" /> to directly compute that
+	<me> \inv{q}(t) = t^{1/3} \quad\implies\quad (\inv{q})'(t) = \frac{1}{3} \cdot t^{-2/3} = \frac{1}{3 t^{2/3}} </me>,
+	so
+	<md>
+		<mrow> (\inv{q})'(8) \amp = \frac{1}{3 \cdot 8^{2/3}} </mrow>
+		<mrow> \amp = \frac{1}{3 \cdot {(\sqrt[3]{8})}^2 } </mrow>
+		<mrow> \amp = \frac{1}{3 \cdot 2^2 } </mrow>
+		<mrow> \amp = \frac{1}{12} </mrow>
+	</md>,
+	which is indeed the reciprocal of our computed value for <m>q'(2)</m>.
+	</p>
+
+</example>
+
+<identity xml:id="pattern-comp-inv-derivative">
+	<title>Derivative of an inverse function</title>
+	<p>
+	Suppose <m>f(t)</m> is an invertible function that is differentiable at <m>t = c</m>,
+	and <m>f'(c) \neq 0</m>.
+	Let <m>y</m> represent the output value <m>y = f(c)</m>,
+	so that <m>\inv{f}(y) = c</m>.
+	Then <m>\inv{f}(t)</m> is differentiable at <m>t = y</m>,
+	with <me> (\inv{f})'(y) = \frac{1}{f'(c)} = \frac{1}{f'\bbrac{\inv{f}(y)}} </me>.
+	</p>
+</identity>
+
+<remark><p>
+	If we like, we can turn the formula in <xref ref="pattern-comp-inv-derivative" /> into one involving <m>t</m> by just replacing <m>y</m> by <m>t</m>:
+	<me> (\inv{f})'(t) = \frac{1}{f'\bbrac{\inv{f}(t)}} </me>.
+	Kep in mind that the reason there is an <m>\inv{f}(t)</m> inside the <m>f'</m> in the fraction on the right is because an input for <m>f</m> is the same as an output for <m>\inv{f}</m>,
+	and the derivative function <m>f'</m> should have the same inputs as <m>f</m>
+	(except for any points of non-differentiability).
+</p></remark>
+
+<example>
+	<title>Derivative of the natural exponential function</title>
+
+	<p>
+	We've already used logarithmic differentiation to confirm <m>d\bbrac{\exp(t)}/dt = \exp(t)</m>
+	(see <xref ref="procedure-chain-log-diff" />),
+	so let's use that knowledge to test the formula of <xref ref="pattern-comp-inv-derivative" />.
+	(In fact, this calculation is mathematically equivalent to our previous verification via logarithmic differentiation.)
+	</p>
+
+	<p>
+	With the knowledge of the <xref ref="theorem-fund-thm" text="title" />,
+	we might interpret our definition of the natural logarithm (<xref ref="definition-log-natural" />)
+	as specifically designed so that <me> \opddt \bbrac{\ln(t)} = \frac{1}{t} </me>.
+	Viewing the natural exponential function as the inverse of the natural logarithm,
+	we take <m>f = \ln</m> in <xref ref="pattern-comp-inv-derivative" />,
+	so that <m>\inv{f} = \exp</m>.
+	Using <m>\ln'(t) = 1/t</m> in the formula from that pattern,
+	we have
+	<md>
+		<mrow> \exp'(t) \amp = (\inv{\ln})'(t) </mrow>
+		<mrow> \amp = \frac{1}{\ln'\bbrac{\inv{\ln}(t)}} </mrow>
+		<mrow> \amp = \frac{1}{1 / \inv{\ln}(t)} </mrow>
+		<mrow> \amp = \frac{1}{1 / \exp(t)} </mrow>
+		<mrow> \amp = \exp(t) </mrow>
+	</md>,
+	as expected.
+	</p>
+
+</example>
 
 </section>
 

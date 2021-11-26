@@ -12,29 +12,32 @@
 %
 % *********************************************************************
 
-\newcommand*{\xmin}{-2.5}
-\newcommand*{\xmax}{8}
-\newcommand*{\ymin}{-2.5}
-\newcommand*{\ymax}{8}
+\newcommand*{\xmin}{-8}
+\newcommand*{\xmax}{17}
+\newcommand*{\ymin}{-2}
+\newcommand*{\ymax}{2.75}
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
-	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt}
+	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
+	yscale=0.8,xscale=0.25
 ]
 
 	% axes
 	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below] {$t$};
-	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax);
 
-	% graph
-	\draw[thick, green!33!black, domain=0.1:7.75, smooth] plot (\x,{ln \x});
-	\draw[thick, blue, domain=-2.303:2.05, smooth] plot (\x,{exp \x});
-	\node[above,yshift=0.1cm,green!33!black] at (5.25,1.658) {$\ln(t)$};
-	%\node[below left,xshift=-0.2cm,blue] at (1.658,5.25) {$\exp t$};
+	\draw[green!33!black,thick,domain=-2:2.5,smooth] plot ({\x * \x * \x},\x) node[above] {$\sqrt[3]{t}$};
 
-	\draw[dashed,gray,thin] (-2,-2) -- node[above,sloped,very near end] {$y = t$} (7.5,7.5);
-%	\draw[<->,red] (2,3) -- node[above,sloped] {reflect} (3,2);
-	\draw[thick,<->,red] (2,3) -- (3,2);
+	\draw[blue,xshift=0.25cm,thick,->] (8,0) -- node[right] {cube root} (8,1.9);
+	\draw[blue,yshift=0.04cm,thick,->] (8,2) -- (0,2);
+	\draw[red,yshift=-0.04cm,near start,thick,->] (0,2) -- node[below] {cube} (7.6,2);
+	\draw[red,xshift=-0.25cm,thick,->] (8,1.8) -- (8,0);
+
+	\node[closedpt,green!33!black] at (8,2) (pt) {};
+
+	\node[left] at (0,2) {$2$};
+	\node[below] at (8,0) {$8$};
 
 \end{tikzpicture}

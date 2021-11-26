@@ -12,29 +12,31 @@
 %
 % *********************************************************************
 
-\newcommand*{\xmin}{-2.5}
-\newcommand*{\xmax}{8}
-\newcommand*{\ymin}{-2.5}
-\newcommand*{\ymax}{8}
+\newcommand*{\xmin}{-2}
+\newcommand*{\xmax}{2}
+\newcommand*{\ymin}{-0.5}
+\newcommand*{\ymax}{4}
+\newcommand*{\func}{\x * \x}
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
-	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt}
+	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
+	xscale=1.33,
+	yscale=0.75
 ]
 
 	% axes
-	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below] {$t$};
-	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below left] {$t$};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$f(t) = t^2$};
+
+	\draw[green!33!black] (\xmax,2) -- (\xmin,2);
 
 	% graph
-	\draw[thick, green!33!black, domain=0.1:7.75, smooth] plot (\x,{ln \x});
-	\draw[thick, blue, domain=-2.303:2.05, smooth] plot (\x,{exp \x});
-	\node[above,yshift=0.1cm,green!33!black] at (5.25,1.658) {$\ln(t)$};
-	%\node[below left,xshift=-0.2cm,blue] at (1.658,5.25) {$\exp t$};
+	\draw[red, thick, domain=\xmin:0, smooth] plot (\x,{\func});
+	\draw[blue, thick, domain=0:\xmax, smooth] plot (\x,{\func});
 
-	\draw[dashed,gray,thin] (-2,-2) -- node[above,sloped,very near end] {$y = t$} (7.5,7.5);
-%	\draw[<->,red] (2,3) -- node[above,sloped] {reflect} (3,2);
-	\draw[thick,<->,red] (2,3) -- (3,2);
+	\node[closedpt,blue] at (1.414,2) (pt) {};
+	\node[closedpt,red] at (-1.414,2) (pt) {};
 
 \end{tikzpicture}
