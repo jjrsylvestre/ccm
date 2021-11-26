@@ -1167,7 +1167,7 @@ let's record the pattern of the <emph>result</emph> of that example.
 <example>
 	<title>Using the logarithm to simplify products and quotients</title>
 	<p>
-	Consider <me> y = \frac{\sin(t) \sin(2 t) \sin(3 t)}{\cos(4 t) \cos(5 t) \cos(6 t) </me>.
+	Consider <me> y = \frac{\sin(t) \sin(2 t) \sin(3 t)}{\cos(4 t) \cos(5 t) \cos(6 t)} </me>.
 	Since the sine and cosine functions have both positive and negative outputs in their ranges,
 	let's introduce the extended logarithm function:
 	<md>
