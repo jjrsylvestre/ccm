@@ -56,7 +56,7 @@ This gives us
 	<mrow> \amp = \sum_{k=1}^n 1 \cdot \change{u} </mrow>
 </md>.
 This looks like a Riemann sum,
-but where <m>u</m> is the <emph>independent</emph> variable instead of a dependent variable,
+but where <m>u</m> is the <em>independent</em> variable instead of a dependent variable,
 and the function used is just the constant function <m>1</m>:
 <me> \sum_{k=1}^n 1 \cdot \change{u} \approx \ccmint{t_0}{t}{1}{u} </me>.
 Since <m>u(t)</m> is assumed to be differentiable,
@@ -106,7 +106,7 @@ and so
 	\ccmint{a}{b}{\dqdt}{t} = \ccmint{q(a)}{q(b)}{}{q}
 </mrow></md>.
 Notice that we have changed the bounds of integration to reflect the fact that in our second integral,
-<m>q</m> is now being considered as the <emph>independent</emph> variable instead of the dependent one.
+<m>q</m> is now being considered as the <em>independent</em> variable instead of the dependent one.
 Finally,
 we apply <xref ref="pattern-integ-definite-props-constant" text="type-local">Property</xref>
 of <xref ref="pattern-integ-definite-props" />
@@ -153,7 +153,7 @@ and the <xref ref="pattern-chain-differential-version" text="title" /> says that
 If we are computing an integral
 <me> \ccmint{a}{b}{\dqdt}{t} </me>,
 we would need to know <m>q(t)</m> in order to use an analysis like that in <xref ref="equation-substitution-convert-integral-of-deriv" />.
-So instead, we will use <m>u</m> as an <emph>intermediate</emph> variable:
+So instead, we will use <m>u</m> as an <em>intermediate</em> variable:
 <me> \dqdt \, dt = \dqdu \cdot \dudt \, dt = \dqdu \, du </me>,
 giving us
 <me> \ccmint{a}{b}{\dqdt}{t} = \ccmint{u(a)}{u(b)}{\dqdu}{u} </me>.
@@ -203,7 +203,7 @@ or for which it is simpler to guess an antiderivative.
 		<mrow> \amp = \cancel{\frac{1}{2}} \left( \frac{{10}^{1/2}}{\cancel{1/2}} - \frac{5^{1/2}}{\cancel{1/2}} \right) </mrow>
 		<mrow> \amp = \sqrt{10} - \sqrt{5} </mrow>
 	</md>.
-	Remembering that we actually <emph>do</emph> know <m>q(t)</m>,
+	Remembering that we actually <em>do</em> know <m>q(t)</m>,
 	notice that this result is the same as computing
 	<me> \ccmint{2}{3}{\dqdt}{t} = q(3) - q(2) </me>.
 	</p>
@@ -219,7 +219,7 @@ In general,
 it is difficult to recognize an integrand as a derivative function that is the result of a chain rule.
 Even in <xref ref="example-substitution-integral-of-chain" />,
 we had to go backwards one step from the final result of <xref ref="example-chain-radical" /> by reintroducing the <m>2</m> in both numerator and denominator in order to make it work.
-So we create a slightly more general procedure that can be tried when we merely <emph>suspect</emph> that we have such an integrand that might be the result of a chain rule.
+So we create a slightly more general procedure that can be tried when we merely <em>suspect</em> that we have such an integrand that might be the result of a chain rule.
 </p>
 
 <algorithm xml:id="procedure-substitution">
@@ -255,7 +255,7 @@ So we create a slightly more general procedure that can be tried when we merely 
 	<p>
 	For <me> \ccmint{0}{\pi/10}{\cos(5 t)}{t} </me>,
 	consider <m>u = 5 t</m> with <m>du/dt = 5</m>.
-	Since our integrand doesn't involve a multiple of <m>5</m> <emph>outside</emph> of the cosine function,
+	Since our integrand doesn't involve a multiple of <m>5</m> <em>outside</em> of the cosine function,
 	we need to introduce one:
 	<me> \cos(t) = \frac{\cos(5 t)}{5} \cdot 5 = \frac{\cos(5 t)}{5} \cdot \dudt </me>.
 	So our <m>g(t)</m> is <me> g(t) = \frac{\cos(5 t)}{5} \qquad\implies\qquad g(u) = \frac{\cos(u)}{5} </me>,
@@ -546,7 +546,7 @@ on one side we can reverse the differentiation by reversing the chain rule.
 <p>
 Ultimately,
 the problem in <xref ref="example-substitution-first-separable" /> was solved by reversing differentiation,
-also known as <emph>antidifferentiating</emph>.
+also known as <em>antidifferentiating</em>.
 </p>
 
 <algorithm xml:id="procedure-substitution-solve-separable">
@@ -572,7 +572,7 @@ also known as <emph>antidifferentiating</emph>.
 	<me> \frac{r(t)}{q(t)} = - k </me>.
 	In <xref ref="example-deriv-solution-to-proportional-rate-equation" />
 	we verified that an horizontally-transformed exponential function can be a solution to this type of rate equation.
-	Now we'll solve this equation to verify that exponential functions are the <emph>only</emph> possible solutions.
+	Now we'll solve this equation to verify that exponential functions are the <em>only</em> possible solutions.
 	<md alignment="gather">
 		<mrow> \frac{1}{q} \cdot \dqdt = -k </mrow>
 		<mrow> \ccmiint{\frac{1}{q} \cdot \dqdt}{t} = \ccmiint{-k}{t} </mrow>

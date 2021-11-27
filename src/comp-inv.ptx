@@ -29,7 +29,7 @@ the inner component is the sine function and the outer component is a power func
 For <me> q(t) = \sqrt{t^2 + 1} </me>
 from <xref ref="example-chain-radical" />,
 the inner component is a polynomial function and the outer component is the square root component.
-It is just a matter of changing perspective on the function from a single input-output process to a <emph>chain</emph> of two (or more) input-output processes.
+It is just a matter of changing perspective on the function from a single input-output process to a <em>chain</em> of two (or more) input-output processes.
 </p>
 
 <figure xml:id="figure-comp-inv-input-output-schematic">

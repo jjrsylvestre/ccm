@@ -575,7 +575,7 @@ one that indicates a horizontal position and one that indicates a vertical posit
 <p>
 However,
 suppose we want to answer a question like
-<emph>What is the slope of the line tangent to this circle at the point <m>(1/\sqrt{10}, 3/\sqrt{10})</m>?</emph>
+<em>What is the slope of the line tangent to this circle at the point <m>(1/\sqrt{10}, 3/\sqrt{10})</m>?</em>
 This question is easy enough to answer using simple geometry,
 but we'd like to demonstrate a calculus solution because it suggests a general method called <term>implicit differentiation</term>.
 </p>
@@ -583,7 +583,7 @@ but we'd like to demonstrate a calculus solution because it suggests a general m
 <p>
 The idea is that the lower half of the circle has nothing to contribute to solving this problem,
 and it is the fact that this circle has both a lower and an upper half that is causing the Vertical Line Test to fail.
-If we ignore the lower semicircle and <emph>implicitly</emph> assume that <m>y</m> is a function of <m>x</m>,
+If we ignore the lower semicircle and <em>implicitly</em> assume that <m>y</m> is a function of <m>x</m>,
 then we may algebraically express it as such: <me> y = \sqrt{1 - x^2} </me>.
 </p>
 
@@ -598,7 +598,7 @@ then we may algebraically express it as such: <me> y = \sqrt{1 - x^2} </me>.
 <p>
 We could now apply the <xref ref="pattern-chain-differential-version" text="title" /> using <m>u = 1 - x^2</m> to compute <m>dy/dx</m>,
 and substituting <m>x = 1/\sqrt{10}</m> into the result would give the desired slope.
-However, there is a way we can proceed with <emph>explicitly</emph> expressing <m>y</m> as a formula in <m>x</m>.
+However, there is a way we can proceed with <em>explicitly</em> expressing <m>y</m> as a formula in <m>x</m>.
 </p>
 
 <example xml:id="example-chain-implicit-circle">
@@ -644,7 +644,7 @@ However, there is a way we can proceed with <emph>explicitly</emph> expressing <
 	</me>,
 	and the tangent at that point,
 	being perpendicular to the radius,
-	should have the <emph>negative-reciprocal</emph> slope <m>-1/3</m>.
+	should have the <em>negative-reciprocal</em> slope <m>-1/3</m>.
 	</p>
 </example>
 
@@ -1089,7 +1089,7 @@ Here are some more examples of such <term>related rates</term>.
 
 <p>
 Before we consider the pattern of our second method from <xref ref="example-chain-log-diff-exp-base-2" />,
-let's record the pattern of the <emph>result</emph> of that example.
+let's record the pattern of the <em>result</em> of that example.
 </p>
 
 <identity xml:id="pattern-chain-diff-exp-any-base">
