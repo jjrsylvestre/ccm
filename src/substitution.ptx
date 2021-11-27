@@ -467,14 +467,19 @@ on one side we can reverse the differentiation by reversing the chain rule.
 		<mrow> q \cdot \dqdt + \dqdt = t^2 + 1  </mrow>
 		<mrow> \implies \qquad \opddt \left( \frac{q^2}{2} + q \right) = t^2 + 1  </mrow>
 	</md>.
-	To obtain an equation involving <m>q</m> and <m>t</m> but <emph>without</emph> any differentiation,
-	we need to undo the differentiation <emph>on both sides</emph>.
-	<md alignment="gather">
-		<mrow> \opddt \left( \frac{q^2}{2} + q \right) = t^2 + 1 </mrow>
-		<mrow> \implies \qquad \frac{q^2}{2} + q = \frac{t^3}{3} + t + C</mrow>
-	</md>.
-	Notice that we have introduced an unknown vertical shift,
-	since an equality of two derivatives does not mean that the two original functions are equal.
+	So now we explicitly have the left-hand side as a derivative calculation.
+	Since the two sides are equal,
+	let's make them appear more the same by also interpreting the right-hand side as the result of a derivative calculation.
+	Since
+	<me> \opddt \, \left( \frac{t^3}{3} + t \right) = t^2 + 1 </me>,
+	we can write
+	<mrow> \opddt \left( \frac{q^2}{2} + q \right) = \opddt \, \left( \frac{t^3}{3} + t \right) </mrow>.
+	This now says that the functions
+	<md><mrow> \frac{q^2}{2} \amp + q \amp \frac{t^3}{3} \amp + t </mrow></md>
+	have the same derivative.
+	From <xref ref="fact-fund-thm-antideriv-v-shifts" />,
+	we know that this means that they must be vertical shifts of each other:
+	<me> \frac{q^2}{2} + q = \frac{t^3}{3} + t + C </me>.
 	</p>
 
 	<p>
