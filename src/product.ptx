@@ -16,12 +16,602 @@ respective owners.
 <chapter xml:id="chapter-product" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Product rule and integrating factors</title>
 
-<section xml:id="section-product-intro">
-<title>TODO</title>
+<section xml:id="section-product-rule">
+<title>Derivatives of products</title>
 
-<p> TODO </p>
+<p>
+Let's begin by revisiting <xref ref="pattern-deriv-vertical-shift" />.
+If function <m>q(t)</m> is a vertical scaling of another function <m>p(t)</m>,
+with <m>q(t) = k p(t)</m>,
+then when computing <m>dq/dt</m> at a particular point <m>t = t^\ast</m> we have
+<md>
+	<mrow> \dqdt \amp = \frac{q(t^\ast + dt) - q(t^\ast)}{dt} </mrow>
+	<mrow> \amp = \frac{k p(t^\ast + dt) - k p(t^\ast)}{dt} </mrow>
+	<mrow> \amp = k \frac{p(t^\ast + dt) - p(t^\ast)}{dt} </mrow>
+	<mrow> \amp = k \ddt{p} </mrow>
+</md>.
+What if the scale factor <m>k</m> isn't actually constant,
+but itself is varying?
+<me> q(t) = k(t) p(t) </me>
+Over the very short time interval <m>t^\ast \le t \le t^\ast + dt</m>
+(or <m>t^\ast + dt \le t \le t^\ast</m>,
+if <m>dt</m> is negative),
+we might assume that <m>k(t)</m> is approximately constant:
+<md><mrow>
+	k(t) \amp \approx k^\ast = k(t^\ast)
+	\amp
+	\amp\text{for all}
+	\amp
+	t^\ast \amp \le t \le t^\ast + dt
+</mrow></md>.
+Then a small variation in <m>t</m> causes a small variation in <m>p(t)</m>,
+which causes a variation of approximately
+<me> k^\ast \, \ddt{p} </me>
+in <m>q(t)</m>.
+But <m>k(t)</m> isn't actually constant <mdash />
+a small variation in <m>k(t)</m> also causes a small variation in <m>q(t)</m>.
+So what if we turn this around,
+and consider <me> q(t) = p(t) k(t) </me>
+as a vertical scaling of <m>k(t)</m> with varying scale factor <m>p(t)</m>?
+Then just as before,
+we might now assume that <m>p(t)</m> is approximately constant:
+<md><mrow>
+	p(t) \amp \approx p^\ast = p(t^\ast)
+	\amp
+	\amp\text{for all}
+	\amp
+	t^\ast \amp \le t \le t^\ast + dt
+</mrow></md>.
+And then a small variation in <m>t</m> causes a small variation in <m>k(t)</m>,
+which causes a variation of approximately
+<me> p^\ast \, \ddt{k} </me>
+in <m>q(t)</m>.
+To get the total variation in <m>q(t)</m>,
+we should add these variations together:
+<me> \dqdt = k^\ast \, \ddt{p} + p^\ast \, \ddt{k} </me>.
+Since this is true at all points <m>t = t^\ast</m>,
+we may as well just write
+<me> \dqdt = k(t) \, \ddt{p} + p(t) \, \ddt{k} </me>.
+</p>
+
+<identity xml:id="pattern-product-rule">
+	<title>Product Rule</title>
+
+	<statement><p>
+		If functions <m>f</m> and <m>g</m> are both differentiable,
+		then so is the product function <m>q(t) = f(t) g(t)</m>,
+		with <me> q'(t) = f(t) g'(t) + f'(t) g(t) </me>.
+		If differential notation,
+		<me> \dqdt = f \cdot \ddt{g} + \ddt{f} \cdot g </me>.
+	</p></statement>
+
+	<proof><p>
+		First, we have <me> q(t + dt) = f(t + dt) g(t + dt) </me>.
+		To compute <m>dq/dt</m>,
+		we compute the difference of <m>q(t + dt)</m> and <m>q(t)</m>,
+		and divide by <m>dt</m>.
+		But in that difference calculation,
+		the result won't change if we <q>vertically shift</q> both terms by the same amount:
+		<me>
+			\bigl[ q(t + dt) - C \bigr]
+			- \bigl[ q(t) - C \bigr]
+			= q(t + dt) - q(t)
+		</me>.
+		Using <m>C = f(t + dt) g(t)</m>,
+		we have
+		<md>
+			<mrow>
+				q(t + dt) - C \amp = f(t + dt) g(t + dt) - f(t + dt) g(t)
+			</mrow>
+			<mrow>
+				\amp = f(t + dt) \bigl[ g(t + dt) - g(t) \bigr]
+			</mrow>
+			<mrow></mrow>
+			<mrow>
+				q(t) - C \amp = f(t) g(t) - f(t + dt) g(t)
+			</mrow>
+			<mrow>
+				\amp = \bigl[ f(t) - f(t + dt) \bigr] g(t)
+			</mrow>
+		</md>.
+		By the algebra rules of fractions,
+		we may divide each of these by <m>dt</m> before subtracting:
+		<md>
+			<mrow> \frac{q(t + dt) - C}{dt} \amp = f(t + dt) \cdot \frac{g(t + dt) - g(t)}{dt} </mrow>
+			<mrow> \amp = f(t + dt) \cdot \ddt{g} </mrow>
+			<mrow></mrow>
+			<mrow> \frac{q(t) - C}{dt} \amp = \frac{f(t) - f(t + dt)}{dt} \cdot g(t) </mrow>
+			<mrow> \amp = - \ddt{f} \cdot g(t) </mrow>
+		</md>.
+		So then we have
+		<md>
+			<mrow> \frac{q(t + dt) - q(t)}{dt} \amp = \frac{q(t + dt) - C}{dt} - \frac{q(t) - C}{dt} </mrow>
+			<mrow> \amp = f(t + dt) \cdot \ddt{g} - \left( - \ddt{f} \cdot g(t) \right) </mrow>
+			<mrow> \amp = f(t + dt) \cdot \ddt{g} + \ddt{f} \cdot g(t) </mrow>
+		</md>
+		Finally, since <m>f</m> is assumed to be differentiable,
+		it must be continuous,
+		and so
+		<me> dt \approx 0 \qquad\implies\qquad f(t + dt) \approx f(t) </me>.
+		From this, we have
+		<me> \dqdt = f(t) \cdot \ddt{g} + \ddt{f} \cdot g(t) </me>,
+		as required.
+	</p></proof>
+
+</identity>
+
+<exercise>
+	<title>Another verification of the product rule</title>
+	<p>
+	Use <xref ref="procedure-chain-log-diff" text="title" />
+	instead of the Product Rule to compute
+	<me> \opddt \, \bbrac{ f(t) g(t) } </me>,
+	and simplify until you obtain the same formula as in <xref ref="pattern-product-rule" />.
+	</p>
+</exercise>
+
+<example xml:id="example-product-applying">
+	<title>Applying the Product Rule</title>
+	<p>
+	Here are a few examples of applying the <xref ref="pattern-product-rule" text="title" />.
+	In the last example,
+	we combine with the <xref ref="pattern-chain-differential-version" text="title" />.
+	<ol>
+		<li><p>
+			<md>
+				<mrow>
+					\opddt \bbrac{ t \ln\abs{t} }
+					\amp
+					= t \cdot \opddt \bbrac{\ln\abs{t}}
+					+ \ddt{t} \cdot \ln\abs{t}
+				</mrow>
+				<mrow> \amp = t \cdot \frac{1}{t} + 1 \cdot \ln\abs{t} </mrow>
+				<mrow> \amp = 1 + \ln\abs{t} </mrow>
+			</md>
+		</p></li>
+		<li><p>
+			<md>
+				<mrow>
+					\opddt \bbrac{ e^t \tan(t) }
+					\amp
+					= e^t \cdot \opddt \bbrac{\tan(t)}
+					+ \ddt{e^t} \cdot \tan(t)
+				</mrow>
+				<mrow> \amp = e^t \sec^2(t) + e^t \cdot \tan(t) </mrow>
+				<mrow> \amp = e^t \bbrac{\sec^2(t) + \tan(t)} </mrow>
+			</md>
+		</p></li>
+		<li><p>
+			For <me> \opddt \bbrac{ t \sin(t^2) } </me>,
+			set <m>u = t^2</m>.
+			Then
+			<md>
+				<mrow>
+					\opddt \bbrac{ t \sin(t^2) }
+					\amp
+					= t \cdot \opddt \bbrac{ \sin(t^2) }
+					+ \ddt{t} \cdot \sin(t^2)
+				</mrow>
+				<mrow>
+					\amp
+					= t \cdot \ddu{\bbrac{ \sin(u) }} \cdot \dudt
+					+ 1 \cdot \sin(t^2)
+				</mrow>
+				<mrow> \amp = t \cos(u) \cdot (2 t) + 1 \cdot \sin(t^2) </mrow>
+				<mrow> \amp = 2 t^2 \cos(t^2) + \sin(t^2) </mrow>
+			</md>.
+		</p></li>
+	</ol>
+	</p>
+</example>
+
+<p>
+The first calculation in <xref ref="example-product-applying" />
+actually tells us something about the antiderivatives of the logarithm.
+</p>
+
+<identity xml:id="pattern-product-integral-ln">
+	<title>Integral of the natural logarithm</title>
+
+	<statement><p> We have <me>\ccmiint{\ln\abs{t}}{t} = t \ln\abs{t} - t + C</me>. </p></statement>
+
+	<proof><p>
+		Turning the first calculation in <xref ref="example-product-applying" /> around,
+		we see
+		<md alignment="gather">
+			<mrow> 1 + \ln\abs{t} = \opddt \bbrac{ t \ln\abs{t} } </mrow>
+			<mrow> \ln\abs{t} = \opddt \bbrac{ t \ln\abs{t} } - 1 </mrow>
+			<mrow> \ln\abs{t} = \opddt \bbrac{ t \ln\abs{t} } - \ddt{t} </mrow>
+			<mrow> \ln\abs{t} = \opddt \bbrac{ t \ln\abs{t} - t } </mrow>
+		</md>.
+		Since <m>\ln\abs{t}</m> is the derivative of <m>t \ln\abs{t} - t</m>,
+		then also <m>t \ln\abs{t} - t</m> is an antiderivative of <m>\ln\abs{t}</m>,
+		and every other antiderivative must be a vertical shift of that particular one:
+		<me> \ccmiint{\ln\abs{t}}{t} = t \ln\abs{t} - t + C </me>,
+		as required.
+	</p></proof>
+
+</identity>
+
+<p>
+We can also combine the product rule with logarithmic differentiation to tackle derivatives that would have been more difficult to compute before.
+</p>
+
+<example xml:id="example-product-with-log">
+	<title>An exponential functin with a varying base</title>
+
+	<p>
+	Consider
+	<md><mrow> q(t) \amp = \bigl[\cos(t)\bigr]^t \amp -\frac{\pi}{2} \amp \lt t \lt \frac{\pi}{2} </mrow></md>.
+	(We restrict the domain to ensure the base is always positive.)
+	</p>
+
+	<p>
+	We can't apply <xref ref="pattern-deriv-power" />,
+	because the exponent is varying.
+	We can't apply <xref ref="pattern-deriv-exp" /> directly,
+	because the base is varying.
+	So instead we'll take the logarithm of each side so that we can turn that varying exponent into a factor:
+	<md alignment="gather">
+		<mrow> q = \bigl[\cos(t)\bigr]^t </mrow>
+		<mrow> \ln(q) = t \ln\bigl[\cos(t)\bigr] </mrow>
+	</md>
+	(We haven't bothered with the absolute value brackets this time,
+	since we have already restricted the domain so that <m>q</m> is always positive.)
+	</p>
+
+	<p>
+	Now we differentiate both sides:
+	<md alignment="gather">
+		<mrow> \opddt \, \bigl[\ln(q)\bigr] = \opddt \Bigl[ t \ln\bbrac{\cos(t)} \Bigr] </mrow>
+		<mrow>
+			\frac{1}{q} \cdot \dqdt
+			= t \cdot \opddt \Bigl[ \ln\bbrac{\cos(t)} \Bigr]
+			+ \ddt{t} \cdot \ln\bbrac{\cos(t)}
+		</mrow>
+		<mrow>
+			\frac{1}{q} \cdot \dqdt
+			= t \cdot \frac{1}{\cos(t)} \cdot \opddt \bbrac{\cos(t)}
+			+ 1 \cdot \ln\bbrac{\cos(t)}
+		</mrow>
+		<mrow>
+			\frac{1}{q} \cdot \dqdt
+			= \frac{t}{\cos(t)} \cdot \bbrac{- \sin(t)}
+			+ \ln\bbrac{\cos(t)}
+		</mrow>
+		<mrow> \frac{1}{q} \cdot \dqdt = \ln\bbrac{\cos(t)} - t \tan(t) </mrow>
+	</md>.
+	Isolating <m>dq/dt</m> and subsituting back in for <m>q</m>,
+	we have
+	<me> \dqdt = \bigl[\cos(t)\bigr]^t \cdot \Bigl[\ln\bbrac{\cos(t)} - t \tan(t)\Bigr] </me>.
+	</p>
+
+</example>
+
+<remark><p>
+	Another approach to <xref ref="example-product-with-log" /> would be to express <m>q(t)</m> as
+	<me> q(t) = \exp\Bbrac{t \ln\bbrac{\cos(t)}} </me>
+	and then combining the <xref ref="pattern-chain-differential-version" text="title" />
+	with the <xref ref="pattern-product-rule" text="title" />.
+	This alternative approach is essentially equivalent to what we have done in <xref ref="example-product-with-log" />,
+	but doesn't involve implicit differentiation.
+</p></remark>
+
+<exercise>
+	<title>A Quotient Rule</title>
+	<p>
+	Suppose <m>q(t)</m> is a rational function <me> q(t) = \frac{f(t)}{g(t)} </me>.
+	Rewriting this as <me> q(t) = f(t) \inv{\bigl[g(t)\bigr]} </me>,
+	combine the <xref ref="pattern-product-rule" text="title" />
+	with one of our two versions of the Chain Rule
+	(<xref ref="pattern-chain-differential-version" /> or <xref ref="pattern-comp-inv-chain-function-version" />)
+	to produce a <q>Quotient Rule.</q>
+	You should be able to simplify your final result into a rational expression involving
+	<m>f</m>, <m>g</m>, and their derivatives.
+	</p>
+</exercise>
 
 </section>
+
+
+<section xml:id="section-product-integrating-factors">
+<title>Integrating factors</title>
+
+<example xml:id="example-product-mixing">
+	<title>Mixing problem with variable source</title>
+
+	<p>
+	Let's revisit our <xref ref="example-models-mixing" text="title" /> from <xref ref="chapter-models" />,
+	where fresh brine was entering a vat,
+	and the volume of the vat was held constant by simultaneously draining liquid from the vat at the same rate that fresh brine was entering.
+	</p>
+
+	<figure xml:id="figure-product-brine-tank-1">
+		<caption>Brine entering and being drained from a tank so that volume is held constant.</caption>
+		<image width="50%">
+			<description>Diagram of brine entering and being drained from a tank so that volume is held constant.</description>
+			<latex-image><xi:include href="models.d/mixing.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	Now consider a variation of this problem.
+	Perhaps the incoming brine is being produced by a machine that introduces salt into a fresh water supply.
+	When the system is first started up,
+	we might assume that opening the fresh water valve brings the flow rate up to speed nearly instantaneously.
+	But salt moves more slowly,
+	so perhaps the rate at which the salt is supplied causes it to take some time until the concentration of the incoming brine is near the design specifications.
+	</p>
+
+	<figure xml:id="figure-product-brine-tank-2">
+		<caption>
+			Brine entering and being drained from a tank so that volume is held constant,
+			where the incoming brine is assumed to be of varying concentration.
+		</caption>
+		<image width="70%">
+			<description>
+				Diagram of brine entering and being drained from a tank so that volume is held constant,
+				where the incoming brine is assumed to be of varying concentration.
+			</description>
+			<latex-image><xi:include href="product.d/mixing.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	We might model the incoming concentration <m>k(t)</m> with a function that begins at <m>k(0) = 0</m>,
+	but then quickly ramps up to approach a horizontal asymptote at the desired concentration of
+	<quantity><mag>15</mag><unit base="gram" /><per base="liter" /></quantity>.
+	Maybe something like <me> k(t) = 15 (1 - e^{-t}) </me>.
+	</p>
+
+	<figure xml:id="figure-product-brine-forcing-function">
+		<caption>A model function for the ramping up of salt concentration in the incoming brine supply.</caption>
+		<image width="50%">
+			<description>Graph of a model function for the ramping up of salt concentration in the incoming brine supply.</description>
+			<latex-image><xi:include href="product.d/forcing.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	To obtain a rate equation for this system,
+	we use the same <me> r(t) = (\text{rate in }) - (\text{rate out}) </me>
+	analysis that we used in <xref ref="example-models-mixing" />,
+	but now our <em>rate in</em> is varying instead of constant.
+	Remember that our analysis in that example was based on <em>amount</em> of salt in grams,
+	not concentration.
+	So letting <m>q(t)</m> represent the amount of salt in the tank at time <m>t</m>,
+	we have
+	<md>
+		<mrow> \text{rate in} \amp = \bbrac{k(t) \; \mathrm{g}/\mathrm{L}} (2 \; \mathrm{L}/\mathrm{s}) </mrow>
+		<mrow> \amp = 2 k(t) \; \mathrm{g}/\mathrm{s} </mrow>
+		<mrow> \amp = 30 (1 - e^{-t}) \; \mathrm{g}/\mathrm{s} </mrow>
+		<mrow></mrow>
+		<mrow> \text{rate out} \amp = \left(\frac{q(t)}{1000} \; \mathrm{g}/\mathrm{L}\right) (2 \; \mathrm{L}/\mathrm{s}) </mrow>
+		<mrow> \amp = \frac{q(t)}{500} \; \mathrm{g}/\mathrm{s} </mrow>
+		<mrow></mrow>
+		<mrow> r(t) \amp = 30 (1 - e^{-t}) - \frac{q(t)}{500} </mrow>
+	</md>.
+	</p>
+
+	<p>
+	Writing <m>r(t) = \dqdt</m> as usual,
+	let's rearrange this equation to
+	<me> \dqdt + \frac{q}{500} = 30 (1 - e^{-t}) </me>.
+	Just as when we solved separable rate equations (<xref ref="section-substitution-separable-DE" />),
+	we would like to interpret each side as somehow the result of a differentiation.
+	With the addition on the left-hand side,
+	it could be the result of a <xref ref="pattern-product-rule" text="title" /> computation.
+	It would look <em>even more</em> like that if the first term was
+	<me> u \cdot \dqdt </me>
+	instead of just <m>dq/dt</m>,
+	for some function <m>u(t)</m>.
+	To introduce this new factor,
+	let's multiply the whole rate equation by this (currently unknown) function <m>u(t)</m>:
+	<me> u \cdot \dqdt + \frac{u}{500} \cdot q = 30 u (1 - e^{-t}) </me>.
+	But the Product Rule pattern is
+	<me> \opddt \, ( u q ) = u \cdot \dqdt + \dudt \cdot q </me>.
+	So for this to work,
+	we would need <me> \dudt = \frac{u}{500} </me>.
+	Luckily, we already know from <xref ref="pattern-substitution-proportional-rate" /> that the function
+	<me> u(t) = e^{t / 500} </me>
+	satisfies this new rate equation.
+	(Note that we have chosen <m>u_0 = u(0) = 1</m>,
+	since we only need <em>one</em> appropriate function <m>u</m> to use,
+	not <em>every possible</em> such function.)
+	</p>
+
+	<p>
+	So with <m>u</m> as above,
+	our rate equation becomes
+	<md alignment="gather">
+		<mrow> e^{t / 500} \cdot \dqdt + \frac{e^{t / 500}}{500} \cdot q = 30 e^{t / 500} (1 - e^{-t}) </mrow>
+		<mrow> \opddt \, ( e^{t / 500} \cdot q ) = 30 e^{t / 500} - 30 e^{- 499 t / 500} </mrow>
+	</md>.
+	So now we explicitly have the left-hand side as a derivative calculation.
+	Since the two sides are equal,
+	let's make them appear more the same by also interpreting the right-hand side as the result of a derivative calculation.
+	Since
+	<md>
+		<mrow>
+			\opddt \, \left( 15000 e^{t / 500} + \frac{15000}{499} e^{- 499 t / 500} \right)
+			\amp = \frac{15000}{500} e^{t / 500}
+			+ \frac{15000}{499} \cdot \left( \frac{-499}{500} \right) e^{-499 t / 500}
+		</mrow>
+		<mrow> \amp = 30 e^{t / 500} - 30 e^{-499 t / 500} </mrow>
+	</md>,
+	we can rewrite our modified rate equation as
+	<me>
+		\opddt \, ( e^{t / 500} \cdot q )
+		= \opddt \, \left( 15000 e^{t / 500} + \frac{15000}{499} e^{- 499 t / 500} \right)
+	</me>.
+	This now says that the functions
+	<md>
+		<mrow>
+			e^{t / 500} \amp \cdot q
+			\amp
+			\frac{15000}{499} \amp ( 499 e^{t / 500} + e^{- 499 t / 500} )
+		</mrow>
+	</md>
+	have the same derivative.
+	From <xref ref="fact-fund-thm-antideriv-v-shifts" />,
+	we know that this means that they must be vertical shifts of each other:
+	<me>
+		e^{t / 500} \cdot q
+		= \frac{15000}{499} ( 499 e^{t / 500} + e^{- 499 t / 500} ) + C
+	</me>
+	<md>
+		<mrow>
+			q
+			\amp
+			= \frac{1}{e^{t / 500}}
+			\cdot \frac{15000}{499} ( 499 e^{t / 500} + e^{- 499 t / 500} ) + C
+		</mrow>
+		<mrow> \amp = \frac{15000}{499} ( 499 + e^{- t} ) + C e^{- t / 500} </mrow>
+	</md>,
+	where <m>C</m> is an arbitrary constant.
+	</p>
+</example>
+
+<p> We can use the same method to solve rate equations of a similar form. </p>
+
+<definition xml:id="definition-product-1st-order-linear-DE">
+	<title>First-order, linear rate equation</title>
+	<p>
+	A rate equation that can be expressed in the form
+	<me> \dqdt + p(t) \cdot q = f(t) </me>
+	for some functions <m>p</m> and <m>f</m>
+	is called a <term>first-order, linear rate equation</term>.
+	The function <m>p(t)</m> is called the <term>coefficient function</term>,
+	and the function <m>f(t)</m> is called the <term>forcing function</term> for the system.
+	</p>
+</definition>
+
+<p>
+We can use the same method as in <xref ref="example-product-mixing" /> to solve such a rate equation.
+We would like to determine a function <m>u(t)</m> so that
+<me> u \cdot \dqdt + u p q </me>
+is the same as the result of a <xref ref="pattern-product-rule" text="title" /> computation
+<me> \opddt \, (u q) = u \cdot \dqdt + \dudt \cdot q </me>.
+For this to be true,
+we need <m>u</m> to satisfy
+<me> \dudt = u \cdot p(t) </me>,
+which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <m>u</m> and <m>t</m>.
+</p>
+
+<algorithm xml:id="procedure-product-solve-1st-order-linear">
+	<title>Solving a first order, linear rate equation</title>
+	<p>
+	To solve <me>  \dqdt + p(t) \cdot q = f(t) </me>:
+	<ol>
+		<li>
+			First use <xref ref="procedure-substitution-solve-separable" />
+			to solve the separable rate equation
+			<me> \frac{1}{u} \cdot \dudt = p(t) </me>.
+		 </li>
+		 <li>
+			 Choose one particular solution function <m>u(t)</m> and multiply the original rate equation through by it:
+			 <me> u(t) \dqdt + u(t) p(t) q(t) = u(t) f(t) </me>.
+		 </li>
+		 <li>
+			 Integrate both sides:
+			 <md alignment="gather">
+				 <mrow> \opddt \, \left( u(t) q(t) \right) = u(t) f(t) </mrow>
+				 <mrow> \ccmiint{\opddt \, \left( u(t) q(t) \right)}{t} = \ccmiint{u(t) f(t)}{t} </mrow>
+				 <mrow> u(t) q(t) = \ccmiint{u(t) f(t)}{t} </mrow>
+			 </md>,
+			 introducing an arbitrary constant of integration on the right side only.
+		</li>
+		<li> Finally, isolate <m>q(t)</m>. </li>
+	</ol>
+	</p>
+</algorithm>
+
+<remark><p>
+	The chosen function <m>u(t)</m> is called an <term>integrating factor</term> for the rate equation,
+	as introducing it as an extra factor in each term allows us to undo the differentiation on the left-hand side <mdash />
+	that is, it allows us to solve the equation by integrating.
+</p></remark>
+
+<example xml:id="example-product-solving-1st-order-linear">
+	<title>Using the procedure</title>
+
+	<p>
+	Suppose we would like to solve
+	<me> r(t) = \frac{1 - 2 t q(t)}{1 + t^2} </me>.
+	It certainly doesn't like a <xref ref="definition-substitution-separable-DE" text="title" />,
+	and at first glance it also doesn't look it's of the form in <xref ref="definition-product-1st-order-linear-DE" />.
+	But we can rearrange:
+	<md alignment="gather">
+		<mrow> \dqdt = \frac{1 - 2 t q}{1 + t^2} </mrow>
+		<mrow> \dqdt = \frac{1}{1 + t^2} - \frac{2 t}{1 + t^2} \cdot q </mrow>
+		<mrow> \dqdt + \frac{2 t}{1 + t^2} \cdot q = \frac{1}{1 + t^2} </mrow>
+	</md>.
+	So now we see that it is first-order linear,
+	with
+	<md><mrow> p(t) \amp = \frac{2 t}{1 + t^2} \amp f(t) \amp = \frac{1}{1 + t^2} </mrow></md>.
+	</p>
+
+	<p>
+	So first we need to solve
+	<md alignment="gather">
+		<mrow> \frac{1}{u} \cdot \dudt = p(t) </mrow>
+		<mrow> \ccmiint{\frac{1}{u}}{u} = \ccmiint{\frac{2 t}{1 + t^2}}{t} </mrow>
+		<mrow> \ln\abs{u} = \ccmiint{\frac{2 t}{1 + t^2}}{t} </mrow>
+	</md>.
+	On the left, use the substitution <m>v = 1 + t^2</m>,
+	so that <m>dv/dt = 2 t</m>:
+	<md alignment="gather">
+		<mrow> \ln\abs{u} = \ccmiint{\frac{1}{1 + t^2} (2 t)}{t} </mrow>
+		<mrow> \ln\abs{u} = \ccmiint{\frac{1}{1 + t^2} \ddt{v}}{t} </mrow>
+		<mrow> \ln\abs{u} = \ccmiint{\frac{1}{v}}{v} </mrow>
+		<mrow> \ln\abs{u} = \ln\abs{v} + C </mrow>
+		<mrow> \ln\abs{u} = \ln\abs{1 + t^2} + C </mrow>
+	</md>.
+	Recall that we only need <em>one</em> integrating factor <m>u</m>,
+	not all possible ones,
+	so we will take <m>C = 0</m>.
+	Then we can apply the exponential function to both sides to get
+	<md alignment="gather">
+		<mrow> \abs{u} = \abs{1 + t^2} </mrow>
+		<mrow> u = \pm (1 + t^2) </mrow>
+	</md>.
+	Again, we only need one <m>u</m> that works,
+	so we discard the negative solution and proceed with <m>u = 1 + t^2</m>:
+	<md>
+		<mrow> \dqdt + \frac{2 t}{1 + t^2} \cdot q = \frac{1}{1 + t^2} </mrow>
+		<mrow> (1 + t^2) \dqdt + 2 t q = 1 </mrow>
+		<mrow> \opddt \, \bbrac{ (1 + t^2) q } = 1 </mrow>
+		<mrow> \ccmiint{\opddt \, \bbrac{ (1 + t^2) q }}{t} = \ccmiint{1}{t} </mrow>
+		<mrow> (1 + t^2) q = t + K </mrow>
+		<mrow> q(t) = \frac{t + K}{1 + t^2} </mrow>
+	</md>,
+	where <m>K</m> is an arbitrary constant.
+	(We have chosen the letter <m>K</m> for the constant of integration here
+	to avoid confusion with our previous constant of integration from solving for <m>u</m>.)
+	</p>
+
+</example>
+
+<remark><p>
+	You may have noticed that <xref ref="example-product-solving-1st-order-linear" /> is a bit contrived,
+	since without all the hassle of solving for the integrating factor <m>u = 1 + t^2</m>,
+	we might have chosen to multiply through by that factor just for algebraic reasons,
+	to clear fractions:
+	<md>
+		<mrow> \dqdt + \frac{2 t}{1 + t^2} \cdot q = \frac{1}{1 + t^2} </mrow>
+		<mrow>
+			(1 + t^2) \cdot \dqdt
+			+ \cancel{(1 + t^2)} \cdot \frac{2 t}{\cancel{1 + t^2}} \cdot q
+			= \cancel{(1 + t^2)} \cdot \frac{1}{\cancel{1 + t^2}}
+		</mrow>
+		<mrow> (1 + t^2) \cdot \dqdt + 2 t q = 1 </mrow>
+	</md>.
+	At which point it should be fairly obvious that the left-hand side is indeed the result of a product rule
+	<me> \opddt \, \bigl[ (1 + t^2) \cdot q \bigr] = (1 + t^2) \cdot \dqdt + 2 t q </me>.
+</p></remark>
+
+</section>
+
 
 <!-- <xi:include href="./product.d/activities.ptx" />
 <xi:include href="./product.d/exercises.ptx" /> -->

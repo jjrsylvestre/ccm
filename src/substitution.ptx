@@ -427,7 +427,7 @@ we can sometimes use substitution to <q>shift</q> a complicated expression to an
 
 </section>
 
-<section>
+<section xml:id="section-substitution-separable-DE">
 <title>Separable rate equations</title>
 
 <p>
@@ -534,7 +534,7 @@ on one side we can reverse the differentiation by reversing the chain rule.
 
 </example>
 
-<definition>
+<definition xml:id="definition-substitution-separable-DE">
 	<title>Separable rate equation</title>
 	<p>
 	A rate equation that can be expressed in the form
@@ -549,7 +549,7 @@ the problem in <xref ref="example-substitution-first-separable" /> was solved by
 also known as <emph>antidifferentiating</emph>.
 </p>
 
-<algorithm>
+<algorithm xml:id="procedure-substitution-solve-separable">
 	<title>Solving a separable rate equation</title>
 	<p>
 	To solve <me> M(q) \cdot \dqdt = N(t) </me>,
@@ -617,6 +617,18 @@ also known as <emph>antidifferentiating</emph>.
 	</p>
 
 </example>
+
+<p> Let's record the pattern of the solution to the previous example. </p>
+
+<identity xml:id="pattern-substitution-proportional-rate">
+	<title>Solution to proportional rate equation</title>
+	<p>
+	If <m>q(t)</m> is a varying quantity so that its rate of variation <m>r(t)</m> is always proportional to the amount <m>q(t)</m> according to the rate equation
+	<me> r(t) = k q(t) </me>,
+	then <m>q(t)</m> is the exponential function <me> q(t) = q_0 e^{k t} </me>,
+	where <m>q_0 = q(0)</m> is the initial quantity.
+	</p>
+</identity>
 
 <p>
 As one last example,
