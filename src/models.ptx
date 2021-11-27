@@ -275,7 +275,7 @@ The next step in analyzing the situation would be to try to make this observatio
 	<me> \frac{q(t)}{1000} </me>.
 	Thus,
 	<md>
-		<mrow> \text{rate in} \amp = \left(\frac{q(t)}{1000} \; \mathrm{g}/\mathrm{L}\right) (2 \; \mathrm{L}/\mathrm{s}) </mrow>
+		<mrow> \text{rate out} \amp = \left(\frac{q(t)}{1000} \; \mathrm{g}/\mathrm{L}\right) (2 \; \mathrm{L}/\mathrm{s}) </mrow>
 		<mrow> \amp = \frac{q(t)}{500} \; \mathrm{g}/\mathrm{s} </mrow>
 	</md>.
 	Combining the last two calculations yields rate equation
