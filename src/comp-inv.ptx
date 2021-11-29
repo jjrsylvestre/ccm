@@ -565,11 +565,11 @@ but in the other two examples some output values could correspond to <em>two or 
 
 	<figure xml:id="figure-comp-inv-sin-repeated-output">
 		<caption> Many different input values produce the same output value <m>1</m> for the sine function. </caption>
-		<image width="45%">
+		<image width="100%">
 			<description>
 				Diagram illustrating that many different input values produce the same output value <m>1</m> for the sine function the input-output and corresponding output-input processes.
 			</description>
-			<latex-image><xi:include href="comp-inv.d/cube-back-and-forth.tex" parse="text" /></latex-image>
+			<latex-image><xi:include href="comp-inv.d/sin.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
 
