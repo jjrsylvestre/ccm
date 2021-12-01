@@ -115,7 +115,7 @@ respective owners.
 <xi:include href="./product.ptx" />
 
 <!-- Higher-order rate functions. Curve-sketching. -->
-<xi:include href="./higher.ptx" />
+<xi:include href="./curves.ptx" />
 
 <!-- Local/absolute extremes. Optimization. -->
 <xi:include href="./opt.ptx" />

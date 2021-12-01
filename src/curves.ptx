@@ -13,15 +13,1277 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
-<chapter xml:id="chapter-higher" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Higher-order rates versus accumulation trends</title>
+<chapter xml:id="chapter-curves" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Accumulation trends</title>
 
-<section xml:id="section-higher-intro">
-<title>TODO</title>
+<introduction>
 
-<p> TODO </p>
+	<p>
+	Often we are more interested in general accumulation trends rather than absolute values.
+	Will water levels rise or recede?
+	Will profit increase or decrease?
+	When will they do one, and when will they do the other?
+	When they increase, will they increase slowly or quickly?
+	When they decrease, will they decrease slowly or quickly?
+	</p>
+
+	<p> We can answer these questions with the derivative function and the <term>second derivative</term> function. </p>
+
+</introduction>
+
+<section xml:id="section-curves-increase-decrease">
+<title>Domains of increase and decrease</title>
+
+<p> It's easy to measure whether a quantity has increased or decreased from one time to a later time. </p>
+
+<definition xml:id="definition-curves-increase-decrease">
+	<title>Increase and decrease</title>
+
+	<p>
+	We say that a quantity <m>q(t)</m> is <term>increasing on the domain <m>a \lt t \lt b</m></term>
+	if <m>\change{q}</m> is always positive between any two points in that domain.
+	</p>
+
+	<p>
+	We say that a quantity <m>q(t)</m> is <term>decreasing on the domain <m>a \lt t \lt b</m></term>
+	if <m>\change{q}</m> is always negative between any two points in that domain.
+	</p>
+
+</definition>
+
+<note><p>
+	In <xref ref="definition-curves-increase-decrease" />,
+	we are always looking for <term>increase</term> or <term>decrease</term> as time increases,
+	so <q>Between any two points in that domain</q> requires that we are looking at
+	<me> \change{q} = q(t_2) - q(t_1) </me>
+	for <m>t_1,t_2</m> in the stated domain with positive
+	<me> \change{t} = t_2 - t_1 </me>.
+</p></note>
+
+<remark><p>
+	We can also apply the descriptors <term>increasing</term> or <term>decreasing</term> to a quantity on a domain that includes one or both of its endpoints.
+</p></remark>
+
+<example>
+	<title>An upright parabola decreases then increases</title>
+
+	<p>
+	On any domain <m>0 \le t \le b</m> we can say that the quantity function <m>q(t) = t^2</m> is increasing,
+	because a number that is larger in magnitude will produce a larger square:
+	<md><mrow> t_1 \amp \lt t_2 \amp\amp\implies\amp t_1^2 \amp \lt t_2^2 </mrow></md>.
+	That is,
+	<md><mrow> \change{t} = t_2 - t_1 \amp \gt 0 \amp\amp\implies\amp \change{q} = q_2 - q_1 = t_2^2 - t_1^2 \amp \gt 0 </mrow></md>.
+	</p>
+
+	<p>
+	On a domain of the form <m>a \le t \le 0</m>,
+	the same principle applies,
+	but for <em>negative</em> numbers satisfying <m>t_1 \lt t_2</m> it will be <m>t_1</m> that is greater in magnitude.
+	So our quantity function <m>q(t) = t^2</m> is decreasing on such a domain,
+	since in that case
+	<md><mrow> t_1 \amp \lt t_2 \amp\amp\implies\amp t_1^2 \amp \gt t_2^2 </mrow></md>.
+	That is,
+	<md><mrow> \change{t} = t_2 - t_1 \amp \gt 0 \amp\amp\implies\amp \change{q} = q_2 - q_1 = t_2^2 - t_1^2 \amp \lt 0 </mrow></md>.
+	</p>
+
+</example>
+
+<p>
+If <m>\change{q}</m> is always positive between a pair of points in some domain
+(with positive <m>\change{t}</m> as well),
+then the average rate <m>\inlineslope{q}{t}</m> must always be positive as well.
+Similarly, domains of decrease will produce negative average rates.
+Since derivative values are approximated by average rate values,
+we can connect domains of increase and decrease to the sign of the derivative.
+</p>
+
+<identity xml:id="pattern-curves-increase-decrease-vs-derivative">
+	<title>Derivative values versus domains of increase and decrease</title>
+
+	<statement><p><ol>
+
+		<li xml:id="pattern-curves-increase-decrease-vs-derivative-inc"><p><ol>
+
+			<li>
+				If <m>q(t)</m> is both differentiable and increasing on the domain <m>a \lt t \lt b</m>,
+				then <m>q'(t)</m> cannot be negative at any point in that domain.
+			</li>
+
+			<li>
+				Conversely, if <m>q(t)</m> is differentiable on the domain <m>a \lt t \lt b</m>,
+				with <m>q'(t)</m> positive at all points in that domain,
+				then <m>q(t)</m> must be increasing on that domain.
+			</li>
+
+		</ol></p></li>
+
+		<li xml:id="pattern-curves-increase-decrease-vs-derivative-dec"><p><ol>
+
+			<li>
+				If <m>q(t)</m> is both differentiable and decreasing on the domain <m>a \lt t \lt b</m>,
+				then <m>q'(t)</m> cannot be positive at any point in that domain.
+			</li>
+
+			<li>
+				Conversely, if <m>q(t)</m> is differentiable on the domain <m>a \lt t \lt b</m>,
+				with <m>q'(t)</m> negative at all points in that domain,
+				then <m>q(t)</m> must be decreasing on that domain.
+			</li>
+
+		</ol></p></li>
+
+	</ol></p></statement>
+
+	<proof>
+
+		<p>
+		First,
+		if <m>q(t)</m> is increasing on <m>a \lt t \lt b</m>,
+		then <m>\change{q}</m> calculated between any pair of points in that domain will always be positive.
+		Since <m>\change{t}</m> is always positive,
+		this makes every average rate calculation <m>\inlineslope{q}{t}</m> positive.
+		But if <m>q</m> is differentiable,
+		then at any given point <m>t = t^\ast</m> the average rate approximations to the derivative value <m>q'(t^\ast)</m> can be made arbitrarily close to it by taking sufficiently small <m>\change{t}</m>.
+		Since positive average rates cannot be made arbitrarily close to a negative value,
+		<m>q'(t^\ast)</m> cannot be negative.
+		However, <m>q'(t^\ast) = 0</m> <em>is</em> possible,
+		since it could be the case that all of these average rate calculations around <m>t = t^\ast</m> are all positive but very small in magnitude.
+		</p>
+
+		<p>
+		Now suppose it is known that <m>q'(t)</m> is positive on all of <m>a \lt t \lt b</m>.
+		Then near any given value <m>t = t^\ast</m> in that domain,
+		there is a small subdomain
+		(by taking <m>\change{t}</m> sufficiently small)
+		around that point where all of the average rate calculations <m>\inlineslope{q}{t}</m> are close to that positive derivative value <m>q'(t^\ast)</m>
+		and hence must be positive themselves.
+		Since <m>\change{t}</m> is always positive,
+		we must have that all of these <m>\change{q}</m> values of positive,
+		so <m>q</m> is at least increasing on this small subdomain around <m>t = t^\ast</m>.
+		By <q>stitching</q> together all of these small subdomains,
+		we find that <m>q</m> must be increasing on all of the full domain <m>a \lt t \lt b</m>.
+		</p>
+
+		<p>
+		Finally,
+		similar arguments can be made to confirm the claims in
+		<xref ref="pattern-curves-increase-decrease-vs-derivative-dec" text="type-local">Statement</xref>
+		of this pattern.
+		</p>
+
+	</proof>
+
+</identity>
+
+<remark>
+
+	<p>
+	Notice that we have been careful to say <q><m>q'(t)</m> cannot be negative</q> in the first statement and <q><m>q'(t)</m> positive</q> in the second statement.
+	If we start with the assumption that <m>q</m> is increasing,
+	then,
+	as described in the justification,
+	it is still possible for <m>q'(t^\ast) = 0</m> to be true at some points in that domain.
+	</p>
+
+	<p>
+	On the other hand,
+	if we started with the assumption <m>q'(t) \ge 0</m> on some domain,
+	then we <em>couldn't</em> say for sure that <m>q</m> is always increasing on that domain,
+	since there could be an extended period where <m>q'(t) = 0</m>.
+	On such a period, the graph of <m>q(t)</m> would be a horizontal line,
+	and <m>q</m> would be neither increasing nor decreasing.
+	</p>
+
+</remark>
+
+<warning><p>
+	Even if <m>q'(t^\ast) \gt 0</m> at some particular point <m>t = t^\ast</m>,
+	it is never appropriate to say <q><m>q</m> is increasing <em>at</em> <m>t = t^\ast</m>.</q>
+	The adjectives <term>increasing</term> and <term>decreasing</term> are <em>comparative</em>,
+	so you need <em>at least two</em> data points in order to be able to say that <m>q</m> increased or decreased from this point to that point.
+	In general,
+	we will only apply the descriptors <term>increasing</term> and <term>decreasing</term> to a function <em>over an entire domain</em>
+	such as <m>a \le t \le b</m>.
+</p></warning>
+
+<example xml:id="example-curves-increase-natural-log">
+	<title>The natural logarithm and its derivative</title>
+
+	<p>
+	The natural logarithm function <m>\ln(t)</m> has domain <m>t \gt 0</m> and derivative function <m>r(t) = \ln'(t) = 1/t</m>.
+	Since we have <md><mrow> t \amp \gt 0 \amp\amp\implies\amp \frac{1}{t} \amp \gt 0 </mrow></md>,
+	<xref ref="pattern-curves-increase-decrease-vs-derivative" /> says that <m>\ln(t)</m> should be always increasing on its domain.
+	We easily confirm this using our knowledge of the graph of the logarithm function.
+	(See <xref ref="figure-log-positive-values" />.)
+	</p>
+
+	<p>
+	On the other hand,
+	consider the rate function <m>r(t) = 1/t</m> itself.
+	Its derivative is <me> r'(t) = - \frac{1}{t^2} </me>,
+	and that derivative function is always negative on the domain <m>t \gt 0</m>.
+	<xref ref="pattern-curves-increase-decrease-vs-derivative" /> then says that <m>r(t)</m> should be decreasing on that same domain,
+	and we know from its graph that this is so.
+	But consider what this means for the logarithm function:
+	since
+	<ul>
+		<li> <m>r(t)</m> is the rate of variation of <m>\ln(t)</m> </li>
+		<li> the variation in <m>\ln(t)</m> is that it is increasing on its domain </li>
+		<li> the rate function <m>r(t)</m> is decreasing on that same domain, </li>
+	</ul>
+	we can say that the natural increases on domain <m>t \gt 0</m>,
+	but it does so <em>at a decreasing rate</em>.
+	</p>
+
+</example>
+
+<example xml:id="example-curves-increase-natural-exp">
+	<title>The natural exponential and its derivative</title>
+
+	<p>
+	The natural exponential function <m>q(t) = \exp(t)</m> has domain the full real number line,
+	and is its own derivative function: <m>r(t) = q'(t) = \exp(t)</m>.
+	Since <m>\exp(t) \gt 0</m> for all <m>t</m>,
+	we can say that <m>q(t)</m> is always increasing.
+	</p>
+
+	<p>
+	But we also have <m>r'(t) = \exp(t) \gt 0</m> for all <m>t</m>,
+	so the rate function <m>r(t)</m> is also always increasing.
+	This is what makes exponential growth effectively <q>runaway</q> growth:
+	not only is the quantity function <m>q(t)</m> increasing,
+	it is increasing at an increasing rate.
+	</p>
+
+</example>
+
+<example xml:id="example-curves-domains-of-inc-dec">
+	<title>Determining domains of increase and decrease</title>
+
+	<p>
+	Consider the function <me> q(t) = \frac{2 t^2}{t^2 - 1} </me>.
+	Let's ask Sage to compute its derivative.
+	(We could also turn the denominator into a factor with a negative exponent,
+	and then use a combination of the <xref ref="pattern-product-rule" text="title" />
+	and the <xref ref="pattern-chain-differential-version" text="title" />.
+	</p>
+
+	<sage>
+		<input>
+			var('t')
+			q(t) = 2 * t^2 / (t^2 - 1)
+			qp = q.derivative()
+			print(qp.simplify_full())
+		</input>
+		<output> -4*t/(t^4 - 2*t^2 + 1) </output>
+	</sage>
+
+	<p>
+	That denominator can be factored: <me> q'(t) = \frac{ - 4 t }{ (t^2 - 1)^2 } </me>.
+	To use <xref ref="pattern-curves-increase-decrease-vs-derivative" /> to determine the domains of increase and decrease,
+	we would like to solve the inequalities
+	<md><mrow> q'(t) \amp \gt 0 \amp q'(t) \amp \lt 0 </mrow></md>,
+	though solving one will effectively solve the other.
+	Because of the outer square,
+	the denominator is positive for all <m>t \neq \pm 1</m>.
+	Because of the extra negative in the numerator,
+	the numerator is negative for <m>t \gt 0</m> and positive for <m>t \lt 0</m>.
+	So
+	<md>
+		<mrow> q'(t) \amp \gt 0 \amp\amp\text{for}\amp t \amp \lt 0, \; t \neq \pm 1 </mrow>
+		<mrow> q'(t) \amp \lt 0 \amp\amp\text{for}\amp t \amp \gt 0, \; t \neq \pm 1  </mrow>
+	</md>,
+	and we conclude that <m>q</m> is increasing on the domains <m>t \lt -1</m> and <m>-1 \lt t \lt 0</m>,
+	and decreasing on the domains <m>0 \lt t \lt 1</m> and <m>t \gt 1</m>.
+	</p>
+
+</example>
+
+<example>
+	<title>Joining two domains of increase</title>
+
+	<p>
+	Consider the function <m>q(t) = t^3</m>.
+	We have <m>q'(t) = 3 t^2</m>,
+	and so except for <m>q'(0) = 0</m> we have <m>q'(t) \gt 0</m> for all <m>t</m>.
+	At this point we can say that <m>q</m> increases on the domain <m>t \lt 0</m>,
+	and again on the domain <m>t \gt 0</m>.
+	</p>
+
+	<p>
+	What about at <m>t = 0</m>?
+	We should never talk about increasing or decreasing at one single point.
+	But suppose we compare the output <m>q(0) = 0</m> to other nearby outputs.
+	For example, if we use <m>t_1 = 0</m> and <m>t_2 \gt 0</m>,
+	then <me> \change{q} = q(t_2) - q(t_1) = t_2^3 - 0 \gt 0 </me>.
+	On the other side,
+	if we use <m>t_1 \lt 0</m> and <m>t_2 = 0</m>,
+	then <me> \change{q} = q(t_2) - q(t_1) = 0 - t_2^3 \gt 0 </me>,
+	because <m>t_2^3</m> itself will be negative for <m>t_2 \lt 0</m>.
+	So it <em>is</em> appropriate to say that <m>q</m> increases <em>through</em> <m>t = 0</m>,
+	and we can join our two domains of increase together to say that <m>q(t) = t^3</m> is <em>always</em> increasing.
+	</p>
+
+	<p>
+	Why didn't we do the same thing in <xref ref="example-curves-domains-of-inc-dec" />,
+	and join the two adjacent domains <m>t \lt -1</m> and <m>-1 \lt t \lt 0</m> together to say that that particular function was increasing on the domain <m>t \lt 0</m>?
+	Because in that case <m>q(-1)</m> was undefined,
+	and so there is no point there for the function to increase <em>through</em>.
+	Even though <m>q</m> is increasing on each of those two adjacent domains,
+	we cannot join them together into one domain of increase.
+	</p>
+
+</example>
 
 </section>
+
+<section xml:id="section-curves-critical-extremes">
+<title>Critical points and local extremes</title>
+
+<p>
+An important feature in <xref ref="example-curves-domains-of-inc-dec" /> is the boundary between the domain <m>-1 \lt t \lt 0</m>,
+where the function is increasing,
+and the domain <m>0 \lt t \lt 1</m>,
+where the function is decreasing.
+Notice that <m>q'(0) = 0</m> at that boundary.
+We can think of this feature in several different ways.
+<ol>
+
+	<li>
+		When increasing, the quantity is accumulating,
+		and when decreasing, the quantity is dissipating.
+		At a boundary between these two behaviours,
+		there must be an instant where the quantity is neither accumulating nor dissipating;
+		that is, where <m>r(t) = 0</m>.
+	</li>
+
+	<li>
+		If the function represents the position of an object in motion,
+		the derivative function represents velocity.
+		When the velocity is positive,
+		the object's position is increasing in the <q>positive direction</q>,
+		and so we think of the object as moving <q>forward.</q>
+		When the velocity is negative,
+		the object's position is increasing in the <q>negative direction</q>,
+		and so we think of the object as moving <q>backward.</q>
+		At a boundary between these two boundaries,
+		in order to switch direction of movement there must be an instant where the object comes to a stop;
+		that is, where <m>v(t) = 0</m>.
+	</li>
+
+	<li>
+		Graphically,
+		if a function increases and then decreases,
+		it must have come to a <q>peak</q> at that boundary point between the two behaviours.
+		On the increasing side of the peak we will see positive slopes,
+		and on the decreasing side we will see negative slopes.
+		So if the function is differentiable at that boundary point,
+		then we should see a slope <m>q'(t) = 0</m>,
+		where the tangent line is horizontal.
+	</li>
+
+</ol>
+</p>
+
+<identity xml:id="pattern-curves-behaviour-change">
+	<title>Changes in behaviour</title>
+
+	<statement><p>
+		At a boundary point <m>t = t^\ast</m> between a domain of increase and a domain of decrease,
+		we must see at least <em>one</em> of the following:
+		<ol>
+			<li> <m>q(t^\ast)</m> is undefined </li>
+			<li> <m>q'(t^\ast)</m> is undefined </li>
+			<li> <m>q'(t^\ast) = 0</m>. </li>
+		</ol>
+	</p></statement>
+
+	<proof>
+
+		<p>
+		If <m>q(t^\ast)</m> is undefined,
+		then one of the listed occurrences has indeed occurred.
+		If <m>q(t^\ast)</m> is defined but <m>q'(t^\ast)</m> is not,
+		then again one of the listed occurrences has indeed occurred.
+		So we really only need to concern ourselves with the case that both <m>q(t^\ast)</m> and <m>q'(t^\ast)</m> are defined,
+		and try to determine the value of <m>q'(t^\ast)</m> in that case.
+		</p>
+
+		<p>
+		Suppose that <m>q(t)</m> is increasing on some domain <m>a \lt t \le t^\ast</m> and decreasing on some domain <m>t^\ast \le t \lt b</m>.
+		(The argument in the case that <m>q</m> is decreasing on the first domain and increasing on the second is essentially the same.)
+		In that case,
+		every forward difference approximation to the instantaneous rate will be negative
+		(since <m>\change{q}</m> is negative when <m>q</m> is decreasing),
+		and
+		every backward difference approximation to the instantaneous rate will be positive
+		(since <m>\change{q}</m> is positive when <m>q</m> is increasing).
+		However,
+		if <m>q'(t^\ast)</m> is defined,
+		then by <xref ref="definition-avg-rate-derivative-value" />,
+		<em>all</em> of those approximations,
+		both positive and negative,
+		for sufficiently small <m>\change{t}</m> must be close to the derivative value <m>q'(t^\ast)</m>.
+		The only number that can simultaneously be arbitrarily close to both positive and negative values is <m>0</m>.
+		</p>
+
+	</proof>
+
+</identity>
+
+<p>
+Ignoring the first of the three situations in <xref ref="pattern-curves-behaviour-change" /> for now,
+points on the graph of <m>q(t)</m> where one of the other two situations occur are important,
+because they signal the potential for changes in behaviour.
+</p>
+
+<definition xml:id="definition-curves-critical-points">
+	<title>Critical points</title>
+	<p>
+	A point <m>t = t^\ast</m> in the domain of <m>q</m>
+	where <m>q'(t^\ast)</m> is either undefined or equal to <m>0</m>
+	is called a <term>critical point</term> for the function.
+	</p>
+</definition>
+
+<p>
+We have already seen an example of a critical point with <m>q'(t^\ast) = 0</m> in <xref ref="example-curves-domains-of-inc-dec" />,
+for <m>t^\ast = 0</m>.
+Here is an example of the other variety of critical point.
+</p>
+
+<example>
+	<title>A critical point can be a cusp</title>
+
+	<p>
+	Consider <m>q(t) = t^{2/3}</m>.
+	Then the derivative function <me> q'(t) = - \frac{2}{3 t^{1/3}} </me> is undefined at <m>t = 0</m>,
+	even though the original function <m>q</m> is defined there.
+	</p>
+
+	<figure xml:id="figure-curves-cusp">
+		<caption>The cusp at <m>t = 0</m> is a critical point.</caption>
+		<image width="33%">
+			<description>Graph with a cusp as a critical point.</description>
+			<latex-image><xi:include href="curves.d/t-power-two-thirds-cusp.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	On the graph we can see that the function does change from decreasing to increasing at <m>t = 0</m>,
+	but it does with an instantaneous change in behaviour instead of a gradual one,
+	and leaves behind a cusp at that boundary between behaviours.
+	</p>
+
+</example>
+
+<warning><p>
+	A critical point is not always a boundary between different behaviours,
+	as the example of <m>q(t) = t^3</m> demonstrates,
+	where <m>t = 0</m> is a critical point but the function increases on its entire domain.
+</p></warning>
+
+<p>
+When a ball is thrown up into the air,
+it increases in height until it comes to a momentary stop,
+when it begins to descend again.
+That critical point occurs at the moment of maximum height.
+</p>
+
+<definition xml:id="definition-curves-local-min-max">
+	<title>Local extremes</title>
+	<p>
+	<ul>
+
+		<li>
+			A function <m>q(t)</m> is said to have a <term>local minimum at <m>t = t^\ast</m></term>
+			if there is a domain containing <m>t = t^\ast</m> where <m>\change{q}</m> is always negative to the left of that point
+			and always positive to the right of that point.
+			In this case, <m>q(t^\ast)</m> called a <term>local minimum value of <m>q</m></term>.
+		</li>
+
+		<li>
+			A function <m>q(t)</m> is said to have a <term>local maximum at <m>t = t^\ast</m></term>
+			if there is a domain containing <m>t = t^\ast</m> where <m>\change{q}</m> is always positive to the left of that point
+			and always negative to the right of that point.
+			In this case, <m>q(t^\ast)</m> called a <term>local maximum value of <m>q</m></term>.
+		</li>
+
+	</ul>
+	In general,
+	we say that <m>q</m> has a <term>local extreme</term> at <m>t = t^\ast</m> if it has either a local minimum or a local maximum there.
+	</p>
+
+</definition>
+
+<figure xml:id="figure-curves-local-min-max">
+	<caption>Recognizing local extremes.</caption>
+
+	<sidebyside valign="top" widths="45% 45%"> <!-- margins=""  -->
+
+		<figure>
+			<caption>A function with a local minimum.</caption>
+			<image>
+				<description>Graph of a function with a local minimum.</description>
+				<latex-image><xi:include href="curves.d/local-min.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure>
+			<caption>A function with a local maximum.</caption>
+			<image>
+				<description>Graph of a function with a local maximum.</description>
+				<latex-image><xi:include href="curves.d/local-max.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+<remark><p>
+	These are referred to as <em>local</em> minimum and maximum values,
+	since they will only be the lowest or highest values on some (possibly small) domain around them.
+	The function could then go on to achieve lower or higher values on a larger domain,
+	as in <xref ref="figure-curves-local-min-max" />.
+</p></remark>
+
+<example>
+	<title>Repeating local extremes</title>
+	<p>
+	Because of its periodic nature,
+	the cosine function has an infinite number of local extreme locations:
+	a local maximum at each point <m>t = n \pi</m> with <m>n</m> an even integer,
+	and a local minimum at each point <m>t = n \pi</m> with <m>n</m> an odd integer.
+	(See <xref ref="figure-periodic-cos-graph" />.)
+	</p>
+</example>
+
+<p> Hopefully it is obvious from our definition that a local extreme can only occur at a critical point. </p>
+
+<identity xml:id="pattern-curves-extreme-critical">
+	<title>Location of local extremes</title>
+
+	<statement><p>
+		If a function has a local extreme at <m>t = t^\ast</m>,
+		then it must have a critical point there.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		We will discuss only the case of a local minimum <mdash />
+		the case of a local maximum is essentially the same.
+		</p>
+
+		<p>
+		If <m>q(t)</m> has a local minimum at <m>t = t^\ast</m>,
+		then by definition <m>\change{q}</m> is always negative to the left and positive to the right of that point,
+		on some suitably small domain around it.
+		This means that <m>q</m> must be decreasing down to that minimum value,
+		and then increasing away from it.
+		Since we are assuming that <m>t = t^\ast</m> is in the domain of <m>q</m>,
+		then <xref ref="pattern-curves-behaviour-change" /> essentially says that <m>q</m> must have a critical point there.
+		</p>
+
+	</proof>
+
+</identity>
+
+<p>
+But again, as the cube example demonstrates,
+a critical point is not always a local extreme.
+Here is a way that we can determine if <m>q</m> has a local extreme at a particular critical point,
+and what kind if it does.
+</p>
+
+<identity xml:id="pattern-curves-first-derivative-test">
+	<title>First Derivative Test</title>
+
+	<p>
+	Suppose that <m>q</m> has a critical point at <m>t = t^\ast</m>.
+	<ol>
+
+		<li>
+			If <m>q</m> changes in behaviour from increasing to decreasing at <m>t = t^\ast</m>,
+			then <m>q</m> has a local maximum there.
+		</li>
+
+		<li>
+			If <m>q</m> changes in behaviour from decreasing to increasing at <m>t = t^\ast</m>,
+			then <m>q</m> has a local minimum there.
+		</li>
+
+		<li>
+			If <m>q</m> does not change behaviour at <m>t = t^\ast</m>,
+			then <m>q</m> has neither a local minimum nor a local maximum there.
+		</li>
+
+	</ol>
+	</p>
+
+</identity>
+
+<figure xml:id="figure-curves-first-deriv">
+	<caption>Graphical representation of the First Derivative Test.</caption>
+
+	<sbsgroup>
+
+		<sidebyside valign="top" widths="30% 30%"> <!-- margins=""  -->
+
+			<figure>
+				<caption>Change from increasing to decreasing at a local maximum.</caption>
+				<image>
+					<description>Graph of a function that changes from increasing to decreasing at a local maximum.</description>
+					<latex-image><xi:include href="curves.d/1st-deriv-test-1.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption>Change from decreasing to increasing at a local minimum.</caption>
+				<image>
+					<description>Graph of a function that changes from decreasing to increasing at a local minimum.</description>
+					<latex-image><xi:include href="curves.d/1st-deriv-test-2.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+		<sidebyside valign="top" widths="30% 30%"> <!-- margins=""  -->
+
+			<figure>
+				<caption>A saddle point as a momentary <q>stop</q> while increasing.</caption>
+				<image>
+					<description>Graph of a function that illustrates a saddle point as a momentary stop while increasing.</description>
+					<latex-image><xi:include href="curves.d/1st-deriv-test-3.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption>A saddle point as a momentary <q>stop</q> while decreasing.</caption>
+				<image>
+					<description>Graph of a function that illustrates a saddle point as a momentary stop while decreasing.</description>
+					<latex-image><xi:include href="curves.d/1st-deriv-test-4.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</sbsgroup>
+
+</figure>
+
+<remark><p>
+	A critical point in the third category of <xref ref="pattern-curves-first-derivative-test" />
+	is sometimes called a <term>saddle point</term> for <m>q</m>.
+	Notice that such a critical point can still have a horizontal tangent there if <m>q'(t^\ast)</m>,
+	but in this case the tangent passes through the curve at the saddle point.
+</p></remark>
+
+<example xml:id="example-curves-1st-deriv-test-for-accumulation">
+	<title>Applying the First Derivative Test</title>
+
+	<p>
+	Consider the accumulation function <me> A(t) = \ccmint{0}{t}{ (u - 2) (u - 4)^2 }{u} </me>.
+	When does the accumulated quantity come to a momentary high or low value?
+	By the <xref ref="theorem-fund-thm" />,
+	the derivative function is <me> A'(t) = \opddt \, \ccmint{0}{t}{ (u - 2) (u - 4)^2 }{u} = (t - 2) (t - 4)^2 </me>.
+	So there are two critical points, at <m>t = 2</m> and <m>t = 4</m>.
+	Except for at <m>t = 4</m>,
+	the squared factor in the derivative function is always positive,
+	so increasing/decreasing behaviour is completely determined by the <m>(t - 2)</m> factor:
+	<ul>
+		<li> decreasing for <m>t \lt 2</m> </li>
+		<li> increasing for <m>t \gt 2</m>. </li>
+	</ul>
+	So the quantity was initially dissipating,
+	reached a local minimum value at <m>t = 2</m>,
+	and then began to accumulate forever more after that.
+	In particular, the critical point at <m>t = 4</m> is only a saddle point and not a local extreme.
+	</p>
+
+	<p> Let's ask Sage to compute that momentary low quantity for us. </p>
+
+	<sage>
+		<input>
+			var('u')
+			integrate( (u - 2) * (u - 4)^2, u, 0, 2 );
+		</input>
+		<output> -68/3 </output>
+	</sage>
+
+	<p>
+	So the quantity will bottom out at <m>68/3</m> below whatever initial quantity there was at <m>t = 0</m>,
+	and then start to recover.
+	</p>
+
+</example>
+
+</section>
+
+<section xml:id="section-curves-concavity">
+<title>The second derivative</title>
+
+<p>
+If <m>r(t) = q'(t)</m> is the rate of variation of quantity <m>q</m>,
+then <m>r'(t)</m> is the rate of variation of that rate of variation.
+Since this derivative function is the derivative of the derivative of <m>q</m>,
+we usually refer to it as the <term>second derivative</term> of <m>q</m>,
+and write
+<me> q''(t) \qquad\text{or}\qquad \dbldqdt </me>
+to represent it.
+</p>
+
+<p>
+The second derivative tells about the variation of the rate function <m>r(t)</m> <mdash />
+essentially it gives us information about whether a quantity is <q>speeding up</q> or <q>slowing down</q> in its variation.
+For example,
+we've already seen
+in <xref ref="example-curves-increase-natural-log" />
+and <xref ref="example-curves-increase-natural-exp" />
+that both the natural logarithm and exponential functions are increasing on their respective domains,
+but the logarithm function increases at a decreasing rate,
+while the exponential function just keeps increasing faster and faster.
+</p>
+
+<p>
+However,
+when using the idea of <q>speeding up</q> and <q>slowing down,</q>
+we've got to be careful to take <q>direction</q> into account.
+</p>
+
+<example>
+	<title>Speeding up versus slowing down</title>
+
+	<p>
+	Suppose an object exhibits linear motion,
+	with position function <md><mrow> s(t) \amp = t^3 - 12 t^2 + 36 t \amp t \amp \ge 0 </mrow></md>.
+	The derivative function represents velocity:
+	<md>
+		<mrow> v(t) \amp = s'(t) </mrow>
+		<mrow> \amp = 3 t^2 - 24 t + 36 </mrow>
+		<mrow> \amp = 3 (t - 2) (t - 6) </mrow>
+	</md>.
+	Variation in velocity is called <term>acceleration</term>:
+	<me> a(t) = v'(t) = s''(t) = 6 t - 24 = 6 (t - 4) </me>.
+	As described at the beginning of this chapter,
+	when <m>v(t) \gt 0</m>,
+	position is increasing and we think of the object as <em>moving forward</em>.
+	When <m>v(t) \lt 0</m>,
+	position is decreasing and we think of the object as <em>moving backward</em>.
+	In this case,
+	the object is
+	<ul>
+		<li> moving forward on <m>0 \le t \lt 2</m> and again on <m>t \gt 6</m> </li>
+		<li> moving backward on <m>2 \lt t \lt 6</m>. </li>
+	</ul>
+	From our acceleration function,
+	we can say that <em>velocity</em> is
+	<ul>
+		<li> decreasing on <m>0 \le t \lt 4</m> </li>
+		<li> increasing on <m>t \gt 4</m>. </li>
+	</ul>
+	However, velocity increasing/decreasing is not the same as speeding up / slowing down,
+	since velocity takes direction into account but speed does not.
+	In particular, on <m>2 \lt t \lt 4</m> we have both negative velocity and negative acceleration.
+	If velocity is decreasing from an already negative value,
+	then velocity is becoming <em>more</em> negative.
+	In other words,
+	the magnitude of velocity (speed) is actually <em>increasing</em>,
+	and the object is speeding up on that time interval.
+	</p>
+
+	<p>
+	In general,
+	an object in motion is speeding up when velocity and acceleration have the same <q>direction,</q>
+	and slowing down otherwise.
+	For this object,
+	we have
+	<ul>
+		<li> moving forward but slowing down on <m>0 \le t \lt 2</m> </li>
+		<li> momentarily stopped at <m>t = 2</m> </li>
+		<li> moving backward and speeding up on <m>2 \lt t \lt 4</m> </li>
+		<li> moving backward but slowing down on <m>4 \lt t \lt 6</m> </li>
+		<li> momentarily stopped at <m>t = 6</m> </li>
+		<li> moving forward and speeding up on <m>t \gt 6</m>. </li>
+	</ul>
+	</p>
+
+</example>
+
+<p> Here are some representative graphs for the different combinations of increasing/decreasing function and increasing/decreasing rate. </p>
+
+<figure xml:id="figure-curves-quantity-rate-inc-dec-combos">
+	<caption>Different combinations of increasing/decreasing function and increasing/decreasing rate.</caption>
+
+	<sbsgroup>
+
+		<sidebyside valign="top" widths="30% 30% 30%"> <!-- margins=""  -->
+
+			<figure>
+				<caption> Quantity and rate both increasing. </caption>
+				<image>
+					<description>Typical graph shape when quantity and rate are both increasing.</description>
+					<latex-image><xi:include href="curves.d/quantity-vs-rate-1.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption>
+					Quantity decreasing then increasing,
+					but rate always increasing. </caption>
+				<image>
+					<description>Typical graph shape when quantity decreases then increases,
+						but rate is always increasing.</description>
+					<latex-image><xi:include href="curves.d/quantity-vs-rate-2.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption> Quantity decreasing but rate increasing. </caption>
+				<image>
+					<description>Typical graph shape when quantity is decreasing but rate is increasing.</description>
+					<latex-image><xi:include href="curves.d/quantity-vs-rate-3.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+		<sidebyside valign="top" widths="30% 30% 30%"> <!-- margins=""  -->
+
+			<figure>
+				<caption> Quantity and rate both decreasing. </caption>
+				<image>
+					<description>Typical graph shape when quantity and rate are both decreasing.</description>
+					<latex-image><xi:include href="curves.d/quantity-vs-rate-4.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption>
+					Quantity increasing then decreasing,
+					but rate always decreasing. </caption>
+				<image>
+					<description>Typical graph shape when quantity increases then decreases,
+						but rate is always decreasing.</description>
+					<latex-image><xi:include href="curves.d/quantity-vs-rate-5.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption> Quantity increasing but rate decreasing. </caption>
+				<image>
+					<description>Typical graph shape when quantity is increasing but rate is decreasing.</description>
+					<latex-image><xi:include href="curves.d/quantity-vs-rate-3.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</sbsgroup>
+
+</figure>
+
+<p>
+Notice that these representative graphs are split into two groups based on a common feature,
+depending on whether the rate is increasing or decreasing:
+each graph with an increasing rate exhibits a curve that opens upward,
+whereas each graph with an increasing rate exhibits a curve that opens downward.
+</p>
+
+<definition>
+	<title>Concavity and inflection points</title>
+	<p>
+	Suppose <m>q(t)</m> is a twice-differentiable function on domain <m>a \lt t \lt b</m>.
+	<ul>
+		<li>
+			If <m>q''(t) \gt 0</m> at all points on that domain,
+			then we say that <m>q</m> is <term>concave up</term> there.
+		</li>
+		<li>
+			If <m>q''(t) \lt 0</m> at all points on that domain,
+			then we say that <m>q</m> is <term>concave down</term> there.
+		</li>
+		<li>
+			If <m>t = t^\ast</m> is in the domain of <m>q</m> and at a boundary between concave up and down domains,
+			then we say that <m>q</m> has an <term>inflection point</term> there.
+		</li>
+	</ul>
+	</p>
+</definition>
+
+<remark><p>
+	Since the second derivative of <m>q</m> is the <em>first</em> derivative of <m>q'</m>,
+	domains of concavity for <m>q</m> coincide with domains of increase/decrease for <m>q'</m>,
+	and inflection points for <m>q</m> must be critical points for <m>q'</m>.
+	That means that
+	<alert>
+		to determine inflection points,
+		we should look for points where <m>q''(t)</m> is either <m>0</m> or undefined
+	</alert>.
+	However,
+	just as with critical points versus local extremes,
+	note that having one of those two conditions does <em>not</em> necessarily mean that <m>q</m> will have an inflection point there.
+</p></remark>
+
+<warning><p>
+	A common mistake for beginning students is to use critical points for <m>q</m> in their analysis of concavity and inflection points.
+	While some functions will coincidentally have <m>q''(t) = 0</m> at some of the same <m>t</m>-values where <m>q'(t) = 0</m> occurs,
+	in general only points with <m>q''(t) = 0</m> (or <m>q''(t)</m> undefined) should be considered as potential inflection points.
+</p></warning>
+
+<!-- <example>
+
+	<p>
+	The square function <m>f(t) = t^2</m> has both
+	<md><mrow> f'(0) \amp = 0 \amp f''(0) \amp = 0 </mrow></md>.
+	While it has a local minimum at the critical point <m>t = 0</m>,
+	it does not have a point of inflection there,
+	since the graph is a parabola that is concave up on its entire domain.
+	</p>
+
+	<p>
+	On the other hand,
+	the cube function <m>g(t) = t^3</m> also has both
+	<md><mrow> g'(0) \amp = 0 \amp g''(0) \amp = 0 </mrow></md>.
+	While it has an inflection point at <m>t = 0</m> because the graph switches from concave down to concave up there,
+	it does not have a local extreme there because it increases on its entire domain.
+	</p>
+
+	TODO two graphs
+
+</example> -->
+
+<example xml:id="example-curves-concavity">
+	<title>Determining concavity</title>
+
+	<p>
+	Let's continue <xref ref="example-curves-domains-of-inc-dec" />,
+	where we've already determined the domains of increase and decrease for
+	<me> q(t) = \frac{2 t^2}{t^2 - 1} </me>.
+	Let's now ask Sage to calculate the second derivative for us.
+	</p>
+
+	<sage>
+		<input>
+			var('t')
+			q(t) = 2 * t^2 / (t^2 - 1)
+			qpp = q.derivative().derivative()
+			print(qpp.simplify_full())
+		</input>
+		<output> 4*(3*t^2 + 1)/(t^6 - 3*t^4 + 3*t^2 - 1) </output>
+	</sage>
+
+	<p>
+	That denominator is ugly,
+	let's have Sage factor it for us.
+	</p>
+
+	<sage>
+		<input>
+			var('t')
+			factor(t^6 - 3*t^4 + 3*t^2 - 1)
+		</input>
+		<output> (t + 1)^3*(t - 1)^3 </output>
+	</sage>
+
+	<p>
+	So now we have <me> q''(t) = \frac{4 (3 t^2 + 1)}{ {(t + 1)}^3 {(t - 1)}^3 } </me>.
+	Note that the numerator is always positive,
+	so <m>q''(t) = 0</m> is not possible.
+	This function is undefined at <m>t = \pm 1</m>,
+	but so is the original function <m>q(t)</m>,
+	so those cannot be inflection points.
+	However, they could still be boundaries between different concavities for <m>q</m>.
+	</p>
+
+	<p>
+	Since the numerator is always positive,
+	to solve the inequalities
+	<md><mrow> q''(t) \amp \gt 0 \amp q''(t) \amp \lt 0 </mrow></md>
+	we only need to look at the denominator.
+	We see:
+	<ul>
+		<li>
+			<m>{(t + 1)}^3</m> is negative on <m>t \lt -1</m>
+			and positive on <m>t \gt -1</m>
+		</li>
+		<li>
+			<m>{(t - 1)}^3</m> is negative on <m>t \lt 1</m>
+			and positive on <m>t \gt 1</m>.
+		</li>
+	</ul>
+	Putting these together, we have that <m>q</m> is
+	<ul>
+		<li> concave up on <m>t \lt -1 </m> and on <m>t \gt 1</m> </li>
+		<li> concave up down on <m>-1 \lt t \lt 1 </m>. </li>
+	</ul>
+	</p>
+
+</example>
+
+</section>
+
+<section xml:id="section-curves-shape">
+<title>Graph trends</title>
+
+<p>
+Computers are great at drawing graphs for us,
+but they have some draw backs.
+<ul>
+	<li>
+		A restricted viewport means you never know if you are seeing all the important features and behaviour of the the graph,
+		no matter how far you zoom out.
+	</li>
+	<li>
+		Computer-generated graphs do not perform well with functions whose values <q>explode</q> quickly, especially near singularities.
+	</li>
+</ul>
+Essentially,
+the problem is that a computer can only show you what you ask it to show you,
+and is unforgiving in its accuracy.
+As humans we can sacrifice some accuracy and use what we have learned in this and previous chapters
+to sketch a <em>total graphical picture</em> of the behaviour of a function's graph,
+one that we can be sure captures all of the important features of the graph.
+To do this,
+we <em>don't</em> plot a whole bunch of points and blindly <em>connect the dots</em>.
+Instead, we only plot important points
+(for example, intercepts, critical points, inflection points)
+and then connect these using our knowledge of the graph's behaviour between them
+(increasing/decreasing, concave up/down, singularities, long-term/ancient behaviour).
+</p>
+
+<example>
+	<title>Sketching a graph</title>
+
+	<p>
+	Let's finish analyzing the function
+	from <xref ref="example-curves-domains-of-inc-dec" />
+	and <xref ref="example-curves-concavity" />:
+	<me> q(t) = \frac{2 t^2}{t^2 - 1} </me>.
+	We already know:
+	<ul>
+		<li> increasing on <m>t \lt -1</m> and <m>-1 \lt t \lt 0</m> </li>
+		<li> decreasing on <m>0 \lt t \lt 1</m> and <m>t \gt 1</m> </li>
+		<li> concave up on <m>t \lt -1 </m> and on <m>t \gt 1</m> </li>
+		<li> concave up down on <m>-1 \lt t \lt 1 </m>. </li>
+	</ul>
+	To this we can add:
+	<ul>
+		<li>
+			intercepts both axes at the origin,
+			since <m>q(0) = 0</m>,
+			and there are no other axis intercepts
+		</li>
+		<li> singularities at <m>t = -1</m> and <m>t = 1</m> </li>
+		<li><p>
+			long-term behaviour
+			<me> \frac{2 t^2}{t^2 - 1} \to 2 \qquad\text{as}\qquad t \to \infty </me>
+		</p></li>
+		<li><p>
+			ancient behaviour
+			<me> \frac{2 t^2}{t^2 - 1} \to 2 \qquad\text{as}\qquad t \to -\infty </me>.
+		</p></li>
+	</ul>
+	We can also combine some of these pieces of information.
+	<ul>
+		<li>
+			Since the graph increases up to the intercept at <m>q(0) = 0</m>
+			and then decreases away,
+			there must be a local maximum there.
+		</li>
+		<li>
+			Since <m>q</m> increases on <m>t \lt -1</m>,
+			the graph must be above the horizontal asymptote <m>y = 2</m> at the far left of the graph,
+			and must increase away from it so that eventually <m>y \to \infty</m> as <m>t = -1^-</m> on the left of the vertical asymptote at <m>t = -1</m>.
+		</li>
+		<li>
+			Since <m>q</m> also increases on <m>-1 \lt t \lt 0</m>,
+			the graph must increase away from the vertical asymptote at <m>t = -1</m>,
+			so <m>y \to -\infty</m> as <m>t \to -1^+</m>.
+		</li>
+		<li>
+			With similar reasoning we can conclude
+			<md>
+				<mrow> y \to -\infty \qquad\text{as}\qquad t \to 1^- </mrow>
+				<mrow> y \to  \infty \qquad\text{as}\qquad t \to 1^+ </mrow>
+			</md>
+			and that the graph must decrease down to the horizontal asymptote at <m>y = 2</m> from above at the far right of the graph.
+		</li>
+	</ul>
+	</p>
+
+	<figure xml:id="figure-curves-sketch-1">
+		<caption>Graph of <m>q(t) = 2 t^2 / (t^2 - 1)</m>.</caption>
+		<image width="90%">
+			<description>Graph of an analyzed function.</description>
+			<latex-image><xi:include href="curves.d/sketch-1.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+Here is a general procedure one can follow to sketch a graph that contains all the important features of the function.
+The steps do not necessarily all need to be completed,
+nor do they necessarily need to be completed in the stated order.
+</p>
+
+<algorithm xml:id="procedure-curves-sketching">
+	<title>Curve-sketching procedure</title>
+
+	<p><ol>
+
+		<li>
+			Determine the domain of the function,
+			and sketch in any vertical asymptotes.
+		</li>
+
+		<li>
+			Determine the long-term and ancient behaviour,
+			and sketch in any horizontal or slant asymptotes.
+		</li>
+
+		<li> Determine and plot any axis intercepts. </li>
+
+		<li>
+			Determine any critical points,
+			calculate the output values at those points,
+			and plot their approximate locations.
+		</li>
+
+		<li>
+			Determine the domains of increase and decrease.
+			Use the <xref ref="pattern-curves-first-derivative-test" text="title" /> to classify each critical point as a local minimum, local maximum, or a saddle point.
+		</li>
+
+		<li>
+			Determine the domains of concavity.
+			Determine any inflection points,
+			calculate the output values at those points,
+			and plot their approximate locations.
+		</li>
+
+		<li>
+			Finally, sketch the graph between the asymptotes and plotted points,
+			being sure that the sketch reflects the increase/decrease/concavity information on each subdomain.
+		</li>
+
+	</ol></p>
+
+</algorithm>
+
+<p>
+Here is one final example.
+Verifying the provided information is left to you,
+the reader.
+</p>
+
+<example>
+	<title>Using the curve-sketching procedure</title>
+	<p>
+	For function <me> q(t) = \frac{t^3}{t^2 + 1} </me>,
+	we have derivative and second derivative
+	<md><mrow>
+		q'(t) \amp = \frac{t^2 (t^2 + 3)}{(x^2 + 1)^3}
+		\amp
+		q''(t) \amp = \frac{2 t (3 - t^2)}{(t^2 + 1)^3}
+	</mrow></md>.
+	</p>
+
+	<p>
+	Here is the information requested by the <xref ref="procedure-curves-sketching" text="title" />.
+
+	<ol>
+
+		<li>
+			<title>Domain</title>
+			<p>
+			The whole real number line.
+			No singularities.
+			</p>
+		</li>
+
+		<li>
+			<title>Long-term/ancient behaviour</title>
+			<p>
+			<md>
+				<mrow>
+					q(t) \amp \to \infty \amp\amp\text{as}\amp t \to \infty
+					\amp
+					q(t) \amp \to -\infty \amp\amp\text{as}\amp t \to -\infty
+				</mrow>
+			</md>
+			So no horizontal asymptotes,
+			but we can divide
+			<me> \frac{t^3}{t^2 + 1} = t - \frac{t}{t^2 + 1} </me>,
+			with <me> \frac{t}{t^2 + 1} \to 0 \qquad\text{as}\qquad t \to \pm \infty </me>,
+			so we have a slant asymptote of <m>y = t</m>.
+			</p>
+		</li>
+
+		<li>
+			<title>Intercepts</title>
+			<p>
+			Only at the origin,
+			as <m>q(0) = 0</m>.
+			</p>
+		</li>
+
+		<li>
+			<title>Critical points</title>
+			<p>
+			Only at <m>q'(0) = 0</m>,
+			and we already know that <m>q(0) = 0</m>.
+			</p>
+		</li>
+
+		<li>
+			<title>Increase/decrease</title>
+			<p>
+			Increasing on the entire domain,
+			so the critical point at the origin is a saddle point.
+			</p>
+		</li>
+
+		<li>
+			<title>Concavity</title>
+			<p><ul>
+				<li> Concave up on <m>t \lt -\sqrt{3}</m> and again on <m>0 \lt t \lt \sqrt{3}</m>. </li>
+				<li> Concave down on <m>-\sqrt{3} \lt t \lt 0</m> and again on <m>t \gt \sqrt{3}</m>. </li>
+				<li>
+					Inflection points at
+					<md><mrow> q(-\sqrt{3}) \amp = - \frac{3 \sqrt{3}}{4} \amp q(0) \amp = 0 \amp q(\sqrt{3}) = \frac{3 \sqrt{3}}{4} </mrow></md>.
+				</li>
+			</ul>
+			</p>
+		</li>
+
+	</ol>
+
+	</p>
+
+	<p>
+	And here is the graph.
+	Being a computer-generated graph,
+	it's a bit difficult to see the change in concavity at inflection points <m>t = \pm \sqrt{3}</m>.
+	But the graph <em>must</em> change concavity at these points,
+	because it is impossible for the graph to approach the slant asymptote from below at the far right of the graph with a concave-up orientation,
+	and similarly for the approach to the slant asymptote at the far left of the graph.
+	</p>
+
+	<figure xml:id="figure-curves-sketch-2">
+		<caption>Graph of <m>q(t) = t^3 / (t^2 + 1)</m>.</caption>
+		<image width="66%">
+			<description>Graph of an analyzed function.</description>
+			<latex-image><xi:include href="curves.d/sketch-2.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</section>
+
 
 <!-- <xi:include href="./higher.d/activities.ptx" />
 <xi:include href="./higher.d/exercises.ptx" /> -->

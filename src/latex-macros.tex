@@ -65,6 +65,10 @@
 \newcommand{\dqdt}{\ddt{q}}% Leibniz derivative, filled in
 \newcommand{\dudt}{\ddt{u}}% Leibniz derivative, filled in
 \newcommand{\dqdu}{\ddu{q}}% Leibniz derivative, filled in
+\newcommand{\dbldd}[2]{\frac{d^2{#1}}{{d#2}^2}}% Leibniz second derivative
+\newcommand{\opdblddt}[1][t]{\dbldd{}{#1}}% Leibniz differential operator, squared
+\newcommand{\dbldqdt}{\dbldd{q}{t}}% Leibniz second derivative, filled in
+
 
 \newcommand{\funceval}[2]{\left.#1\right\rvert_{#2}}
 \newcommand{\comp}[2]{{#1} \circ {#2}}% composite of two functions, note the order
