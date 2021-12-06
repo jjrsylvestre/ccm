@@ -1,0 +1,54 @@
+% *********************************************************************
+% © 2021 Jeremy Sylvestre
+%
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License, Version 1.3 or
+% any later version published by the Free Software Foundation; with no
+% Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+% copy of the license is included in the appendix entitled “GNU Free
+% Documentation License” that appears in the output document of this
+% PreTeXt source code. All trademarks™ are the registered® marks of
+% their respective owners.
+%
+% *********************************************************************
+
+\newcommand*{\xmin}{-1.5}
+\newcommand*{\xmax}{12}
+\newcommand*{\ymin}{-4.5}
+\newcommand*{\ymax}{6}
+
+\begin{tikzpicture}
+[
+	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
+	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
+	scale=0.75
+]
+
+	% axes
+	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[above] {$t$};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$q(t)$};
+	% asymptote for graph 3
+	\draw[dashed] (8,\ymin) -- (8,\ymax) node[above] {$t = 8$};
+
+	% graph 1
+	\draw[thick, blue, domain=-1:2, smooth] plot (\x,{\x * \x});
+	\node[closedpt,blue] at (-1,1) (left) {};
+	\draw[dashed] (left) -- (0,1) node[right] {$1$};
+	\node[openpt,blue,fill=white] at (2,4) (right) {};
+	\draw[dashed] (right) -- (0,4) node[left] {$4$};
+
+	% graph 2
+	\node[closedpt,blue] at (2,-1) (start) {};
+	\node[closedpt,blue] at (8,5) (end) {};
+	\draw[blue,thick] (start) -- (end);
+	\draw[dashed] (start) -- (0,-1) node[left] {$-1$};
+	\draw[dashed] (end) -- (0,5) node[left] {$5$};
+	\node[right,xshift=0.1cm,align=center] at (end) {abs \\ max};
+
+	% graph 3
+	\draw[<-,thick, blue, domain=0.22:3.8, smooth, xshift=8cm]
+	  plot (\x,{- 1 / \x});
+
+	\node[above right, xshift=0.25cm, align=center] at (8,\ymin) {no abs \\ min};
+
+\end{tikzpicture}

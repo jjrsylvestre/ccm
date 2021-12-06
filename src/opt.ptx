@@ -16,10 +16,896 @@ respective owners.
 <chapter xml:id="chapter-opt" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Extreme values and optimization</title>
 
-<section xml:id="section-opt-intro">
-<title>TODO</title>
+<section xml:id="section-opt-abs-extremes">
+<title>Absolute extreme values</title>
 
-<p> TODO </p>
+<p>
+An important question we often need to ask about a model is
+<q>How high or low will this quantity go?</q>
+Since our graph-sketching procedure from <xref ref="section-curves-shape" /> provides us with a relatively complete picture of the model's trends,
+we can answer this question from such a sketch.
+But often that is much more work than really necessary to answer the question,
+so in this section we will develop a more efficient process based on local extremes.
+</p>
+
+<p> But first, we should be clear about what we are looking for. </p>
+
+<definition xml:id="definition-opt-abs-extremes">
+	<title>Absolute extremes</title>
+	<p>
+	<ul>
+
+		<li>
+			A function <m>q(t)</m> is said to have an <term>absolute minimum at <m>t = t^\ast</m></term>
+			on a specific domain if <m>q(t^\ast) \le q(t)</m> for all other <m>t</m>-values in that domain.
+			In this case, <m>q(t^\ast)</m> called the <term>absolute minimum value of <m>q</m></term> on that domain.
+		</li>
+
+		<li>
+			A function <m>q(t)</m> is said to have an <term>absolute maximum at <m>t = t^\ast</m></term>
+			on a specific domain if <m>q(t^\ast) \ge q(t)</m> for all other <m>t</m>-values in that domain.
+			In this case, <m>q(t^\ast)</m> called the <term>absolute maximum value of <m>q</m></term> on that domain.
+		</li>
+
+	</ul>
+	In general,
+	we say that <m>q</m> has an <term>absolute extreme</term> at <m>t = t^\ast</m> if it has either a local minimum or a local maximum there.
+	</p>
+
+</definition>
+
+<remark><p>
+	Notice that both parts of the definition use an <em>or-equal-to</em> sign instead of a strict inequality.
+	This is because it is possible for a function to achieve its absolute extreme values in multiple locations.
+</p></remark>
+
+<example xml:id="example-opt-changing-domains">
+	<title>Changing the domain changes the absolute extremes</title>
+
+	<p>
+	If we consider <m>q(t) = t^2</m> on the domain <m>-1 \le t \le 2</m>,
+	then the absolute minimum is <m>q(0) = 0</m> and the absolute maximum is <m>q(2) = 4</m>.
+	However, if we consider <m>q(t) = t^2</m> on the domain <m>t \ge -1</m>,
+	then the absolute minimum is the same but there is no longer any absolute maximum as <m>q \to \infty</m> as <m>t \to \infty</m>.
+	</p>
+
+	<figure xml:id="figure-opt-changing-domain">
+		<caption>Existence of absolute extremes can depend on the domain.</caption>
+
+		<sidebyside valign="middle" widths="33% 33%"> <!-- margins=""  -->
+
+			<figure>
+				<caption>A parabola on a restricted domain with both an absolute minimum and maximum.</caption>
+				<image>
+					<description>Graph of a parabola on a restricted domain with both an absolute minimum and maximum.</description>
+					<latex-image><xi:include href="opt.d/parabola-min-max-changing-domains-1.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption>A parabola on a less restricted domain with an absolute minimum and but no absolute maximum.</caption>
+				<image>
+					<description>Graph of a parabola on a less restricted domain with an absolute minimum but no absolute maximum.</description>
+					<latex-image><xi:include href="opt.d/parabola-min-max-changing-domains-2.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</figure>
+
+</example>
+
+<example>
+	<title>A function with two absolute maximum locations</title>
+
+	<p>
+	For <m>\sin(t)</m> on the domain <m>0 \lt t \lt 3 \pi</m>,
+	the absolute minimum value of <m>-1</m> occurs at only one location: <me> \sin(3 \pi / 2) = -1 </me>.
+	However, the absolute maximum value of <m>1</m> occurs at two locations:
+	<md><mrow> \sin(\pi / 2) \amp = 1 \amp \sin(5 \pi / 2) \amp = 1 </mrow></md>.
+	</p>
+
+	<figure xml:id="figure-opt-multiple-maxes">
+		<caption>The sine graph can have multiple absolute extremes.</caption>
+		<image width="43%">
+			<description>Demonstrating multiple absolute extremes on the sine graph.</description>
+			<latex-image><xi:include href="opt.d/sin-mins-and-maxes.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	If we expanded to the full domain for the sine function,
+	there would still only be one absolute minimum <em>value</em> of <m>-1</m>
+	and only one absolute maximum <em>value</em> of <m>1</m>,
+	but the function achieves these values at an infinite number of <m>t</m>-values.
+	</p>
+
+</example>
+
+<example xml:id="example-opt-singularity-no-extremes">
+	<title>A singularity can preclude absolute extremes</title>
+
+	<p>
+	The function <m>q(t) = 1 / t</m> has no absolute minimum because
+	<me> q \to -\infty \qquad\text{as}\qquad t \to t^- </me>.
+	In particular,
+	for every <m>t \lt 0</m>,
+	we will always see <m>q(t/2) \lt q(t)</m>,
+	so there is never any <em>lowest</em> <m>q</m>-value.
+	</p>
+
+	<figure xml:id="figure-opt-reciprocal-singularity">
+		<caption>Singular behaviour can sometimes preclude absolute extremes.</caption>
+		<image width="45%">
+			<description>Graph of the reciprocal function demonstrating that singular behaviour sometimes precludes absolute extremes.</description>
+			<latex-image><xi:include href="opt.d/reciprocal-singularity-no-min-max.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	With similar reasoning we can say that <m>q</m> has no absolute maximum on its domain because
+	<me> q \to \infty \qquad\text{as}\qquad t \to t^+ </me>.
+	</p>
+
+</example>
+
+<example xml:id="example-opt-bounded-domain-no-extremes">
+	<title>A bounded function with no absolute extremes</title>
+
+	<p>
+	Consider the function <m>q(t) = \sqrt{t}</m> on the domain <m>0 \lt t \lt 1</m>.
+	This function has <em>no</em> absolute minimum on this domain,
+	because for every <m>t</m> you consider in the domain,
+	you will find that <m>t/2</m> is also in the domain but the function achieves a lower value there:
+	<me> \sqrt{t / 2} \lt \sqrt{t} \qquad\text{for every}\qquad 0 \lt t \lt 1 </me>.
+	By similar reasoning near <m>t \approx 1</m>,
+	there is no absolute maximum on this domain because you can always make <m>t</m> slightly closer to <m>1</m>
+	(but still less than <m>1</m>)
+	and the function value will be higher.
+	</p>
+
+	<figure xml:id="figure-opt-sqrt">
+		<caption>Excluded domain endpoints sometimes preclude absolute extremes.</caption>
+		<image width="37%">
+			<description>Graph demonstrating that excluded domain endpoints sometimes preclude absolute extremes.</description>
+			<latex-image><xi:include href="opt.d/sqrt-no-min-max.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</section>
+
+<section>
+<title>The Extreme Value Theorem</title>
+
+<p>
+We have seen that a function can fail to have an absolute extreme because of <term>unbounded behaviour</term>
+(<xref ref="example-opt-changing-domains" /> and <xref ref="example-opt-singularity-no-extremes" />),
+but also because of <term>endpoint behaviour</term>
+(<xref ref="example-opt-bounded-domain-no-extremes" />).
+If we take away those two possibilities,
+then we are always guaranteed to have <em>both</em> an absolute maximum and minimum.
+</p>
+
+<definition>
+	<title>Closed and bounded domains</title>
+	<p><ol>
+		<li> A domain is called <term>closed</term> if it contains its endpoints. </li>
+		<li>
+			A domain is called <term>bounded</term> if it can be entirely contained in some finite-length domain <m>-M \le t \le M \</m>
+			for some sufficiently large <m>M</m>.
+		</li>
+	</ol></p>
+</definition>
+
+<example>
+	<title>Closed and bounded domains</title>
+	<p><ol>
+
+		<li>
+			The initial domain <m>-1 \le t \le 2</m> from <xref ref="example-opt-changing-domains" /> is both closed and bounded.
+			It is closed because it contains both endpoints <m>t = -1</m> and <m>t = 2</m>,
+			and it is bounded because it fits inside <m>-2 \le t \le 2</m>.
+			On the other hand, the expanded domain <m>t \ge -1</m> from <xref ref="example-opt-changing-domains" /> is no longer bounded,
+			because it is unbounded on the right and will never fit inside a finite-length domain.
+			However, it <em>is</em> still closed,
+			because it contains its only endpoint <m>t = -1</m>.
+		</li>
+
+		<li>
+			The domain <m>0 \lt t \lt 1</m> from <xref ref="example-opt-bounded-domain-no-extremes" /> is bounded but not closed.
+			It is bounded because it fits inside <m>-1 \le t \le 1</m>,
+			but it is not closed because it contains neither of its endpoints <m>t = 0</m> and <m>t = 1</m>.
+		</li>
+
+	</ol></p>
+</example>
+
+<theorem xml:id="theorem-opt-EVT">
+	<title>Extreme Value Theorem</title>
+	<p>
+	A continuous function on a closed and bounded domain <m>a \le t \le b</m> <em>always</em> achieves <em>both</em> an absolute minimum and an absolute maximum value.
+	</p>
+</theorem>
+
+<remark><p><ul>
+
+	<li>
+	The <xref ref="theorem-opt-EVT" text="title" /> doesn't tell you <em>where</em> or <em>at how many locations in that domain</em> that the absolute extremes will occur,
+	it only tells you that they exist on that domain.
+	</li>
+
+	<li>
+	Note that the converse is not necessarily true:
+	if a function is not continuous,
+	or if its domain is not closed or not bounded (or both),
+	it <em>can still achieve</em> either or both of an absolute maximum and minimum on that domain.
+	</li>
+
+	<li>
+	Our justification of the <xref ref="theorem-fund-thm-mean-value" text="title" />
+	actually relies on the <xref ref="theorem-opt-EVT" text="title" /> <mdash />
+	do you see how?
+	</li>
+
+</ul></p></remark>
+
+<exercise>
+	<title>Rechecking our examples</title>
+	<p>
+	Go back through the examples we have already considered in <xref ref="section-opt-abs-extremes" />,
+	and determine which satisfy the <em>continuous</em> and <em>closed and bounded domain</em> hypotheses of the <xref ref="theorem-opt-EVT" text="title" />.
+	</p>
+</exercise>
+
+<p> Here are a few more examples. </p>
+
+<!-- THIS IS really just a repeat of the 1/t behaviour...
+<example>
+	<title>Unbounded behaviour on an unbounded domain</title>
+
+	<p>
+	The function <m>\ln(t)</m> has domain <m>t \gt 0</m>,
+	which is both unbounded and not closed,
+	so the <xref ref="theorem-opt-EVT" text="title" /> does not apply.
+	And this function in fact has no absolute minimum because of the singularity as <m>t \to 0^+</m>,
+	and no absolute maximum because of the unbounded long-term behaviour as <m>t \to \infty</m>.
+	</p>
+
+	TODO graph? or just xref to graph?
+
+</example>
+-->
+
+<example xml:id="example-opt-long-term-no-extremes">
+	<title>An unbounded, non-closed domain</title>
+
+	<p>
+	In <xref ref="example-opt-singularity-no-extremes" /> we considered
+	the function <m>q(t) = 1 / t</m> on its full domain,
+	and determined that there were no absolute extremes because of the singularity at <m>t = 0</m>.
+	However, suppose we exclude this singularity by only considering the domain <m>t \gt 0</m>.
+	This domain is both unbounded and not closed,
+	so the <xref ref="theorem-opt-EVT" text="title" /> does not apply.
+	And this function in fact has no absolute minimum because of the long-term behaviour as <m>t \to \infty</m>,
+	because the function continually decreases without reaching a lowest value.
+	It has hs no absolute maximum because of the excluded endpoint at <m>t = 1</m>,
+	because there one can always take <m>t \approx 1^+</m> closer and closer,
+	and the graph will inch higher without reaching a highest value.
+	</p>
+
+	<figure xml:id="figure-opt-reciprocal-long-term">
+		<caption>Long-term behaviour on an unbounded domain can sometimes preclude absolute extremes.</caption>
+		<image width="45%">
+			<description>Graph of the reciprocal function demonstrating that long-term behaviour sometimes precludes absolute extremes.</description>
+			<latex-image><xi:include href="opt.d/reciprocal-long-term-no-min-max.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<example>
+	<title>Discontinuous behaviour on a closed, bounded domain</title>
+
+	<p>
+	The function <me> q(t) = \begin{cases} t \amp -1 \lt t \lt 1 \\ 0 \amp t = \pm 1 \end{cases} </me>
+	has a closed and bounded domain <m>-1 \le t \le 1</m> but is discontinuous at its endpoints,
+	so the <xref ref="theorem-opt-EVT" text="title" /> does not apply.
+	And this function in fact has no absolute extremes because it is always possible to get a little closer to the endpoints and achieve a slightly higher or lower output than before.
+	</p>
+
+	<figure xml:id="figure-opt-discontinuous-no-min-max">
+		<caption>Discontinuities sometimes preclude absolute extremes.</caption>
+		<image width="45%">
+			<description>Graph of a discontinuous function demonstrating that discontinuities sometimes preclude absolute extremes.</description>
+			<latex-image><xi:include href="opt.d/discontinuous-no-min-max.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<example>
+	<title>Extremes can still exist even when the theorem does not apply</title>
+
+	<p>
+	Consider the function
+	<me> q(t) = \begin{cases} -t^2 \amp -1 \lt t \lt 0 \\ 1 - 2 t^2 \amp 0 \le t \le 1 \end{cases} </me>.
+	This function is not continuous,
+	and its domain <m>-1 \lt t \le 1</m> is bounded but not closed,
+	since the endpoint <m>t = -1</m> is not included in the domain.
+	Yet the function still achieves both an absolute minimum value <m>q(1) = -1</m>
+	and an absolute maximum value <m>q(0) = 1</m>.
+	</p>
+
+	<figure xml:id="figure-opt-discontinuous-shifted-parabola">
+		<caption>A discontinuous function can still have absolute extremes.</caption>
+		<image width="50%">
+			<description>Graph of a broken parabola demonstrating that a discontinuous function can still have absolute extremes.</description>
+			<latex-image><xi:include href="opt.d/discontinuous-shifted-parabola.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</section>
+
+<section>
+<title>Searching for extremes</title>
+
+<p>
+If <m>q(t^\ast)</m> is the greatest value on the entire domain being considered,
+then it also needs to be the greatest value on any little <q>neighbourhood</q> of <m>t = t^\ast</m>.
+In other words,
+<em>an absolute maximum must also be a local maximum.</em>
+And similarly for absolute minimums.
+And we also know that local extremes must occur at <em>critical points</em>.
+This leads to a simple strategy,
+though we also need to take into account that extremes can occur at endpoints,
+or not occur at all because of endpoint behaviour.
+</p>
+
+<algorithm xml:id="procedure-opt-abs-extremes">
+	<title>Determining absolute extreme values and locations</title>
+	<p><ul>
+
+		<li>
+			For a function that is continuous on a closed and bounded domain,
+			make a list of the interior critical points.
+			Add the endpoints to that list,
+			and then evaluate the function at each point in the list.
+			The greatest result is the absolute maximum and the least result is the absolute minimum.
+		</li>
+
+		<li>
+			For a general function,
+			break up the domain under consideration into domains of continuity.
+			<em>On each subdomain</em>,
+			determine the absolute extremes as above,
+			but with special consideration of unbounded or non-closed endpoints to see if the outputs rise higher/lower than any previously found absolute extreme.
+			The overall absolute extremes,
+			if any,
+			are then the greatest/least of the absolute extremes on each subdomain.
+		</li>
+
+	</ul>
+	</p>
+</algorithm>
+
+<example>
+	<title>Absolute extremes for a continuous function on a closed and bounded domain</title>
+
+	<p>
+	Consider the function <me> q(t) = t^2 (4 - t)^2 \qquad 1 \le t \le 5 </me>.
+	This is a polynomial so it is continuous,
+	and the stated domain is both closed and bounded.
+	</p>
+
+	<p> To determine the critical points, we need the derivative function. </p>
+
+	<sage>
+		<input>
+			var('t')
+			q(t) = t^2 * (4 - t)^2
+			q.derivative().factor()
+		</input>
+		<output>
+			t |--> 4*(t - 2)*(t - 4)*t
+		</output>
+	</sage>
+
+	<p>
+	From the factored form of the derivative,
+	<me> q'(t) = 4 t (t - 2) (t - 4) </me>,
+	we see that the critical points are <m>t = 0, 2, 4</m>.
+	However, <m>t = 0</m> is outside of our stated domain,
+	so we discard it.
+	So our full list of critical points and endpoints is
+	<me> t = 1, 2, 4, 5 </me>.
+	Now we evaluate:
+	<md>
+		<mrow>
+			q(1) \amp = 9 \amp
+			q(2) \amp = 16 \amp
+			q(4) \amp = 0 \amp
+			q(5) \amp = 25
+		</mrow>
+	</md>.
+	So the absolute minimum of <m>q(4) = 0</m> occurs at the interior critical point <m>t = 4</m>,
+	(and so this must also be a local minimum).
+	The absolute maximum of <m>q(5) = 25</m> occurs at an endpoint.
+	</p>
+
+	<figure xml:id="figure-opt-poly-min-max">
+		<caption>Graph of <m>q(t)</m> and its extreme values.</caption>
+		<image width="42%">
+			<description>Graph of the polynomial function analyzed in this example, with its absolute extremes marked.</description>
+			<latex-image><xi:include href="opt.d/w.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<example>
+	<title>Absolute extremes for a discontinuous function</title>
+
+	<p>
+	Consider the function
+	<me>
+		q(t) =
+		\begin{cases}
+			t^2 \amp -1 \le t \lt 2 \\
+			t - 3 \amp 2 \le t \le 8 \\
+			- \frac{1}{t - 8} \amp t \gt 8
+		\end{cases}
+	</me>.
+	The stated subdomains already split this function up into domains of continuity for us.
+	</p>
+
+	<case>
+		<title>On <m>-1 \le t \lt 2</m></title>
+		<p>
+		On this domain we have <m>q'(t) = 2 t</m>,
+		so there is a critical point at <m>t = 0</m>.
+		We evaluate <md><mrow> q(-1) \amp = 1 \amp q(0) = 0 </mrow></md>.
+		We also note that near the excluded endpoint <m>t = 2</m>,
+		the graph rises to <m>q(t) \approx 4</m>.
+		So while <m>q(0) = 0</m> is the absolute minimum on this subdomain,
+		there is no absolute maximum here.
+		</p>
+	</case>
+
+	<case>
+		<title>On <m>2 \le t \le 8</m></title>
+		On this domain,
+		the derivative is <m>q'(t) = 1</m> and so there are no critical points.
+		In fact, the graph here is just a line with positive slope,
+		so we know that it rises from an absolute minimum <m>q(2) = -1</m> at the left endpoint
+		to an absolute maximum <m>q(8) = 5</m> at the right endpoint.
+	</case>
+
+	<case>
+		<title>On <m>t \gt 8</m></title>
+		<p>
+		On this domain the derivative is <me> q'(t) = \frac{1}{(t - 8)^2} </me>,
+		so again there are no critical points.
+		At the excluded endpoint <m>t = 8</m> the function actually has a singularity,
+		with <me> q \to - \infty \qquad\text{as}\qquad t \to 8^+ </me>.
+		In fact, not only does this tell us that the function cannot have an absolute minimum on this domain,
+		it tells us that <alert>the function cannot have an overall absolute minimum</alert>.
+		We should also investigate the unbounded endpoint by considering long-term behaviour:
+		<me>  q \to 0 \qquad\text{as}\qquad t \to \infty </me>.
+		Now, the derivative is positive on this subdomain,
+		so we can say that the graph is increasing up from the singularity at <m>t = 8</m> to the approach the horizontal asymptote at <m>q = 0</m> from below.
+		So there is also no absolute maximum on this domain.
+		</p>
+	</case>
+
+	<p>
+	Finally, we combine our findings.
+	<ul>
+
+		<li><p>
+			We had highs of
+			<md>
+				<mrow> q(t) \amp \approx 4 \amp q(8) \amp = 5 \amp q(t) \amp \approx 0 </mrow>
+				<mrow> \text{for } t \amp \approx 2^- \amp \amp \amp \text{for } t \amp \gt\gt 8 </mrow>
+			</md>.
+			So we can say <m>q(8) = 5</m> is the overall absolute maximum.
+		</p></li>
+
+		<li><p>
+			We had lows of
+			<md>
+				<mrow> q(0) \amp = 0 \amp q(2) \amp = -1 \amp q(t) \amp \lt\lt -1  </mrow>
+				<mrow> \amp \amp \amp \amp \text{for } t \amp \approx 8^+ </mrow>
+			</md>.
+			If it were not for the singularity at <m>t = 8</m>,
+			we would have <m>q(2) = -1</m> as the overall absolute minimum,
+			but because the singularity sinks lower and lower for <m>t \approx 8^+</m>,
+			the function does not have an absolute minimum.
+		</p></li>
+
+	</ul>
+	</p>
+
+	<figure xml:id="figure-opt-procedure">
+		<caption>Results of analyzing absolute extremes of a discontinuous function.</caption>
+		<image width="66%">
+			<description>Graph illustrating results of analyzing absolute extremes of a discontinuous function.</description>
+			<latex-image><xi:include href="opt.d/abs-extreme-procedure-discont.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</section>
+
+<section>
+<title>The Second Derivative Test</title>
+
+<p>
+Often we searching for only one particular type of absolute extreme:
+<em>maximize profit</em> or <em>minimize energy use</em>.
+In this case,
+it's useful to be able to quickly classify critical points
+without having to determine domains of increase and decrease
+in order to use the <xref ref="pattern-curves-first-derivative-test" text="title" />.
+Since critical points that are not cusps must be rounded peaks or valleys,
+the concavity can tell us whether we are at a local maximum or a local minimum.
+</p>
+
+<identity xml:id="pattern-opt-second-derivative-test">
+	<title>Second Derivative Test</title>
+
+	<p>
+	Suppose that <m>q</m> is a twice-differentiable function
+	and has a critical point at <m>t = t^\ast</m> with <m>q'(t^\ast) = 0</m>.
+	<ol>
+
+		<li>
+			If <m>q''(t^\ast)</m> is positive,
+			then <m>q</m> must be concave down near that point and so has a <em>local minimum</em> there.
+		</li>
+
+		<li>
+			If <m>q''(t^\ast)</m> is negative,
+			then <m>q</m> must be concave up near that point and so has a <em>local maximum</em> there.
+		</li>
+
+		<li>
+			If <m>q''(t^\ast)</m> is zero,
+			then <alert>no conclusion can be made</alert>.
+			Use the <xref ref="pattern-curves-first-derivative-test" text="title" /> instead to classify the critical point.
+		</li>
+
+	</ol>
+	</p>
+
+</identity>
+
+<figure xml:id="figure-opt-second-deriv">
+	<caption>Graphical representation of the Second Derivative Test.</caption>
+
+	<sidebyside valign="top" widths="30% 30%"> <!-- margins=""  -->
+
+		<figure>
+			<caption>A local minimum at the valley of a concave-up portion of the graph.</caption>
+			<image>
+				<description>A graph illustrating a local minimum at the valley of a concave-up portion of the graph.</description>
+				<latex-image><xi:include href="opt.d/2nd-deriv-test-2.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure>
+			<caption>A local maximum at the peak of a concave-down portion of the graph.</caption>
+			<image>
+				<description>A graph illustrating a local maximum at the peak of a concave-down portion of the graph.</description>
+				<latex-image><xi:include href="opt.d/2nd-deriv-test-1.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+<warning><p>
+	Watch out for the reversal of sign to extreme type in the test:
+	<alert>positive means minimum</alert> and <alert>negative means maximum</alert>.
+	To not get mixed up,
+	it's better to first go through the thought process of
+	<em>positive means concave up, and concave up means minimum</em>,
+	and similarly for a negative second derivative value.
+</p></warning>
+
+<example>
+	<title>Applying the Second Derivative Test</title>
+
+	<p>
+	Let's revisit
+	<md alignment="gather">
+		<mrow> A(t) = \ccmint{0}{t}{ (u - 2) (u - 4)^2 }{u} </mrow>
+		<mrow> A'(t) = (t - 2) (t - 4)^2 </mrow>
+	</md>
+	from <xref ref="example-curves-1st-deriv-test-for-accumulation" />,
+	where we previously applied the <xref ref="pattern-curves-first-derivative-test" text="title" />.
+	This time will apply the <xref ref="pattern-opt-second-derivative-test" text="title" /> to verify our previous classifications of the critical points <m>t = 2, 4</m>.
+	</p>
+
+	<sage>
+		<input>
+			var('t')
+			qp(t) = (t - 2) * (t - 4)^2
+			qp.derivative().factor()
+		</input>
+		<output>
+			t |--> (3*t - 8)*(t - 4)
+		</output>
+	</sage>
+
+	<p>
+	We have chosen to have Sage return the second derivative <me> A''(t) = (3 t - 8) (t - 4) </me>
+	in factored form not because we are looking for inflection points,
+	but just so that it is easier to determine whether <m>q''(t)</m> is positive or negative at specific points.
+	For example, at the critical point <m>t = 2</m>,
+	we have
+	<md><mrow> 3 t - 8 \amp \lt 0 \amp t - 4 \amp \lt 0 </mrow></md>
+	so <m>A''(2) \gt 0</m>.
+	Since this means that the graph of <m>A(t)</m> must be concave up near <m>t = 2</m>,
+	that critical point must be a local minimum,
+	which agrees with our previous conclusion from the First Derivative Test.
+	On the other hand,
+	clearly <m>A''(4) = 0</m>,
+	so the <xref ref="pattern-opt-second-derivative-test" text="title" /> does not tell us anything about this critical point,
+	and we would have to fall back on our previous analysis using the First Derivative Test.
+	</p>
+
+</example>
+
+</section>
+
+<section>
+<title>Optimization problems</title>
+
+<p>
+Finally,
+we'll consider some applied examples of minimizing or maximizing a particular quantity,
+and provide an overall strategy.
+</p>
+
+<example>
+	<title>Minimizing area</title>
+
+	<statement><p>
+		The owners of a property wish to fence off a rectangular area of land bordering a straight stretch of river.
+		They have
+		<quantity><mag>2400</mag><unit base="ft" /></quantity>
+		of fencing.
+		No fence is required along the river,
+		which will act as a natural boundary on one side of the rectangular area.
+		How large of an area can they enclose?
+		What dimensions will it be?
+	</p></statement>
+
+	<solution>
+
+		<p>
+		Let <m>x</m> represent the <q>width</q> of the rectangular area parallel to the river,
+		and let <m>y</m> represent how far away from the river the area will stretch.
+		</p>
+
+		<figure>
+			<caption>A rectangular region, fenced on three sides and bordered by a river on the fourth side.</caption>
+			<image width="50%">
+				<description>Diagram of a rectangular region, fenced on three sides and bordered by a river on the fourth side.</description>
+				<latex-image><xi:include href="opt.d/fence.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<p>
+		We would like to maximize the area <m>A = x y</m>.
+		To enclose the largest possible area,
+		we should use all of the fence available,
+		but we can't use more than that.
+		So we are constrained by requirement that the portion of the perimeter that is to be fenced should be equal to the available amount of fencing:
+		<me> x + 2 y = 2400 </me>.
+		Isolating <m>x</m>,
+		we can use this constraint to re-express the area as a function of <m>y</m>: <me> A(y) = (2400 - 2 y) y = 2400 y - 2 y^2 </me>.
+		The domain we are concerned with is <me> 0 \lt y \lt 1200 </me>,
+		where at one extreme of <m>y = 0</m> we would have arranged all of the fence in a line parallel to the river,
+		enclosing no area,
+		and at the other extreme of <m>y = 1200</m> we would have arranged two lines of fence
+		<quantity><mag>1200</mag><unit base="ft" /></quantity> long right next to each other,
+		perpendicular to the river, and again enclosing no area.
+		Since our area function is a concave down parabola with <me> A(0) = A(1200) = 0 </me>,
+		by symmetry we can probably guess that the peak of the parabola will occur at <m>y = 600</m>,
+		but let's confirm.
+		</p>
+
+		<p>
+		The derivative is
+		<me> A'(y) = 2400 - 4 y = 4 (600 - y) </me>,
+		so we indeed have a critical point at <m>y = 600</m>.
+		We also have <me> A''(y) = -4 </me>,
+		so the function's graph is always concave down
+		(as we knew),
+		and so there is a local maximum at <m>y = 600</m>.
+		We have already investigated the endpoint behaviour and found <m>0</m> enclosed area at those extremes,
+		so <me> A(600) = 720000 </me> is the absolute maximum.
+		This means that a maximum area of
+		<quantity><mag>72000</mag><unit base="ft" exp="2" /></quantity>,
+		running <quantity><mag>1200</mag><unit base="ft" /></quantity> along the river,
+		and extending <quantity><mag>600</mag><unit base="ft" /></quantity> away from the river.
+		</p>
+
+	</solution>
+
+</example>
+
+<algorithm xml:id="procedure-opt">
+	<title>Solving an optimization problem</title>
+	<p><ol>
+		<li>
+			Draw a diagram, if appropriate.
+			Assign variables to the unknown parameters.
+			Express the quantity to be optimized in terms of those variables.
+		</li>
+		<li>
+			Identify any constraints.
+			Use the constraints to reduce the expression for the quantity to be optimized to a single variable.
+		</li>
+		<li>
+			Identify a reasonable domain for the function,
+			and then carry out <xref ref="procedure-opt-abs-extremes" /> on that domain.
+		</li>
+		<li>
+			As an extra check,
+			you can use the <xref ref="pattern-opt-second-derivative-test" text="title" /> to ensure that you have properly identified a minimum or maximum,
+			whichever was sought.
+		</li>
+	</ol></p>
+</algorithm>
+
+<example>
+	<title>Minimizing material</title>
+
+	<statement><p>
+		A manufacturer wishes to design a cylindrical can to hold
+		<quantity><mag>1</mag><unit base="liter" /></quantity>
+		of vegetable oil.
+		Assuming the sides and ends of the can are made of the same material and same thickness of material,
+		what dimensions should the can be to minimize the amount of material used for one can?
+	</p></statement>
+
+	<solution>
+
+		<p>
+		Let's carry out <xref ref="procedure-opt" />.
+		<ol>
+
+			<li>
+
+				<p>
+				Let <m>h</m> represent the height and <m>R</m> the radius of the cylindrical can,
+				measured in centimetres.
+				Since the material is all the same thickness,
+				we can use the exterior surface area of the can to measure how much material has been used.
+				If we cut off the ends of the cylinder,
+				and then slice it down the side and unroll it,
+				we have two circles and a rectangle,
+				where the height of the original cylinder is one side length of the rectangle and the circumference of the circular ends is the other side length.
+				</p>
+
+				<figure>
+					<caption>Surface area of a cylindrical can, in pieces.</caption>
+					<image width="70%">
+						<description>A diagram illustrating the surface area of a cylindrical can, in pieces.</description>
+						<latex-image><xi:include href="opt.d/can.tex" parse="text" /></latex-image>
+					</image>
+				</figure>
+
+				<p>
+				So the surface area is
+				<me> A = 2 \pi R^2 + 2 \pi R h </me>.
+				We would like to minimize this quantity.
+				</p>
+
+			</li>
+
+			<li>
+				Our constraint is that the volume needs to be
+				<quantity><mag>1</mag><unit base="liter" /></quantity>.
+				The volume of a cylinder is <me> V = \pi R^2 h </me>.
+				(Notice that this formula is the result of <q>adding up</q> the constant cross-sectional area <m>\pi R^2</m>,
+				<m>h</m> times.)
+				But we need to make sure our units are in accord,
+				so let's take our constraint as a volume of
+				<quantity><mag>1000</mag><unit base="meter" prefix="centi" exp="3" /></quantity>.
+				Isolating <m>h</m> in the equation <m>V = 1000</m>,
+				we have <me> h = \frac{1000}{\pi R^2} </me>,
+				and so our area formula becomes
+				<me> A(R) = 2 \pi R^2 + 2 \pi R \cdot \frac{1000}{\pi R^2} = 2 \pi R^2 + \frac{2000}{R} </me>.
+			</li>
+
+			<li>
+
+				<p>
+				In mathematical terms,
+				the radius can be as small as you like or as large as you like,
+				as long as it is positive.
+				If the radius were very small then the height would need to be large in order to meet the
+				<quantity><mag>1</mag><unit base="liter" /></quantity>
+				constraint,
+				and likewise if the radius were very large the height would need to be very small.
+				So, in practical terms,
+				a very small or very large radius would be undesirable because it would be difficult to ship and store such cans.
+				But for now, let's take the domain to be <m>R \gt 0</m>.
+				</p>
+
+				<p>
+				We have <me> A'(R) = 4 \pi R - \frac{2000}{R^2} </me>.
+				This derivative is undefined at <m>R = 0</m>,
+				but that is not in our domain.
+				So let's look for critical points of the <m>A'(R) = 0</m> variety.
+				<md alignment="gather">
+					<mrow> 4 \pi R - \frac{2000}{R^2} = 0 </mrow>
+					<mrow> \pi R^3 - 500 = 0 </mrow>
+					<mrow> R = \sqrt[3]{\frac{500}{\pi}} </mrow>
+				</md>
+				</p>
+
+				<p>
+				Since our domain is both unbounded and not closed,
+				we need to investigate the endpoint behaviour.
+				Our domain does not include the endpoint <m>R = 0</m>,
+				but for <m>R \approx 0^+</m>,
+				in <me> A(R) = 2 \pi R^2 + \frac{2000}{R} </me>
+				the first term is also close to zero but the second term is large and positive.
+				So we can say <me> A \to \infty \qquad\text{as}\qquad R \to 0^+ </me>.
+				Our domain is also unbounded to the right,
+				so we should check the long-term behaviour.
+				For <m>R \to \infty</m>,
+				the first term in our expression for <m>A</m> is now large and positive,
+				while the second term is close to zero.
+				So we can also say <me> A \to \infty \qquad\text{as}\qquad R \to \infty </me>.
+				Since we only found one interior critical point,
+				the fact that <m>A</m> gets large on either side of this critical point let us conclude that <m>A</m> must hit its absolute minimum there.
+				</p>
+
+			</li>
+
+			<li>
+				We also have <me> A''(R) = 4 \pi + \frac{4000}{R^3} </me>,
+				which is positive on our entire domain.
+				So the graph of <m>A(R)</m> is always concave up on our domain,
+				which corroborates our conclusion that our critical point is a minimum.
+			</li>
+
+		</ol>
+		</p>
+
+		<p>
+		Finally,
+		we complete our solution by making sure we answer the question posed.
+		We have one dimension that minimizes the can's area,
+		the radius,
+		but we should also calculate the corresponding height.
+		We have
+		<me> R = \sqrt[3]{\frac{500}{\pi}} \approx 5.42 \; \mathrm{cm} </me>
+		<md>
+			<mrow> h \amp = \frac{1000}{\pi R^2} </mrow>
+			<mrow> \amp = \frac{1000}{\pi {(500/\pi)}^{2/3}} </mrow>
+			<mrow> \amp = 2 \sqrt[3]{\frac{500}{\pi}} </mrow>
+			<mrow> \amp \approx 10.84 \; \mathrm{cm} </mrow>
+		</md>.
+		So it turns out that the minimum area that meets the volume constraint occurs when the height is equal to the diameter.
+		</p>
+	</solution>
+
+</example>
+
+<!-- TODO shortest distance ? -->
 
 </section>
 
