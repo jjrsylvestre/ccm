@@ -538,8 +538,8 @@ on one side we can reverse the differentiation by reversing the chain rule.
 	<title>Separable rate equation</title>
 	<p>
 	A rate equation that can be expressed in the form
-	<me> M(q) \cdot \dqdt = N(t) </me>
-	for some functions <m>M</m> and <m>N</m> is called <term>separable</term>.
+	<me> m(q) \cdot \dqdt = n(t) </me>
+	for some functions <m>m</m> and <m>n</m> is called <term>separable</term>.
 	</p>
 </definition>
 
@@ -552,14 +552,19 @@ also known as <em>antidifferentiating</em>.
 <algorithm xml:id="procedure-substitution-solve-separable">
 	<title>Solving a separable rate equation</title>
 	<p>
-	To solve <me> M(q) \cdot \dqdt = N(t) </me>,
+	To solve <me> m(q) \cdot \dqdt = n(t) </me>,
 	integrate both sides:
 	<md alignment="gather">
-		<mrow> M(q) \cdot \dqdt = N(t) </mrow>
-		<mrow> \ccmiint{M(q) \cdot \dqdt}{t} = \ccmiint{N(t)}{t} </mrow>
-		<mrow> \ccmiint{M(q)}{q} = \ccmiint{N(t)}{t} </mrow>
+		<mrow> m(q) \cdot \dqdt = n(t) </mrow>
+		<mrow> \ccmiint{m(q) \cdot \dqdt}{t} = \ccmiint{n(t)}{t} </mrow>
+		<mrow> \ccmiint{m(q)}{q} = \ccmiint{n(t)}{t} </mrow>
+		<mrow> M(q) = N(t) + C </mrow>
 	</md>,
-	introducing an arbitrary constant of integration on one side only.
+	where <m>M(q)</m> is an antiderivative for <m>m(q)</m>
+	(with respect to <m>q</m>)
+	and <m>N(t)</m> is an antiderivative for <m>n(t)</m>
+	(with respect to <m>t</m>).
+	Notice that we have introduced an arbitrary constant of integration on one side only.
 	</p>
 </algorithm>
 
