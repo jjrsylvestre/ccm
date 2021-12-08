@@ -124,7 +124,8 @@ respective owners.
 <xi:include href="./auto.ptx" />
 
 <!-- Logistic models, associated differential equations. -->
-<xi:include href="./logistic.ptx" />
+<!-- TODO? or is auto chapter good enough ? -->
+<!-- <xi:include href="./logistic.ptx" /> -->
 
 <!-- -->
 <xi:include href="./backmatter.ptx" />

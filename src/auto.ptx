@@ -17,11 +17,618 @@ respective owners.
 <title>Autonomous systems</title>
 
 <section xml:id="section-auto-intro">
-<title>TODO</title>
+<title>Introduction and method of analysis</title>
 
-<p> TODO </p>
+<p>
+Suppose <m>q(t)</m> is a quantity that is varying over time,
+and <m>r(t) = q'(t)</m> is its association rate function.
+If <m>q</m> and <m>r</m> satisfy a rate equation of the form
+<me> r(t) = f(q) </me>
+for some function <m>f</m>,
+then the rate of variation of <m>q</m> is entirely dependent on the amount <m>q</m> and not on the actual time at which that particular amount occurs.
+We call such a model an <term>autonomous system</term>,
+and the expression in <m>q</m> on the right-hand side is called the <term>rate function</term>.
+Population dynamics are a typical example of autonomous systems:
+if a scientist is studying bacterial growth in controlled lab environment,
+the rate of growth doesn't have much to do with the reading on the clock on the wall,
+only on the current number of bacteria.
+</p>
+
+<p>
+We can determine a lot about the general behavioural characteristics of solutions to autonomous systems without actually solving the rate equation,
+by applying the concepts we learned in <xref ref="chapter-curves" />.
+</p>
+
+<example xml:id="example-auto-first">
+	<title>Analyzing an autonomous system</title>
+
+	<p>
+	Consider the rate equation
+	<md><mrow xml:id="equation-auto-first-example-rate-eqn" tag="star"> \dqdt = (q + 1) (q - 2) </mrow></md>.
+	The first thing to notice is that at quantity levels <m>q = -1</m> and <m>q = 2</m>,
+	we have <m>dq/dt = 0</m>,
+	which means that the rate of growth is zero,
+	and neither growth nor decay can occur.
+	So if the quantity reaches a level of <m>q = -1</m> or <m>q = 2</m>,
+	it will remain constant and never deviate from that level afterward.
+	</p>
+
+	<p>
+	Next,
+	we can analyze which quantity levels will result in growth and which will result in decay.
+	As in <xref ref="section-curves-increase-decrease" />,
+	we can determine this by solving <m>q'(t) \gt 0</m> and <m>q'(t) \lt 0</m>,
+	but this time we will solve in terms of <m>q</m> rather than in terms of <m>t</m>.
+	Using our rate equation,
+	we can determine when the derivative is positive or negative by determining the values of <m>q</m>
+	that make the right-hand side of <xref ref="equation-auto-first-example-rate-eqn" /> positive or negative.
+	We already know that this right-hand expression is zero at <m>q = -1</m> and <m>q = 2</m>,
+	so we just need to test around those values.
+	</p>
+
+	<tabular halign="center">
+		<col right="minor" /><col /><col right="minor" /><col right="minor" /><col />
+		<row bottom="minor">
+			<cell />
+			<cell><m>q + 1</m></cell>
+			<cell><m>q - 2</m></cell>
+			<cell><m>dq/dt</m></cell>
+			<cell><m>q</m></cell>
+		</row>
+		<row>
+			<cell><m>q \lt -1</m></cell>
+			<cell><m>-</m></cell>
+			<cell><m>-</m></cell>
+			<cell><m>+</m></cell>
+			<cell>increasing</cell>
+		</row>
+		<row>
+			<cell><m>-1 \lt q \lt 2</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>-</m></cell>
+			<cell><m>-</m></cell>
+			<cell>decreasing</cell>
+		</row>
+		<row>
+			<cell><m>q \gt 2</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>+</m></cell>
+			<cell>increasing</cell>
+		</row>
+	</tabular>
+
+	<p>
+	We can perform a similar analysis for concavity,
+	but for that we need to know something about the second derivative.
+	If we differentiate both sides of <xref ref="equation-auto-first-example-rate-eqn" />,
+	on the left we will be differentiating the derivative of <m>q</m>,
+	and so we'll get the second derivative.
+	On the right, we could expand before differentiating so that we can just apply <xref ref="pattern-deriv-power" />,
+	or we can directly apply the <xref ref="pattern-product-rule" text="title" />.
+	But in either case we will also need to apply the <xref ref="pattern-chain-differential-version" text="title" />,
+	since we are differentiating with respect to <m>t</m>, not <m>q</m>.
+	<md>
+		<mrow> \opddt \left( \dqdt \right) \amp = \opddt \bigl[ (q + 1) (q - 2) \bigr] </mrow>
+		<mrow> \dbldqdt \amp = (q + 1) \cdot \ddt{(q - 2)} + \ddt{(q + 1)} \cdot (q - 2) </mrow>
+		<mrow> \amp = (q + 1) \cdot \ddq{(q - 2)} \cdot \dqdt + \ddq{(q + 1)} \cdot \dqdt \cdot (q - 2) </mrow>
+		<mrow> \amp = (q + 1) \cdot 1 \cdot \dqdt + 1 \cdot \dqdt \cdot (q - 2) </mrow>
+		<mrow> \amp = (2 q - 1) \cdot \dqdt </mrow>
+	</md>
+	We already know the quantity levels where the derivative is positive, negative, or zero,
+	so we just need to combine that with an analysis of the new factor <m>2 q - 1</m>.
+	We see that <m>d^2q/dt^2</m> will be zero at <m>q = -1</m> and <m>q = 2</m>
+	(since these make <m>dq/dt</m> zero)
+	and at <m>q = 1/2</m>,
+	so again we test around these levels.
+	</p>
+
+	<tabular halign="center">
+		<col right="minor" /><col /><col right="minor" /><col right="minor" /><col />
+		<row bottom="minor">
+			<cell />
+			<cell><m>2 q - 1</m></cell>
+			<cell><m>dq/dt</m></cell>
+			<cell><m>d^2/dt^2</m></cell>
+			<cell><m>q</m></cell>
+		</row>
+		<row>
+			<cell><m>q \lt -1</m></cell>
+			<cell><m>-</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>-</m></cell>
+			<cell>concave down</cell>
+		</row>
+		<row>
+			<cell><m>-1 \lt q \lt 1/2</m></cell>
+			<cell><m>-</m></cell>
+			<cell><m>-</m></cell>
+			<cell><m>+</m></cell>
+			<cell>concave up</cell>
+		</row>
+		<row>
+			<cell><m>1/2 \lt q \lt 2</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>-</m></cell>
+			<cell><m>-</m></cell>
+			<cell>concave down</cell>
+		</row>
+		<row>
+			<cell><m>q \gt 2</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>+</m></cell>
+			<cell><m>+</m></cell>
+			<cell>concave up</cell>
+		</row>
+	</tabular>
+
+	<p>
+	We see now that any solution curve that passes through the quantity level <m>q = 1/2</m> will experience a concavity change there,
+	so we will always see inflection points at that level.
+	However,
+	even though the concavity also changes at above and below <m>q = -1</m> and also above and below <m>q = 2</m>,
+	those will not become inflection points,
+	since any solution that reaches one of those levels would become constant after that.
+	</p>
+
+	<p>
+	It's useful to summarize all of the information so far pictorially on a <term>phase line</term>.
+	Since our behaviours are based on different ranges of <m>q</m>-values,
+	we'll use a vertical axis to lay out the different behaviour ranges.
+	</p>
+
+	<figure xml:id="figure-auto-first-example-phase-line">
+		<caption> A <term>phase line</term> describing solution behaviours on different quantity ranges. </caption>
+		<image width="26%">
+			<description>Diagram illustrating a vertical <q>phase line</q> that describes solution behaviours on different quantity ranges.</description>
+			<latex-image><xi:include href="auto.d/first-example-phase.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p> Now we can sketch some typical solution curves that demonstrate the range of behaviours above. </p>
+
+	<figure xml:id="figure-auto-first-example-solutions">
+		<caption> Typical solution curves to the original rate equation. </caption>
+		<image width="65%">
+			<description>Diagram illustrating graphs of typical solution curves to the original rate equation.</description>
+			<latex-image><xi:include href="auto.d/first-example-solutions.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<p>
+The constant solutions are an important feature of our analysis in <xref ref="example-auto-first" />,
+as they can be boundaries between different types of solution behaviours,
+both for increasing/decreasing and concavity.
+But also notice that solution curves near the constant solutions tend to exhibit either an <q>attraction</q> to or a <q>repulsion</q> from the constant solution lines.
+We often model our systems as if they are <q>closed,</q>
+in the sense that no unaccounted-for outside factors can influence the system's behaviour.
+But reality is typically messier than that,
+and outside factors can <q>nudge</q> a system out of a constant, stable state into a different type of behaviour.
+After such a <q>nudge</q>,
+sometimes the system gently trends back to that original constant state,
+and sometimes the system reacts violently and moves quickly away from the original constant state.
+</p>
+
+<definition>
+	<title>Stable and unstable equilibriums</title>
+
+	<p>
+	For an autonomous system <m>q'(t) = f(q)</m>,
+	a constant solution function <m>q(t) = C</m>
+	(so that <m>f(C) = 0</m>)
+	is called an <term>equilibrium solution</term> for the system.
+	</p>
+
+	<p>
+	If solution curves with <m>q \approx C</m> tend <em>toward</em> that equilibrium as <m>t \to \infty</m>,
+	then the equilibrium is called <term>stable</term>.
+	</p>
+
+	<p>
+	If solution curves with <m>q \approx C</m> tend <em>away</em> from that equilibrium as <m>t \to \infty</m>,
+	then the equilibrium is called <term>unstable</term>.
+	</p>
+
+	<p>
+	If solution curves exhibit different trending behaviours for <m>q \approx C^+</m> versus <m>q \approx C^-</m>,
+	then the equilibrium is called <term>half-stable</term>.
+	</p>
+
+</definition>
+
+<p>
+So, for example,
+the system in <xref ref="example-auto-first" />
+has a stable equilibrium <m>q(t) = -1</m>
+and an unstable equilibrium <m>q(t) = 2</m>.
+</p>
+
+<remark><p><ul>
+	<li>
+		A constant function <m>q(t) = C</m> has <m>dq/dt = 0</m>,
+		so,
+		as noted in the definition,
+		equilibrium solutions occur precisely at <m>q</m>-levels where <m>f(q) = 0</m>.
+	</li>
+	<li>
+		We can easily determine whether an equilibrium solution is stable, unstable, or half-stable
+		without going through the full analysis,
+		but instead just considering the increasing/decreasing behaviour of solutions.
+		A stable equilibrium must have decreasing behaviour just above it and increasing behaviour just below,
+		and an unstable equilibrium must have the opposite.
+		A half-stable equilibrium will have same type of behaviour both just above and just below,
+		either both increasing or both decreasing.
+	</li>
+</ul></p></remark>
+
+<p>
+A useful analogy for stable/unstable behaviour is to think of taking a bicycle ride along a path.
+The equilibrium state is to steer straight along the center of the path.
+If the sides of the path are curved upward,
+as if in a valley with steep sides,
+then any deviation from the center of the path will cause the bicycle to tend back towards that central equilibrium.
+On the other hand,
+if the sides of the path are curved downward,
+as if the path runs along the top of a berm,
+then any deviation from the center of the path will cause the rider to go careening down a slope away from the path.
+</p>
+
+<p>
+We further remark on why the equilibrium solutions in <xref ref="example-auto-first" /> are not considered inflection points,
+even though the concavity of solutions changes from below to above each of those equilibriums.
+We take it as a general assumption that two different solution curves cannot intersect,
+since if they did then that point of intersection would act like an <q>initial condition</q> for both solutions.
+In an autonomous system the behaviour is completely determined by the quantity amount <m>q</m> and not by the independent variable <m>t</m>.
+So if two solution curves met at the same level,
+they would exhibit the same behaviour from the point forward,
+and,
+extrapolating backward,
+they should have exhibited the same behaviour to get to that point.
+Which means they weren't actually different solutions to begin with.
+</p>
+
+<insight xml:id="principle-auto-non-intersection">
+	<title>Principle of non-intersection</title>
+	<p>
+	In an autonomous system,
+	different solution curves can never intersect.
+	</p>
+</insight>
+
+<p>
+This principle explains why we cannot have an inflection point at an equilibrium <m>q</m>-level:
+because solution curves cannot actually <em>cross over</em> an equilibrium solution,
+and so an individual solution curve cannot change its concavity there.
+Indeed,
+noting that equilibrium solutions necessarily have <m>q'(t) = 0</m>,
+in <xref ref="figure-auto-first-example-solutions" />
+you will find it impossible to draw a curve that passes through the equilibrium solution at level <m>q = -1</m>
+(with a horizontal slope as it does so)
+that meets the increasing/decreasing and concavity behaviour requirements both above and below.
+</p>
+
+<p> Finally, here is a procedure we can use to analyze solution behaviour for an autonomous system without actually solving it. </p>
+
+<algorithm xml:id="procedure-auto">
+	<title>Analyzing an autonomous system</title>
+	<p>
+	For <m>q'(t) = f(q)</m>:
+	<ol>
+		<li>
+			Determine the equilibrium solutions by solving <m>f(q) = 0</m> for <m>q</m>.
+			Plot these values on a phase line.
+		</li>
+		<li>
+			Determine ranges of increase/decrease by testing for <m>f(q) \gt 0</m> or <m>f(q) \lt 0</m>
+			between the equilibrium solutions,
+			and between equilibrium solutions and any <m>q</m>-levels where <m>f(q)</m> is undefined.
+		</li>
+		<li>
+			Determine possible inflection levels by solving <m>f'(q) = 0</m> for <m>q</m>,
+			and also noting any <m>q</m>-levels where <m>f'(q)</m> is undefined.
+			Plot these levels on the phase line.
+		</li>
+		<li>
+			Noting that
+			<me> \dbldqdt = f'(q) \cdot \dqdt = f'(q) f(q) </me>,
+			determine ranges of concavity by testing for <m>f'(q) f(q) \gt 0</m> or <m>f'(q) f(q) \lt 0</m>
+			between equilibrium solutions,
+			and equilibrium solutions and the levels identified in the previous step.
+		</li>
+		<li>
+			Add the information concerning ranges of increase/decrease and concavity to the phase line.
+			Sketch some representative curves with various initial <m>q</m>-levels,
+			illustrating all of the different types of behaviours possible according to the analysis.
+		</li>
+	</ol>
+	</p>
+</algorithm>
 
 </section>
+
+
+<section xml:id="section-auto-exp">
+<title>Exponential growth</title>
+
+<p>
+We have already analyzed this system several times,
+but we will review it once again as it will serve as a <q>base</q> model that we will modify in different ways in the rest of this chapter.
+</p>
+
+<p>
+Suppose <m>q</m> is a quantity that varies over time so that its rate of variation is always proportional to its current amount:
+<me> \frac{dq/dt}{q} = k </me>,
+for some constant of proportionality <m>k</m>.
+We might use such a model when we study a population that has lots of food and space and no predators or disease.
+In this case,
+we should assume that the <term>growth rate factor</term> <m>k</m> is positive,
+since when <m>q</m> is positive we should observe growth,
+in which case <m>dq/dt</m> should also be positive.
+</p>
+
+<p>
+Rewriting the rate equation as <me> \dqdt = k q </me>,
+our rate function is <m>f(q) = k q</m>.
+The only equilibrium solution is <m>q(t) = 0</m>,
+and above that we have increasing behaviour.
+The second derivative is
+<me> \dbldqdt = k \, \dqdt = k^2 q </me>,
+which will also be positive when <m>q</m> is,
+so we have concave-up behaviour for <m>q > 0</m>.
+</p>
+
+<figure xml:id="figure-auto-exp-growth">
+	<caption> Typical solution curves when rate is proportional to quantity. </caption>
+	<image width="45%">
+		<description>Diagram illustrating graphs of typical solution curves when rate is proportional to quantity.</description>
+		<latex-image><xi:include href="auto.d/exp-growth.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+</section>
+
+
+<section xml:id="section-auto-log">
+<title>Logistic growth</title>
+
+<p>
+Let's consider a modification to our initial population model.
+Suppose as the population grows,
+competition for space and food increases and the rate of growth slows.
+We might identify a particular <term>carrying capacity</term> of the environment:
+where if the population starts to approach the carrying capacity,
+the growth rate is significantly reduced,
+and if the population somehow <q>jumped</q> over the carrying capacity
+(say, by a significant number of new individuals moving or being placed into the system's environment),
+then the population would experience decline instead of growth.
+</p>
+
+<p>
+To model this mathematically,
+we might assume that the rate of growth is still proportional to the population level,
+but in a proportion that varies according to how close the population level is to the carrying capacity:
+<me> \frac{dq/dt}{q} = \rho \, (M - q) = \rho M \left( 1 - \frac{q}{M} \right) </me>.
+In this model:
+<ul>
+	<li><p>
+		Constant <m>M</m> is the <term>carrying capacity</term>;
+		if <m>q \approx M</m> then <m>dq/dt \approx 0</m> and the population growth has stalled.
+	</p></li>
+	<li><p>
+		The growth rate factor <m>\rho</m> is also a (positive) constant,
+		and the quantity <m>k = \rho M</m> is called the <term>intrinsic growth rate</term>;
+		if <m>q \approx 0</m>, then our rate equation becomes
+		<me> \frac{dq/dt}{q} \approx k </me>,
+		and we should observe approximately exponential growth as in <xref ref="section-auto-exp" />.
+	</p></li>
+</ul>
+</p>
+
+<p>
+For this model,
+we will demonstrate an entirely graphical analysis.
+Our rate equation is
+<me> \dqdt = \rho \, (M - q) \, q = \rho M q - \rho q^2 </me>,
+so our rate function
+<me> f(q) = \rho M q - \rho q^2 </me>
+is a concave-down parabola as a function in <m>q</m>.
+</p>
+
+<figure xml:id="figure-auto-logistic-rate-function">
+	<caption>
+		Graph of the logistic growth rate function.
+		Note that <em><m>q</m> is on the horizontal axis</em>.
+	</caption>
+	<image width="70%">
+		<description>Graph of the logistic growth rate function as a function of quantity.</description>
+		<latex-image><xi:include href="auto.d/logistic-rate-func.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+The equilibrium solutions are <m>q</m>-levels that make <m>f(q) = 0</m>,
+and from the graph we see that this occurs at <m>q = 0</m> and <m>q = M</m>.
+These make sense, since if the population cannot grow if there are no individuals at all,
+and also if the population is at the carrying capacity it will not be able to grow,
+but it also will not decline as the system tendency will be to <em>try</em> to grow but will be impeded by the space/food limits.
+</p>
+
+<p>
+Assuming <m>q \gt 0</m>,
+for <m>0 \lt q \lt M</m> we see that the rate function is positive,
+which translates into a positive <m>dq/dt</m> hence an increasing <m>q</m>.
+But for <m>q \gt M</m>,
+the rate function is negative and so <m>q</m> is decreasing on that range.
+These behaviours are in line with our intentions when we created the model.
+We can also identify <m>q = 0</m> as an unstable equilibrium as solutions above that level increase away from it,
+and <m>q = M</m> as a stable equilibrium as solutions below increase toward it and solutions above decrease toward it.
+</p>
+
+<p>
+Finally,
+we can analyze concavity by considering
+<me> \dbldqdt = f'(q) \cdot \dqdt = f'(q) f(q) </me>.
+So concavity is determined by combinations of positive/negative <m>f(q)</m>
+(where our plot in <xref ref="figure-auto-logistic-rate-function" /> is above/below the horizontal axis)
+and positive/negative <m>f'(q)</m>
+(where our plot in <xref ref="figure-auto-logistic-rate-function" /> is increasing/decreasing).
+By symmetry of the parabola,
+peak in the graph <m>y = f(q)</m> occurs at <m>q = M/2</m>.
+<ul>
+	<li>
+		Up to <m>q = M/2</m>,
+		<m>f</m> is positive and increasing as a function in <m>q</m>,
+		so that <m>f'</m> is also positive.
+		These two positives combine to a positive <m>d^2q/dt^2</m> and a concave up <m>q</m>.
+	</li>
+	<li>
+		After <m>q = M/2</m>,
+		the graph of <m>y = f(q)</m> starts to decrease but remains positive,
+		so a positive <m>f</m> combined with a negative <m>f'</m> makes a negative <m>d^2q/dt^2</m> and a concave down <m>q</m>.
+	</li>
+	<li>
+		At <m>q = M</m>,
+		the graph of <m>y = f(q)</m> becomes negative and is still decreasing,
+		so the two negatives combine to a positive <m>d^2q/dt^2</m> and a concave up <m>q</m>.
+	</li>
+</ul>
+From this analysis we note an inflection level at <m>q = M/2</m>,
+but not at <m>q = M</m> since that is one of our equilibrium solutions.
+</p>
+
+<p> We now have enough information to draw a phase line and sketch some representative solution curves. </p>
+
+<figure xml:id="figure-auto-logistic-solutions">
+	<caption> Phase line and representative solution curves for logistic growth. </caption>
+	<image width="85%">
+		<description>Phase line and representative solution curves for logistic growth.</description>
+		<latex-image><xi:include href="auto.d/logistic-solutions.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+</section>
+
+<section xml:id="section-auto-threshold">
+<title>Growth with threshold</title>
+
+<p>
+Another way to modify our initial exponential-growth model is to assume that there is some <q>healthy</q> population threshold <m>q = T</m>,
+below which the population is not large enough to thrive and instead dwindles away.
+Again we create a model where the rate of variation is proportional to the population,
+but this time with a variable proportion that is negative when <m>q</m> is below the threshold and positive when <m>q</m> is above it.
+<me> \frac{dq/dt}{q} = \rho \, (q - T) = - \rho T \left( 1 - \frac{q}{T} \right) </me>.
+Similarly to the logistic growth model,
+the factor <m>k = - \rho T</m>
+(with <m>\rho</m> assumed to be positive)
+is the <term>intrinsic growth rate</term>,
+so that for <m>q \approx 0</m> we have approximately exponential decay.
+</p>
+
+<p>
+Rewriting the rate equation to leave only <m>dq/dt</m> on the left,
+we have rate function <me> f(q) = \rho \, (q - T) \, q = \rho q^2 - \rho T q </me>.
+The analysis of this model is very similar to the analysis of logistic growth in <xref ref="section-auto-log" />,
+so we will leave the details to you, the reader.
+</p>
+
+<figure xml:id="figure-auto-threshold">
+	<caption> Rate function and associated representative solution curves for growth with threshold. </caption>
+
+	<sbsgroup>
+
+		<sidebyside widths="70%"><figure xml:id="figure-auto-threshold-rate-function">
+			<caption>
+				Graph of the growth-with-threshold rate function.
+				Note that <em><m>q</m> is on the horizontal axis</em>.
+			</caption>
+			<image width="50%">
+				<description>Graph of the growth-with-threshold rate function as a function of quantity.</description>
+				<latex-image><xi:include href="auto.d/threshold-rate-func.tex" parse="text" /></latex-image>
+			</image>
+		</figure></sidebyside>
+
+		<sidebyside widths="85%"><figure xml:id="figure-auto-threshold-solutions">
+			<caption> Phase line and representative solution curves for growth with threshold. </caption>
+			<image>
+				<description>Phase line and representative solution curves for growth with threshold.</description>
+				<latex-image><xi:include href="auto.d/threshold-solutions.tex" parse="text" /></latex-image>
+			</image>
+		</figure></sidebyside>
+
+	</sbsgroup>
+
+</figure>
+
+<p>
+Notice that the equilibriums have <q>flipped</q> in nature from logistic growth.
+The equilibrium at <m>q(t) = 0</m> is now stable,
+since if we have <m>q \approx 0^+</m> we are below the threshold and the population will wither away.
+However, the equilibrium <m>q(t) = T</m> at the threshold is unstable equilibrium,
+since below the threshold we always observe decay toward <m>0</m>,
+while above the threshold the population will now thrive and grow away from the threshold.
+</p>
+
+</section>
+
+<section xml:id="section-auto-log-with-threshold">
+<title>Logistic growth with threshold</title>
+
+<p>
+Finally, we can combine our previous modifications into one model that takes into account both a carrying capacity,
+above which the environment is not able to sustain such a large population,
+and a threshold,
+below which the population is not robust enough to thrive and grow.
+The rate equation for this model is of the form
+<me> \dqdt = \rho \, (M - q) \, (q - T) \, y </me>,
+where <m>\rho</m> is a positive growth factor,
+<me> f(q) = \rho \, (M - q) \, (q - T) \, y </me>
+is our rate function,
+and we assume that the threshold <m>T</m> is less than the carrying capacity <m>M</m>.
+</p>
+
+<figure xml:id="figure-auto-both">
+	<caption> Rate function and associated representative solution curves for logistic growth with threshold. </caption>
+
+	<sbsgroup>
+
+		<sidebyside widths="70%"><figure xml:id="figure-auto-both-rate-function">
+			<caption>
+				Graph of the rate function for logistic growth with threshold.
+				Note that <em><m>q</m> is on the horizontal axis</em>.
+			</caption>
+			<image>
+				<description>Graph of the rate function for logistic growth with threshold, as a function of quantity.</description>
+				<latex-image><xi:include href="auto.d/both-rate-func.tex" parse="text" /></latex-image>
+			</image>
+		</figure></sidebyside>
+
+		<sidebyside widths="90%"><figure xml:id="figure-auto-both-solutions">
+			<caption> Phase line and representative solution curves for logistic growth with threshold. </caption>
+			<image>
+				<description>Phase line and representative solution curves for logistic growth with threshold.</description>
+				<latex-image><xi:include href="auto.d/both-solutions.tex" parse="text" /></latex-image>
+			</image>
+		</figure></sidebyside>
+
+	</sbsgroup>
+
+</figure>
+
+<p>
+In this model,
+the equilibrium at <m>q(t) = 0</m> remains stable,
+since it is below the threshold.
+The equilibrium at the threshold itself  <m>q(t) = T</m> is again unstable,
+as populations below it will decay and those above it will thrive.
+The equilibrium at the carrying capacity is stable,
+since populations approaching that level will significantly slow in their growth,
+and populations above that level will decay as the environment cannot supprt them.
+</p>
+
+</section>
+
 
 <!-- <xi:include href="./auto.d/activities.ptx" />
 <xi:include href="./auto.d/exercises.ptx" /> -->

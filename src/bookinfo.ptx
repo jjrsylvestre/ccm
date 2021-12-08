@@ -44,7 +44,7 @@ respective owners.
 		<!-- \usetikzlibrary{matrix} -->
 		<!-- \usetikzlibrary{positioning} -->
 		<!-- \usetikzlibrary{fit} -->
-		<!-- \usetikzlibrary{decorations.pathreplacing} -->
+		\usetikzlibrary{decorations.pathreplacing}
 	</latex-image-preamble>
 
 	<!-- renamings -->
