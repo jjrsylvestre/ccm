@@ -189,7 +189,7 @@ by applying the concepts we learned in <xref ref="chapter-curves" />.
 
 	<figure xml:id="figure-auto-first-example-solutions">
 		<caption> Typical solution curves to the original rate equation. </caption>
-		<image width="65%">
+		<image width="90%">
 			<description>Diagram illustrating graphs of typical solution curves to the original rate equation.</description>
 			<latex-image><xi:include href="auto.d/first-example-solutions.tex" parse="text" /></latex-image>
 		</image>
@@ -233,7 +233,7 @@ and sometimes the system reacts violently and moves quickly away from the origin
 
 	<p>
 	If solution curves exhibit different trending behaviours for <m>q \approx C^+</m> versus <m>q \approx C^-</m>,
-	then the equilibrium is called <term>half-stable</term>.
+	then the equilibrium is called <term>semi-stable</term>.
 	</p>
 
 </definition>
@@ -253,7 +253,7 @@ and an unstable equilibrium <m>q(t) = 2</m>.
 		equilibrium solutions occur precisely at <m>q</m>-levels where <m>f(q) = 0</m>.
 	</li>
 	<li>
-		We can easily determine whether an equilibrium solution is stable, unstable, or half-stable
+		We can easily determine whether an equilibrium solution is stable, unstable, or semi-stable
 		without going through the full analysis,
 		but instead just considering the increasing/decreasing behaviour of solutions.
 		A stable equilibrium must have decreasing behaviour just above it and increasing behaviour just below,
@@ -273,6 +273,22 @@ On the other hand,
 if the sides of the path are curved downward,
 as if the path runs along the top of a berm,
 then any deviation from the center of the path will cause the rider to go careening down a slope away from the path.
+In a way,
+we could imagine that all of the solution curves stitch together to create a surface,
+and there is a third dimension,
+perpendicular to the plane where we have sketched our representative solutions,
+for another type of <q>concavity.</q>
+Near a stable equilibrium,
+this solution-curve surface is concave up
+(out of the page),
+with the equilibrium running along the floor of a depression.
+Near an unstable equilibrium,
+the solution-curve surface is concave down
+(into the page),
+with the equilibrium running along the peak of a long hill.
+Near a semi-stable equilibrium,
+the solution-curve surface <q>flattens</q> out between two regions of the same concavity,
+like a narrow horizontal shelf on the side of a hill.
 </p>
 
 <p>
@@ -381,7 +397,7 @@ so we have concave-up behaviour for <m>q > 0</m>.
 
 <figure xml:id="figure-auto-exp-growth">
 	<caption> Typical solution curves when rate is proportional to quantity. </caption>
-	<image width="45%">
+	<image width="48%">
 		<description>Diagram illustrating graphs of typical solution curves when rate is proportional to quantity.</description>
 		<latex-image><xi:include href="auto.d/exp-growth.tex" parse="text" /></latex-image>
 	</image>
@@ -502,7 +518,7 @@ but not at <m>q = M</m> since that is one of our equilibrium solutions.
 
 <figure xml:id="figure-auto-logistic-solutions">
 	<caption> Phase line and representative solution curves for logistic growth. </caption>
-	<image width="85%">
+	<image width="90%">
 		<description>Phase line and representative solution curves for logistic growth.</description>
 		<latex-image><xi:include href="auto.d/logistic-solutions.tex" parse="text" /></latex-image>
 	</image>
@@ -549,7 +565,7 @@ so we will leave the details to you, the reader.
 			</image>
 		</figure></sidebyside>
 
-		<sidebyside widths="85%"><figure xml:id="figure-auto-threshold-solutions">
+		<sidebyside widths="90%"><figure xml:id="figure-auto-threshold-solutions">
 			<caption> Phase line and representative solution curves for growth with threshold. </caption>
 			<image>
 				<description>Phase line and representative solution curves for growth with threshold.</description>

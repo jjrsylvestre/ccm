@@ -13,7 +13,8 @@
 % *********************************************************************
 
 \newcommand*{\xmin}{0}
-\newcommand*{\xmax}{2}
+\newcommand*{\xmax}{4}
+\newcommand*{\shortxmax}{3.95}
 \newcommand*{\ymin}{0}
 \newcommand*{\ymax}{4}
 
@@ -21,28 +22,27 @@
 %    q = A e^{k t}
 % where
 %    A = q0
-% we are using just k = 1
+% we are using k = 1/2
 %
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
-	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	xscale=2
+	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt}
 ]
 
-	\draw[thick, decorate, decoration = {brace}, xshift=-0.033cm] (0,\ymin) -- (0,3.85);
-	\node[align=center] at (-0.8,2) {increasing \\ concave up};
+	\draw[thick, decorate, decoration = {brace}, xshift=-0.05cm] (0,\ymin) -- (0,3.85);
+	\node[align=center,xshift=-1.5cm] at (0,2) {increasing \\ concave up};
 
 	\foreach \q in {0.1,0.2,0.3,0.4,0.5} {
-		\draw[thick,blue,smooth,domain=0:\xmax] plot (\x, { \q * exp(\x) });
+		\draw[thick,blue,smooth,domain=0:\xmax] plot (\x, { \q * exp(\x / 2) });
 	}
 
 	% since these are exponential functions and things explode,
 	% we invert and plot as a function t = ...
 	% in order to be able to specify range instead of domain
 	\foreach \q in {0.65,0.8,0.95,1.1,1.25,1.5,1.75,2,2.25,2.6,3,3.33} {
-		\draw[thick,blue,smooth,domain=\q:\ymax] plot ({ ln( \x / \q ) }, \x);
+		\draw[thick,blue,smooth,domain=\q:\ymax] plot ({ 2 * ln( \x / \q ) }, \x);
 	}
 
 	% axes
@@ -50,9 +50,9 @@
 	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[above] {$q$};
 
 	\foreach \q in {0} {
-		\draw[thick,red] (1.98,\q) -- (\xmin,\q);
+		\draw[thick,red] (\shortxmax,\q) -- (\xmin,\q);
 		\node[left,xshift=-0.05cm] at (0,\q) {$\q$};
-		\node[red] at (-0.9,\q) {equilibrium};
+		\node[red,xshift=-1.75cm] at (0,\q) {equilibrium};
 	}
 
 \end{tikzpicture}

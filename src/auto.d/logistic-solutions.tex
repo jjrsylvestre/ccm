@@ -13,7 +13,7 @@
 % *********************************************************************
 
 \newcommand*{\xmin}{0}
-\newcommand*{\xmax}{2}
+\newcommand*{\xmax}{10}
 \newcommand*{\ymin}{0}
 \newcommand*{\ymax}{6}
 
@@ -31,30 +31,29 @@
 % where
 %   B = 1/A = (4 - y0) / y0
 % BUT
-% we have h.scaled solutions by a factor of 2
+% we have h.scaled solutions by a factor of 10
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
-	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	xscale=5
+	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt}
 ]
 
 	\draw[dashed,blue] (\xmax,2) -- (\xmin,2);
-	\node[left,xshift=-0.1cm,yshift=-0.05cm] at (0,2) {$M/2$};
-	\node[blue] at (-0.4,2) {inflection};
+	\node[left,xshift=-0.05cm,yshift=-0.05cm] at (0,2) {$M/2$};
+	\node[blue,xshift=-2.25cm] at (0,2) {inflection};
 
-	\draw[thick, decorate, decoration = {brace}, xshift=-0.02cm] (0,4.1) -- (0,5.85);
-	\node[align=center] at (-0.3,5) {decreasing \\ concave up};
+	\draw[thick, decorate, decoration = {brace}, xshift=-0.05cm] (0,4.1) -- (0,5.85);
+	\node[align=center,xshift=-1.5cm] at (0,5) {decreasing \\ concave up};
 
-	\draw[thick, decorate, decoration = {brace}, xshift=-0.02cm] (0,2.1) -- (0,3.9);
-	\node[align=center] at (-0.3,3) {increasing \\ concave down};
+	\draw[thick, decorate, decoration = {brace}, xshift=-0.05cm] (0,2.1) -- (0,3.9);
+	\node[align=center,xshift=-1.5cm] at (0,3) {increasing \\ concave down};
 
-	\draw[thick, decorate, decoration = {brace}, xshift=-0.02cm] (0,0.1) -- (0,1.9);
-	\node[align=center] at (-0.3,1) {increasing \\ concave up};
+	\draw[thick, decorate, decoration = {brace}, xshift=-0.05cm] (0,0.1) -- (0,1.9);
+	\node[align=center,xshift=-1.5cm] at (0,1) {increasing \\ concave up};
 
 	\foreach \q in {0.05,0.1,0.25,0.5,1,1.5,2,2.5,3,3.5,4.5,5,5.5,5.9} {
-		\draw[thick,blue,smooth,domain=0:\xmax] plot (\x, { 4 / (1 + (4 - \q) * exp(-4*\x/2) / \q) });
+		\draw[thick,blue,smooth,domain=0:\xmax] plot (\x, { 4 / (1 + (4 - \q) * exp(-4*\x/10) / \q) });
 	}
 
 	% axes
@@ -62,12 +61,11 @@
 	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[above] {$q$};
 
 	\foreach \q in {0,4} {
-		\draw[red,thick] (1.99,\q) -- (\xmin,\q);
-		\node[red] at (-0.35,\q) {equilibrium};
+		\node[red,xshift=-1.75cm] at (0,\q) {equilibrium};
 	}
-	\draw[red,thick] (1.99,0) -- (\xmin,0);
+	\draw[red,thick] (9.95,0) -- (\xmin,0);
 	\draw[red,thick] (\xmax,4) -- (\xmin,4);
-	\node[left,xshift=-0.1cm] at (0,0) {$0$};
-	\node[left,xshift=-0.1cm] at (0,4) {$M$};
+	\node[left,xshift=-0.05cm] at (0,0) {$0$};
+	\node[left,xshift=-0.05cm] at (0,4) {$M$};
 
 \end{tikzpicture}
