@@ -77,6 +77,7 @@ ${BUILDDIR}/html/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...calling pretext to compile PreTeXt document"
 	@$(PRETEXT) \
 	  --verbose \
+	  --config pretext.cfg \
 	  --component all \
 	  --format html \
 	  --publisher html-out.xml \
@@ -104,6 +105,7 @@ ${BUILDDIR}/html/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...calling pretext to generate images"
 	@$(PRETEXT) \
 	  --verbose \
+	  --config pretext.cfg \
 	  --component latex-image \
 	  --format svg \
 	  --directory ${BUILDDIR}/html/images \
@@ -138,6 +140,7 @@ ${BUILDDIR}/latex/book-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...calling pretext to compile PreTeXt document"
 	@${PRETEXT} \
 	  --component all \
+	  --config pretext.cfg \
 	  --format latex \
 	  --parameters \
 	    numbering.projects.level 2 \
