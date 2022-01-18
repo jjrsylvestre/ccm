@@ -256,6 +256,28 @@ So we'll start by analysing the two simplest possible quantity models built on t
 
 </identity>
 
+<figure xml:id="figure-deriv-tangent-v-scale">
+	<caption> Scaling a tangent line scales its slope. </caption>
+	<image width="50%">
+		<description>A tangent to a graph and a scaled tangent to a scaled graph.</description>
+		<latex-image><xi:include href="deriv.d/v-scaled-tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+<xref ref="pattern-deriv-h-scale" /> applies equally well when the vertical scale factor is negative.
+Thinking in terms of tangent lines,
+if we reflect vertically then the rise becomes negative while the run stays the same.
+</p>
+
+<figure xml:id="figure-deriv-tangent-v-reflect">
+	<caption> Reflecting a tangent line makes its slope negative. </caption>
+	<image width="50%">
+		<description>A tangent to a graph and a reflected tangent to a reflected graph.</description>
+		<latex-image><xi:include href="deriv.d/v-reflect-tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
 <example>
 	In <xref ref="example-deriv-parabolic-motion" />,
 	for <me> h(t) = -5 t^2 + 30 t </me>
@@ -386,6 +408,161 @@ then
 	with <me> \ddt{q_2} = \ddt{q_1} </me>.
 	</p>
 </identity>
+
+<figure xml:id="figure-deriv-tangent-v-shift">
+	<caption> Shifting a tangent line does not change its slope. </caption>
+	<image width="50%">
+		<description>A tangent to a graph and a shifted tangent to a shifted graph.</description>
+		<latex-image><xi:include href="deriv.d/v-shifted-tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+Finally,
+let's consider the effect of horizontal transformations on derivative.
+</p>
+
+<identity xml:id="pattern-deriv-h-shift">
+	<title>Derivative of a horizontally-shifted quantity function</title>
+
+	<statement><p>
+		If we shift a differentiable quantity function <m>p(t)</m> to create a new function <me> q(t) = p(t - c) </me>,
+		then the new function is also differentiable,
+		and the associated derivative function is also a shift: <me> q'(t) = p'(t - c) </me>.
+	</p></statement>
+
+	<proof><title>Justification idea</title>
+		<p>
+		Instead of carrying out a detailed calculation of <m>dq / dt</m>,
+		let's just argue in terms of the concept of the derivative.
+		If the value of <m>dq / dt</m> at a particular time <m>t = t_0</m> represents the rate of variation of <m>q</m> at that time,
+		but <me> q(t) = p(t - c) </me>,
+		then we are really just measuring the rate of variation of <m>p</m> at the <q>earlier</q> time <m>t = t_0 -c</m>.
+		</p>
+	</proof>
+
+</identity>
+
+<figure xml:id="figure-deriv-tangent-h-shift">
+	<caption> Shifting a tangent line does not change its slope. </caption>
+	<image width="50%">
+		<description>A tangent to a graph and a shifted tangent to a shifted graph.</description>
+		<latex-image><xi:include href="deriv.d/h-shifted-tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<identity xml:id="pattern-deriv-h-scale">
+	<title>Derivative of a horizontally-scaled quantity function</title>
+
+	<statement><p>
+		If we horizontally scale a differentiable quantity function <m>p(t)</m> to create a new function <me> q(t) = p(a t) </me>,
+		then the new function is also differentiable,
+		and the associated derivative function is also a scaling,
+		but both vertically and horizontally by the same factor: <me> q'(t) = a p'(a t) </me>.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		First let's examine the pattern of average rate calculations for the scaled quantity function:
+		<md>
+
+			<mrow> \slope{q}{t} \amp = \frac{q(t_2) - q(t_1)}{t_2 - t_1} </mrow>
+
+			<mrow> \amp = \frac{p(a t_2) - p(a t_1)}{t_2 - t_1} </mrow>
+
+		</md>.
+		This almost looks like an average rate calculation for <m>p</m>,
+		but the two times in the denominator don't match the times used in the numerator.
+		Let's fix that:
+		<md>
+
+			<mrow> \slope{q}{t} \amp = \frac{p(a t_2) - p(a t_1)}{t_2 - t_1} \cdot \frac{a}{a} </mrow>
+
+			<mrow> \amp = a \cdot \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1} </mrow>
+
+		</md>.
+		So an average rate calculation for <m>q</m> over domain <m>t_1 \le t \le t_2</m> is a scaling of an average rate calculation for <m>p</m> over domain <m>a t_1 \le t \le a t_2</m>.
+		</p>
+
+		<figure xml:id="figure-deriv-h-scaled-avg-rate">
+			<caption>
+				An average rate calculation on one graph stretched into an average rate calculation on another.
+				Note that in the case that <m>a \gt 1</m>
+				(which is what is pictured here),
+				then the graph of <m>q</m> is a <em>compression</em> of the graph of <m>p</m>.
+				And notice how this makes the slope of the secant line on the graph of <m>q</m> <em>steeper</em> than the slope of the secant line on the graph of <m>p</m>.
+			</caption>
+
+			<sidebyside widths="25% 50%">
+
+				<figure xml:id="figure-deriv-h-scaled-avg-rate-1">
+					<caption>
+						A secant line representing an average rate on a compressed graph.
+					</caption>
+					<image>
+						<description>
+							A secant line representing an average rate on a compressed graph.
+						</description>
+						<latex-image><xi:include href="deriv.d/h-scaled-avg-rate-1.tex" parse="text" /></latex-image>
+					</image>
+				</figure>
+
+				<figure xml:id="figure-deriv-h-scaled-avg-rate-2">
+					<caption>
+						A stretched secant line representing an average rate on the original graph.
+					</caption>
+					<image>
+						<description>
+							A stretched secant line representing an average rate on the original graph.
+						</description>
+						<latex-image><xi:include href="deriv.d/h-scaled-avg-rate-2.tex" parse="text" /></latex-image>
+					</image>
+				</figure>
+
+			</sidebyside>
+
+		</figure>
+
+		<p>
+		If we are considering a specific time <m>t = t^\ast</m>,
+		our calculations above say that <em>every</em> average rate calculation for <m>q</m> on a domain containing <m>t^\ast</m> can be converted into a scaled average rate calculation for <m>p</m> on a domain containing <m>a t^\ast</m>,
+		since <me> t_1 \le t^\ast \le t_2 \qquad \implies a t_1 \le a t^\ast \le a t_2 </me>.
+		Referring back to <xref ref="definition-avg-rate-derivative-value" />,
+		since <m>p</m> is assumed to be differentiable,
+		<me> p'(a t^\ast) \approx \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1} </me>,
+		where the approximation can be made arbitrarily close by taking <me> a \change{t} = a t_2 - a t_1 </me> sufficiently small.
+		If we take <m>\change{t}</m> small enough so that <m>a \change{t}</m> can be described as <q>sufficiently small</q> in this sense,
+		then
+		<md>
+			<mrow> p'(a t^\ast) \amp \approx \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1}  </mrow>
+			<mrow> a p'(a t^\ast) \amp \approx a \cdot \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1}  </mrow>
+			<mrow> a p'(a t^\ast) \amp \approx \slope{q}{t} </mrow>
+		</md>,
+		satisfying <xref ref="definition-avg-rate-derivative-value" /> for <m>q</m> at <m>t = t^\ast</m>.
+		That is,
+		<me> q'(t^\ast) = a p'(a t^\ast) </me>,
+		as desired.
+		</p>
+
+	</proof>
+
+</identity>
+
+<p>
+<xref ref="pattern-deriv-h-scale" /> applies equally well when the horizontal scale factor is negative.
+Thinking in terms of tangent lines,
+if we reflect horizontally then the rise becomes negative because the second point has become the first, and vice versa.
+Meanwhile, the <em>amount</em> of run stays the same.
+</p>
+
+<figure xml:id="figure-deriv-tangent-h-reflect">
+	<caption> Reflecting a tangent line makes its slope negative. </caption>
+	<image width="50%">
+		<description>A tangent to a graph and a reflected tangent to a reflected graph.</description>
+		<latex-image><xi:include href="deriv.d/h-reflect-tangent.tex" parse="text" /></latex-image>
+	</image>
+</figure>
 
 </subsection>
 
