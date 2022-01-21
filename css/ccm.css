@@ -75,7 +75,9 @@ dt {
 
 /* highlight patterns (renamed from identity) ************/
 /*     and facts                              ************/
+/*     and conventions                        ************/
 /* TODO change these colors to be different from definitions */
+.pretext-content article.convention.remark-like,
 .pretext-content article.identity.theorem-like,
 .pretext-content article.fact.theorem-like,
 .pretext-content article.theorem.theorem-like
@@ -85,6 +87,7 @@ dt {
   padding: 10px;
 }
 
+.pretext-content .convention.remark-like,
 .pretext-content .identity.theorem-like,
 .pretext-content .fact.theorem-like,
 .pretext-content .theorem.theorem-like
@@ -95,6 +98,7 @@ dt {
   background-color: #f4f4fe;
 }
 
+.pretext-content .convention.remark-like,
 .pretext-content .identity.theorem-like .heading,
 .pretext-content .fact.theorem-like .heading,
 .pretext-content .theorem.theorem-like .heading
@@ -102,12 +106,14 @@ dt {
     margin-top: 0;
 }
 
+.pretext-content .convention.remark-like + .sidebyside,
 .pretext-content .identity.theorem-like + .sidebyside,
 .pretext-content .fact.theorem-like + .sidebyside,
 .pretext-content .theorem.theorem-like + .sidebyside {
     margin-top: 1.25em;
 }
 
+.pretext-content section article.convention.remark-like .heading + p,
 .pretext-content section article.identity.theorem-like .heading + p,
 .pretext-content section article.fact.theorem-like .heading + p,
 .pretext-content section article.theorem.theorem-like .heading + p
@@ -116,6 +122,7 @@ dt {
 }
 
 /* undo Greg's L */
+.pretext-content article.convention.remark-like::after,
 .pretext-content article.identity.theorem-like::after,
 .pretext-content article.fact.theorem-like::after,
 .pretext-content article.theorem.theorem-like::after
@@ -129,6 +136,7 @@ dt {
 }
 
 /* undo italics for patterns */
+.pretext-content section article.convention.remark-like p,
 .pretext-content section article.identity.theorem-like p,
 .pretext-content section article.fact.theorem-like p,
 .pretext-content section article.identity.theorem-like li,
@@ -138,6 +146,7 @@ dt {
     font-style: normal;
 }
 /* but then also reverse font-style for li headings */
+.pretext-content section article.convention.remark-like li > .heading,
 .pretext-content section article.identity.theorem-like li > .heading,
 .pretext-content section article.fact.theorem-like li > .heading,
 .pretext-content section article.theorem.theorem-like li > .heading
