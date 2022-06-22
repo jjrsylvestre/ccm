@@ -15,6 +15,20 @@ respective owners.
 
 <!-- TODO go back through old exponential chapter and move lots of omitted stuff here -->
 
+<!-- TODO -->
+<!-- <example>
+	<title>Derivative of <m>\ln t</m></title>
+	<p>
+	We can now verify <xref ref="pattern-deriv-log" />:
+	we have
+	<md>
+		<mrow> \ddt{(\ln t)} \amp = \opddt \ccmint{1}{t}{\frac{1}{u}}{u} </mrow>
+		<mrow>\amp = \frac{1}{t} </mrow>
+	</md>,
+	using <xref ref="theorem-fund-thm" />.
+	</p>
+</example> -->
+
 <chapter xml:id="chapter-log" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Logarithmic growth</title>
 

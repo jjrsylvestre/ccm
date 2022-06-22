@@ -753,8 +753,8 @@ we can look to see if a number <m>A</m> that satisfies the conclusion of
 	It is possible for a function whose graph is not continuous to fail to be integrable.
 	However, if <m>r(t)</m> is indeed a <em>rate</em> function
 	(whether with continuous graph or not),
-	then it is the rate of variation function for some accumulation function,
-	and so must be integrable because in this case the <m>A</m> value in <xref ref="definition-integ-definite" /> will just be the total accumulation amount over that time domain of the quantity whose rate of variation <m>r(t)</m> models.
+	then it is the rate of change function for some accumulation function,
+	and so must be integrable because in this case the <m>A</m> value in <xref ref="definition-integ-definite" /> will just be the total accumulation amount over that time domain of the quantity whose rate of change <m>r(t)</m> models.
 </p></remark>
 
 <p>
@@ -862,7 +862,7 @@ eventually closely mimicking the area under the function's graph.
 
 	<p>
 	Even though the rate function is not constant or a step function,
-	we can still easily compute the total accumulation of the quantity whose rate of variation is modelled
+	we can still easily compute the total accumulation of the quantity whose rate of change is modelled
 	by simply calculating the total oriented area bounded between the graph and the horizontal axis.
 	</p>
 
@@ -924,7 +924,7 @@ you can define a function and then apply the <c>integrate</c> method to it.
 
 	<p>
 	In <xref ref="example-integ-squeezing-lower-upper" />,
-	we attempted to approximate the total accumulation over the domain <m>0 \le t \le 1</m> of some quantity whose rate of variation was modelled by the rate function <m>r(t) = t^2 + 1</m>.
+	we attempted to approximate the total accumulation over the domain <m>0 \le t \le 1</m> of some quantity whose rate of change was modelled by the rate function <m>r(t) = t^2 + 1</m>.
 	</p>
 
 	<p>
@@ -1058,7 +1058,7 @@ mathematically.
 	<xref ref="convention-integ-definite-props-zero-length" text="type-local">Property</xref>
 	of <xref ref="convention-integ-definite-props" />
 	should make intuitive sense,
-	since if no time is allowed to pass then the quantity whose rate of variance is described by <m>r(t)</m> cannot accumulate or decrease.
+	since if no time is allowed to pass then the quantity whose rate of change is described by <m>r(t)</m> cannot accumulate or decrease.
 	</p>
 
 	<p>
@@ -1092,6 +1092,9 @@ mathematically.
 <section xml:id="section-integ-recover-accumulation">
 <title>Recovering an accumulation function from a rate function</title>
 
+<subsection>
+<title>The definite integral as an accumulation function</title>
+
 <p>
 Given an integrable rate function for some quantity,
 the definite integral allows us to create a function that could describe the accumulation of that quantity at any point in time in the domain over which the rate function is integrable.
@@ -1101,7 +1104,7 @@ the definite integral allows us to create a function that could describe the acc
 	<title>Accumulation of pumped air as a function</title>
 	<p>
 	Consider once again the <em>pump-leak-pump</em> pattern in <xref ref="example-step-air-pump-with-leak" />.
-	Let <m>r(t)</m> represent the rate of variation of the air in the raft
+	Let <m>r(t)</m> represent the rate of change of the air in the raft
 	(graphed in <xref ref="figure-step-air-pump-leakage" />).
 	Let <m>A_0(t)</m> represent the volume of air accumulated in the raft from fixed starting time <m>t = 0</m> to variable ending time <m>t</m>,
 	with <m>t</m> measured in minutes and <m>A_0(t)</m> measured in cubic metres.
@@ -1176,7 +1179,7 @@ which is not so easy if the upper bound of integration is a variable.
 Luckily Sage can also handle this for us.
 </p>
 
-<example>
+<example xml:id="example-integ-sage-accumulation-function">
 	<title>Using Sage to compute an accumulation function formula</title>
 	<p>
 	Let's return once again to the example of some quantity whose variation is modelled by the rate function <m>r(t) = t^2 + 1</m>,
@@ -1338,7 +1341,375 @@ though in practice we will not often return to <q>first principles</q> to carry 
 
 </example>
 
-<!-- TODO new subsection "Accumulation versus quantity" from main branch -->
+</subsection>
+
+<subsection>
+<title>Accumulation versus quantity</title>
+
+<p>
+However, accumulation is not the whole story.
+To know the total quantity at a given time,
+we need to know the <q>initial amount</q> as well:
+<me> \text{final amount} = \text{initial amount} + \text{accumulated amount} </me>.
+</p>
+
+<identity xml:id="pattern-integ-definite-integ-to-quantity-function">
+	<title>Recovering a quantity function using a definite integral</title>
+	<p>
+	Suppose <m>q(t)</m> is a varying quantity,
+	and assume that the associated rate function <m>r(t)</m> is integrable over the domain <m>t_0 \le t \le t_1</m>.
+	If the <q>initial</q> quantity <m>q(t_0)</m> is known,
+	then <me> q(t) = q(t_0) + A_{t_0}(t) = q(t_0) + \ccmint{t_0}{t}{r(u)}{u} </me>
+	is provides a formula for the quantity function over the domain <m>t_0 \le t \le t_1</m>.
+	</p>
+</identity>
+
+<remark><p>
+	In fact,
+	it is not necessary that the <q>initial</q> quantity is taken to mean the left endpoint of the domain.
+	That is,
+	<xref ref="pattern-integ-definite-integ-to-quantity-function" /> can be broadened in the following way.
+	If <m>r(t)</m> is integrable over the domain <m>a \le t \le b</m> and <m>t_0</m> is any choice of point in that domain at which the <q>initial</q> value <m>q(t_0)</m> is known,
+	then the formula for <m>q(t)</m> in <xref ref="pattern-integ-definite-integ-to-quantity-function" /> is still valid over the whole domain <m>a \le t \le b</m>,
+	not just on <m>t_0 \le t \le b</m>.
+	For those <m>t</m> in <m>a \le t \lt t_0</m>,
+	we just use
+	<xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref>
+	from <xref ref="convention-integ-definite-props" />
+	when interpreting <me> \ccmint{t_0}{t}{r(u)}{u} </me>
+	so that in this case
+	<me> q(t) = q(t_0) + \ccmint{t_0}{t}{r(u)}{u} = q(t_0) - \ccmint{t}{t_0}{r(u)}{u} </me>
+	means <em>the <q>initial</q> quantity minus some of the amount that accumulated before that <q>initial</q> time</em>.
+</p></remark>
+
+<example>
+	<title>Combining initial amount with an accumulation function</title>
+	<p>
+	In <xref ref="example-integ-sage-accumulation-function" />,
+	we had Sage calculate an accumulation function for the rate function <m>r(t) = t^2 + 1</m>:
+	<me> A_0(t) = \ccmint{0}{t}{u^2 + 1}{u} = \frac{t^3}{3} + t </me>.
+	This formula how much <em>extra</em> quantity will have accumulated between initial time <m>0</m> and an end time <m>t</m>.
+	Suppose we have a varying quantity <m>q(t)</m> and we know both that the associated rate function is <m>r(t) = t^2 + 1</m> and that the initial quantity is <m>q(0) = 4</m>,
+	then we can combine these to determine the final quantity:
+	<me> q(t) = q(0) + A_0(t) = 4 + \frac{t^3}{3} + t </me>.
+	</p>
+</example>
+
+<example xml:id="example-integ-constant-rate-to-linear">
+	<title>Constant rate implies linear quantity model</title>
+
+	<p>
+	We can combine <xref ref="pattern-integ-definite-integ-to-quantity-function" />
+	with <xref ref="pattern-integ-definite-props-constant" text="type-local">Property</xref>
+	of <xref ref="pattern-integ-definite-props" />
+	in the case of a constant rate function to recover <xref ref="pattern-vars-constant-rate" />.
+	</p>
+
+	<p>
+	Suppose <m>q(t)</m> is a quantity that is varying at a constant rate <m>r(t) = c</m>.
+	Using <xref ref="pattern-integ-definite-props-constant" text="type-local">Property</xref>
+	of <xref ref="pattern-integ-definite-props" />,
+	we can calculate the accumulation function <m>A_0(t)</m> as
+	<md>
+		<mrow> A_0(t) \amp = \ccmint{0}{t}{r(u)}{u} </mrow>
+		<mrow> \amp = \ccmint{0}{t}{c}{u} </mrow>
+		<mrow> \amp = c \cdot (t - 0) </mrow>
+		<mrow> \amp = c t </mrow>
+	</md>.
+	Combining this accumulation function with an initial value <m>q_0 = q(0)</m>,
+	<xref ref="pattern-integ-definite-integ-to-quantity-function" /> gives us
+	<me> q(t) = q(0) + A_0(t) = q_0 + c t </me>,
+	exactly as in <xref ref="pattern-vars-constant-rate" />.
+	</p>
+
+</example>
+
+</subsection>
+
+</section>
+
+<section xml:id="section-integ-poly-accumulation">
+<title>Accumulation for polynomial rate of change</title>
+
+<subsection xml:id="section-integ-constant-var">
+<title>Constant rate of change</title>
+
+<p>
+The simplest type of polynomial is a constant function,
+which can be considered a degree-0 polynomial.
+We have already seen in <xref ref="pattern-vars-constant-rate" /> that a constant rate of change always corresponds to a linear quantity function.
+</p>
+
+<example xml:id="example-integ-constant-accel">
+<title>Constant acceleration</title>
+
+	<p>
+	Change in the velocity of an objection in motion is called <term>acceleration</term>.
+	A small object dropped over the surface of an airless planet will experience constant acceleration toward the planet's surface.
+	We usually denote this constant acceleration as <m>g</m>,
+	since its cause is gravity.
+	If we measure velocity in metres per second,
+	then variation of velocity measures how many metres per second change we have per second,
+	so that <m>g</m> is measured in metres per second per second
+	(or <q>metres per second-squared</q>).
+	</p>
+
+	<p>
+	If the object is dropped with initial velocity
+	<quantity>
+		<mag>0</mag>
+		<unit base="metre" />
+		<per  base="second" />
+	</quantity>,
+	then we can use either <xref ref="pattern-integ-definite-integ-to-quantity-function" />
+	(just as in <xref ref="example-integ-constant-rate-to-linear" />)
+	or <xref ref="pattern-vars-constant-rate" />
+	to compute its velocity at any point in time after that,
+	up until the time that the object hits the surface of the planet:
+	<me> v(t) = 0 + \ccmint{0}{t}{g}{u} = g t </me>.
+	</p>
+
+</example>
+
+<identity xml:id="pattern-integ-constant-rate">
+	<title>Constant rate of change</title>
+	<p>
+	If a quantity experiences a constant rate of change <m>r(t) = c</m>
+	then the quantity itself can be modelled by a linear function
+	<me> q(t) = c t + q_0 </me>
+	where <m>q_0 = q(0)</m> is the initial amount.
+	</p>
+</identity>
+
+<!--
+
+<p> <xref ref="pattern-poly-constant-rate" /> can be interpreted in reverse as well. </p>
+
+<identity xml:id="pattern-poly-linear-quantity">
+	<title>Linear quantity model</title>
+	<p>
+	If a quantity is modelled by a linear function
+	<me> q(t) = m t + b </me>,
+	then the rate of change is constant,
+	equal to the slope of the linear function's graph:
+	<me> r(t) = m </me>.
+	</p>
+</identity>
+
+<p>
+While <xref ref="pattern-poly-constant-rate" /> is just a restatement of
+<xref ref="pattern-vars-constant-rate" />,
+<xref ref="pattern-poly-linear-quantity" /> is new,
+though it should have been expected.
+We will verify this new statement mathematically
+in <xref ref="chapter-deriv" />.
+</p>
+
+-->
+
+<p>Notice that if we compute the derivative of
+<me> q(t) = c t + q_0 </me>
+we obtain <m>q'(t) = c</m>.
+Intuitively, this makes sense: if we begin with a rate function,
+combine that with an initial quantity to recover a quantity model,
+and then differentiate that quantity model,
+we arrive back at the same rate-of-change function that we started with.
+In <xref ref="chapter-fund" />,
+we will mathematically verify that this is always the case,
+at least for continuous rate functions.
+</p>
+
+</subsection>
+
+<subsection xml:id="section-integ-linear-var">
+<title>Linear rate of change</title>
+
+<p> Next we consider a linear rate of change. </p>
+
+<example xml:id="example-integ-linear-velo">
+	<title>Linear velocity</title>
+
+	<p>
+	In <xref ref="example-integ-constant-accel" />,
+	we saw that a constant acceleration model led to a linear velocity model.
+	But velocity itself is the rate of change of position.
+	So we can integrate velocity to obtain a model of the accumulation of distance from the starting position,
+	otherwise known as <term>displacement</term>.
+	</p>
+
+	<p>
+	To simplify things, let us label the starting position as <q>position 0</q> so that displacement is the same as position.
+	Our rate function is <m>v(t) = g t</m> over a time domain beginning at <m>t = 0</m> and ending at the variable time <m>t = z</m>.
+	Since our graph is linear,
+	we can easily compute the accumulation for this rate function as an area under the graph,
+	similarly to <xref ref="example-integ-accumulation-from-area" />.
+	</p>
+
+	<figure xml:id="figure-integ-linear-accumulation-from-area">
+		<caption> Accumulation of displacement as net oriented area under a velocity graph. </caption>
+		<image width="60%">
+			<description>Graph of a velocity function with bounded oriented area as accumulation of displacement.</description>
+			<latex-image><xi:include href="integ.d/linear-accumulation-from-graph.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	The triangle in <xref ref="figure-integ-linear-accumulation-from-area" /> has height <m>v(t)</m> and base length <m>t</m>.
+	So, using the formula for area of a triangle,
+	we obtain
+	<me> \ccmint{0}{t}{v(u)}{u} = \frac{v(t) \cdot t}{2} = \frac{g t^2}{2} </me>.
+	</p>
+
+	<p> Let's ask Sage to confirm this for us. </p>
+
+	<sage>
+		<input>
+			var('g,t,u')
+			v(u) = g * u
+			v.integrate(u, 0, t)
+		</input>
+		<output> 1/2*g*t^2 </output>
+	</sage>
+
+	<p> So it seems that a linear rate function leads to parabolic growth/decay. </p>
+
+</example>
+
+<p>
+We can combine the pattern of the result of <xref ref="example-integ-linear-velo" />
+with <xref ref="pattern-integ-constant-rate" /> to deal with all linear rate functions,
+since <xref ref="pattern-integ-definite-props-additive" text="type-local">Property</xref>
+of <xref ref="pattern-integ-definite-props" /> says that
+<me> \ccmint{0}{t}{ m u + b }{u} = \ccmint{0}{t}{ m u }{u} + \ccmint{0}{t}{ b }{u} </me>.
+</p>
+
+<identity xml:id="pattern-integ-linear-rate">
+	<title>Linear rate of change</title>
+	<p>
+	If a quantity experiences a linear rate of change in the form <m>r(t) = m t + b</m>
+	then the quantity itself can be modelled by the quadratic function
+	<me> q(t) = \frac{m}{2} t^2 + b t + q_0 </me>
+	where <m>q_0 = q(0)</m> is the initial amount.
+	</p>
+</identity>
+
+<p>
+Once again,
+notice what happens if we differentiate the quantity function from <xref ref="pattern-integ-linear-rate" /> using <xref ref="pattern-poly-deriv-power" />:
+<me> q'(t) = \frac{m}{2} \cdot 2 t + b + 0 = m t + b </me>,
+our original rate function is recovered.
+So again we observe that an <em>integration-then-differentiation</em> combination is circular.
+</p>
+
+<p>
+Here is an example of combining <xref ref="pattern-integ-constant-rate" /> with <xref ref="pattern-integ-linear-rate" /> in the context of an object in motion experiencing constant acceleration.
+</p>
+
+<example xml:id="example-integ-parabolic-motion">
+	<title>Constant acceleration leads to parabolic motion</title>
+
+	<p>
+	In <xref ref="example-deriv-parabolic-motion" /> and <xref ref="example-poly-parabolic-motion" /> we studied a parabolic position function.
+	Here we will recover those examples when starting with the assumption of an object in motion undergoing constant acceleration.
+	</p>
+
+	<p>
+	Suppose an object is thrown upwards from the surface of an airless planet with an initial velocity of <m>v_0</m> metres per second.
+	We would like to model the height of the object above the planet's surface as a function in time.
+	We start as before with the acceleration function <m>a(t)</m>.
+	As the object is initially moving <em>upwards</em> and the gravity of the planet pulls the object <em>downwards</em>,
+	we take the constant acceleration to be a negative function:
+	<me> a(t) = - g </me>, where <m>g</m> represents the acceleration due to gravity in metres per second per second.
+	Since acceleration is the rate of change of velocity,
+	<xref ref="pattern-integ-constant-rate" />
+	tells us that the velocity of the object can be modelled as
+	<me> v(t) = -g t + v_0 </me>.
+	And velocity is the rate of change of position,
+	so from <xref ref="pattern-integ-constant-rate" />,
+	the position of the object (as a height above the surface) can be modelled as
+	<me> h(t) = -\frac{g}{2} t^2 + v_0 t </me>
+	if we take the initial position to be <m>h(0) = 0</m> at the surface of the planet.
+	</p>
+
+</example>
+
+</subsection>
+
+<subsection xml:id="section-integ-higher-degree-var">
+<title>Accumulation for polynomial rate of change in general</title>
+
+<p>
+A pattern is beginning to emerge:
+<ul>
+	<li> a constant rate model leads to a linear quantity model </li>
+	<li> a linear rate model leads to a quadratic quantity model. </li>
+</ul>
+We might guess that a quadratic rate model should lead to a cubic quantity model.
+Let's ask Sage.
+</p>
+
+<sage>
+	<input>
+		var('t')
+		r(x) = x^2
+		r.integrate(x, 0, t)
+	</input>
+	<output> 1/3*t^3 </output>
+</sage>
+
+<p>
+It's true!
+With some work, this could be verified using lower and upper Riemann sums.
+But we might have also guessed at this pattern from our observations so far that an <em>integration-then-differentiation</em> process appears to be circular.
+We know from <xref ref="pattern-poly-deriv-power" /> that a quadratic is the derivative of a cubic,
+and so to start with a quadratic, integrate, differentiate that result, and arrive back at our original quadratic,
+the intermediate integration result in that chain of calculations must be cubic.
+</p>
+
+<p>
+Because of <xref ref="pattern-integ-definite-props-homogeneity" text="type-local">Property</xref>
+and <xref ref="pattern-integ-definite-props-additive" text="type-local">Property</xref>
+of <xref ref="pattern-integ-definite-props" />,
+we only need a pattern for rate functions that are a power of <m>t</m> in order to be able to handle any polynomial rate function,
+and that pattern appears to be as follows.
+</p>
+
+<identity xml:id="pattern-integ-int-power">
+	<title>Integral of a positive power of <m>t</m></title>
+	<p>
+	For every positive, real value of exponent <m>m</m>,
+	<me> \ccmint{0}{t}{u^m}{u} = \frac{t^{m + 1}}{m + 1} </me>
+	for <m>t \ge 0 </m>.
+	</p>
+</identity>
+
+<remark><p>
+	Once we confirm the circular nature of an <em>integrate-then-differentiate</em> computation in general, we will extend <xref ref="pattern-integ-int-power" /> to negative exponents as well.
+</p></remark>
+
+<p>
+We can also combine the properties of the definite integral in <xref ref="pattern-integ-definite-props" /> with <xref ref="pattern-integ-int-power" /> to obtain a formula for an integral of a polynomial.
+</p>
+
+<identity xml:id="pattern-integ-poly-quantity-from-rate">
+	<title>Integral of a polynomial</title>
+	<p>
+	For rate function <me> r(t) = r_0 + r_1 t + r_2 t^2 + \dotsb + r_m t^m </me>,
+	we have
+	<me> \ccmint{0}{t}{r(u)}{u} = r_0 t + \frac{r_1}{2} t^2 + \frac{r_2}{3} t^3 + \dotsb + \frac{r_{m - 1}}{m} t^m + \frac{r_m}{m + 1} t^{m + 1} </me>.
+	</p>
+</identity>
+
+<example xml:id="example-integ-poly-quantity-from-rate">
+	<title>Obtaining a quantity model from a polynomial rate function</title>
+	<p>
+	For rate function <me> r(t) = 3 t^5 - 37 t^4 + 22 t^3 + 7 t^2 - t + 56 </me>,
+	the associated quantity model is <me> q(t) = 3 \cdot \frac{t^6}{6} - 37 \cdot \frac{t^5}{5} + 22 \cdot \frac{t^4}{4} + 7 \cdot \frac{t^3}{3} - \frac{t^2}{2} + 56 t + q_0 </me>,
+	where <m>q_0 = q(0)</m> is the initial quantity.
+	</p>
+</example>
+
+</subsection>
 
 </section>
 

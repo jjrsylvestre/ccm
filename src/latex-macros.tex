@@ -32,7 +32,10 @@
 % \newcommand{\ccmdblint}[3]{\iint_{#1} #2 \intspace d{#3}}% spaced out double integral
 % \newcommand{\ccmtrpint}[3]{\iiint_{#1} #2 \intspace d{#3}}% spaced out triple integral
 
-\newcommand{\avg}[1]{{#1}_{\mathrm{avg}}}
+\newcommand{\rmsubscript}[2]{{#1}_{\mathrm{#2}}}
+\newcommand{\avg}[1]{\rmsubscript{#1}{avg}}
+\newcommand{\submin}[1]{\rmsubscript{#1}{min}}
+\newcommand{\submax}[1]{\rmsubscript{#1}{max}}
 
 \newcommand{\bbrac}[1]{\bigl(#1\bigr)}% slightly larger enclosing brackets
 

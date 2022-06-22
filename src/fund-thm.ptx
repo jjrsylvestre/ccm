@@ -13,18 +13,1078 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
-<chapter xml:id="chapter-fund-thm" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Average value and the Fundamental Theorem</title>
-
 <!--
 	TODO there are some things that could be transferred into here
 	     currently commented out in avg-rate.ptx
 -->
 
-<section xml:id="section-fund-thm">
-<title>TODO</title>
 
-<p> TODO </p>
+<chapter xml:id="chapter-fund-thm" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Average value and the Fundamental Theorem</title>
+
+<section xml:id="section-fund-thm-avg-value">
+<title>Average value of a function</title>
+
+<p>
+Given a quantity function <m>q(t)</m>,
+we have defined <term>average rate of change</term> over a time domain <m>t_1 \le t \le t_2</m> as
+<me> \avg{r} = \frac{\text{accumulation}}{\text{duration}} = \slope{q}{t} </me>,
+where <md><mrow> \change{q} \amp = q(t_2) - q(t_1) \amp \change{t} \amp = t_2 - t_1 </mrow></md>.
+However,
+if <m>r(t)</m> is the rate function that describes the variation in <m>q(t)</m>,
+then a definite integral can also be used to measure accumulation over <m>t_1 \le t \le t_2</m>:
+<me> \text{accumulation} = \ccmint{t_1}{t_2}{r(t)}{t} </me>.
+Substituting this into the average rate formula,
+we have
+<me> \avg{r} = \frac{\text{accumulation}}{\text{duration}} = \frac{1}{\change{t}} \ccmint{t_1}{t_2}{r(t)}{t} </me>.
+This formula is interesting in that it relates average rate <m>\avg{r}</m> directly to the rate function <m>r(t)</m>.
+</p>
+
+<p>
+What if we applied this relationship to a quantity function?
+</p>
+
+<example xml:id="example-fund-thm-avg-temp">
+	<title>Average temperature</title>
+
+	<p>
+	Suppose you have modelled the outdoor temperature in some location over a twenty-four hour period as
+	<md><mrow> T(t) \amp = \frac{t^4 - 48 t^3 + 576 t^2 + 14000}{1400} \amp 0 \amp \le t \le 24 </mrow></md>,
+	where <m>T(t)</m> is expressed in degrees Celsius,
+	<m>t</m> is time in hours.
+	</p>
+
+	<figure xml:id="figure-fund-thm-daily-temp">
+		<caption> A temperature graph over twenty-four hours. </caption>
+		<image width="50%">
+			<description>A temperature graph over twenty-four hours.</description>
+			<latex-image><xi:include href="fund-thm.d/temp.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	What was the average temperature over that period?
+	We could answer this by imagining that <m>T(t)</m> is not a quantity function but a rate function.
+	Instead of being expressed in degrees,
+	we could think of <m>T(t)</m> as being expressed in <em>degree-hours per hour</em>.
+	(With unit analysis,
+	we see that this made-up unit is really just degrees,
+	as <em>hours per hour</em> <q>cancels</q> out.)
+	Then we could calculate how many <em>degree-hours</em> accumulated over this period,
+	using <xref ref="pattern-integ-poly-quantity-from-rate" /> to assist with the calculation.
+	<md>
+
+		<mrow>
+			\ccmint{0}{24}{T(t)}{t}
+			\amp = \ccmint{0}{24}{\frac{t^4 - 48 t^3 + 576 t^2 + 14000}{1400}}{t}
+		</mrow>
+
+		<mrow> \amp = \ccmint{0}{24}{\frac{t^4}{1400} - \frac{6 t^3}{175} + \frac{72 t^2}{175} + 10}{t} </mrow>
+
+		<mrow> \amp = \frac{{24}^5}{5 \cdot 1400} - \frac{6 \cdot {24}^4}{4 \cdot 175} + \frac{72 {24}^3}{3 \cdot 175} + 10 \cdot 24 </mrow>
+
+		<mrow> \amp = \frac{375888}{875} </mrow>
+
+	</md>
+	To get the average <q>rate</q>,
+	we divide by the duration:
+	<md>
+		<mrow> \avg{T} \amp = \frac{\text{accumulation}}{\text{duration}} </mrow>
+		<mrow> \amp = \frac{375888/875}{24} </mrow>
+		<mrow> \amp = 15662/875 </mrow>
+		<mrow> \amp \approx 17.9 </mrow>
+	</md>.
+	But this isn't really a rate,
+	we were only pretending it was a rate in the made-up units of <em>degree-hours per hour</em>.
+	Ignoring the <em>hours-per-hour</em>,
+	it seems that the average temperature over that twenty-four hour period was approximately
+	<quantity><mag>17.9</mag><unit base="celsius" /></quantity>.
+	</p>
+
+	<figure xml:id="figure-fund-thm-avg-daily-temp">
+		<caption> Average temperature over a twenty-four-hour period. </caption>
+		<image width="50%">
+			<description>Average temperature over a twenty-four-hour period.</description>
+			<latex-image><xi:include href="fund-thm.d/temp-avg.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+<remark>
+
+	<p>
+	In <xref ref="example-fund-thm-avg-temp" />,
+	it was correct to say that when we calculated <me> \ccmint{0}{24}{T(t)}{t} </me>,
+	we were calculating a quantity in units of <em>degree-hours</em>.
+	Consider a (regular) Riemann sum to approximate that definite integral:
+	<md>
+		<mrow> \ccmint{0}{24}{T(t)}{t} \amp \approx \sum_{k=1}^n T(t_k^\ast) \change{t} </mrow>
+		<mrow> \amp = T(t_1^\ast) \change{t} + T(t_2^\ast) \change{t} + \dotsb + T(t_n^\ast) \change{t} </mrow>
+	</md>.
+	In each term of the sum,
+	we are multiplying a temperature <m>T(t_k^\ast)</m> in degrees against a small time duration <m>\change{t}</m> in hours,
+	so the product <m>T(t_k^\ast) \change{t}</m> is in units of <em>degree-hours</em>.
+	</p>
+
+	<p>
+	And then when we calculated <m>\avg{T}</m>,
+	we divided our accumulation in <em>degree-hours</em> by the full duration of <quantity><mag>24</mag><unit base="hour" /></quantity>,
+	so that this quotient ended up in units of degrees Celsius.
+	</p>
+
+</remark>
+
+<definition xml:id="definition-fund-thm-function-average">
+	<title>Average value of a function</title>
+	<p>
+	Given integrable function <m>f(t)</m> over domain <m>a \le t \le b</m>,
+	we define the <term>average value of <m>f</m> on that domain</term> to be
+	<me> \avg{f} = \frac{1}{b - a} \ccmint{a}{b}{f(t)}{t} </me>.
+	</p>
+</definition>
+
+<p>
+Graphically, if we think of the definite integral in this definition as an area,
+then we are dividing that area by the full width <m>b - a</m> to obtain an average height:
+<me> \text{area} = \text{height} \times \text{width} \qquad\implies\qquad \text{height} = \frac{\text{area}}{\text{width}} </me>.
+</p>
+
+<figure xml:id="figure-fund-thm-avg-daily-temp-area">
+	<caption> Average temperature over a twenty-four-hour period achieves the same total <q>accumulation</q> of <em>degree-hours</em> as measured by the integral. </caption>
+	<image width="60%">
+		<description> Graph demonstrating that Average temperature over a twenty-four-hour period achieves the same total accumulation of degree-hours as measured by the integral. </description>
+		<latex-image><xi:include href="fund-thm.d/temp-avg-area.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+That is, <alert>the average value of a function is the constant height that creates the same area amount over the given time period as the original function</alert>.
+</p>
+
+<example xml:id="example-fund-thm-cos-avg">
+	<title>Calculating average value of a function</title>
+	<p>
+	What is the average value of the parabola <m>p(t) = t (2-t)</m> over the domain <m>0 \le t \le 2</m>?
+	Using <xref ref="pattern-integ-poly-quantity-from-rate" />,
+	we have
+	<md>
+		<mrow>
+			\ccmint{0}{2}{t (2 - t}{t}
+			\amp = \ccmint{0}{2}{2 t - t^2}{t}
+		</mrow>
+		<mrow> \amp = 2 \cdot \frac{2^2}{2} - {2^3}{3} </mrow>
+		<mrow> \amp = \frac{4}{3} </mrow>
+	</md>.
+	So, using <xref ref="definition-fund-thm-function-average" />,
+	over <m>0 \le t \le 2</m> we have
+	<md>
+		<mrow> \avg{p} \amp = \frac{1}{2 - 0} \ccmint{0}{2}{p(t)}{t} </mrow>
+		<mrow> \amp = \frac{1}{2} \cdot \frac{4}{3} </mrow>
+		<mrow> \amp = \frac{2}{3} </mrow>
+	</md>.
+	</p>
+
+	<!-- TODO graph -->
+
+</example>
+
+<p>
+Finally, let's compare this integral-based notion of <term>average value</term> with our previous notion:
+given values <m>x_1,x_2,\dotsc,x_n</m>,
+the <term>average</term> of these values is defined to be
+<me> \frac{x_1 + x_2 + \dotsb + x_n}{n} </me>.
+</p>
+
+<example xml:id="example-fund-thm-compare-int-avg-with-discrete-avg">
+	<title>Computing average temperature from temperature samples</title>
+
+	<p>
+	Let's return to the situation of <xref ref="example-fund-thm-avg-temp" />,
+	where <m>T(t)</m> represents the temperature in some outdoor location at time <m>t</m> over a twenty-four hour period,
+	but this time suppose we haven't modelled <m>T(t)</m> with a formula.
+	We could approximate <m>\avg{T}</m> by making temperature measurements throughout the day,
+	perhaps at the end of every hour:
+	<md>
+		<mrow>
+			T_1 \amp = T(1) \amp
+			T_2 \amp = T(2) \amp
+			\amp \cdots \amp
+			T_{24} \amp = T(24)
+		</mrow>
+	</md>.
+	Then we would calculate
+	<me> \avg{T} \approx \frac{T_1 + T_2 + \dotsb + T_{24}}{24} </me>.
+	To get a better approximation of the average,
+	we might connect a digital thermometer to a computer and record temperatures every minute,
+	so that
+	<me> \avg{T} \approx \frac{T_1 + T_2 + \dotsb + T_{1440}}{1440} </me>,
+	where now <m>T_k = T(k/60)</m> because the <m>t</m> in <m>T(t)</m> is measured in hours.
+	More generally,
+	if we were to record the temperature at regular intervals,
+	<m>n</m> times during the day,
+	we would calculate
+	<md><mrow xml:id="equation-fund-thm-sampled-avg-temp" tag="star">
+		\avg{T} \approx \frac{T_1 + T_2 + \dotsb + T_n}{n}
+	</mrow></md>.
+	</p>
+
+	<p>
+	Adding things up over shorter time intervals to get a better approximation is starting to sound like a Riemann sum.
+	If we were to create a (regular) Riemann sum for function <m>T(t)</m> over domain <m>0 \le t \le 24</m>,
+	we would start with
+	<me> \change{t} = \frac{24 - 0}{n} = \frac{24}{n} </me>.
+	Let's substitute <me> n = \frac{24}{\change{t}} </me> into <xref ref="equation-fund-thm-sampled-avg-temp" />:
+	<md>
+		<mrow> \avg{T} \amp \approx \frac{T_1 + T_2 + \dotsb + T_n}{24/\change{t}} </mrow>
+		<mrow> \amp = \frac{\change{t}}{24} (T_1 + T_2 + \dotsb + T_n) </mrow>
+		<mrow> \amp = \frac{1}{24} (T_1 \change{t} + T_2 \change{t} + \dotsb + T_n \change{t}) </mrow>
+		<mrow> \amp = \frac{1}{24} \sum_{k = 1}^n T_k \change{t} </mrow>
+	</md>.
+	As the temperature readings <m>T_k</m> are essentially samples of the temperature function,
+	<me> T_k = T(t_k^\ast) </me>,
+	where the sample points <m>t_k^\ast</m> might be at the end of each time interval between readings,
+	the above summation is a right regular Riemann sum!
+	This means we can turn the approximation into an equality by replacing the Riemann sum with an integral:
+	<me>
+		\avg{T} \approx \frac{1}{24} \sum_{k = 1}^n T(t_k^\ast) \change{t}
+		\qquad\implies\qquad
+		\avg{T} = \frac{1}{24} \ccmint{0}{24}{T(t)}{t}
+	</me>.
+	Since <m>24</m> is our total time duration,
+	this formula for <m>\avg{T}</m> matches exactly with <xref ref="definition-fund-thm-function-average" />.
+	</p>
+
+</example>
+
+<remark><p>
+	The analysis strategy in <xref ref="example-fund-thm-compare-int-avg-with-discrete-avg" /> is a powerful method in engineering and the sciences:
+	if you can interpret an approximation to some value as a Riemann sum,
+	then you can calculate that value exactly with an integral.
+</p></remark>
+
+</section>
+
+<section>
+<title>The Mean Value Theorem</title>
+
+<p>
+The Mean Value Theorem says something inherently intuitive:
+given an average value <m>\avg{q}</m> for some quantity <m>q(t)</m> that is varying,
+it's not possible for that quantity to have remained above average for the entire period,
+nor to have remained below average for the entire period.
+And if the function is continuous,
+that means it must have crossed through its average value at some point.
+</p>
+
+<theorem xml:id="theorem-fund-thm-mean-value">
+	<title>Mean Value Theorem</title>
+
+	<statement><p>
+		If <m>f(t)</m> is continuous on <m>a \le t \le b</m>,
+		then there is at least one specific time <m>t = c</m> in that domain where <m>f(c) = \avg{f}</m>.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		Let <m>\submin{t}</m> be a time in <m>a \le t \le b</m> where <m>f</m> achieves its least value,
+		and let <m>\submax{t}</m> be a time in <m>a \le t \le b</m> where <m>f</m> achieves its greatest value.
+		Then over our domain, the area under the horizontal line <m>y = f(\submin{t})</m> must be less than the area under the graph of <m>f(t)</m>.
+		In other words,
+		if we think of <m>f(t)</m> as a rate function,
+		the accumulation at the slowest rate must be less than the true accumulation.
+		Similarly, the area under the horizontal line <m>y = f(\submax{t})</m> must be greater than the area under the graph of <m>f(t)</m>.
+		(Or, the accumulation at the fastest rate must be greater than the true accumulation.)
+		</p>
+
+		<figure xml:id="figure-fund-thm-min-max-areas">
+			<caption>Comparing accumulation at the minimum and maximum rates.</caption>
+
+			<sidebyside widths="45% 45%">
+
+				<figure>
+					<caption> The total accumulation is always greater than accumulation at the lowest rate. </caption>
+					<image>
+						<description> Graph demonstrating that total accumulation is always greater than accumulation at the lowest rate. </description>
+						<latex-image><xi:include href="fund-thm.d/min-area-below.tex" parse="text" /></latex-image>
+					</image>
+				</figure>
+
+				<figure>
+					<caption> The total accumulation is always less than accumulation at the highest rate. </caption>
+					<image>
+						<description> Graph demonstrating that total accumulation is always less than accumulation at the highest rate. </description>
+						<latex-image><xi:include href="fund-thm.d/max-area-below.tex" parse="text" /></latex-image>
+					</image>
+				</figure>
+
+			</sidebyside>
+
+		</figure>
+
+		<p>
+		Putting these together,
+		we have
+		<md alignment="gather">
+			<mrow> f(\submin{t}) \cdot (b - a) \le \ccmint{a}{b}{f(t)}{t} \le f(\submax{t}) \cdot (b - a) </mrow>
+			<mrow> f(\submin{t}) \le \frac{1}{b - a} \ccmint{a}{b}{f(t)}{t} \le f(\submax{t}) </mrow>
+			<mrow> f(\submin{t}) \le \avg{f} \le f(\submax{t}) </mrow>
+		</md>
+		</p>
+
+		<p>
+		Since <m>f(t)</m> is assumed to be continuous,
+		it is not possible for its values to have <q>jumped</q> over <m>y = \avg{f}</m>
+		on its way from <m>y = f(\submin{t})</m> to <m>y = f(\submax{t})</m>
+		(or vice versa, in the case that <m>\submax{t}</m> is earlier than <m>\submin{t}</m>).
+		That is, we may conclude that there is some time <m>t = c</m> between <m>t = \submin{t}</m> and <m>t = \submax{t}</m> where <m>f(c) = \avg{f}</m>.
+		</p>
+
+		<figure>
+			<caption> A continuous function must achieve its average value. </caption>
+			<image width="66%">
+				<description> Graph demonstrating that a continuous function must achieve its average value. </description>
+				<latex-image><xi:include href="fund-thm.d/min-max-avg.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</proof>
+
+</theorem>
+
+<example>
+	<title>Achieving average speed</title>
+	<p>
+	Suppose you leave your home and drive to a destination
+	<quantity><mag>100</mag><unit base="meter" prefix="kilo" /></quantity>
+	away,
+	and the trip takes about an hour.
+	Then your average speed was approximately
+	<quantity><mag>100</mag><unit base="meter" prefix="kilo" /><per base="hour" /></quantity>.
+	But you most likely were driving much slower than that at the beginning and end of the trip,
+	as you probably had city speed limits and traffic to deal with.
+	Which means that to have averaged
+	<quantity><mag>100</mag><unit base="meter" prefix="kilo" /><per base="hour" /></quantity>,
+	you must also have been travelling faster than that for some period,
+	to average out with your slower speeds.
+	From this we make a slightly stronger conclusion than that in the <xref ref="theorem-fund-thm-mean-value" text="title" />:
+	your speedometer must have read exactly
+	<quantity><mag>100</mag><unit base="meter" prefix="kilo" /><per base="hour" /></quantity>
+	at least <em>twice</em> during your trip,
+	once when you accelerated from your initial slower speeds to your later higher speeds,
+	and again when you decelerated from your later higher speeds to slower speeds near the end of your trip.
+	</p>
+</example>
+
+<example>
+	<title>Determining when average value was achieved</title>
+
+	<p>
+	For the function <me> f(t) = t (5 - t) </me>,
+	over the interval <m>0 \le t \le 4</m> we have
+	<md>
+		<mrow> \ccmint{0}{4}{f(t)}{t} \amp = \ccmint{0}{4}{5 t - t^2}{t} </mrow>
+		<mrow> \amp = 5 \cdot \frac{4^2}{2} - \frac{4^3}{3} </mrow>
+		<mrow> \amp = \frac{56}{3} </mrow>
+	</md>,
+	so <me> \avg{f} = \frac{1}{4 - 0} \cdot \frac{56}{3} = \frac{14}{3} </me>.
+	The <xref ref="theorem-fund-thm-mean-value" text="title" /> tells us that <m> f(t) = \avg{f} </m> should occur at least once in the domain <m>0 \le t \le 4</m>:
+	<md alignment="gather">
+		<mrow> 5 t - t^2 = \frac{14}{3} </mrow>
+		<mrow> 15 t - 3 t^2 = 14 </mrow>
+		<mrow> 3 t^2 - 15 t + 14 = 0 </mrow>
+	</md>.
+	Using the <xref ref="pattern-poly-quadratic-formula" text="title" />,
+	we obtain two solutions:
+	<md>
+		<mrow>
+			t \amp = \frac{15 - \sqrt{{15}^2 - 4 \cdot 3 \cdot 14}}{2 \cdot 3}
+			\amp
+			t \amp = \frac{15 + \sqrt{{15}^2 - 4 \cdot 3 \cdot 14}}{2 \cdot 3}
+		</mrow>
+		<mrow>
+			\amp = \frac{15 - \sqrt{57}}{6}
+			\amp
+			\amp = \frac{15 + \sqrt{57}}{6}
+		</mrow>
+	</md>.
+	Both of these are within our domain,
+	so the function achieves its maximum twice,
+	once on the way up,
+	and again on the way down.
+	</p>
+
+	<figure>
+		<caption> A parabola achieving its average value twice. </caption>
+		<image width="50%">
+			<description> Graph of a parabola achieving its average value twice. </description>
+			<latex-image><xi:include href="fund-thm.d/parabola-avg.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</section>
+
+<section>
+<title>The Fundamental Theorem</title>
+
+<p> Let's review. </p>
+
+<p>
+We have learned how to use average rates of change to approximate an instantaneous rate of change from values of a quantity function <m>q(t)</m>.
+Over shorter and shorter time intervals for the average rate calculations,
+if all such approximations are arbitrarily close to some particular value,
+we call that value the <term>derivative value</term> for the quantity function at the particular instant in question,
+and we interpret it as the rate of change of the quantity function at that instant.
+By <q>stitching</q> together derivative values at different instants together into a function called the <term>derivative function</term> <m>q'(t)</m> for the quantity function.
+Again, interpreting values of <m>q'(t)</m> as instantaneous rates of change,
+it is reasonable to think that in forming the derivative function we have recovered the rate function,
+so that <m>q'(t) = r(t)</m>.
+</p>
+
+<p>
+We have also learned how to use a Riemann sum to approximate an accumulation from the rate function <m>r(t)</m>.
+Since the true accumulation value always lies between the upper and lower Riemann sums,
+for an integrable function we can <q>squeeze</q> the upper and lower sums together by using more, skinnier rectangles in our sums until the upper and lower sums are so close together that we can determine the true accumulation value.
+We called this value the <term>definite integral</term> for the rate function and the domain over which we were computing an accumulation.
+By using a variable endpoint for accumulation calculations,
+we can create an <term>accumulation function</term>.
+Using <xref ref="pattern-integ-definite-integ-to-quantity-function" />,
+we can combine an accumulation function with an initial value to recover the quantity function <m>q(t)</m>.
+</p>
+
+<p>
+If this is the case, then performing both processes should return us to where we started:
+if we begin with a rate function <m>r(t)</m>,
+use an accumulation function based on a definite integral of <m>r(t)</m> to obtain a quantity function,
+and then compute the derivative of that quantity function,
+we should be back at the original rate function.
+Intuitively, this is beyond doubt.
+However, <em>mathematically</em> there is no reason to think this should be true,
+as the two <em>processes</em> involved have seemingly nothing to do with each other:
+one process uses rectangles to approximate an area,
+the other process uses secant-line slopes to approximate a tangent-line slope.
+Why would performing one process after the other return you to where you started?
+But, in fact,
+our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation</em> is correct.
+</p>
+
+<theorem xml:id="theorem-fund-thm">
+	<title>Fundamental Theorem of Calculus</title>
+
+	<statement><p>
+		Suppose the function <m>f(t)</m> is continuous on the domain <m>a \le t \le b</m>.
+		Then the accumulation function
+		<me> A(t) = \ccmint{a}{t}{f(u)}{u} </me>
+		is continuous on <m>a \le t \le b</m> and differentiable at every point in <m>a \lt t \lt b</m>,
+		with <me> \ddt{A} = \opddt \ccmint{a}{t}{f(u)}{u} = f(t) </me>.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		As usual, to compute the derivative of <m>A(t)</m>,
+		we consider a forward/backward difference quotient.
+		First consider the numerator.
+		<me> A(t + \change{t}) - A(t) = \ccmint{a}{t + \change{t}}{f(u)}{u} - \ccmint{a}{t}{f(u)}{u} </me>.
+		Regardless of whether <m>\change{t}</m> is positive or negative,
+		we can use <xref ref="pattern-integ-definite-props-split" text="type-local">Property</xref>
+		of <xref ref="pattern-integ-definite-props" />
+		to split that first integral up.
+		<me>
+			A(t + \change{t}) - A(t)
+			= \left( \ccmint{a}{t}{f(u)}{u} + \ccmint{t}{t + \change{t}}{f(u)}{u} \right)
+			- \ccmint{a}{t}{f(u)}{u}
+		</me>.
+		But now we can cancel the first and third integrals above to get
+		<me> A(t + \change{t}) - A(t) = \ccmint{t}{t + \change{t}}{f(u)}{u} </me>.
+		Now we have
+		<md>
+			<mrow> \ddt{A} \amp = \frac{A(t + \change{t}) - A(t)}{\change{t}} </mrow>
+			<mrow> \amp = \frac{1}{\change{t}} \ccmint{t}{t + \change{t}}{f(u)}{u} </mrow>
+		</md>.
+		The integral is over the domain <m>t \le u \le t + \change{t}</m>,
+		and <m>\change{t}</m> is the duration of that domain,
+		which means that
+		<me> \slope{A}{t} = \avg{f} </me>,
+		where the average is over that domain <m>t \le u \le t + \change{t}</m>.
+		The <xref ref="theorem-fund-thm-mean-value" text="title" />
+		says that there is at least one time <m>c</m> in that domain where <m>f(c) = \avg{f}</m>.
+		But when <m>\change{t} \approx 0</m>,
+		then <me> t + \change{t} \approx t </me>,
+		and so for this <m>c</m> that is between <m>t</m> and <m>t + \change{t}</m> we must have
+		<me> c \to t \qquad\text{as}\qquad \change{t} \to 0 </me>.
+		Therefore,
+		<me> \slope{A}{t} = \avg{f} = f(c) \to f(t) \qquad\text{as}\qquad \change{t} \to 0 </me>,
+		since <m>f</m> is assumed to be continuous,
+		and we now conclude
+		<me> \ddt{A} = f(t) </me>,
+		as desired.
+		</p>
+
+		<p>
+		Now, <xref ref="pattern-avg-rate-discont-implies-not-diff" /> says that a discontinuous function cannot be differentiable,
+		so since our accumulation function <m>A(t)</m> is differentiable it must be continuous,
+		at least at all points in the domain <m>a \lt t \lt b</m>.
+		At the endpoints <m>t = a</m> and <m>t = b</m> it is more complicated,
+		and we leave that justification to your further study of calculus,
+		if you undertake it.
+		</p>
+
+	</proof>
+
+</theorem>
+
+<remark xml:id="remark-fund-thm-deriv-is-rate"><p>
+	If we accept that a definite integral does in fact measure accumulation,
+	then <xref ref="theorem-fund-thm" /> confirms that <alert>a derivative function is a rate function</alert>,
+	precisely as we have conceived of it.
+	If <m>q(t)</m> is a quantity function with associated rate function <m>r(t)</m>,
+	then from <m>r(t)</m> we can recover the quantity function using <xref ref="pattern-integ-definite-integ-to-quantity-function" />:
+	<me> q(t) = q(a) + \ccmint{a}{t}{r(u)}{u} </me>.
+	Then, using <xref ref="theorem-fund-thm" /> and the properties of differentiation from <xref ref="section-deriv-basic-formulas" />,
+	we can compute
+	<md>
+		<mrow> q'(t) \amp = \opddt \left( q(a) + \ccmint{a}{t}{r(u)}{u} \right) </mrow>
+		<mrow> \amp = 0 + \opddt \ccmint{a}{t}{r(u)}{u} </mrow>
+		<mrow> \amp = r(t) </mrow>
+	</md>.
+</p></remark>
+
+<!-- TODO rewrite -->
+<!-- <example>
+	<title>Derivative of a trigonometric accumulation function</title>
+
+	<p>
+	In <xref ref="section-periodic-trig-accumulation" />,
+	we used the example of a spring attached to a mass as inspiration for the formulas
+	<md>
+		<mrow>
+			\ccmint{0}{t}{\sin(u)}{u} \amp = 1 - \cos(t)
+			\amp
+			\ccmint{0}{t}{\cos(u)}{u} \amp = \sin(t)
+		</mrow>
+	</md>.
+	(See <xref ref="pattern-periodic-int-sin" /> and <xref ref="pattern-periodic-int-cos" />.)
+	</p>
+
+	<p>
+	Suppose we have a quantity function <m>q(t)</m> and associated rate function <m>r(t)</m>,
+	and we have modelled <m>r(t) = \sin(t)</m>.
+	As usual, we can create an accumulation function <me> A_0(t) = \ccmint{0}{t}{\sin(u)}{u} </me>,
+	where the value of <m>A_0(t)</m> represents the accumulation of quantity that occurred over the domain from time <m>0</m> up until time <m>t</m>.
+	The integral formula for <m>\sin(t)</m> says that we should have
+	<me> A_0(t) = 1 - \cos(t) </me> for all <m>t</m>.
+	This allows to compute <m>d A_0 / dt</m> in two ways.
+	<md>
+
+		<mrow>
+			A_0(t) \amp = \ccmint{0}{t}{\sin(u)}{u}
+			\amp
+			A_0(t) \amp = 1 - \cos(t)
+		</mrow>
+
+		<mrow>
+			\implies \qquad \ddt{A_0} \amp = \opddt \ccmint{0}{t}{\sin(u)}{u}
+			\amp
+			\implies \qquad \ddt{A_0} \amp = \opddt \bbrac{1 - \cos(t)}
+		</mrow>
+
+		<mrow>
+			\amp = \sin(t)
+			\amp
+			\amp = \ddt{1} - \ddt{\bbrac{\cos(t)}}
+		</mrow>
+
+		<mrow>
+			\amp
+			\amp
+			\amp = 0 - \bbrac{- \sin(t)}
+		</mrow>
+
+		<mrow>
+			\amp
+			\amp
+			\amp = \sin(t)
+		</mrow>
+
+	</md>
+	In the first calculation,
+	we have used the <xref ref="theorem-fund-thm" text="title" /> to compute the derivative,
+	whereas in the second calculation we have used the properties of the derivative and <xref ref="pattern-deriv-cos" /> to compute the derivative.
+	It is good that we got the same result both times!
+	But this by itself does not imply that our accumulation formula for the sine function
+	(<xref ref="pattern-periodic-int-sin" />)
+	is correct,
+	but it certainly gives us more confidence.
+	</p>
+
+</example> -->
+
+<!-- <exercise>
+	<p>
+	Carry out the same comparison of derivative calculations of the accumulation function created out of a cosine rate function
+	<m>r(t) = \cos(t)</m>,
+	using the <xref ref="theorem-fund-thm" text="title" /> on the one hand,
+	and using <xref ref="pattern-periodic-int-cos" /> and <xref ref="pattern-deriv-sin" /> on the other.
+	</p>
+</exercise> -->
+
+</section>
+
+<section>
+<title>Antiderivatives and indefinite integrals</title>
+
+<p>
+The <xref ref="theorem-fund-thm" text="title" /> tells us that if we begin with a rate function <m>r(t)</m>,
+use a definite integral to recover the quantity function
+<me> q(t) = q_0 + \ccmint{t_0}{t}{r(u)}{u} </me>
+(where <m>q_0</m> represents a chosen or observed <q>initial value</q> <m>q(t_0) = q_0</m>),
+and then differentiate,
+we end up back at the rate function: <me> q'(t) = r(t) </me>.
+(See the calculation in <xref ref="remark-fund-thm-deriv-is-rate" />.)
+</p>
+
+<p>
+What if we begin with a quantity function <m>q(t)</m>?
+Suppose we take the derivative as the rate function, <m>r(t) = q'(t)</m>,
+and then use that to re-form a quantity function.
+Except at first,
+there is not yet a mathematical reason to expect that we will end up back at <m>q(t)</m>,
+so let's write
+<me> s(t) = s_0 + \ccmint{t_0}{t}{r(u)}{u} </me>
+for this quantity function,
+where again <m>s_0</m> represents a chosen <q>initial value</q> <m>s(t_0) = s_0</m>.
+How is <m>s(t)</m> related to <m>q(t)</m>?
+We at least know that they have the same derivative function:
+using an identical calculation as in <xref ref="remark-fund-thm-deriv-is-rate" />,
+differentiating the formula for <m>s(t)</m> above arrives at
+<me> s'(t) = r(t) = q'(t) </me>.
+</p>
+
+<definition xml:id="definition-fund-thm-antideriv">
+	<title>Antiderivative</title>
+	<p>
+	If <m>f(t)</m> and <m>F(t)</m> are functions so that <m>F(t)</m> is differentiable with <m>F'(t) = f(t)</m>,
+	then <m>F(t)</m> is called an <term>antiderivative</term> of <m>f(t)</m>.
+	</p>
+</definition>
+
+<remark><p>
+	For <m>f(t)</m> and <m>F(t)</m> in <xref ref="definition-fund-thm-antideriv" />,
+	while we say that <m>F'(t) = f(t)</m> is <alert>the</alert> derivative of <m>F(t)</m>,
+	we are careful to say that <m>F(t)</m> is <alert>an</alert> antiderivative of <m>f(t)</m>,
+	because in fact a function that has an antiderivative always has an infinite number of antiderivatives.
+</p></remark>
+
+<example xml:id="example-fund-thm-two-antiderivs">
+	<title>Two antiderivatives for the same function</title>
+	<p>
+	Consider <m>F_1(t) = t^2</m> and <m>F_2(t) = t^2 + 1</m>.
+	Using the patterns in <xref ref="chapter-deriv" />,
+	we have both
+	<md> <mrow> F_1'(t) \amp = 2 t \amp F_2'(t) \amp = 2 t + 0 = 2 t  </mrow> </md>.
+	This tells us that both <m>F_1</m> and <m>F_2</m> are antiderivatives of the function <m>f(t) = 2 t</m>.
+	And because the derivative of a constant is <m>0</m>,
+	we could change the <em>plus-one</em> part of the formula for <m>F_2(t)</m> to be any other constant and it would still be an antiderivative for <m>f(t)</m>.
+	</p>
+</example>
+
+<p>
+What functions have antiderivatives?
+That is, what functions are derivative functions?
+That is a big question,
+but the <xref ref="theorem-fund-thm" text="title" /> provides an important partial answer.
+</p>
+
+<fact xml:id="fact-fund-thm-continuous-has-antideriv">
+	<title>Every continuous function is a derivative function</title>
+	<p>
+	If <m>f(t)</m> is continuous on domain <m>a \le t \le b</m>,
+	then the accumulation function
+	<me> F(t) = \ccmint{a}{t}{f(u)}{u} </me>
+	is an antiderivative for <m>f(t)</m> on that domain.
+	</p>
+</fact>
+
+<example>
+	<title>Accumulation of a line</title>
+	<p>
+	The function <m>f(t) = t</m> is obviously continuous.
+	Using simple geometry
+	(see <xref ref="example-integ-linear-velo" />)
+	we can compute
+	<md>
+		<mrow> A_0(t) \amp = \ccmint{0}{t}{f(u)}{u} </mrow>
+		<mrow> \amp = \ccmint{0}{t}{u}{u} </mrow>
+		<mrow> \amp = \frac{t^2}{2} </mrow>
+	</md>.
+	Using <xref ref="pattern-deriv-power" /> we can compute
+	<md>
+		<mrow> A_0'(t) \amp = \opddt \left( \frac{t^2}{2} \right) </mrow>
+		<mrow> \amp = \frac{2 t}{2} </mrow>
+		<mrow> \amp = t </mrow>
+		<mrow> \amp = f(t) </mrow>
+	</md>.
+	So treating our original function <m>f(t)</m> as a rate function,
+	the associated accumulation function is an antiderivative.
+	</p>
+</example>
+
+<p>
+Now we return to the question that began the section,
+where we created a function that had the same derivative as another,
+and asked how the two functions were related.
+First,
+we can make the pattern of <xref ref="example-fund-thm-two-antiderivs" /> more general.
+</p>
+
+<fact xml:id="fact-fund-thm-antideriv-v-shifts">
+	<title>Different antiderivatives are vertical shifts</title>
+
+	<statement><p>
+	If <m>F_1(t)</m> and <m>F_2(t)</m> are antiderivatives of the same function <m>f(t)</m>,
+	then they must be vertical shifts of one another.
+	</p></statement>
+
+	<proof><p>
+		Consider the difference function <me> G(t) = F_2(t) - F_1(t) </me>.
+		Then
+		<md>
+			<mrow> G'(t) \amp = F_2'(t) - F_1'(t) </mrow>
+			<mrow> \amp = f(t) - f(t) </mrow>
+			<mrow> \amp = 0 </mrow>
+		</md>.
+		As a derivative function is a rate function,
+		having <m>G'(t)</m> uniformly equal to <m>0</m> says that the function <m>G(t)</m> never varies,
+		so it must be a constant function <m>G(t) = C</m>.
+		As <m>G</m> was defined as the difference of <m>F_1</m> and <m>F_2</m>,
+		we have
+		<me> F_2(t) - F_1(t) = C \qquad\implies\qquad F_2(t) = F_1(t) + C </me>,
+		so that <m>F_2(t)</m> is a vertical shift of <m>F_1(t)</m>.
+		(Alternatively, we could have isolated <m>F_1(t)</m> as a vertical shift of <m>F_2(t)</m>.)
+	</p></proof>
+
+</fact>
+
+<p>
+What about two different accumulation functions?
+If the function <m>f(t)</m> is continuous on a large domain,
+when creating an accumulation antiderivative as in <xref ref="fact-fund-thm-continuous-has-antideriv" />,
+we can choose any base point <m>a</m> for the lower bound of our definite integral that we like.
+So, starting with continuous <m>f(t)</m>,
+we can create two different antiderivatives
+<md>
+	<mrow>
+		A_1(t) \amp = \ccmint{a_1}{t}{f(u)}{u}
+		\amp
+		A_2(t) \amp = \ccmint{a_2}{t}{f(u)}{u}
+	</mrow>
+</md>.
+But these are still vertical shifts of one another,
+since
+<md>
+	<mrow> A_1(t) \amp = \ccmint{a_1}{t}{f(u)}{u} </mrow>
+	<mrow> \amp = \ccmint{a_1}{a_2}{f(u)}{u} + \ccmint{a_2}{t}{f(u)}{u} </mrow>
+	<mrow> \amp = \ccmint{a_1}{a_2}{f(u)}{u} + A_2(t) </mrow>
+</md>.
+So, in fact, we can say that <me> A_1(t) = A_2(t) + C </me>,
+where the shift term is <me> C = \ccmint{a_1}{a_2}{f(u)}{u} </me>.
+</p>
+
+<figure>
+	<caption> Realizing the vertical shift between two accumulation functions as a fixed accumulation amount. </caption>
+	<image width="66%">
+		<description> Graph demonstrating the vertical shift between two accumulation functions as a fixed accumulation amount. </description>
+		<latex-image><xi:include href="fund-thm.d/area-v-shift.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<example xml:id="example-fund-thm-cosine-two-antiderivs">
+	<title>Two antiderivatives of the cosine function</title>
+	<p>
+	The cosine function <m>\cos(t)</m> is continuous everywhere,
+	so we can create accumulation antiderivatives based at any point.
+	Here are two:
+	<md>
+		<mrow>
+			A_0(t) \amp = \ccmint{0}{t}{\cos(u)}{u}
+			\amp
+			A_{-\pi/2}(t) \amp = \ccmint{-\pi}{t}{\cos(u)}{u}
+		</mrow>
+	</md>.
+	We know from <xref ref="pattern-periodic-int-cos" /> that
+	<me> A_0(t) = \sin(t) </me>.
+	We could also compute <me> \ccmint{-\pi/2}{0}{\cos(u)}{u} = 1 </me>.
+	(Using the symmetry of the cosine graph,
+	this is one-half of the accumulation we calculated in <xref ref="example-fund-thm-cos-avg" />.)
+	So <me> A_{-\pi/2}(t) = 1 + \sin(t) </me>.
+	</p>
+</example>
+
+<p>
+Now,
+as at the beginning of the section,
+suppose we start with a quantity function <m>q(t)</m> and use
+<xref ref="pattern-integ-definite-integ-to-quantity-function" />
+to create a quantity function
+<me> s(t) = s_0 + \ccmint{t_0}{t}{r(u)}{u} </me>
+from the rate function <m>r(t) = q'(t)</m>.
+Then we end up with <m>s'(t) = q'(t)</m>,
+and <xref ref="fact-fund-thm-antideriv-v-shifts" /> says that
+<m>s</m> must be a vertical shift of <m>q</m>.
+This is <em>almost</em> back where we started <mdash />
+differentiating and then integrating that derivative returns us back to a vertical shift of our original function.
+However, in creating <m>s(t)</m>,
+we can choose <m>s_0</m> to be any value we want,
+so in fact it is possible to have the <em>differentiation-integration</em> cycle come full circle.
+</p>
+
+</section>
+
+<section>
+<title>Indefinite integrals</title>
+
+<p>
+In light of <xref ref="fact-fund-thm-continuous-has-antideriv" />,
+we borrow integral notation to represent antiderivative possibilities.
+</p>
+
+<definition xml:id="definition-fund-thm-indef-integral">
+	<title>Indefinite integral</title>
+	<p>
+	For function <m>f(t)</m>,
+	we write <me> \ccmiint{f(t)}{t} </me>
+	to represent the family of <em>all possible</em> antiderivatives of <m>f(t)</m>.
+	</p>
+</definition>
+
+<warning><p>
+	An indefinite integral <me> \ccmiint{f(t)}{t} </me> <alert>is not a function</alert>.
+	You cannot substitute a value <m>t = c</m> into it.
+</p></warning>
+
+<p>
+<xref ref="fact-fund-thm-antideriv-v-shifts" /> tells us that if we know (or can guess) one antiderivative,
+then we know them all.
+</p>
+
+<example xml:id="example-fund-thm-indef-int-cosine">
+	<title>The indefinite integral of the cosine function</title>
+	<p>
+	How can we describe the family of antiderivatives represented by
+	<me> \ccmiint{\cos(t)}{t} </me>?
+	As in <xref ref="example-fund-thm-cosine-two-antiderivs" />,
+	one antiderivative is
+	<me> A_0(t) = \ccmint{0}{t}{\cos(u)}{u} = \sin(t) </me>,
+	and every other antiderivative is a vertical shift of <m>A_0(t)</m>.
+	So we can express this family of antiderivatives using a parameter <m>C</m> to represent that vertical shift:
+	<me> \ccmiint{\cos(t)} = \sin(t) + C </me>.
+	</p>
+</example>
+
+<example xml:id="example-fund-thm-indef-int-sine">
+	<title>The indefinite integral of the sine function</title>
+	<p>
+	For <me> \ccmiint{\sin(t)}{t} </me>,
+	we can follow the same pattern as <xref ref="example-fund-thm-indef-int-cosine" />,
+	first creating the accumulation antiderivative
+	<me> A_0(t) = \ccmint{0}{t}{\sin(t)}{t} </me>.
+	From <xref ref="pattern-periodic-int-sin" />,
+	we have <me> A_0(t) = 1 - \cos(t) </me>.
+	It is more convenient to take a specific vertical shift of this antiderivative:
+	let <me> F(t) = A_0(t) - 1 = - \cos(t) </me>.
+	This is still an antiderivative of <m>\sin(t)</m>,
+	as we know from <xref ref="pattern-deriv-cos" /> that
+	<md>
+		<mrow> \opddt \bbrac{- \cos(t)} \amp = - \opddt \bbrac{\cos(t)} </mrow>
+		<mrow> \amp = - \bbrac{- \sin(t)} </mrow>
+		<mrow> \amp = \sin(t) </mrow>
+	</md>.
+	So we can use all vertical shifts of this particular antiderivative to represent the family of antiderivatives:
+	<me> \ccmiint{\sin(t)}{t} = - \cos(t) + C </me>.
+	</p>
+</example>
+
+<p>
+Here is a small table of indefinite integrals.
+You should compare with the accumulation function formulas we have encountered in
+<xref first="chapter-poly" last="chapter-periodic" />,
+and note where we have vertically shifted those formulas to more simply express the family of antiderivatives,
+similarly to <xref ref="example-fund-thm-indef-int-sine" />.
+You should also compare with the differentiation formulas from <xref ref="chapter-deriv" />,
+as the derivative of the formula for each indefinite integral
+(with <m>dC/dt = 0</m>, always)
+should equal to the integrand function in the indefinite integral.
+</p>
+
+<table xml:id="table-fund-thm-integrals">
+	<title>Table of integrals</title>
+	<tabular>
+		<row>
+			<cell><m> \displaystyle \ccmiint{t^m}{t} = \frac{t^{m + 1}}{m + 1} + C</m> <m>(m \neq -1)</m> </cell>
+			<cell><m> \displaystyle \ccmiint{\frac{1}{t}}{t} = \ln\abs{t} + C     </m>                    </cell>
+		</row>
+		<row>
+			<cell><m> \displaystyle \ccmiint{\cos(t)}{t} = \sin(t) + C  </m></cell>
+			<cell><m> \displaystyle \ccmiint{\sin(t)}{t} = -\cos(t) + C </m></cell>
+		</row>
+		<row>
+			<cell colspan="2"><m> \displaystyle \ccmiint{e^t}{t} = e^t + C </m></cell>
+		</row>
+	</tabular>
+</table>
+
+</section>
+
+<section>
+<title>Using antiderivatives to compute definite integrals</title>
+
+<example xml:id="example-fund-thm-cancel-v-shift"><p>
+	Consider <me> \ccmint{3}{7}{e^t}{t} </me>.
+	This integral represents an accumulation over time domain <m>3 \le t \le 7</m> for a quantity that varies according to rate function <m>r(t) = e^t</m>,
+	so we can use our accumulation formula
+	<me> \ccmint{0}{t}{e^u}{u} = e^t - 1 </me>
+	(<xref ref="pattern-exp-integral" />)
+	to first compute the accumulation over <m>0 \le t \le 7</m>,
+	and then subtract out the accumulation over <m>0 \le t \le 3</m> that we have included in that first calculation but shouldn't have:
+	<md>
+		<mrow> \ccmint{3}{7}{e^t}{t} \amp = \ccmint{0}{7}{e^t}{t} - \ccmint{0}{3}{e^t}{t} </mrow>
+		<mrow> \amp = (e^7 - 1) - (e^3 - 1) </mrow>
+		<mrow> \amp = e^7 - e^3 </mrow>
+	</md>.
+	Notice how the <em>minus-one</em> part of the accumulation formula,
+	which we can think of as a vertical shift,
+	cancelled out in the final calculation.
+</p></example>
+
+<p>
+The pattern of <xref ref="example-fund-thm-cancel-v-shift" /> works in general.
+Suppose <m>f(t)</m> is a continuous function and we want to calculate <me> \ccmint{a}{b}{f(t)}{t} </me>.
+If we already have a formula for the accumulation function
+<me> A(t) = \ccmint{t_0}{t}{f(u)}{u} </me>,
+then we use the integration pattern
+<me> \ccmint{t_0}{a}{f(u)}{u} + \ccmint{a}{b}{f(u)}{u} = \ccmint{t_0}{b}{f(u)}{u} </me>
+(<xref ref="pattern-integ-definite-props" />)
+to calculate
+<md>
+	<mrow> \ccmint{a}{b}{f(u)}{u} \amp = \ccmint{t_0}{b}{f(u)}{u} - \ccmint{t_0}{a}{e^t}{t} </mrow>
+	<mrow> \amp = A(b) - A(a) </mrow>
+</md>.
+We know that the accumulation function <m>A(t)</m> is an antiderivative for <m>f(t)</m>,
+so if <m>F(t)</m> is another antiderivative function it must be a vertical shift of <m>A(t)</m>:
+<me> F(t) = A(t) + C \qquad\implies\qquad A(t) = F(t) - C </me>.
+So now
+<md>
+	<mrow> \ccmint{a}{b}{f(u)}{u} \amp = A(b) - A(a) </mrow>
+	<mrow> \amp = \bbrac{F(b) - C} - \bbrac{F(a) - C} </mrow>
+	<mrow> \amp = F(b) - F(a) </mrow>
+</md>.
+</p>
+
+<identity xml:id="pattern-fund-thm-def-int-by-antideriv">
+	<title>Definite integrals via antiderivatives</title>
+	<p>
+	If <m>f(t)</m> is a continuous function and <m>F(t)</m> is <em>any</em> choice of antiderivative for <m>f(t)</m>,
+	then <me> \ccmint{a}{b}{f(t)}{t} = F(b) - F(a) </me>.
+	</p>
+</identity>
+
+<example>
+	<title>Definite integral of a power function</title>
+	<p>
+	For <me> \ccmint{4}{9}{\frac{1}{\sqrt{t}}}{t} </me>,
+	the integrand function is <me> f(t) = \frac{1}{\sqrt{t}} = t^{-1/2} </me>.
+	Using <xref ref="table-fund-thm-integrals" />,
+	we choose antiderivative <me> F(t) = \frac{t^{1/2}}{1/2} = 2 \sqrt{t} </me>.
+	Then
+	<md>
+		<mrow> \ccmint{4}{9}{\frac{1}{\sqrt{t}}}{t} \amp = 2 \sqrt{9} - 2 \sqrt{4} </mrow>
+		<mrow> \amp = 2 </mrow>
+	</md>.
+	</p>
+</example>
+
+<example>
+	<title>Definite integral of the reciprocal function</title>
+
+	<p>
+	For <me> \ccmint{-5}{-3}{\frac{1}{t}}{t} </me>,
+	the integrand function is <me> f(t) = \frac{1}{t} </me>.
+	Normally we would use the natural logarithm function to compute a definite integral involving this rate function
+	(see <xref ref="definition-log-natural" />),
+	but this integral is over a negative domain.
+	Instead we use the expanded logarithm function <m>F(t) = \ln\abs{t}</m> as an antiderivative,
+	so
+	<md>
+		<mrow> \ccmint{-5}{-3}{\frac{1}{t}}{t} \amp = \ln\abs{-3} - \ln\abs{-5} </mrow>
+		<mrow> \amp = \ln 3 - \ln 5 </mrow>
+	</md>.
+	</p>
+
+	<figure>
+		<caption> Symmetric areas under the graph of the reciprocal function. </caption>
+		<image width="50%">
+			<description> Symmetric areas under the graph of the reciprocal function. </description>
+			<latex-image><xi:include href="fund-thm.d/log-accumulation.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<p>
+	The area represented by this definite integral is below the horizontal axis,
+	and so is negatively oriented.
+	Using the symmetry of the graph of the rate function <m>f(t) = 1/t</m>,
+	this area should be equal in magnitude to the area represented by the definite integral
+	<md>
+		<mrow>
+			\ccmint{3}{5}{\frac{1}{t}}{t}
+			\amp = \ccmint{1}{5}{\frac{1}{t}}{t} - \ccmint{1}{3}{\frac{1}{t}}{t}
+		</mrow>
+		<mrow> \amp = \ln 5 - \ln 3 </mrow>
+	</md>,
+	as the initial computation confirms.
+	</p>
+
+</example>
+
+<example>
+	<title>A definite integral of the sine function</title>
+	<p>
+	For <me> \ccmint{\pi/4}{\pi/3}{\sin(t)}{t} </me>,
+	the integrand function is <m>\sin(t)</m>.
+	Using <xref ref="table-fund-thm-integrals" />,
+	we choose antiderivative <me> F(t) = - \cos(t) </me>.
+	Then
+	<md>
+		<mrow>
+			\ccmint{\pi/4}{\pi/3}{\sin(t)}{t}
+			\amp = \bbrac{- \cos(\pi/3)} - \bbrac{- \cos(\pi/4)}
+		</mrow>
+		<mrow> \amp = \left(- \frac{1}{2}\right) - \left(- \frac{\sqrt{2}}{2}\right) </mrow>
+		<mrow> \amp = \frac{\sqrt{2} - 1}{2} </mrow>
+	</md>.
+	</p>
+</example>
+
+<remark><p>
+	With <xref ref="pattern-fund-thm-def-int-by-antideriv" />,
+	we have effectively completed the circle.
+	For quantity function <m>q(t)</m> over domain <m>t_1 \le t \le t_2</m>,
+	we have
+	<md>
+		<mrow> \text{accumulation} \amp = (\text{final amount}) - (\text{initial amount}) </mrow>
+		<mrow> \amp = q(t_2) - q(t_1) </mrow>
+	</md>.
+	On the other hand,
+	we now know that the derivative function <m>r(t) = q'(t)</m> describes the rate of accumulation of <m>q(t)</m>,
+	so we expect a definite integral of <m>q'(t)</m> to also represent an accumulation.
+	<xref ref="pattern-fund-thm-def-int-by-antideriv" /> confirms this,
+	since <m>q(t)</m> is obviously an antiderivative of its own derivative,
+	so
+	<me> \ccmint{t_1}{t_2}{q'(t)}{t} = q(t_2) - q(t_1) = \text{accumulation} </me>.
+</p></remark>
 
 </section>
 
