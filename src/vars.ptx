@@ -186,7 +186,7 @@ and we wish to compare the amounts by which they vary.
 
 	<figure xml:id="figure-vars-cylinder-delta-volume">
 		<caption> Variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </caption>
-		<image width="50%">
+		<image width="26%">
 			<description> A diagram illustrating a variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </description>
 			<latex-image><xi:include href="vars.d/cylinder.tex" parse="text" /></latex-image>
 		</image>
@@ -311,7 +311,7 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 
 	<figure xml:id="figure-vars-constant-rate-data-points">
 		<caption> Data points and trend line for a quantity varying at a constant rate. </caption>
-		<image width="60%">
+		<image width="45%">
 			<description> Data points and trend line for a quantity varying at a constant rate. </description>
 			<latex-image><xi:include href="vars.d/constant-rate-data-points.tex" parse="text" /></latex-image>
 		</image>
@@ -364,7 +364,7 @@ and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
 
 	<figure xml:id="figure-vars-constant-rate-neg-slope">
 		<caption> Linear relationship for a quantity varying at a constant, negative rate. </caption>
-		<image width="60%">
+		<image width="45%">
 			<description> Graph and linear relationship for a quantity varying at a constant, negative rate. </description>
 			<latex-image><xi:include href="vars.d/constant-rate-neg-slope.tex" parse="text" /></latex-image>
 		</image>

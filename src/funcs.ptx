@@ -453,7 +453,7 @@ As you can imagine, a piecewise function will also have a graph that appears to 
 
 	<figure xml:id="figure-funcs-piecewise">
 		<caption> Graph of a piecewise-defined function. </caption>
-		<image width="50%">
+		<image width="40%">
 			<description> Graph of a piecewise-defined function. </description>
 			<latex-image><xi:include href="funcs.d/piecewise.tex" parse="text" /></latex-image>
 		</image>
@@ -489,7 +489,7 @@ there is no requirement that the pieces of the graph meet at the transition poin
 
 	<figure xml:id="figure-funcs-piecewise-2">
 		<caption> Graph of a piecewise-defined function with a <q>jump</q> in values. </caption>
-		<image width="50%">
+		<image width="40%">
 			<description> Graph of a piecewise-defined function with a <q>jump</q> in values. </description>
 			<latex-image><xi:include href="funcs.d/piecewise-2.tex" parse="text" /></latex-image>
 		</image>
@@ -518,7 +518,7 @@ there is no requirement that the pieces of the graph meet at the transition poin
 
 	<figure xml:id="figure-funcs-piecewise-many">
 		<caption> Graph of a piecewise-defined function with many pieces. </caption>
-		<image width="66%">
+		<image width="60%">
 			<description> Graph of a piecewise-defined function with many pieces. </description>
 			<latex-image><xi:include href="funcs.d/piecewise-many.tex" parse="text" /></latex-image>
 		</image>
@@ -682,7 +682,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	<figure xml:id="figure-funcs-jump-discont">
 		<caption> Two examples of jump discontinuities. </caption>
 
-		<sidebyside widths="45% 45%">
+		<sidebyside widths="35% 35%">
 
 			<figure>
 				<caption> A piecewise function can often (but not always!) jump values at transition points. </caption>
@@ -775,7 +775,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 			The graph of <m>f(t) = 1/(t - 2)^2</m>,
 			with a singularity at <m>t = 2</m>.
 		</caption>
-		<image width="50%">
+		<image width="45%">
 			<description> A graph of a function with a discontinuity caused by a singularity. </description>
 			<latex-image><xi:include href="funcs.d/singular.tex" parse="text" /></latex-image>
 		</image>
@@ -863,7 +863,7 @@ we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
 			Two vertical shifts of the graph of <m>f(t) = \sqrt{t}</m>,
 			one up and one down.
 		</caption>
-		<image width="67%">
+		<image width="55%">
 			<description>
 				Two vertical shifts of the graph of the square root function,
 				one up and one down.
@@ -910,7 +910,7 @@ we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
 			Two vertical scales of the graph of <m>f(t) = \sqrt{t}</m>,
 			one stretched and one compressed.
 		</caption>
-		<image width="67%">
+		<image width="55%">
 			<description>
 				Two vertical scales of the graph of the square root function,
 				one stretched and one compressed.
@@ -955,7 +955,7 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 
 	<figure xml:id="figure-funcs-vrefl">
 		<caption> Vertical reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
-		<image width="67%">
+		<image width="55%">
 			<description> Vertical reflection of the graph of the square root function. </description>
 			<latex-image><xi:include href="funcs.d/vrefl.tex" parse="text" /></latex-image>
 		</image>
