@@ -382,7 +382,7 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 		<mrow> \amp = r </mrow>
 	</md>,
 	with step justifications
-	<ol label="(i)">
+	<ol marker="(i)">
 		<li> <xref ref="pattern-deriv-sum" /> </li>
 		<li> <xref ref="pattern-deriv-constant" /> </li>
 		<li> <xref ref="pattern-deriv-scale" /> </li>

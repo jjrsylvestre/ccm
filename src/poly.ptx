@@ -886,7 +886,7 @@ from the fact that we have shifted our <q>initial</q> time.
 
 	</md>
 	The steps above are justified as follows.
-	<ol label="(i)">
+	<ol marker="(i)">
 
 		<li>
 			<xref ref="pattern-integ-definite-props-homogeneity" text="type-local">Property</xref>
