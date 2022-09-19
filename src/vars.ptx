@@ -326,8 +326,8 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 	<me> \slope{q}{t} </me>
 	is constant,
 	then <m>q</m> and <m>t</m> are linearly related by
-	<me> q = m t + q_0 </me>,
-	where <m>m</m> is the constant value of <m>\inlineslope{q}{t}</m> and <m>q_0</m> is the <q>initial value</q> of quantity <m>q</m> corresponding to <m>t = 0</m>.
+	<me> q = r t + q_0 </me>,
+	where <m>r</m> is the constant value of <m>\inlineslope{q}{t}</m> and <m>q_0</m> is the <q>initial value</q> of quantity <m>q</m> corresponding to <m>t = 0</m>.
 	</p>
 </identity>
 
@@ -336,7 +336,7 @@ Graphically,
 when two quantities exhibit a constant rate of variation,
 we can plot the relationship between <m>q</m> and <m>t</m> on a set of <m>tq</m>-axes and obtain a line with equation as in <xref ref="pattern-vars-constant-rate" />,
 where the slope of the line is
-<me> m = \slope{q}{t} </me>
+<me> \slope{q}{t} </me>
 and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
 </p>
 
