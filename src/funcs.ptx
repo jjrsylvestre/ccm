@@ -566,7 +566,7 @@ We'll call this type of feature a <term>point of discontinuity</term>.
 <definition xml:id="definition-funcs-point-continuous">
 	<title>Continuous at a point</title>
 	<p>
-	A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small range around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small subdomain around <m>t_0</m>.
+	A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small open range around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small subdomain around <m>t_0</m>.
 	Otherwise, the function is said to be <term>discontinuous</term> at that point.
 	</p>
 </definition>
@@ -584,7 +584,7 @@ and we can always make the first approximation better and better by tightening t
 	The function <m>f(t)</m> in <xref ref="example-funcs-piecewise-graph-2" /> is discontinuous at <m>t = 2</m>.
 	It has value <m>f(2) = 4</m> there,
 	but if <m>t</m> is slightly bigger than <m>2</m> then <m>f(t) \approx 2</m>, not <m>4</m>.
-	So it's not possible to restrict output values to the range
+	So it's not possible to restrict output values to the open range
 	<me> 3 \lt f(t) \lt 5 </me>
 	around the actual output value <m>f(2) = 4</m>.
 	That is, when we take <m>f(t) \approx 4</m> to mean <q> no lower than <m>3</m> and no higher than <m>5</m></q>,
@@ -597,7 +597,7 @@ and we can always make the first approximation better and better by tightening t
 	On the other hand,
 	that same function <em>is</em> continuous at <m>t = 1</m>.
 	No matter how small a range around <m>f(1) = 1</m> we take <m>f(t) \approx 1</m> to mean,
-	it is always possible to restrict <m>t</m> to some small subdomain around <m>t = 1</m> so that <m>f(t) \approx f(1)</m> is true for all <m>t</m> within that subdomain.
+	it is always possible to restrict <m>t</m> to some small open subdomain around <m>t = 1</m> so that <m>f(t) \approx f(1)</m> is true for all <m>t</m> within that subdomain.
 	</p>
 
 	<figure xml:id="figure-funcs-discont-cont">
