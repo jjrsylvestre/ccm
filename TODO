@@ -1,3 +1,5 @@
+* The "Computing Algebraically" in the derivative function chapter needs a boxed procedure.
+* Style fix: the Convention under "Properties of the definite integral" needs a box around it.
 * first chapter needs more on linear models
   --- specifically, examples of determining whether data points could fit a linear
       model or not.
