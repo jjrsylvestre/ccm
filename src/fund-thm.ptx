@@ -654,7 +654,7 @@ our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation
 </section>
 
 <section>
-<title>Antiderivatives and indefinite integrals</title>
+<title>Antiderivatives</title>
 
 <p>
 The <xref ref="theorem-fund-thm" text="title" /> tells us that if we begin with a rate function <m>r(t)</m>,
