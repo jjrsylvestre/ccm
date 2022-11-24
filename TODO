@@ -1,3 +1,14 @@
+* Fact 13.4.6: Different antiderivatives are vertical shifts
+  ---> add a corollary that explicitly says "two functions with the same derivative are vertical shifts of each other
+* domain vs range in compositions of functions
+  --> see written lecture notes
+* Rewrite separable rate equation examples using "integrate both sides" method (tied into substitution method)
+  --> see written lecture notes
+* Example 13.3.4. Derivative of a trigonometric accumulation function
+  ---> immediately following FTC
+  ---> Don't leave the "first way" application of FTC to the end,
+       because then students think you have to do all these calculations.
+       Apply FTC directly right away, then do the "second way" just as a check.
 * The "Computing Algebraically" in the derivative function chapter needs a boxed procedure.
 * Style fix: the Convention under "Properties of the definite integral" needs a box around it.
 * first chapter needs more on linear models
