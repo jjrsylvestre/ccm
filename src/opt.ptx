@@ -194,7 +194,7 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 	<p><ol>
 		<li> A domain is called <term>closed</term> if it contains its endpoints. </li>
 		<li>
-			A domain is called <term>bounded</term> if it can be entirely contained in some finite-length domain <m>-M \le t \le M \</m>
+			A domain is called <term>bounded</term> if it can be entirely contained in some finite-length domain <m>-M \le t \le M</m>
 			for some sufficiently large <m>M</m>.
 		</li>
 	</ol></p>
