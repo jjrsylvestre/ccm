@@ -566,12 +566,12 @@ the concavity can tell us whether we are at a local maximum or a local minimum.
 
 		<li>
 			If <m>q''(t^\ast)</m> is positive,
-			then <m>q</m> must be concave down near that point and so has a <em>local minimum</em> there.
+			then <m>q</m> must be concave up near that point and so has a <em>local minimum</em> there.
 		</li>
 
 		<li>
 			If <m>q''(t^\ast)</m> is negative,
-			then <m>q</m> must be concave up near that point and so has a <em>local maximum</em> there.
+			then <m>q</m> must be concave down near that point and so has a <em>local maximum</em> there.
 		</li>
 
 		<li>
