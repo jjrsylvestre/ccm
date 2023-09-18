@@ -60,8 +60,9 @@ html-images: ${BUILDDIR}/html/images/.sentinal
 latex: ${BUILDDIR}/latex/${ROOTDOCNAME}.tex
 
 ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx: $(SOURCES) | validate-xml
-	@echo "Consolidating document into one PTX file, output will be placed in ${BUILDDIR}/ptx..."
+	@echo "Consolidating document into one PTX file, output will be placed in build/ptx..."
 	@mkdir -p ${BUILDDIR}/ptx
+	@ln -sf --no-dereference ${BUILDDIR} build
 	@echo "...calling xsltproc..."
 	@xsltproc \
 	  --xinclude \
@@ -74,6 +75,7 @@ ${BUILDDIR}/html/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Converting PTX to HTML..."
 	@-rm -f ${BUILDDIR}/html/.sentinal
 	@mkdir -p ${BUILDDIR}/html/knowl
+	@ln -sf --no-dereference ${BUILDDIR} build
 	@echo "...calling pretext to compile PreTeXt document"
 	@$(PRETEXT) \
 	  --verbose \
@@ -99,8 +101,9 @@ ${BUILDDIR}/html/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 
 ${BUILDDIR}/html/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Generating SVG files for HTML output..."
-	@-rm -f ${BUILDDIR}/html/images/.sentinal
 	@mkdir -p ${BUILDDIR}/html/images
+	@ln -sf --no-dereference ${BUILDDIR} build
+	@-rm -f ${BUILDDIR}/html/images/.sentinal
 	@echo "...calling pretext to generate images"
 	@$(PRETEXT) \
 	  --verbose \
@@ -128,17 +131,21 @@ ${BUILDDIR}/html/fonts/%.woff2: stixfonts/fonts/static_otf_woff2/%.woff2
 	@mkdir -p ${BUILDDIR}/html/fonts
 	-cp $< ${BUILDDIR}/html/fonts/
 
-${BUILDDIR}/latex/book-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+${BUILDDIR}/latex/${ROOTDOCNAME}.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Converting PTX to LATEX for version: ${*}..."
 	@mkdir -p ${BUILDDIR}/latex
+	@ln -sf --no-dereference ${BUILDDIR} build
 	@echo "...calling pretext to compile PreTeXt document"
 	@${PRETEXT} \
+	  --XSL style-latex.xsl \
 	  --component all \
 	  --format latex \
-	  --parameters \
-	    numbering.projects.level 2 \
+	  --publisher latex-out.xml \
 	  --directory ${BUILDDIR}/latex \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+	@echo "...applying adjustments from ./make.d/latex/"
+	@./make.d/latex/fourier-font.sh ${BUILDDIR}/latex/${ROOTDOCNAME}.tex
+#	@./make.d/latex/page-breaks.sh ${BUILDDIR}/latex/${ROOTDOCNAME}.tex
 	@echo "...DONE"
 
 html-serve:
@@ -147,5 +154,4 @@ html-serve:
 validate-xml: $(SOURCES)
 	@echo "Validating xml..."
 	@xmllint --xinclude src/${ROOTDOCNAME}.ptx | xmllint --noout -
-	@mkdir -p ${BUILDDIR}
 	@echo "...DONE"
