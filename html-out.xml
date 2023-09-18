@@ -22,6 +22,9 @@ respective owners.
 		  exercise-inline="no"
 		  proof="no"
 		/>
+		<tableofcontents
+		  focused="yes"
+		/>
 	</html>
 
 	<common>

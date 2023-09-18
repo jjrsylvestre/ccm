@@ -60,59 +60,93 @@ header.ptx-masthead span.subtitle {
   color: #09AB0D;
 }
 
-.ptx-toc.parts:not(.depth2) > ul.structural > li > ul.structural > li > .toc-item > a
-{
+.ptx-content .summary-links a {
+  color: #09AB0D;
+}
+
+.ptx-content .summary-links a:hover {
+  color: white;
+  background-color: #AB09A7;
+}
+
+.ptx-toc.focused .toc-chapter {
   background-color: #09AB0D;
 }
 
-.ptx-toc ul.structural li a, .ptx-toc ul.structural li a:link,
-.ptx-toc.parts:not(.depth2) > ul.structural > li > ul.structural > li > .toc-item > a:hover
+.ptx-toc.focused .toc-chapter.active,
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter).active,
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter).contains-active
 {
-  background-color: #0D09AB;
+  background-color: #AB09A7;
 }
 
-.ptx-toc ul.structural li ul.structural a.active,
-.ptx-toc ul.structural li ul.structural a:hover
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter) {
+  background-color: #067409;
+}
+
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-chapter, .toc-backmatter) :hover,
+.ptx-toc .toc-item > .toc-title-box > a:is(:hover, :focus)
 {
-  background-color: #AB0D09;
+  background-color: #AB09A7;
 }
 
-.ptx-toc ul.structural li ul.structural a {
-  color: #0D09AB;
-  font-family: "STIX Two Text", "Times New Roman", Times, serif;
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter) > .toc-item-list > .toc-item :hover {
+  color: white;
+  background-color: #AB09A7;
 }
 
-.ptx-toc.parts:not(.depth2) > ul.structural > li:first-child > ul.structural > li > .toc-item > a {
-  color: #0D09AB;
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-chapter, .toc-backmatter) > .toc-title-box > .toc-expander:hover,
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-chapter, .toc-backmatter) > .toc-title-box > .toc-expander > .icon:hover
+{
+  color: #AB09A7;
+  background-color: #FEEBFD;
 }
+
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-chapter, .toc-backmatter) > .toc-item-list > :is(.toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references) {
+  color: #555555;
+}
+
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-chapter, .toc-backmatter).active > .toc-item-list > :is(.toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references),
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter).contains-active > .toc-item-list > :is(.toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references)
+{
+  color: #AB09A7;
+}
+
+.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter).contains-active > .toc-item-list > :is(.toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references).active
+{
+  color: white;
+  background-color: #AB09A7;
+}
+
+
 
 /* highlight definitions ***********************/
-.pretext-content article.definition.definition-like {
-  border: solid 2px #1100AA;
+.ptx-content article.definition.definition-like {
+  border: solid 2px #AB09A7;
   border-radius: 12px;
   padding: 10px;
 }
 
-.pretext-content .definition.definition-like {
-  border: solid 2px #1100AA;
+.ptx-content .definition.definition-like {
+  border: solid 2px #AB09A7;
   border-radius: 12px;
   padding: 10px;
-  background-color: #f4f4fe;
+  background-color: #FEF2FE;
 }
 
-.pretext-content .definition.definition-like .heading {
+.ptx-content .definition.definition-like .heading {
   margin-top: 0;
 }
 
-.pretext-content .definition.definition-like + .sidebyside {
+.ptx-content .definition.definition-like + .sidebyside {
   margin-top: 1.25em;
 }
-.pretext-content section article.definition.definition-like .heading + p {
+.ptx-content section article.definition.definition-like .heading + p {
   display: block;
 }
 
 /* undo Greg's L */
-.pretext-content article.definition.definition-like::after {
+.ptx-content article.definition.definition-like::after {
     content:'';
     border-bottom: none;
     display: none;
@@ -128,55 +162,55 @@ header.ptx-masthead span.subtitle {
 /*     and facts                              ************/
 /*     and conventions                        ************/
 /* TODO change these colors to be different from definitions */
-.pretext-content article.convention.remark-like,
-.pretext-content article.identity.theorem-like,
-.pretext-content article.fact.theorem-like,
-.pretext-content article.theorem.theorem-like
+.ptx-content article.convention.remark-like,
+.ptx-content article.identity.theorem-like,
+.ptx-content article.fact.theorem-like,
+.ptx-content article.theorem.theorem-like
 {
-  border: solid 2px #1100AA;
+  border: solid 2px #AB09A7;
   border-radius: 12px;
   padding: 10px;
 }
 
-.pretext-content .convention.remark-like,
-.pretext-content .identity.theorem-like,
-.pretext-content .fact.theorem-like,
-.pretext-content .theorem.theorem-like
+.ptx-content .convention.remark-like,
+.ptx-content .identity.theorem-like,
+.ptx-content .fact.theorem-like,
+.ptx-content .theorem.theorem-like
 {
-    border: solid 2px #1100AA;
+    border: solid 2px #AB09A7;
   border-radius: 12px;
   padding: 10px;
-  background-color: #f4f4fe;
+  background-color: #FEF2FE;
 }
 
-.pretext-content .convention.remark-like,
-.pretext-content .identity.theorem-like .heading,
-.pretext-content .fact.theorem-like .heading,
-.pretext-content .theorem.theorem-like .heading
+.ptx-content .convention.remark-like,
+.ptx-content .identity.theorem-like .heading,
+.ptx-content .fact.theorem-like .heading,
+.ptx-content .theorem.theorem-like .heading
 {
     margin-top: 0;
 }
 
-.pretext-content .convention.remark-like + .sidebyside,
-.pretext-content .identity.theorem-like + .sidebyside,
-.pretext-content .fact.theorem-like + .sidebyside,
-.pretext-content .theorem.theorem-like + .sidebyside {
+.ptx-content .convention.remark-like + .sidebyside,
+.ptx-content .identity.theorem-like + .sidebyside,
+.ptx-content .fact.theorem-like + .sidebyside,
+.ptx-content .theorem.theorem-like + .sidebyside {
     margin-top: 1.25em;
 }
 
-.pretext-content section article.convention.remark-like .heading + p,
-.pretext-content section article.identity.theorem-like .heading + p,
-.pretext-content section article.fact.theorem-like .heading + p,
-.pretext-content section article.theorem.theorem-like .heading + p
+.ptx-content section article.convention.remark-like .heading + p,
+.ptx-content section article.identity.theorem-like .heading + p,
+.ptx-content section article.fact.theorem-like .heading + p,
+.ptx-content section article.theorem.theorem-like .heading + p
 {
   display: block;
 }
 
 /* undo Greg's L */
-.pretext-content article.convention.remark-like::after,
-.pretext-content article.identity.theorem-like::after,
-.pretext-content article.fact.theorem-like::after,
-.pretext-content article.theorem.theorem-like::after
+.ptx-content article.convention.remark-like::after,
+.ptx-content article.identity.theorem-like::after,
+.ptx-content article.fact.theorem-like::after,
+.ptx-content article.theorem.theorem-like::after
 {
     content:'';
     border-bottom: none;
@@ -187,20 +221,20 @@ header.ptx-masthead span.subtitle {
 }
 
 /* undo italics for patterns */
-.pretext-content section article.convention.remark-like p,
-.pretext-content section article.identity.theorem-like p,
-.pretext-content section article.fact.theorem-like p,
-.pretext-content section article.identity.theorem-like li,
-.pretext-content section article.fact.theorem-like li,
-.pretext-content section article.theorem.theorem-like li
+.ptx-content section article.convention.remark-like p,
+.ptx-content section article.identity.theorem-like p,
+.ptx-content section article.fact.theorem-like p,
+.ptx-content section article.identity.theorem-like li,
+.ptx-content section article.fact.theorem-like li,
+.ptx-content section article.theorem.theorem-like li
 {
     font-style: normal;
 }
 /* but then also reverse font-style for li headings */
-.pretext-content section article.convention.remark-like li > .heading,
-.pretext-content section article.identity.theorem-like li > .heading,
-.pretext-content section article.fact.theorem-like li > .heading,
-.pretext-content section article.theorem.theorem-like li > .heading
+.ptx-content section article.convention.remark-like li > .heading,
+.ptx-content section article.identity.theorem-like li > .heading,
+.ptx-content section article.fact.theorem-like li > .heading,
+.ptx-content section article.theorem.theorem-like li > .heading
 {
     font-style: italic;
 }
@@ -210,32 +244,32 @@ header.ptx-masthead span.subtitle {
 
 /* highlight principles (renamed from insight) ************/
 /* TODO change these colors to be different from definitions and patterns */
-.pretext-content article.insight.remark-like {
-  border: solid 2px #1100AA;
+.ptx-content article.insight.remark-like {
+  border: solid 2px #AB09A7;
   border-radius: 12px;
   padding: 10px;
 }
 
-.pretext-content .insight.remark-like {
-  border: solid 2px #1100AA;
+.ptx-content .insight.remark-like {
+  border: solid 2px #AB09A7;
   border-radius: 12px;
   padding: 10px;
-  background-color: #f4f4fe;
+  background-color: #FEF2FE;
 }
 
-.pretext-content .insight.remark-like .heading {
+.ptx-content .insight.remark-like .heading {
   margin-top: 0;
 }
 
-.pretext-content .insight.remark-like + .sidebyside {
+.ptx-content .insight.remark-like + .sidebyside {
   margin-top: 1.25em;
 }
-.pretext-content section article.insight.remark-like .heading + p {
+.ptx-content section article.insight.remark-like .heading + p {
   display: block;
 }
 
 /* undo Greg's L */
-.pretext-content article.insight.remark-like::after {
+.ptx-content article.insight.remark-like::after {
     content:'';
     border-bottom: none;
     display: none;
@@ -249,32 +283,32 @@ header.ptx-masthead span.subtitle {
 /* highlight procedures (renamed from algorithm) ************/
 /* TODO change these colors to be different from others above ? */
 /* Or maybe consolidate these styles into the other .theorem-like styles ? */
-.pretext-content article.algorithm.theorem-like {
-  border: solid 2px #1100AA;
+.ptx-content article.algorithm.theorem-like {
+  border: solid 2px #AB09A7;
   border-radius: 12px;
   padding: 10px;
 }
 
-.pretext-content .algorithm.theorem-like {
-  border: solid 2px #1100AA;
+.ptx-content .algorithm.theorem-like {
+  border: solid 2px #AB09A7;
   border-radius: 12px;
   padding: 10px;
-  background-color: #f4f4fe;
+  background-color: #FEF2FE;
 }
 
-.pretext-content .algorithm.theorem-like .heading {
+.ptx-content .algorithm.theorem-like .heading {
   margin-top: 0;
 }
 
-.pretext-content .algorithm.theorem-like + .sidebyside {
+.ptx-content .algorithm.theorem-like + .sidebyside {
   margin-top: 1.25em;
 }
-.pretext-content section article.algorithm.theorem-like .heading + p {
+.ptx-content section article.algorithm.theorem-like .heading + p {
   display: block;
 }
 
 /* undo Greg's L */
-.pretext-content article.algorithm.theorem-like::after {
+.ptx-content article.algorithm.theorem-like::after {
     content:'';
     border-bottom: none;
     display: none;
@@ -284,12 +318,12 @@ header.ptx-masthead span.subtitle {
 }
 
 /* undo italics for patterns */
-.pretext-content section article.algorithm.theorem-like p,
-.pretext-content section article.algorithm.theorem-like li {
+.ptx-content section article.algorithm.theorem-like p,
+.ptx-content section article.algorithm.theorem-like li {
     font-style: normal;
 }
 /* but then also reverse font-style for li headings */
-.pretext-content section article.algorithm.theorem-like li > .heading {
+.ptx-content section article.algorithm.theorem-like li > .heading {
   font-style: italic;
 }
 
