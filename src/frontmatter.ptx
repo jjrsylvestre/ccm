@@ -33,15 +33,8 @@ respective owners.
 
 	<edition>Fall 2022</edition>
 
-	<website>
-		<name>Calculus Concepts and Modelling</name>
-		<address>https://sites.ualberta.ca/~jsylvest/books/ccm.html</address>
-	</website>
-
-	<website>
-		<name>GitHub source code repository</name>
-		<address>https://github.com/jjrsylvestre/ccm/</address>
-	</website>
+	<website><url href="https://sites.ualberta.ca/~jsylvest/books/ccm.html">Calculus Concepts and Modelling</url></website>
+	<website><url href="https://github.com/jjrsylvestre/ccm/">GitHub source code repository</url></website>
 
 	<copyright>
 		<year>2021<ndash />2022</year>
