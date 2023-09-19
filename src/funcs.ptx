@@ -36,7 +36,7 @@ for us a function will always be <em>one number in, one number out</em>.
 
 <figure xml:id="figure-funcs-input-output-schematic">
 	<caption> Schematic of a function as an input-output process. </caption>
-	<image width="50%">
+	<image xml:id="image-funcs-in-out" width="60.2%">
 		<description>Schematic of a function as an input-output process.</description>
 		<latex-image><xi:include href="funcs.d/in-out.tex" parse="text" /></latex-image>
 	</image>
@@ -270,7 +270,7 @@ the property of being on the graph or not on the graph of a function <m>f</m> is
 			including two representative points:
 			one on the graph and one not on the graph.
 		</caption>
-		<image width="60%">
+		<image xml:id="image-funcs-parabola" width="67.9%">
 			<description> Parabolic graph of the basic quadratic function. </description>
 			<latex-image><xi:include href="funcs.d/parabola.tex" parse="text" /></latex-image>
 		</image>
@@ -300,7 +300,7 @@ the property of being on the graph or not on the graph of a function <m>f</m> is
 
 	<figure xml:id="figure-funcs-discrete">
 		<caption> An example graph that consists of only five points. </caption>
-		<image width="33%">
+		<image xml:id="image-funcs-discrete" width="34.7%">
 			<description> An example graph that consists of only five points. </description>
 			<latex-image><xi:include href="funcs.d/discrete.tex" parse="text" /></latex-image>
 		</image>
@@ -332,11 +332,11 @@ in which case there is no corresponding point on the graph for a vertical line a
 <figure xml:id="figure-funcs-VLT">
 	<caption> Illustrations of the Vertical Line Test. </caption>
 
-	<sidebyside widths="40% 35%">
+	<sidebyside widths="42.9% 36.7%">
 
 		<figure xml:id="figure-funcs-VLT-1">
 			<caption> A curve that passes the Vertical Line Test. </caption>
-			<image>
+			<image xml:id="image-funcs-vlt1">
 				<description> A curve that passes the Vertical Line Test. </description>
 				<latex-image><xi:include href="funcs.d/vlt1.tex" parse="text" /></latex-image>
 			</image>
@@ -344,7 +344,7 @@ in which case there is no corresponding point on the graph for a vertical line a
 
 		<figure xml:id="figure-funcs-VLT-2">
 			<caption> A curve that does not pass the Vertical Line Test. </caption>
-			<image>
+			<image xml:id="image-funcs-vlt2">
 				<description> A curve that does not pass the Vertical Line Test. </description>
 				<latex-image><xi:include href="funcs.d/vlt2.tex" parse="text" /></latex-image>
 			</image>
@@ -453,7 +453,7 @@ As you can imagine, a piecewise function will also have a graph that appears to 
 
 	<figure xml:id="figure-funcs-piecewise">
 		<caption> Graph of a piecewise-defined function. </caption>
-		<image width="40%">
+		<image xml:id="image-funcs-piecewise" width="47%">
 			<description> Graph of a piecewise-defined function. </description>
 			<latex-image><xi:include href="funcs.d/piecewise.tex" parse="text" /></latex-image>
 		</image>
@@ -489,8 +489,8 @@ there is no requirement that the pieces of the graph meet at the transition poin
 
 	<figure xml:id="figure-funcs-piecewise-2">
 		<caption> Graph of a piecewise-defined function with a <q>jump</q> in values. </caption>
-		<image width="40%">
-			<description> Graph of a piecewise-defined function with a <q>jump</q> in values. </description>
+		<image xml:id="image-funcs-piecewise-2" width="47%">
+			<description> Graph of a piecewise-defined function with a "jump" in values. </description>
 			<latex-image><xi:include href="funcs.d/piecewise-2.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -518,7 +518,7 @@ there is no requirement that the pieces of the graph meet at the transition poin
 
 	<figure xml:id="figure-funcs-piecewise-many">
 		<caption> Graph of a piecewise-defined function with many pieces. </caption>
-		<image width="60%">
+		<image xml:id="image-funcs-piecewise-many" width="67.9%">
 			<description> Graph of a piecewise-defined function with many pieces. </description>
 			<latex-image><xi:include href="funcs.d/piecewise-many.tex" parse="text" /></latex-image>
 		</image>
@@ -603,7 +603,7 @@ and we can always make the first approximation better and better by tightening t
 	<figure xml:id="figure-funcs-discont-cont">
 		<caption> A point of discontinuity and one of continuity. </caption>
 
-		<sidebyside widths="45% 45%">
+		<sidebyside widths="54.1% 43.5%">
 
 			<figure>
 				<caption>
@@ -612,7 +612,7 @@ and we can always make the first approximation better and better by tightening t
 					that are outside of the range <m>3 \lt f(t) \lt 5</m>,
 					no matter how small of a subdomain around <m>t = 2</m> we take <m>t \approx 2</m> to mean.
 				</caption>
-				<image>
+				<image xml:id="image-funcs-piecewise-2-discont">
 					<description> The graph of a function near a point of discontinuity cannot be restricted to particular output range. </description>
 					<latex-image><xi:include href="funcs.d/piecewise-2-discont.tex" parse="text" /></latex-image>
 				</image>
@@ -624,7 +624,7 @@ and we can always make the first approximation better and better by tightening t
 					we can always restrict the domain around <m>t = 1</m> so that <m>f(t) \approx f(1)</m> is true for all <m>t \approx 1</m>.
 					(The Greek letter <m>\epsilon</m> in the figure represents a small amount above or below <m>f(1) = 1</m> to create a small range.)
 				</caption>
-				<image>
+				<image xml:id="image-funcs-piecewise-2-cont">
 					<description>
 						The graph of a function near a point of continuity can always be restricted to a small output range,
 						no matter how small.
@@ -682,11 +682,11 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	<figure xml:id="figure-funcs-jump-discont">
 		<caption> Two examples of jump discontinuities. </caption>
 
-		<sidebyside widths="35% 35%">
+		<sidebyside widths="38.8% 38.8%">
 
 			<figure>
 				<caption> A piecewise function can often (but not always!) jump values at transition points. </caption>
-				<image>
+				<image xml:id="image-funcs-jump-discont-1">
 					<description> A piecewise function with a jump discontinuity. </description>
 					<latex-image><xi:include href="funcs.d/jump-discont-1.tex" parse="text" /></latex-image>
 				</image>
@@ -697,7 +697,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 					Sometimes the output of a function at one specific input location is specially defined,
 					creating a jump discontinuity.
 				</caption>
-				<image>
+				<image xml:id="image-funcs-jump-discont-2">
 					<description> A function with a redefined point creating a jump discontinuity. </description>
 					<latex-image><xi:include href="funcs.d/jump-discont-2.tex" parse="text" /></latex-image>
 				</image>
@@ -736,7 +736,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 
 	<figure>
 		<caption> A graph with a discontinuity caused by an undefined value. </caption>
-		<image width="33%">
+		<image xml:id="image-funcs-hole" width="38.8%">
 			<description> A graph with a discontinuity caused by an undefined value. </description>
 			<latex-image><xi:include href="funcs.d/hole.tex" parse="text" /></latex-image>
 		</image>
@@ -775,7 +775,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 			The graph of <m>f(t) = 1/(t - 2)^2</m>,
 			with a singularity at <m>t = 2</m>.
 		</caption>
-		<image width="45%">
+		<image xml:id="image-funcs-singular" width="51.1%">
 			<description> A graph of a function with a discontinuity caused by a singularity. </description>
 			<latex-image><xi:include href="funcs.d/singular.tex" parse="text" /></latex-image>
 		</image>
@@ -863,7 +863,7 @@ we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
 			Two vertical shifts of the graph of <m>f(t) = \sqrt{t}</m>,
 			one up and one down.
 		</caption>
-		<image width="55%">
+		<image xml:id="image-funcs-vshifts" width="62.3%">
 			<description>
 				Two vertical shifts of the graph of the square root function,
 				one up and one down.
@@ -910,7 +910,7 @@ we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
 			Two vertical scales of the graph of <m>f(t) = \sqrt{t}</m>,
 			one stretched and one compressed.
 		</caption>
-		<image width="55%">
+		<image xml:id="image-funcs-vscales" width="60%">
 			<description>
 				Two vertical scales of the graph of the square root function,
 				one stretched and one compressed.
@@ -955,7 +955,7 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 
 	<figure xml:id="figure-funcs-vrefl">
 		<caption> Vertical reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
-		<image width="55%">
+		<image xml:id="image-funcs-vrefl" width="60%">
 			<description> Vertical reflection of the graph of the square root function. </description>
 			<latex-image><xi:include href="funcs.d/vrefl.tex" parse="text" /></latex-image>
 		</image>
@@ -1070,7 +1070,7 @@ we call the <q>new</q> function a <term>horizontal shift</term> of the <q>old</q
 			Two horizontal shifts of the graph of <m>f(t) = \sqrt{t}</m>,
 			one right and one left.
 		</caption>
-		<image width="67%">
+		<image xml:id="image-funcs-hshifts" width="77%">
 			<description>
 				Two horizontal shifts of the graph of the square root function,
 				one right and one left.
@@ -1141,7 +1141,7 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 			Two horizontal scales of the graph of <m>f(t) = \sqrt{t}</m>,
 			one stretched and one compressed.
 		</caption>
-		<image width="75%">
+		<image xml:id="image-funcs-hscales" width="89.7%">
 			<description>
 				Two horizontal scales of the graph of the square root function,
 				one stretched and one compressed.
@@ -1205,7 +1205,7 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 
 	<figure xml:id="figure-funcs-hrefl">
 		<caption> Horizontal reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
-		<image width="67%">
+		<image xml:id="image-funcs-hrefl" width="85.0%">
 			<description> Horizontal reflection of the graph of the square root function. </description>
 			<latex-image><xi:include href="funcs.d/hrefl.tex" parse="text" /></latex-image>
 		</image>

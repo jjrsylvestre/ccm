@@ -101,7 +101,7 @@ Then we might want a function to model it as well.
 
 	<figure xml:id="figure-models-speed">
 		<caption>Graph of a rate-of-travel model.</caption>
-		<image width="80%">
+		<image xml:id="image-models-speed" width="79.7%">
 			<description>Graph of a rate-of-travel model.</description>
 			<latex-image><xi:include href="models.d/speed.tex" parse="text" /></latex-image>
 		</image>
@@ -240,7 +240,7 @@ The next step in analyzing the situation would be to try to make this observatio
 
 	<figure xml:id="figure-models-brine-tank">
 		<caption>Brine entering and being drained from a tank so that volume is held constant.</caption>
-		<image width="50%">
+		<image xml:id="image-models-mixing" width="63.8%">
 			<description>Diagram of brine entering and being drained from a tank so that volume is held constant.</description>
 			<latex-image><xi:include href="models.d/mixing.tex" parse="text" /></latex-image>
 		</image>
@@ -636,7 +636,7 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 
 	<figure xml:id="figure-models-radioactive-slopes">
 	<caption> Direction field for a rate equation modelling radioactive decay. </caption>
-		<image width="50%">
+		<image xml:id="image-models-radioactive" width="59.7%">
 			<description> Direction field for a rate equation modelling radioactive decay. </description>
 			<latex-image><xi:include href="models.d/radioactive.tex" parse="text" /></latex-image>
 		</image>
@@ -655,7 +655,7 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 
 	<figure xml:id="figure-models-radioactive-int-curves">
 		<caption> Several solution curves superimposed onto the direction field for a rate equation modelling radioactive decay. </caption>
-		<image width="50%">
+		<image xml:id="image-models-radioactive-int-curves" width="59.7%">
 			<description> Several solution curves superimposed onto the direction field for a rate equation modelling radioactive decay. </description>
 			<latex-image><xi:include href="models.d/radioactive-int-curves.tex" parse="text" /></latex-image>
 		</image>
@@ -708,7 +708,7 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 
 	<figure xml:id="figure-models-dirfield-vary-all-dirs">
 		<caption> Direction field for a rate equation involving both the dependent and independent variables. </caption>
-		<image width="33%">
+		<image xml:id="image-models-dirfield" width="38.8%">
 			<description> Direction field for a rate equation involving both the dependent and independent variables. </description>
 			<latex-image><xi:include href="models.d/dirfield.tex" parse="text" /></latex-image>
 		</image>
@@ -736,7 +736,7 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 
 	<figure xml:id="figure-models-dirfield-vary-all-dirs-int-curves">
 		<caption> Several solution curves superimposed onto the direction field for a rate equation. </caption>
-		<image width="33%">
+		<image xml:id="image-models-dirfield-int-curves" width="38.8%">
 			<description> Several solution curves superimposed onto the direction field for a rate equation. </description>
 			<latex-image><xi:include href="models.d/dirfield-int-curves.tex" parse="text" /></latex-image>
 		</image>

@@ -179,8 +179,8 @@ by applying the concepts we learned in <xref ref="chapter-curves" />.
 
 	<figure xml:id="figure-auto-first-example-phase-line">
 		<caption> A <term>phase line</term> describing solution behaviours on different quantity ranges. </caption>
-		<image width="26%">
-			<description>Diagram illustrating a vertical <q>phase line</q> that describes solution behaviours on different quantity ranges.</description>
+		<image xml:id="image-auto-first-example-phase" width="30.8%">
+			<description>Diagram illustrating a vertical phase line that describes solution behaviours on different quantity ranges.</description>
 			<latex-image><xi:include href="auto.d/first-example-phase.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -189,7 +189,7 @@ by applying the concepts we learned in <xref ref="chapter-curves" />.
 
 	<figure xml:id="figure-auto-first-example-solutions">
 		<caption> Typical solution curves to the original rate equation. </caption>
-		<image width="90%">
+		<image xml:id="image-auto-first-example-solutions" width="100%">
 			<description>Diagram illustrating graphs of typical solution curves to the original rate equation.</description>
 			<latex-image><xi:include href="auto.d/first-example-solutions.tex" parse="text" /></latex-image>
 		</image>
@@ -397,7 +397,7 @@ so we have concave-up behaviour for <m>q > 0</m>.
 
 <figure xml:id="figure-auto-exp-growth">
 	<caption> Typical solution curves when rate is proportional to quantity. </caption>
-	<image width="48%">
+	<image xml:id="image-auto-exp-growth" width="57.9%">
 		<description>Diagram illustrating graphs of typical solution curves when rate is proportional to quantity.</description>
 		<latex-image><xi:include href="auto.d/exp-growth.tex" parse="text" /></latex-image>
 	</image>
@@ -457,7 +457,7 @@ is a concave-down parabola as a function in <m>q</m>.
 		Graph of the logistic growth rate function.
 		Note that <em><m>q</m> is on the horizontal axis</em>.
 	</caption>
-	<image width="70%">
+	<image xml:id="image-auto-logistic-rate-func" width="89.1%">
 		<description>Graph of the logistic growth rate function as a function of quantity.</description>
 		<latex-image><xi:include href="auto.d/logistic-rate-func.tex" parse="text" /></latex-image>
 	</image>
@@ -518,7 +518,7 @@ but not at <m>q = M</m> since that is one of our equilibrium solutions.
 
 <figure xml:id="figure-auto-logistic-solutions">
 	<caption> Phase line and representative solution curves for logistic growth. </caption>
-	<image width="90%">
+	<image xml:id="image-auto-logistic-solutions" width="100%">
 		<description>Phase line and representative solution curves for logistic growth.</description>
 		<latex-image><xi:include href="auto.d/logistic-solutions.tex" parse="text" /></latex-image>
 	</image>
@@ -554,20 +554,20 @@ so we will leave the details to you, the reader.
 
 	<sbsgroup>
 
-		<sidebyside widths="70%"><figure xml:id="figure-auto-threshold-rate-function">
+		<sidebyside widths="89.1%"><figure xml:id="figure-auto-threshold-rate-function">
 			<caption>
 				Graph of the growth-with-threshold rate function.
 				Note that <em><m>q</m> is on the horizontal axis</em>.
 			</caption>
-			<image width="50%">
+			<image xml:id="image-auto-threshold-rate-func">
 				<description>Graph of the growth-with-threshold rate function as a function of quantity.</description>
 				<latex-image><xi:include href="auto.d/threshold-rate-func.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
 
-		<sidebyside widths="90%"><figure xml:id="figure-auto-threshold-solutions">
+		<sidebyside widths="100%"><figure xml:id="figure-auto-threshold-solutions">
 			<caption> Phase line and representative solution curves for growth with threshold. </caption>
-			<image>
+			<image xml:id="image-auto-threshold-solutions">
 				<description>Phase line and representative solution curves for growth with threshold.</description>
 				<latex-image><xi:include href="auto.d/threshold-solutions.tex" parse="text" /></latex-image>
 			</image>
@@ -609,20 +609,20 @@ and we assume that the threshold <m>T</m> is less than the carrying capacity <m>
 
 	<sbsgroup>
 
-		<sidebyside widths="70%"><figure xml:id="figure-auto-both-rate-function">
+		<sidebyside widths="89.1%"><figure xml:id="figure-auto-both-rate-function">
 			<caption>
 				Graph of the rate function for logistic growth with threshold.
 				Note that <em><m>q</m> is on the horizontal axis</em>.
 			</caption>
-			<image>
+			<image xml:id="image-auto-both-rate-func">
 				<description>Graph of the rate function for logistic growth with threshold, as a function of quantity.</description>
 				<latex-image><xi:include href="auto.d/both-rate-func.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
 
-		<sidebyside widths="90%"><figure xml:id="figure-auto-both-solutions">
+		<sidebyside widths="100%"><figure xml:id="figure-auto-both-solutions">
 			<caption> Phase line and representative solution curves for logistic growth with threshold. </caption>
-			<image>
+			<image xml:id="image-auto-both-solutions">
 				<description>Phase line and representative solution curves for logistic growth with threshold.</description>
 				<latex-image><xi:include href="auto.d/both-solutions.tex" parse="text" /></latex-image>
 			</image>

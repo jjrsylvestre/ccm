@@ -34,7 +34,7 @@ respective owners.
 			Data points for rate of growth of a population.
 			Note that axes are not the same scale.
 		</caption>
-		<image width="50%">
+		<image xml:id="image-exp-trees-points" width="58.5%">
 			<description> Data points for rate of growth of a population. </description>
 			<latex-image><xi:include href="exp.d/trees-points.tex" parse="text" /></latex-image>
 		</image>
@@ -47,7 +47,7 @@ respective owners.
 
 	<figure xml:id="figure-exp-doubling-curve">
 		<caption> Fitted curve for rate of growth of a population. </caption>
-		<image width="50%">
+		<image xml:id="image-exp-trees-curve" width="58.5%">
 			<description> Fitted curve for rate of growth of a population. </description>
 			<latex-image><xi:include href="exp.d/trees-curve.tex" parse="text" /></latex-image>
 		</image>
@@ -80,8 +80,8 @@ we find the fitted curve matches other values of this rate function.
 		Plotting function values <m>r(-1) = 2^{-1}</m> and <m>r(1/2) = 2^{1/2}</m>
 		on our <q>doubling</q> model curve.
 	</caption>
-	<image width="66%">
-		<description> Plotting additional rate function values against our <q>doubling</q> model curve. </description>
+	<image xml:id="image-exp-base2-recip-root" width="85%">
+		<description> Plotting additional rate function values against our "doubling" model curve. </description>
 		<latex-image><xi:include href="exp.d/base2-recip-root.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -130,25 +130,25 @@ Exponential functions come in three varieties:
 <figure xml:id="figure-exp-graphs">
 	<caption>Graphs of exponential functions.</caption>
 
-	<sidebyside valign="middle" widths="50% 40%"> <!-- widths="" margins=""  -->
+	<sbsgroup>
 
-		<figure>
+		<sidebyside widths="67.6%"><figure>
 			<caption> A typical exponential growth graph. </caption>
-			<image>
+			<image xml:id="image-exp-generic-growth-graph">
 				<description> A typical exponential growth graph. </description>
 				<latex-image><xi:include href="exp.d/generic-growth-graph.tex" parse="text" /></latex-image>
 			</image>
-		</figure>
+		</figure></sidebyside>
 
-		<figure>
+		<sidebyside widths="50.8%"><figure>
 			<caption> A typical exponential decay graph. </caption>
-			<image>
+			<image xml:id="image-exp-generic-decay-graph">
 				<description> A typical exponential decay graph. </description>
 				<latex-image><xi:include href="exp.d/generic-decay-graph.tex" parse="text" /></latex-image>
 			</image>
-		</figure>
+		</figure></sidebyside>
 
-	</sidebyside>
+	</sbsgroup>
 
 </figure>
 
@@ -209,7 +209,7 @@ Exponential functions come in three varieties:
 
 		<figure xml:id="figure-exp-new-base-on-generic-graph">
 			<caption> New base as an output of an exponential function. </caption>
-			<image width="66%">
+			<image xml:id="image-exp-new-base-on-generic-graph" width="67.6%">
 				<description> New base as an output of an exponential function. </description>
 				<latex-image><xi:include href="exp.d/new-base-on-generic-graph.tex" parse="text" /></latex-image>
 			</image>
@@ -230,7 +230,7 @@ Exponential functions come in three varieties:
 
 		<figure xml:id="figure-exp-new-base-horiz-scale-graph">
 			<caption> Graph of one exponential function as a horizontal scaling of another. </caption>
-			<image width="66%">
+			<image xml:id="image-exp-new-base-horiz-scale-graph" width="75.8%">
 				<description> Graph of one exponential function as a horizontal scaling of another. </description>
 				<latex-image><xi:include href="exp.d/new-base-horiz-scale-graph.tex" parse="text" /></latex-image>
 			</image>
@@ -280,7 +280,7 @@ the special number so that <m>\ln a = 1</m> is given its own symbol.
 
 <figure xml:id="figure-exp-euler">
 	<caption> Euler's number defined relative to the special rate function <m>r(t) = 1/t</m>. </caption>
-	<image width="33%">
+	<image xml:id="image-exp-euler" width="34.7%">
 		<description> Euler's number defined relative to a special rate function. </description>
 		<latex-image><xi:include href="exp.d/euler.tex" parse="text" /></latex-image>
 	</image>
@@ -327,7 +327,7 @@ Consider what happens when we reflect the graph of the natural logarithm in the 
 
 <figure xml:id="figure-exp-reflect-ln">
 	<caption> A reflection of the graph of the natural logarithm function. </caption>
-	<image width="75%">
+	<image xml:id="image-exp-reflect-ln" width="88.8%">
 		<description> A reflection of the graph of the natural logarithm function. </description>
 		<latex-image><xi:include href="exp.d/reflect-ln.tex" parse="text" /></latex-image>
 	</image>
@@ -367,7 +367,7 @@ so
 
 <figure xml:id="figure-exp-points-on-reflect-ln">
 	<caption> Specific points on a reflection of the graph of the natural logarithm function. </caption>
-	<image width="75%">
+	<image xml:id="image-exp-points-reflect-ln" width="88.8%">
 		<description> Specific points on a reflection of the graph of the natural logarithm function. </description>
 		<latex-image><xi:include href="exp.d/points-reflect-ln.tex" parse="text" /></latex-image>
 	</image>
@@ -755,7 +755,7 @@ similar to <xref ref="pattern-poly-int-power" />.
 
 <figure xml:id="figure-exp-integral">
 	<caption> Area under the natural exponential function is measured by the natural exponential function. </caption>
-	<image width="50%">
+	<image xml:id="image-exp-natural-integral" width="62.0%">
 		<description> Graph demonstrating that the area under the natural exponential function is measured by the natural exponential function. </description>
 		<latex-image><xi:include href="exp.d/natural-integral.tex" parse="text" /></latex-image>
 	</image>

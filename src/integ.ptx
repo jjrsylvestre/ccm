@@ -40,7 +40,7 @@ and slowing down to negotiate the traffic circle at the junction of highways 13 
 
 <figure xml:id="figure-integ-camrose-wetaskiwin">
 	<caption>Graph of a rate-of-travel model.</caption>
-	<image width="80%">
+	<image xml:id="image-integ-camrose-wetaskiwin" width="84.7%">
 		<description>Graph of a rate-of-travel model.</description>
 		<latex-image><xi:include href="integ.d/camrose-wetaskiwin.tex" parse="text" /></latex-image>
 	</image>
@@ -57,7 +57,7 @@ our previous stepped rate function can still be used as a <em>simplified</em> mo
 
 <figure xml:id="figure-integ-camrose-wetaskiwin-simplified">
 	<caption>Simplifying a rate model with a step-function.</caption>
-	<image width="80%">
+	<image xml:id="image-integ-camrose-wetaskiwin-simplified" width="84.7%">
 		<description>Graph of a rate-of-travel model.</description>
 		<latex-image><xi:include href="integ.d/camrose-wetaskiwin-simplified.tex" parse="text" /></latex-image>
 	</image>
@@ -89,7 +89,7 @@ so that the step function's values can change more often to better keep up with 
 
 <figure xml:id="figure-integ-camrose-wetaskiwin-simplified-more-rect">
 	<caption>Using more steps to increase accuracy of accumulation estimate.</caption>
-	<image width="80%">
+	<image xml:id="image-integ-camrose-wetaskiwin-simplified-more-rect" width="84.7%">
 		<description>Diagram of using more steps to increase accuracy of accumulation estimate.</description>
 		<latex-image><xi:include href="integ.d/camrose-wetaskiwin-simplified-more-rect.tex" parse="text" /></latex-image>
 	</image>
@@ -166,7 +166,7 @@ because they are used to <q>sample</q> the value of the rate function on that su
 
 <figure xml:id="figure-integ-general-riemann">
 	<caption>Rectangular areas corresponding to a Riemann sum for a rate function.</caption>
-	<image width="100%">
+	<image xml:id="image-integ-general-riemann" width="91.1%">
 		<description>Rectangular areas corresponding to a Riemann sum for a rate function..</description>
 		<latex-image><xi:include href="integ.d/general-riemann.tex" parse="text" /></latex-image>
 	</image>
@@ -228,7 +228,7 @@ this can be done systematically in a number of different ways.
 
 	<figure xml:id="figure-integ-left-riemann">
 		<caption>A left Riemann sum for a parabolic rate function.</caption>
-		<image width="70%">
+		<image xml:id="image-integ-left-riemann-example" width="89.7%">
 			<description>A graph of a left Riemann sum for a parabolic rate function.</description>
 			<latex-image><xi:include href="integ.d/left-riemann-example.tex" parse="text" /></latex-image>
 		</image>
@@ -279,7 +279,7 @@ this can be done systematically in a number of different ways.
 
 	<figure xml:id="figure-integ-right-riemann">
 		<caption>A right Riemann sum for a parabolic rate function.</caption>
-		<image width="70%">
+		<image xml:id="image-integ-right-riemann-example" width="89.7%">
 			<description>A graph of a right Riemann sum for a parabolic rate function.</description>
 			<latex-image><xi:include href="integ.d/right-riemann-example.tex" parse="text" /></latex-image>
 		</image>
@@ -333,7 +333,7 @@ this can be done systematically in a number of different ways.
 
 	<figure xml:id="figure-integ-midpt-riemann">
 		<caption>A midpoint Riemann sum for a parabolic rate function.</caption>
-		<image width="70%">
+		<image xml:id="image-integ-midpt-riemann-example" width="89.7%">
 			<description>A graph of a midpoint Riemann sum for a parabolic rate function.</description>
 			<latex-image><xi:include href="integ.d/midpt-riemann-example.tex" parse="text" /></latex-image>
 		</image>
@@ -388,7 +388,7 @@ this can be done systematically in a number of different ways.
 
 	<figure xml:id="figure-integ-upper-riemann">
 		<caption>An upper Riemann sum for a parabolic rate function.</caption>
-		<image width="70%">
+		<image xml:id="image-integ-upper-riemann-example" width="89.7%">
 			<description>A graph of an upper Riemann sum for a parabolic rate function.</description>
 			<latex-image><xi:include href="integ.d/upper-riemann-example.tex" parse="text" /></latex-image>
 		</image>
@@ -792,18 +792,18 @@ there is really no difference between sample points that are left endpoints or r
 
 <figure xml:id="figure-integ-representative-rect-slice">
 	<caption>A rectangular area in a Riemann sum shrinks to become a <q>slice</q> of area in a definite integral.</caption>
-	<sidebyside>
+	<sidebyside widths="47% 47%">  <!-- calculated widths: 53.5% 53.5% -->
 		<figure xml:id="figure-integ-representative-rect-slice-rect">
 			<caption>A representative rectangular area in a Riemann sum.</caption>
-			<image>
+			<image xml:id="image-integ-representative-rectangle">
 				<description>A representative rectangular area in a Riemann sum.</description>
 				<latex-image><xi:include href="integ.d/representative-rectangle.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
 		<figure xml:id="figure-integ-representative-rect-slice-slice">
 			<caption>A representative <q>slice</q> of area in a definite integral.</caption>
-			<image>
-				<description>A representative <q>slice</q> of area in a definite integral.</description>
+			<image xml:id="image-integ-representative-slice">
+				<description>A representative "slice" of area in a definite integral.</description>
 				<latex-image><xi:include href="integ.d/representative-slice.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -822,7 +822,7 @@ eventually closely mimicking the area under the function's graph.
 
 <figure xml:id="figure-integ-riemann-total-area">
 	<caption>A Riemann sum approximating net oriented area bounded between a graph and the horizontal axis.</caption>
-	<image width="67%">
+	<image xml:id="image-integ-riemann-total-area" width="57%">
 		<description>A Riemann sum of rectangular areas approximating net oriented area bounded between a graph and the horizontal axis.</description>
 		<latex-image><xi:include href="integ.d/riemann-total-area.tex" parse="text" /></latex-image>
 	</image>
@@ -841,7 +841,7 @@ eventually closely mimicking the area under the function's graph.
 		Interpreting <m>A_1,A_2,A_3</m> as (positive) geometric areas,
 		the definite integral <m>\ccmint{a}{b}{r(t)}{t}</m> will compute to the net area <m>A_1 - A_2 + A_3</m>.
 	</caption>
-	<image width="67%">
+	<image xml:id="image-integ-net-oriented-area" width="62.6%">
 		<description>Interpreting a definite integral as net oriented area.</description>
 		<latex-image><xi:include href="integ.d/net-oriented-area.tex" parse="text" /></latex-image>
 	</image>
@@ -854,7 +854,7 @@ eventually closely mimicking the area under the function's graph.
 
 	<figure xml:id="figure-integ-accumulation-from-area-rate">
 		<caption> A rate function. </caption>
-		<image width="60%">
+		<image xml:id="image-integ-accumulation-from-graph-rate" width="46.7%">
 			<description>Graph of an example rate function.</description>
 			<latex-image><xi:include href="integ.d/accumulation-from-graph-rate.tex" parse="text" /></latex-image>
 		</image>
@@ -868,7 +868,7 @@ eventually closely mimicking the area under the function's graph.
 
 	<figure xml:id="figure-integ-accumulation-from-area">
 		<caption> Accumulation as net oriented area. </caption>
-		<image width="60%">
+		<image xml:id="image-integ-accumulation-from-graph" width="46.7%">
 			<description>Graph of an example rate function with bounded oriented area.</description>
 			<latex-image><xi:include href="integ.d/accumulation-from-graph.tex" parse="text" /></latex-image>
 		</image>

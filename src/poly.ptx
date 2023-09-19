@@ -49,11 +49,11 @@ In both cases, higher values of <m>n</m> flatten out the bottom and steepen the 
 <figure xml:id="figure-poly-powers">
 	<caption>Graphs of basic power functions.</caption>
 
-	<sidebyside valign="middle" widths="45% 45%"> <!--  margins=""  -->
+	<sidebyside valign="middle" widths="54.1% 44.7%">
 
 		<figure xml:id="figure-poly-powers-even">
 			<caption>Graphs of power functions of even degree.</caption>
-			<image>
+			<image xml:id="image-poly-even">
 				<description>Graphs of power functions of even degree.</description>
 				<latex-image><xi:include href="poly.d/even.tex" parse="text" /></latex-image>
 			</image>
@@ -61,7 +61,7 @@ In both cases, higher values of <m>n</m> flatten out the bottom and steepen the 
 
 		<figure xml:id="figure-poly-powers-odd">
 			<caption>Graphs of power functions of odd degree.</caption>
-			<image>
+			<image xml:id="image-poly-odd">
 				<description>Graphs of power functions of odd degree.</description>
 				<latex-image><xi:include href="poly.d/odd.tex" parse="text" /></latex-image>
 			</image>
@@ -165,7 +165,7 @@ we can determine the location of the vertex of its graph by <term>completing the
 
 	<figure xml:id="figure-poly-complete-the-square">
 		<caption> Graph of a parabola whose shape and location were determined by completing the square. </caption>
-		<image width="50%">
+		<image xml:id="image-poly-complete-sq" width="57%">
 			<description>Graph of a parabola whose shape and location were determined by completing the square.</description>
 			<latex-image><xi:include href="poly.d/complete-sq.tex" parse="text" /></latex-image>
 		</image>
@@ -234,25 +234,25 @@ as in <xref ref="figure-poly-two-cubics" />.
 <figure xml:id="figure-poly-two-cubics">
 	<caption>Typical graphs of cubic functions.</caption>
 
-	<sidebyside valign="middle" widths="45% 45%"> <!--  margins=""  -->
+	<sbsgroup>
 
-		<figure xml:id="figure-poly-two-cubics-1">
+		<sidebyside widths="63.5%"><figure xml:id="figure-poly-two-cubics-1">
 			<caption>Graph of a cubic that follows an <q>up-down-up</q> pattern.</caption>
-			<image>
-				<description>Graph of a cubic that follows an <q>up-down-up</q> pattern.</description>
+			<image xml:id="image-poly-cubic-1">
+				<description>Graph of a cubic that follows an "up-down-up" pattern.</description>
 				<latex-image><xi:include href="poly.d/cubic-1.tex" parse="text" /></latex-image>
 			</image>
-		</figure>
+		</figure></sidebyside>
 
-		<figure xml:id="figure-poly-two-cubics-2">
+		<sidebyside widths="63.5%"><figure xml:id="figure-poly-two-cubics-2">
 			<caption>Graph of a cubic that follows an <q>down-up-down</q> pattern.</caption>
-			<image>
-				<description>Graph of a cubic that follows an <q>down-up-down</q> pattern.</description>
+			<image xml:id="image-poly-cubic-2">
+				<description>Graph of a cubic that follows an "down-up-down" pattern.</description>
 				<latex-image><xi:include href="poly.d/cubic-2.tex" parse="text" /></latex-image>
 			</image>
-		</figure>
+		</figure></sidebyside>
 
-	</sidebyside>
+	</sbsgroup>
 
 </figure>
 
@@ -556,7 +556,7 @@ in <xref ref="chapter-deriv" />.
 
 	<figure xml:id="figure-poly-linear-accumulation-from-area">
 		<caption> Accumulation of displacement as net oriented area under a velocity graph. </caption>
-		<image width="60%">
+		<image xml:id="image-poly-linear-accumulation-from-graph" width="46.7%">
 			<description>Graph of a velocity function with bounded oriented area as accumulation of displacement.</description>
 			<latex-image><xi:include href="poly.d/linear-accumulation-from-graph.tex" parse="text" /></latex-image>
 		</image>
@@ -690,7 +690,7 @@ of <xref ref="pattern-integ-definite-props" /> says that
 
 	<figure xml:id="figure-poly-parabolic-motion">
 		<caption> A position and velocity graph for parabolic motion due to gravity. </caption>
-		<image width="60%">
+		<image xml:id="image-poly-parabolic-motion" width="61.1%">
 			<description>A position and velocity graph for parabolic motion due to gravity.</description>
 			<latex-image><xi:include href="poly.d/parabolic-motion.tex" parse="text" /></latex-image>
 		</image>

@@ -50,7 +50,7 @@ What if we applied this relationship to a quantity function?
 
 	<figure xml:id="figure-fund-thm-daily-temp">
 		<caption> A temperature graph over twenty-four hours. </caption>
-		<image width="50%">
+		<image xml:id="image-fund-thm-temp" width="50.0%">
 			<description>A temperature graph over twenty-four hours.</description>
 			<latex-image><xi:include href="fund-thm.d/temp.tex" parse="text" /></latex-image>
 		</image>
@@ -97,7 +97,7 @@ What if we applied this relationship to a quantity function?
 
 	<figure xml:id="figure-fund-thm-avg-daily-temp">
 		<caption> Average temperature over a twenty-four-hour period. </caption>
-		<image width="50%">
+		<image xml:id="image-fund-thm-temp-avg" width="55.0%">
 			<description>Average temperature over a twenty-four-hour period.</description>
 			<latex-image><xi:include href="fund-thm.d/temp-avg.tex" parse="text" /></latex-image>
 		</image>
@@ -161,7 +161,7 @@ then the two accumulation formulas above become the same.
 
 <figure xml:id="figure-fund-thm-avg-daily-temp-area">
 	<caption> Average temperature over a twenty-four-hour period achieves the same total <q>accumulation</q> of <em>degree-hours</em> as measured by the integral. </caption>
-	<image width="60%">
+	<image xml:id="image-fund-thm-temp-avg-area" width="67.9%">
 		<description> Graph demonstrating that Average temperature over a twenty-four-hour period achieves the same total accumulation of degree-hours as measured by the integral. </description>
 		<latex-image><xi:include href="fund-thm.d/temp-avg-area.tex" parse="text" /></latex-image>
 	</image>
@@ -311,25 +311,25 @@ that means it must have crossed through its average value at some point.
 		<figure xml:id="figure-fund-thm-min-max-areas">
 			<caption>Comparing accumulation at the minimum and maximum rates.</caption>
 
-			<sidebyside widths="45% 45%">
+			<sbsgroup>
 
-				<figure>
+				<sidebyside widths="71.7%"><figure>
 					<caption> The total accumulation is always greater than accumulation at the lowest rate. </caption>
-					<image>
+					<image xml:id="image-fund-thm-min-area-below">
 						<description> Graph demonstrating that total accumulation is always greater than accumulation at the lowest rate. </description>
 						<latex-image><xi:include href="fund-thm.d/min-area-below.tex" parse="text" /></latex-image>
 					</image>
-				</figure>
+				</figure></sidebyside>
 
-				<figure>
-					<caption> The total accumulation is always less than accumulation at the highest rate. </caption>
-					<image>
-						<description> Graph demonstrating that total accumulation is always less than accumulation at the highest rate. </description>
-						<latex-image><xi:include href="fund-thm.d/max-area-below.tex" parse="text" /></latex-image>
-					</image>
-				</figure>
+				<sidebyside widths="72.0%"><figure>
+						<caption> The total accumulation is always less than accumulation at the highest rate. </caption>
+						<image xml:id="image-fund-thm-max-area-below">
+							<description> Graph demonstrating that total accumulation is always less than accumulation at the highest rate. </description>
+							<latex-image><xi:include href="fund-thm.d/max-area-below.tex" parse="text" /></latex-image>
+						</image>
+				</figure></sidebyside>
 
-			</sidebyside>
+			</sbsgroup>
 
 		</figure>
 
@@ -353,7 +353,7 @@ that means it must have crossed through its average value at some point.
 
 		<figure>
 			<caption> A continuous function must achieve its average value. </caption>
-			<image width="66%">
+			<image xml:id="image-fund-thm-min-max-avg" width="72.0%">
 				<description> Graph demonstrating that a continuous function must achieve its average value. </description>
 				<latex-image><xi:include href="fund-thm.d/min-max-avg.tex" parse="text" /></latex-image>
 			</image>
@@ -427,7 +427,7 @@ that means it must have crossed through its average value at some point.
 
 	<figure>
 		<caption> A parabola achieving its average value twice. </caption>
-		<image width="50%">
+		<image xml:id="image-fund-thm-parabola-avg" width="59.4%">
 			<description> Graph of a parabola achieving its average value twice. </description>
 			<latex-image><xi:include href="fund-thm.d/parabola-avg.tex" parse="text" /></latex-image>
 		</image>
@@ -815,7 +815,7 @@ where the shift term is <me> C = \ccmint{a_1}{a_2}{f(u)}{u} </me>.
 
 <figure>
 	<caption> Realizing the vertical shift between two accumulation functions as a fixed accumulation amount. </caption>
-	<image width="66%">
+	<image xml:id="image-fund-thm-area-v-shift" width="85.5%">
 		<description> Graph demonstrating the vertical shift between two accumulation functions as a fixed accumulation amount. </description>
 		<latex-image><xi:include href="fund-thm.d/area-v-shift.tex" parse="text" /></latex-image>
 	</image>
@@ -1045,7 +1045,7 @@ So now
 
 	<figure>
 		<caption> Symmetric areas under the graph of the reciprocal function. </caption>
-		<image width="50%">
+		<image xml:id="image-fund-thm-log-accumulation" width="67.9%">
 			<description> Symmetric areas under the graph of the reciprocal function. </description>
 			<latex-image><xi:include href="fund-thm.d/log-accumulation.tex" parse="text" /></latex-image>
 		</image>

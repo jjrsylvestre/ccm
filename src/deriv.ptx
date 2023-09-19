@@ -298,7 +298,7 @@ So we'll start by analysing the two simplest possible quantity models built on t
 
 <figure xml:id="figure-deriv-tangent-v-scale">
 	<caption> Scaling a tangent line scales its slope. </caption>
-	<image width="50%">
+	<image xml:id="image-deriv-scaled-tangent" width="47.3%">
 		<description>A tangent to a graph and a scaled tangent to a scaled graph.</description>
 		<latex-image><xi:include href="deriv.d/v-scaled-tangent.tex" parse="text" /></latex-image>
 	</image>
@@ -312,7 +312,7 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 
 <figure xml:id="figure-deriv-tangent-v-reflect">
 	<caption> Reflecting a tangent line makes its slope negative. </caption>
-	<image width="50%">
+	<image xml:id="image-deriv-v-reflect-tangent" width="47.3%">
 		<description>A tangent to a graph and a reflected tangent to a reflected graph.</description>
 		<latex-image><xi:include href="deriv.d/v-reflect-tangent.tex" parse="text" /></latex-image>
 	</image>
@@ -451,7 +451,7 @@ then
 
 <figure xml:id="figure-deriv-tangent-v-shift">
 	<caption> Shifting a tangent line does not change its slope. </caption>
-	<image width="50%">
+	<image xml:id="image-deriv-v-shifted-tangent" width="60.8%">
 		<description>A tangent to a graph and a shifted tangent to a shifted graph.</description>
 		<latex-image><xi:include href="deriv.d/v-shifted-tangent.tex" parse="text" /></latex-image>
 	</image>
@@ -485,7 +485,7 @@ let's consider the effect of horizontal transformations on derivative.
 
 <figure xml:id="figure-deriv-tangent-h-shift">
 	<caption> Shifting a tangent line does not change its slope. </caption>
-	<image width="50%">
+	<image xml:id="image-deriv-h-shifted-tangent" width="58.5%">
 		<description>A tangent to a graph and a shifted tangent to a shifted graph.</description>
 		<latex-image><xi:include href="deriv.d/h-shifted-tangent.tex" parse="text" /></latex-image>
 	</image>
@@ -534,16 +534,14 @@ let's consider the effect of horizontal transformations on derivative.
 				And notice how this makes the slope of the secant line on the graph of <m>q</m> <em>steeper</em> than the slope of the secant line on the graph of <m>p</m>.
 			</caption>
 
-			<sidebyside widths="25% 50%">
+			<sidebyside widths="30% 59.4%">
 
 				<figure xml:id="figure-deriv-h-scaled-avg-rate-1">
 					<caption>
 						A secant line representing an average rate on a compressed graph.
 					</caption>
-					<image>
-						<description>
-							A secant line representing an average rate on a compressed graph.
-						</description>
+					<image xml:id="image-deriv-h-scaled-avg-rate-1">
+						<description> A secant line representing an average rate on a compressed graph. </description>
 						<latex-image><xi:include href="deriv.d/h-scaled-avg-rate-1.tex" parse="text" /></latex-image>
 					</image>
 				</figure>
@@ -552,10 +550,8 @@ let's consider the effect of horizontal transformations on derivative.
 					<caption>
 						A stretched secant line representing an average rate on the original graph.
 					</caption>
-					<image>
-						<description>
-							A stretched secant line representing an average rate on the original graph.
-						</description>
+					<image xml:id="image-deriv-h-scaled-avg-rate-2">
+						<description> A stretched secant line representing an average rate on the original graph. </description>
 						<latex-image><xi:include href="deriv.d/h-scaled-avg-rate-2.tex" parse="text" /></latex-image>
 					</image>
 				</figure>
@@ -598,7 +594,7 @@ Meanwhile, the <em>amount</em> of run stays the same.
 
 <figure xml:id="figure-deriv-tangent-h-reflect">
 	<caption> Reflecting a tangent line makes its slope negative. </caption>
-	<image width="50%">
+	<image xml:id="image-deriv-h-reflect-tangent" width="74.7%">
 		<description>A tangent to a graph and a reflected tangent to a reflected graph.</description>
 		<latex-image><xi:include href="deriv.d/h-reflect-tangent.tex" parse="text" /></latex-image>
 	</image>
@@ -848,7 +844,7 @@ so the graph is symmetric about the vertical axis.
 
 <figure xml:id="figure-deriv-natural-log-abs">
 	<caption> Graph of the quantity function <m>q(t) = \ln \abs{t}</m>. </caption>
-	<image width="67%">
+	<image xml:id="image-deriv-ln-abs" width="100%">
 		<description>Graph of the natural logarithm composed with the absolute value.</description>
 		<latex-image><xi:include href="deriv.d/ln-abs.tex" parse="text" /></latex-image>
 	</image>
@@ -873,7 +869,7 @@ we can see that the two slopes will be equal in magnitude but have opposite sign
 	<caption>
 		Two tangent lines at reflected points on the graph of the quantity function <m>q(t) = \ln \abs{t}</m>.
 	</caption>
-	<image width="67%">
+	<image xml:id="image-deriv-ln-abs-reflect" width="100%">
 		<description>
 			Two tangent lines at reflected points on the graph of the natural logarithm composed with the absolute value.
 		</description>
@@ -1065,25 +1061,25 @@ each.
 <figure xml:id="figure-deriv-cos-vs-1-and-sin-vs-t">
 	<caption> Comparing cosine to <m>1</m> and sine to <m>t</m>. </caption>
 
-	<sidebyside widths="45% 45%">
+	<sbsgroup>
 
-		<figure xml:id="figure-deriv-cos-vs-1-and-sin-vs-t-cos">
+		<sidebyside widths="64.7%"><figure xml:id="figure-deriv-cos-vs-1-and-sin-vs-t-cos">
 			<caption> Comparing cosine to <m>1</m>. </caption>
-			<image>
+			<image xml:id="image-deriv-cos-vs-1">
 				<description> Comparing the graph of the cosine function to the horizontal line at 1. </description>
 				<latex-image><xi:include href="deriv.d/cos-vs-1.tex" parse="text" /></latex-image>
 			</image>
-		</figure>
+		</figure></sidebyside>
 
-		<figure xml:id="figure-deriv-cos-vs-1-and-sin-vs-t-sin">
+		<sidebyside widths="60.2%"><figure xml:id="figure-deriv-cos-vs-1-and-sin-vs-t-sin">
 			<caption> Comparing sine to <m>t</m>. </caption>
-			<image>
+			<image xml:id="image-deriv-sin-vs-t">
 				<description> Comparing the graph of the sine function to the line with slope 1. </description>
 				<latex-image><xi:include href="deriv.d/sin-vs-t.tex" parse="text" /></latex-image>
 			</image>
-		</figure>
+		</figure></sidebyside>
 
-	</sidebyside>
+	</sbsgroup>
 
 </figure>
 
@@ -1125,7 +1121,7 @@ But in each of these cases we can say something much stronger about how close th
 				<m>\cos(t)</m>,
 				and <m>t</m>.
 			</caption>
-			<image width="25%">
+			<image xml:id="image-deriv-trig-ineq" width="28.8%">
 				<description>Diagram comparing the values of the sine and cosine functions with the angle measure.</description>
 				<latex-image><xi:include href="deriv.d/trig-ineq.tex" parse="text" /></latex-image>
 			</image>
@@ -1173,7 +1169,7 @@ But in each of these cases we can say something much stronger about how close th
 			<caption>
 				For <m>0 \lt t \lt \pi/2</m>, the graph of <m>\sin(t)/t</m> must be confined to the shaded region.
 			</caption>
-			<image width="35%">
+			<image xml:id="image-deriv-squeeze-sin-over-t" width="38.8%">
 				<description>Diagram illustrating a region to which the graph of sine divided by independent variable must be confined.</description>
 				<latex-image><xi:include href="deriv.d/squeeze-sin-over-t.tex" parse="text" /></latex-image>
 			</image>

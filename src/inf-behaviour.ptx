@@ -148,10 +148,8 @@ and how far out we need to go to observe this behaviour will vary depending on t
 
 	<figure xml:id="figure-inf-behaviour-parabola">
 		<caption> The function <m>f(t) = t^2</m> grows beyond any potential ceiling. </caption>
-		<image width="40%">
-			<description>
-				Graph demonstrating that a parabola grows beyond any potential ceiling.
-			</description>
+		<image xml:id="image-inf-behaviour-unbdd-growth-parabola" width="40.2%">
+			<description> Graph demonstrating that a parabola grows beyond any potential ceiling. </description>
 			<latex-image><xi:include href="inf-behaviour.d/unbdd-growth-parabola.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -201,7 +199,7 @@ and how far out we need to go to observe this behaviour will vary depending on t
 
 	<figure xml:id="figure-inf-behaviour-error-bounds">
 		<caption> The function <m>f(t) = 2 + 1/t^2</m> eventually moves within every arbitrarily small range around a proposed approximate long-term value. </caption>
-		<image width="50%">
+		<image xml:id="image-inf-behaviour-error-bounds" width="47.9%">
 			<description>
 				Graph demonstrating that a shifted reciprocal power function eventually moves within every arbitrarily small range around a proposed approximate long-term value.
 			</description>
@@ -227,10 +225,8 @@ we often place a dashed horizontal line at that level when drawing the function'
 
 <figure xml:id="figure-inf-behaviour-horiz-asymp">
 	<caption> The graph of <m>f(t) = 2 + 1/t^2</m> approaches a horizontal asymptote at height <m>2</m>. </caption>
-	<image width="40%">
-		<description>
-			A function's graph approaching a horizontal asymptote.
-		</description>
+	<image xml:id="image-inf-behaviour-horiz-asymp" width="45.5%">
+		<description> A function's graph approaching a horizontal asymptote. </description>
 		<latex-image><xi:include href="inf-behaviour.d/horiz-asymp.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -256,10 +252,8 @@ Finally, here is an example where the long-term behaviour does not fall into any
 
 	<figure xml:id="figure-inf-behaviour-pulsar">
 		<caption> A model of the observed on/off pattern of a pulsar. </caption>
-		<image width="90%">
-			<description>
-				A graphical model of the observed on/off pattern of a pulsar.
-			</description>
+		<image xml:id="image-inf-behaviour-pulsar" width="90.5%">
+			<description> A graphical model of the observed on/off pattern of a pulsar. </description>
 			<latex-image><xi:include href="inf-behaviour.d/pulsar.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -605,10 +599,8 @@ with the following alterations.
 
 	<figure xml:id="figure-inf-behaviour-two-sided-horiz-asymp">
 		<caption> A function with a symmetric horizontal asymptote. </caption>
-		<image width="90%">
-			<description>
-				The graph of a function with a symmetric horizontal asymptote.
-			</description>
+		<image xml:id="image-inf-behaviour-two-sided-horiz-asymp" width="100%">
+			<description> The graph of a function with a symmetric horizontal asymptote. </description>
 			<latex-image><xi:include href="inf-behaviour.d/two-sided-horiz-asymp.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -670,10 +662,8 @@ with the following alterations.
 
 	<figure xml:id="figure-inf-behaviour-separate-two-sided-horiz-asymp">
 		<caption> A graph with two different horizontal asymptotes. </caption>
-		<image width="75%">
-			<description>
-				The graph of a function with two different horizontal asymptotes.
-			</description>
+		<image xml:id="image-inf-behaviour-separate-two-sided-horiz-asymp" width="92%">
+			<description> The graph of a function with two different horizontal asymptotes. </description>
 			<latex-image><xi:include href="inf-behaviour.d/separate-two-sided-horiz-asymp.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -762,10 +752,8 @@ with the following alterations.
 			A graph with a slant asymptote.
 			The graph will slowly approach the dashed line both to the upper right and the lower left.
 		</caption>
-		<image width="90%">
-			<description>
-				The graph of a function with a slant asymptote.
-			</description>
+		<image xml:id="image-inf-behaviour-slant-asymp" width="100%">
+			<description> The graph of a function with a slant asymptote. </description>
 			<latex-image><xi:include href="inf-behaviour.d/slant-asymp.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1098,17 +1086,15 @@ so that the function's graph is approaching a <em>vertical</em> line at a specif
 <figure xml:id="figure-inf-behaviour-vert-asymp">
 	<caption> Two kinds of vertical asymptotes. </caption>
 
-	<sidebyside widths="33% 33%">
+	<sidebyside widths="34.7% 34.7%">
 
 		<figure xml:id="figure-inf-behaviour-vert-asymp-1">
 			<caption>
 				A function that displays the same behaviour on either side of a vertical asymptote.
 				(From <xref ref="example-inf-behaviour-1-over-square-singularity" />.)
 			</caption>
-			<image>
-				<description>
-					The graph of a function that displays the same behaviour on either side of a vertical asymptote.
-				</description>
+			<image xml:id="image-inf-behaviour-vert-asymp-1">
+				<description> The graph of a function that displays the same behaviour on either side of a vertical asymptote. </description>
 				<latex-image><xi:include href="inf-behaviour.d/vert-asymp-1.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -1118,10 +1104,8 @@ so that the function's graph is approaching a <em>vertical</em> line at a specif
 				A function that displays different behaviours on either side of a vertical asymptote.
 				(From <xref ref="example-inf-behaviour-two-sided-singularity" />.)
 			</caption>
-			<image>
-				<description>
-					The graph of a function that displays different behaviours on either side of a vertical asymptote.
-				</description>
+			<image xml:id="image-inf-behaviour-vert-asymp-2">
+				<description> The graph of a function that displays different behaviours on either side of a vertical asymptote. </description>
 				<latex-image><xi:include href="inf-behaviour.d/vert-asymp-2.tex" parse="text" /></latex-image>
 			</image>
 		</figure>

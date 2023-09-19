@@ -328,7 +328,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 
 	<figure xml:id="figure-product-brine-tank-1">
 		<caption>Brine entering and being drained from a tank so that volume is held constant.</caption>
-		<image width="50%">
+		<image xml:id="image-product-models-mixing" width="63.8%">
 			<description>Diagram of brine entering and being drained from a tank so that volume is held constant.</description>
 			<latex-image><xi:include href="models.d/mixing.tex" parse="text" /></latex-image>
 		</image>
@@ -348,7 +348,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 			Brine entering and being drained from a tank so that volume is held constant,
 			where the incoming brine is assumed to be of varying concentration.
 		</caption>
-		<image width="70%">
+		<image xml:id="image-product-mixing" width="88.8%">
 			<description>
 				Diagram of brine entering and being drained from a tank so that volume is held constant,
 				where the incoming brine is assumed to be of varying concentration.
@@ -366,7 +366,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 
 	<figure xml:id="figure-product-brine-forcing-function">
 		<caption>A model function for the ramping up of salt concentration in the incoming brine supply.</caption>
-		<image width="50%">
+		<image xml:id="image-product-forcing" width="59.4%">
 			<description>Graph of a model function for the ramping up of salt concentration in the incoming brine supply.</description>
 			<latex-image><xi:include href="product.d/forcing.tex" parse="text" /></latex-image>
 		</image>

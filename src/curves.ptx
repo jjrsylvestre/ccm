@@ -463,7 +463,7 @@ Here is an example of the other variety of critical point.
 
 	<figure xml:id="figure-curves-cusp">
 		<caption>The cusp at <m>t = 0</m> is a critical point.</caption>
-		<image width="33%">
+		<image xml:id="image-curves-t-power-two-thirds-cusp" width="42.9%">
 			<description>Graph with a cusp as a critical point.</description>
 			<latex-image><xi:include href="curves.d/t-power-two-thirds-cusp.tex" parse="text" /></latex-image>
 		</image>
@@ -519,25 +519,25 @@ That critical point occurs at the moment of maximum height.
 <figure xml:id="figure-curves-local-min-max">
 	<caption>Recognizing local extremes.</caption>
 
-	<sidebyside valign="top" widths="45% 45%"> <!-- margins=""  -->
+	<sbsgroup>
 
-		<figure>
+		<sidebyside widths="62.6%"><figure>
 			<caption>A function with a local minimum.</caption>
-			<image>
+			<image xml:id="image-curves-local-min">
 				<description>Graph of a function with a local minimum.</description>
 				<latex-image><xi:include href="curves.d/local-min.tex" parse="text" /></latex-image>
 			</image>
-		</figure>
+		</figure></sidebyside>
 
-		<figure>
+		<sidebyside widths="62.3%"><figure>
 			<caption>A function with a local maximum.</caption>
-			<image>
+			<image xml:id="image-curves-local-max">
 				<description>Graph of a function with a local maximum.</description>
 				<latex-image><xi:include href="curves.d/local-max.tex" parse="text" /></latex-image>
 			</image>
-		</figure>
+		</figure></sidebyside>
 
-	</sidebyside>
+	</sbsgroup>
 
 </figure>
 
@@ -629,11 +629,11 @@ and what kind if it does.
 
 	<sbsgroup>
 
-		<sidebyside valign="top" widths="30% 30%"> <!-- margins=""  -->
+		<sidebyside valign="top" widths="35.2% 35.2%">
 
 			<figure>
 				<caption>Change from increasing to decreasing at a local maximum.</caption>
-				<image>
+				<image xml:id="image-curves-1st-deriv-test-1">
 					<description>Graph of a function that changes from increasing to decreasing at a local maximum.</description>
 					<latex-image><xi:include href="curves.d/1st-deriv-test-1.tex" parse="text" /></latex-image>
 				</image>
@@ -641,7 +641,7 @@ and what kind if it does.
 
 			<figure>
 				<caption>Change from decreasing to increasing at a local minimum.</caption>
-				<image>
+				<image xml:id="image-curves-1st-deriv-test-2">
 					<description>Graph of a function that changes from decreasing to increasing at a local minimum.</description>
 					<latex-image><xi:include href="curves.d/1st-deriv-test-2.tex" parse="text" /></latex-image>
 				</image>
@@ -649,11 +649,11 @@ and what kind if it does.
 
 		</sidebyside>
 
-		<sidebyside valign="top" widths="30% 30%"> <!-- margins=""  -->
+		<sidebyside valign="top" widths="35.2% 35.2%">
 
 			<figure>
 				<caption>A saddle point as a momentary <q>stop</q> while increasing.</caption>
-				<image>
+				<image xml:id="image-curves-1st-deriv-test-3">
 					<description>Graph of a function that illustrates a saddle point as a momentary stop while increasing.</description>
 					<latex-image><xi:include href="curves.d/1st-deriv-test-3.tex" parse="text" /></latex-image>
 				</image>
@@ -661,7 +661,7 @@ and what kind if it does.
 
 			<figure>
 				<caption>A saddle point as a momentary <q>stop</q> while decreasing.</caption>
-				<image>
+				<image xml:id="image-curves-1st-deriv-test-4">
 					<description>Graph of a function that illustrates a saddle point as a momentary stop while decreasing.</description>
 					<latex-image><xi:include href="curves.d/1st-deriv-test-4.tex" parse="text" /></latex-image>
 				</image>
@@ -818,11 +818,11 @@ we've got to be careful to take <q>direction</q> into account.
 
 	<sbsgroup>
 
-		<sidebyside valign="top" widths="30% 30% 30%"> <!-- margins=""  -->
+		<sidebyside valign="top" widths="31.5% 31.5% 31.5%"> <!-- calculated widths 35.2% 35.2% 35.2%  -->
 
 			<figure>
 				<caption> Quantity and rate both increasing. </caption>
-				<image>
+				<image xml:id="image-curves-quantity-vs-rate-1">
 					<description>Typical graph shape when quantity and rate are both increasing.</description>
 					<latex-image><xi:include href="curves.d/quantity-vs-rate-1.tex" parse="text" /></latex-image>
 				</image>
@@ -832,16 +832,18 @@ we've got to be careful to take <q>direction</q> into account.
 				<caption>
 					Quantity decreasing then increasing,
 					but rate always increasing. </caption>
-				<image>
-					<description>Typical graph shape when quantity decreases then increases,
-						but rate is always increasing.</description>
+				<image xml:id="image-curves-quantity-vs-rate-2">
+					<description>
+						Typical graph shape when quantity decreases then increases,
+						but rate is always increasing.
+					</description>
 					<latex-image><xi:include href="curves.d/quantity-vs-rate-2.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
 
 			<figure>
 				<caption> Quantity decreasing but rate increasing. </caption>
-				<image>
+				<image xml:id="image-curves-quantity-vs-rate-3">
 					<description>Typical graph shape when quantity is decreasing but rate is increasing.</description>
 					<latex-image><xi:include href="curves.d/quantity-vs-rate-3.tex" parse="text" /></latex-image>
 				</image>
@@ -849,11 +851,11 @@ we've got to be careful to take <q>direction</q> into account.
 
 		</sidebyside>
 
-		<sidebyside valign="top" widths="30% 30% 30%"> <!-- margins=""  -->
+		<sidebyside valign="top" widths="31.5% 31.5% 31.5%"> <!-- calculated widths 35.2% 35.2% 35.2%  -->
 
 			<figure>
 				<caption> Quantity and rate both decreasing. </caption>
-				<image>
+				<image xml:id="image-curves-quantity-vs-rate-4">
 					<description>Typical graph shape when quantity and rate are both decreasing.</description>
 					<latex-image><xi:include href="curves.d/quantity-vs-rate-4.tex" parse="text" /></latex-image>
 				</image>
@@ -863,18 +865,20 @@ we've got to be careful to take <q>direction</q> into account.
 				<caption>
 					Quantity increasing then decreasing,
 					but rate always decreasing. </caption>
-				<image>
-					<description>Typical graph shape when quantity increases then decreases,
-						but rate is always decreasing.</description>
+				<image xml:id="image-curves-quantity-vs-rate-5">
+					<description>
+						Typical graph shape when quantity increases then decreases,
+						but rate is always decreasing.
+					</description>
 					<latex-image><xi:include href="curves.d/quantity-vs-rate-5.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
 
 			<figure>
 				<caption> Quantity increasing but rate decreasing. </caption>
-				<image>
+				<image xml:id="image-curves-quantity-vs-rate-6">
 					<description>Typical graph shape when quantity is increasing but rate is decreasing.</description>
-					<latex-image><xi:include href="curves.d/quantity-vs-rate-3.tex" parse="text" /></latex-image>
+					<latex-image><xi:include href="curves.d/quantity-vs-rate-6.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
 
@@ -1115,7 +1119,7 @@ and then connect these using our knowledge of the graph's behaviour between them
 
 	<figure xml:id="figure-curves-sketch-1">
 		<caption>Graph of <m>q(t) = 2 t^2 / (t^2 - 1)</m>.</caption>
-		<image width="90%">
+		<image xml:id="image-curves-sketch-1" width="100%">
 			<description>Graph of an analyzed function.</description>
 			<latex-image><xi:include href="curves.d/sketch-1.tex" parse="text" /></latex-image>
 		</image>
@@ -1274,7 +1278,7 @@ the reader.
 
 	<figure xml:id="figure-curves-sketch-2">
 		<caption>Graph of <m>q(t) = t^3 / (t^2 + 1)</m>.</caption>
-		<image width="66%">
+		<image xml:id="image-curves-sketch-2" width="42.6%">
 			<description>Graph of an analyzed function.</description>
 			<latex-image><xi:include href="curves.d/sketch-2.tex" parse="text" /></latex-image>
 		</image>

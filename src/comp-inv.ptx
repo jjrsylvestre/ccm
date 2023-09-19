@@ -34,7 +34,7 @@ It is just a matter of changing perspective on the function from a single input-
 
 <figure xml:id="figure-comp-inv-input-output-schematic">
 	<caption> Schematic of a function as a chained multi-step input-output process. </caption>
-	<image width="50%">
+	<image xml:id="image-comp-inv-inner-outer" width="52.0%">
 		<description>Schematic of a function as a chained multi-step input-output process.</description>
 		<latex-image><xi:include href="comp-inv.d/inner-outer.tex" parse="text" /></latex-image>
 	</image>
@@ -370,11 +370,11 @@ This reveals why composing the two processes together returns us back to where w
 		which corresponds to an input of <m>8</m> for the cube-root function.
 	</caption>
 
-	<sidebyside widths="45% 45%">
+	<sidebyside widths="47% 47%">  <!-- calculated widths 50.8% 53.5% -->
 
 		<figure xml:id="figure-comp-inv-cube-root-back-and-forth-cube">
 			<caption> Forward and and reverse on the cube graph. </caption>
-			<image>
+			<image xml:id="image-comp-inv-cube-back-and-forth">
 				<description>
 					Diagram illustrating the input-output and corresponding output-input processes on the cube function's graph.
 				</description>
@@ -384,7 +384,7 @@ This reveals why composing the two processes together returns us back to where w
 
 		<figure xml:id="figure-comp-inv-cube-root-back-and-forth-root">
 			<caption> Forward and and reverse on the cube-root graph. </caption>
-			<image>
+			<image xml:id="image-comp-inv-cube-root-back-and-forth">
 				<description>
 					Diagram illustrating the input-output and corresponding output-input processes on the cube-root-graph.
 				</description>
@@ -541,7 +541,7 @@ but in the other two examples some output values could correspond to <em>two or 
 
 	<figure xml:id="figure-comp-inv-shifted-cube-in-reverse">
 		<caption> Tracing an output back to the input for a vertically shifted cube function. </caption>
-		<image width="50%">
+		<image xml:id="image-comp-inv-shifted-cube" width="55.8%">
 			<description>
 				Diagram illustrating the result of tracing an output back to the input for a vertically shifted cube function.
 			</description>
@@ -565,9 +565,9 @@ but in the other two examples some output values could correspond to <em>two or 
 
 	<figure xml:id="figure-comp-inv-sin-repeated-output">
 		<caption> Many different input values produce the same output value <m>1</m> for the sine function. </caption>
-		<image width="100%">
+		<image xml:id="image-comp-inv-sin" width="100%">
 			<description>
-				Diagram illustrating that many different input values produce the same output value <m>1</m> for the sine function the input-output and corresponding output-input processes.
+				Diagram illustrating that many different input values produce the same output value 1 for the sine function the input-output and corresponding output-input processes.
 			</description>
 			<latex-image><xi:include href="comp-inv.d/sin.tex" parse="text" /></latex-image>
 		</image>
@@ -590,10 +590,8 @@ suggest a graphical test for the property of <term>one-to-one</term>. </p>
 
 <figure xml:id="figure-comp-inv-fail-HLT">
 	<caption> The graph of a function that fails the Horizontal Line Test. </caption>
-	<image width="55%">
-		<description>
-			The graph of a function that fails the Horizontal Line Test.
-		</description>
+	<image xml:id="image-comp-inv-fail-HLT" width="64.1%">
+		<description> The graph of a function that fails the Horizontal Line Test. </description>
 		<latex-image><xi:include href="comp-inv.d/fail-HLT.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -620,10 +618,8 @@ suggest a graphical test for the property of <term>one-to-one</term>. </p>
 			For all <m>y \gt 0</m>,
 			there are two inputs that produce that output level.
 		</caption>
-		<image width="40%">
-			<description>
-				A graph demonstrating that the square function fails the Horizontal Line Test.
-			</description>
+		<image xml:id="image-comp-inv-fail-parabola" width="45.2%">
+			<description> A graph demonstrating that the square function fails the Horizontal Line Test. </description>
 			<latex-image><xi:include href="comp-inv.d/fail-parabola.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -686,7 +682,7 @@ then creating the graph of an inverse function interchanges the horizontal and v
 
 	<figure xml:id="figure-comp-inv-reflect-ln">
 		<caption> The natural exponential graph is a reflection of the natural logarithm graph. </caption>
-		<image width="75%">
+		<image xml:id="image-comp-inv-reflect-ln" width="88.8%">
 			<description> A diagram illustrating that the natural exponential graph is a reflection of the natural logarithm graph. </description>
 			<latex-image><xi:include href="comp-inv.d/reflect-ln.tex" parse="text" /></latex-image>
 		</image>
@@ -723,23 +719,21 @@ it is equivalent to verifying the <xref ref="pattern-funcs-VLT" text="title" /> 
 			The square function fails the Horizontal Line Test but the square root function passes the Vertical Line test.
 		</caption>
 
-		<sidebyside widths="40% 40%">
+		<sidebyside widths="45.2% 47.9%">
 
 			<figure xml:id="figure-comp-inv-square-HLT-vs-sqrt-VLT-square">
 				<caption> The square function. </caption>
-				<image>
-					<description>
-						Graph of the square function with a typical horizontal line.
-					</description>
+				<image xml:id="image-comp-inv-fail-parabola-2">
+					<description> Graph of the square function with a typical horizontal line. </description>
 					<latex-image><xi:include href="comp-inv.d/fail-parabola-2.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
 
 			<figure xml:id="figure-comp-inv-square-HLT-vs-sqrt-VLT-root">
 				<caption> The graph of the square root function is a reflection of only <q>half</q> of the graph of the square function. </caption>
-				<image>
+				<image xml:id="image-comp-inv-sqrt-pass-VLT">
 					<description>
-						Diagram illustrating that the graph of the square root function is a reflection of only <q>half</q> of the graph of the square function.
+						Diagram illustrating that the graph of the square root function is a reflection of only "half" of the graph of the square function.
 					</description>
 					<latex-image><xi:include href="comp-inv.d/sqrt-pass-VLT.tex" parse="text" /></latex-image>
 				</image>
@@ -766,7 +760,7 @@ it is equivalent to verifying the <xref ref="pattern-funcs-VLT" text="title" /> 
 			Restricting the domain of the square function creates a one-to-one graph,
 			and if we reflect this half-a-parabola in the line <m>y = t</m> the result is the graph of the square root function.
 		</caption>
-		<image width="35%">
+		<image xml:id="image-comp-inv-reflect-parabola-sqrt" width="40.2%">
 			<description>Diagram illustrating that the graph of the square root function is a reflection of one-half of the graph of the square function.</description>
 			<latex-image><xi:include href="comp-inv.d/reflect-parabola-sqrt.tex" parse="text" /></latex-image>
 		</image>
@@ -815,24 +809,20 @@ then <em>slopes</em> on the graphs should also be related.
 			Interchanging horizontal and vertical axes causes slopes to become reciprocals.
 		</caption>
 
-		<sidebyside widths="45% 45%">
+		<sidebyside widths="47% 47%">  <!-- calculated widths 53.2% 53.5% -->
 
 			<figure xml:id="figure-comp-inv-cube-root-secants-cube">
 				<caption> A secant line around <m>t = 2</m> on the cube graph. </caption>
-				<image>
-					<description>
-						Diagram illustrating a secant line on the cube graph.
-					</description>
+				<image xml:id="image-comp-inv-cube-secant">
+					<description> Diagram illustrating a secant line on the cube graph. </description>
 					<latex-image><xi:include href="comp-inv.d/cube-secant.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
 
 			<figure xml:id="figure-comp-inv-cube-root-secants-root">
 				<caption> A secant line around <m>q = 8</m> on the cube-root graph. </caption>
-				<image>
-					<description>
-						Diagram illustrating a secant line on the cube-root graph.
-					</description>
+				<image xml:id="image-comp-inv-cube-root-secant">
+					<description> Diagram illustrating a secant line on the cube-root graph. </description>
 					<latex-image><xi:include href="comp-inv.d/cube-root-secant.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
