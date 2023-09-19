@@ -680,7 +680,7 @@ and provide an overall strategy.
 	<statement><p>
 		The owners of a property wish to fence off a rectangular area of land bordering a straight stretch of river.
 		They have
-		<quantity><mag>2400</mag><unit base="ft" /></quantity>
+		<quantity><mag>2400</mag><unit base="foot" /></quantity>
 		of fencing.
 		No fence is required along the river,
 		which will act as a natural boundary on one side of the rectangular area.
@@ -716,7 +716,7 @@ and provide an overall strategy.
 		where at one extreme of <m>y = 0</m> we would have arranged all of the fence in a line parallel to the river,
 		enclosing no area,
 		and at the other extreme of <m>y = 1200</m> we would have arranged two lines of fence
-		<quantity><mag>1200</mag><unit base="ft" /></quantity> long right next to each other,
+		<quantity><mag>1200</mag><unit base="foot" /></quantity> long right next to each other,
 		perpendicular to the river, and again enclosing no area.
 		Since our area function is a concave down parabola with <me> A(0) = A(1200) = 0 </me>,
 		by symmetry we can probably guess that the peak of the parabola will occur at <m>y = 600</m>,
@@ -734,9 +734,9 @@ and provide an overall strategy.
 		We have already investigated the endpoint behaviour and found <m>0</m> enclosed area at those extremes,
 		so <me> A(600) = 720000 </me> is the absolute maximum.
 		This means that a maximum area of
-		<quantity><mag>72000</mag><unit base="ft" exp="2" /></quantity>,
-		running <quantity><mag>1200</mag><unit base="ft" /></quantity> along the river,
-		and extending <quantity><mag>600</mag><unit base="ft" /></quantity> away from the river.
+		<quantity><mag>72000</mag><unit base="foot" exp="2" /></quantity>,
+		running <quantity><mag>1200</mag><unit base="foot" /></quantity> along the river,
+		and extending <quantity><mag>600</mag><unit base="foot" /></quantity> away from the river.
 		</p>
 
 	</solution>

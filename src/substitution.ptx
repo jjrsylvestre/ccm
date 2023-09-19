@@ -473,7 +473,7 @@ on one side we can reverse the differentiation by reversing the chain rule.
 	Since
 	<me> \opddt \, \left( \frac{t^3}{3} + t \right) = t^2 + 1 </me>,
 	we can write
-	<mrow> \opddt \left( \frac{q^2}{2} + q \right) = \opddt \, \left( \frac{t^3}{3} + t \right) </mrow>.
+	<me> \opddt \left( \frac{q^2}{2} + q \right) = \opddt \, \left( \frac{t^3}{3} + t \right) </me>.
 	This now says that the functions
 	<md><mrow> \frac{q^2}{2} \amp + q \amp \frac{t^3}{3} \amp + t </mrow></md>
 	have the same derivative.

@@ -606,7 +606,7 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 	</p>
 
 	<tabular top="medium" bottom="medium" halign="center">
-		<col right="minor" /><col /><col /><col />
+		<col right="minor" /><col /><col /><col /><col /><col /><col /><col />
 		<row bottom="minor">
 				<cell><m>q(t)</m></cell>
 				<cell><m>0</m></cell>

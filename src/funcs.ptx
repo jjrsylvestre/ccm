@@ -99,7 +99,7 @@ for example:
 	Let <m>f</m> represent the function produces outputs <m>f(t)</m> from inputs <m>t</m> according to the following table.
 	</p>
 	<tabular top="medium" bottom="medium" halign="center">
-		<col right="minor" /><col /><col /><col />
+		<col right="minor" /><col /><col /><col /><col /><col />
 		<row bottom="minor">
 				<cell><m>t</m></cell>
 				<cell><m>0</m></cell>
