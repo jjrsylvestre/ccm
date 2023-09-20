@@ -327,13 +327,13 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 		<mrow>
 			q(t) \amp = t^2 - 3 t
 			\amp \amp\implies \amp
-			q(t) \amp = \left(- {1 \over 2}\right) \, s(t)
+			q(t) \amp = \left(- \frac{1}{2}\right) \, s(t)
 		</mrow>
 	</md>,
 	then
 	<md>
-		<mrow> \ddt{q} \amp = \left(- {1 \over 2}\right) \, \ddt{s} </mrow>
-		<mrow> \amp = \left(- {1 \over 2}\right) \, (-4 t + 6) </mrow>
+		<mrow> \ddt{q} \amp = \left(- \frac{1}{2}\right) \, \ddt{s} </mrow>
+		<mrow> \amp = \left(- \frac{1}{2}\right) \, (-4 t + 6) </mrow>
 		<mrow> \amp = 2 t - 3 </mrow>
 	</md>.
 </example>
@@ -856,7 +856,7 @@ There is a corresponding point at the same height at <m>t = \abs{a}</m>.
 As <m>\abs{a} > 0</m>,
 this second point is on the graph of <m>y = \ln t</m>,
 and so we know its derivative value as
-<me> \funceval{\ddt{(\ln t)}}{t = \abs{a}} = {1 \over \abs{a}} </me>.
+<me> \funceval{\ddt{(\ln t)}}{t = \abs{a}} = \frac{1}{\abs{a}} </me>.
 This derivative value describes the slope of the tangent line at this point.
 The derivative value
 <me> \funceval{\ddt{(\ln \abs{t})}}{t = a} </me>
@@ -879,11 +879,11 @@ we can see that the two slopes will be equal in magnitude but have opposite sign
 
 <p>
 So by symmetry we have
-<me> \funceval{\ddt{(\ln \abs{t})}}{t = a} = - {1 \over \abs{a}} = \frac{1}{- \abs{a}} </me>.
+<me> \funceval{\ddt{(\ln \abs{t})}}{t = a} = - \frac{1}{\abs{a}} = \frac{1}{- \abs{a}} </me>.
 However, as <m>a</m> was negative to begin with,
 <me> - \abs{a} = a </me>,
 and we end up with
-<me> \funceval{\ddt{(\ln \abs{t})}}{t = a} = - {1 \over \abs{a}} = \frac{1}{a} </me>,
+<me> \funceval{\ddt{(\ln \abs{t})}}{t = a} = - \frac{1}{\abs{a}} = \frac{1}{a} </me>,
 which is the same <q>one-over</q> formula as for the derivative of the natural logarithm.
 </p>
 

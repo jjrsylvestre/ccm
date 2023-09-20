@@ -1156,7 +1156,7 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 	Sometimes it is possible to re-interpret a horizontal scale as a vertical scale or vice versa,
 	depending on the algebraic properties of the function's formula.
 	For example, for
-	<me> g(t) = \sqrt{t \over 2} = {\sqrt{t} \over \sqrt{2}} </me>
+	<me> g(t) = \sqrt{\frac{t}{2}} = \frac{\sqrt{t}}{\sqrt{2}} </me>
 	from <xref ref="example-funcs-hscale" />,
 	we could interpret the <q>new</q> function as either a horizontal stretch by a factor of <m>2</m> or as a vertical compression by a factor of <m>\sqrt{2}</m>.
 </p></remark>

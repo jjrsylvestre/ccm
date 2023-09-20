@@ -201,8 +201,8 @@ and we wish to compare the amounts by which they vary.
 	we obtain
 	<md>
 		<mrow> \frac{\pi d^2}{4} \amp = 10 </mrow>
-		<mrow> d^2 \amp = {40 \over \pi} </mrow>
-		<mrow> d \amp = 2 \sqrt{10 \over \pi} </mrow>
+		<mrow> d^2 \amp = \frac{40}{\pi} </mrow>
+		<mrow> d \amp = 2 \sqrt{\frac{10}{\pi}} </mrow>
 	</md>,
 	where we discard the negative solution since we want diameter to be a positive quantity.
 	So the diameter should be approximately
@@ -247,7 +247,7 @@ The following example from physics with time as the independent variable should 
 	in about an hour.
 	If we let <m>d</m> represent distance from the starting point of the trip and <m>t</m> represent time,
 	then
-	<me> \slope{d}{t} = {100 \over 1} = 100 </me>
+	<me> \slope{d}{t} = \frac{100}{1} = 100 </me>
 	represents your average speed in kilometres per hour.
 	</p>
 </example>
@@ -288,7 +288,7 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 	<p>
 	Suppose <m>q</m> and <m>t</m> are quantities so that <m>q</m> varies as <m>t</m> varies,
 	and it is observed that
-	<me> \slope{q}{t} = {1 \over 2} </me>
+	<me> \slope{q}{t} = \frac{1}{2} </me>
 	seems to always be true between every pair of data points.
 	Then we can predict the quantity <m>q</m> at any level of quantity <m>t</m> using only a single known data point.
 	For example, suppose we know an <q>initial</q> data point where <m>q = 1</m> when <m>t = 0</m>.
@@ -296,10 +296,10 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 	For example, if we use <m>t = 4</m> for the second data point,
 	we can calculate the corresponding <m>q</m>-value as follows.
 	<md>
-		<mrow> \slope{q}{t} \amp = {1 \over 2} </mrow>
-		<mrow> \frac{q_2 - 1}{t_2 - 0} \amp = {1 \over 2} </mrow>
-		<mrow> \frac{q_2 - 1}{4 - 0} \amp = {1 \over 2} </mrow>
-		<mrow> q_2 - 1 \amp = {4 \over 2} </mrow>
+		<mrow> \slope{q}{t} \amp = \frac{1}{2} </mrow>
+		<mrow> \frac{q_2 - 1}{t_2 - 0} \amp = \frac{1}{2} </mrow>
+		<mrow> \frac{q_2 - 1}{4 - 0} \amp = \frac{1}{2} </mrow>
+		<mrow> q_2 - 1 \amp = \frac{4}{2} </mrow>
 		<mrow> q_2 \amp = 3 </mrow>
 	</md>
 	We can use a similar calculation to determine the <m>q</m>-value corresponding to <em>any</em> value of <m>t</m>.

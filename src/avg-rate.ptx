@@ -634,7 +634,7 @@ Here are three such approaches.
 			<title>Central difference approximation at <m>t^\ast</m></title>
 			<p>
 			The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast - c \le t \le t^\ast + c </me> for
-			<me> c = {\change{t} \over 2} </me>,
+			<me> c = \frac{\change{t}}{2} </me>,
 			so that <me> r(t^\ast) \approx \frac{ q(t^\ast + c) - q(t^\ast - c) }{ \change{t} } </me>.
 			</p>
 		</li>

@@ -160,7 +160,7 @@ and how far out we need to go to observe this behaviour will vary depending on t
 	<title>Approaching steady-state</title>
 
 	<p>
-	Consider function <me> f(t) = 2 + {1 \over t^2} </me>.
+	Consider function <me> f(t) = 2 + \frac{1}{t^2} </me>.
 	Large values of <m>t</m> make the fraction part of the formula very small,
 	and the larger <m>t</m> gets,
 	the smaller that fraction gets.
@@ -327,7 +327,7 @@ by recognizing these patterns as <q>pieces</q> of the more complex ones.
 	<title>Long-term behaviour of reciprocal powers</title>
 	<p>
 	For every positive exponent <m>m</m>,
-	the function <me> f(t) = {1 \over t^m} </me> will exhibit long-term behaviour
+	the function <me> f(t) = \frac{1}{t^m} </me> will exhibit long-term behaviour
 	<me> f(t) \to 0 \qquad \text{as} \qquad t \to \infty </me>.
 	</p>
 </identity>
@@ -340,7 +340,7 @@ by recognizing these patterns as <q>pieces</q> of the more complex ones.
 	If <m>f(t)</m> is a function for which we know that
 	<me> f(t) \to \pm \infty \qquad \text{as} \qquad t \to \infty </me>
 	(where the <em>plus-or-minus</em> means that we know that one or the other is true),
-	then the reciprocal function <me> g(t) = {1 \over {f(t)}} </me>
+	then the reciprocal function <me> g(t) = \frac{1}{f(t)} </me>
 	will satisfy
 	<me> g(t) \to 0 \qquad \text{as} \qquad t \to \infty </me>.
 	</p>
@@ -352,7 +352,7 @@ by recognizing these patterns as <q>pieces</q> of the more complex ones.
 	We have to be careful with attempting to reverse <xref ref="pattern-inf-behaviour-reciprocal-of-inf" />.
 	If we have a function <m>f(t)</m> for which we know that
 	<me> f(t) \to 0 \qquad \text{as} \qquad t \to \infty </me>,
-	it <em>may</em> be the case that the reciprocal function <me> g(t) = {1 \over {f(t)}}</me> satisfies one of
+	it <em>may</em> be the case that the reciprocal function <me> g(t) = \frac{1}{f(t)}</me> satisfies one of
 	<me> g(t) \to \pm \infty \qquad \text{as} \qquad t \to \infty </me>,
 	but it may not.
 	For example, it could be that <m>f(t) \to 0</m> occurs by oscillating between positive and negative values but with ever-decreasing <q>peaks,</q>
@@ -376,13 +376,13 @@ we analyze more complex examples by breaking them into pieces.
 <example>
 	<title>Combination of different behaviours</title>
 	<p>
-	Consider function <me> f(t) = 2 + {1 \over {t^2}} - t^2 </me>.
+	Consider function <me> f(t) = 2 + \frac{1}{t^2} - t^2 </me>.
 	Individually,
 	we know that
 	<md>
 		<mrow>
 			2 \amp \to 2 \amp
-			{1 \over {t^2}} \amp \to 0 \amp
+			\frac{1}{t^2} \amp \to 0 \amp
 			t^2 \to \infty
 		</mrow>
 	</md>
@@ -432,11 +432,11 @@ we analyze more complex examples by breaking them into pieces.
 	<p>
 	In this way,
 	for large values of <m>t</m> we can focus on the <term>dominant terms</term> in numerator and denominator:
-	<me> f(t) \approx \frac{2 t^4}{3 t^4} = {2 \over 3} </me>.
+	<me> f(t) \approx \frac{2 t^4}{3 t^4} = \frac{2}{3} </me>.
 	The larger <m>t</m> gets,
 	the more negligible the non-dominant terms become, and the more accurate the approximation above becomes,
 	so we conclude that
-	<me> f(t) \to {2 \over 3} \qquad \text{as} \qquad t \to \infty </me>.
+	<me> f(t) \to \frac{2}{3} \qquad \text{as} \qquad t \to \infty </me>.
 	</p>
 
 </example>
@@ -446,7 +446,7 @@ we analyze more complex examples by breaking them into pieces.
 	<p>
 	Do <alert>not</alert> perform arithmetic with infinities.
 	In particular,
-	<md><mrow> \infty - \infty \amp \neq 0 \amp {\infty \over \infty} \neq 1 </mrow></md>.
+	<md><mrow> \infty - \infty \amp \neq 0 \amp \frac{\infty}{\infty} \neq 1 </mrow></md>.
 	</p>
 </warning>
 
@@ -489,10 +489,10 @@ We can do this by forming ratios inside the overall ratio to more directly compa
 	<md>
 		<mrow> f(t) \amp = \frac{2 - (3 / t) + (1 / t^3) + (4 / t^4)}{3 + (4 / t) + (6 / t^4)} </mrow>
 		<mrow> \amp \approx \frac{2 + 0 - 0 + 0}{3 - 0 - 0} </mrow>
-		<mrow> \amp = {2 \over 3} </mrow>
+		<mrow> \amp = \frac{2}{3} </mrow>
 	</md>,
 	and we come to the same conclusion
-	<me> f(t) \to {2 \over 3} \qquad \text{as} \qquad t \to \infty </me>
+	<me> f(t) \to \frac{2}{3} \qquad \text{as} \qquad t \to \infty </me>
 	as in <xref ref="example-inf-behaviour-rational-infinities" />.
 </p>
 </example>
@@ -585,7 +585,7 @@ with the following alterations.
 	<me> f(t) = \frac{2 t^4 - 3 t^3 + t + 4}{3 t^4 + 4 t^3 + 6} </me>
 	from <xref ref="example-inf-behaviour-ratio-by-ratios" />.
 	The algebraic analysis in that example still holds to allow us to say
-	<me> f(t) \approx \frac{2 t^4}{3 t^4} = {2 \over 3} </me>
+	<me> f(t) \approx \frac{2 t^4}{3 t^4} = \frac{2}{3} </me>
 	for all large and <em>negative</em> values of <m>t</m>.
 	This works because whether
 	<me> t^m \to \infty \qquad \text{or} \qquad t^m \to -\infty </me>
