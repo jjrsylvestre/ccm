@@ -334,10 +334,10 @@ by making a substitution.
 	we can recognize this as a situation for the chain rule by introducing an intermediate variable:
 	<md> <mrow> q \amp = u^3 \amp \amp\text{for} \amp u \amp = \sin(t) </mrow> </md>.
 	Now we can differentiate separately:
-	<md><mrow> \ddu{q} \amp = 3 u^2 \amp \dudt \amp = \cos(t) </mrow></md>.
+	<md><mrow> \dqdu \amp = 3 u^2 \amp \dudt \amp = \cos(t) </mrow></md>.
 	Combining these in the <xref ref="pattern-chain-differential-version" text="title" /> and then substituting back in for <m>u</m> gives us
 	<md>
-		<mrow> \ddt{q} \amp = \ddu{q} \cdot \dudt </mrow>
+		<mrow> \dqdt \amp = \dqdu \cdot \dudt </mrow>
 		<mrow> \amp = 3 u^2 \cos(t) </mrow>
 		<mrow> \amp = 3 \sin^2(t) \cos(t) </mrow>
 	</md>.
@@ -354,7 +354,7 @@ by making a substitution.
 	Now we differentiate separately:
 	<md>
 		<mrow>
-			\ddu{q} \amp = \frac{1}{2} \cdot u^{-1/2}
+			\dqdu \amp = \frac{1}{2} \cdot u^{-1/2}
 			\amp
 			\dudt \amp = 2 t
 		</mrow>
@@ -362,7 +362,7 @@ by making a substitution.
 	</md>.
 	Combining these in the <xref ref="pattern-chain-differential-version" text="title" /> and then substituting back in for <m>u</m> gives us
 	<md>
-		<mrow> \ddt{q} \amp = \ddu{q} \cdot \dudt </mrow>
+		<mrow> \dqdt \amp = \dqdu \cdot \dudt </mrow>
 		<mrow> \amp = \frac{1}{2 \sqrt{u}} \cdot 2 t </mrow>
 		<mrow> \amp = \frac{2 t}{2 \sqrt{t^2 + 1}} </mrow>
 		<mrow> \amp = \frac{t}{\sqrt{t^2 + 1}} </mrow>
@@ -381,7 +381,7 @@ by making a substitution.
 	Now we differentiate separately:
 	<md>
 		<mrow>
-			\ddu{q} \amp = - u^{-2}
+			\dqdu \amp = - u^{-2}
 			\amp
 			\dudt \amp = 2 t + 3 - 0
 		</mrow>
@@ -389,7 +389,7 @@ by making a substitution.
 	</md>.
 	Combining these in the <xref ref="pattern-chain-differential-version" text="title" /> and then substituting back in for <m>u</m> gives us
 	<md>
-		<mrow> \ddt{q} \amp = \ddu{q} \cdot \dudt </mrow>
+		<mrow> \dqdt \amp = \dqdu \cdot \dudt </mrow>
 		<mrow> \amp = - \frac{1}{u^2} \cdot (2 t + 3) </mrow>
 		<mrow> \amp = - \frac{2 t + 3}{{(t^2 + 3 t - 5)}^2} </mrow>
 	</md>.
@@ -410,10 +410,10 @@ by making a substitution.
 		<p>
 		We have <me> \sec(t) = {\bbrac{\cos(t)}}^{-1} </me>.
 		Set <m>q = u^{-1}</m> for <m>u = \cos(t)</m> and differentiate:
-		<md><mrow> \ddu{q} \amp = - u^{-2} \amp \dudt \amp = - \sin(t) </mrow></md>.
+		<md><mrow> \dqdu \amp = - u^{-2} \amp \dudt \amp = - \sin(t) </mrow></md>.
 		Combining these in the <xref ref="pattern-chain-differential-version" text="title" /> and then substituting back in for <m>u</m> gives us
 		<md>
-			<mrow> \opddt \bbrac{\sec(t)} \amp = \ddu{q} \cdot \dudt </mrow>
+			<mrow> \opddt \bbrac{\sec(t)} \amp = \dqdu \cdot \dudt </mrow>
 			<mrow> \amp = - \frac{1}{u^2} \bbrac{- \sin(t)} </mrow>
 			<mrow> \amp = \frac{\sin(t)}{\cos^2(t)} </mrow>
 			<mrow> \amp = \frac{1}{\cos(t)} \cdot \frac{\sin(t)}{\cos(t)} </mrow>
@@ -460,7 +460,7 @@ similarly to <xref ref="example-chain-reciprocal" />.
 		</md>.
 		From this, we have
 		<md>
-			<mrow> \ddt{q} \amp = \frac{q(t + dt) - q(t)}{dt} </mrow>
+			<mrow> \dqdt \amp = \frac{q(t + dt) - q(t)}{dt} </mrow>
 			<mrow> \amp = \frac{1}{dt} \cdot \bigl[ q(t + dt) - q(t) \bigr] </mrow>
 			<mrow> \amp = \frac{1}{\cancel{dt}} \cdot \left[ - \frac{1}{t (t + dt)} \cdot \cancel{dt} \right] </mrow>
 			<mrow> \amp = - \frac{1}{t (t + dt)} </mrow>
@@ -468,7 +468,7 @@ similarly to <xref ref="example-chain-reciprocal" />.
 		At this point, we may take <m>dt \approx 0</m> without risking a <m>0/0</m> situation,
 		which leads to
 		<md>
-			<mrow> \ddt{q} \amp = - \frac{1}{t (t + 0)} </mrow>
+			<mrow> \dqdt \amp = - \frac{1}{t (t + 0)} </mrow>
 			<mrow> \amp = - \frac{1}{t^2} </mrow>
 			<mrow> \amp = - t^{-2} </mrow>
 		</md>,
@@ -485,11 +485,11 @@ similarly to <xref ref="example-chain-reciprocal" />.
 		we have
 		<me> \dudt = n t^{n - 1} </me>.
 		On the other hand,
-		we have already verified above that <me> \ddu{q} = - u^{-2} </me>.
+		we have already verified above that <me> \dqdu = - u^{-2} </me>.
 		Therefore,
 		combining these in the <xref ref="pattern-chain-differential-version" text="title" /> and then substituting back in for <m>u</m> gives us
 		<md>
-			<mrow> \ddt{q} \amp = \ddu{q} \cdot \dudt </mrow>
+			<mrow> \dqdt \amp = \dqdu \cdot \dudt </mrow>
 			<mrow> \amp = - \frac{1}{u^2} \cdot n t^{n - 1} </mrow>
 			<mrow> \amp = -n \cdot \frac{t^{n - 1}}{{(t^n)}^2} </mrow>
 			<mrow> \amp = -n \cdot \frac{t^{n - 1}}{t^{2 n}} </mrow>
@@ -498,7 +498,7 @@ similarly to <xref ref="example-chain-reciprocal" />.
 		</md>.
 		Recall that we substituted <m>n = -m</m>,
 		so now we can substitute <m>m = -n</m> back in to obtain
-		<me> \ddt{q} = m \cdot t^{m - 1} </me>,
+		<me> \dqdt = m \cdot t^{m - 1} </me>,
 		as desired.
 		</p>
 
@@ -520,7 +520,7 @@ Since <m>u</m> is linear in <m>t</m>
 its derivative is just its slope,
 so that
 <md>
-	<mrow> \ddt{q} \amp = \ddu{p} \cdot \ddt{u} </mrow>
+	<mrow> \dqdt \amp = \ddu{p} \cdot \ddt{u} </mrow>
 	<mrow> \amp = p'(u) \cdot k </mrow>
 	<mrow> \amp = k p'(k t - c) </mrow>
 </md>.
@@ -1188,7 +1188,7 @@ let's record the pattern of the <em>result</em> of that example.
 	Consider the derivative of one of the terms in this expression, say <m>\ln\abs{\cos(5 t)}</m>.
 	Setting <m>q = \ln\abs{u}</m> for <m>u = \cos(5 t)</m>,
 	we have
-	<md><mrow> \ddu{q} \amp = \frac{1}{u} \amp \dudt \amp = - 5 \sin(5 t) </mrow></md>,
+	<md><mrow> \dqdu \amp = \frac{1}{u} \amp \dudt \amp = - 5 \sin(5 t) </mrow></md>,
 	so that
 	<md>
 		<mrow> \dqdt \amp = \dqdu \cdot \dudt </mrow>

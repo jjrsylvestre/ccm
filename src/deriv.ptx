@@ -47,7 +47,7 @@ returns the associated derivative value.
 	<p>
 	Given quantity function <m>q(t)</m>,
 	the associated <term>derivative function</term> is the function <m>q'(t)</m> so that
-	<me>q'(t) = \ddt{q} </me>
+	<me>q'(t) = \dqdt </me>
 	if <m>q</m> is differentiable at <m>t</m>,
 	and <m>q'(t)</m> is undefined if <m>q</m> is not differentiable at <m>t</m>.
 	</p>
@@ -58,7 +58,7 @@ returns the associated derivative value.
 
 	<p>
 	We use <m>q'(t)</m> when we want to refer to the derivative function for <m>q</m> in function notation,
-	while we use <me>\ddt{q}</me> to represent an input-output formula in <m>t</m> for <m>q'</m>.
+	while we use <me>\dqdt</me> to represent an input-output formula in <m>t</m> for <m>q'</m>.
 	Of course, both of these forms are relative to the initial choice of letter <m>q</m> <mdash />
 	if we were dealing with a position function <m>s(t)</m> as our quantity function,
 	then we would use <m>s'(t)</m> and <me>\ddt{s}</me> to refer to the derivative.
@@ -123,17 +123,17 @@ but always consider <m>dt \neq 0</m>
 For this, we will exclusively use the forward approximation formula,
 so that the approximation at a specific point in time
 <me>
-	\funceval{\ddt{q}}{t = t^\ast}
+	\funceval{\dqdt}{t = t^\ast}
 	\approx \slope{q}{t}
 	= \frac{ q(t^\ast + \change{t}) - q(t^\ast) }{ \change{t} }
 </me>
 becomes the general, exact formula
-<me> \ddt{q} = \frac{ q(t + dt) - q(t) }{ dt } </me>.
+<me> \dqdt = \frac{ q(t + dt) - q(t) }{ dt } </me>.
 The key to the process is to not consider the <q>infinitesimal</q> length <m>dt</m> negligible too early,
 since if we take <m>dt \approx 0</m> right away,
 we will always end up with
 <md>
-	<mrow> \ddt{q} \amp = \frac{ q(t + 0) - q(t) }{ 0 } </mrow>
+	<mrow> \dqdt \amp = \frac{ q(t + 0) - q(t) }{ 0 } </mrow>
 	<mrow> \amp = \frac{ 0 }{ 0 } </mrow>
 </md>,
 which is undefined.
@@ -225,13 +225,13 @@ So we'll start by analysing the two simplest possible quantity models built on t
 		Consider quantity function <m>q(t) = c</m>.
 		Then also <m>q(t + dt) = c</m>,
 		so <me> q(t + dt) - q(t) = 0 </me>.
-		Therefore, <me> \ddt{q} = \frac{ q(t + dt) - q(t) }{ dt } = \frac{0}{dt} </me>.
+		Therefore, <me> \dqdt = \frac{ q(t + dt) - q(t) }{ dt } = \frac{0}{dt} </me>.
 		In an actual average-rate approximation
 		(that is, with <m>dt \neq 0</m>),
 		this would always compute to <m>0</m>.
 		So, in fact, these approximations would not be approximations but instead they are already the exact value,
 		and it is correct to write
-		<me> \ddt{q} = \frac{0}{dt} = 0 </me>.
+		<me> \dqdt = \frac{0}{dt} = 0 </me>.
 		We are not making the mistake of taking <m>0/0 = 0</m> to be true,
 		because we think of our infinitesimal time domain length <m>dt</m> as being so small as to be negligible,
 		but we always consider <m>dt \neq 0</m> to be true.
@@ -250,7 +250,7 @@ So we'll start by analysing the two simplest possible quantity models built on t
 		so <me> q(t + dt) - q(t) = dt </me>.
 		Therefore,
 		<md>
-			<mrow> \ddt{q} \amp = \frac{ q(t + dt) - q(t) }{ dt } </mrow>
+			<mrow> \dqdt \amp = \frac{ q(t + dt) - q(t) }{ dt } </mrow>
 			<mrow> \amp = \frac{ dt }{ dt } </mrow>
 			<mrow> \amp = 1 </mrow>
 		</md>.
@@ -272,7 +272,7 @@ So we'll start by analysing the two simplest possible quantity models built on t
 
 	<statement><p>
 		If <m>q(t)</m> is a differentiable quantity function,
-		then for any constant <m>c</m> we have <me> \opddt (c q) = c \, \ddt{q} </me>.
+		then for any constant <m>c</m> we have <me> \opddt (c q) = c \, \dqdt </me>.
 		That is, <alert>the derivative of a constant multiple is the constant multiple of the derivative</alert>.
 	</p></statement>
 
@@ -289,7 +289,7 @@ So we'll start by analysing the two simplest possible quantity models built on t
 			<mrow> \ddt{p} \amp = \frac{ p(t + dt) - p(t) }{ dt } </mrow>
 			<mrow> \amp = \frac{c \bbrac{ q(t + dt) - q(t) } }{ dt } </mrow>
 			<mrow> \amp = c \, \frac{\bbrac{ q(t + dt) - q(t) } }{ dt } </mrow>
-			<mrow> \amp = c \, \ddt{q} </mrow>
+			<mrow> \amp = c \, \dqdt </mrow>
 		</md>,
 		as claimed.
 	</p></proof>
@@ -332,7 +332,7 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 	</md>,
 	then
 	<md>
-		<mrow> \ddt{q} \amp = \left(- \frac{1}{2}\right) \, \ddt{s} </mrow>
+		<mrow> \dqdt \amp = \left(- \frac{1}{2}\right) \, \ddt{s} </mrow>
 		<mrow> \amp = \left(- \frac{1}{2}\right) \, (-4 t + 6) </mrow>
 		<mrow> \amp = 2 t - 3 </mrow>
 	</md>.
@@ -374,7 +374,7 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 	For <me> q(t) = r t + q_0 </me>,
 	we may apply a combination of our rules and basic formulas so far:
 	<md>
-		<mrow> \ddt{q} \amp = \opddt (r t + q_0) </mrow>
+		<mrow> \dqdt \amp = \opddt (r t + q_0) </mrow>
 		<mrow> \amp = \opddt (r t) + \ddt{q_0} \amp \amp\text{(i)} </mrow>
 		<mrow> \amp = \opddt (r t) + 0 \amp \amp\text{(ii)} </mrow>
 		<mrow> \amp = r \ddt{t} \amp \amp\text{(iii)} </mrow>
@@ -431,7 +431,7 @@ where the second function is a constant function:
 if <me> q(t) = q_1(t) + c </me>,
 then
 <md>
-	<mrow> \ddt{q} \amp = \opddt (q_1 + c) </mrow>
+	<mrow> \dqdt \amp = \opddt (q_1 + c) </mrow>
 	<mrow> \amp = \ddt{q_1} + \ddt{c} </mrow>
 	<mrow> \amp = \ddt{q_1} + 0 </mrow>
 	<mrow> \amp = \ddt{q_1} </mrow>
@@ -641,13 +641,13 @@ so let's try a cubic.
 	</md>,
 	leading to
 	<md>
-		<mrow> \ddt{q} \amp = \frac{ q(t + dt) - q(t) }{ dt } </mrow>
+		<mrow> \dqdt \amp = \frac{ q(t + dt) - q(t) }{ dt } </mrow>
 		<mrow> \amp = \frac{ (3 t^2 + 3 t dt + dt^2) \bcancel{dt} }{ \bcancel{dt} } </mrow>
 		<mrow> \amp = 3 t^2 + 3 t dt + dt^2 </mrow>
 	</md>.
 	Treating <m>dt \approx 0</m> as negligible at this point gives us
 	<md>
-		<mrow> \ddt{q} \amp = 3 t^2 + \cancelto{0}{3 t dt} + \cancelto{0}{dt^2} </mrow>
+		<mrow> \dqdt \amp = 3 t^2 + \cancelto{0}{3 t dt} + \cancelto{0}{dt^2} </mrow>
 		<mrow> \amp = 3 t^2 </mrow>.
 	</md>.
 	</p>
@@ -668,7 +668,7 @@ so let's try a cubic.
 	Apply <xref ref="pattern-deriv-scale" /> and <xref ref="pattern-deriv-sum" />,
 	as well as our result from <xref ref="example-deriv-cubic" />:
 	<md>
-		<mrow> \ddt{q} \amp = \opddt \left(\frac{1}{3} \, t^3 + q_0\right) </mrow>
+		<mrow> \dqdt \amp = \opddt \left(\frac{1}{3} \, t^3 + q_0\right) </mrow>
 		<mrow> \amp = \frac{1}{3} \, \ddt{(t^3)} + \ddt{q_0} </mrow>
 		<mrow> \amp = \frac{1}{3} \, (3 t^2) + 0 </mrow>
 		<mrow> \amp = t^2 </mrow>
@@ -719,13 +719,13 @@ we might guess that the pattern is:
 		</md>,
 		and so
 		<md>
-			<mrow> \ddt{q} \amp = \frac{ q(t + dt) - q(t) }{ dt } </mrow>
+			<mrow> \dqdt \amp = \frac{ q(t + dt) - q(t) }{ dt } </mrow>
 			<mrow> \amp = \frac{ (b_1 t^{n - 1} + b_2 t^{n - 2} dt + \dotsb + b_{n - 1} t dt^{n - 2} + dt^{n - 1}) \bcancel{dt} }{ \bcancel{dt} } </mrow>
 			<mrow> \amp = b_1 t^{n - 1} + b_2 t^{n - 2} dt + \dotsb + b_{n - 1} t dt^{n - 2} + dt^{n - 1} </mrow>
 		</md>.
 		Treating <m>dt \approx 0</m> as negligible at this point gives us
 		<md>
-			<mrow> \ddt{q} \amp = b_1 t^{n - 1} + \cancelto{0}{b_2 t^{n - 2} dt} + \dotsb + \cancelto{0}{b_{n - 1} t dt^{n - 2}} + \cancelto{0}{dt^{n - 1}} </mrow>
+			<mrow> \dqdt \amp = b_1 t^{n - 1} + \cancelto{0}{b_2 t^{n - 2} dt} + \dotsb + \cancelto{0}{b_{n - 1} t dt^{n - 2}} + \cancelto{0}{dt^{n - 1}} </mrow>
 			<mrow>  \amp = b_1 t^{n - 1} </mrow>
 		</md>.
 		Finally,
@@ -763,7 +763,7 @@ we might guess that the pattern is:
 
 <example xml:id="example-deriv-neg-exponent">
 	<title>Derivative of a power with a negative exponent</title>
-	<p><md><mrow> q(t) \amp = t^{-3} \amp \amp\implies \amp \ddt{q} \amp = -3 t^{-4} </mrow></md></p>
+	<p><md><mrow> q(t) \amp = t^{-3} \amp \amp\implies \amp \dqdt \amp = -3 t^{-4} </mrow></md></p>
 </example>
 
 <note><p>
@@ -776,7 +776,7 @@ we might guess that the pattern is:
 
 <example xml:id="example-deriv-irrational-exponent">
 	<title>Derivative of a power with an irrational exponent</title>
-	<p><md><mrow> q(t) \amp = t^\pi \amp \amp\implies \amp \ddt{q} \amp = \pi t^{\pi - 1} </mrow></md></p>
+	<p><md><mrow> q(t) \amp = t^\pi \amp \amp\implies \amp \dqdt \amp = \pi t^{\pi - 1} </mrow></md></p>
 </example>
 
 <p>
@@ -790,7 +790,7 @@ We will leave the justification up to you, the reader.
 	<title>Derivative of a polynomial</title>
 	<p>
 	A polynomial quantity function <me> q(t) = a_0 + a_1 t + a_2 t^2 + \dotsb + a_n t^n </me> is differentiable at all input values,
-	with <me>\ddt{q} = a_1 + 2 a_2 t + 3 a_3 t^2 + \dotsb + n a_n t^{n - 1} </me>.
+	with <me>\dqdt = a_1 + 2 a_2 t + 3 a_3 t^2 + \dotsb + n a_n t^{n - 1} </me>.
 	</p>
 </identity>
 

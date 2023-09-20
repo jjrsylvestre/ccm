@@ -744,20 +744,20 @@ so we will have to be a little more subtle.
 	<p>
 	In this case, we say that <m>q(t)</m> is <term>differentiable</term> at <m>t = t^\ast</m>,
 	call the value <m>d</m> the <term>derivative of <m>q(t)</m> at <m>t = t^\ast</m></term>,
-	and write <me> \funceval{\ddt{q}}{t = t^\ast} </me> to represent the value of <m>d</m>.
+	and write <me> \funceval{\dqdt}{t = t^\ast} </me> to represent the value of <m>d</m>.
 	</p>
 
 </definition>
 
 <remark><title>Derivative versus rate</title><p>
 	Given that we use average rate calculations over short time domains to approximate actual rate,
-	we expect that <me> \funceval{\ddt{q}}{t = t^\ast} = r(t^\ast) </me> will be true,
+	we expect that <me> \funceval{\dqdt}{t = t^\ast} = r(t^\ast) </me> will be true,
 	and in fact we will be able to theoretically justify this in later chapters.
 </p></remark>
 
 <p>
 Compare the notation
-<me> \slope{q}{t} \to \ddt{q} </me>
+<me> \slope{q}{t} \to \dqdt </me>
 with the previous notation
 <me> \sum_{k = 1}^{n} r(t_k^\ast) \change{t_k} \to \ccmint{a}{b}{r(t)}{t} </me>.
 In both situations, we are computing approximations that (we hope) are more and more accurate,
@@ -933,7 +933,7 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 	<p>
 	If <m>q(t)</m> is differentiable at <m>t = t^\ast</m>,
 	then the line that passes through the point <m>\bbrac{ t^\ast, q(t^\ast) }</m> with slope
-	<me> \funceval{\ddt{q}}{t = t^\ast} </me>
+	<me> \funceval{\dqdt}{t = t^\ast} </me>
 	is called the <term>tangent line</term> to the graph of <m>q(t)</m> at <m>t = t^\ast</m>.
 	</p>
 </definition>
@@ -947,7 +947,7 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 	where
 	<md>
 		<mrow>
-			m \amp = \funceval{\ddt{q}}{t = t^\ast}
+			m \amp = \funceval{\dqdt}{t = t^\ast}
 			\text{,}
 			\amp
 			b \amp = q(t^\ast) - m t^\ast
@@ -965,7 +965,7 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 	in <xref ref="example-avg-rate-cubic-instant-rate" />
 	and <xref ref="example-avg-rate-within-error-bound" />,
 	where we found that
-	<me> \funceval{\ddt{q}}{t = 2} = 12 </me>.
+	<me> \funceval{\dqdt}{t = 2} = 12 </me>.
 	So the tangent line through the point <m>(2, 8)</m> with slope <m>m = 12</m> is
 	<md>
 		<mrow> y \amp = 12 t + (8 - 12 \cdot 2) </mrow>
