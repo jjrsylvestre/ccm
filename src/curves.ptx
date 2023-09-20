@@ -790,7 +790,7 @@ we've got to be careful to take <q>direction</q> into account.
 	then velocity is becoming <em>more</em> negative.
 	In other words,
 	the magnitude of velocity (speed) is actually <em>increasing</em>,
-	and the object is speeding up on that time interval.
+	and the object is speeding up on that time domain.
 	</p>
 
 	<p>

@@ -107,7 +107,7 @@ simply divide the accumulation amount by the time duration.
 </example>
 
 <p>
-We won't always use <m>t = 0</m> as the start of the time interval,
+We won't always use <m>t = 0</m> as the start of the time domain,
 nor will it always be the case that the initial quantity is assumed to be <m>0</m>,
 so here is a formula that takes both those possibilities into account.
 </p>

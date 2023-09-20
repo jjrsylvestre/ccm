@@ -41,4 +41,4 @@
 * fill opacity on graphs with grid lines
 * fill opacity everywhere instead of using blue!40!white or similar
 * some "Pattern" statements (<identity> element) might be better as "Principle" statements (<insight> element) ?
-* sed -i -e 's/interval/domain/'  (but do it by hand...)
+

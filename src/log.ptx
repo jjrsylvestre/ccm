@@ -154,7 +154,7 @@ for <m>0 \lt t \lt 1</m> is the <em>negative</em> of the accumulation that occur
 <title>Properties of the natural logarithm</title>
 
 <p>
-First, our convention about integrating over a time interval of length <m>0</m>
+First, our convention about integrating over a time domain of length <m>0</m>
 leads immediately to a special value of the natural logarithm.
 </p>
 
