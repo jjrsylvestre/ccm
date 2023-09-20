@@ -165,7 +165,8 @@ header.ptx-masthead span.subtitle {
 .ptx-content article.convention.remark-like,
 .ptx-content article.identity.theorem-like,
 .ptx-content article.fact.theorem-like,
-.ptx-content article.theorem.theorem-like
+.ptx-content article.theorem.theorem-like,
+.ptx-content article.corollary.theorem-like
 {
   border: solid 2px #AB09A7;
   border-radius: 12px;
@@ -175,7 +176,8 @@ header.ptx-masthead span.subtitle {
 .ptx-content .convention.remark-like,
 .ptx-content .identity.theorem-like,
 .ptx-content .fact.theorem-like,
-.ptx-content .theorem.theorem-like
+.ptx-content .theorem.theorem-like,
+.ptx-content .corollary.theorem-like
 {
     border: solid 2px #AB09A7;
   border-radius: 12px;
@@ -186,7 +188,8 @@ header.ptx-masthead span.subtitle {
 .ptx-content .convention.remark-like,
 .ptx-content .identity.theorem-like .heading,
 .ptx-content .fact.theorem-like .heading,
-.ptx-content .theorem.theorem-like .heading
+.ptx-content .theorem.theorem-like .heading,
+.ptx-content .corollary.theorem-like .heading
 {
     margin-top: 0;
 }
@@ -194,13 +197,16 @@ header.ptx-masthead span.subtitle {
 .ptx-content .convention.remark-like + .sidebyside,
 .ptx-content .identity.theorem-like + .sidebyside,
 .ptx-content .fact.theorem-like + .sidebyside,
-.ptx-content .theorem.theorem-like + .sidebyside {
+.ptx-content .theorem.theorem-like + .sidebyside,
+.ptx-content .corollary.theorem-like + .sidebyside
+{
     margin-top: 1.25em;
 }
 
 .ptx-content section article.convention.remark-like .heading + p,
 .ptx-content section article.identity.theorem-like .heading + p,
 .ptx-content section article.fact.theorem-like .heading + p,
+.ptx-content section article.corollary.theorem-like .heading + p,
 .ptx-content section article.theorem.theorem-like .heading + p
 {
   display: block;
@@ -210,7 +216,8 @@ header.ptx-masthead span.subtitle {
 .ptx-content article.convention.remark-like::after,
 .ptx-content article.identity.theorem-like::after,
 .ptx-content article.fact.theorem-like::after,
-.ptx-content article.theorem.theorem-like::after
+.ptx-content article.theorem.theorem-like::after,
+.ptx-content article.corollary.theorem-like::after
 {
     content:'';
     border-bottom: none;
@@ -226,7 +233,8 @@ header.ptx-masthead span.subtitle {
 .ptx-content section article.fact.theorem-like p,
 .ptx-content section article.identity.theorem-like li,
 .ptx-content section article.fact.theorem-like li,
-.ptx-content section article.theorem.theorem-like li
+.ptx-content section article.theorem.theorem-like li,
+.ptx-content section article.corollary.theorem-like li
 {
     font-style: normal;
 }
@@ -234,7 +242,8 @@ header.ptx-masthead span.subtitle {
 .ptx-content section article.convention.remark-like li > .heading,
 .ptx-content section article.identity.theorem-like li > .heading,
 .ptx-content section article.fact.theorem-like li > .heading,
-.ptx-content section article.theorem.theorem-like li > .heading
+.ptx-content section article.theorem.theorem-like li > .heading,
+.ptx-content section article.corollary.theorem-like li > .heading
 {
     font-style: italic;
 }

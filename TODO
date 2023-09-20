@@ -1,5 +1,3 @@
-* Fact 13.4.6: Different antiderivatives are vertical shifts
-  ---> add a corollary that explicitly says "two functions with the same derivative are vertical shifts of each other
 * domain vs range in compositions of functions
   --> see written lecture notes
 * Rewrite separable rate equation examples using "integrate both sides" method (tied into substitution method)
@@ -10,7 +8,6 @@
        because then students think you have to do all these calculations.
        Apply FTC directly right away, then do the "second way" just as a check.
 * The "Computing Algebraically" in the derivative function chapter needs a boxed procedure.
-* Style fix: the Convention under "Properties of the definite integral" needs a box around it.
 * first chapter needs more on linear models
   --- specifically, examples of determining whether data points could fit a linear
       model or not.
@@ -23,10 +20,9 @@
   Then could just add a remark about basing at t=0....
   OR add a remark unifying the two formulas.
 * Maybe make a general pattern of horizontal shift/scale/reflection for definite integrals in the integ chapter,
-  --> then discussion in the log chapter can be sipmlified.
+  --> then discussion in the log chapter can be simplified.
   --> discussion of int(cos) can be simplified too?
 * Add statements about continuity to poly, log, exp, trig.
-* Regular Riemann sum example in step function chapter needs to have a Δt different from 1 ...
 * Example with title
   <title>A restricted domain could restrict the range</title>
   in funcs.ptx:
