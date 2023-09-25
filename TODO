@@ -1,5 +1,6 @@
 * domain vs range in compositions of functions
   --> see written lecture notes
+  ^^^^^^ I don't know what this is referring to anymore...
 * Rewrite separable rate equation examples using "integrate both sides" method (tied into substitution method)
   --> see written lecture notes
 * Example 13.3.4. Derivative of a trigonometric accumulation function
@@ -7,7 +8,6 @@
   ---> Don't leave the "first way" application of FTC to the end,
        because then students think you have to do all these calculations.
        Apply FTC directly right away, then do the "second way" just as a check.
-* The "Computing Algebraically" in the derivative function chapter needs a boxed procedure.
 * first chapter needs more on linear models
   --- specifically, examples of determining whether data points could fit a linear
       model or not.

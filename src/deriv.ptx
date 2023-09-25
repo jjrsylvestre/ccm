@@ -200,6 +200,22 @@ we simplify as much as possible until we can definitively see the effect of <m>d
 
 </example>
 
+<algorithm xml:id="procedure-dev-algebraic">
+	<title>Computing a derivative function algebraically</title>
+	<p>
+	To compute a formula for the derivative function <m>q'(t)</m> from a formula for a quantity function <m>q(t)</m>:
+	<ol>
+		<li> Use the formula for <m>q(t)</m> to form the difference quotient <me> \dqdt = \frac{q(t + dt) - q(t)}{dt} </me>. </li>
+		<li> Manipulate this expression algebraically until division by <m>dt</m> no longer occurs. </li>
+		<li>
+			Now consider all remaining instances of <m>dt</m> to be negligible.
+			(That is, consider <m>dt \approx 0</m> and simplify accordingly.)
+		</li>
+	</ol>
+	The formula in <m>t</m> that remains is the derivative function.
+	</p>
+</algorithm>
+
 </section>
 
 <section xml:id="section-deriv-basic-formulas">
