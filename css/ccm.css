@@ -114,6 +114,31 @@ header.ptx-masthead span.subtitle {
 }
 
 
+/* xrefs */
+.ptx-content [data-knowl],
+.ptx-content .para > a.internal
+{
+  color: #067409;
+}
+
+.ptx-content [data-knowl]:hover,
+.ptx-content .para > a.internal:hover
+{
+  background-color: #FEEBFD;
+}
+
+.ptx-content [data-knowl].active {
+  background-color: #d9fdda;
+}
+
+/* knowls */
+.ptx-content .knowl-output {
+  border-color: #d9fdda;
+  background-color: #f7fbff;
+}
+
+
+
 /* highlight definitions ***********************/
 .ptx-content article.definition.definition-like {
   border: solid 2px #AB09A7;
