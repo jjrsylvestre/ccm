@@ -508,9 +508,9 @@ our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation
 			= \left( \ccmint{a}{t}{f(u)}{u} + \ccmint{t}{t + dt}{f(u)}{u} \right)
 			- \ccmint{a}{t}{f(u)}{u}
 		</me>.
-		But now we can cancel the first and third integrals above to get
+		But we can cancel the first and third integrals above to get
 		<me> A(t + dt) - A(t) = \ccmint{t}{t + dt}{f(u)}{u} </me>.
-		Now we have
+		We now have a simplified version of the numerator to use in our difference quotient:
 		<md>
 			<mrow> \ddt{A} \amp = \frac{A(t + dt) - A(t)}{dt} </mrow>
 			<mrow> \amp = \frac{1}{dt} \ccmint{t}{t + dt}{f(u)}{u} </mrow>
@@ -562,13 +562,11 @@ our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation
 <example>
 	<title>Derivative of <m>\ln t</m></title>
 	<p>
-	We can now verify <xref ref="pattern-deriv-log" />:
-	we have
+	We can now use <xref ref="theorem-fund-thm" text="title" /> to verify <xref ref="pattern-deriv-log" />:
 	<md>
 		<mrow> \ddt{(\ln t)} \amp = \opddt \ccmint{1}{t}{\frac{1}{u}}{u} </mrow>
 		<mrow>\amp = \frac{1}{t} </mrow>
-	</md>,
-	using <xref ref="theorem-fund-thm" />.
+	</md>.
 	</p>
 </example>
 
@@ -593,51 +591,26 @@ our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation
 	and we have modelled <m>r(t) = \sin(t)</m>.
 	As usual, we can create an accumulation function <me> A_0(t) = \ccmint{0}{t}{\sin(u)}{u} </me>,
 	where the value of <m>A_0(t)</m> represents the accumulation of quantity that occurred over the domain from time <m>0</m> up until time <m>t</m>.
-	The integral formula for <m>\sin(t)</m> says that we should have
-	<me> A_0(t) = 1 - \cos(t) </me> for all <m>t</m>.
-	This allows to compute <m>d A_0 / dt</m> in two ways.
+	Applying the <xref ref="theorem-fund-thm" text="title" /> to compute the derivative function returns us to the rate function, as expected:
+	<me> \ddt{A_0} = \opddt \ccmint{0}{t}{\sin(u)}{u} = \sin(t) </me>.
+	</p>
+
+	<p>
+	On the other hand,
+	applying <xref ref="pattern-periodic-int-sin" /> tells us that <me> A_0(t) = 1 - \cos(t) </me>.
+	What happens if we differentiate this formula using our patterns from <xref ref="chapter-deriv" />?
 	<md>
-
-		<mrow>
-			A_0(t) \amp = \ccmint{0}{t}{\sin(u)}{u}
-			\amp
-			A_0(t) \amp = 1 - \cos(t)
-		</mrow>
-
-		<mrow>
-			\implies \qquad \ddt{A_0} \amp = \opddt \ccmint{0}{t}{\sin(u)}{u}
-			\amp
-			\implies \qquad \ddt{A_0} \amp = \opddt \bbrac{1 - \cos(t)}
-		</mrow>
-
-		<mrow>
-			\amp = \sin(t)
-			\amp
-			\amp = \ddt{1} - \ddt{\bbrac{\cos(t)}}
-		</mrow>
-
-		<mrow>
-			\amp
-			\amp
-			\amp = 0 - \bbrac{- \sin(t)}
-		</mrow>
-
-		<mrow>
-			\amp
-			\amp
-			\amp = \sin(t)
-		</mrow>
-
+		<mrow> \ddt{A_0} \amp = \opddt \bbrac{1 - \cos(t)} </mrow>
+		<mrow> \amp = \ddt{1} - \ddt{\bbrac{\cos(t)}} </mrow>
+		<mrow> \amp = 0 - \bbrac{- \sin(t)} </mrow>
+		<mrow> \amp = \sin(t) </mrow>
 	</md>
-	In the first calculation,
-	we have used the <xref ref="theorem-fund-thm" text="title" /> to compute the derivative,
-	whereas in the second calculation we have used the properties of the derivative and <xref ref="pattern-deriv-cos" /> to compute the derivative.
 	It is good that we got the same result both times!
-	But this by itself does not imply that our accumulation formula for the sine function
+	While this by itself does not imply that our accumulation formula for the sine function
 	(<xref ref="pattern-periodic-int-sin" />)
 	is correct,
-	<!-- (see TODO-XREF below), -->
-	but it certainly gives us more confidence.
+	<!-- (see TODO-XREF below),  NOT SURE WHAT THIS SHOULD POINT TO ... maybe example-fund-thm-indef-int-sine ?-->
+	it certainly gives us more confidence.
 	</p>
 
 </example>
