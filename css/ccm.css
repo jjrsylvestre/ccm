@@ -69,55 +69,49 @@ header.ptx-masthead span.subtitle {
   background-color: #AB09A7;
 }
 
-.ptx-toc.focused .toc-chapter {
+.ptx-toc.focused .toc-chapter > .toc-title-box {
   background-color: #09AB0D;
 }
 
-.ptx-toc.focused .toc-chapter.active,
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter).active,
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter).contains-active
+.ptx-toc.focused .toc-chapter,
+.ptx-toc.focused .toc-section
 {
-  background-color: #AB09A7;
+  border-color: #067409;
 }
 
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter) {
+.ptx-toc.focused :is(.toc-frontmatter, .toc-backmatter) > .toc-title-box {
   background-color: #067409;
 }
 
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-chapter, .toc-backmatter) :hover,
-.ptx-toc .toc-item > .toc-title-box > a:is(:hover, :focus)
-{
-  background-color: #AB09A7;
+.ptx-toc.focused :is(
+  .toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
+) > .toc-title-box {
+  color: #AB09A7;
 }
 
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter) > .toc-item-list > .toc-item :hover {
+.ptx-toc.focused .toc-subsection > .toc-title-box {
+  color: #333333;
+  background-color: #FEEBFD;
+}
+
+.ptx-toc.focused :is(
+  .toc-chapter, .toc-frontmatter, .toc-backmatter, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
+):is(.active, .contains-active) > .toc-title-box,
+.ptx-toc.focused :is(
+  .toc-chapter, .toc-frontmatter, .toc-backmatter, .toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
+) > .toc-title-box:hover,
+.ptx-toc.focused .toc-title-box > a:is(:hover, :focus)
+{
   color: white;
   background-color: #AB09A7;
 }
 
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-chapter, .toc-backmatter) > .toc-title-box > .toc-expander:hover,
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-chapter, .toc-backmatter) > .toc-title-box > .toc-expander > .icon:hover
+.ptx-toc.focused.depth3 .toc-title-box > .toc-expander:hover,
+.ptx-toc.focused.depth3 .toc-title-box > .toc-expander > .icon:hover
 {
   color: #AB09A7;
   background-color: #FEEBFD;
 }
-
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-chapter, .toc-backmatter) > .toc-item-list > :is(.toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references) {
-  color: #555555;
-}
-
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-chapter, .toc-backmatter).active > .toc-item-list > :is(.toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references),
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter).contains-active > .toc-item-list > :is(.toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references)
-{
-  color: #AB09A7;
-}
-
-.ptx-toc.focused > .toc-item-list > :is(.toc-frontmatter, .toc-backmatter).contains-active > .toc-item-list > :is(.toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references).active
-{
-  color: white;
-  background-color: #AB09A7;
-}
-
 
 
 /* highlight definitions ***********************/

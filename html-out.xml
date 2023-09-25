@@ -29,6 +29,7 @@ respective owners.
 
 	<common>
 		<chunking level="1" />
+		<tableofcontents level="3" />
 	</common>
 
 	<numbering>
