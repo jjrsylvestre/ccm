@@ -674,12 +674,57 @@ Just as we took the number of rectangles <m>n</m> to be larger and larger in upp
 here we want to take <m>\change{t}</m> to be smaller and smaller and look for a pattern in the above approximations.
 </p>
 
+<example xml:id="example-avg-rate-cubic-approx-instant-rate">
+	<title>Approximate instantaneous rate for a cubic quantity model</title>
+
+	<p>
+	Suppose we have quantity model <m>q(t) = t^3</m>.
+	Let's calculate average-rate approximations to the actual rate <m>r(t^\ast)</m> for <m>t^\ast = 2</m>,
+	using <m>\change{t} = 0.1</m>.
+	</p>
+
+	<case>
+		<title>Forward difference approximation</title>
+		<p><md>
+			<mrow> r(2) \amp \approx \frac{ q(2 + \change{t}) - q(2) }{ \change{t} } </mrow>
+			<mrow> \amp = \frac{ (2.1)^3 - 2^3 }{ 0.1 } </mrow>
+			<mrow> \amp = 12.61 </mrow>
+		</md>.</p>
+	</case>
+
+	<case>
+		<title>Backward difference approximation</title>
+		<p><md>
+			<mrow> r(2) \amp \approx \frac{ q(2) - q(2 - \change{t}) }{ \change{t} } </mrow>
+			<mrow> \amp = \frac{ 2^3 - (1.9)^3 }{ 0.1 } </mrow>
+			<mrow> \amp = 11.41 </mrow>
+		</md>.</p>
+	</case>
+
+	<case>
+		<title>Central difference approximation</title>
+		<p><md>
+			<mrow> r(2) \amp \approx \frac{ q(2 + \change{t}/2) - q(2 - \change{t}/2) }{ \change{t} } </mrow>
+			<mrow> \amp = \frac{ (2.05)^3 - (1.95)^3 }{ 0.1 } </mrow>
+			<mrow> \amp = 12.0025 </mrow>
+		</md>.</p>
+	</case>
+
+	<p>
+	We seem to be obtaining approximate rates in the <q>neighbourhood</q> of <m>r(2) \approx 12</m>.
+	Is this the actual value?
+	Let's explore further in the next example.
+	</p>
+
+</example>
+
 <example xml:id="example-avg-rate-cubic-instant-rate">
 	<title>Instantaneous rate for a cubic quantity model</title>
 
 	<p>
-	Suppose we have quantity model <m>q(t) = t^3</m>.
-	Let's use Sage to calculate average-rate approximations to the actual rate <m>r(t^\ast)</m> for <m>t^\ast = 2</m>.
+	Continuing <xref ref="example-avg-rate-cubic-approx-instant-rate" />,
+	for <m>q(t) = t^3</m> let's attempt to get closer to the true value of <m>r(t^\ast)</m> for <m>t^\ast = 2</m> by calculating approximations using smaller values of <m>\change{t}</m>.
+	We'll use Sage to speed up the calculations and allow us to easily compute new approximations for smaller and smaller values of <m>\change{t}</m>.
 	Since Sage doesn't like Greek letters very much,
 	we'll write <c>dt</c> in place of <m>\change{t}</m>.
 	We'll also write <c>u</c> in place of <m>t^\ast</m>.
@@ -688,10 +733,10 @@ here we want to take <m>\change{t}</m> to be smaller and smaller and look for a 
 	<sage>
 
 		<input>
-			var('t,u')
+			var('t')
 			q(t) = t^3
 			u = 2
-			dt = 0.5
+			dt = 0.1
 			forward = ( q(u + dt) - q(u) ) / dt
 			backward = ( q(u) - q(u - dt) ) / dt
 			central = ( q(u + dt / 2) - q(u - dt / 2) ) / dt
@@ -701,17 +746,22 @@ here we want to take <m>\change{t}</m> to be smaller and smaller and look for a 
 		</input>
 
 		<output>
-			forward  = 15.2500000000000
-			backward = 9.25000000000000
-			central  = 12.0625000000000
+			forward  = 12.6100000000000
+			backward = 11.4100000000000
+			central  = 12.0025000000000
 		</output>
 
 	</sage>
 
 	<p>
-	After evaluating the Sage cell above,
+	Examine the formulas above for <c>forward</c>, <c>backward</c>, and <c>central</c> in the Sage cell above,
+	and make sure that you see how they correspond to the formulas in <xref ref="definition-avg-rate-three-standard-approximations" />.
+	We've set up the initial value for <c>dt</c> so that you can have Sage verify the results of
+	<xref ref="example-avg-rate-cubic-approx-instant-rate" />.
+	After doing so by evaluating the Sage cell,
 	change the value of <c>dt</c> to something smaller and re-evaluate.
 	Repeat with smaller and smaller values of <c>dt</c> until the forward, backward, and central difference approximations all seem to be <q>converging</q> to a single value.
+	Is it the value that we predicted in <xref ref="example-avg-rate-cubic-approx-instant-rate" />?
 	</p>
 
 </example>

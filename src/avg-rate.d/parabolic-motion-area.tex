@@ -38,20 +38,20 @@
 	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[above,xshift=0.25cm] {seconds};
 	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {metres per second};
 
-	\node[closedpt,red] at (0,0) (start) {};
-	\node[openpt,red] at (1,0) (end) {};
-	\draw[red] (start) -- (end);
-	\node[closedpt,red] at (1,10) (start) {};
-	\node[openpt,red] at (3,10) (end) {};
-	\draw[red] (start) -- (end);
-	\draw[dashed] (0,10) -- (start);
-	\node[closedpt,red] at (3,0) (start) {};
-	\node[openpt,red] at (6,0) (end) {};
-	\draw[red] (start) -- (end);
-
 	% velocity
 	\draw[green!33!black,thick] (0,30) -- (6,-30);
 	\node[green!33!black] at (5,-15) {$v(t)$};
+
+	\node[closedpt,red] at (0,0) (start) {};
+	\node[openpt,red] at (1,0) (end) {};
+	\draw[red,very thick] (start) -- (end);
+	\node[closedpt,red] at (1,10) (start) {};
+	\node[openpt,red] at (3,10) (end) {};
+	\draw[red,very thick] (start) -- (end);
+	\draw[dashed] (0,10) -- (start);
+	\node[closedpt,red] at (3,0) (start) {};
+	\node[openpt,red] at (6,0) (end) {};
+	\draw[red,very thick] (start) -- (end);
 
 	\node[below] at (6,0) {$6$};
 	\node[below left] at (3,0) {$3$};
