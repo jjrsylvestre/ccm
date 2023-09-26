@@ -443,93 +443,107 @@ on one side we can reverse the differentiation by reversing the chain rule.
 	<title>A first example</title>
 
 	<p>
-	Consider the rate equation <me> r(t) = \frac{t^2 + 1}{q(t) + 1} </me>.
+	Consider the rate equation <me> r(t) = \frac{t^2 + 1}{2 q(t) + 1} </me>.
 	Let's simply write <m>q</m> instead of <m>q(t)</m>.
 	But let's also replace <m>r(t)</m> with <m>dq/dt</m>,
 	since <m>dq/dt</m> is the rate of variation of <m>q</m>.
 	Finally, we'll also do a little algebraic rearrangement.
 	<md alignment="gather">
-		<mrow>                  r(t) = \frac{t^2 + 1}{q(t) + 1} </mrow>
-		<mrow>                 \dqdt = \frac{t^2 + 1}{q + 1}                </mrow>
-		<mrow>         (q + 1) \dqdt = t^2 + 1                              </mrow>
-		<mrow> q \cdot \dqdt + \dqdt = t^2 + 1                              </mrow>
+		<mrow> r(t) = \frac{t^2 + 1}{2 q(t) + 1} </mrow>
+		<mrow> \dqdt = \frac{t^2 + 1}{2 q + 1}   </mrow>
+		<mrow xml:id="equation-substitution-first-separable-rearranged" tag="dagger">
+			(2 q + 1) \dqdt = t^2 + 1
+		</mrow>
+		<mrow> 2 q \cdot \dqdt + \dqdt = t^2 + 1 </mrow>
 	</md>.
-	The first term on the left now looks the type of result we would obtain when applying the chain rule during an implicit differentiation computation.
-	In particular,
+	The first term on the left now looks the type of result we would obtain when applying the chain rule during an <em>implicit differentiation</em> computation:
 	<md>
-		<mrow> \opddt \left( \frac{q^2}{2} \right) \amp = \frac{1}{2} \ddq{(q^2)} \dqdt </mrow>
-		<mrow> \amp = \frac{1}{\cancel{2}} (\cancel{2} q) \dqdt </mrow>
-		<mrow> \amp = q \, \dqdt </mrow>
-	</md>
-	So,
-	in effect we can <q>factor</q> the <m>d/dt</m> operator out of the left-hand side of the last equation above:
-	<md alignment="gather">
-		<mrow> q \cdot \dqdt + \dqdt = t^2 + 1  </mrow>
-		<mrow> \implies \qquad \opddt \left( \frac{q^2}{2} + q \right) = t^2 + 1  </mrow>
+		<mrow> \text{formula in } q \amp = \text{formula in } t </mrow>
+		<mrow> \amp \downarrow d/dt \text{ ?} </mrow>
+		<mrow> (2 q + 1) \dqdt \amp = t^2 + 1 </mrow>
 	</md>.
-	So now we explicitly have the left-hand side as a derivative calculation.
-	Since the two sides are equal,
-	let's make them appear more the same by also interpreting the right-hand side as the result of a derivative calculation.
-	Since
-	<me> \opddt \, \left( \frac{t^3}{3} + t \right) = t^2 + 1 </me>,
-	we can write
-	<me> \opddt \left( \frac{q^2}{2} + q \right) = \opddt \, \left( \frac{t^3}{3} + t \right) </me>.
-	This now says that the functions
-	<md><mrow> \frac{q^2}{2} \amp + q \amp \frac{t^3}{3} \amp + t </mrow></md>
-	have the same derivative.
-	From <xref ref="fact-fund-thm-antideriv-v-shifts" />,
-	we know that this means that they must be vertical shifts of each other:
-	<me> \frac{q^2}{2} + q = \frac{t^3}{3} + t + C </me>.
+	Our goal is to relate quantity <m>q</m> to the independent variable <m>t</m> directly,
+	and if we could reverse the process above and return to an equality involving <m>q</m> and <m>t</m> then we could attempt to isolate <m>q</m> to achieve our goal.
 	</p>
 
 	<p>
-	So far, we have obtained an implicit expression relating <m>q</m> to <m>t</m>.
+	To reverse a suspected differentiation process,
+	let us <em>antidifferentiate</em> both sides of our re-arranged rate equation.
+	First, we'll tackle the right-hand side of <xref ref="equation-substitution-first-separable-rearranged" />,
+	since it is straight-forward:
+	<me> \ccmiint{t^2 + 1}{t} = \frac{t^3}{3} + t + C </me>.
+	For now, let us choose the specific antiderivative with <m>C = 0</m>.
+	By definition of <term>antiderivative</term>,
+	our calculation above says
+	<me> t^2 + 1 = \opddt \left( \frac{t^3}{3} + t \right) </me>.
+	Antidifferentiating the left-hand side of <xref ref="equation-substitution-first-separable-rearranged" />,
+	involves computing
+	<me> \ccmiint{(2 q + 1) \dqdt}{t} </me>.
+	But this looks like an integral involving the method of substitution,
+	just with <m>q</m> in place of <m>u</m>:
+	<me> \ccmiint{(2 q + 1) \dqdt}{t} = \ccmiint{2 q + 1}{q} = q^2 + q + C </me>.
+	Again, let us choose the specific antiderivative with <m>C = 0</m>.
+	Then our calculation above says that
+	<me> (2 q + 1) \dqdt = \opddt (q^2 + q) </me>.
+	</p>
+
+	<p>
+	Combining these separate expressions for the two sides of <xref ref="equation-substitution-first-separable-rearranged" /> back into an equality,
+	we have
+	<md alignment="gather">
+		<mrow> (2 q + 1) \dqdt = t^2 + 1 </mrow>
+		<mrow> \opddt (q^2 + q) = \opddt \left( \frac{t^3}{3} + t \right) </mrow>
+	</md>.
+	However,
+	<xref ref="corollary-fund-thm-same-deriv-v-shifts" /> states that two derivatives can only be equal when the two functions being differentiated are vertical shifts of one another.
+	In other words,
+	we must have
+	<me> q^2 + q = \frac{t^3}{3} + t + K </me>
+	for some unknown constant <m>K</m>.
+	</p>
+
+	<p>
+	We now at least have obtained an implicit expression relating <m>q</m> to <m>t</m>.
 	It's not always possible to isolate <m>q</m>,
 	but in this case we can use the <xref ref="pattern-poly-quadratic-formula" text="title" />
 	to obtain a <q>lower</q> and an <q>upper</q> solution:
 	<md alignment="gather">
-		<mrow> \frac{q^2}{2} + q = \frac{t^3}{3} + t + C</mrow>
-		<mrow> 3 q^2 + 6 q = 2 t^3 + 6 t + C </mrow>
-		<mrow> 3 q^2 + 6 q - (2 t^3 + 6 t + C) = 0 </mrow>
-	</md>.
+		<mrow> q^2 + q = \frac{t^3}{3} + t + K</mrow>
+		<mrow> 3 q^2 + 3 q = t^3 + 3 t + K </mrow>
+		<mrow> 3 q^2 + 3 q - (t^3 + 3 t + K) = 0 </mrow>
+	</md>
 	<md>
 		<mrow>
-			q(t) \amp = \frac{-6 - \sqrt{36 - 12 (2 t^3 + 6 t + C)}}{6}
+			q(t) \amp = \frac{-3 - \sqrt{9 + 12 (t^3 + 3 t + K)}}{6}
 			\amp
-			q(t) \amp = \frac{-6 + \sqrt{36 + 12 (2 t^3 + 6 t + C)}}{6}
+			q(t) \amp = \frac{-3 + \sqrt{9 + 12 (t^3 + 3 t + K)}}{6}
 		</mrow>
 		<mrow>
-			\amp = -1 - \sqrt{1 - 2 t^3 / 3 - 2 t + C}
+			\amp = \frac{-3 - \sqrt{K + 12 (t^3 + 3 t)}}{6} \text{,}
 			\amp
-			\amp = -1 + \sqrt{1 - 2 t^3 / 3 - 2 t + C}
+			\amp = \frac{-3 + \sqrt{K + 12 (t^3 + 3 t)}}{6} \text{.}
 		</mrow>
-		<mrow>
-			\amp = -1 - \sqrt{C - 2 t^3 / 3 - 2 t}
-			\amp
-			\amp = -1 + \sqrt{C - 2 t^3 / 3 - 2 t}
-		</mrow>
-	</md>.
-	Notice when we perform algebraic operations involving <m>C</m>,
-	we haven't bothered to alter it,
-	since if <m>C</m> is an arbitrary value,
-	then so is <m>6 C</m>, for example.
-	In fact,
-	under the square root sign we have even absorbed the extra <m>1</m> into the constant <m>C</m>,
-	since <m>1 + C</m> is just as arbitrary as <m>C</m> itself.
+	</md>
+	Notice that we have replaced <m>9 + 12 K</m> with just <m>K</m>,
+	since if <m>K</m> is an arbitrary value,
+	then so is <m>9 - 12 K</m>.
 	</p>
 
 	<p>
-	Our two classes of solutions both involve the parameter <m>C</m>,
+	Our two classes of solutions both involve the parameter <m>K</m>,
 	which would have to be determined using a known or desired initial value.
-	For example, if we wanted a solution of the <q>upper</q> type that satisfied <m>q(0) = 4</m>,
-	we could solve for <m>C</m>:
+	For example, if we want a solution of the <q>upper</q> type (with the plus sign before the square root)
+	that satisfies <m>q(0) = 2</m>,
+	we could solve for <m>K</m>:
 	<md alignment="gather">
-		<mrow> 4 = -1 + \sqrt{C - 2 0^3 / 3 - 2 \cdot 0} </mrow>
-		<mrow> 5 = \sqrt{C} </mrow>
-		<mrow> 25 = C </mrow>
+		<mrow> 2 = \frac{-3 + \sqrt{K + 12 (0^3 + 3 \cdot 0)}}{6} </mrow>
+		<mrow> 15 = \sqrt{K} </mrow>
+		<mrow> 225 = K </mrow>
 	</md>.
-	So the solution that satisfies <m>q(0) = 4</m> is
-	<me> q(t) = -1 + \sqrt{25 - 2 t^3 / 3 - 2 t} </me>.
+	So the solution that satisfies <m>q(0) = 2</m> is
+	<me> q(t) = \frac{-3 + \sqrt{225 + 12 (t^3 + 3 t)}}{6} </me>.
+	Note that there is no solution of the <q>lower</q> type (with the minus sign before the square root) that satisfies <m>q(0) = 2</m>,
+	since that would require <m>\sqrt{K}</m> to be a negative value.
 	</p>
 
 </example>
