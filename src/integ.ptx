@@ -1087,6 +1087,38 @@ mathematically.
 
 </subsection>
 
+<subsection>
+<title>Re-basing an integral</title>
+
+<p>
+Many of the integration formulas we present in this book will be <q>based</q> at <m>t = 0</m>:
+<me> \ccmint{0}{c}{ r(t) }{t} </me>.
+The reason for this is that <m>t = 0</m> is the most <q>natural</q> initial time for an observation period.
+(Occasionally we will base integration formulas at <m>t = 1</m> in the case that the rate function <m>r(t)</m> is undefined at <m>t = 0</m>.)
+</p>
+
+<p>
+We can still use such <m>0</m>-based integration formulas to compute any other integral
+<me> \ccmint{a}{b}{ r(t) }{t} </me>
+with the help of
+<xref ref="pattern-integ-definite-props-split" text="type-local">Property</xref>
+of <xref ref="pattern-integ-definite-props" />,
+since
+<me> \ccmint{0}{b}{ r(t) }{t} = \ccmint{0}{a}{ r(t) }{t} + \ccmint{a}{b}{ r(t) }{t} </me>.
+</p>
+
+<identity xml:id="pattern-integ-rebase">
+	<title>Re-basing an integral</title>
+	<p>
+	Assuming the rate function <m>r(t)</m> is integrable over the domains involved,
+	we have
+	<me> \ccmint{a}{b}{ r(t) }{t} = \ccmint{0}{b}{ r(t) }{t} - \ccmint{0}{a}{ r(t) }{t} </me>.
+	The same holds true with the lower bound <m>t = 0</m> replaced by any other value.
+	</p>
+</identity>
+
+</subsection>
+
 </section>
 
 <section xml:id="section-integ-recover-accumulation">
