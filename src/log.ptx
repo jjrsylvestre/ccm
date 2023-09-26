@@ -100,12 +100,9 @@ for <m>0 \lt t \lt 1</m> is the <em>negative</em> of the accumulation that occur
 	<p>
 	Suppose we would like to calculate
 	<me> \ccmint{3}{4}{ t + \frac{1}{t} }{t} </me>.
-	Similarly to <xref ref="example-poly-definite-integral" />,
+	Similarly to <xref ref="example-poly-definite-integral-mixed-exponents" />,
 	we split into two integrals,
-	and then use
-	<xref ref="pattern-integ-definite-props-split" text="type-local">Property</xref>
-	of <xref ref="pattern-integ-definite-props" />
-	to re-base our integrals to match our formulas.
+	and then use <xref ref="pattern-integ-rebase" /> to re-base our integrals to match our formulas.
 	<md>
 
 		<mrow>

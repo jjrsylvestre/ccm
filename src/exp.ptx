@@ -768,7 +768,7 @@ similar to <xref ref="pattern-poly-int-power" />.
 	by computing
 	<me> \ccmint{3}{4}{ t + \frac{1}{t} + e^t }{t} </me>.
 	Use the same strategy as in <xref ref="example-log-definite-integral" />
-	(and <xref ref="example-poly-definite-integral" />):
+	(and <xref ref="example-poly-definite-integral-mixed-exponents" />):
 	<md>
 
 		<mrow>

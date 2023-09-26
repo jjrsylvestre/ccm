@@ -675,7 +675,7 @@ so let's try a cubic.
 	<title>Derivative of the quantity model for a quadratic rate model</title>
 	<p>
 	Suppose we start with <m>r(t) = t^2</m>.
-	<xref ref="pattern-poly-int-power-positive-exp" text="type-local">Pattern</xref>
+	<xref ref="pattern-poly-int-power-positive-exp" text="type-local">Formula</xref>
 	of <xref ref="pattern-poly-int-power" />
 	says that the associated quantity model will be <me> q(t) = \frac{t^3}{3} + q_0 </me>,
 	where <m>q_0 = q(0)</m> is the initial quantity.
@@ -695,7 +695,7 @@ so let's try a cubic.
 </example>
 
 <p>
-<xref ref="pattern-poly-int-power-positive-exp" text="type-local">Pattern</xref>
+<xref ref="pattern-poly-int-power-positive-exp" text="type-local">Formula</xref>
 of <xref ref="pattern-poly-int-power" />
 could be described in words as follows:
 <em>to obtain the accumulation function for a power of <m>t</m>, increase the exponent and then divide by that new exponent</em>.
