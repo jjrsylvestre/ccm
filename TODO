@@ -14,6 +14,7 @@
 * Maybe make a general pattern of horizontal shift/scale/reflection for definite integrals in the integ chapter,
   --> then discussion in the log chapter can be simplified.
   --> discussion of int(cos) can be simplified too?
+  ^^^^ This is probably too much work and too complicated
 * Add statements about continuity to poly, log, exp, trig.
 * Example with title
   <title>A restricted domain could restrict the range</title>
@@ -24,7 +25,6 @@
 * rate of growth comparison to polynomial in both exp and log chapters
   (with reference to relevant section in inf-behaviour)
 * relative growth: "of at most the order of" in periodic chapter
-* change "rate of variation" to "rate of accumulation"
 * fill opacity on graphs with grid lines
 * fill opacity everywhere instead of using blue!40!white or similar
 * some "Pattern" statements (<identity> element) might be better as "Principle" statements (<insight> element) ?
