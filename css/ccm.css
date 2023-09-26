@@ -47,7 +47,10 @@
   font-style: italic;
 }
 
-body.pretext {
+body.pretext,
+.ptx-content section .heading,
+.ptx-content article .heading
+{
   font-family: "STIX Two Text", "Times New Roman", Times, serif;
 }
 
@@ -140,12 +143,6 @@ header.ptx-masthead span.subtitle {
 
 
 /* highlight definitions ***********************/
-.ptx-content article.definition.definition-like {
-  border: solid 2px #AB09A7;
-  border-radius: 12px;
-  padding: 10px;
-}
-
 .ptx-content .definition.definition-like {
   border: solid 2px #AB09A7;
   border-radius: 12px;
@@ -181,24 +178,13 @@ header.ptx-masthead span.subtitle {
 /*     and facts                              ************/
 /*     and conventions                        ************/
 /* TODO change these colors to be different from definitions */
-.ptx-content article.convention.remark-like,
-.ptx-content article.identity.theorem-like,
-.ptx-content article.fact.theorem-like,
-.ptx-content article.theorem.theorem-like,
-.ptx-content article.corollary.theorem-like
-{
-  border: solid 2px #AB09A7;
-  border-radius: 12px;
-  padding: 10px;
-}
-
 .ptx-content .convention.remark-like,
 .ptx-content .identity.theorem-like,
 .ptx-content .fact.theorem-like,
 .ptx-content .theorem.theorem-like,
 .ptx-content .corollary.theorem-like
 {
-    border: solid 2px #AB09A7;
+  border: solid 2px #AB09A7;
   border-radius: 12px;
   padding: 10px;
   background-color: #FEF2FE;
@@ -247,22 +233,15 @@ header.ptx-masthead span.subtitle {
 }
 
 /* undo italics for patterns */
-.ptx-content section article.convention.remark-like p,
-.ptx-content section article.identity.theorem-like p,
-.ptx-content section article.fact.theorem-like p,
-.ptx-content section article.identity.theorem-like li,
-.ptx-content section article.fact.theorem-like li,
-.ptx-content section article.theorem.theorem-like li,
-.ptx-content section article.corollary.theorem-like li
+.ptx-content section .remark-like .para,
+.ptx-content section .theorem-like .para,
+.ptx-content section .theorem-like li
 {
     font-style: normal;
 }
 /* but then also reverse font-style for li headings */
-.ptx-content section article.convention.remark-like li > .heading,
-.ptx-content section article.identity.theorem-like li > .heading,
-.ptx-content section article.fact.theorem-like li > .heading,
-.ptx-content section article.theorem.theorem-like li > .heading,
-.ptx-content section article.corollary.theorem-like li > .heading
+.ptx-content section .remark-like li > .heading,
+.ptx-content section .theorem-like li > .heading
 {
     font-style: italic;
 }
@@ -272,12 +251,6 @@ header.ptx-masthead span.subtitle {
 
 /* highlight principles (renamed from insight) ************/
 /* TODO change these colors to be different from definitions and patterns */
-.ptx-content article.insight.remark-like {
-  border: solid 2px #AB09A7;
-  border-radius: 12px;
-  padding: 10px;
-}
-
 .ptx-content .insight.remark-like {
   border: solid 2px #AB09A7;
   border-radius: 12px;
@@ -311,12 +284,6 @@ header.ptx-masthead span.subtitle {
 /* highlight procedures (renamed from algorithm) ************/
 /* TODO change these colors to be different from others above ? */
 /* Or maybe consolidate these styles into the other .theorem-like styles ? */
-.ptx-content article.algorithm.theorem-like {
-  border: solid 2px #AB09A7;
-  border-radius: 12px;
-  padding: 10px;
-}
-
 .ptx-content .algorithm.theorem-like {
   border: solid 2px #AB09A7;
   border-radius: 12px;
