@@ -38,6 +38,8 @@
 
 	\draw[dashed] (qcentre) -- (3,0) node[below] {$t^\ast$};
 
-	\draw[blue,thick] (2.5,2.766) -- (3.5,2.766) -- (3.5,4.25) -- (2.5,4.25) -- cycle;
+	\draw[blue,thick] (2.5,2.766) rectangle (3.5,4.25);
+	\draw[blue,dashed] (2.5,2.766) -- (2.5,0) node[below] {$t_0$};
+	\draw[blue,dashed] (3.5,2.766) -- (3.5,0) node[below] {$t_1$};
 
 \end{tikzpicture}

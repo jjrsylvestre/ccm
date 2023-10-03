@@ -26,7 +26,9 @@
 	yscale=64
 ]
 
-	\draw[thick] (\xmin,\ymin) -- (\xmax,\ymin) -- (\xmax,\ymax) -- (\xmin,\ymax) -- cycle;
+	\draw[thick] (\xmin,\ymin) rectangle (\xmax,\ymax);
+	\node[below] at (\xmin,\ymin) {$t_6$};
+	\node[below] at (\xmax,\ymin) {$t_7$};
 
 	% example graph
 	\draw[thick, domain=2.9856:3.0151, smooth, thick] plot (\x,{\func});

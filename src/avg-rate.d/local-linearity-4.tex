@@ -26,7 +26,9 @@
 	yscale=16
 ]
 
-	\draw[thick] (\xmin,\ymin) -- (\xmax,\ymin) -- (\xmax,\ymax) -- (\xmin,\ymax) -- cycle;
+	\draw[thick] (\xmin,\ymin) rectangle (\xmax,\ymax);
+	\node[below] at (\xmin,\ymin) {$t_4$};
+	\node[below] at (\xmax,\ymin) {$t_5$};
 
 	% example graph
 	\draw[thick, domain=\xmin:\xmax, smooth, thick] plot (\x,{\func});
@@ -35,6 +37,8 @@
 
 	\draw[dashed] (qcentre) -- (3,\ymin) node[below] {$t^\ast$};
 
-	\draw[blue,thick] (2.985,3.735) -- (3.015,3.735) -- (3.015,3.765) -- (2.985,3.765) -- cycle;
+	\draw[blue,thick] (2.985,3.735) rectangle (3.015,3.765);
+	\draw[blue,dashed] (2.985,3.735) -- (2.985,\ymin) node[below] {$t_6$};
+	\draw[blue,dashed] (3.015,3.735) -- (3.015,\ymin) node[below] {$t_7$};
 
 \end{tikzpicture}
