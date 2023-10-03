@@ -900,7 +900,7 @@ in general, we expect a smaller range around <m>d</m> to require a smaller maxim
 
 </section>
 
-<section>
+<section xml:id="section-avg-rate-graphical-interp-deriv">
 <title>Graphical interpretation of the derivative</title>
 
 <subsection xml:id="subsection-avg-rate-tangents">

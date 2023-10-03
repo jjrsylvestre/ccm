@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2023 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<!-- TODO need to introduce higher derivative notation -->
+
+<chapter xml:id="chapter-poly-approx" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Polynomial approximations</title>
+
+<section xml:id="section-poly-approx-linear">
+<title>Linear approximations</title>
+
+<subsection>
+<title>Linearization at a point</title>
+
+<p>
+In <xref ref="section-avg-rate-graphical-interp-deriv" />,
+we interpreted a derivative value as describing the slope of the <term>local linearity</term> of a graph near a specific point.
+In other words,
+on a small domain <m>a \lt t \lt b</m> containing some point of interest <m>t = t^\ast</m>,
+the graph of a differentiable function <m>f(t)</m> is approximately linear with slope <m>m = f'(t^\ast)</m>.
+A linear formula is much easier to use in computations,
+so if we do not mind introducing a small amount of error we may replace the function <m>f(t)</m> in our computations with a linear function on domain <m>a \lt t \lt b</m>.
+</p>
+
+<p>TODO IMAGE</p>
+
+<example xml:id="example-poly-approx-linearize-sqrt">
+	<title>Approximate square roots</title>
+	<p>
+	What is the approximate value of <m>\sqrt{100.03}</m>?
+	Using the known <q>nearby</q> value of <m>\sqrt{100} = 10</m> as a <q>base point</q> for our calculations,
+	we will replace the square root function with a linear function <m>L(t)</m> that also has <m>L(100) = 10</m>,
+	and has the same slope as the graph of the square root function at the point <m>t = 100</m>:
+	<me> \funceval{\ddt{(\sqrt{t})}}{t = 100} = \funceval{\frac{1}{2\sqrt{t}}}{t = 100} = \frac{1}{20} </me>.
+	So the graph of <m>L(t)</m> must pass through the point <m>(100,10)</m> and must create a slope of <m>1/20</m> with every other point <m>(t,y)</m> on its graph:
+	<md alignment="gather">
+		<mrow> \frac{y - 10}{t - 100} = \frac{1}{20} </mrow>
+		<mrow> y - 10 = \frac{t - 100}{20} </mrow>
+		<mrow> y = 10 + \frac{t - 100}{20} </mrow>
+	</md>.
+	Our approximating linear function to the square root function near the point <m>t = 100</m> is
+	<me> L(t) = 10 + \frac{t - 100}{20} </me>,
+	and we approximate
+	<me> \sqrt{t} \approx L(t) \qquad \text{for} \qquad t \approx 100 </me>.
+	In particular,
+	we wished to approximate
+	<md>
+		<mrow> \sqrt{100.03} \amp \approx L(100.03) </mrow>
+		<mrow> \amp = 10 + \frac{100.03 - 100}{20} </mrow>
+		<mrow> \amp = 10 + \frac{0.03}{2 \cdot 10} </mrow>
+		<mrow> \amp = 10 + \frac{0.015}{10} </mrow>
+		<mrow> \amp = 10 + 0.0015 </mrow>
+		<mrow> \amp = 10.0015 </mrow>
+	</md>.
+	(Compare with the result for <m>\sqrt{100.03}</m> returned by your calculator.)
+	</p>
+</example>
+
+<remark><p>
+	It may seem silly to go to all the trouble of <xref ref="example-poly-approx-linearize-sqrt" /> instead of entering <m>\sqrt{100.03}</m> into a calculator,
+	but if you have billions of similar calculations to do,
+	programming a computer to use a linear formula will save a significant amount of time compared to repeatedly using the <c>sqrt</c> function in your computing language's math libraries.
+</p></remark>
+
+<p>
+We can obtain a general formula for the equation of an approximating linear function in the same manner as in <xref ref="example-poly-approx-linearize-sqrt" />:
+we would like a linear function <m>L(t)</m> that has <q>inital value</q> <m>L(t^\ast) = f(t^\ast)</m> and slope <m>m = f'(t^\ast)</m> to replace <m>f(t)</m> near <m>t = t^\ast</m>.
+</p>
+
+<definition xml:id="definition-poly-approx-linearization">
+	<title>Linearization of a function</title>
+	<p>
+	If <m>f(t)</m> is defined on domain <m>a \lt t \lt b</m> and differentiable at <m>t = t^\ast</m> within that domain,
+	then the <term>linearization</term> of <m>f(t)</m> based at <m>t = t^\ast</m> is the linear function
+	<me> L(t) = f(t^\ast) + f'(t^\ast) (t - t^\ast) </me>,
+	restricted to the domain <m>a \lt t \lt b</m>.
+	</p>
+</definition>
+
+<remark><p><ul>
+
+	<li>
+		A <term>linearization</term> of a function is nothing more than a tangent line,
+		but we are introducing new terminology to emphasize its use a linear <q>version</q> of <m>f(t)</m> to be used as a replacement for <m>f(t)</m> in computations.
+	</li>
+
+	<li>
+		The only variable in the formula for <m>L(t)</m> is the independent variable <m>t</m>;
+		the three expressions <m>t^\ast</m>, <m>f(t^\ast)</m>, and <m>f'(t^\ast)</m> should be <em>specific numbers</em> obtained by choosing an appropriate value of <m>t^\ast</m> and calculating the other two values from the function <m>f(t)</m>.
+	</li>
+
+</ul></p></remark>
+
+<example xml:id="example-poly-approx-linearize-log">
+	<title>Linearizing the natural logarithm</title>
+	<p>
+	A known value of the natural logarithm is <m>\ln 1 = 0</m>,
+	so we can use the linearization at <m>t = 1</m> to approximate <m>\ln t</m> for <m>t \approx 1</m>.
+	First compute
+	<me> \funceval{\ddt{(\ln t)}}{t = 1} = \funceval{\frac{1}{t}}{t = 1} = 1 </me>.
+	From this and <m>\ln 1 = 0</m> we have
+	<me> L(t) = 0 + 1 \cdot (t - 1) = t - 1 </me>.
+	If we have many values of <m>\ln (1 + \change{t})</m> to compute,
+	all of them with <m>\change{t} \approx 0</m>,
+	then really there's no need to perform expensive logarithm computations at all,
+	as we would have
+	<md>
+		<mrow> \ln (1 + \change{t}) \amp \approx L(1 + \change{t}) </mrow>
+		<mrow> \amp = (1 + \change{t}) - 1 </mrow>
+		<mrow> \amp = \change{t} </mrow>
+	</md>.
+	For example,
+	<md>
+		<mrow>
+			\ln (1.001) \amp \approx 0.001 \text{,}
+			\amp
+			\ln (0.999) \amp \approx -0.001 \text{.}
+		</mrow>
+	</md>
+	</p>
+</example>
+
+<example xml:id="example-poly-approx-linearize-sin">
+	<title>Linearizing sine at the origin</title>
+	<p>
+	The slope of the graph of <m>\sin(t)</m> at <m>t = 0</m> is <m>1</m>,
+	since <me> \funceval{\ddt{\bbrac{\sin(t)}}}{t = 0} = \cos(0) = 1 </me>.
+	So the linearization of sine based at <m>t = 0</m> is
+	<me> L(t) = \sin(0) + 1 \cdot (t - 0) = t </me>.
+	This recovers the familiar approximation
+	<me> \sin(t) \approx t \qquad \text{for} \qquad t \approx 0 </me>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection>
+<title>Error in a linear approximation</title>
+
+<p>
+Merely stating <m>\ln (1.001) \approx 0.001</m> is all well and good,
+but it is fairly useless as an approximation <em>if you have no idea how good it is as an approximation</em>.
+This <q>approximate</q> value could be way off,
+for all we know.
+We could compare this approximate value to the true value,
+but <em>the whole point of approximating is to avoid a more complicated computation</em>.
+If we able to easily calcluate <m>\ln (1.001)</m> exactly,
+why not just do that instead of approximating it?
+</p>
+
+<p> However, it is possible to estimate the error involved in a linear approximation. </p>
+
+<fact xml:id="fact-poly-approx-linear-error"><p>
+	Suppose <m>a</m> is a number near <m>t^\ast</m> and <m>M</m> is a positive number so that <m>\abs{f''(t)} \le M</m> for all <m>t</m> between <m>a</m> and <m>t^\ast</m>, inclusive.
+	Then the error <m>E</m> in using the approximation <m>f(a) \approx L(a)</m>
+	(where <m>L(t)</m> is the linearization of <m>f(t)</m> based at <m>t = t^\ast</m>) satisfies
+	<me> \abs{E} \le \frac{M}{2} \, {\abs{a - t^\ast}}^2 </me>.
+</p></fact>
+
+<example xml:id="example-poly-approx-error-in-linearized-log">
+	<title>Adding error bounds to an approximation</title>
+
+	<p>
+	Let's contextualize the approximation of <m>\ln (1.001)</m> that we made in <xref ref="example-poly-approx-linearize-log" />.
+	We have
+	<me> \abs{\dblddt{(\ln t)}} = \abs{-\frac{1}{t^2}} = \frac{1}{t^2} </me>,
+	and on the closed interval <m>1 \le t \le 1.001</m> this second derivative magnitude achieves its largest value at <m>t = 1</m> so that
+	<me> \abs{\dblddt{(\ln t)}} \le \frac{1}{1^2} = 1 </me>.
+	Therefore, the error in our approximation <m>\ln(1.001) \approx 0.001</m> satisfies
+	<me> \abs{E} \le \frac{1}{2} \, {\abs{1.001 - 1}}^2 = 5 \times {10}^{-7} </me>.
+	In other words, we can confidently say that
+	<me> 0.0009995 \le \ln(1.001) \le 0.0010005 </me>.
+	</p>
+
+</example>
+
+<remark><p>
+	A linear approximation will quickly become a <em>bad</em> approximation if we stray too far from the base point.
+	TODO PICTURE
+</p></remark>
+
+</subsection>
+
+<subsection>
+<title>Differentials</title>
+
+<p> TODO </p>
+
+</subsection>
+
+</section>
+
+<section xml:id="section-poly-approx-quadratic">
+<title>Quadratic approximations</title>
+
+<p>
+The linear approximation <m>sin(t) \approx t</m> is fine for <m>t \approx 0</m>,
+but it quickly becomes inaccurate as the sine graph curves away from the approximating line.
+A linearization only matches the originating function in two aspects:
+<ul>
+	<li><p> Same base value, <m>L(t^\ast) = f(t^\ast)</m>. </p></li>
+	<li><p> Same slope, <m>L'(t^\ast) = f'(t^\ast)</m>. </p></li>
+</ul>
+If we want a better approximating function that stays close to the values of the original function over a wider interval around the base point,
+we need it to better match the curvature of the original function by having the two functions match in a higher-order aspect:
+<ul> <li><p> Same concavity, <m>L''(t^\ast) = f''(t^\ast)</m>. </p></li> </ul>
+In general, this will not work when <m>L(t)</m> is linear since a line has no concavity.
+Instead, we will need move up a degree to a quadratic approximating function.
+</p>
+
+<p>
+For now,
+let's work with base point <m>t^\ast = 0</m>.
+We are looking for a quadratic polynomial <me> p(t) = a_0 + a_1 t + a_2 t^2 </me> that matches the above three aspects of the function <m>f(t)</m> at the base point.
+</p>
+
+<tabular top="medium" halign="center">
+	<col right="minor" /><col /><col />
+	<row bottom="minor">
+		<cell />
+		<cell><m>p</m></cell>
+		<cell><m>f</m></cell>
+	</row>
+	<row>
+		<cell>Base value</cell>
+		<cell><m>a_0</m></cell>
+		<cell><m>f(0)</m></cell>
+	</row>
+	<row>
+		<cell>First derivative</cell>
+		<cell><m>a_1</m></cell>
+		<cell><m>f'(0)</m></cell>
+	</row>
+	<row bottom="medium">
+		<cell>Second derivative</cell>
+		<cell><m>2 a_2</m></cell>
+		<cell><m>f''(0)</m></cell>
+	</row>
+</tabular>
+
+<p>
+To make these match in all three rows we should use
+<md><mrow>
+	a_0 \amp = f(0) \text{,} \amp
+	a_1 \amp = f'(0) \text{,} \amp
+	a_2 \amp = \frac{f''(0)}{2} \text{.}
+</mrow></md>
+</p>
+
+<identity xml:id="pattern-poly-approx-quadratic-base-0">
+	<title>Quadratic approximation based at <m>t = 0</m></title>
+	<p>
+		The quadratic function
+		<me> p(t) = f(0) + f'(0) t + \frac{f''(0)}{2} \; t^2 </me>
+		approximates the function <m>f(t)</m> on small domains containing the base point <m>t = 0</m>.
+	</p>
+</identity>
+
+<example>
+	<title>Quadratic approximation of <m>\cos(t)</m> near <m>t = 0</m></title>
+
+	<p>
+	The linear approximation
+	<me> \cos(t) \approx 1 \qquad \text{for} \qquad t \approx 0 </me>
+	quickly becomes a <em>poor</em> approximation as the graph of cosine curves downward, away from its <q>initial</q> value <m>\cos(0) = 1</m>
+	</p>
+
+	<p> TODO graph </p>
+
+	<p>
+	We can use a quadratic approximation to do better.
+	Calculate:
+	<md>
+
+		<mrow>
+			\cos(0) \amp = 1 \text{,}
+			\amp
+			\funceval{\ddt{\bbrac{\cos(t)}}}{t = 0} \amp = -\sin(0)
+			\amp
+			\funceval{\dblddt{\bbrac{\cos(t)}}}{t = 0} \amp = -\cos(0)
+		</mrow>
+
+		<mrow>
+			\amp
+			\amp
+			\amp = 0 \text{,}
+			\amp
+			\amp = -1 \text{.}
+		</mrow>
+
+	</md>
+	From this we obtain quadratic approximation
+	<me> p(t) = 1 - \frac{t^2}{2} </me>.
+	Notice that this parabola is concave down,
+	just as the cosine graph is around <m>t = 0</m>.
+	</p>
+
+	<p> TODO graph </p>
+
+</example>
+
+<p> Working at a different base point <m>t = t^\ast</m> is effectively just a horizontal shift of the above pattern. </p>
+
+<identity xml:id="pattern-poly-approx-quadratic-arbitrary-base">
+	<title>Quadratic approximation at arbitrary base point</title>
+	<p>
+		The quadratic function
+		<me> p(t) = f(t^\ast) + f'(t^\ast) (t - t^\ast) + \frac{f''(t^\ast)}{2} \; (t - t^\ast)^2 </me>
+		approximates the function <m>f(t)</m> on small domains containing the base point <m>t = t^\ast</m>.
+	</p>
+</identity>
+
+<example xml:id="example-poly-approx-quadratic-log">
+	<title>Quadratic approximation of <m>\ln(t)</m> near <m>t = 1</m></title>
+	<p>
+	Calculate:
+	<md>
+
+		<mrow>
+			\ln(1) \amp = 0 \text{,}
+			\amp
+			\funceval{\ddt{\bbrac{\ln(t)}}}{t = 1} \amp = \frac{1}{1}
+			\amp
+			\funceval{\dblddt{\bbrac{\ln(t)}}}{t = 1} \amp = -\frac{1}{1^2}
+		</mrow>
+
+		<mrow>
+			\amp
+			\amp
+			\amp = 1 \text{,}
+			\amp
+			\amp = -1 \text{.}
+		</mrow>
+
+	</md>
+	From this we obtain quadratic approximation
+	<me> p(t) = (t - 1) - \frac{1}{2} (t - 1)^2 </me>.
+	</p>
+
+	<p> TODO graph </p>
+
+	<p>
+	We can use this quadratic polynomial to improve on the specific approximations we made in <xref ref="example-poly-approx-linearize-log" />:
+	<md>
+
+		<mrow>
+			\ln (1.001) \amp \approx 0.001 - \frac{0.001^2}{2}
+			\amp
+			\ln (0.999) \amp \approx -0.001 - \frac{(-0.001)^2}{2}
+		</mrow>
+
+		<mrow>
+			\amp = 0.0009995 \text{,}
+			\amp
+			\amp -0.0010005 \text{.}
+		</mrow>
+
+	</md>
+	</p>
+
+</example>
+
+<p>
+The approximate error in a linear approximation is related to the magnitude of the second derivative near the base point,
+as a linear approximation omits concavity information.
+In the same way,
+the approximate error in a quadratic linear approximation is related to the magnitude of the <em>third</em> derivative near the base point.
+</p>
+
+<fact xml:id="fact-poly-approx-quadratic-error"><p>
+	Suppose <m>a</m> is a number near <m>t^\ast</m> and <m>M</m> is a positive number so that <m>\abs{f'''(t)} \le M</m> for all <m>t</m> between <m>a</m> and <m>t^\ast</m>, inclusive.
+	Then the error <m>E</m> in using the approximation <m>f(a) \approx p(a)</m>
+	where <m>p(t)</m> is the quadratic approximation of <m>f(t)</m> based at <m>t = t^\ast</m>,
+	satisfies <me> \abs{E} \le \frac{M}{6} \, {\abs{a - t^\ast}}^3 </me>.
+</p></fact>
+
+<example>
+	<title>Error in our quadratic approximation of the natural logarithm</title>
+	<p>
+	We would like to know something about the quality of our approximation <m>\ln (1.001) \approx 0.0009995</m> from <xref ref="example-poly-approx-quadratic-log" />.
+	Arguing similarly to <xref ref="example-poly-approx-error-in-linearized-log" />,
+	near <m>t = 1</m> we have
+	<me> \abs{\nthddt[3]{(\ln t)}} = \frac{2}{t^3} </me>
+	and can say
+	<me> \abs{\nthddt[3]{(\ln t)}} \le \frac{2}{1^3} = 2 </me>
+	on the interval <m>1 \le t \le 1.001</m>.
+	Therefore, the error in our approximation <m>\ln(1.001) \approx 0.0009995</m> satisfies
+	<me> \abs{E} \le \frac{2}{6} \, {\abs{1.001 - 1}}^3 = \frac{1}{3} \times {10}^{-9} </me>.
+	Rounding <em>up</em> so that we can ensure our error estimate is large enough,
+	we can say <me> \abs{E} \le 3.34 \times {10}^{-10} </me>,
+	which implies that
+	<me> 0.000999499666 \le \ln(1.001) \le 0.000999500334 </me>.
+	However,
+	in our linear approximation error estimate,
+	we found <m> 0.0009995 \le \ln(1.001) </m>,
+	so we could sharpen the above error estimate to
+	<me> 0.0009995 \le \ln(1.001) \le 0.000999500334 </me>.
+	</p>
+</example>
+
+<remark><p>
+	We will unify the patterns of this section with the previous section into a general pattern of approximating a function by a polynomial,
+	and the associated approximate error.
+</p></remark>
+
+</section>
+
+<section xml:id="section-poly-approx-higher">
+<title>Higher-degree approximations: McLaurin and Taylor polynomials</title>
+
+<p>
+A linear approximation is created by matching function value and derivative value at the base point.
+A quadratic approximation is created by also matching second derivative value at the base point.
+To get more accurate approximations,
+we should create a higher-degree polynomial that matches even more higher derivative values of the function at the base point.
+We begin with the general form of a degree-<m>n</m> polynomial:
+<me> p(t) = a_0 + a_1 t + a_2 t^2 + \dotsc + a_n t^n </me>.
+As before,
+we will first look for that pattern for base point <m>t = 0</m>,
+as it is simpler to compute derivative values of a polynomial at that point.
+But what is the pattern in the derivative values of a polynomial?
+<md>
+	<mrow> p(t) \amp = a_0 + a_1 t + a_2 t^2 + \dotsc + a_k t^k + \dotsc + a_n t^n </mrow>
+	<mrow> p'(t) \amp = a_1 + 2 a_2 t + 3 a_3 t^2 + \dotsc + k a_k t^{k - 1} + \dotsc + n a_n t^{n - 1} </mrow>
+	<mrow> p''(t) \amp = 2 a_2 + 6 a_3 t + 12 a_4 t^2 + \dotsc + k (k - 1) a_k t^{k - 2} + \dotsc + n (n - 1) a_n t^{n - 2} </mrow>
+	<mrow> p'''(t) \amp = 6 a_3 + 24 a_4 t + 60 a_5 t^2 + \dotsc + k (k - 1) (k - 2) a_k t^{k - 3} </mrow>
+	<mrow> \amp \qquad + \dotsc + n (n - 1) (n - 2) a_n t^{n - 3} </mrow>
+	<mrow> \amp \vdots </mrow>
+	<mrow> p^{(k)}(t) \amp = k! \cdot a_k + \dotsc + n (n - 1) (n - 2) \dotsm (n - k + 1) a_n t^{n - k} </mrow>
+</md>.
+The factorial pattern occurs because as we apply the power rule repeatedly to each term,
+we repeatedly multiply the coefficient of that term by the decreasing exponent values.
+And then when we substitute <m>t = 0</m> into these derivative functions,
+all but the constant term zeros out:
+<me> p^{(k)}(0) = k! \cdot a_k </me>.
+To have <m>p^{(k)}(0) = f^{(k)}(0)</m> for all <m>k</m>,
+we should set
+<me> a_k = \frac{f^{(k)}(0)}{k!} </me>.
+</p>
+
+<identity xml:id="pattern-poly-approx-taylor">
+	<title>McLaurin and Taylor polynomials</title>
+	<p><ol>
+		<li>
+			If <m>f</m> is <m>n</m>-times differentiable at <m>t = 0</m>,
+			then the polynomial
+			<me> M_n(t) = \sum_{k = 0}^n \frac{f^{(k)}(0)}{k!} \; t^k </me>
+			approximates the function <m>f(t)</m> on small domains containing <m>t = 0</m>.
+			This polynomial is called the <term>McLaurin polynomial of degree <m>n</m></term> for <m>f</m>.
+		</li>
+		<li>
+			If <m>f</m> is <m>n</m>-times differentiable at <m>t = t^\ast</m>,
+			then the polynomial
+			<me> T_{n,t^\ast}(t) = \sum_{k = 0}^n \frac{f^{(k)}(t^\ast)}{k!} \; (t - t^\ast)^k </me>
+			approximates the function <m>f(t)</m> on small domains containing <m>t = t^\ast</m>.
+			This polynomial is called the <term>Taylor polynomial of degree <m>n</m></term> for <m>f</m>.
+		</li>
+	</ol></p>
+</identity>
+
+<remark><p>
+	Notice that a McLaurin polynomial is just a Taylor polynomial with <m>t^\ast = 0</m>:
+	<me> M_n(t) = T_{n,0}(t) </me>.
+	Also notice that our previous linear and quadratic approximation formulas are just McLaurin/Taylor polynomials of degree 1 and 2, respectively.
+	Finally, to be able to consolidate into summation notation,
+	we have adopted the convention that the <q>zeroth</q> derivative of a function is just the function itself:
+	<m>f^{(0)}(t) = f(t)</m>.
+</p></remark>
+
+<example xml:id="example-poly-approx-mclaurin-cos">
+	<title>McLaurin approximation of <m>\cos(t)</m></title>
+
+	<p>
+	The first four derivative values
+	(beginning at the <q>zeroth</q>)
+	of <m>\cos(t)</m> at <m>t = 0</m> are
+	<md>
+
+		<mrow>
+			\cos(0) \amp = 1 \text{,}
+			\amp
+			\funceval{\dblddt{\bbrac{\cos(t)}}}{t = 0} \amp = -1
+		</mrow>
+
+		<mrow>
+			\funceval{\ddt{\bbrac{\cos(t)}}}{t = 0} \amp = 0
+			\amp
+			\funceval{\nthddt[3]{\bbrac{\cos(t)}}}{t = 0} \amp = 0
+		</mrow>
+
+	</md>
+	After this,
+	the higher derivative values of <m>\cos(t)</m> repeat these four values.
+	So only the <em>even</em>-degree terms are present in the McLaurin polynomial:
+	<me> M_n(t) = \sum_{\substack{k = 0 \\ k \text{ even}}}^n \frac{{(-1)}^{k/2}}{k!} \; t^k </me>.
+	In this case,
+	it is a little cleaner to replace our always-even index variable with the substitution <m>k = 2 m</m>:
+	<me> M_n(t) = \sum_{m = 0}^{\floor{n/2}} \frac{{(-1)}^m}{(2m)!} \; t^{2 m} </me>.
+	Notice that in both versions,
+	in case that <m>n</m> is odd,
+	then the final term will involve <m>t^{n - 1}</m>,
+	not <m>t^n</m>.
+	</p>
+
+</example>
+
+<exercise>
+	<title>McLaurin approximation of <m>\sin(t)</m></title>
+	<p>
+	Perform a similar analysis as in <xref ref="example-poly-approx-mclaurin-cos" />
+	to create the McLaurin polynomial <m>M_n(t)</m> for <m>\sin(t)</m>.
+	You should see a similar alternating pattern to the coefficients.
+	</p>
+</exercise>
+
+<exercise>
+	<title>McLaurin approximation of the natural exponential function</title>
+	<p> Use the fact that <me> \ddt{(e^t)} = e^t </me> to create the McLaurin polynomial <m>M_n(t)</m> for the exponential function <m>\exp(t)</m>. </p>
+</exercise>
+
+<example xml:id="example-poly-approx-logarithm-at-1">
+	<title>Taylor polynomial for <m>\ln(t)</m> based at <m>t = 1</m></title>
+
+	<p>
+	From the derivative calculations
+	<md>
+
+		<mrow>
+			\ddt{\bbrac{\ln(t)}} \amp = \frac{1}{t}
+			\amp
+			\nthddt[3]{\bbrac{\ln(t)}} \amp = \frac{2}{t^3}
+		</mrow>
+
+		<mrow>
+			\dblddt{\bbrac{\ln(t)}} \amp = - \frac{1}{t^2}
+			\amp
+			\nthddt[4]{\bbrac{\ln(t)}} \amp = - \frac{6}{t^4}
+		</mrow>
+
+	</md>,
+	we see a pattern emerging:
+	<me> \nthddt[k]{\bbrac{\ln(t)}} = {(-1)}^{k - 1} \frac{(k - 1)!}{t^k} \qquad \text{for } k \ge 1 </me>.
+	(Recall that <m>0! = 1</m>.)
+	</p>
+
+	<p>
+	The index <m>k = 0</m> represents the constant term in the Taylor polynomial,
+	which is always the function value at the base point.
+	Substituting the base point <m>t = 1</m> into the derivative pattern above and combining with the constant term,
+	we have
+	<md>
+		<mrow> T_{n,1}(t) \amp = \ln(1) + \sum_{k = 1}^n \frac{{(-1)}^{k - 1} (k - 1)!}{k!} \; (t - 1)^k </mrow>
+		<mrow> \amp = \sum_{k = 1}^n \frac{{(-1)}^{k - 1}}{k} \; (t - 1)^k </mrow>
+	</md>.
+	(Recall that <m>\ln(1) = 0</m>.)
+	</p>
+
+</example>
+
+<p>
+Once again,
+an approximation is worthless without some <em>idea</em> of its accuracy.
+And,
+just as in the linear and quadratic cases,
+the error is approximately measured the the derivative value that is <em>not</em> being matched by the polynomial.
+</p>
+
+<fact xml:id="fact-poly-approx-taylor-error"><p>
+	Suppose <m>a</m> is a number near <m>t^\ast</m> and <m>M</m> is a positive number so that <m>\abs{f^{(n+1)}(t)} \le M</m> for all <m>t</m> between <m>a</m> and <m>t^\ast</m>, inclusive.
+	Then the error <m>E</m> in using the approximation <m>f(a) \approx T_{n,t^\ast}(a)</m>
+	satisfies <me> \abs{E} \le \frac{M}{(n + 1)!} \, {\abs{a - t^\ast}}^{n + 1} </me>.
+</p></fact>
+
+<p> TODO check spelling of McLaurin </p>
+
+</section>
+
+<!-- <xi:include href="./poly-approx.d/activities.ptx" />
+<xi:include href="./poly-approx.d/exercises.ptx" /> -->
+
+</chapter>

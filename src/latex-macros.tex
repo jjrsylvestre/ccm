@@ -24,7 +24,6 @@
 \newcommand{\unitsp}{\;}
 \newcommand{\nth}[1][n]{{#1}^{\mathrm{th}}}
 
-\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}% absolute value
 \newcommand{\plus}{+}% semantic plus sign
 \newcommand{\minus}{+}% semantic minus sign
 
@@ -42,8 +41,10 @@
 \newcommand{\submin}[1]{\rmsubscript{#1}{min}}
 \newcommand{\submax}[1]{\rmsubscript{#1}{max}}
 
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}% absolute value
 \newcommand{\bbrac}[1]{\bigl(#1\bigr)}% slightly larger enclosing brackets
 \newcommand{\Bbrac}[1]{\Bigl(#1\Bigr)}% even larger enclosing brackets
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}% floor function
 
 \newcommand{\inv}[2][1]{{#2}^{-{#1}}}% inverse
 
@@ -67,10 +68,14 @@
 \newcommand{\dqdt}{\ddt{q}}% Leibniz derivative, filled in
 \newcommand{\dudt}{\ddt{u}}% Leibniz derivative, filled in
 \newcommand{\dqdu}{\ddu{q}}% Leibniz derivative, filled in
-\newcommand{\dbldd}[2]{\frac{d^2{#1}}{{d#2}^2}}% Leibniz second derivative
-\newcommand{\opdblddt}[1][t]{\dbldd{}{#1}}% Leibniz differential operator, squared
-\newcommand{\dbldqdt}{\dbldd{q}{t}}% Leibniz second derivative, filled in
-
+\newcommand{\nthdd}[3][n]{\frac{d^{#1}{#2}}{{d#3}^{#1}}}% Leibniz nth derivative
+\newcommand{\opnthddt}[2][n]{\nthdd[#1]{}{t}}% Leibniz nth differential operator
+\newcommand{\nthddt}[2][n]{\nthdd[#1]{#2}{t}}% Leibniz nth derivative, partially filled in
+\newcommand{\nthdqdt}[1][n]{\nthddt[#1]{q}}% Leibniz nth derivative, filled in
+\newcommand{\dbldd}[2]{\nthdd[2]{#1}{#2}}% Leibniz second derivative
+\newcommand{\opdblddt}[1][t]{\opnthddt[2][#1]}% Leibniz differential operator, squared
+\newcommand{\dblddt}[1]{\nthddt[2]{#1}}% Leibniz second derivative, partially filled in
+\newcommand{\dbldqdt}{\nthdqdt[2]}% Leibniz second derivative, filled in
 
 \newcommand{\funceval}[2]{\left.#1\right\rvert_{#2}}
 \newcommand{\comp}[2]{{#1} \circ {#2}}% composite of two functions, note the order
