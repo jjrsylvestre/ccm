@@ -479,13 +479,12 @@ By the same reasoning, a <term>lower</term> Riemann sum will always <alert>under
 <identity xml:id="pattern-integ-upper-lower-sums-bound">
 	<title>Upper and lower Riemann sums bound the true total accumulation value</title>
 	<p>
-	For a rate function <m>r(t)</m> on a domain <m>a \le t \le b</m>,
-	let
+	For a rate function <m>r(t)</m> on a domain <m>a \le t \le b</m>:
 	<ul>
-		<li> <m>A</m> represent the total accumulation (over the stated domain) of the quantity whose variation is modelled by <m>r(t)</m> </li>
-		<li> <m>P</m> represent a subdivision of the domain into subdomains </li>
-		<li> <m>L(P)</m> represent the approximate total accumulation value calculated using a lower Riemann sum with a step function on <m>P</m> </li>
-		<li> <m>U(P)</m> represent the approximate total accumulation value calculated using an upper Riemann sum with a step function on <m>P</m>. </li>
+		<li> Let <m>A</m> represent the total accumulation (over the stated domain) of the quantity whose variation is modelled by <m>r(t)</m>. </li>
+		<li> Let <m>P</m> represent a subdivision of the domain into subdomains. </li>
+		<li> Let <m>L(P)</m> represent the approximate total accumulation value calculated using a lower Riemann sum with a step function on <m>P</m>. </li>
+		<li> Let <m>U(P)</m> represent the approximate total accumulation value calculated using an upper Riemann sum with a step function on <m>P</m>. </li>
 	</ul>
 	Then, <m> L(P) \le A \le U(P) </m>.
 	</p>
