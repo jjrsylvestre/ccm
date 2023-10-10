@@ -45,6 +45,7 @@
 \newcommand{\bbrac}[1]{\bigl(#1\bigr)}% slightly larger enclosing brackets
 \newcommand{\Bbrac}[1]{\Bigl(#1\Bigr)}% even larger enclosing brackets
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}% floor function
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}% ceiling function
 
 \newcommand{\inv}[2][1]{{#2}^{-{#1}}}% inverse
 
@@ -79,3 +80,16 @@
 
 \newcommand{\funceval}[2]{\left.#1\right\rvert_{#2}}
 \newcommand{\comp}[2]{{#1} \circ {#2}}% composite of two functions, note the order
+
+\newcommand{\seq}[1]{(#1)}% sequence in brackets
+\newcommand{\nseq}[1]{\seq{{#1}_n}}% sequence with standard index variable n
+\newcommand{\lrseq}[1]{\left( #1 \right)}% sequence in sized brackets
+\newcommand{\bbseq}[1]{\bbrac{#1}}% sequence in larger brackets
+\newcommand{\absseq}[1]{\bbseq{\abs{#1}}}% abs value sequence
+\newcommand{\nabsseq}[1]{\bbseq{\abs{{#1}_n}}}% abs value sequence with standard index variable n
+\newcommand{\seqtail}[2][n \ge N]{{\seq{#2}}_{#1}}% sequence in brackets with restricted domain
+\newcommand{\nseqtail}[2][n \ge N]{{\nseq{#2}}_{#1}}% sequence in brackets with restricted domain and standard index variable n
+\newcommand{\lrseqtail}[2][n \ge N]{{\lrseq{#2}}_{#1}}% sequence in sized brackets with restricted domain
+\newcommand{\bbseqtail}[2][n \ge N]{{\bbseq{#2}}_{#1}}% sequence in sized brackets with restricted domain
+\newcommand{\absseqtail}[2][n \ge N]{{\absseq{#2}}_{#1}}% abs value sequence in sized brackets with restricted domain
+\newcommand{\nabsseqtail}[2][n \ge N]{{\nabsseq{#2}}_{#1}}% abs value sequence in sized brackets with restricted domain and standard index variable n

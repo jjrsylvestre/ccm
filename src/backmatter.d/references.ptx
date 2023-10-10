@@ -17,10 +17,12 @@ respective owners.
 <references xml:id="references" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Bibliography</title>
 
-<biblio type="raw" xml:id="reference-anton-linear-alg">
-	Nobody, Yet.
-	<title>Book title</title>.
-	XXth ed. Publisher, City, YYYY.
+<biblio type="raw" xml:id="reference-abbot-analysis">
+	Abbott, Stephen.
+	<title>Understanding Analysis</title>.
+	Springer, 2001.
 </biblio>
+
+<!-- TODO Thomas, Stewart, the UofT calc book -->
 
 </references>

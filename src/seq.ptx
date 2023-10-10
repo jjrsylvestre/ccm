@@ -1,0 +1,1361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2023 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<chapter xml:id="chapter-seq" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Sequences</title>
+
+<section xml:id="section-seq-motivation">
+<title>Motivation</title>
+
+<p>
+Notice that each Taylor polynomial is equal to the previous plus one more term:
+<me> T_{n,t^\ast}(t) = T_{n-1,t^\ast}(t) + \frac{f^{(n)}(t^\ast)}{n!} \; (t - t^\ast)^n </me>.
+Suppose we want to approximate <m>\ln (1.001)</m> using Taylor polynomials.
+We can begin with the linear approximation based at <m>1</m>,
+and then obtain better and better approximations by increasing the degree.
+Using the pattern from <xref ref="example-poly-approx-logarithm-at-1" />,
+we have
+<md>
+	<mrow> \ln(1.001) \amp \approx T_{1,1}(1.001) = 0.001 </mrow>
+	<mrow> \ln(1.001) \amp \approx T_{2,1}(1.001) = 0.001 - \frac{{0.001}^2}{2} </mrow>
+	<mrow> \ln(1.001) \amp \approx T_{3,1}(1.001) = 0.001 - \frac{{0.001}^2}{2} + \frac{{0.001}^3}{3} </mrow>
+	<mrow> \amp \quad \vdots </mrow>
+</md>.
+What if we could continue this process indefinitely?
+Since these approximations should be getting better,
+we would expect this <term>sequence</term> of approximate values to <q>trend toward</q> the value of <m>\ln (1.001)</m>.
+Is there some sense in which we could say that <m>T_{\infty,1}(1.001)</m> (whatever that means) would be <em>exactly</em> equal to <m>\ln (1.001)</m>?
+</p>
+
+</section>
+
+<section xml:id="section-seq-def">
+<title>Definition, properties, and examples</title>
+
+<subsection>
+<title>Defining sequences</title>
+
+<definition xml:id="definition-seq">
+	<title>Infinite sequence</title>
+	<p>
+	An <term>infinite sequence</term> is a function whose domain is the non-negative integers.
+	The values in the range of a sequence are called the <term>terms</term> of the sequence.
+	</p>
+</definition>
+
+<p>
+When we use function notation for a sequence,
+we will typically use <m>n</m> for the independent variable instead of <m>x</m> or <m>t</m> to emphasize the integer domain.
+But we will more often use index notation instead of function notation to refer to the terms of a sequence.
+That is, if <m>s(n)</m> is a sequence,
+we will usually write
+<md alignment="gather">
+	<mrow> s_0 \text{ instead of } s(0) \text{,} </mrow>
+	<mrow> s_1 \text{ instead of } s(1) \text{,} </mrow>
+	<mrow> s_2 \text{ instead of } s(2) \text{,} </mrow>
+</md>
+and so on.
+Another common notation is to express the pattern of the sequence values as an infinite ordered list <m>\nseq{s}</m>.
+Sometimes we wish to omit the index <m>n = 0</m>,
+usually to avoid division by <m>0</m> in the formula for the terms of our sequence.
+In this case,
+we will write <m>\nseqtail[n \gt 0]{s}</m> to clarify the domain of our sequence.
+</p>
+
+<example><p>
+	The terms of the sequence <m>s(n) = 2^n</m> are
+	<md>
+		<mrow>
+			s_0 \amp = 1 \text{,}
+			\amp s_1 = \amp 2 \text{,}
+			\amp s_2 = \amp 4 \text{,}
+			\amp s_3 = \amp 8 \text{,}
+			\amp \dotsc
+		</mrow>
+	</md>.
+	Alternatively we may describe this sequence as <m>\seq{2^n}</m>.
+</p></example>
+
+<p>
+Not all sequences can be described using an input-output formula <mdash />
+sequences can also be defined recursively.
+</p>
+
+<example>
+	<title>The Fibonacci sequence</title>
+	<p>
+	We start by specifying <q>initial values</q> <m>s_0 = 1</m> and <m>s_1 = 1</m>,
+	and then require that each subsequent term satisfy
+	<me> s_n = s_{n - 1} + s_{n - 2}, \qquad n \ge 2 </me>.
+	This creates a sequence with terms <me> 1, 1, 2, 3, 5, 8, 13, 21, \dotsc </me>.
+	</p>
+</example>
+
+<p> Sometimes we only want to consider a <q>part</q> of a sequence. </p>
+
+<definition>
+	<title>Subsequences and tails</title>
+	<p><ul>
+		<li><p> A <term>subsequence</term> of <m>\nseq{s}</m> is obtained by skipping/omitting specific terms. </p></li>
+		<li><p> A <term>tail</term> of <m>\nseq{s}</m> is a subsequence obtained by omitting a finite number of the initial terms. </p></li>
+	</ul></p>
+</definition>
+
+<p>
+We specify a tail by restricting the domain: <m>\nseqtail{s}</m>.
+Note that every tail of a tail is a tail of the original sequence.
+</p>
+
+<example xml:id="example-seq-subseq"><p><ol>
+
+	<li><p>
+		The sequence <m>\lrseq{ \frac{(-1)^n}{n + 1} }</m> has terms
+		<me> 1, - \frac{1}{2}, \frac{1}{3}, - \frac{1}{4}, \dotsc </me>.
+		We can split this into two subsequences by considering only the even-indexed terms and skipping the odd-indexed terms,
+		or vice versa:
+		<md>
+			<mrow> a_n \amp \colon \quad 1, \frac{1}{3}, \frac{1}{5}, \dotsc </mrow>
+			<mrow> b_n \amp \colon \quad -\frac{1}{2}, -\frac{1}{4}, -\frac{1}{6} \dotsc </mrow>
+		</md>
+		We can describe <m>\nseq{a}</m> by the pattern <m>\lrseq{ \frac{1}{2 n + 1} }</m>,
+		and can describe <m>\nseq{b}</m> by the pattern <m>\lrseq{ - \frac{1}{2 (n + 1)} }</m>.
+	</p></li>
+
+	<li xml:id="example-seq-subseq-tail">
+
+		<p>
+		The sequence <m>\lrseqtail[n \gt 0]{ \frac{2^n}{n^2} }</m> has terms
+		<me> 2, 1, \frac{8}{9}, 1, \frac{32}{25}, \frac{16}{9}, \dotsc </me>.
+		We may wish to omit the anomalous first two terms,
+		as the sequence begins with a downward trend but then turns upward for <m>n \ge 3</m>.
+		</p>
+
+		<p> TODO image of plotted seq points but just bare not in figure </p>
+
+		<p> So we may want to consider the sequence tail <m>\lrseqtail[n \ge 3]{ \frac{2^n}{n^2} }</m> instead. </p>
+
+	</li>
+
+</ol></p></example>
+
+</subsection>
+
+<subsection>
+<title>Bounded sequences</title>
+
+<definition xml:id="definition-seq-bounded">
+	<title>Bounded sequences</title>
+	<p><ul>
+		<li><p> A sequence is <term>bounded above</term> if there is some value <m>M</m> so that <m>s_n \le M</m> is true for all indices. </p></li>
+		<li><p> A sequence is <term>bounded below</term> if there is some value <m>N</m> so that <m>s_n \ge N</m> is true for all indices. </p></li>
+		<li><p> A sequence is <term>bounded</term> if it is both bounded above and below. </p></li>
+	</ul></p>
+</definition>
+
+<example><p><ol>
+	<li><p> The sequence <m>\seq{ \sqrt{n} }</m> is bounded below by <m>0</m>. </p></li>
+	<li><p>
+		The sequence <m>\lrseq{ \frac{(-1)^n}{n + 1} }</m> is bounded as it is bounded above/below by <m>\pm 1</m>, for example.
+	</p></li>
+	<li><p>
+		The sequence <m>\lrseq{ \frac{(-3)^n}{n + 1} }</m> has terms
+		<me> 1, - \frac{3}{2}, \frac{9}{3}, - \frac{27}{4}, \dotsc </me>,
+		and is <term>unbounded</term>.
+	</p></li>
+</ol></p></example>
+
+<definition xml:id="definition-seq-monotonic">
+	<title>Increasing/decreasing sequences</title>
+	<p>
+	<ul>
+		<li><p> A sequence <m>\nseq{s}</m> is <term>increasing</term> if <m>s_{n+1} \gt s_n</m> always. </p></li>
+		<li><p> A sequence <m>\nseq{s}</m> is <term>non-decreasing</term> if <m>s_{n+1} \ge s_n</m> always. </p></li>
+		<li><p> A sequence <m>\nseq{s}</m> is <term>decreasing</term> if <m>s_{n+1} \lt s_n</m> always. </p></li>
+		<li><p> A sequence <m>\nseq{s}</m> is <term>non-increasing</term> if <m>s_{n+1} \le s_n</m> always. </p></li>
+	</ul>
+	In <em>all</em> of these cases, the sequence is called <term>monotonic</term>.
+	</p>
+</definition>
+
+<example xml:id="example-seq-monotonic"><p><ol>
+	<li><p> The sequence <m>\lrseq{ \frac{3}{n + 5} }</m> is decreasing because the denominator always grows from term to term. </p></li>
+	<li><p> The sequence <m> \lrseq{ 1 - \frac{1}{n + 1} } </m> is increasing because from one term to the next we are subtracting a smaller amount from <m>1</m>. </p></li>
+	<li xml:id="example-seq-monotonic-not"><p> The sequence <m>\bbseq{ \cos(n\pi) }</m> is not monotonic as it alternates between terms <m>1</m> and <m>-1</m>. </p></li>
+	<li><p>
+		The sequence <m>\lrseq{ \floor{\frac{n}{2}} }</m> is non-decreasing because no term is less than the previous,
+		but it is not increasing because it repeats terms:
+		<me> 0, 0, 1, 1, 2, 2, 3, 3, \dotsc </me>.
+	</p></li>
+</ol></p></example>
+
+<heuristic xml:id="strategy-seq-monotonic">
+	<title>To verify that a sequence is monotonic</title>
+
+	<p>
+	To verify that a sequence is non-decreasing
+	(that is, <m>s_{n+1} \ge s_n</m> always),
+	we may instead verify the equivalent condition
+	<me> s_{n+1} - s_n \ge 0 </me>.
+	Or, if the terms of the sequence are never zero,
+	we may instead verify the equivalent condition
+	<me> \frac{s_{n+1}}{s_n} \ge 1 </me>.
+	</p>
+
+	<p>
+	When verifying that a sequence is increasing/decreasing/non-increasing,
+	just modify the inequality sign in the condition as appropriate.
+	</p>
+
+</heuristic>
+
+<example xml:id="example-seq-exp-power-ratio-increases"><p>
+	We claimed in <xref ref="example-seq-subseq-tail" /> that the tail <m>\lrseqtail[n \ge 3]{ \frac{2^n}{n^2} }</m> is an increasing sequence.
+	We have
+	<md>
+		<mrow> s_{n+1} - s_n \amp = \frac{2^{n+1}}{{(n+1)}^2} - \frac{2^n}{n^2} </mrow>
+		<mrow> \amp = 2^n \left( \frac{2}{{(n+1)}^2} - \frac{1}{n^2} \right) </mrow>
+		<mrow> \amp = 2^n \left( \frac{2 n^2 - {(n+1)}^2}{n^2 {(n+1)}^2} \right) </mrow>
+		<mrow> \amp = 2^n \left( \frac{n^2 - 2n - 1}{n^2 {(n+1)}^2} \right) </mrow>
+	</md>.
+	The denominator is obviously positive, as is the factor <m>2^n</m>.
+	If we consider the numerator as a graph <m> y = x^2 - 2 x - 1 </m>,
+	it is a concave up parabola with roots at <m>x = 1 \pm \sqrt{2}</m>.
+	Since <m>1 + \sqrt{2} \lt 3</m>,
+	we can conclude <m>s_{n+1} - s_n</m> is positive for <m>n \ge 3</m>.
+</p></example>
+
+<exercise><p>
+	Verify algebraically that the sequence <m>\nseq{s}</m> with
+	<md><mrow> s_0 \amp = 1 \text{,} \amp s_n \amp = \frac{n}{n^2 + 1} \text{ for } n \ge 1 \text{,} </mrow></md>
+	is decreasing by verifying that
+	<me> s_{n+1} - s_n \lt 0 </me>
+	always.
+</p></exercise>
+
+<p> We can use the ideas of <xref ref="chapter-curves" /> to determine if a sequence is monotonic. </p>
+
+<example xml:id="example-seq-bdd">
+
+	<p>
+	The sequence <m>\lrseq{ \frac{n+1}{n+2} }</m> is associated to the function <m>s(n) = \frac{n+1}{n+2}</m>.
+	We can turn this into a continuous function: <me> f(x) = \frac{x+1}{x+2} \text{,} \qquad x \ge 0 \text{.} </me>
+	From <me> f'(x) = \frac{1}{(x+2)^2} \gt 0 </me> we see that the continuous version is always increasing,
+	and so the sequence is increasing as well.
+	Investigating a little further,
+	the long-term behaviour of <m>f</m> as <m>x \to \infty</m> is that
+	<me> f(x) \approx \frac{x}{x} = 1 </me>,
+	so the graph increases up to a horizontal asymptote at <m>y = 1</m>.
+	Double-checking, we have
+	<me> f''(x) = \frac{-2}{(x+2)^3} </me>
+	which is always negative on our stated domain for <m>f</m>,
+	and so the graph of <m>f</m> is concave down on that domain.
+	Putting all this together we have the following sketch of the graph.
+	</p>
+
+	<p> TODO graph image, just use a bare image, not a figure. Also, plot s(x) points along graph. </p>
+
+	<p> From the graph we may conclude that <m>\nseq{s}</m> is bounded below by <m>1/2</m> and above by <m>1</m>. </p>
+
+</example>
+
+<p>
+In the previous example,
+we were able to say that the sequence was bounded below simply because it was increasing.
+We can make similar conclusions about every monotonic sequence.
+</p>
+
+<fact xml:id="fact-seq-monotonic-imp-bdd"><p>
+	A monotonic sequence <m>\nseq{s}</m> will be bounded below by <m>s_0</m> if it is non-decreasing
+	or bounded above by <m>s_0</m> if it is non-increasing.
+</p></fact>
+
+<note><p>
+	If we apply <xref ref="fact-seq-monotonic-imp-bdd" /> to a subsequence,
+	then we should replace <m>s_0</m> in the statement of the fact by the first term in the subsequence.
+</p></note>
+
+<example><p>
+	We verified in <xref ref="example-seq-exp-power-ratio-increases" /> that the sequence
+	<m> \lrseqtail[n \ge 3]{\frac{2^n}{n^2}} </m> is increasing,
+	and so it must be bounded below by <m>s_3 = 8/9</m>.
+</p></example>
+
+</subsection>
+
+</section>
+
+<section>
+<title>Sequence limits</title>
+
+<subsection>
+<title>Definitions and examples</title>
+
+<p>
+In <xref ref="example-seq-bdd" /> we determined that the sequence <m>\lrseq{ \frac{n+1}{n+2} }</m> satisfied <m>s_n \approx 1</m> for large values of <m>n</m> by applying the concept of <term>long-term behaviour</term> from <xref ref="chapter-inf-behaviour" />.
+If this is true,
+we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m>.
+</p>
+
+<definition xml:id="definition-seq-limit">
+	<title>Limit of a sequence</title>
+	<p>
+	We say that <term><m>\nseq{s}</m> approaches <m>L</m></term>
+	and write <me> \lim_{n \to \infty} s_n = L </me>
+	or simply <m>\nseq{s} \to L</m>
+	if every open range around <m>L</m> contains all terms of some tail of the sequence <m>\nseq{s}</m>.
+	In this case,
+	<m>L</m> is called the <term>limit</term> of the sequence.
+	</p>
+</definition>
+
+<warning><p>
+	The definition does <em>not</em> require some magic tail that is contained in every open range around <m>L</m>.
+	Rather,
+	for each specific open range one is required to demonstrate a specific tail that is contained therein.
+	But the example tail demonstrated may vary as different open ranges are considered.
+</p></warning>
+
+<example>
+	<title>Verifying the definition of limit</title>
+
+	<p>
+	Let's verify that <m>\lrseq{ \frac{n+1}{n+2} }</m> converges to <m>1</m>.
+	For this, we consider an arbitrary open interval <m>(a, b)</m> containing <m>1</m>,
+	so that <m>a \lt 1 \lt b</m> is true.
+	We then must demonstrate that some tail of the sequence is contained entirely within that interval.
+	</p>
+
+	<p>
+	In <xref ref="example-seq-bdd" /> we observed that the associated continuous function
+	<me> f(x) = \frac{x + 1}{x + 2} </me>
+	is an increasing function on domain <m>x \ge 0</m> by considering its derivative.
+	With some algebra we can determine that
+	<me> f(x) = a \qquad \text{when} \qquad x = \frac{2a - 1}{1 - a} </me>.
+	Since <m>f</m> is increasing,
+	we have
+	<me> f(x) \gt a \qquad \text{when} \qquad x \gt \frac{2a - 1}{1 - a} </me>.
+	In particular,
+	<m>s_n \gt a</m> for all positive integers satisfying <me> n \gt \frac{2a - 1}{1 - a} </me>.
+	Take <m>N</m> to represent the <q>next</q> integer that is greater than (or equal to) <m>(2a - 1)/(1 - a)</m>:
+	<me> N = \ceil{\frac{2a - 1}{1 - a}} </me>.
+	Then all terms of the tail <m>\nseqtail{s}</m> satisfy <m>s_n \gt a</m>.
+	</p>
+
+	<p>
+	On the other hand,
+	<m>s_n \lt 1</m> is true for all terms in the sequence,
+	as the denominator is always one larger than the numerator.
+	So we may say that
+	<me> s_n \lt 1 \lt b</me>.
+	Combining,
+	we have <m>a \lt s_n \lt b</m> for all terms in the tail <m>\nseqtail{s}</m>.
+	</p>
+
+</example>
+
+<exercise>
+	<statement><p>
+		Verify that <m>\nseq{s} \to 0</m> for <m>s_n = \sqrt{n+1} - \sqrt{n}</m>.
+	</p></statement>
+	<hint><p>
+		Notice that all terms of this sequence are positive,
+		so for an open interval <m>(a,b)</m> containing zero,
+		you only need to verify that eventually <m>s_n \lt b</m> becomes true for all terms past a certain point.
+		(The endpoint <m>a</m> must be negative in this case, so <m>s_n \gt a</m> is always true.)
+		With this in mind, rationalize the expression <m>s_n / 1</m>,
+		and then try to determine when the result will fall below <m>b</m>.
+	</p></hint>
+</exercise>
+
+<definition xml:id="definition-seq-converg-diverg">
+	<title>Convergent/divergent sequences</title>
+	<p>
+	A sequence is called <term>convergent</term> if it has a limit,
+	and <term>divergent</term> otherwise.
+	</p>
+</definition>
+
+<example xml:id="example-seq-constant">
+	<title>Constant sequences are convergent</title>
+	<p>
+	A sequence <m>\nseq{s}</m> where <m>s_n = c</m> for all <m>n</m> converges to that constant term value <m>c</m>,
+	because every open range containing <m>c</m> will contain the <q>tail</q> <m>\nseqtail[n \ge 0]{s}</m>.
+	</p>
+</example>
+
+<example>
+	<title>An <q>oscillating</q> sequence</title>
+	<p>
+	The sequence <m>\bbseq{\cos(\pi n)}</m> has terms
+	<me> 1, 0, -1, 0, 1, 0, -1, 0, \dotsc </me>.
+	This sequence is divergent as its tails do not cluster around any one value.
+	</p>
+</example>
+
+<example xml:id="example-seq-exp-power-ratio-doubles">
+	<title>Increasing without bound</title>
+	<p>
+	In <xref ref="example-seq-exp-power-ratio-increases" /> we verified that the sequence
+	<m>\lrseq{ \frac{2^n}{n^2} }</m> increases for <m>n \ge 3</m> by looking at the difference between subsequent terms.
+	Now let's look at the ratio between subsequent terms:
+	<me> \frac{s_{n+1}}{s_n} = \frac{2^{n+1}/{(n+1)}^2}{2^n/n^2} = 2 \; {\left(\frac{n}{n+1}\right)}^2 </me>.
+	Since <m>n/(n+1) \approx 1</m> for large <m>n</m>,
+	we can say that terms eventually almost double from one to the next.
+	This sequence must be divergent,
+	since the gap between terms is growing,
+	and so they cannot cluster around any one value.
+	</p>
+</example>
+
+<p> The previous example suggests <q>increasing without bound</q> is a situation we might sometimes wish to highlight. </p>
+
+<definition xml:id="definition-seq-inf-limit">
+	<title>Infinite limits</title>
+	<p><ol>
+
+		<li xml:id="definition-seq-inf-limit-pos"><p>
+			We write <me> \lim_{n \to \infty} s_n = \infty </me>
+			or simply <m>\nseq{s} \to \infty</m>
+			if every open range <m>(M,\infty)</m> contains all terms of some tail of the sequence <m>\nseq{s}</m>.
+			In this case,
+			we say that <m>\nseq{s}</m> <term>diverges to infinity</term>.
+		</p></li>
+
+		<li xml:id="definition-seq-inf-limit-neg"><p>
+			We write <me> \lim_{n \to \infty} s_n = -\infty </me>
+			or simply <m>\nseq{s} \to -\infty</m>
+			if every open range <m>(-\infty,M)</m> contains all terms of some tail of the sequence <m>\nseq{s}</m>.
+			In this case,
+			we say that <m>\nseq{s}</m> <term>diverges to negative infinity</term>.
+		</p></li>
+
+	</ol></p>
+</definition>
+
+<example>
+	<title>Verifying the definition of divergent to infinity</title>
+
+	<p>
+	Suppose we want to verify <m>\lrseq{ \frac{n^2 + 1}{n + 1} } \to \infty</m>,
+	which seems likely since the numerator grows larger than the denominator.
+	The associated function
+	<me> f(x) = \frac{x^2 + 1}{x + 1} </me>
+	is increasing for <m>x \gt 1</m>,
+	which can be verified by checking that <m>f'(x) \gt 0</m> on this domain.
+	We conclude that the tail <m> \nseqtail[n \gt 0]{s} </m> is increasing,
+	and so is bounded below by <m>s_1 = 1</m>.
+	(In fact, <m>s_0 = 1</m> as well, so the full sequence is bounded below by <m>1</m>.)
+	</p>
+
+	<p>
+	Now we consider an arbitrary open range <m>(M,\infty)</m>.
+	If <m>M \lt 1</m>,
+	then <em>all</em> terms are within this range because of our established lower bound for the sequence.
+	For <m>M \ge 1</m>,
+	we may algebraically solve
+	<md>
+		<mrow>
+			f(x) \amp = M \amp
+			\amp \implies \amp
+			x \amp = \frac{M \pm \sqrt{M^2 + 4 (M - 1)}}{2}
+		</mrow>
+	</md>.
+	Note that the expression under the root sign is non-negative since we have assumed <m>M \ge 1</m>.
+	In fact, the expression under the root sign is at least <m>M^2</m>,
+	so one of these solutions is positive but the other is either <m>0</m> (when <m>M = 1</m>) or negative.
+	Let <m>x_+</m> represent the positive solution value,
+	and let <m>N</m> represent the next largest integer.
+	That is, <m>N = \ceil{x_+}</m>.
+	Since <m>f</m> is increasing,
+	we have <me> s_N = f(N) \gt f(x_+) = M </me>.
+	And since the sequence is increasing,
+	for all <m>n \ge N</m> we will have <me> s_n \gt s_N \gt M </me>.
+	In other words,
+	the tail <m>\nseqtail{s}</m> is entirely contained within the range <m>(M,\infty)</m>,
+	as required.
+	</p>
+
+</example>
+
+</subsection>
+
+<subsection>
+<title>Sequence limit laws</title>
+
+<p> First, it is not possible for a sequence to cluster around two different values. </p>
+
+<fact xml:id="fact-seq-unique-limit">
+	<title>Sequence limits are unique</title>
+
+	<statement><p>
+		Assume <m>\nseq{s} \to L</m>,
+		and suppose <m>K \neq L</m>.
+		Then <m>\nseq{s} \not\to K</m>.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		Let <m>d</m> represent half of the distance between <m>K</m> and <m>L</m>:
+		<me> d = \frac{\abs{L - K}}{2} </me>.
+		Now consider the open ranges <m>(L - d, L + d)</m> around <m>L</m> and <m>(K - d, K + d)</m> around <m>K</m>.
+		Note that these ranges do not overlap,
+		as they share an open endpoint.
+		(Which endpoint is shared depends on whether <m>K \lt L</m> or <m>L \lt K</m>.)
+		</p>
+
+		<p>
+		Since the sequence converges to <m>L</m>,
+		there is some tail <m>\nseqtail{s}</m> that is entirely contained within <m>(L - d, L + d)</m>.
+		And so also every tail of that tail is entirely contained within that range.
+		Since the two ranges we are considering do not overlap,
+		it is impossible for any of those tails of <m>\nseq{s}</m> to be contained within <m>(K - d, K + d)</m>.
+		</p>
+
+		<!-- TODO image? -->
+
+	</proof>
+
+</fact>
+
+<p> It should not be surprising that subsequences of convergent sequences follow their <q>parent</q> sequence to the limit value. </p>
+
+<identity xml:id="pattern-seq-conv-subseq">
+	<title>Subsequences converge to the same limit</title>
+
+	<statement><p>
+		If <m>\nseq{s} \to L</m>, then also <m>\nseq{a} \to L</m> for every subsequence <m>\nseq{a}</m> of <m>\nseq{s}</m>.
+	</p></statement>
+
+	<proof>
+		Every tail of <m>\nseq{a}</m> will be a subsequence of a tail of <m>\nseq{s}</m>.
+		For a given open range around <m>L</m>,
+		there will be a tail of <m>\nseq{s}</m> that is entirely contained within that range,
+		and therefore so will the tail <m>\nseqtail{a}</m> where <m>a_N</m> is the first term of <m>\nseq{a}</m> that appears in that tail of <m>\nseq{s}</m>.
+	</proof>
+
+</identity>
+
+<p> Be careful that convergence of subsequences does not imply anything about convergence of the original sequence. </p>
+
+<example><p>
+	The sequence <m>\bbseq{\cos(\pi n)}</m> is divergent as it bounces between terms of <m>1</m> and <m>-1</m>.
+	However, it has two obvious convergent subsequences:
+	<md alignment="gather">
+		<mrow> 1, 1, 1, 1, \dotsc \to 1 </mrow>
+		<mrow> -1, -1, -1, -1, \dotsc \to -1 </mrow>
+	</md>.convergence of tails
+</p></example>
+
+<p> However, convergence of tails is equivalent to convergence of the original sequence. </p>
+
+<fact xml:id="fact-seq-conv-tails">
+	<title>Convergence of tails</title>
+	<p>
+		A sequence converges if and only if at least one tail of that sequence converges.
+		In that case, the sequence and <em>all</em> its tails converge to the same limit value.
+	</p>
+</fact>
+
+<p> The following two facts follow almost immediately from <xref ref="fact-seq-conv-tails" />. </p>
+
+<corollary xml:id="corollary-seq-shifted">
+	<title>Convergence of a shifted sequence</title>
+	<p>
+	Suppose <m>\nseq{s}</m> and <m>\nseq{t}</m> are sequences,
+	and there is some tail <m>\nseqtail{s}</m> that has the same terms as the full sequence <m>\nseq{t}</m>.
+	(That is, <m>t_n = s_{N+n}</m> for all <m>n</m>.)
+	Then <m>\nseq{s}</m> converges if and only if <m>\nseq{t}</m> converges,
+	and in the case they both converge they have the same limit value.
+	</p>
+</corollary>
+
+<corollary xml:id="corollary-seq-same-tail">
+	<title>Same tails, same convergence</title>
+	<p>
+	Suppose <m>\nseq{s}</m> and <m>\nseq{t}</m> are sequences,
+	and there is some index <m>N</m> in the sequences where <m>s_n = t_n</m> for all <m>n \ge N</m>.
+	Then <m>\nseq{s}</m> converges if and only if <m>\nseq{t}</m> converges,
+	and in the case they both converge they have the same limit value.
+	</p>
+</corollary>
+
+<p>
+We think of convergent sequences as clustering around their limit values,
+which puts bounds on tails of the sequence.
+So there must be connections between boundedness and convergence.
+</p>
+
+<fact xml:id="fact-seq-conv-then-bdd">
+
+	<statement><p> Convergent sequences are bounded. </p></statement>
+
+	<proof><p>
+		Suppose <m>\nseq{s} \to L</m>,
+		and consider the open range <m>(L - 1, L + 1)</m> around <m>L</m>.
+		There there is some tail <m>\nseqtail{s}</m> entirely contained within that range,
+		and so that tail is bounded above and below by <m>L \pm 1</m>, respectively.
+		The excluded sequence terms
+		<me> s_0, s_1, s_2, \dotsc, s_{N-1} </me>
+		are a finite collection of numbers,
+		and so have a maximum value and a minimum value.
+		Let <m>M</m> represent that maximum excluded term value,
+		unless that maximum is less than <m>L + 1</m>,
+		in which case let <m>M = L + 1</m>.
+		Similarly, let <m>m</m> represent either the minimum excluded term value or <m>L - 1</m>,
+		whichever is less.
+		Then the full sequence satisfies <m> m \le s_n \le M </m>.
+	</p></proof>
+
+</fact>
+
+<corollary xml:id="corollary-seq-unbdd-then-div">
+
+	<statement><p>
+		Unbounded sequences are divergent.
+	</p></statement>
+
+	<proof><p>
+		An unbounded sequence cannot be convergent,
+		because if it were then it would have to be bounded by <xref ref="fact-seq-conv-then-bdd" />.
+	</p></proof>
+
+</corollary>
+
+<p>
+Be careful that a bounded sequence does not have to converge.
+For example, the sequence <m>\bbseq{ \cos(n\pi) }</m> is bounded by does not converge.
+However, a bounded sequence that doesn't bounce around like this example must converge.
+</p>
+
+<fact xml:id="fact-seq-monotonic-conv">
+	<title>Monotone Convergence Theorem</title>
+
+	<statement><p> A bounded, monotonic sequence must converge. </p></statement>
+
+	<proof>
+
+		<p>
+		We will consider only the case of a non-decreasing sequence;
+		other cases are similar.
+		</p>
+
+		<p>
+		Suppose <m>\nseq{s}</m> is non-decreasing.
+		We also assume that this sequence is bounded above,
+		so let <m>L</m> be its <em>least</em> upper bound.
+		Consider the open range <m>(a,b)</m> containing <m>L</m>.
+		Since <m>L</m> bounds the sequence above,
+		for all <m>n</m> we have <me> s_n \le L \lt b</me>.
+		On the other hand,
+		it cannot be that <m>s_n \le a</m> for all <m>n</m>,
+		since then <m>a</m> would be an upper bound for <m>\nseq{s}</m> that is less than <m>L</m>,
+		contradicting the assumption that <m>L</m> is the <em>least</em> upper bound.
+		So suppose <m>s_N</m> is a particular term with <m>s_N \gt a</m>.
+		As the sequence is non-decreasing,
+		every term in the tail <m>\nseqtail{s}</m> must also be greater than <m>a</m>.
+		Combining with <m>s_n \lt b</m> from above,
+		we may conclude that the tail <m>\nseqtail{s}</m> is entirely contained in the range <m>(a,b)</m>.
+		</p>
+
+	</proof>
+
+</fact>
+
+<example><p>
+	The sequence <m>\lrseq{\ln\left(\frac{n+2}{n+1}\right)}</m> is bounded below by <m>0</m> because the ratio inside the logarithm is always greater than <m>1</m>.
+	And the sequence is decreasing because the associated function <me> f(x) = \ln\left(\frac{x+2}{x+1}\right) </me> has negative derivative for positive values of <m>x</m>.
+	Therefore, it must be convergent,
+	even though we might not be sure of the value of its limit.
+</p></example>
+
+<p> The following fact is useful for comparing the convergence of one sequence to the known convergence of others. </p>
+
+<fact xml:id="fact-seq-squeeze">
+	<title>Squeeze Theorem</title>
+
+	<statement><p>
+		Suppose <m>\nseq{r}</m>, <m>\nseq{s}</m>, <m>\nseq{t}</m> are sequences so that some tail <m>\nseqtail[n \ge N_s]{s}</m> satisfies
+		<me> r_n \le s_n \le t_n \qquad \text{for all } n \ge N </me>.
+		If both <m>\nseq{r}</m> and <m>\nseq{t}</m> converge to <m>L</m>,
+		then so does <m>\nseq{s}</m>.
+	</p></statement>
+
+	<proof><p>
+		Consider open range <m>(a,b)</m> containing <m>L</m>.
+		Then there are tails <m>\nseqtail[n \ge N_r]{r}</m> and <m>\nseqtail[n \ge N_t]{t}</m> that are entirely contained within that range.
+		Let <m>N</m> represent the largest of <m>N_r, N_s, N_t</m>.
+		Then <me> a \lt r_n \le s_n \le t_n \lt b \qquad \text{for all } n \ge N </me>,
+		so the tail <m>\nseqtail{s}</m> is entirely contained within the range <m>(a,b)</m>.
+	</p></proof>
+
+</fact>
+
+<example>
+	<title>Applying the <xref ref="fact-seq-squeeze" text="title" /></title>
+	<p>
+	Consider <md><mrow> r_n \amp = \frac{2}{n} \text{,} \amp s_n \amp = \frac{3 + {(-1)}^2}{n} \text{,} \amp t_n \amp = \frac{4}{n} \text{.} </mrow></md>
+	We have
+	<md alignment="gather">
+		<mrow> r_n \lt s_n = t_n \qquad \text{for even } n \text{,} </mrow>
+		<mrow> r_n = s_n \lt t_n \qquad \text{for odd } n \text{,} </mrow>
+	</md>
+	so for all <m>n</m> we can say <m>r_n \le s_n \le t_n</m>.
+	Since both <m>\nseq{r} \to 0</m> and <m>\nseq{t} \to 0</m>,
+	we can conclude <m>\nseq{s} \to 0</m> as well.
+	</p>
+</example>
+
+<p>
+Using the <xref ref="fact-seq-squeeze" text="title" />,
+we can say more about bounded sequences even in the case that they are not monotonic.
+</p>
+
+<fact xml:id="fact-seq-bolzano-weierstrass">
+	<title>Bolzano-Weierstrass Theorem</title>
+
+	<statement><p> A bounded sequence contains some convergent subsequence. </p></statement>
+
+	<proof>
+
+		<p>
+		Suppose <m>\nseq{s}</m> can be bounded within the closed range <m>R_0 = [a,b]</m>.
+		We will create a convergent subsequence <m>\nseq{u}</m> of <m>\nseq{s}</m>,
+		one term at a time.
+		First, set <m>u_0 = s_0</m>.
+		</p>
+
+		<p>
+		Split <m>R_0</m> in half to create two subintervals.
+		Since <m>R_0</m> contains every of the infinite number of terms in <m>\nseq{s}</m>,
+		at least one of these two halves of <m>R_0</m> must also contain an infinite number of terms.
+		(But note that neither half necessarily has to contain a tail of <m>\nseq{s}</m>.)
+		Let <m>R_1</m> represent one of the halves of <m>R_0</m> that contains an infinite number of terms,
+		and set <m>u_1</m> to be the term <m>s_{k_1}</m> of <m>\nseq{s}</m> of lowest index contained in <m>R_1</m>,
+		other than <m>s_0</m> if that term happens to be <m>R_1</m>.
+		</p>
+
+		<p>
+		Now split <m>R_1</m> in two halves,
+		and let <m>R_2</m> represent one of the halves that contains an infinite number of terms.
+		Then set <m>u_2</m> to be the term <m>s_{k_2}</m> of <m>\nseq{s}</m> of lowest index contained in <m>R_2</m>,
+		but so that the index <m>k_2</m> is greater than the previous index <m>k_1</m>.
+		</p>
+
+		<p>
+		Continue in this fashion,
+		splitting each interval in halves,
+		choosing a half that contains an infinite number of terms of <m>\nseq{s}</m>,
+		and then setting the next term in <m>\nseq{u}</m> to be a term of <m>\nseq{s}</m> contained in that half that is further along in <m>\nseq{s}</m> than any of the other terms already collected in <m>\nseq{u}</m>.
+		As we do this, we have actually created three sequences:
+		<ol>
+			<li> The sequence <m>\nseq{a}</m> of left endpoints of the closed intervals <m>R_n</m>. </li>
+			<li> The sequence <m>\nseq{b}</m> of right endpoints of the closed intervals <m>R_n</m>. </li>
+			<li> The sequence <m>\nseq{u}</m> of terms from <m>\nseq{s}</m>. </li>
+		</ol>
+		Then each <m>R_n</m> is the interval <m>[a_n, b_n]</m> and contains <m>u_n</m>,
+		so that <me> a_n \le u_n \le b_n \qquad \text{for all } n</me>.
+		</p>
+
+		<p>
+		At each step,
+		either <m>a_{n+1} = a_n</m> and <m>b_{n+1} \lt b_n</m>
+		(if <m>R_{n+1}</m> was chosen to be the left half of <m>R_n</m>),
+		or <m>a_{n+1} \gt a_n</m> and <m>b_{n+1} = b_n</m>
+		(if <m>R_{n+1}</m> was chosen to be the right half of <m>R_n</m>).
+		So <m>\nseq{a}</m> is non-decreasing and <m>\nseq{b}</m> is non-increasing.
+		Furthermore, both sequences are bounded within <m>R_0</m>.
+		By the <xref ref="fact-seq-monotonic-conv" text="title" />,
+		both sequences converge.
+		Since the <m>R_n</m> intervals were created by this splitting-in-half procedure,
+		the distance between an <m>a_n</m> term and the corresponding <m>b_n</m> term is
+		<me> \frac{b - a}{2^n} </me>.
+		(Recall that <m>a</m> and <m>b</m> are the endpoints of the first range <m>R_0</m>.)
+		This distance gets very small for large <m>n</m>,
+		so we may conclude that these two convergent sequences must have the same limit.
+		(Can you verify this?)
+		</p>
+
+		<p>
+		Finally, we may apply the <xref ref="fact-seq-squeeze" text="title" /> to conclude that the constructed subsequence <m>\nseq{u}</m> converges to that common limit value of the two endpoint sequences.
+		</p>
+
+	</proof>
+
+</fact>
+
+<p> The next law allows us to swap out sequence terms in a convergent sequence for the limit value. </p>
+
+<fact>
+	<title>Replacement theorem</title>
+
+	<statement><p>
+		Assume <m>\nseq{s} \to L</m>,
+		and suppose <m>\nseq{t}</m> is a sequence where for every <m>n</m>,
+		one of <m>t_n = s_n</m> or <m>t_n = L</m> is true
+		(though which one is true may be different for different values of <m>n</m>).
+		Then <m>\nseq{t} \to L</m>.
+	</p></statement>
+
+	<proof><p>
+		Suppose <m>(a,b)</m> is an open range containing <m>L</m>.
+		Then there is a tail <m>\nseqtail{s}</m> entirely contained within that range,
+		so that <me> a \lt s_n \lt b \qquad \text{for all } n \ge N </me>.
+		But <m> a \lt L \lt b </m>,
+		and so since each <m>t_n</m> is equal to either <m>s_n</m> or <m>L</m>,
+		then also <me> a \lt t_n \lt b \qquad \text{for all } n \ge N </me>.
+		In other words, the tail <m>\nseq{t}</m> is also entirely contained within that range.
+	</p></proof>
+
+</fact>
+
+<p> Convergence to <m>0</m> is an important special case. </p>
+
+<fact xml:id="fact-seq-conv-to-zero">
+	<title>Convergence to zero by symmetric ranges</title>
+
+	<statement><p>
+		To verify that a sequence converges to <m>0</m>,
+		it suffices to check that every <em>symmetric</em> open range <m>(-c,c)</m> containing zero contains some tail of the sequence.
+	</p></statement>
+
+	<proof><p>
+		Suppose it is true that every <em>symmetric</em> open range <m>(-c,c)</m> containing zero contains some tail of the sequence.
+		We must verify that it is then true that every open range <m>(a,b)</m> containing zero,
+		symmetric or not,
+		contains some tail of the sequence.
+		If this range contains zero,
+		then necessarily <m>a \lt 0</m> and <m>b \gt 0</m>.
+		Take <m>c</m> to be the lesser of <m>\abs{a}</m> and <m>b</m>.
+		Then <m>c</m> is a positive value and the range <m>(-c,c)</m> is contained entirely within <m>(a,b)</m>,
+		so that if <m>(-c,c)</m> contains a tail of the sequence,
+		then <m>(a,b)</m> contains that same tail.
+	</p></proof>
+
+</fact>
+
+<p> This next fact lets us to convert every question of convergence into a question of convergence to <m>0</m>. </p>
+
+<fact xml:id="fact-seq-conv-vs-conv-to-zero">
+
+	<statement><p>
+		The following are equivalent.
+		<ol>
+			<li xml:id="fact-seq-conv-vs-conv-to-zero-normal"><p> <m>\nseq{s} \to L</m>. </p></li>
+			<li xml:id="fact-seq-conv-vs-conv-to-zero-zero"><p> <m>\seq{s_n - L} \to 0</m>. </p></li>
+			<li xml:id="fact-seq-conv-vs-conv-to-zero-abs-zero"><p> <m>\absseq{s_n - L} \to 0</m>. </p></li>
+		</ol>
+	</p></statement>
+
+	<proof>
+
+		<case>
+			<title>
+				<xref ref="fact-seq-conv-vs-conv-to-zero-normal" text="type-local">Condition</xref>
+				implies
+				<xref ref="fact-seq-conv-vs-conv-to-zero-zero" text="type-local">Condition</xref>
+			</title>
+			<p>
+			Assume <m>\nseq{s} \to L</m>.
+			For this, we will not bother to apply <xref ref="fact-seq-conv-to-zero" />,
+			and will simply consider arbitrary open range <m>(a,b)</m> containing <m>0</m>.
+			Then <m>(a + L, b + L)</m> is an open range containing <m>L</m>,
+			and so contains a tail <m>\nseqtail{s}</m>,
+			so that <me> a + L \le s_n \le b + L \qquad \text{for all } n \ge N </me>.
+			But then <me> a \le s_n - L \le b \qquad \text{for all } n \ge N </me>,
+			so that <m>(a,b)</m> contains the tail <m>\seqtail{s_n - L}</m>,
+			confirming that <m>\seq{s_n - L} \to 0</m>.
+			</p>
+		</case>
+
+		<case>
+			<title>
+				<xref ref="fact-seq-conv-vs-conv-to-zero-zero" text="type-local">Condition</xref>
+				implies
+				<xref ref="fact-seq-conv-vs-conv-to-zero-normal" text="type-local">Condition</xref>
+			</title>
+			<p>
+			Assume <m>\seq{s_n - L} \to 0</m>.
+			Then, arguing similarly to the previous case,
+			the open range <m>(a,b)</m> around <m>L</m> will contain the tail <m>\nseqtail{s}</m>
+			as long as the open range <m>(a - L, b - L)</m> around <m>0</m> contains the tail <m>\seqtail{s_n - L}</m>.
+			This confirms that <m>\nseq{s} \to L</m>.
+			</p>
+		</case>
+
+		<case>
+			<title>
+				<xref ref="fact-seq-conv-vs-conv-to-zero-zero" text="type-local">Condition</xref>
+				is equivalent to
+				<xref ref="fact-seq-conv-vs-conv-to-zero-abs-zero" text="type-local">Condition</xref>
+			</title>
+			<p>
+			Considering symmetric open range <m>(-c,c)</m> containing <m>0</m>,
+			then for every number <m>x</m> we have <m>-c \lt x \lt c</m> if and only if <m>0 \le \abs{x} \lt c</m>.
+			So a tail <m>\seqtail{s_n - L}</m> is entirely contained within <m>(-c, c)</m>
+			if and only if the corresponding tail <m>\absseqtail{s_n - L}</m> is entirely contained within <m>[0,c)</m>,
+			which is itself entirely contained within <m>(-c,c)</m>.
+			So if one of the two sequences converges, so does the other.
+			</p>
+		</case>
+
+	</proof>
+
+</fact>
+
+<p>
+The following combines <xref ref="fact-seq-conv-to-zero" /> with the case of <m>L = 0</m> in <xref ref="fact-seq-conv-vs-conv-to-zero" />,
+along with the fact that an absolute sequence <m>\nabsseq{s}</m> never contains negative terms.
+</p>
+
+<corollary xml:id="fact-seq-abs-conv-to-zero">
+	<title>Absolute convergence to zero</title>
+	<p>
+	We have <m>\nseq{s} \to 0</m> if and only if every <em>half-open</em> range <m>[0,c)</m>
+	(with <m>c \gt 0</m>)
+	contains some tail of the absolute sequence <m>\nabsseq{s}</m>.
+	</p>
+</corollary>
+
+<p> Convergence of a sequence lets us bound the magnitude of the terms. </p>
+
+<fact xml:id="fact-seq-conv-abs">
+	<title>Convergence implies absolute convergence</title>
+
+	<statement><p> If <m>\nseq{s} \to L</m> then <m>\nabsseq{s} \to \abs{L}</m>. </p></statement>
+
+	<proof>
+
+		<p>
+		<xref ref="fact-seq-conv-vs-conv-to-zero" /> implies that the statement is true in the case of <m>L = 0</m>.
+		So assume <m>L \neq 0</m>,
+		and assume <m>(a,b)</m> is an open range around <m>\abs{L}</m>.
+		We may assume that <m>a \ge 0</m>,
+		since if we can determine a tail of <m>\nabsseq{s}</m> that is contained in a smaller range with <m>a \ge 0</m>,
+		that same tail will also be contained in any larger range with <m>a \lt 0</m>.
+		</p>
+
+		<p>
+		If <m>L \gt 0</m> then <m>(a,b)</m> also contains <m>L</m>,
+		and so some tail <m>\nseqtail{s}</m> is entirely contained in <m>(a,b)</m>.
+		But since <m>a \ge 0</m>,
+		<m>(a,b)</m> is a range of positive numbers,
+		and so <m>\nabsseqtail{s}</m> and <m>\nseqtail{s}</m> are identical sequences.
+		Therefore, we may conclude that <m>\nabsseqtail{s}</m> is entirely contained in <m>(a,b)</m>,
+		as required.
+		</p>
+
+		<p>
+		If <m>L \lt 0</m> then <m>(-b,-a)</m> contains <m>L</m>,
+		and so some tail <m>\nseqtail{s}</m> is entirely contained in <m>(-b,-a)</m>.
+		But <m>(-b,-a)</m> is a range of negative numbers,
+		and so <m>s_n</m> is negative for all <m>n \ge N</m>.
+		Therefore, we can turn <me> -b \lt s_n \lt -a \qquad\text{for all } n \ge N </me>
+		into <me> a \lt \abs{s_n} \lt b \qquad\text{for all } n \ge N </me>,
+		which says that the tail <m>\nabsseqtail{s}</m> is entirely contained in <m>(a,b)</m>,
+		as required.
+		</p>
+
+	</proof>
+
+</fact>
+
+<warning><p>
+	While we have an equivalence of statements in <xref ref="fact-seq-conv-vs-conv-to-zero" />,
+	the converse of <xref ref="fact-seq-conv-abs" /> is false when <m>L \neq 0</m>.
+	For example,
+	the alternating sequence defined by <m>s_n = (-1)^n</m> is divergent,
+	but its sequence of absolute values is constant and so converges.
+</p></warning>
+
+<p>
+The following limit laws allow us to convert the question of convergence of a sequence into questions about the convergence of its <q>parts</q>.
+The proofs of the individual laws will make frequent use of
+<xref ref="fact-seq-conv-vs-conv-to-zero" />,
+<xref ref="fact-seq-abs-conv-to-zero" />, and
+<xref ref="fact-seq-conv-abs" /> without comment,
+and the reader is encouraged to be on the lookout for their applications.
+</p>
+
+<identity xml:id="pattern-seq-alg-limit-laws">
+	<title>Sequence limit laws</title>
+
+	<statement><p>
+		Suppose <m>\nseq{s} \to L</m> and <m>\nseq{t} \to M</m>.
+		<ol>
+			<li xml:id="pattern-seq-alg-limit-laws-sum"  ><p> <m>\seq{s_n + t_n} \to L + M</m>.                                                               </p></li>
+			<li xml:id="pattern-seq-alg-limit-laws-smult"><p> <m>\seq{k s_n} \to k L</m>.                                                                     </p></li>
+			<li xml:id="pattern-seq-alg-limit-laws-prod" ><p> <m>\seq{s_n t_n} \to L M</m>.                                                                   </p></li>
+			<li xml:id="pattern-seq-alg-limit-laws-recip"><p> <m>\seq{1 / t_n} \to 1 / M</m> if both <m>M</m> and all of the terms <m>t_n</m> are non-zero.   </p></li>
+			<li xml:id="pattern-seq-alg-limit-laws-quot" ><p> <m>\seq{s_n / t_n} \to L / M</m> if both <m>M</m> and all of the terms <m>t_n</m> are non-zero. </p></li>
+			<li xml:id="pattern-seq-alg-limit-laws-div-quot" ><p>
+				Suppose <m>M = 0</m> but all of the terms <m>t_n</m> are non-zero.
+				If <m>L \neq 0</m>,
+				then <m>\seq{s_n / t_n}</m> diverges.
+			</p></li>
+		</ol>
+	</p></statement>
+
+	<proof>
+		<title>Justification for <xref ref="pattern-seq-alg-limit-laws-sum" text="type-local">Statement</xref></title>
+		<p>
+		We will verify that <me>\bbseq{(s_n + t_n) - (L + M)} \to 0</me>,
+		so consider haf-open range <m>[0,c)</m>.
+		As <m>\nseq{s} \to L</m> and <m>\nseq{t} \to M</m>,
+		there are absolute sequence tails <m>\absseqtail[n \ge N_1]{s_n - L}</m>
+		and <m>\absseqtail[n \ge N_2]{t_n - M}</m>
+		that are both entirely contained within <m>[0, c/2)</m>.
+		Let <m>N</m> represent the larger of the two tail boundaries <m>N_1</m> and <m>N_2</m>.
+		Then for <m>n \ge N</m> we can say both
+		<md><mrow> \abs{s_n - L} \amp \lt \frac{c}{2} \text{,} \amp \abs{t_n - M} \amp \lt \frac{c}{2} \text{.} </mrow></md>
+		Then
+		<md>
+			<mrow> \abs{(s _n + t_n) - (L + M)} \amp = \abs{(s_n - L) + (t_n - M)} </mrow>
+			<mrow> \amp \le \abs{s_n - L} + \abs{t_n - M} \amp \amp\text{(triangle inequality)} </mrow>
+			<mrow> \amp \lt \frac{c}{2} + \frac{c}{2} </mrow>
+			<mrow> \amp = c </mrow>
+		</md>,
+		and so the absolute sequence tail <m>\absseqtail{(s_n + t_n) - (L + M)}</m> is entirely contained within <m>[0,c)</m>,
+		as required.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Justification for <xref ref="pattern-seq-alg-limit-laws-smult" text="type-local">Statement</xref></title>
+
+		<p>
+		First, in the case that <m>k = 0</m>,
+		then <m>\seq{k s_n}</m> is a constant sequence and converges to that constant value <m>k L = 0</m>.
+		</p>
+
+		<p>
+		Next, assume <m>k \gt 0</m>,
+		and consider an open range <m>(a,b)</m> around <m>k L</m>.
+		Then <m>(a/k, b/k)</m> is an open range around <m>L</m>,
+		and therefore contains some tail <m>\nseqtail{s}</m>.
+		Scaling the terms of this tail creates a tail <m>\seqtail{k s_n}</m> that is entirely contained within <m>(a,b)</m>,
+		as required.
+		</p>
+
+		<p>
+		Finally, the case <m>k \lt 0</m> is handled similarly as above,
+		with the only difference that <q>scaling down</q> the range <m>(a,b)</m> will also reflect it,
+		since the inequality <m>a \lt b</m> gets flipped to <m>b/k \lt a/k</m> when dividing by a negative.
+		</p>
+
+	</proof>
+
+	<proof>
+		<title>Justification for <xref ref="pattern-seq-alg-limit-laws-prod" text="type-local">Statement</xref></title>
+
+		<p> We will handle this in a number of cases, beginning with the simplest. </p>
+
+		<case><title>Case <m>L = M = 0</m></title><p>
+			Here we wish to verify <m>\seq{s_n t_n} \to 0</m>.
+			Consider half-open range <m>[0,c)</m>.
+			As both <m>\nseq{s}</m> and <m>\nseq{t}</m> converge to zero in the present case,
+			there are tails <m>\absseqtail[n \ge N_1]{s_n}</m>
+			and <m>\absseqtail[n \ge N_2]{t_n}</m>
+			that are both entirely contained within <m>[0, \sqrt{c})</m>.
+			Let <m>N</m> represent the larger of the two tail boundaries <m>N_1</m> and <m>N_2</m>.
+			Then for <m>n \ge N</m> we have
+			<me> \abs{s_n t_n} = \abs{s_n} \abs{t_n} \lt \sqrt{c} \cdot \sqrt{c} = c </me>,
+			so that the tail <m>\absseqtail{s_n t_n}</m> is entirely contained within <m>[0, c)</m>,
+			as required.
+		</p></case>
+
+		<case><title>Case <m>M = 0</m>, <m>L \neq 0</m></title><p>
+			Again we wish to verify <m>\seq{s_n t_n} \to 0</m> in this case.
+			So consider half-open range <m>[0,c)</m>.
+			Since <m>L \neq 0</m>,
+			<m>\bbrac{0, 2\abs{L}}</m> is an open range containing <m>\abs{L}</m>,
+			and so from <m>\abs{s_n} \to L</m> we may obtain a tail <m>\absseqtail[n \ge N_1]{s_n}</m> that is entirely contained within that range.
+			There is also a tail <m>\absseqtail[n \ge N_2]{t_n}</m> entirely contained within half-open range <m>[0,d)</m> for <m>d = c/2\abs{L}</m>.
+			Let <m>N</m> represent the larger of the two tail boundaries <m>N_1</m> and <m>N_2</m>.
+			Then for <m>n \ge N</m> we have
+			<me> \abs{s_n t_n} = \abs{s_n} \abs{t_n} \lt 2 \abs{L} \cdot \frac{c}{2 \abs{L}} = c </me>,
+			so that the tail <m>\absseqtail{s_n t_n}</m> is entirely contained within <m>[0, c)</m>,
+			as required.
+		</p></case>
+
+		<case><title>Case <m>L = 0</m>, <m>M \neq 0</m></title><p>
+			This is exactly as in the previous case,
+			just with the roles of the two sequences reversed.
+		</p></case>
+
+		<case><title>Case <m>L \neq 0</m>, <m>M \neq 0</m></title><p>
+			We will demonstrate that <m>\absseq{s_n t_n - L M} \to 0</m>.
+			So consider half-open range <m>[0, c/2)</m>.
+			Since <m>\absseq{s_n - L} \to 0</m>,
+			there is a tail <m>\absseqtail[n \ge N_1]{s_n - L}</m> that is entirely contained within the range <m>[0,d)</m> for <m>d = \abs{c/2M}</m>.
+			(Note that we would not be able to do this when <m>M = 0</m>.)
+			So for <m>n \ge N_1</m> we have
+			<md>
+
+				<mrow>
+					\abs{s_n t_n - L M}
+					\amp = \abs{s_n t_n - s_n M + s_n M - L M}
+					\amp \text{(adding 0, no change)}
+				</mrow>
+
+				<mrow>
+					\amp \le \abs{s_n t_n - s_n M} + \abs{s_n M - L M}
+					\amp \text{(triangle inequality)}
+				</mrow>
+
+				<mrow> \amp = \abs{s_n} \abs{t_n - M} + \abs{s_n - L} \abs{M} </mrow>
+
+				<mrow> \amp \lt \abs{s_n} \abs{t_n - M} + d \abs{M} </mrow>
+
+				<mrow> \amp \lt \abs{s_n} \abs{t_n - M} + \frac{c}{2} </mrow>
+
+			</md>.
+			Since <m>\nabsseq{s} \to \abs{L}</m> and <m>L \neq 0</m>,
+			there is also a tail <m>\absseqtail[n \ge N_2]{s_n}</m> that is entirely contained within the range <m>\bigl[0,2 \abs{L}\bigr)</m>.
+			And <m>\absseq{t_n - M} \to 0</m>,
+			so there is a tail <m>\absseqtail[n \ge N_3]{t_n - M}</m> that is entirely contained within the range <m>[0,d)</m> for <m>d = c / 4 \abs{L}</m>.
+			Let <m>N</m> represent the greater of the three tail boundaries <m>N_1</m>, <m>N_2</m>, and <m>N_3</m>.
+			Then for <m>n \ge N</m> we may continue the calculation above:
+			<md>
+				<mrow> \abs{s_n t_n - L M} \amp \lt \abs{s_n} \abs{t_n - M} + \frac{c}{2} </mrow>
+				<mrow> \amp \lt 2 \abs{L} \cdot \frac{c}{4 \abs{L}} + \frac{c}{2} </mrow>
+				<mrow> \amp = \frac{c}{2} + \frac{c}{2} </mrow>
+				<mrow> \amp = c </mrow>
+			</md>.
+			That is,
+			the tail <m>\absseqtail{s_n t_n - L M}</m> is entirely contained in the range <m>[0, c)</m>,
+			as required.
+		</p></case>
+
+	</proof>
+
+	<proof>
+		<title>Justification for <xref ref="pattern-seq-alg-limit-laws-recip" text="type-local">Statement</xref></title>
+
+		<p>
+		Again we will verify <m>\absseq{1/t_n - 1/M} \to 0</m>,
+		so consider a half-open range <m>[0,c)</m>.
+		Without loss of generality,
+		we may assume <m>c \lt \abs{M}</m>,
+		since if we obtain a tail contained in a small range then that same tail will be contained in every larger half-open range beginning at <m>0</m>.
+		Let <m>A</m> represent the difference <m>\abs{M} - c</m>;
+		under our assumption on <m>c</m>, <m>A</m> is positive.
+		Since <m>\nabsseq{t} \to \abs{M}</m>,
+		there is some tail <m>\absseqtail[n \ge N_1]{t_n}</m> entirely contained in the open range <m>\bbrac{A, \abs{M} + c}</m>,
+		and we can say that all terms <m>t_n</m> in this tail satisfy <m>\abs{t_n} \gt A</m>.
+		</p>
+
+		<p>
+		So for <m>n \ge N_1</m>,
+		we have
+		<md>
+			<mrow> \abs{\frac{1}{t_n} - \frac{1}{M}} \amp = \abs{\frac{M - t_n}{t_n M}} </mrow>
+			<mrow> \amp = \frac{\abs{M - t_n}}{\abs{t_n} \abs{M}} </mrow>
+			<mrow> \amp = \frac{\abs{t_n - M}}{\abs{t_n} \abs{M}} </mrow>
+			<mrow> \amp \lt \frac{\abs{t_n - M}}{A \abs{M}} </mrow>
+		</md>.
+		Because <m>\abs{t_n - M} \to 0</m>,
+		there is some tail <m>\absseqtail[n \ge N_2]{t_n - M}</m> entirely contained within <m>\bigl[0, c A \abs{M}\bigr)</m>.
+		If we take <m>N</m> to be the greater of <m>N_1</m> and <m>N_2</m>,
+		we may continue the above calculation,
+		so that for <m>n \ge N</m> we have
+		<md>
+			<mrow> \abs{\frac{1}{t_n} - \frac{1}{M}} \amp \lt \frac{\abs{t_n - M}}{A \abs{M}} </mrow>
+			<mrow> \amp \lt \frac{c A \abs{M}}{A \abs{M}} </mrow>
+			<mrow> \amp = c </mrow>
+		</md>.
+		This says that the tail <m>\absseqtail{1/t_n - 1/M}</m> is entirely contained within <m>[0, c)</m>,
+		as required.
+		</p>
+
+	</proof>
+
+	<proof>
+		<title>Justification for <xref ref="pattern-seq-alg-limit-laws-quot" text="type-local">Statement</xref></title>
+		<p>
+		This now follows from combining
+		<xref ref="pattern-seq-alg-limit-laws-prod" text="type-local">Statement</xref>
+		and
+		<xref ref="pattern-seq-alg-limit-laws-recip" text="type-local">Statement</xref>.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Justification for <xref ref="pattern-seq-alg-limit-laws-div-quot" text="type-local">Statement</xref></title>
+		<p>
+		We assume <m>L \neq 0</m>,
+		so there is a tail <m>\absseqtail[n \ge N_1]{s_n}</m> that is entirely contained in the open range <m>\bbrac{\abs{L}/2, 2 \abs{L}}</m>.
+		Given a large, positive number <m>K</m>,
+		there is some tail <m>\absseqtail[n \ge N_2]{t_n}</m> that is entirely contained in the range <m>[0, d)</m> for <m>d = \abs{L}/2K</m>.
+		Take <m>N</m> to be the greater of the two tail boundaries <m>N_1</m> and <m>N_2</m>.
+		But then for <m>n \ge N</m> we have
+		<md>
+			<mrow> \abs{s_n} \amp \gt \frac{\abs{L}}{2} \text{,} \amp \abs{t_n} \amp \lt \frac{\abs{L}}{2 K}  </mrow>
+			<mrow> \amp \amp \implies \qquad \frac{1}{\abs{t_n}} \amp \gt \frac{2 K}{\abs{L}} \text{.} </mrow>
+		</md>
+		But then
+		<me> \abs{\frac{s_n}{t_n}} = \abs{s_n} \cdot \frac{1}{\abs{t_n}} \gt \frac{\abs{L}}{2} \cdot \frac{2 K}{\abs{L}} = K </me>.
+		We have proved that every <em>unbounded</em> open range <m>(K,\infty)</m> with <m>K \gt 0</m> contains a tail of <m>\absseq{s_n / t_n}</m>,
+		so it is impossible that tails of that absolute sequence will ever become bounded around some potential limit value.
+		Therefore, <m>\absseq{s_n / t_n}</m> diverges,
+		and hence so must <m>\seq{s_n / t_n}</m>.
+		</p>
+	</proof>
+
+</identity>
+
+<p>
+The following example effectively justifies our <term>dominant terms</term> approach to <term>long-term behaviour</term> in <xref ref="chapter-inf-behaviour" />.
+</p>
+
+<example>
+	<title>Dominant terms in a rational sequence</title>
+	<p>
+	Consider <m>\nseq{s}</m> for <me> s_n = \frac{n^2 - 1}{n^2 + 1} </me>.
+	The numerator and denominator sequences both diverge to infinity,
+	but for <m>n \gt 0</m> we may manipulate algebraically to obtain convergent numerator and denominator:
+	<me>
+		s_n
+		= \frac{n^2 - 1}{n^2 + 1} \cdot \frac{1/n^2}{1/n^2}
+		= \frac{1 - 1/n^2}{1 + 1/n^2}
+	</me>.
+	Since <m>\seqtail[n \gt 0]{1/n^2} \to 0</m>,
+	we may apply <xref ref="pattern-seq-alg-limit-laws-sum" /> to both numerator and denominator to conclude
+	<md>
+		<mrow>
+			\seqtail[n \gt 0]{1 - 1/n^2} \amp \to 1 \amp
+			\seqtail[n \gt 0]{1 + 1/n^2} \amp \to 1
+		</mrow>
+	</md>.
+	Then we apply <xref ref="pattern-seq-alg-limit-laws-quot" /> to see that the tail <m>\seqtail[n \gt 0]{s_n} \to 1</m>.
+	Since this tail converges to <m>1</m>,
+	we must have <m>\nseq{s} \to 1</m> as well.
+	</p>
+</example>
+
+<p>
+Finally,
+we record some patterns about how limits compare if we can compare their terms.
+</p>
+
+<identity xml:id="pattern-seq-order">
+	<title>Order Limit Theorem</title>
+
+	<statement><p><ol>
+
+		<li xml:id="pattern-seq-order-bdd-below"><title>Bounded below</title><p>
+			If <m>\nseq{s} \to L</m> and <m>s_n \ge C</m> for all <m>n</m>,
+			then <m>L \ge C</m>.
+			In particular,
+			if <m>s_n \ge 0</m> for all <m>n</m>,
+			then <m>L \ge 0</m>.
+		</p></li>
+
+		<li xml:id="pattern-seq-order-bdd-above"><title>Bounded above</title><p>
+			If <m>\nseq{s} \to L</m> and <m>s_n \le C</m> for all <m>n</m>,
+			then <m>L \le C</m>.
+			In particular,
+			if <m>s_n \le 0</m> for all <m>n</m>,
+			then <m>L \le 0</m>.
+		</p></li>
+
+		<li xml:id="pattern-seq-order-compare"><title>Comparison</title><p>
+			Suppose <m>\nseq{s} \to L</m> and <m>\nseq{t} \to M</m>.
+			If <m>s_n \ge t_n</m> for all <m>n</m>,
+			then <m>L \ge M</m>.
+		</p></li>
+
+	</ol></p></statement>
+
+	<proof>
+		<title>Justification for <xref ref="pattern-seq-order-bdd-below" text="type-local">Statement</xref></title>
+
+		<p>
+		First we consider the case <m>C = 0</m>,
+		We assume <m>s_n \ge 0</m> for all <m>n</m>,
+		and wish to prove that <m>L \ge 0</m>.
+		If it were possible that <m>L \lt 0</m>,
+		then the open range <m>(2L, 0)</m> that contains <m>L</m> would also contain some tail of <m>\nseq{s}</m>.
+		But that range only contains negative numbers,
+		and no term of <m>\nseq{s}</m> is negative.
+		Since <m>L \lt 0</m> is impossible,
+		we must have <m>L \ge 0</m>.
+		</p>
+
+		<p>
+		For <m>C \neq 0</m>,
+		simply apply the argument above to the sequence <m>\seq{s_n - C}</m>,
+		which converges to <m>L - C</m>.
+		</p>
+
+	</proof>
+
+	<proof>
+		<title>Justification for <xref ref="pattern-seq-order-bdd-above" text="type-local">Statement</xref></title>
+		<p>
+		The sequence <m>\seq{-s_n}</m> converges to <m>-L</m> and satisfies <m>-s_n \ge -C</m> for all <m>n</m>,
+		so we may apply <xref ref="pattern-seq-order-bdd-below" text="type-local">Statement</xref> to conclude that <m>-L \ge -C</m>.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Justification for <xref ref="pattern-seq-order-compare" text="type-local">Statement</xref></title>
+		<p>
+		The sequence <m>\seq{s_n - t_n}</m> converges to <m>L - M</m> and satisfies <m>s_n - t_n \ge 0</m> for all <m>n</m>,
+		so we may apply <xref ref="pattern-seq-order-bdd-below" text="type-local">Statement</xref> with <m>C = 0</m> to conclude that <m>L - M \ge 0</m>.
+		</p>
+	</proof>
+
+</identity>
+
+<remark><p>
+	The conditions in <xref ref="pattern-seq-order" /> do not need to hold for <em>all</em> <m>n</m> in order for the conclusions to be true <mdash />
+	it is sufficient for them to hold for some tail of the sequence involved.
+</p></remark>
+
+<p>
+The following consequence of <xref ref="pattern-seq-order-compare" text="type-local">Statement</xref> of <xref ref="pattern-seq-order" /> is usually referred to by one of the three names <q>Squeeze/Sandwich/Pinching Theorem</q>.
+</p>
+
+<identity xml:id="pattern-seq-squeeze">
+	<title>Sequence Squeeze Theorem</title>
+
+	<statement><p>
+		Suppose <m>\nseq{s}, \nseq{t}, \nseq{u}</m> are three sequences whose terms satisfy <me> s_n \le t_n \le u_n </me> for all <m>n</m>.
+		If both <m>\nseq{s}</m> and <m>\nseq{u}</m> are convergent and converge to the same limit value,
+		then <m>\nseq{t}</m> must also be convergent,
+		and will converge to that same limit value.
+	</p></statement>
+
+	<proof><p>
+		Suppose <m>\nseq{s}</m> and <m>\nseq{u}</m> both converge to <m>L</m>,
+		and consider some open range <m>(a,b)</m> around <m>L</m>.
+		There are tails <m>\nseqtail[n \ge N_1]{s}</m> and <m>\nseqtail[n \ge N_2]{u}</m> that are entirely contained within that range.
+		Let <m>N</m> represent the larger of the tail boundaries <m>N_1</m> and <m>N_2</m>.
+		Then for all <m>n \ge N</m>,
+		we have <me> a \lt s_n \le t_n \le u_n \lt b </me>,
+		so that the tail <m>\nseqtail{t}</m> is also entirely contained within the range <m>(a,b)</m>.
+	</p></proof>
+
+</identity>
+
+</subsection>
+
+</section>
+
+<!-- <xi:include href="./TODO.d/activities.ptx" />
+<xi:include href="./TODO.d/exercises.ptx" /> -->
+
+</chapter>

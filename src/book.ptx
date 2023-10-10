@@ -130,6 +130,9 @@ respective owners.
 <!-- Linearizations, differentials, McLaurin/Taylor -->
 <xi:include href="./poly-approx.ptx" />
 
+<!-- Sequences -->
+<xi:include href="./seq.ptx" />
+
 
 <!-- -->
 <xi:include href="./backmatter.ptx" />
