@@ -133,6 +133,8 @@ respective owners.
 <!-- Sequences -->
 <xi:include href="./seq.ptx" />
 
+<!-- Limits of functions via sequences -->
+<xi:include href="./func-limits.ptx" />
 
 <!-- -->
 <xi:include href="./backmatter.ptx" />

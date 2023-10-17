@@ -552,7 +552,7 @@ but it is not really any different than writing down a table of values.
 </section>
 
 
-<section>
+<section xml:id="section-funcs-cont">
 <title>Continuous functions</title>
 
 <introduction><p>
@@ -569,7 +569,7 @@ but it is not really any different than writing down a table of values.
 <definition xml:id="definition-funcs-point-continuous">
 	<title>Continuous at a point</title>
 	<p>
-	A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small open range around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small subdomain around <m>t_0</m>.
+	A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small open range around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small open subdomain around <m>t_0</m>.
 	Otherwise, the function is said to be <term>discontinuous</term> at that point.
 	</p>
 </definition>

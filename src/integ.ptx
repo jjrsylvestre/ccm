@@ -128,7 +128,7 @@ because they are used to <q>sample</q> the value of the rate function on that su
 
 <p> Here is a more detailed procedure. </p>
 
-<algorithm>
+<algorithm xml:id="procedure-integ-riemann">
 	<title> To create a Riemann sum approximation of total accumulation over a period of time </title>
 	<p>
 	To approximate the total accumulation of a quantity that is varying according to rate function <m>r(t)</m> over time domain <m>a \le t \le b</m> using a Riemann sum.

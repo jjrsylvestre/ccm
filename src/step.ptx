@@ -875,7 +875,7 @@ then we are adding up <m>n</m> terms, not <m>n - 1</m> terms.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-step-sigma-properties">
 <title>Properties of Sigma notation</title>
 
 <p>
