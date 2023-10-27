@@ -26,10 +26,8 @@ respective owners.
 	<!-- this is the default, but supresses a warning -->
 	<cross-references text="type-global" />
 
-	<latex-preamble>
-		<package>cancel</package>
-		<package>gensymb</package>
-	</latex-preamble>
+	<math-package latex-name="cancel" mathjax-name="cancel" />
+	<math-package latex-name="gensymb" mathjax-name="gensymb" />
 
 	<macros> <xi:include href="./latex-macros.tex" parse="text" /> </macros>
 
