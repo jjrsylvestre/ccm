@@ -348,7 +348,8 @@ that means it must have crossed through its average value at some point.
 		it is not possible for its values to have <q>jumped</q> over <m>y = \avg{f}</m>
 		on its way from <m>y = f(\submin{t})</m> to <m>y = f(\submax{t})</m>
 		(or vice versa, in the case that <m>\submax{t}</m> is earlier than <m>\submin{t}</m>).
-		That is, we may conclude that there is some time <m>t = c</m> between <m>t = \submin{t}</m> and <m>t = \submax{t}</m> where <m>f(c) = \avg{f}</m>.
+		That is,
+		we may apply the <xref ref="theorem-funcs-intermediate-value" text="title" /> to conclude that there is some time <m>t = c</m> between <m>t = \submin{t}</m> and <m>t = \submax{t}</m> where <m>f(c) = \avg{f}</m>.
 		</p>
 
 		<figure>

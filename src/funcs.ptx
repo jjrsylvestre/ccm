@@ -555,13 +555,16 @@ but it is not really any different than writing down a table of values.
 <section>
 <title>Continuous functions</title>
 
-<p>
-The graphs in <xref ref="figure-funcs-piecewise-2" />
-and <xref ref="figure-funcs-piecewise-many" />
-have an odd feature <mdash />
-they approach one value then suddenly jump to a different value.
-We'll call this type of feature a <term>point of discontinuity</term>.
-</p>
+<introduction><p>
+	The graphs in <xref ref="figure-funcs-piecewise-2" />
+	and <xref ref="figure-funcs-piecewise-many" />
+	have an odd feature <mdash />
+	they approach one value then suddenly jump to a different value.
+	We'll call this type of feature a <term>point of discontinuity</term>.
+</p></introduction>
+
+<subsection>
+<title>Definition</title>
 
 <definition xml:id="definition-funcs-point-continuous">
 	<title>Continuous at a point</title>
@@ -574,7 +577,7 @@ We'll call this type of feature a <term>point of discontinuity</term>.
 <p>
 In other words,
 a function is continuous at a point if <m>f(t) \approx f(t_0)</m> whenever <m>t \approx t_0</m>,
-and we can always make the first approximation better and better by tightening the second approximation.
+and we can always make the first approximation better by tightening the second approximation.
 </p>
 
 <example>
@@ -668,6 +671,11 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	</p>
 
 </definition>
+
+</subsection>
+
+<subsection>
+<title>Common types of discontinuity</title>
 
 <p> We will encounter three basic types of discontinuities. </p>
 
@@ -791,6 +799,74 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	<p> We will study singularities and vertical asymptotes more in <xref ref="chapter-inf-behaviour" />. </p>
 
 </paragraphs>
+
+</subsection>
+
+<subsection>
+<title>The Intermediate Value Theorem</title>
+
+<p> An important feature of continuous graphs is that they cannot <q>skip over</q> any particular output level. </p>
+
+<theorem xml:id="theorem-funcs-intermediate-value">
+	<title>Intermediate Value Theorem</title>
+	<statement><p>
+		Suppose <m>f</m> is a continuous function.
+		If <m>f(t_1) \lt K</m> and <m>f(t_2) \gt K</m> (or vice versa),
+		then <m>f(t) = K</m> must have at least one solution in the domain <m>t_1 \lt t \lt t_2</m>.
+	</p></statement>
+</theorem>
+
+<figure xml:id="figure-funcs-IVT">
+	<caption>
+		As a continuous function ascends/descends,
+		it must take on all possible output values between initial and final output values.
+	</caption>
+	<sidebyside>
+		<figure xml:id="figure-funcs-IVT-low-to-high">
+			<caption>Ascending through each possible output value.</caption>
+			<image xml:id="image-funcs-IVT-low-to-high">
+				<description>A continuous function ascending through all possible output values from low to high.</description>
+				<latex-image><xi:include href="funcs.d/IVT-low-to-high.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+		<figure xml:id="figure-funcs-IVT-high-to-low">
+			<caption>Descending through each possible output value.</caption>
+			<image xml:id="image-funcs-IVT-high-to-low">
+				<description>A continuous function descending through all possible output values from high to low.</description>
+				<latex-image><xi:include href="funcs.d/IVT-high-to-low.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+	</sidebyside>
+</figure>
+
+<example>
+	<title>Searching for horizontal intercepts</title>
+
+	<p>
+	The graph of the cubic function <me> p(t) = 5 - t + t^2 - t^3 </me> is continuous,
+	so from the information
+	<md>
+		<mrow>
+			p(1) \amp = 4 \text{,}
+			\amp
+			p(2) \amp = -1
+		</mrow>
+	</md>
+	we may conclude that the graph must descend through every possible output value between <m>4</m> and <m>-1</m> over the domain <m>1 \le t \le 2</m>.
+	(Note, however, that this doesn't mean the graph cannot ascend on some portion of this domain.)
+	</p>
+
+	<p>
+	In particular,
+	since <m>p(1) \gt 0</m> and <m>p(2) \lt 0</m>,
+	we may apply the <xref ref="theorem-funcs-intermediate-value" text="title" /> with <m>K = 0</m> to conclude that there must be at least one solution to
+	<me> 5 - t + t^2 - t^3 = 0 </me>
+	somewhere between <m>t = 1</m> and <m>t = 2</m>.
+	</p>
+
+</example>
+
+</subsection>
 
 </section>
 
