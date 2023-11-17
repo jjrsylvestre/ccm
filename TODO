@@ -1,3 +1,4 @@
+* Finish discussion of "exp functions are all h. scales of natural exp" to create logarithms in other bases.
 * Add formal definition for equilibrium/steady-state solutions.
 * Add brackets to all instances of \ln so it's clear that ln is the name of a function.
 * Search tex diagrams for cycle and replace with rectangle tikz command where appropriate.
