@@ -814,7 +814,7 @@ where the shift term is <me> C = \ccmint{a_1}{a_2}{f(u)}{u} </me>.
 		<mrow>
 			A_0(t) \amp = \ccmint{0}{t}{\cos(u)}{u}
 			\amp
-			A_{-\pi/2}(t) \amp = \ccmint{-\pi}{t}{\cos(u)}{u}
+			A_{-\pi/2}(t) \amp = \ccmint{-\pi/2}{t}{\cos(u)}{u}
 		</mrow>
 	</md>.
 	We know from <xref ref="pattern-periodic-int-cos" /> that
