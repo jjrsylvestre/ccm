@@ -561,12 +561,37 @@ our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation
 </p></remark>
 
 <example>
-	<title>Derivative of <m>\ln t</m></title>
+	<title>Derivative of <m>\ln(t)</m> and <m>\ln\abs{t}</m></title>
 	<p>
 	We can now use <xref ref="theorem-fund-thm" text="title" /> to verify <xref ref="pattern-deriv-log" />:
 	<md>
-		<mrow> \ddt{(\ln t)} \amp = \opddt \ccmint{1}{t}{\frac{1}{u}}{u} </mrow>
+		<mrow> \ddt{\bbrac{\ln (t)}} \amp = \opddt \ccmint{1}{t}{\frac{1}{u}}{u} </mrow>
 		<mrow>\amp = \frac{1}{t} </mrow>
+	</md>.
+	We can similarly verify <xref ref="pattern-deriv-abs-log" /> using our interpretation of <m>\ln\abs{t}</m> at the end of <xref ref="section-deriv-ln-exp" />:
+	<me>
+		\ln\abs{t} = \begin{cases}
+			\displaystyle \ccmint{1}{t}{\frac{1}{u}}{u} \amp t \gt 0 \\[3pt]
+			\displaystyle \ccmint{-1}{t}{\frac{1}{u}}{u} \amp t \lt 0
+		\end{cases}
+	</me>.
+	Therefore,
+	<md>
+		<mrow>
+			\ddt{\bbrac{\ln \abs{t}}} \amp
+			= \begin{cases}
+				\displaystyle \opddt \ccmint{1}{t}{\frac{1}{u}}{u} \amp t \gt 0 \\[3pt]
+				\displaystyle \opddt \ccmint{-1}{t}{\frac{1}{u}}{u} \amp t \lt 0
+			\end{cases}
+		</mrow>
+		<mrow>
+			\amp
+			= \begin{cases}
+				\displaystyle \frac{1}{t} \amp t \gt 0 \\[3pt]
+				\displaystyle \frac{1}{t} \amp t \lt 0
+			\end{cases}
+		</mrow>
+		<mrow> \amp = \frac{1}{t} </mrow>
 	</md>.
 	</p>
 </example>
@@ -1023,7 +1048,7 @@ So now
 	so
 	<md>
 		<mrow> \ccmint{-5}{-3}{\frac{1}{t}}{t} \amp = \ln\abs{-3} - \ln\abs{-5} </mrow>
-		<mrow> \amp = \ln 3 - \ln 5 </mrow>
+		<mrow> \amp = \ln (3) - \ln (5) </mrow>
 	</md>.
 	</p>
 
@@ -1045,7 +1070,7 @@ So now
 			\ccmint{3}{5}{\frac{1}{t}}{t}
 			\amp = \ccmint{1}{5}{\frac{1}{t}}{t} - \ccmint{1}{3}{\frac{1}{t}}{t}
 		</mrow>
-		<mrow> \amp = \ln 5 - \ln 3 </mrow>
+		<mrow> \amp = \ln (5) - \ln (3) </mrow>
 	</md>,
 	as the initial computation confirms.
 	</p>

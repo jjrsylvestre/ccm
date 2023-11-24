@@ -829,7 +829,7 @@ We will leave the justification up to you, the reader.
 </section>
 
 
-<section>
+<section xml:id="section-deriv-ln-exp">
 <title>Derivatives of the natural logarithm and exponential functions</title>
 
 <subsection>
@@ -845,13 +845,13 @@ tells us how to differentiate the natural logarithm function.
 	<title>Derivative of the natural logarithm</title>
 	<p>
 	The natural logarithm function is differentiable for all <m>t \gt 0</m>,
-	with <me> \ddt{(\ln t)} = \frac{1}{t} </me>.
+	with <me> \ddt{\bbrac{\ln (t)}} = \frac{1}{t} </me>.
 	</p>
 </identity>
 
 <p>
 It is common to extend the domain of the natural logarithm by composing with the absolute value function:
-whereas <m>\ln t</m> is defined only for <m>t \gt 0</m>,
+whereas <m>\ln (t)</m> is defined only for <m>t \gt 0</m>,
 <m>\ln \abs{t}</m> is defined for all <m>t</m> except at the singularity at <m>t = 0</m>.
 For this function,
 a negative input has the same output value as the corresponding positive input of the same magnitude,
@@ -870,9 +870,9 @@ so the graph is symmetric about the vertical axis.
 Consider a point on the graph in <xref ref="figure-deriv-natural-log-abs" /> at <m>t = a</m> with <m>a \lt 0</m>.
 There is a corresponding point at the same height at <m>t = \abs{a}</m>.
 As <m>\abs{a} > 0</m>,
-this second point is on the graph of <m>y = \ln t</m>,
+this second point is on the graph of <m>y = \ln (t)</m>,
 and so we know its derivative value as
-<me> \funceval{\ddt{(\ln t)}}{t = \abs{a}} = \frac{1}{\abs{a}} </me>.
+<me> \funceval{\ddt{\bbrac{\ln (t)}}}{t = \abs{a}} = \frac{1}{\abs{a}} </me>.
 This derivative value describes the slope of the tangent line at this point.
 The derivative value
 <me> \funceval{\ddt{(\ln \abs{t})}}{t = a} </me>
@@ -925,6 +925,44 @@ which is the same <q>one-over</q> formula as for the derivative of the natural l
 	So we have determined that <me> \opddt \ln\abs{3 t - 5} = q'(t) = \frac{3}{3 t - 5} </me>.
 	</p>
 </example>
+
+<p>
+Recall that the natural logarithm is defined to be the accumulation function <m>A_1(t)</m> for rate function <m>r(t) = 1/t</m>.
+That is, values of <m>\ln(t)</m> are defined to be results of definite integral calculations.
+In fact, we can interpret values of <m>\ln\abs{t}</m> the same way.
+</p>
+
+<!-- TODO width -->
+<figure xml:id="figure-deriv-natural-log-abs-as-integral">
+	<caption>
+		Two corresponding areas under the graph of <m>r(u) = 1/u</m>.
+	</caption>
+	<image xml:id="image-deriv-natural-log-abs-as-integral" width="92.6%">
+		<description>
+			Two corresponding areas under the graph of the reciprocal function.
+		</description>
+		<latex-image><xi:include href="deriv.d/ln-abs-corresponding-areas.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+By symmetry,
+the areas in <xref ref="figure-deriv-natural-log-abs-as-integral" /> have the same magnitude,
+but are oppositely oriented.
+We can counteract the negative orientation of the area on the left by integrating backwards in time:
+<me>
+	\ccmint{-1}{t}{\frac{1}{u}}{u}
+	= - \ccmint{t}{-1}{\frac{1}{u}}{u}
+	= \ccmint{1}{\abs{t}}{\frac{1}{u}}{u}
+</me>.
+Thus we can say that
+<me>
+	\ln\abs{t} = \begin{cases}
+		\displaystyle \ccmint{1}{t}{\frac{1}{u}}{u} \amp t \gt 0 \\[3pt]
+		\displaystyle \ccmint{-1}{t}{\frac{1}{u}}{u} \amp t \lt 0
+	\end{cases}
+</me>.
+</p>
 
 </subsection>
 
