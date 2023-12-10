@@ -97,7 +97,7 @@ For example, if we call that inflation rate function <m>r</m>,
 then <m>r(3) = 0.25</m> but <m>r(2.9999) = 0.75</m>.
 Of course, this function is just a <term>model</term> of the behaviour of the air pump described in <xref ref="example-step-air-pump" /> <mdash />
 we could have put open circles at the <em>beginnings</em> of the line segments and closed ones at the ends instead,
-and it wouldn't really effect our analysis of the inflation of the raft.
+and it wouldn't affect our analysis of the inflation of the raft.
 </p>
 
 <p>
