@@ -2076,10 +2076,23 @@ we may exploit the algebraic properties of logarithms to help us deal with expon
 		<mrow> \amp = 0 </mrow>
 	</md>.
 	Completing strategy <xref ref="strategy-func-limits-indeterminate-exp" />,
-	we have <me> \lim_{x \to 0^{+}} t^t = e^0 = 1 </me>.
+	we have <me> \lim_{t \to 0^{+}} t^t = e^0 = 1 </me>.
 </p></example>
 
-<example>
+<example xml:id="example-func-limits-infty-to-0"><p>
+	Consider <me> \lim_{t \to \infty} {(1 + t)}^{1/t} </me>,
+	which is of <m>\infty^0</m> form.
+	Applying <xref ref="strategy-func-limits-indeterminate-exp" />,
+	instead we compute
+	<me> \lim_{t \to \infty} \ln\bbrac{{(1 + t)}^{1/t}} = \lim_{t \to \infty} \frac{\ln(1 + t)}{t} </me>.
+	This new limit is of <m>\infty / \infty</m> form,
+	so apply L'Hôpital's Rule:
+	<me> \lim_{t \to \infty} \frac{\ln(1 + t)}{t} \lhopeq \lim_{t \to \infty} \frac{1 / (1 + t)}{1} = 0 </me>.
+	Completing strategy <xref ref="strategy-func-limits-indeterminate-exp" />,
+	we have <me> \lim_{t \to \infty} {(1 + t)}^{1/t} = e^0 = 1 </me>.
+</p></example>
+
+<example xml:id="example-func-limits-e-as-limit">
 	<title>Alternative characterization of Euler's number</title>
 
 	<p>
@@ -2089,7 +2102,7 @@ we may exploit the algebraic properties of logarithms to help us deal with expon
 	instead we compute
 	<me> \lim_{t \to 0} \ln\bbrac{{(1 + t)}^{1/t}} = \lim_{t \to 0} \frac{\ln(1 + t)}{t} </me>.
 	This limit is now of <m>0/0</m> form,
-	but we don't need to apply L'Hôpital's Rule.
+	but this time we don't need to apply L'Hôpital's Rule.
 	Instead,
 	let's trade variable <m>t</m> for <m>\change{t}</m>:
 	<md>

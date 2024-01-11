@@ -30,7 +30,7 @@ Or is the area simply infinite because the domain being considered is unbounded?
 As usual in calculus,
 our strategy is to approximate in a systematic way and then look for a trend in these approximations.
 Here we do not want to approximate with a Riemann sum because that would require adding up the areas of an infinite number of rectangles.
-Such a strategy might be feasible after we study <term>infinite series</term> in TODO-XREF,
+Such a strategy might be feasible after we study <term>infinite series</term> in <xref ref="chapter-series" />,
 but there is a simpler approach:
 we simply compute <em>some</em> of the area over a <em>bounded</em> domain <m>1 \le t \le b</m>,
 then compute <em>some more</em> of the area over a <em>larger</em> bounded domain
@@ -296,7 +296,6 @@ The following records the fact that if we are able to integrate as <m>t \to \inf
 then we should be able to do so from any starting point.
 </p>
 
-<!-- TODO link to this fact in series chapter -->
 <fact xml:id="fact-improper-int-converge-restart">
 
 	<statement><p>

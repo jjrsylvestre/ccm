@@ -139,6 +139,9 @@ respective owners.
 <!-- Improper integrals -->
 <xi:include href="./improper-int.ptx" />
 
+<!-- Series -->
+<xi:include href="./series.ptx" />
+
 <!-- -->
 <xi:include href="./backmatter.ptx" />
 
