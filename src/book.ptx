@@ -136,6 +136,9 @@ respective owners.
 <!-- Limits of functions via sequences -->
 <xi:include href="./func-limits.ptx" />
 
+<!-- Improper integrals -->
+<xi:include href="./improper-int.ptx" />
+
 <!-- -->
 <xi:include href="./backmatter.ptx" />
 
