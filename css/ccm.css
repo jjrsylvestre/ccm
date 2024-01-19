@@ -190,7 +190,7 @@ header.ptx-masthead span.subtitle {
   background-color: #FEF2FE;
 }
 
-.ptx-content .convention.remark-like,
+.ptx-content .convention.remark-like .heading,
 .ptx-content .identity.theorem-like .heading,
 .ptx-content .fact.theorem-like .heading,
 .ptx-content .theorem.theorem-like .heading,
@@ -282,28 +282,40 @@ header.ptx-masthead span.subtitle {
 /*********************************************************/
 
 /* highlight procedures (renamed from algorithm) ************/
+/*      and strategies (renamed from heuristic)  ************/
 /* TODO change these colors to be different from others above ? */
 /* Or maybe consolidate these styles into the other .theorem-like styles ? */
-.ptx-content .algorithm.theorem-like {
+.ptx-content .algorithm.theorem-like,
+.ptx-content .heuristic.theorem-like
+{
   border: solid 2px #AB09A7;
   border-radius: 12px;
   padding: 10px;
   background-color: #FEF2FE;
 }
 
-.ptx-content .algorithm.theorem-like .heading {
+.ptx-content .algorithm.theorem-like .heading,
+.ptx-content .heuristic.theorem-like .heading
+{
   margin-top: 0;
 }
 
-.ptx-content .algorithm.theorem-like + .sidebyside {
+.ptx-content .algorithm.theorem-like + .sidebyside,
+.ptx-content .heuristic.theorem-like + .sidebyside
+{
   margin-top: 1.25em;
 }
-.ptx-content section article.algorithm.theorem-like .heading + p {
+
+.ptx-content section article.algorithm.theorem-like .heading + p,
+.ptx-content section article.heuristic.theorem-like .heading + p
+{
   display: block;
 }
 
 /* undo Greg's L */
-.ptx-content article.algorithm.theorem-like::after {
+.ptx-content article.algorithm.theorem-like::after,
+.ptx-content article.heuristic.theorem-like::after
+{
     content:'';
     border-bottom: none;
     display: none;
@@ -314,11 +326,16 @@ header.ptx-masthead span.subtitle {
 
 /* undo italics for patterns */
 .ptx-content section article.algorithm.theorem-like p,
-.ptx-content section article.algorithm.theorem-like li {
-    font-style: normal;
+.ptx-content section article.heuristic.theorem-like p,
+.ptx-content section article.algorithm.theorem-like li,
+.ptx-content section article.heuristic.theorem-like li
+{
+      font-style: normal;
 }
 /* but then also reverse font-style for li headings */
-.ptx-content section article.algorithm.theorem-like li > .heading {
+.ptx-content section article.algorithm.theorem-like li > .heading,
+.ptx-content section article.heuristic.theorem-like li > .heading
+{
   font-style: italic;
 }
 
