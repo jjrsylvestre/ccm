@@ -379,6 +379,48 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	</p></hint>
 </exercise>
 
+<p> It is not possible for a sequence to cluster around two different values. </p>
+
+<fact xml:id="fact-seq-unique-limit">
+	<title>Sequence limits are unique</title>
+
+	<statement><p>
+		Assume <m>\nseq{s} \to L</m>,
+		and suppose <m>K \neq L</m>.
+		Then <m>\nseq{s} \not\to K</m>.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		Let <m>d</m> represent half of the distance between <m>K</m> and <m>L</m>:
+		<me> d = \frac{\abs{L - K}}{2} </me>.
+		Now consider the open ranges <m>(L - d, L + d)</m> around <m>L</m> and <m>(K - d, K + d)</m> around <m>K</m>.
+		Note that these ranges do not overlap,
+		as they share an open endpoint.
+		(Which endpoint is shared depends on whether <m>K \lt L</m> or <m>L \lt K</m>.)
+		</p>
+
+		<p>
+		Since the sequence converges to <m>L</m>,
+		there is some tail <m>\nseqtail{s}</m> that is entirely contained within <m>(L - d, L + d)</m>.
+		And so also every tail of that tail is entirely contained within that range.
+		Since the two ranges we are considering do not overlap,
+		it is impossible for any of those tails of <m>\nseq{s}</m> to be contained within <m>(K - d, K + d)</m>.
+		</p>
+
+		<!-- TODO image? -->
+
+	</proof>
+
+</fact>
+
+<remark><p>
+	If <m>\nseq{s} \to L</m>,
+	then <xref ref="fact-seq-unique-limit" /> makes it appropriate to refer to <m>L</m> as <em>the</em> limit value of <m>\nseq{s}</m>,
+	as there is only one such value possible.
+</p></remark>
+
 <definition xml:id="definition-seq-converg-diverg">
 	<title>Convergent/divergent sequences</title>
 	<p>
@@ -492,43 +534,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 </subsection>
 
 <subsection>
-<title>Sequence limit laws</title>
-
-<p> First, it is not possible for a sequence to cluster around two different values. </p>
-
-<fact xml:id="fact-seq-unique-limit">
-	<title>Sequence limits are unique</title>
-
-	<statement><p>
-		Assume <m>\nseq{s} \to L</m>,
-		and suppose <m>K \neq L</m>.
-		Then <m>\nseq{s} \not\to K</m>.
-	</p></statement>
-
-	<proof>
-
-		<p>
-		Let <m>d</m> represent half of the distance between <m>K</m> and <m>L</m>:
-		<me> d = \frac{\abs{L - K}}{2} </me>.
-		Now consider the open ranges <m>(L - d, L + d)</m> around <m>L</m> and <m>(K - d, K + d)</m> around <m>K</m>.
-		Note that these ranges do not overlap,
-		as they share an open endpoint.
-		(Which endpoint is shared depends on whether <m>K \lt L</m> or <m>L \lt K</m>.)
-		</p>
-
-		<p>
-		Since the sequence converges to <m>L</m>,
-		there is some tail <m>\nseqtail{s}</m> that is entirely contained within <m>(L - d, L + d)</m>.
-		And so also every tail of that tail is entirely contained within that range.
-		Since the two ranges we are considering do not overlap,
-		it is impossible for any of those tails of <m>\nseq{s}</m> to be contained within <m>(K - d, K + d)</m>.
-		</p>
-
-		<!-- TODO image? -->
-
-	</proof>
-
-</fact>
+<title>Limits of subsequences</title>
 
 <p> It should not be surprising that subsequences of convergent sequences follow their <q>parent</q> sequence to the limit value. </p>
 
@@ -548,7 +554,10 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 
 </identity>
 
-<p> Be careful that convergence of subsequences does not imply anything about convergence of the original sequence. </p>
+<p>
+Be careful that convergence of subsequences can be misleading:
+convergence of subsequences does not necessarily imply anything about convergence of the original sequence.
+</p>
 
 <example><p>
 	The sequence <m>\bbseq{\cos(\pi n)}</m> is divergent as it bounces between terms of <m>1</m> and <m>-1</m>.
@@ -556,10 +565,13 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	<md alignment="gather">
 		<mrow> 1, 1, 1, 1, \dotsc \to 1 </mrow>
 		<mrow> -1, -1, -1, -1, \dotsc \to -1 </mrow>
-	</md>.convergence of tails
+	</md>.
 </p></example>
 
-<p> However, convergence of tails is equivalent to convergence of the original sequence. </p>
+<p>
+However, there are some situations where convergence of subsequences <em>is</em> informative.
+For example, convergence of tails is equivalent to convergence of the original sequence.
+</p>
 
 <fact xml:id="fact-seq-conv-tails">
 	<title>Convergence of tails</title>
@@ -591,6 +603,128 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	and in the case they both converge they have the same limit value.
 	</p>
 </corollary>
+
+<p>
+And if we investigate <em>enough</em> subsequences,
+that is sufficient to determine convergence/divergence of the original sequence.
+Though what <q>enough</q> means depends on whether we are trying to establish convergence or divergence.
+For divergence,
+<q>enough</q> might mean only one or two.
+One in the case that you can identify a divergent subsequence,
+in which case the original sequence must diverge as well.
+Or it might mean two.
+</p>
+
+<fact xml:id="fact-seq-diverges-if-two-different-subsequences">
+
+	<statement><p>
+		If <m>\nseq{a}</m> and <m>\nseq{b}</m> are two subsequences of <m>\nseq{s}</m>,
+		where <m>\nseq{a} \to L</m> and <m>\nseq{b} \to M</m> with <m>L \neq M</m>,
+		then <m>\nseq{s}</m> must diverge.
+	</p></statement>
+
+	<proof><p>
+		Consider the contrapositive:
+		If <m>\nseq{s}</m> converged,
+		then subsequences <m>\nseq{a}</m> and <m>\nseq{b}</m> would necessarily converge to the same limit value as <m>\nseq{s}</m>
+		(<xref ref="pattern-seq-conv-subseq" />).
+	</p></proof>
+
+</fact>
+
+<p>
+In the case of convergence,
+<q>enough</q> means that the subsequences we consider must collectively cover all terms of the original sequence
+(or at least all terms in some tail of the original sequence, by <xref ref="fact-seq-conv-tails" />).
+We will only state the fact below for the case of <em>two</em> such subsequences,
+but the statement could be extended to any number of subsequences,
+as long as they collectively include all terms of the original.
+</p>
+
+<fact xml:id="fact-seq-converge-by-subseq-union">
+	<title>Convergence by subsequences</title>
+
+	<statement><p>
+		Suppose <m>\nseq{a}</m> and <m>\nseq{b}</m> are subsequences of <m>\nseq{s}</m> so that every term of <m>\nseq{s}</m> appears in at least one of <m>\nseq{a}</m> and <m>\nseq{b}</m>.
+		If <m>\nseq{a}</m> and <m>\nseq{b}</m> converge to the same value,
+		then <m>\nseq{s}</m> must converge to that value as well.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		First,
+		if there is any overlap between <m>\nseq{a}</m> and <m>\nseq{b}</m>,
+		replace <m>\nseq{b}</m> by a subsequence of itself with that overlap removed.
+		If only a finite number of terms remain,
+		that means that <m>\nseq{a}</m> contains a full tail of <m>\nseq{s}</m> and our conclusion follows from <xref ref="fact-seq-conv-tails" />.
+		If an infinite number of terms remain in the new <m>\nseq{b}</m>,
+		then that sequence still converges to the same limit as before
+		(<xref ref="pattern-seq-conv-subseq" />)
+		and we still have that <m>\nseq{a}</m> and <m>\nseq{b}</m> together account for all of the terms of <m>\nseq{s}</m>,
+		but now with no overlap.
+		</p>
+
+		<p>
+		Now let <m>L</m> represent the common limit value of <m>\nseq{a}</m> and <m>\nseq{b}</m>,
+		and let <m>(a,b)</m> be some open range containing <m>L</m>.
+		Then there are tails <m>\nseqtail[n \ge N_1]{a}</m> and <m>\nseqtail[n \ge N_2]{b}</m> that are completely contained in <m>(a,b)</m>.
+		As <m>\nseq{a}</m> and <m>\nseq{b}</m> are subsequences,
+		both <m>a_{N_1}</m> and <m>b_{N_2}</m> appear in <m>\nseq{s}</m>,
+		but they represent different terms in <m>\nseq{s}</m> because we removed any overlap between <m>\nseq{a}</m> and <m>\nseq{b}</m>.
+		Without loss of generality,
+		assume that <m>a_{N_1}</m> appears in <m>\nseq{s}</m> before <m>b_{N_2}</m>,
+		and let <m>N</m> be the index so that <m>b_{N_2} = s_N</m>.
+		(Note that this does <em>not</em> imply that <m>N_1 \lt N_2</m>, or that <m>N = N_2</m>.)
+		Now let <m>N_1'</m> be lowest index so that <m>a_{N_1'}</m> appears in the tail <m>\nseqtail{s}</m>.
+		Then <m>N_1' \gt N_1</m>,
+		since otherwise <m>a_{N_1}</m> would appear after <m>a_{N_1'}</m> in <m>\nseq{s}</m>,
+		and hence also in that order in <m>\nseqtail{s}</m>,
+		which would put <m>a_{N_1}</m> after <m>b_{N_2}</m> in <m>\nseq{s}</m>,
+		contrary to what we have assumed.
+		</p>
+
+		<p>
+		We now claim that <m>\nseqtail{s}</m> is completely contained in <m>(a,b)</m>.
+		Every term in <m>\nseqtail{s}</m> appears either in <m>\nseqtail[n \ge N_2]{b}</m>,
+		which we know is completely contained in <m>(a,b)</m>,
+		or in <m>\nseqtail[n \ge N_1']{a}</m> which itself is a tail of <m>\nseqtail[n \ge N_1]{a}</m>
+		(since <m>N_1' \gt N_1</m>),
+		and we know that <m>\nseqtail[n \ge N_1]{a}</m> is also completely contained in <m>(a,b)</m>.
+		</p>
+
+	</proof>
+
+</fact>
+
+<remark><p>
+	Be careful about what <q>appears in</q> means,
+	especially in the case of a sequence where certain values are repeated as terms.
+	Effectively,
+	you should think of that condition in the statement of <xref ref="fact-seq-converge-by-subseq-union" /> to mean that the two subsequences can be <q>interleaved</q> together,
+	discarding any overlap,
+	to recover the original sequence.
+	For example, for
+	<me> \nseq{s} = 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, \dotsc </me>
+	we could take
+	<md>
+		<mrow> \nseq{a} \amp = 1, 1, 3, 3, 5, 5, 7, 7, \dotsc </mrow>
+		<mrow> \nseq{b} \amp = 2, 2, 3, 4, 4, 5, 6, 6, 7, \dotsc </mrow>
+	</md>
+	and then we could recover <m>\nseq{s}</m> by discarding the duplication of the odd numbers in <m>\nseq{b}</m> and interleaving terms:
+	<me> \nseq{s} = a_0, a_1, b_0, b_1, a_2, a_3, b_3, b_4, a_4, a_5, b_6, b_7, \dotsc </me>.
+	However, in general we should be careful not to do things like
+	<md>
+		<mrow> \nseq{a} \amp = 1, 3, 5, 7, \dotsc </mrow>
+		<mrow> \nseq{b} \amp = 2, 4, 6, 8, \dotsc </mrow>
+	</md>
+	as we cannot simply interleave these two sequences back together to obtain <m>\nseq{s}</m>.
+</p></remark>
+
+</subsection>
+
+<subsection>
+<title>Convergence versus boundedness</title>
 
 <p>
 We think of convergent sequences as clustering around their limit values,
@@ -795,6 +929,11 @@ we can say more about bounded sequences even in the case that they are not monot
 	</proof>
 
 </fact>
+
+</subsection>
+
+<subsection>
+<title>Sequence limit laws</title>
 
 <p> The next law allows us to swap out sequence terms in a convergent sequence for the limit value. </p>
 
