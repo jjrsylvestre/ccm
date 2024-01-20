@@ -18,7 +18,7 @@ respective owners.
 
 <xi:include href="./bookinfo.ptx" />
 
-<book xml:id="calculus-concepts-modelling-book">
+<book xml:id="book-calculus-concepts-modelling" label="contents">
 <title>Calculus Concepts and Modelling</title>
 <subtitle>An introduction to the concepts of calculus</subtitle>
 
