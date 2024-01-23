@@ -155,114 +155,112 @@ But sometimes they do not.
 
 <warning><p> The usual <term>associative</term> and <term>commutative</term> properties of addition <alert>DO NOT</alert> apply to the terms in an infinite series. </p></warning>
 
-<example><p><ol>
+<example xml:id="example-series-grouping-terms-incorrect-result">
+	<title>Grouping terms can produce an incorrect result</title>
+	<p>
+	Consider the <q>alternating</q> series <me> \sum_{k = 0}^\infty {(-1)}^k = 1 + (-1) + 1 + (-1) + 1 + (-1) + \dotsb </me>.
+	It is tempting to use the associative property of addition and group terms in this sum as follows:
+	<md>
+		<mrow>
+			\sum_{k = 0}^\infty {(-1)}^k
+			\amp \overset{\text{?}}{=} \bbrac{1 + (-1)} + \bbrac{1 + (-1)} + \bbrac{1 + (-1)} + \dotsb
+		</mrow>
+		<mrow> \amp = 0 + 0 + 0 + \dotsb </mrow>
+		<mrow> \amp = 0 </mrow>
+	</md>.
+	However, this would not be the correct result based on the definition of <xref ref="definition-series-infinite" text="title" />.
+	Instead of performing this dubious manipulation of the terms of the sequence,
+	we should consider the sequence of partial sums:
+	<md>
+		<mrow> s_0 \amp = 1 </mrow>
+		<mrow> s_1 \amp = 1 + (-1) = 0 </mrow>
+		<mrow> s_2 \amp = 1 + (-1) + 1 = 1 </mrow>
+		<mrow> s_3 \amp = 1 + (-1) + 1 + (-1) = 0 </mrow>
+		<mrow> \amp \vdots </mrow>
+	</md>.
+	As you can see, the sequence <m>\nseq{s}</m> oscillates between <m>1</m> and <m>0</m>,
+	and so cannot converge to any specific value.
+	In fact,
+	the infinite series <m>\sum {(-1)}^k</m> diverges.
+</p></example>
 
-	<li>
-		Consider the <q>alternating</q> series <me> \sum_{k = 0}^\infty {(-1)}^k = 1 + (-1) + 1 + (-1) + 1 + (-1) + \dotsb </me>.
-		It is tempting to use the associative property of addition and group terms in this sum as follows:
-		<md>
-			<mrow>
-				\sum_{k = 0}^\infty {(-1)}^k
-				\amp \overset{\text{?}}{=} \bbrac{1 + (-1)} + \bbrac{1 + (-1)} + \bbrac{1 + (-1)} + \dotsb
-			</mrow>
-			<mrow> \amp = 0 + 0 + 0 + \dotsb </mrow>
-			<mrow> \amp = 0 </mrow>
-		</md>.
-		However, this would not be the correct result based on the definition of <xref ref="definition-series-infinite" text="title" />.
-		Instead of performing this dubious manipulation of the terms of the sequence,
-		we should consider the sequence of partial sums:
-		<md>
-			<mrow> s_0 \amp = 1 </mrow>
-			<mrow> s_1 \amp = 1 + (-1) = 0 </mrow>
-			<mrow> s_2 \amp = 1 + (-1) + 1 = 1 </mrow>
-			<mrow> s_3 \amp = 1 + (-1) + 1 + (-1) = 0 </mrow>
-			<mrow> \amp \vdots </mrow>
-		</md>.
-		As you can see, the sequence <m>\nseq{s}</m> oscillates between <m>1</m> and <m>0</m>,
-		and so cannot converge to any specific value.
-		In fact,
-		the infinite series <m>\sum {(-1)}^k</m> diverges.
-	</li>
+<example xml:id="example-series-reordering-terms-different-results">
+	<title>Re-ordering terms can produce different results</title>
 
-	<li>
+	<p>
+	It is possible to demonstrate that the <term>alternating harmonic series</term>
+	<me> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1}}{k} = 1 + \left(- \frac{1}{2}\right) + \frac{1}{3} + \left(-\frac{1}{4}\right) + \dotsb </me>
+	converges to <m>\ln(2)</m>.
+	In the Sage cell below you can investigate the behaviour of the partial sums numerically.
+	Try increasing the partial sum upper bound value <m>n</m> to see how the partial sum values appear to approach <m>\ln(2)</m>.
+	</p>
 
-		<p>
-		It is possible to demonstrate that the <term>alternating harmonic series</term>
-		<me> \sum \frac{{(-1)}^{k+1}}{k} = 1 + \left(- \frac{1}{2}\right) + \frac{1}{3} + \left(-\frac{1}{4}\right) + \dotsb </me>
-		(where here we begin the sum at index <m>k = 1</m>)
-		converges to <m>\ln(2)</m>.
-		In the Sage cell below you can investigate the behaviour of the partial sums numerically.
-		Try increasing the partial sum upper bound value <m>n</m> to see how the partial sum values appear to approach <m>\ln(2)</m>.
-		</p>
+	<sage>
+		<input>
+			var('k,n')
+			n = 10
+			s = sum((-1)^(k+1) / k, k, 1, n)
+			d = ln(2) - s
+			print("{}th partial sum is s_{} = {}".format(n,n,s.n()))
+			print("value of ln(2) is", ln(2).n())
+			print("difference between ln(2) and partial sum is")
+			print("ln(2) - s_{} = {}".format(n,d.n()))
+		</input>
+		<output>
+			10th partial sum is s_10 = 0.645634920634921
+			value of ln(2) is 0.693147180559945
+			difference between ln(2) and partial sum is
+			ln(2) - s_10 = 0.0475122599250246
+		</output>
+	</sage>
 
-		<sage>
-			<input>
-				var('k,n')
-				n = 10
-				s = sum((-1)^(k+1) / k, k, 1, n)
-				d = ln(2) - s
-				print("{}th partial sum is s_{} = {}".format(n,n,s.n()))
-				print("value of ln(2) is", ln(2).n())
-				print("difference between ln(2) and partial sum is")
-				print("ln(2) - s_{} = {}".format(n,d.n()))
-			</input>
-			<output>
-				10th partial sum is s_10 = 0.645634920634921
-				value of ln(2) is 0.693147180559945
-				difference between ln(2) and partial sum is
-				ln(2) - s_10 = 0.0475122599250246
-			</output>
-		</sage>
+	<p>
+	However,
+	if we rearrange the terms of the sequence we actually get a different result.
+	It is possible to demonstrate that
+	<me> 1 + \frac{1}{3} + \left(- \frac{1}{2}\right) + \frac{1}{5} + \frac{1}{7} + \left(-\frac{1}{4}\right) + \dotsb = \frac{3}{2} \ln(2) </me>.
+	Again, the Sage cell below is provided for you to investigate this convergence numerically.
+	</p>
 
-		<p>
-		However,
-		if we rearrange the terms of the sequence we actually get a different result.
-		It is possible to demonstrate that
-		<me> 1 + \frac{1}{3} + \left(- \frac{1}{2}\right) + \frac{1}{5} + \frac{1}{7} + \left(-\frac{1}{4}\right) + \dotsb = \frac{3}{2} \ln(2) </me>.
-		Again, the Sage cell below is provided for you to investigate this convergence numerically.
-		</p>
+	<sage>
+		<input>
+			def do_sum(n):
+				s = 0
+				for k in range(1,n+1):
+				if k%3 == 0:
+					s += (-1 / (2*(k/3)))
+				else:
+					j = k - (k//3)
+					s += 1 / (2*j - 1)
+				return s
+			n = 10
+			s = do_sum(n)
+			l = (3/2)*ln(2)
+			d = l - s
+			print("{}th partial sum is s_{} = {}".format(n,n,s.n()))
+			print("value of (3/2)*ln(2) is", l.n())
+			print("difference between (3/2)*ln(2) and partial sum is")
+			print("(3/2)*ln(2) - s_{} = {}".format(n,d.n()))
+		</input>
+		<output>
+			10th partial sum is s_10 = 1.03846708846709
+			value of (3/2)*ln(2) is 1.03972077083992
+			difference between (3/2)*ln(2) and partial sum is
+			(3/2)*ln(2) - s_10 = 0.00125368237282930
+		</output>
+	</sage>
 
-		<sage>
-			<input>
-				def do_sum(n):
-				  s = 0
-				  for k in range(1,n+1):
-				    if k%3 == 0:
-				      s += (-1 / (2*(k/3)))
-				    else:
-				      j = k - (k//3)
-				      s += 1 / (2*j - 1)
-				  return s
-				n = 10
-				s = do_sum(n)
-				l = (3/2)*ln(2)
-				d = l - s
-				print("{}th partial sum is s_{} = {}".format(n,n,s.n()))
-				print("value of (3/2)*ln(2) is", l.n())
-				print("difference between (3/2)*ln(2) and partial sum is")
-				print("(3/2)*ln(2) - s_{} = {}".format(n,d.n()))
-			</input>
-			<output>
-				10th partial sum is s_10 = 1.03846708846709
-				value of (3/2)*ln(2) is 1.03972077083992
-				difference between (3/2)*ln(2) and partial sum is
-				(3/2)*ln(2) - s_10 = 0.00125368237282930
-			</output>
-		</sage>
+	<p>
+	In fact, it is a theorem of Riemann that the terms of this sequence can be rearranged to add up to any value you like!
+	Suppose you would like the rearranged series to add up to a specific number <m>s</m>.
+	Just add up positive terms until your partial sum is greater than <m>s</m>,
+	then add on negative terms until your partial sum is less than <m>s</m>,
+	then more positive terms until the partial sum is greater than <m>s</m> again,
+	and so on.
+	Try it with <m>s</m> equal to your favourite number!
+	</p>
 
-		<p>
-		In fact, it is a theorem of Riemann that the terms of this sequence can be rearranged to add up to any value you like!
-		Suppose you would like the rearranged series to add up to a specific number <m>s</m>.
-		Just add up positive terms until your partial sum is greater than <m>s</m>,
-		then start add on negative terms until your partial sum is less than <m>s</m>,
-		then more positive terms until the partial sum is greater than <m>s</m> again,
-		and so on.
-		Try it with <m>s</m> equal to your favourite number!
-		</p>
-
-	</li>
-
-</ol></p></example>
+</example>
 
 <p>
 While you shouldn't rearrange/simplify an infinite sum,
@@ -737,6 +735,40 @@ so their convergence is dependent on being bounded.
 	</p>
 
 </example>
+
+<p>
+We know that for an infinite series <m>\sum a_k</m> to converge,
+it is necessary (but not sufficient) for <m>\nseq{a} \to 0</m>.
+But even more,
+when the series does converge,
+the <q>amount left to add</q> must be getting small as well.
+</p>
+
+<fact xml:id="fact-series-conv-remainder">
+
+	<statement><p>
+		If <m>\sum a_k</m> converges,
+		then the sequence of<q>remainders</q> <m>\nseq{r}</m> with
+		<me> r_n = \sum_{k = n + 1}^\infty a_k </me>
+		must converge to <m>0</m>.
+	</p></statement>
+
+	<proof><p>
+		Let <m>\nseq{s}</m> be the sequence of partial sums of the full infinite series <m>\sum a_k</m> beginning at index <m>k = 0</m>,
+		and let <m>S</m> represent the sum value of that convergent series.
+		Because <m>\nseq{s} \to S</m>,
+		applying <xref ref="fact-seq-conv-vs-conv-to-zero" /> tells us that <m>\seq{S - s_n} \to 0</m>.
+		Now,
+		note that every term of <m>\nseq{r}</m> is actually defined,
+		because if <m>\sum a_k</m> converges beginning at index <m>0</m>,
+		then it converges beginning at any index,
+		and in fact we have
+		<me> r_n = \sum_{k = 0}^\infty a_k - \sum_{k = 0}^n a_k = S - s_n </me>
+		from <xref ref="fact-series-converge-restart" />.
+		Thus <m>\nseq{r} = \seq{S - s_n} \to 0</m>.
+	</p></proof>
+
+</fact>
 
 </section>
 
@@ -1505,10 +1537,131 @@ Another way to measure whether this is happening is to compare each term to the 
 		which is the divergent harmonic series.
 		So <m>\sum {(-1)}^{k - 1} / k</m> does not converge absolutely.
 		However,
-		we will later show that it is <em>conditionally</em> convergent in <xref ref="example-series-alt-harmonic-cond-conv" />.
+		we have investigated the partial sums of <m>\sum {(-1)}^{k - 1} / k</m> numerically in <xref ref="example-series-reordering-terms-different-results" /> and it would appear that it converges to a value of <m>\ln(2)</m>.
+		In <xref ref="example-series-alt-harmonic-cond-conv" /> we will verify that this series does converge <em>conditionally</em>.
 	</li>
 
 </ol></p></example>
+
+<p>
+We have seen in <xref ref="example-series-reordering-terms-different-results" /> that it is possible to rearrange the terms in a conditionally convergent series and get a different sum result.
+But if a series converges <em>absolutely</em> then this is <em>not</em> possible.
+</p>
+
+<fact>
+	<title>Rearrangements of an absolutely convergent series</title>
+
+	<statement><p>
+		Suppose <m>\sum a_k</m> converges absolutely and <m>\varphi</m> is a permutation of the set of non-negative integers.
+		Then the series <m>\sum a_{\varphi(k)}</m> converges to the same sum value as <m>\sum a_k</m>.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		Let <m>\nseq{s}</m> and <m>\nseq{t}</m> represent the sequences of partial sums of <m>\sum a_k</m> and <m>\sum a_{\varphi(k)}</m>,
+		respectively,
+		and let <m>S</m> represent the value of <m>\sum a_k</m>,
+		so that <m>\nseq{s} \to S</m>.
+		We would like to verify that <m>\nseq{t} \to S</m> as well.
+		Using <xref ref="fact-seq-conv-vs-conv-to-zero" />,
+		we will instead verify that <m>\seq{t_n - S} \to 0</m>.
+		Following <xref ref="fact-seq-abs-conv-to-zero" />,
+		consider an arbitrary half-open range <m>[0,c)</m>.
+		Our goal is to verify that some tail of the absolute sequence <m>\seq{\abs{t_n - S}}</m> is completely contained in this range.
+		</p>
+
+		<p>
+		As <m>\nseq{s} \to S</m>,
+		then also <m>\seq{s_n - S} \to 0</m>,
+		and there exists some tail <m>\absseqtail[n \ge N_1]{s_n - S}</m> completely contained in the half-open range <m>[0,c/2)</m>.
+		But we not only assume that <m>\sum a_k</m> converges,
+		we assume it converges <em>absolutely</em>.
+		That is, <m>\sum \abs{a_k}</m> converges.
+		Let <m>\nseq{r}</m> be the sequence of <q>remainders</q> for this convergent sequence:
+		<me> r_n = \sum_{k = n + 1}^\infty \abs{a_k} </me>.
+		<xref ref="fact-series-conv-remainder" /> tells us that <m>\nseq{r} \to 0</m>,
+		so there exists some tail <m>\nseqtail[n \ge N_2]{r}</m> also completely contained in the half-open range <m>[0,c/2)</m>.
+		(Note that <m>\nseq{r}</m>) is a sequence of non-negative terms because a convergent series of non-negative terms must have a non-negative sum value.)
+		</p>
+
+		<p>
+		Now let <m>N</m> be the greater of <m>N_1</m> and <m>N_2</m>,
+		so that both the tails <m>\absseqtail{s_n - S}</m> and <m>\nseqtail{r}</m> are completely contained in <m>[0,c/2)</m>.
+		In particular,
+		the first terms of these tails are both contained in this range:
+		<md><mrow tag="dagger" xml:id="equation-series-rearrange-half-inequalities">
+			\abs{s_N - S} \amp \lt c/2 \text{,} \amp r_N \amp \lt c/2 \text{.}
+		</mrow></md>
+		</p>
+
+		<p>
+		Remember that the series we would like to investigate is <m>\sum a_{\varphi(k)}</m>,
+		but the terms of this sequence are all mixed up.
+		However, from the original series <m>\sum a_k</m>,
+		the specific partial sum of the original series <me> s_N = \sum_{k = 0}^N a_k = a_0 + a_1 + a_2 + \dotsb + a_N </me>
+		involves only a finite number of terms,
+		and all of these terms must appear eventually in the mixed-up sequence <m>\seq{a_{\varphi(n)}}</m>.
+		Choose <m>M</m> large enough that this happens.
+		(For example, we could choose <m>M</m> to be the largest index so that the <q>shuffled</q> index <m>\varphi(M)</m> is between <m>0</m> and <m>N</m>,
+		inclusive.)
+		The two partial sums <m>s_N</m> and <m>t_M</m> involve only a finite number of terms each,
+		and so we can subtract them and manipulate them without worrying about convergence.
+		But we have chosen <m>M</m> so that in the partial sum <me> t_M = \sum_{k = 0}^M a_{\varphi(k)} </me>,
+		all the terms of <m>s_N</m> appear,
+		just in a mix-up order.
+		So if we subtract <m>t_M - s_N</m>,
+		all those common terms will cancel and we will only be left will those terms from <m>t_M</m> that did <em>not</em> appear in <m>s_N</m>.
+		Because <m>s_N</m> involves all terms up to and including <m>a_N</m>,
+		the terms remaining must all have indices that are <em>larger</em> than <m>N</m>
+		(as part of the original sequence of terms <m>\nseq{a}</m>):
+		<me> \abs{t_M - s_N} = \abs{a_{j_1} + a_{j_2} + \dotsb + a_{j_\ell}} </me>
+		for some collection of indices <m>j_1,\dotsc,j_\ell</m> that are all greater than <m>N</m>.
+		Using the extended Triangle Inequality,
+		we can say that
+		<md><mrow tag="ddagger" xml:id="equation-series-rearrange-another-half-inequality">
+			\abs{t_M - s_N} \le \abs{a_{j_1}} + \abs{a_{j_2}} + \dotsb + \abs{a_{j_\ell}}
+		</mrow></md>.
+		In this form,
+		because the indices are all larger than <m>N</m>,
+		each of these absolute terms appears in the <m>\nth[N]</m> absolute remainder
+		<me> r_N = \sum_{k = N + 1}^\infty \abs{a_k} </me>.
+		We know the series defining <m>r_N</m> converges,
+		and since it is an <em>infinite</em> sum of <em>non-negative</em> terms,
+		it  must add up to a larger value than the finite sum in <xref ref="equation-series-rearrange-another-half-inequality" />.
+		So we can say <me> \abs{t_M - s_N} \le r_N </me>.
+		</p>
+
+		<p>
+		Now the partial sum <m>t_M</m> already contains all of the terms from <m>s_N</m> (and likely more),
+		so if we go even further out into the partial sums <m>\nseq{t}</m> that will still be true.
+		In other words,
+		all of the analysis above is actually true for <em>every</em> difference <m>\abs{t_n - s_N}</m> for <m>n \ge M</m>,
+		so that for such <m>n</m> it is always true that <m>\abs{t_n - s_N} \le r_N</m>.
+		</p>
+
+		<p>
+		We're now ready to confirm that the tail <m>\absseqtail[n \ge M]{t_n - S}</m> is completely contained in the range <m>[0,c)</m>.
+		Because of the absolute values,
+		we know that the terms of this tail will all be greater than or equal to zero;
+		we just need to confirm that they are all less than <m>c</m>.
+		So consider:
+		<md>
+			<mrow> \abs{t_n - S} \amp = \abs{t_n - s_N + s_N - S} </mrow>
+			<mrow> \amp \le \abs{t_n - s_N} + \abs{s_N - S} </mrow>
+			<mrow> \amp \le r_N + \abs{s_N - S} </mrow>
+			<mrow> \amp \lt \frac{c}{2} + \frac{c}{2} </mrow>
+			<mrow> \amp = c </mrow>
+		</md>,
+		as required,
+		where the first inequality above is the Triangle Inequality,
+		the second is from our analysis of the terms of <m>\nseqtail[n \ge M]{t}</m> compared to the specific partial sum <m>s_N</m>,
+		and the third is from <xref ref="equation-series-rearrange-half-inequalities" />.
+		</p>
+
+	</proof>
+
+</fact>
 
 </subsection>
 
