@@ -142,6 +142,9 @@ respective owners.
 <!-- Series -->
 <xi:include href="./series.ptx" />
 
+<!-- Power and Taylor series -->
+<xi:include href="./power-series.ptx" />
+
 <!-- -->
 <xi:include href="./backmatter.ptx" />
 

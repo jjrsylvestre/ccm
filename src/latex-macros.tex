@@ -70,14 +70,17 @@
 \newcommand{\dudt}{\ddt{u}}% Leibniz derivative, filled in
 \newcommand{\dqdu}{\ddu{q}}% Leibniz derivative, filled in
 \newcommand{\nthdd}[3][n]{\frac{d^{#1}{#2}}{{d#3}^{#1}}}% Leibniz nth derivative
-\newcommand{\opnthddt}[2][n]{\nthdd[#1]{}{t}}% Leibniz nth differential operator
+\newcommand{\opnthddt}[1][n]{\nthdd[#1]{}{t}}% Leibniz nth differential operator
 \newcommand{\nthddt}[2][n]{\nthdd[#1]{#2}{t}}% Leibniz nth derivative, partially filled in
 \newcommand{\nthdqdt}[1][n]{\nthddt[#1]{q}}% Leibniz nth derivative, filled in
 \newcommand{\dbldd}[2]{\nthdd[2]{#1}{#2}}% Leibniz second derivative
-\newcommand{\opdblddt}[1][t]{\opnthddt[2][#1]}% Leibniz differential operator, squared
+\newcommand{\opdblddt}{\opnthddt[2]}% Leibniz differential operator, squared
 \newcommand{\dblddt}[1]{\nthddt[2]{#1}}% Leibniz second derivative, partially filled in
 \newcommand{\dbldqdt}{\nthdqdt[2]}% Leibniz second derivative, filled in
 \newcommand{\nthderiv}[2][n]{{#2}^{(#1)}}% nth derivative in function notation
+\newcommand{\nthmaclaurin}[1][n]{M_{#1}}% degree-n Maclaurin polynomial
+\newcommand{\nthtaylor}[2][n]{T_{#1,#2}}% degree-n Taylor polynomial with base point
+\newcommand{\nthremainder}[2][n]{R_{#1,#2}}% degree-n Taylor polynomial with base point
 
 \newcommand{\funceval}[2]{\left.#1\right\rvert_{#2}}
 \newcommand{\comp}[2]{{#1} \circ {#2}}% composite of two functions, note the order
@@ -103,3 +106,6 @@
 \newcommand{\inlinesetdef}[2]{\{\mathrel{}#1\mathrel{}\mid\mathrel{}#2\mathrel{}\}}% spaced out set definition
 
 \newcommand{\lhopeq}{\overset{\text{l'H}}{=}}% equals sign for l'Hopital's Rule
+
+\newcommand{\convset}[1]{\mathcal{#1}}% curly font for set of convergence for a power series
+

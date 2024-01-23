@@ -1,0 +1,1443 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<!-- TODO should it be "term-by-term integration" or "term-by-term antidifferentiation" -->
+
+<chapter xml:id="chapter-power-series" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Power and Taylor series</title>
+
+<section xml:id="section-power-series-motivation">
+<title>Motivation</title>
+
+<p>
+In <xref ref="section-seq-motivation" />,
+we looked at approximating <m>\ln(1.001)</m> with Taylor polynomials of increasing degree.
+We now have the framework to recognize these approximate values as a <em>sequence of partial sums</em> for the infinite series
+<me> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1} {0.001}^k}{k} </me>.
+Using Taylor polynomials of higher degree should yield better approximations.
+This corresponds to taking partial sums including more terms to better approximate the sum value of the infinite series.
+Will the full infinite series recover the <em>exact</em> value of <m>\ln(1.001)</m>?
+</p>
+
+<p>
+Before we explore that question,
+also consider that we may use Taylor polynomials based at a specific point to approximate output values of the function at <em>all</em> input values sufficiently near that point.
+In other words,
+the infinite series in the example of approximating <m>\ln(1.001)</m> above is only one example in an infinite family of such approximation examples.
+Using the pattern of Taylor polynomials based at <m>t = 1</m> arrived at in <xref ref="example-poly-approx-logarithm-at-1" />,
+for <em>any</em> input value <m>t</m> with <m>t \approx 1</m>,
+we could say
+<me> \ln(t) \approx \nthtaylor{1}(t) = \sum_{k = 1}^n \frac{{(-1)}^{k - 1} {(t - 1)}^k}{k} </me>.
+There are several variables involved in the expressions above.
+There is index variable <m>k</m> for the summation notation.
+There is also the degree <m>n</m> of the Taylor polynomial used,
+but as above we are going to let that trend to <m>\infty</m> as we consider partial sums of an infinite series.
+And finally there is the input variable <m>t</m> that makes a Taylor polynomial a function.
+In this chapter we will study infinite series that involve such an <q>input variable</q>.
+</p>
+
+</section>
+
+<section xml:id="section-power-series-definition">
+<title>Power series</title>
+
+<subsection>
+<title>Basics</title>
+
+<definition xml:id="definition-power-series">
+	<title>Power series</title>
+	<p>
+		An infinite series involving non-negative powers of an indeterminate <m>t</m>: <me> \sum_{k = 0}^\infty a_k t^k </me>,
+		using the convention <m>t^0 = 1</m> for all values of <m>t</m> (including <m>t = 0</m>).
+		The sequence <m>\nseq{a}</m> is called the <term>coefficient sequence</term> for the power series.
+	</p>
+</definition>
+
+<example><p>
+	The power series <m>\sum t^k / k!</m> has partial sum functions <me> s_n(t) = \sum_{k = 0}^n \frac{t^k}{k!} </me>.
+	If you completed <xref ref="exercise-poly-approx-maclaurin-exp" />,
+	then you should recognize these partial sums as precisely the Maclaurin polynomials for <m>\exp(t)</m>.
+</p></example>
+
+<p> If we attempt to use a power series as a function we may run into trouble. </p>
+
+<example xml:id="example-power-series-first-look-at-domain"><p>
+	Define <me> f(t) = \sum_{k = 1}^\infty \frac{t^k}{k} </me>.
+	For <m>t = -1</m>,
+	we have <me> f(-1) = \sum_{k = 1}^\infty \frac{{(-1)}^k}{k} </me>,
+	which is the alternating harmonic series.
+	We saw in <xref ref="example-series-alt-harmonic-cond-conv" /> that this series converges conditionally,
+	and in <xref ref="example-series-reordering-terms-different-results" /> we investigated its sum value numerically,
+	determining that <m>f(-1) = \ln(2)</m>.
+	On the other hand,
+	for <m>t = 1</m> we have <me> f(1) = \sum_{k = 1}^\infty \frac{1}{k} </me>,
+	the regular harmonic series,
+	which we know diverges.
+</p></example>
+
+<p>
+<xref ref="example-power-series-first-look-at-domain" /> demonstrates that,
+viewed as a function in the indeterminate variable,
+the domain of a power series is tied to convergence/divergence of the infinite series that results from substituting particular values for that variable.
+We will say that a power series <m>\sum a_k t^k</m> <term>converges at <m>t = c</m></term> if the infinite series <m>\sum a_k c^k</m> converges.
+For a domain set <m>D</m> of input values,
+we will say that the power set <term>converges on <m>D</m></term> if it converges for all <m>c</m> in <m>D</m>.
+And similarly with <q>converges</q> replaced by <q>diverges.</q>
+</p>
+
+<example><p>
+	The power series <m>\sum t^k</m> is a geometric series for each value of <m>t</m>,
+	and we know the base values for which a geometric series converges.
+	So we can say that this power series converges on domain <m>-1 \lt t \lt 1</m> and diverges on domains <m>t \le -1</m> and <m>t \ge 1</m>.
+</p></example>
+
+<p>
+We know that convergence of an infinite series depends on the terms being added trending to <m>0</m> sufficiently quickly.
+So if a power series converges at a particular <m>t</m>-value,
+it should also converge at all smaller <m>t</m>-values.
+</p>
+
+<fact xml:id="fact-power-series-radius">
+
+	<statement><p><ol>
+
+		<li xml:id="fact-power-series-radius-converge">
+			If <m>\sum a_k t^k</m> converges at <m>t = c</m>,
+			then it also converges <em>absolutely</em> on domain <m>-\abs{c} \lt t \lt \abs{c}</m>.
+		</li>
+
+		<li xml:id="fact-power-series-radius-diverge">
+			If <m>\sum a_k t^k</m> diverges at <m>t = c</m>,
+			then it also diverges on both <m>t \lt \abs{c}</m> and <m>t \gt \abs{c}</m>.
+		</li>
+
+	</ol></p></statement>
+
+	<proof><title>Justification for <xref ref="fact-power-series-radius-converge" text="type-local">Statement</xref></title><p>
+		If <m>\sum a_k t^c</m> converges at <m>t = c</m>,
+		this means that the infinite series <m>\sum a_k c^k</m> converges.
+		So we must have <m>\seq{a_n c^n} \to 0</m>,
+		and so there is some tail <m>\seqtail{a_n c^n}</m> completely contained in the range <m>(-1, 1)</m>.
+		For every value of <m>t</m> in the domain <m>-\abs{c} \lt t \lt \abs{c}</m>,
+		we have <m>\abs{t / c} \lt 1</m>,
+		and so the geometric series <m>\sum {\abs{t / c}}^k</m> converges (absolutely).
+		But with <m>\abs{a_n c^n} \lt 1</m> for <m>n \ge N</m>,
+		we have
+		<md>
+			<mrow> \abs{a_n t^n} \amp = \abs{a_n t^n} \cdot \abs{\frac{c^n}{c^n}} </mrow>
+			<mrow> \amp = \abs{a_n c^n} \cdot \abs{\frac{t^n}{c^n}} </mrow>
+			<mrow> \amp \lt {\abs{\frac{t}{c}}}^n </mrow>
+		</md>
+		for all <m>n \ge N</m>.
+		So <m>\sum \abs{a_k t^k}</m> converges by comparison with the geometric series <m>\sum {\abs{t / c}}^k</m>.
+	</p></proof>
+
+
+	<proof><title>Justification for <xref ref="fact-power-series-radius-diverge" text="type-local">Statement</xref></title><p>
+		This is effectively the contrapositive of <xref ref="fact-power-series-radius-converge" text="type-local">Statement</xref>.
+		If <m>\sum a_k c^k</m> diverges,
+		then it is not possible for <m>\sum a_k t^k</m> to converge for any <m>t \gt \abs{c}</m>,
+		because if it did then <xref ref="fact-power-series-radius-converge" text="type-local">Statement</xref> says that <m>\sum a_k t^k</m> would also converge for all values of <m>t</m> of smaller magnitude,
+		which includes <m>c</m>.
+		But <m>\sum a_k c^k</m> diverges.
+		And similarly for <m>t \lt - \abs{c}</m>.
+	</p></proof>
+
+</fact>
+
+</subsection>
+
+<subsection>
+<title>Radius of convergence</title>
+
+<p>
+For a specific power series <m>\sum a_k t^k</m>,
+<xref ref="fact-power-series-radius" /> gives us a pretty clear picture of the pattern of convergence at different <m>t</m>-values:
+<ul>
+	<li>
+		If the series converges at a particular non-zero <m>t</m>-value,
+		then it also converges at every <m>t</m>-value of smaller magnitude,
+		positive and negative.
+		This creates a symmetric <term>interval of convergence</term> on the real number line,
+		centred at <m>0</m>.
+	</li>
+	<li>
+		If the series diverges at a particular non-zero <m>t</m>-value,
+		then it also diverges at every <m>t</m>-value of larger magnitude,
+		positive and negative.
+		This creates a symmetric <q>void</q> region on the real number line,
+		centred at <m>0</m>,
+		outside of which the series diverges.
+	</li>
+</ul>
+It follows that there must be a boundary between the two patterns above:
+a boundary between <m>t</m>-values with small enough magnitude for the series to converge,
+and <m>t</m>-values magnitude too large for convergence.
+A symmetric pair of points <m>t = \pm R</m> on either size of <m>0</m>,
+with convergence at all points in between and divergence at all points outside.
+</p>
+
+<identity xml:id="pattern-power-series-radius">
+
+	<statement>
+		<p>
+		For a power series <m>\sum a_k t^k</m> there exists a non-negative (possibly infinite) value <m>R</m>,
+		called the <term>radius of convergence</term>,
+		for which the series converges for all <m>t</m>-values satisfying <m>-R \lt t \lt R</m> and diverges for all <m>t</m>-values satisfying <m>t \lt -R</m> or <m>t \gt R</m>.
+		</p>
+	</statement>
+
+	<proof><p>
+		Consider the set <m>\convset{C}</m> of non-negative <m>t</m>-values for which the series converges.
+		Note that <m>\convset{C}</m> is non-empty,
+		since every power series of the form <m>\sum a_k t^k</m> converges to <m>a_0</m> at <m>t = 0</m>.
+		If set <m>\convset{C}</m> is unbounded,
+		then <xref ref="fact-power-series-radius" /> implies that the series must converge at <em>all</em> <m>t</m>-values,
+		so take <m>R = \infty</m>.
+		Otherwise,
+		if set <m>\convset{C}</m> is bounded then it must have a least upper bound.
+		Take <m>R</m> to be that least upper bound value.
+	</p></proof>
+
+</identity>
+
+<remark><p>
+	<xref ref="pattern-power-series-radius" /> does not say anything about convergence/divergence at <m>t = \pm R</m> for a reason.
+	In the examples below, we will see that different power series can exhibit different behaviours at the boundaries of its interval of convergence:
+	some series converge at both <m>t = \pm R</m>,
+	some diverge at both points,
+	and some converge at one and diverge at the other.
+</p></remark>
+
+<p>
+In the examples below,
+we will most often use the <xref ref="pattern-series-ratio-test" text="title" />,
+as two consecutive powers of <m>t</m> will cancel to a single <m>t</m> in a ratio:
+<me> \frac{a_{k + 1} t^{k + 1}}{a_k t^k} = \frac{a_{k + 1}}{a_k} \; t </me>.
+However,
+sometimes the <xref ref="pattern-series-root-test" text="title" /> is useful,
+depending on the form of the coefficient sequence <m>\nseq{a}</m>.
+</p>
+
+<p>
+Also,
+we will generally test for <em>absolute</em> convergence,
+which implies convergence
+(<xref ref="fact-series-absolute-conv" />).
+Because we know that convergence is dependent on the magnitude of the <m>t</m>-values and not the sign
+(except possibly right at <m>t = \pm R</m>),
+and that the interval of convergence is symmetric on the number line about <m>t = 0</m>,
+introducing an absolute value will help measure the maximum magnitude of <m>t</m> for convergence.
+</p>
+
+<example>
+	<title>A power series that only converges <em>within</em> its radius of convergence</title>
+	<p>
+	We know that the Geometric Series <m>\sum t^k</m> converges only for <m>-1 \lt t \lt 1</m>,
+	and not at either <m>t = \pm 1</m>,
+	or at any <m>t</m>-value of larger magnitude.
+	</p>
+</example>
+
+<example xml:id="example-power-series-opposite-endpoints">
+	<title>Two series that converge only at one endpoint of the interval of convergence</title>
+	<p><ol>
+
+		<li xml:id="example-power-series-opposite-endpoints-left-converge-right-diverge">
+
+			<p>
+			Let's apply the <xref ref="pattern-series-ratio-test" text="title" /> to test the power series <me> \sum_{k = 1}^\infty \frac{t^k}{k} </me> for absolute convergence.
+			We have
+			<me> \abs{\frac{t^{n + 1} / (n + 1)}{t^n / n}} = \frac{n}{n + 1} \cdot \abs{t} \to 1 \cdot \abs{t} \quad \text{as } n \to \infty </me>.
+			Recall that the Ratio Test says that the series converges if this limit is less than <m>1</m>,
+			diverges if it is greater than <m>1</m>,
+			and the test provides no information if the limit is exactly <m>1</m>.
+			So we have (absolute) convergence when <m>\abs{t} \lt 1</m>,
+			which corresponds to the interval <m>-1 \lt t \lt 1</m>,
+			and have divergence when <m>\abs{t} \gt 1</m>,
+			which corresponds to the regions <m>t \lt -1</m> and <m>t \gt 1</m>.
+			Our radius of convergence is <m>R = 1</m>.
+			</p>
+
+			<p>
+			But what about at the endpoints <m>t = \pm 1</m>?
+			At <m>t = 1</m> we get the harmonic series,
+			which we know diverges,
+			but at <m>t = -1</m> we get the alternating harmonic series,
+			which we know (conditionally) converges.
+			So the complete interval of convergence is <m>-1 \le t \lt 1</m>.
+			</p>
+
+		</li>
+
+		<li xml:id="example-power-series-opposite-endpoints-left-diverge-right-converge">
+
+			<p>
+			Analyzing absolute convergence of the power series <me> \sum_{k = 1}^\infty \frac{{(-1)}^k t^k}{k} </me>
+			leads to the same calculation and the results as above,
+			since the absolute value brackets will nullify the alternating <m>{(-1)}^k</m> factor in the terms.
+			So again we have <m>R = 1</m>,
+			with (absolute) convergence when on domain <m>-1 \lt t \lt 1</m> and divergence on domains <m>t \lt -1</m> and <m>t \gt 1</m>.
+			But this time the behaviour at the endpoints has flipped,
+			since substituting <m>t = -1</m> will again nullify the alternating sign pattern in the coefficient sequence and leave us with the divergent harmonic series,
+			whereas substituting <m>t = 1</m> will maintain the alternating pattern and leave us with the convergent alternating harmonic series.
+			So the complete interval of convergence is <m>-1 \lt t \le 1</m>.
+			</p>
+
+		</li>
+
+	</ol></p>
+
+</example>
+
+<example>
+	<title>A series that converges at both endpoints</title>
+	<p>
+	Again we use the <xref ref="pattern-series-ratio-test" text="title" /> to test the power series <me> \sum_{k = 1}^\infty \frac{t^k}{k^2} </me> for absolute convergence:
+	<me> \abs{\frac{t^{n + 1} / (n + 1)^2}{t^n / n^2}} = {\left(\frac{n}{n + 1}\right)}^2 \; \abs{t} \to 1^2 \cdot \abs{t} \quad \text{as } n \to \infty  </me>.
+	So the radius of convergence is <m>R = 1</m>.
+	At one endpoint of the interval of convergence,
+	when <m>t = 1</m> we have the convergent <m>p</m>-series <m>\sum 1 / k^2</m>.
+	At the other endpoint,
+	when <m>t = -1</m> we have the alternating <m>p</m>-series <m>\sum {(-1)}^k / k^2</m>.
+	But this series converges absolutely,
+	so it converges as well,
+	and our complete interval of convergence is <m>-1 \le t \le 1</m>.
+	</p>
+</example>
+
+<example>
+	<title>A series with <m>R = 0</m></title>
+	<p>
+	For <m>\sum (k!) t^k</m> we have
+	<me> \abs{\frac{(n + 1)! t^{n + 1}}{n! t^n}} = (n + 1) \; \abs{t} \to \infty \quad \text{as } n \to \infty </me>.
+	In particular, for every non-zero value of <m>t</m>,
+	no matter how small,
+	the factorial will eventually overwhelm the powers of <m>t</m> and so <m>a_k t^k \not\to 0</m>,
+	which means that the sum cannot converge.
+	So <m>R = 0</m> and the sum <em>only</em> converges (to <m>0! = 1</m>) for <m>t = 0</m>.
+	</p>
+</example>
+
+<example>
+	<title>A series with <m>R = \infty</m></title>
+	<p>
+	For <me> \sum_{k = 0}^\infty \frac{{(-1)}^k x^k}{2^k \cdot k!} </me>
+	we have
+	<me>
+		\abs{\frac{{(-1)}^{n+1} t^{n+1} / 2^{n + 1} (n+1)!}{{(-1)}^n t^n / 2^n n!}}
+		= \frac{\abs{t}}{2 (n + 1)}
+		\to 0 \quad \text{as } n \to \infty
+	</me>.
+	Thus this series converges for all values of <m>t</m>.
+	</p>
+</example>
+
+<p>
+From our examples so far you might think that <m>0</m>, <m>1</m>, and <m>\infty</m> are the only possibilities for a radius of convergence.
+Here is one more example to demonstrate that any number is possible.
+</p>
+
+<example>
+	<title></title>
+
+	<p>
+	Let <m>b</m> represent an arbitrary positive number,
+	and consider <m>\sum t^k / b^k</m>.
+	This time we will use the <xref ref="pattern-series-root-test" text="title" /> to test absolute convergence:
+	<me> \sqrt[n]{\abs{\frac{t^n}{2^n}}} = \frac{\abs{t}}{2} </me>.
+	No limit is necessary,
+	as this result is constant relative to the index variable <m>n</m>.
+	But as with the Ratio Test we need this <q>limit</q> result to be less than <m>1</m> to have convergence,
+	and <m>\abs{t} / 2 \lt 1</m> occurs when <m>\abs{t} \lt 2</m>,
+	so our radius of convergence is <m>R = 2</m>.
+	</p>
+
+	<p>
+	At endpoint <m>t = -2</m> the power series becomes
+	<me> \sum_{k = 0}^\infty \frac{{(-1)}^k {(-2)}^k}{2^k} = \sum_{k = 0}^\infty \frac{1}{2^{k - 1}} </me>
+	which is a convergent geometric series.
+	At the other endpoint <m>t = 2</m> we have
+	<me> \sum_{k = 0}^\infty \frac{{(-1)}^k {2^k}{2^k} = \sum_{k = 0}^\infty \frac{{(-1)}^k}{2^{k - 1}} </me>.
+	But we have already established above that this series converges absolutely,
+	hence it converges.
+	</p>
+
+</example>
+
+<warning><p>
+	When applying the Ratio or Root tests to a power series,
+	make sure you are considering the limit as <m>n \to \infty</m>,
+	<alert>not</alert> as <m>t \to \infty</m>.
+</p></warning>
+
+</subsection>
+
+<subsection>
+<title>Shifted power series</title>
+
+<p>
+With inspiration from Taylor series,
+we may also wish to consider horizontal shifts of power series:
+<me> \sum a_k {(t - c)}^k </me>.
+Using a change of variables <m>u = t - c</m> we can express this as a <q>normal</q> power series,
+<me> \sum a_k u^k </me>,
+which we know will have a radius of convergence <m>R</m>,
+so that the series converges for all values of <m>u</m> satisfying <m>-R \lt u \lt R</m>.
+In terms of the original indeterminate <m>t</m>,
+we (unsurprisingly) end up with a shifted interval of convergence as well:
+<md alignment="gather">
+	<mrow> -R \lt t - c \lt R </mrow>
+	<mrow> c - R \lt t \lt c + R </mrow>
+</md>.
+So we still have a radius of convergence <m>R</m>,
+but the interval of convergence is now centred at <m>t = c</m> instead of at <m>t = 0</m>.
+As before,
+the series will diverge outside of that interval,
+and convergence/divergence at the endpoints needs to be separately investigated.
+</p>
+
+<example><p>
+	The shifted power series <me> \sum_{k = 0}^\infty \frac{k {(t + 2)}^k}{3^{k + 1}} </me> will have an interval of convergence centred at <m>t = -2</m>.
+	As usual, we use the <xref ref="pattern-series-ratio-test" text="title" /> to test the absolute convergence:
+	<md>
+		<mrow>
+			\abs{ \frac{(n + 1) {(t + 2)}^{n + 1} / 3^{n + 2}}{n {(t + 2)}^n / 3^{n + 1}} }
+			\amp = \abs{ \frac{(n + 1) (t + 2) / 3}{n} }
+		</mrow>
+		<mrow> \amp = \frac{n + 1}{3 n} \abs{t + 2} </mrow>
+		<mrow> \amp \to \frac{1}{3} \abs{t + 2} </mrow>
+	</md>
+	as <m>n \to \infty</m>.
+	So the series converges for
+	<md alignment="gather">
+		<mrow> \frac{1}{3} \abs{t + 2} \lt 1 </mrow>
+		<mrow> \abs{t + 2} \lt 3 </mrow>
+		<mrow> -3 \lt t + 2 \lt 3 </mrow>
+		<mrow> -5 \lt t \lt 1 </mrow>
+	</md>.
+	From the second inequality above,
+	our radius of convergence is <m>R = 3</m>,
+	and the interval of convergence has endpoints <m>t = -5</m> and <m>t = 1</m>.
+	At those endpoints,
+	we know from the third inequality above that <m>t + 2 = \pm 3</m>,
+	and the series becomes
+	<me> \sum_{k = 0}^\infty \frac{k {(\pm 3)}^k}{3^{k + 1}} = \sum_{k = 0}^\infty \frac{k {(\pm 1)}^k}{3} </me>.
+	Whether the series is alternating (at <m>t = -5</m>) or not (at <m>t = 1</m>),
+	it diverges because the magnitude of the terms diverge to infinity.
+	Thus the interval of convergence is as initially stated above,
+	where both endpoints are excluded.
+</p></example>
+
+</subsection>
+
+</section>
+
+<section xml:id="section-power-series-taylor">
+<title>Taylor series</title>
+
+<introduction><p>
+	In this section our analysis will focus primarily on Maclaurin series,
+	as Taylor series are just shifts of Maclaurin series.
+	But since Maclaurin series are just special cases of Taylor series,
+	we will refer to all as <term>Taylor series</term>.
+</p></introduction>
+
+<subsection xml:id="subsection-power-series-creating-taylor">
+<title>Creating Taylor series</title>
+
+<p>
+Recall that the general pattern for a Taylor polynomial based at <m>t = 0</m>
+(that is, a Maclaurin polynomial)
+for a function <m>f</m> is
+<me> \nthtaylor{0}(t) = \sum_{k = 0}^n \frac{\nthderiv[k]{f}(0)}{k!} \; t^k </me>,
+where <m>\nthderiv{f}</m> represents the <m>\nth</m> derivative of <m>f</m>
+(and <m>\nthderiv[0]{f}</m> is just <m>f</m> itself).
+If <m>\nthderiv{f}(0)</m> exists for all <m>n</m>,
+then we can consider <m>\nthtaylor{0}</m> as a partial sum of a power series,
+where we just allow the coefficient pattern to continue indefinitely.
+</p>
+
+<definition>
+	<title>Taylor series at <m>0</m></title>
+	<p>
+	If all orders of derivative value for function <m>f</m> exist at <m>t =0</m>,
+	then the power series
+	<me> T_0(t) = \sum_{k = 0}^\infty \frac{\nthderiv[k]{f}(0)}{k!} \; t^k </me>
+	is called the <term>Taylor series at <m>0</m> for <m>f</m></term>.
+	</p>
+</definition>
+
+<p>
+Taylor series for different functions will have different radii of convergence,
+depending on the pattern of derivative values at <m>t = 0</m>.
+On its interval of convergence,
+we can in some sense think of the sequence of Taylor polynomials <q>converging</q> to the Taylor series:
+<me> \nthtaylor{0} \overset{?}{\to} T_0 \quad\text{as}\quad n \to \infty </me>.
+</p>
+
+<example xml:id="example-power-series-exp-taylor">
+	<title>Taylor series for the natural exponential function</title>
+	<p>
+	We know that <m>\nthderiv{\exp}(t) = \exp(t)</m> for all <m>n</m>,
+	so <m>\nthderiv{\exp}(0) = 1</m> for all <m>n</m>.
+	Thus the Taylor series at <m>0</m> is
+	<me> \sum_{k = 0}^\infty \frac{t^k}{k!} = 1 + t + \frac{t^2}{2} + \frac{t^3}{3!} + \frac{t^4}{4!} \dotsb </me>.
+	Using the <xref ref="pattern-series-ratio-test" text="title" /> we have
+	<me> \abs{ \frac{t^{n + 1} / (n + 1)!}{t^n / n!} } = \frac{\abs{t}}{n + 1} \to 0 \quad\text{as } n \to \infty </me>.
+	Since this limit is always less than <m>1</m>,
+	the Taylor series for the natural exponential function converges for <em>all</em> values of <m>t</m>.
+	</p>
+</example>
+
+<example xml:id="example-power-series-shifted-logarithm">
+	<title>Taylor series for shifted logarithm</title>
+	<p>
+	Consider <m>f(t) = \ln(1 + t)</m>.
+	Since <m>d(1 + t)/dt = 1</m>,
+	applying the Chain Rule to the derivatives of <m>f(t)</m> is simple.
+	Let's look for the pattern in the derivatives.
+	<md>
+		<mrow>
+			f(t) \amp = \ln(1 + t)
+			\amp \nthderiv[4]{f}(t) \amp = - \frac{3 \cdot 2}{{(1 + t)}^4}
+		</mrow>
+		<mrow>
+			f'(t) \amp = \frac{1}{1 + t}
+			\amp \nthderiv[5]{f}(t) \amp = \frac{4 \cdot 3 \cdot 2}{{(1 + t)}^5}
+		</mrow>
+		<mrow>
+			f''(t) \amp = - \frac{1}{{(1 + t)}^2}
+			\amp \amp \vdots
+		</mrow>
+		<mrow>
+			f'''(t) \amp = \frac{2}{{(1 + t)}^3}
+			\amp \nthderiv{f}(t) \amp = {(-1)}^{n - 1} \, \frac{(n - 1) \cdot \dotsm \cdot 3 \cdot 2}{{(1 + t)}^n}
+		</mrow>
+		<mrow> \amp \amp \amp \vdots </mrow>
+	</md>
+	At <m>t = 0</m>,
+	for <m>n \ge 1</m> this simplifies to <me> \nthderiv{f}(t) = {(-1)}^{n - 1} \; (n - 1)! </me>.
+	So for <m>n \ge 1</m> the Taylor series coefficient pattern is
+	<me> \frac{\nthderiv{f}(0)}{n!} = \frac{{(-1)}^{n - 1} \; (n - 1)!}{n!} = \frac{{(-1)}^{n - 1}}{n} </me>.
+	The initial term <m>f(0)</m> does not fit into this pattern,
+	but in fact <m>f(0) = \ln(1) = 0</m> so it doesn't have to.
+	Thus the Taylor series is
+	<me> T_0(t) = \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1}}{k} \; t^k = t - \frac{t^2}{2} + \frac{t^3}{3} - \frac{t^4}{4} + \dotsb </me>,
+	where we begin the sum at index <m>0</m> because <m>f(0) = 0</m>.
+	The calculations in <xref ref="example-power-series-opposite-endpoints" /> demonstrate that this series converges absolutely.
+	At <m>t = 1</m> this is an alternating harmonic series,
+	which we know converges.
+	At <m>t = -1</m> this is the negative of the harmonic series,
+	and so diverges.
+	(But <m>t = -1</m> is not in the domain of <m>\ln(1 + t)</m> anyway.)
+	So the Taylor series for <m>\ln(1 + t)</m> at <m>t = 0</m> converges on interval <m>-1 \lt t \le 1</m>.
+	</p>
+</example>
+
+<example>
+	<title>Taylor series for cosine</title>
+	<p>
+	In <xref ref="example-poly-approx-maclaurin-cos" /> we determined the general pattern for a Maclaurin polynomial for cosine to be
+	<me> \nthmaclaurin (t) = \sum_{m = 0}^{\floor{n/2}} \frac{{(-1)}^m}{(2m)!} \; t^{2 m} </me>.
+	Recall that the polynomial only involves even powers of the indeterminate because every second higher derivative value evaluates to <m>0</m> at <m>t = 0</m>.
+	To obtain the Taylor series at <m>t = 0</m> for cosine we use the same pattern:
+	<me> T_0(t) = \sum_{m = 0}^{\infty} \frac{{(-1)}^m}{(2m)!} \; t^{2 m} = 1 - \frac{t^2}{2} + \frac{t^4}{4!} - \frac{t^6}{6!} + \dotsb </me>.
+	Using the <xref ref="pattern-series-ratio-test" text="title" /> we have
+	<me>
+		\abs{\frac{{(-1)}^{m + 1} t^{2 (m + 1)} / \bbrac{2(m+1)}!}{{(-1)}^m t^{2 m} / (2 m)!}}
+		= \frac{t^2}{(2m+2)(2m+1)}
+		\to 0 \quad\text{as } m \to \infty
+	</me>.
+	So the Taylor series for cosine at <m>t = 0</m> converges for all values of <m>t</m>.
+	</p>
+</example>
+
+<exercise xml:id="exercise-power-series-taylor-for-sine">
+	<title>Taylor series for sine</title>
+	<p>
+	Use the Maclaurin polynomial pattern you developed in <xref ref="exercise-poly-approx-maclaurin-sin" /> to create the Taylor series at <m>t = 0</m> for the sine function,
+	and investigate its convergence.
+	</p>
+</exercise>
+
+<warning><p>
+	When computing a Taylor series,
+	<alert>do not</alert> substitute <m>t = 0</m> until you see the pattern of <em>all</em> higher derivatives of <m>f</m>.
+</p></warning>
+
+</subsection>
+
+<subsection xml:id="subsection-power-series-taylor-limits">
+<title>Limits of Taylor series</title>
+
+<p>
+We have looked at a number of examples of Taylor series <xref ref="subsection-power-series-creating-taylor" /> and investigated their convergence.
+But to what do they converge?
+When we created Taylor polynomials,
+our goal was to approximate functions with simpler polynomial functions,
+and we reasoned that higher-degree polynomials should be better approximations by capturing more of the behaviour of the original function.
+Being an <q>infinite-degree</q> polynomial,
+does the Taylor series for a function become an <q>infinitely-good</q> approximation of the original function?
+</p>
+
+<p>
+To answer this question,
+we should first remember what it means for a series to <term>converge</term> to a sum value:
+the sequence of partial sums should approach that value.
+Partial sums for a Taylor series are simply Taylor polynomials,
+and to measure how close a Taylor polynomial value
+(evaluated at some particular <m>t</m>-value in the interval of convergence for the Taylor series)
+is to a potential limiting value,
+we can consider the difference between the partial sum value and the potential limiting value.
+(See <xref ref="fact-seq-conv-vs-conv-to-zero" />.)
+And the <q>potential limiting value</q> we propose is the original function value at <m>t</m>.
+</p>
+
+<definition>
+	<title>Remainder sequence for a Taylor series</title>
+	<p>
+	Given a function <m>f</m> for which the derivative values <m>\nthderiv{f}(t^\ast)</m> exist for all <m>n</m>,
+	for each <m>n</m> define <term>remainder function</term> <m>\nthremainder{t^\ast}(t) = f(t) - \nthtaylor{t^\ast}(t)</m>.
+	</p>
+</definition>
+
+<fact xml:id="fact-power-series-taylor-remainder">
+
+	<statement><p>
+		If <m>\bbseq{\nthremainder{t^\ast}(t)} \to 0</m> for a particular value of <m>t</m>,
+		then the Taylor series <m>T_{t^\ast}(t)</m> for <m>f</m> converges at <m>t</m> to the value of <m>f(t)</m>.
+	</p></statement>
+
+	<proof><p>
+		By definition,
+		at a particular <m>t</m>-value the series <me> T_{t^\ast}(t) = \sum_{k = 0}^\infty \frac{\nthderiv[k]{f}(t^\ast)}{k!} \, {(t - t^\ast)}^k </me>
+		converges if the sequence of partial sum values <m>\bbseq{\nthtaylor{t^\ast}(t)}</m> converges for that value of <m>t</m>.
+		But since <m>\nthremainder{t^\ast}(t) = f(t) - \nthtaylor{a}(t)</m>,
+		<xref ref="fact-seq-conv-vs-conv-to-zero" /> says that <m>\bbseq{\nthremainder{t^\ast}(t)} \to 0</m> is equivalent to <m>\bbseq{\nthtaylor{t^\ast}(t)} \to f(t)</m>.
+	</p></proof>
+
+</fact>
+
+<remark><p>
+	It is tempting to think of <m>\bbseq{\nthtaylor{t^\ast}(t)}</m> as a sequence of <em>functions</em>,
+	converging to the <em>function</em> <m>f(t)</m>.
+	But in <xref ref="fact-power-series-taylor-remainder" />,
+	the reality is that <m>\bbseq{\nthtaylor{t^\ast}(t)}</m> is a sequence of <em>numbers</em> at a specific value of <m>t</m>,
+	converging to a specific function output <em>value</em> <m>f(t)</m>.
+	We have not
+	<!-- TODO yet? Will uniform convergence be added to these notes? -->
+	developed the conceptual tools necessary to discuss <term>sequences of functions</term> and their convergence.
+	At this point,
+	the correct thing to say about <m>\bbseq{\nthtaylor{t^\ast}(t)} \to f(t)</m> is that this convergence occurs <term>pointwise</term>.
+	(That is, this convergence may be valid or invalid at different points on the <m>t</m> number line.)
+</p></remark>
+
+<p>
+Recall that we have already stated a bound on the error in approximating <m>f(t) \approx \nthtaylor{t^\ast}(t)</m> for a specific value of <m>t</m>
+(<xref ref="fact-poly-approx-taylor-error" />).
+Since <m>\nthremainder{t^\ast}(t)</m> is measures that error,
+we have
+<me> \abs{\nthremainder{t^\ast}(c)} \le \frac{M}{(n + 1)!} \, {\abs{c - t^\ast}}^{n + 1} </me>,
+where <m>M</m> is the maximum value of <m>\abs{\nthderiv[n+1]{f}(t)}</m> on the domain between <m>c</m> and <m>t^\ast</m>,
+inclusive.
+</p>
+
+<example xml:id="example-power-series-natural-exp-taylor-remainder">
+	<title>Remainder of a Taylor approximation to the natural exponential function</title>
+	<p>
+	In <xref ref="example-power-series-exp-taylor" /> we determined that Taylor series for the exponential function at <m>t = 0</m> converges for all values of <m>t</m>.
+	For all <m>n</m> we have <m>\nthderiv{\exp}(t) = \exp(t)</m>,
+	and since the exponential function is an increasing function,
+	on any given domain <m>0 \le t \le c</m> we have <m>\abs{\nthderiv[n+1]{\exp}(t)} \le e^c</m>.
+	Thus <me> \abs{\nthremainder{0}(c)} \le \frac{e^c}{(n + 1)!} \, {\abs{c - 0}}^{n + 1} </me>.
+	In the ratio <me> \frac{{\abs{c}}^{n+1}}{(n + 1)!} </me>,
+	each of the numerator and denominator is a product of <m>n + 1</m> factors.
+	But the factors in the numerator are all the same magnitude,
+	while those in the denominator become arbitrarily large,
+	and we conclude that <me> \frac{{\abs{c}}^{n+1}}{(n + 1)!} \to 0 \quad \text{as } n \to \infty </me>.
+	By the Squeeze Theorem,
+	we must also have <m> \abs{\nthremainder{0}(c)} \to 0</m>.
+	And a similar argument can be made to demonstrate the same for negative <m>c</m>.
+	We conclude that the Taylor series for the exponential function converges to the value of the exponential function at all points;
+	that is,
+	<me> e^t = 1 + t + \frac{t^2}{2} + \frac{t^3}{3!} + \frac{t^4}{4!} + \dotsb </me>
+	is always true.
+	In particular,
+	using <m>t = 1</m> gives us an alternative definition of Euler's number:
+	<me> e = \sum_{k = 0}^\infty \frac{1}{k!} </me>.
+	</p>
+</example>
+
+<exercise xml:id="exercise-power-series-cosine-taylor-remainder">
+	<title>Evaluating Taylor series for sine and cosine</title>
+	<p> Demonstrate that the Taylor series for sine and cosine at <m>t = 0</m> both converge to the value of their respective originating function for all values of <m>t</m>. </p>
+</exercise>
+
+</subsection>
+
+</section>
+
+<section>
+<title>Functions defined by power series</title>
+
+<introduction>
+
+	<p>
+	Any input-output process defines a function.
+	And any power series <m>\sum a_k t^k</m> defines such a process:
+	if the input value <m>t</m> is in the interval of convergence of the series,
+	then the output value is the limiting value of the sequence of partial sums for that value of <m>t</m>.
+	For example,
+	we have already seen that the natural exponential function is equivalent to the power-series-defined function <m>f(t) = \sum t^k/k!</m>.
+	</p>
+
+	<p>
+	If we are to view power series as functions,
+	a number of questions arise.
+	<ul>
+		<li>
+			How do we determine where power series functions are continuous, hence integrable?
+			How do we integrate power series functions?
+		</li>
+		<li>
+			How do we determine where power series functions are differentiable,
+			and how do we compute their derivatives?
+		</li>
+	</ul>
+	</p>
+
+	<p>
+	Throughout this chapter we will explore and state results for Taylor series based at <m>t = 0</m> and for power series of the form <m>\sum a_k t^k</m>,
+	but all results are true for Taylor series at other base points and for <q>shifted</q> power series.
+	</p>
+
+</introduction>
+
+<subsection>
+<title>Term-by-term integration/differentiation</title>
+
+<p>
+Let's first consider a power series that is a Taylor series at <m>t = 0</m> for a function for which <m>\nthderiv{f}(0)</m> is defined for all <m>n</m>:
+<me> f(0) + f'(0) \, t + \frac{f''(0)}{2} \, t^2 + \frac{f'''(0)}{3!} \, t^3 + \frac{\nthderiv[4]{f}(0)}{4!} \, t^4 + \dotsb </me>.
+Suppose <m>F</m> is an antiderivative for <m>f</m>.
+By definition, this means that <m>F'(t) = f(t)</m>.
+But then
+<md><mrow> F''(t) \amp = f'(t) \amp F'''(t) \amp = f''(t) \amp \amp \cdots \amp \nthderiv[k]{F}(t) \amp = \nthderiv[k - 1]{f}(t) \amp \amp \cdots </mrow></md>,
+and so the Taylor series for <m>F</m> based at <m>t = 0</m> is
+<md>
+	<mrow> \amp F(0) + F'(0) \, t + \frac{F''(0)}{2} \, t^2 + \frac{F'''(0)}{3!} \, t^3 + \frac{\nthderiv[4]{F}(0)}{4!} \, t^4 + \dotsb </mrow>
+	<mrow> = \;\; \amp F(0) + f(0) \, t + \frac{f'(0)}{2} \, t^2 + \frac{f''(0)}{3!} \, t^3 + \frac{f'''(0)}{4!} \, t^4 + \dotsb </mrow>
+	<mrow> = \;\; \amp F(0) + f(0) \, t + f'(0) \cdot \frac{t^2}{2} + \frac{f''(0)}{2!} \cdot \frac{t^3}{3} + \frac{f'''(0)}{3!} \cdot \frac{t^4}{4} + \dotsb </mrow>
+</md>.
+Let's line this Taylor series up with the one for f.
+<me>
+	\begin{array}{cccccccccccc}
+		f\colon \amp \amp \amp f(0) \amp + \amp f'(0) \, t \amp + \amp {\displaystyle \frac{f''(0)}{2} \, t^2} \amp + \amp {\displaystyle \frac{f'''(0)}{3!} \, t^3} \amp + \amp \dotsb
+		\\
+		F\colon \amp F(0) \amp + \amp f(0) \, t \amp + \amp {\displaystyle f'(0) \cdot \frac{t^2}{2}} \amp + \amp {\displaystyle \frac{f''(0)}{2!} \cdot \frac{t^3}{3}} \amp + \amp {\displaystyle \frac{f'''(0)}{3!} \cdot \frac{t^4}{4}} \amp + \amp \dotsb
+	\end{array}
+</me>
+It appears that each term of the series for <m>F</m> can be obtained by <term>term-by-term integration</term> of the series for <m>f</m>
+(see <xref ref="pattern-poly-int-power-positive-exp" text="type-local">Formula</xref> in <xref ref="pattern-poly-int-power" />),
+along with the introduction of an arbitrary constant term <m>F(0)</m>.
+</p>
+
+<p>
+Now consider the Taylor series based at <m>t = 0</m> for the derivative of <m>f</m>.
+Let <m>g</m> represent the derivative of <m>f</m>,
+so that
+<md><mrow> g(t) \amp = f'(t) \amp g'(t) \amp = f''(t) \amp \amp \cdots \amp \nthderiv[k]{g}(t) \amp = \nthderiv[k + 1]{f}(t) \amp \amp \cdots </mrow></md>.
+So the Taylor series for <m>g</m> based at <m>t = 0</m> is
+<md>
+	<mrow> \amp g(0) + g'(0) \, t + \frac{g''(0)}{2} \, t^2 + \frac{g'''(0)}{3!} \, t^3 + \frac{\nthderiv[4]{g}(0)}{4!} \, t^4 + \dotsb </mrow>
+	<mrow> = \;\; \amp f'(0) + f''(0) \, t + \frac{f'''(0)}{2} \, t^2 + \frac{\nthderiv[4]{f}(0)}{3!} \, t^3 + \frac{\nthderiv[5]{f}(0)}{4!} \, t^4 + \dotsb </mrow>
+	<mrow> = \;\; \amp f'(0) + \frac{f''(0)}{2} \cdot (2 t) + \frac{f'''(0)}{3!} \cdot (3 t^2) + \frac{\nthderiv[4]{f}(0)}{4!} \cdot (4 t^3) + \frac{\nthderiv[5]{f}(0)}{5!} \cdot \bbrac{5 t^4} + \dotsb </mrow>
+</md>.
+Again, let's line this Taylor series up with the one for f.
+<me>
+	\begin{array}{cccccccccc}
+		f\colon \amp f(0) \amp + \amp f'(0) \, t \amp + \amp {\displaystyle \frac{f''(0)}{2} \, t^2} \amp + \amp {\displaystyle \frac{f'''(0)}{3!} \, t^3} \amp + \amp \dotsb
+		\\
+		g\colon \amp \amp \amp f'(0) \amp + \amp {\displaystyle \frac{f''(0)}{2} \cdot (2 t)} \amp + \amp {\displaystyle \frac{f'''(0)}{3!} \cdot (3 t^2)} \amp + \amp \dotsb
+	\end{array}
+</me>
+This time it appears that each term of the series for <m>g = f'</m> can be obtained by <term>term-by-term differentiation</term> of the series for <m>f</m>
+(see <xref ref="pattern-deriv-power" />).
+</p>
+
+<p>
+It's important to note at this point that the Taylor series for <m>F</m> and <m>f'</m> above don't necessarily converge to those respective functions for all <m>t</m>.
+We'll address questions of convergence in <xref ref="subsection-power-series-convergence-int-diff-pow-series" />,
+but for now the next two examples give us hope that term-by-term operations yield the desired results.
+</p>
+
+<example xml:id="example-power-series-int-diff-exp">
+	<title>Integrating/differentiating the exponential Taylor series</title>
+
+	<p>
+	From <xref ref="example-power-series-natural-exp-taylor-remainder" /> we know that for all <m>t</m> we have
+	<md><mrow xml:id="equation-power-series-exp-taylor" tag="star"> e^t = 1 + t + \frac{t^2}{2} + \frac{t^3}{3!} + \frac{t^4}{4!} + \dotsb </mrow></md>.
+	</p>
+
+	<p>
+	Applying term-by-term integration to this series we obtain
+	<me> t + \frac{t^2}{2} + \frac{t^3 / 3}{2} + \frac{t^4 / 4}{3!} + \frac{t^5 / 5}{4!} + \dotsb </me>.
+	However, consolidating denominators in each term,
+	we see that this series is identical to <xref ref="equation-power-series-exp-taylor" />,
+	except that it is missing the constant term.
+	So term-by-term integration has resulted in a power series that converges to <m>e^t - 1</m>,
+	which conveniently agrees with <xref ref="pattern-exp-integral" />.
+	</p>
+
+	<p>
+	Applying term-by-term differentiation to <xref ref="equation-power-series-exp-taylor" /> yields
+	<me> 0 + 1 + \frac{2 t}{2} + \frac{3 t^2}{3!} + \frac{4 t^3}{4!} + \dotsb </me>,
+	which simplifies to the Taylor series for the exponential function,
+	agreeing with <xref ref="pattern-deriv-exp" />.
+	</p>
+
+</example>
+
+<example xml:id="example-power-series-int-diff-cos">
+	<title>Integrating/differentiating the Taylor series for cosine</title>
+
+	<p>
+	From <xref ref="exercise-power-series-cosine-taylor-remainder" /> we know that for all <m>t</m> we have
+	<me> \cos(t) = \sum_{m = 0}^{\infty} \frac{{(-1)}^m}{(2m)!} \; t^{2 m} </me>.
+	</p>
+
+	<p>
+	Let's integrate each term of this series:
+	<md>
+		<mrow>
+			\sum_{m = 0}^{\infty} \left( \ccmiint{\frac{{(-1)}^m}{(2m)!} \; t^{2 m}}{t} \right)
+			\amp = \sum_{m = 0}^{\infty} \left( \frac{{(-1)}^m}{(2m)!} \; \ccmiint{t^{2 m}}{t} \right)
+		</mrow>
+		<mrow> \amp = \sum_{m = 0}^{\infty} \frac{{(-1)}^m}{(2m)!} \; \frac{t^{2 m + 1}}{2 m + 1} </mrow>
+		<mrow> \amp = \sum_{m = 0}^{\infty} \frac{{(-1)}^m}{(2m)! \cdot (2 m + 1)} \; t^{2 m + 1} </mrow>
+		<mrow> \amp = \sum_{m = 0}^{\infty} \frac{{(-1)}^m}{(2 m + 1)!} \; t^{2 m + 1} </mrow>
+	</md>.
+	If you completed <xref ref="exercise-power-series-taylor-for-sine" />,
+	you will recognized this result as precisely the Taylor series at <m>t = 0</m> for the sine function,
+	conveniently agreeing with <xref ref="pattern-periodic-int-cos" />.
+	</p>
+
+	<p>
+	Now let's differentiate each term of the Taylor series for cosine.
+	Since the first term in the series is a constant whose derivative is <m>0</m>,
+	we will simply shift indices in the term-by-term differentiated series.
+	<md>
+		<mrow>
+			\sum_{m = 0}^{\infty} \opddt \left( \frac{{(-1)}^m}{(2m)!} \; t^{2 m} \right)
+			\amp = \sum_{m = 0}^{\infty} \frac{{(-1)}^m}{(2m)!} \; \ddt{(t^{2 m})}
+		</mrow>
+		<mrow> \amp = \sum_{m = 1}^{\infty} \frac{{(-1)}^m}{(2m)!} \cdot (2 m t^{2 m - 1}) </mrow>
+		<mrow> \amp = \sum_{m = 1}^{\infty} \frac{{(-1)}^m (2 m)}{(2m)!} \; t^{2 m - 1} </mrow>
+		<mrow> \amp = \sum_{m = 1}^{\infty} \frac{{(-1)}^m}{(2 m - 1)!} \; t^{2 m - 1} </mrow>
+	</md>
+	Let's shift the index so that our sum begins at index <m>0</m> by substituting <m>j = m - 1</m>.
+	Under this substitution,
+	<md><mrow> m \amp = j + 1 \text{,} \amp 2 m - 1 \amp = 2 j + 1 \text{,} </mrow></md>
+	and our differentiated sum becomes
+	<md>
+		<mrow>
+			\sum_{m = 1}^{\infty} \frac{{(-1)}^m}{(2 m - 1)!} \; t^{2 m - 1}
+			\amp = \sum_{j = 0}^{\infty} \frac{{(-1)}^{j + 1}}{(2 j + 1)!} \; t^{2 j + 1}
+		</mrow>
+		<mrow> \amp = \sum_{j = 0}^{\infty} \frac{(-1) \cdot {(-1)}^j}{(2 j + 1)!} \; t^{2 j + 1} </mrow>
+		<mrow> \amp = - \sum_{j = 0}^{\infty} \frac{{(-1)}^j}{(2 j + 1)!} \; t^{2 j + 1} </mrow>
+	</md>.
+	Again, this new series is the Taylor series at <m>t = 0</m> for the sine function,
+	except for the extra negative sign out front,
+	and so this result agrees with <xref ref="pattern-deriv-cos" />.
+	</p>
+
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-power-series-convergence-int-diff-pow-series">
+<title>Convergence of integrated/differentiated power series</title>
+
+<p>
+Naturally, questions of convergence arise.
+<ul>
+	<li>
+		For <m>F</m> an antiderivative of <m>f</m>,
+		do the Taylor series for <m>f</m>, <m>F</m>, and <m>f'</m> all have the same interval of convergence?
+	</li>
+	<li> For what values of <m>t</m> does each series converge to the value of the function from which it was created? </li>
+</ul>
+We'll address the question of convergence more generally.
+</p>
+
+<fact xml:id="fact-power-series-diff-int-termwise-converge">
+	<title>Convergence of differentiated/integrated power series</title>
+
+	<statement><p>
+		If the power series <m>\sum a_k t^k</m> has positive (possibly infinite) radius of convergence <m>R</m>,
+		then the power series
+		<md><mrow>
+			\amp \sum_{k = 0}^\infty \frac{a_k}{k + 1} \, t^{k + 1} \text{,} \amp
+			\amp \sum_{k = 1}^\infty k a_k t^{k - 1} \text{,}
+		</mrow></md>
+		obtained from <m>\sum a_k t^k</m> by term-by-term integration and differentiation,
+		respectively,
+		also have radius of convergence <m>R</m>.
+	</p></statement>
+
+	<proof><title>Justification for the differentiated series</title>
+
+		<p>
+		First suppose <m>c</m> lies in <m>0 \lt t \lt R</m>.
+		(A similar argument as to the one provided below can be made for negative <m>c</m>.)
+		We know from <xref ref="fact-power-series-radius" /> that <m>\sum a_k c^k</m> converges absolutely,
+		and in fact so does <m>\sum a_k d^k</m> for any value of <m>d</m> between <m>c</m> and <m>R</m>.
+		Choose such a value of <m>d</m>
+		(for example, <m>d</m> could be the average of <m>c</m> and <m>R</m>).
+		We will compare the absolute convergence of the differentiated series <m>\sum k a_k c^{k - 1}</m> with <m>\sum a_k d^k</m>.
+		</p>
+
+		<p>
+		One may easily verify with the Ratio Test that the series <m>\sum k t^{k - 1}</m> has radius of convergence <m>1</m>.
+		Since <m>c / d \lt 1</m>,
+		the series <m>\sum k {(c/d)}^{k - 1}</m> converges absolutely,
+		and the sequence of terms <m>\bbseq{n {(c/d)}^{n - 1}}</m> must converge to <m>0</m>.
+		Therefore, any constant multiple of this sequence must converge to <m>0</m>.
+		In particular, if we divide each term by <m>d</m>,
+		we have
+		<me> \lrseq{ \frac{n c^{n - 1}}{d^n} } \to 0 </me>.
+		As such,
+		there must exist some tail of this sequence
+		(starting at index <m>N</m>, say)
+		completely contained in the open range <m>(-1, 1)</m>.
+		As both <m>c</m> and <m>d</m> are positive,
+		for all <m>n \ge N</m> we have
+		<md alignment="gather">
+			<mrow> \frac{n c^{n - 1}}{d^n} \lt 1 </mrow>
+			<mrow> n c^{n - 1} \lt d^n </mrow>
+		</md>.
+		We may multiply this inequality by the non-negative value <m>\abs{a_n}</m>,
+		and take absolute value of everything since these are all positive values,
+		to obtain <me> \abs{n a_n c^{n - 1}} \lt \abs{a_n d^n} </me>.
+		This is the comparison we were seeking:
+		since <m>\sum a_k d^k</m> converges absolutely,
+		so must <m>\sum n a_n c^{n - 1}</m>.
+		</p>
+
+		<p>
+		Now suppose <m>c</m> is outside of <m>-R \le t \le R</m>.
+		Again we will assume that <m>c</m> is positive,
+		as a similar argument will work in the case that <m>c</m> is negative.
+		We essentially make a <q>reflected</q> argument of the one above,
+		reflected at <m>R</m>.
+		Again choose <m>d</m> between <m>R</m> and <m>c</m>,
+		which will also lie outside of the radius of convergence of <m>\sum a_k t^k</m>.
+		Then <m>c/d \gt 1</m> and so
+		<me> \lrseq{ n {\left(\frac{c}{d}\right)}^{n - 1} } \to \infty </me>.
+		Any constant multiple of this sequence will also diverge to infinity.
+		In particular,
+		dividing every term by <m>d</m> gives us
+		<me> \lrseq{ n \frac{c^{n - 1}}{d^n} } \to \infty </me>,
+		and so there is some tail of this sequence where the terms become and stay greater than <m>1</m>.
+		Performing similar manipulations as in the convergent case above,
+		we may say that there is an <m>N</m> where <me> \abs{n a_n c^{n - 1}} \gt \abs{a_n d^n} </me> for all <m>n \ge N</m>,
+		hence we conclude that <m>\sum n a_n c^{n - 1}</m> diverges absolutely by comparison with <m>\sum a_k d^k</m>.
+		</p>
+
+	</proof>
+
+	<proof><title>Justification for the integrated series</title>
+
+		<p>
+		First suppose <m>c</m> lies in <m>-R \lt t \lt R</m>.
+		We know from <xref ref="fact-power-series-radius" /> that <m>\sum a_k c^k</m> converges absolutely,
+		and clearly <me> \abs{\frac{a_n c^n}{n + 1}} \lt \abs{a_n c^n} </me>
+		for all <m>n</m>,
+		so that <m>\sum \abs{a_k c^k / (k + 1)}</m> converges by comparison.
+		But then so does <me> \abs{c} \cdot \sum_{k = 0}^\infty \abs{\frac{a_k}{k + 1} \, c^k} = \sum_{k = 0}^\infty \abs{\frac{a_k}{k + 1} \, c^{k + 1}}</me>.
+		Therefore, <m>\sum a_k c^{k + 1} / (k + 1)</m> converges absolutely.
+		</p>
+
+		<p>
+		Now consider a value of <m>c</m> outside of <m>-R \le t \le R</m>.
+		If <m>\sum a_k c^{k + 1} / (k + 1)</m> converged,
+		then <m>c</m> would be within the interval of convergence of the series <m>\sum a_k x^{k + 1} / (k + 1)</m>.
+		If we differentiate this series term-by-term,
+		the resulting series would have the same radius of convergence.
+		But differentiating that series term-by-term yields
+		<me> \sum_{k = 1}^\infty a_k \cdot \frac{(k + 1) x^k}{k + 1} = \sum_{k = 1}^\infty a_k x^k </me>,
+		which is simply a tail of the original series <m>\sum a_k x^k</m>,
+		and hence has the same radius of convergence <m>R</m>.
+		Since we assumed <m>c</m> to be outside of this radius of convergence,
+		we have a contradiction,
+		and we conclude that <m>\sum a_k c^{k + 1} / (k + 1)</m> must diverge.
+		</p>
+
+	</proof>
+
+</fact>
+
+<p>
+So integrated/differentiated power series converge on the same interval that the original power series does.
+But to what do they converge?
+Thankfully, the results of
+<xref ref="example-power-series-int-diff-exp" />
+and
+<xref ref="example-power-series-int-diff-cos" />
+are not coincidences or special cases.
+But justifying this is beyond the scope of this text.
+<!-- TODO if uniform convergence is ever added can reconsider -->
+</p>
+
+<theorem xml:id="theorem-power-series-deriv-antideriv-pow-series">
+	<title>Derivatives/antiderivatives of power series</title>
+
+	<p>
+	Suppose the power series <m>\sum a_k t^k</m> has positive (possibly infinite) radius of convergence <m>R</m>,
+	and let <m>f(t)</m> be the function defined by this power series on its (open) interval of convergence <m>-R \lt t \lt R</m>.
+	<ol>
+
+		<li xml:id="theorem-power-series-deriv-antideriv-pow-series-anti">
+			The function <m>f</m> is continuous on <m>-R \lt t \lt R</m>,
+			and the term-by-term-integrated series
+			<me> F(t) = \sum_{k = 0}^\infty \left( \ccmiint{a_k t^k}{t} \right) = \sum_{k = 0}^\infty \frac{a_k}{k + 1} \; t^{k + 1} </me>
+			is an antiderivative for <m>f</m> on that domain.
+		</li>
+
+		<li xml:id="theorem-power-series-deriv-antideriv-pow-series-deriv">
+			The function <m>f</m> is differentiable on <m>-R \lt t \lt R</m>,
+			and its derivative is equal to the function determined by the term-by-term-differentiated power series
+			<me> f'(t) = \sum_{k = 0}^\infty \opddt (a_k t^k) = \sum_{k = 1}^\infty k a_k t^{k - 1} </me>.
+		</li>
+
+	</ol>
+
+	</p>
+
+</theorem>
+
+<p>
+While the justification for <xref ref="theorem-power-series-deriv-antideriv-pow-series-deriv" text="type-local">Statement</xref>
+of <xref ref="theorem-power-series-deriv-antideriv-pow-series" /> is beyond the scope of this text,
+<!-- TODO if uniform convergence is added then reword -->
+it can be used to justify <xref ref="theorem-power-series-deriv-antideriv-pow-series-anti" text="type-local">Statement</xref>.
+Every differentiable function is continuous
+(<xref ref="pattern-avg-rate-diff-implies-cont" />),
+and we can use term-by-term differentiation of the power series expression for <m>F(t)</m> to arrive back at <m>f</m>,
+demonstrating that <m>F'(t) = f(t)</m>.
+</p>
+
+<p> We can also extend <xref ref="theorem-power-series-deriv-antideriv-pow-series" /> to higher derivatives. </p>
+
+<corollary xml:id="corollary-power-series-higher-deriv">
+	<p>
+	If <m>f(t) = \sum a_k t^k</m> on <m>-R \lt t \lt R</m>,
+	then <me> \nthderiv{f}(t) = \sum_{k = 0}^\infty \opnthddt (a_k t^k) = \sum_{k = n}^\infty \frac{k!}{(k - n)!} \; a_k t^{k - n} </me>.
+	</p>
+</corollary>
+
+</subsection>
+
+<subsection>
+<title>Using differentiation/integration to compute power series</title>
+
+<p>
+Instead of computing higher and higher derivatives of a function in order to compute its Taylor series,
+an alternative is to use term-by-term integration of a known power series representation for a function to obtain a power series representation for its antiderivative or its derivatives.
+</p>
+
+<example xml:id="example-power-series-deriv-geom">
+	<title>Derivative of the geometric series</title>
+	<p>
+	We know that the geometric series <m>\sum r^k</m> converges to <m>1 / (1 - r)</m> for <m>-1 \lt r \lt 1</m>
+	(<xref ref="pattern-series-geometric" />).
+	Trading <m>r</m> for our preferred variable <m>t</m>,
+	we get a power series representation of the function <m>f(t) = 1 / (1 - t)</m> with radius of convergence <m>R = 1</m>:
+	<me> \frac{1}{1 - t} = 1 + t + t^2 + t^3 + \dotsb </me>.
+	Now <me> \opddt\left( \frac{1}{1 - t} \right) = \frac{1}{{(1 - t)}^2} </me>,
+	so we may differentiate the series for <m>f</m> term-by-term to obtain
+	<me> \frac{1}{{(1 - t)}^2} = 1 + 2 t + 3 t^2 + 4 t^3 + \dotsb </me>,
+	valid on domain <m>-1 \lt t \lt 1</m>.
+	</p>
+</example>
+
+<exercise><p>
+	Use <xref ref="corollary-power-series-higher-deriv" /> to continue the pattern of <xref ref="example-power-series-deriv-geom" />,
+	obtaining a general power series representation for every power <m>1 / {(1 - t)}^{m + 1}</m>, <m>m \ge 0</m>.
+</p></exercise>
+
+<example>
+	<title>Integral of the geometric series</title>
+	<p>
+	We know that <me> \sum_{k = 0}^\infty t^k = \frac{1}{1 - t} \text{,} \qquad -1 \lt t \lt 1 \text{.} </me>
+	Integrating both sides,
+	we obtain <me> \sum_{k = 0}^\infty \frac{t^{k + 1}}{k + 1} = - \ln(1 - t) + C </me>.
+	(On domain <m>-1 \lt t \lt 1</m> there is no need to include absolute value brackets inside the logarithm.)
+	Both the infinite series and the logarithm evaluate to <m>0</m> at <m>t = 0</m>,
+	so we conclude that <m>C = 0</m>.
+	Shifting indices in the series using the substitution <m>m = k + 1</m>,
+	we arrive at <me> \sum_{m = 1}^\infty \frac{t^m}{m} = - \ln(1 - t) </me>.
+	In particular,
+	for <m>t = 1/2</m> we have
+	<me> \sum_{m = 1}^\infty \frac{{(1/2)}^m}{m} = - \ln\left(\frac{1}{2}\right) = \ln(2) </me>.
+	This provides us with an interesting representation of <m>\ln(2)</m> as an infinite series:
+	<me> \ln(2) = \sum_{m = 1}^\infty \frac{1}{m 2^m} </me>.
+	</p>
+</example>
+
+<example>
+	<title>Integral of the natural logarithm</title>
+
+	<p>
+	First, we know that <m>\ln'(t) = 1 / t</m>,
+	and <me> \frac{1}{t} = \frac{1}{1 - r} \quad\text{for}\quad r = 1 - t </me>.
+	So we can again use the <xref ref="pattern-series-geometric" text="title" /> to obtain a power series representation:
+	<me>
+		\frac{1}{t} = \frac{1}{1 - r}
+		= \sum_{k = 0}^\infty r^k
+		= \sum_{k = 0}^\infty {(1 - t)}^k
+		= \sum_{k = 0}^\infty {(-1)}^k {(t - 1)}^k
+	</me>.
+	Note that this power series expression converges for <m>-1 \lt r \lt 1</m>,
+	which translates into <m>0 \lt t \lt 2</m>.
+	</p>
+
+	<p>
+	Now integrate both sides of <me> \frac{1}{t} = \sum_{k = 0}^\infty {(-1)}^k {(t - 1)}^k </me>
+	to arrive at
+	<me> \ln(t) + C = \sum_{k = 0}^\infty \frac{{(-1)}^k}{k + 1} {(t - 1)}^{k + 1} </me>.
+	Both <m>\ln(t)</m> and the infinite series evaluation to <m>0</m> at <m>t = 1</m>,
+	so we conclude that <m>C = 0</m>.
+	Shifting indices in the series using the substitution <m>m = k + 1</m>,
+	we arrive at
+	<md><mrow xml:id="equation-power-series-ln-taylor" tag="dagger">
+		\ln(t) = \sum_{m = 1}^\infty \frac{{(-1)}^{m - 1}}{m} {(t - 1)}^m
+	</mrow></md>.
+	</p>
+
+	<aside><p>
+		Compare the power series representation for <m>\ln(t)</m> obtained here with the Maclaurin series for <m>\ln(1 + t)</m> obtained in
+		<xref ref="example-power-series-shifted-logarithm" />.
+	</p></aside>
+
+	<p>
+	Finally, we will integrate term-by-term once again to obtain an antiderivative of <m>\ln(t)</m>:
+	<md>
+		<mrow>
+			\ccmiint{\ln(t)}{t}
+			\amp = \sum_{m = 1}^\infty \left( \ccmiint{\frac{{(-1)}^{m - 1}}{m} {(t - 1)}^m}{t} \right)
+		</mrow>
+		<mrow> \amp = \sum_{m = 1}^\infty \left( \frac{{(-1)}^{m - 1}}{m} \ccmiint{{(t - 1)}^m}{t} \right) </mrow>
+		<mrow> \amp = \sum_{m = 1}^\infty \frac{{(-1)}^{m - 1}}{m} \frac{{(t - 1)}^{m + 1}}{m + 1} </mrow>
+		<mrow> \amp = \sum_{m = 1}^\infty \frac{{(-1)}^{m - 1}}{m (m + 1)} \; {(t - 1)}^{m + 1} </mrow>
+	</md>.
+	Using <me> \frac{1}{m (m + 1)} = \frac{1}{m} - \frac{1}{m + 1} </me> we can rearrange:
+	<md>
+		<mrow>
+			\ccmiint{\ln(t)}{t}
+			\amp = \sum_{m = 1}^\infty \left( \frac{{(-1)}^{m - 1}}{m} - \frac{{(-1)}^{m - 1}}{(m + 1)} \right) \; {(t - 1)}^{m + 1}
+		</mrow>
+		<mrow> \amp = \sum_{m = 1}^\infty \left( \frac{{(-1)}^{m - 1}}{m} + \frac{{(-1)}^m}{(m + 1)} \right) \; {(t - 1)}^{m + 1} </mrow>
+	</md>.
+	We can then split this into two series:
+	<md><mrow xml:id="equation-power-series-int-ln-taylor" tag="ddagger">
+		\ccmiint{\ln(t)}{t}
+		= \sum_{m = 1}^\infty \frac{{(-1)}^{m - 1}}{m} \; {(t - 1)}^{m + 1}
+		+ \sum_{m = 1}^\infty \frac{{(-1)}^m}{(m + 1)} \; {(t - 1)}^{m + 1}
+	</mrow></md>.
+	Now, the <em>first</em> series in
+	<xref ref="equation-power-series-int-ln-taylor" />,
+	resembles the <em>second</em> power series representation for <m>\ln(t)</m> in
+	<xref ref="equation-power-series-ln-taylor" />:
+	<me>
+		\sum_{m = 1}^\infty \frac{{(-1)}^{m - 1}}{m} \; {(t - 1)}^{m + 1}
+		= (t - 1) \sum_{m = 1}^\infty \frac{{(-1)}^{m - 1}}{m} \; {(t - 1)}^m
+		= (t - 1) \ln(t)
+	</me>.
+	And the <em>second</em> series in
+	<xref ref="equation-power-series-int-ln-taylor" />,
+	resembles the <em>first</em> power series representation for <m>\ln(t)</m> in
+	<xref ref="equation-power-series-ln-taylor" />:
+	<md>
+		<mrow>
+			\sum_{m = 1}^\infty \frac{{(-1)}^m}{(m + 1)} \; {(t - 1)}^{m + 1}
+			\amp = \sum_{k = 1}^\infty \frac{{(-1)}^k}{(k + 1)} \; {(t - 1)}^{k + 1}
+		</mrow>
+		<mrow> \amp = -(t - 1) + (t - 1) + \sum_{k = 1}^\infty \frac{{(-1)}^k}{(k + 1)} \; {(t - 1)}^{k + 1} </mrow>
+		<mrow> \amp = -(t - 1) + \frac{{(-1)}^0}{(0 + 1)} \; {(t - 1)}^{0 + 1} + \sum_{k = 1}^\infty \frac{{(-1)}^k}{(k + 1)} \; {(t - 1)}^{k + 1} </mrow>
+		<mrow> \amp = -(t - 1) + \sum_{k = 0}^\infty \frac{{(-1)}^k}{(k + 1)} \; {(t - 1)}^{k + 1} </mrow>
+		<mrow> \amp = 1 - t + \ln(t) </mrow>
+	</md>.
+	Adding these back together yields
+	<me>
+		\ccmiint{\ln(t)}{t}
+		= (t - 1) \ln(t) + 1 - t + \ln(t)
+		= t \ln(t) - t + 1
+	</me>.
+	For an indefinite integral we should really have an <em>arbitrary</em> constant of integration,
+	so we conclude that
+	<me> \ccmiint{\ln(t)}{t} = t \ln(t) - t + C </me>.
+	</p>
+
+	<aside><p>
+		If you know the method of integration called <term>integration by parts</term>,
+		then you likely already know that our result here for the integral of <m>\ln(t)</m> matches what can be obtained by that method more simply.
+	</p></aside>
+
+</example>
+
+<p> We can also use term-by-term integration to help estimate definite integral values. </p>
+
+<example>
+	<title> Estimating a definite integral with partial sums </title>
+
+	<p>
+	Suppose we want to estimate the definite integral below to within <m>\pm {10}^{-10}</m>.
+	<me> \ccmint{0}{1/2}{\frac{1}{1 + t^7}}{t} </me>
+	Recall that we can use <em>any</em> choice of antiderivative for the integrand function to compute a definite integral
+	(<xref ref="pattern-fund-thm-def-int-by-antideriv" />).
+	In particular,
+	we can create an antiderivative through term-by-term integration of a power series representation of the integrand function.
+	Conveniently, our integrand can be interpreted as the sum of a geometric series with <m>r = -t^7</m>:
+	<md alignment="gather">
+		<mrow> f(t) = \frac{1}{1 + t^7} = \frac{1}{1 - (-t^7)} = \sum_{k = 0}^\infty {(-t^7)}^k = \sum_{k = 0}^\infty {(-1)}^k t^{7 k} </mrow>
+		<mrow> F(t) = \ccmiint{f(t)}{t} = \sum_{k = 0}^\infty {(-1)}^k \frac{t^{7 k + 1}}{7 k + 1} </mrow>
+	</md>
+	Our power series representation of <m>f</m> is valid for <m>-1 \lt r \lt 1</m>,
+	which for <m>r = -t^7</m> is equivalent to the domain <m>-1 \lt t \lt 1</m> and contains our domain of integration.
+	And by <xref ref="theorem-power-series-deriv-antideriv-pow-series" />,
+	our antiderivative power series is also valid on that domain.
+	</p>
+
+	<p>
+	We have <me> \ccmint{0}{1/2}{\frac{1}{1 + t^7}}{t} = F(1/2) - F(0) </me>,
+	but every term in our power series for <m>F</m> involves a non-trivial power of <m>t</m>.
+	So there is no constant term and <m>F(0) = 0</m>,
+	which means that we only need to estimate <me> F(1/2) = \sum_{k = 0}^\infty \frac{{(-1)}^k}{(7 k + 1) 2^{7 k + 1}} </me>.
+	This is an alternating series with terms whose absolute value are decreasing,
+	so we may apply <xref ref="fact-series-estimate-alternating-sum" /> to estimate
+	<me> F(1/2) \approx \left( \sum_{k = 0}^n \frac{{(-1)}^k}{(7 k + 1) 2^{7 k + 1}} \right) \pm \frac{1}{(7 n + 8) 2^{7 n + 8}} </me>,
+	where the error bound is the magnitude of the <m>\nth[(n + 1)]</m> term in the sum.
+	What is the smallest value of <m>n</m> so that this error bound is less than <m>{10}^{-10}</m>?
+	Then denominator is first larger than <m>{10}^{10}</m> for <m>n = 3</m>,
+	so we only need the first four terms of the sum (indices <m>k = 0</m> to <m>k = 3</m>, inclusive):
+	<me>
+		\ccmint{0}{1/2}{\frac{1}{1 + t^7}}{t}
+		= F(1/2)
+		\approx
+		\frac{1}{2}
+		- \frac{1}{8 \cdot 2^8}
+		+ \frac{1}{15 \cdot 2^{15}}
+		- \frac{1}{22 \cdot 2^{22}}
+	</me>.
+	</p>
+
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-power-series-abel">
+<title>Convergence at endpoints: Abel's Theorem</title>
+
+<example xml:id="example-power-series-endpoints-of-shifted-logarithm">
+	<title>Endpoint convergence of a shifted logarithm</title>
+
+	<p>
+	Suppose we would like to have a power series representation of the shifted logarithm function <m>f(t) = \ln(1 + t)</m>.
+	We have <m>f'(t) = 1/(1 + t)</m>,
+	and we may interpret this as the sum of a geometric series with <m>r = -t</m>:
+	<me> f'(t) = \frac{1}{1 - (-t)} = \sum_{k = 0}^\infty {(-t)}^k = 1 - t + t^2 - t^3 + \dotsb </me>.
+	This power series representation is valid for <m>-1 \lt r \lt 1</m>,
+	which for <m>r = -t</m> is equivalent to the domain <m>-1 \lt t \lt 1</m>.
+	Integrating this power series term-by-term will result in an antiderivative of <m>f'(t)</m>,
+	which must then be a vertical shift of <m>f(t)</m>:
+	<me>
+		f(t) + C
+		= \sum_{k = 0}^\infty \left( \ccmiint{{(-1)}^k t^k}{t} \right)
+		= \sum_{k = 0}^\infty \frac{{(-1)}^k t^{k + 1}}{k + 1}
+		= \sum_{m = 1}^\infty \frac{{(-1)}^{m - 1} t^m}{m}
+	</me>,
+	for some constant <m>C</m>.
+	We have <m>f(0) = 0</m>,
+	and the power series has no constant term,
+	so we must have <m>C = 0</m> and
+	<me> \ln(1 + t) = \sum_{m = 1}^\infty \frac{{(-1)}^{m - 1}}{m} \; t^m </me>.
+	(Compare with the Taylor series for this function that we computed in <xref ref="example-power-series-shifted-logarithm" />.)
+	</p>
+
+	<p>
+	Since our series for <m>f'(t)</m> converges on <m>-1 \lt t \lt 1</m>,
+	<xref ref="theorem-power-series-deriv-antideriv-pow-series" /> implies that our series for <m>\ln(1 + t)</m> converges on that same domain,
+	and for each value of <m>t</m> in that domain the series converges to the value of <m>\ln(t)</m>.
+	For <m>t = -1</m> the series is a harmonic series,
+	and hence diverges,
+	which is to be expected since <m>f(-1)</m> is undefined.
+	For <m>t = 1</m> the series is an <em>alternating</em> harmonic series,
+	which we know converges.
+	But what does it converge to?
+	We hope that it converges to <m>f(1) = ln(2)</m>.
+	</p>
+
+</example>
+
+<theorem xml:id="theorem-power-series-abel">
+	<title>Abel's Theorem</title>
+	<p>
+	Suppose <m>f</m> is a function defined on domain <m>-R \le t \le R</m>,
+	and <m>\sum a_k t^k</m> is a power series with radius of convergence <m>R</m> that converges to the value of <m>f(t)</m> for each <m>t</m> in the domain <m>-R \lt t \lt R</m>.
+	<ul>
+
+		<li>
+			If <m>f</m> is continuous from the left at <m>t = R</m> and <m>\sum a_k R^k</m> converges,
+			then it converges to <m>f(R)</m>.
+		</li>
+
+		<li>
+			If <m>f</m> is continuous from the right at <m>t = -R</m> and <m>\sum a_k (-R)^k</m> converges,
+			then it converges to <m>f(-R)</m>.
+		</li>
+
+	</ul>
+	</p>
+</theorem>
+
+<example>
+	<title>Abel's Theorem for a shifted logarithm</title>
+	<p>
+	Returning to <xref ref="example-power-series-endpoints-of-shifted-logarithm" />,
+	the function <m>f(t) = \ln(1 + t)</m> is continuous on its entire domain <m>t \gt -1</m>,
+	so we may say that it is continuous from the left at <m>t = 1</m>.
+	Abel's Theorem lets us conclude that the alternating harmonic series <m>\sum {(-1)}^{k - 1} / k</m> converges to <m>\ln(2)</m>,
+	as claimed in <xref ref="example-series-reordering-terms-different-results" />.
+	</p>
+</example>
+
+</subsection>
+
+</section>
+
+<section>
+<title>Power series versus Taylor series</title>
+
+<p>
+In the examples in this chapter we have often used known sum of the <xref ref="pattern-series-geometric" text="title" /> to quickly obtain a power series representation of a function.
+How does such a power series compare to the Taylor series based at <m>t = 0</m>?
+Is it possible to have two different power series representations for a given function,
+both <q>based</q> at the same point?
+</p>
+
+<example xml:id="example-power-series-taylor-of-geometric">
+	<title>Compare the geometric series with the Taylor series of its sum</title>
+	<p>
+	We know <me> \frac{1}{1 - t} = \sum_{k = 0}^\infty t^k \text{,} \qquad -1 \lt t \lt 1 \text{.} </me>
+	Write <m>f(t) = 1 / (1 - t)</m>.
+	Try computing the first four derivatives of <m>f</m>;
+	you should observe the pattern <me> \nthderiv{f}(t) = \frac{n!}{{(1 - t)}^{n + 1}} </me>,
+	from which we obtain <m>\nthderiv{f}(0) = n!</m>.
+	Using this in the Taylor series formula,
+	we have
+	<md>
+		<mrow> \frac{1}{1 - t} \amp = \sum_{k = 0}^\infty \frac{\nthderiv[k]{f}(0)}{k!} \; t^k </mrow>
+		<mrow> \amp = \sum_{k = 0}^\infty \frac{k!}{k!} \; t^k </mrow>
+		<mrow> \amp = \sum_{k = 0}^\infty t^k </mrow>
+	</md>,
+	which is simply the geometric series again.
+	</p>
+</example>
+
+<exercise>
+	<title>Taylor series of the reflected geometric series</title>
+	<p>
+	Perform the same analysis as in <xref ref="example-power-series-taylor-of-geometric" /> for the function <me> f(t) = \frac{1}{1 + t} = \frac{1}{1 - (-t)} </me>.
+	On the one hand,
+	obtain a power series representation for <m>f</m> by interpreting its formula as the sum of a geometric series,
+	and on the other hand compute the Taylor series for <m>f</m> based at <m>t = 0</m>.
+	Compare.
+	</p>
+</exercise>
+
+<fact>
+	<title>Taylor series for a power series function</title>
+
+	<statement><p>
+		Suppose <m>\sum a_k t^k</m> has positive (possibly infinite) radius of convergence <m>R</m>.
+		If <m>f</m> represents the function defined by the power series,
+		<me> f(t) = \sum_{k = 0}^\infty a_k t^k \text{,} \qquad -R \lt t \lt R </me>,
+		then the Taylor series for <m>f</m> based at <m>t = 0</m> is <m>\sum a_k t^k</m>.
+	</p></statement>
+
+	<proof>
+		<title>Idea of justification</title>
+		<p> To compute the Taylor series, apply the differentiation formula for power series in <xref ref="corollary-power-series-higher-deriv" />. </p>
+	</proof>
+
+</fact>
+
+<corollary>
+	<title>Taylor series for a derivative/antiderivative function</title>
+	<p><ol>
+
+		<li>
+			For a continuous function <m>f</m>,
+			one may obtain the Taylor series for an antiderivative <m>F(t)</m> by term-by-term integration of the Taylor series for <m>f</m>
+			(with the possible addition of a vertical shift).
+		</li>
+
+		<li>
+			For differentiable function <m>f</m>,
+			one may obtain the Taylor series for <m>f'(t)</m> by term-by-term differentiation of the Taylor series for <m>f</m>.
+		</li>
+
+	</ol></p>
+</corollary>
+
+<example>
+	<title>Determining the Taylor series for an antiderivative of a continuous function</title>
+	<p>
+	From the <xref ref="theorem-fund-thm" text="title" />,
+	we may conclude that every continuous function has an antiderivative.
+	(See <xref ref="fact-fund-thm-continuous-has-antideriv" />.)
+	For example,
+	the continuous function <m>f(t) = e^{t^2}</m> must have an antiderivative,
+	but you are unlikely to guess a formula for it without using an integral sign.
+	However, if we are willing to use an integral sign,
+	we can construct an antiderivative of <m>f</m>:
+	<me> F(t) = \ccmint{0}{t}{e^{u^2}}{u} </me>.
+	What is the Taylor series for <m>F</m>?
+	We know that the Taylor series for the natural exponential function is <m>\exp(t) = \sum t^k / k!</m>,
+	with infinite radius of convergence.
+	(See <xref ref="example-power-series-exp-taylor" />.)
+	Substituting <m>t^2</m> into this series yields <m>e^{t^2} = \sum t^{2 k} / k!</m>,
+	and by integrating we obtain <me> \ccmiint{e^{t^2}}{t} = C + \sum_{k = 0}^\infty \frac{t^{2 k + 1}}{k! (2 k + 1)} </me>,
+	where <m>C</m> is an arbitrary constant of integration.
+	The specific antiderivative <m>F(t)</m> must be one of the infinite family of antiderivatives above,
+	and from <m>F(0) = 0</m> we conclude that it is the antiderivative where <m>C = 0</m>:
+	<me> \ccmint{0}{t}{e^{u^2}}{u} = \sum_{k = 0}^\infty \frac{t^{2 k + 1}}{k! (2 k + 1)} </me>.
+	As we know that integrating a power series does not affect the radius of convergence,
+	this power series representation of <m>F</m> is valid for all <m>t</m>.
+	</p>
+</example>
+
+</section>
+
+
+<!-- TODO note about power series with (t-c)^k cannot be converted into power series with just t^k ? -->
+
+<!-- <xi:include href="./TODO.d/activities.ptx" />
+<xi:include href="./TODO.d/exercises.ptx" /> -->
+
+</chapter>

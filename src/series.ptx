@@ -191,6 +191,7 @@ But sometimes they do not.
 	It is possible to demonstrate that the <term>alternating harmonic series</term>
 	<me> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1}}{k} = 1 + \left(- \frac{1}{2}\right) + \frac{1}{3} + \left(-\frac{1}{4}\right) + \dotsb </me>
 	converges to <m>\ln(2)</m>.
+	(See <xref ref="subsection-power-series-abel" />.)
 	In the Sage cell below you can investigate the behaviour of the partial sums numerically.
 	Try increasing the partial sum upper bound value <m>n</m> to see how the partial sum values appear to approach <m>\ln(2)</m>.
 	</p>

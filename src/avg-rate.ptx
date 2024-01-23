@@ -1337,6 +1337,20 @@ since at such points we would not be able to form either the forward or backward
 	</p>
 </warning>
 
+<p>
+Considering <xref ref="pattern-avg-rate-discont-implies-not-diff" /> in reverse,
+if a function is differentiable at a particular value of <m>t</m>,
+then it must be continuous there,
+since otherwise <xref ref="pattern-avg-rate-discont-implies-not-diff" /> would imply that it wouldn't have been differentiable in the first place.
+</p>
+
+<identity xml:id="pattern-avg-rate-diff-implies-cont">
+	<title>Differentiable implies continuous</title>
+	<p>
+	If a function is differentiable at some value of <m>t</m>,
+	then it must be continuous there.
+	</p>
+</identity>
 
 </conclusion>
 

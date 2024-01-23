@@ -770,14 +770,14 @@ we should set
 		<li>
 			If <m>f</m> is <m>n</m>-times differentiable at <m>t = 0</m>,
 			then the polynomial
-			<me> M_n(t) = \sum_{k = 0}^n \frac{\nthderiv[k]{f}(0)}{k!} \; t^k </me>
+			<me> \nthmaclaurin (t) = \sum_{k = 0}^n \frac{\nthderiv[k]{f}(0)}{k!} \; t^k </me>
 			approximates the function <m>f(t)</m> on small domains containing <m>t = 0</m>.
 			This polynomial is called the <term>Maclaurin polynomial of degree <m>n</m></term> for <m>f</m>.
 		</li>
 		<li>
 			If <m>f</m> is <m>n</m>-times differentiable at <m>t = t^\ast</m>,
 			then the polynomial
-			<me> T_{n,t^\ast}(t) = \sum_{k = 0}^n \frac{\nthderiv[k]{f}(t^\ast)}{k!} \; (t - t^\ast)^k </me>
+			<me> \nthtaylor{t^\ast}(t) = \sum_{k = 0}^n \frac{\nthderiv[k]{f}(t^\ast)}{k!} \; (t - t^\ast)^k </me>
 			approximates the function <m>f(t)</m> on small domains containing <m>t = t^\ast</m>.
 			This polynomial is called the <term>Taylor polynomial of degree <m>n</m></term> for <m>f</m>.
 		</li>
@@ -786,7 +786,7 @@ we should set
 
 <remark><p>
 	Notice that a Maclaurin polynomial is just a Taylor polynomial with <m>t^\ast = 0</m>:
-	<me> M_n(t) = T_{n,0}(t) </me>.
+	<me> \nthmaclaurin (t) = \nthtaylor{0}(t) </me>.
 	Also notice that our previous linear and quadratic approximation formulas are just Maclaurin/Taylor polynomials of degree 1 and 2, respectively.
 	Finally, to be able to consolidate into summation notation,
 	we have adopted the convention that the <q>zeroth</q> derivative of a function is just the function itself:
@@ -818,10 +818,10 @@ we should set
 	After this,
 	the higher derivative values of <m>\cos(t)</m> repeat these four values.
 	So only the <em>even</em>-degree terms are present in the Maclaurin polynomial:
-	<me> M_n(t) = \sum_{\substack{k = 0 \\ k \text{ even}}}^n \frac{{(-1)}^{k/2}}{k!} \; t^k </me>.
+	<me> \nthmaclaurin (t) = \sum_{\substack{k = 0 \\ k \text{ even}}}^n \frac{{(-1)}^{k/2}}{k!} \; t^k </me>.
 	In this case,
 	it is a little cleaner to replace our always-even index variable with the substitution <m>k = 2 m</m>:
-	<me> M_n(t) = \sum_{m = 0}^{\floor{n/2}} \frac{{(-1)}^m}{(2m)!} \; t^{2 m} </me>.
+	<me> \nthmaclaurin (t) = \sum_{m = 0}^{\floor{n/2}} \frac{{(-1)}^m}{(2m)!} \; t^{2 m} </me>.
 	Notice that in both versions,
 	in case that <m>n</m> is odd,
 	then the final term will involve <m>t^{n - 1}</m>,
@@ -834,14 +834,14 @@ we should set
 	<title>Maclaurin approximation of <m>\sin(t)</m></title>
 	<p>
 	Perform a similar analysis as in <xref ref="example-poly-approx-maclaurin-cos" />
-	to create the Maclaurin polynomial <m>M_n(t)</m> for <m>\sin(t)</m>.
+	to create the Maclaurin polynomial <m>\nthmaclaurin (t)</m> for <m>\sin(t)</m>.
 	You should see a similar alternating pattern to the coefficients.
 	</p>
 </exercise>
 
 <exercise xml:id="exercise-poly-approx-maclaurin-exp">
 	<title>Maclaurin approximation of the natural exponential function</title>
-	<p> Use the fact that <me> \ddt{(e^t)} = e^t </me> to create the Maclaurin polynomial <m>M_n(t)</m> for the exponential function <m>\exp(t)</m>. </p>
+	<p> Use the fact that <me> \ddt{(e^t)} = e^t </me> to create the Maclaurin polynomial <m>\nthmaclaurin (t)</m> for the exponential function <m>\exp(t)</m>. </p>
 </exercise>
 
 <example xml:id="example-poly-approx-logarithm-at-1">
@@ -875,7 +875,7 @@ we should set
 	Substituting the base point <m>t = 1</m> into the derivative pattern above and combining with the constant term,
 	we have
 	<md>
-		<mrow> T_{n,1}(t) \amp = \ln(1) + \sum_{k = 1}^n \frac{{(-1)}^{k - 1} (k - 1)!}{k!} \; (t - 1)^k </mrow>
+		<mrow> \nthtaylor{1}(t) \amp = \ln(1) + \sum_{k = 1}^n \frac{{(-1)}^{k - 1} (k - 1)!}{k!} \; (t - 1)^k </mrow>
 		<mrow> \amp = \sum_{k = 1}^n \frac{{(-1)}^{k - 1}}{k} \; (t - 1)^k </mrow>
 	</md>.
 	(Recall that <m>\ln(1) = 0</m>.)
@@ -893,7 +893,7 @@ the error is approximately measured the the derivative value that is <em>not</em
 
 <fact xml:id="fact-poly-approx-taylor-error"><p>
 	Suppose <m>a</m> is a number near <m>t^\ast</m> and <m>M</m> is a positive number so that <m>\abs{\nthderiv[n+1]{f}(t)} \le M</m> for all <m>t</m> between <m>a</m> and <m>t^\ast</m>, inclusive.
-	Then the error <m>E</m> in using the approximation <m>f(a) \approx T_{n,t^\ast}(a)</m>
+	Then the error <m>E</m> in using the approximation <m>f(a) \approx \nthtaylor{t^\ast}(a)</m>
 	satisfies <me> \abs{E} \le \frac{M}{(n + 1)!} \, {\abs{a - t^\ast}}^{n + 1} </me>.
 </p></fact>
 
