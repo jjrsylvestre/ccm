@@ -717,7 +717,7 @@ we might guess that the pattern is:
 	</p></statement>
 
 	<proof>
-		<title>Justification for positive, integer <m>n</m></title>
+		<title>Justification for positive integer <m>n</m></title>
 
 		<p>
 		We follow the template of <xref ref="example-deriv-cubic" />.
