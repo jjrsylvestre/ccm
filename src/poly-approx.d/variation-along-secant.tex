@@ -1,0 +1,52 @@
+% *********************************************************************
+% © 2021–2024 Jeremy Sylvestre
+%
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License, Version 1.3 or
+% any later version published by the Free Software Foundation; with no
+% Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+% copy of the license is included in the appendix entitled “GNU Free
+% Documentation License” that appears in the output document of this
+% PreTeXt source code. All trademarks™ are the registered® marks of
+% their respective owners.
+%
+% *********************************************************************
+
+\newcommand*{\xmin}{-0.5}
+\newcommand*{\xmax}{2.6}
+\newcommand*{\ymin}{-2.5}
+\newcommand*{\ymax}{12.5}
+
+\begin{tikzpicture}
+[
+	yscale=0.333,
+	xscale=1.5,
+	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
+]
+
+	% axes
+	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below] {$t$};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+
+	% graphs
+
+	% exp
+	\draw[thick, domain=2.5:-0.5, smooth] plot (\x,{exp \x}) node[above] {$q(t)$};
+
+	% secant
+	\draw[thick,blue] (2.5,10.842) -- (0.1,-2.156);
+
+	% base point
+	\draw[dashed] (1,2.718) -- (1,0) node[below] {$t^\ast$};
+
+	\node[closedpt,blue] (base) at (1,2.718) {};
+	\node[closedpt,blue] (second) at (2.25,9.488) {};
+
+	\draw[blue] (base) to node[below] {$\change{t}$} (2.25,2.718) to node[right] {$\change{q}$} (second);
+
+	\draw[dashed] (2.25,2.718) -- (2.25,0);
+
+	\node[blue] (tag) at (0.9,9) {slope $\displaystyle = \frac{\change{q}}{\change{t}}$};
+	\draw[blue,dotted] (tag.south) to (1.4,5.9);
+
+\end{tikzpicture}

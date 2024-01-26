@@ -13,8 +13,6 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
-<!-- TODO need to introduce higher derivative notation -->
-
 <chapter xml:id="chapter-poly-approx" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Polynomial approximations</title>
 
@@ -33,8 +31,6 @@ the graph of a differentiable function <m>f(t)</m> is approximately linear with 
 A linear formula is much easier to use in computations,
 so if we do not mind introducing a small amount of error we may replace the function <m>f(t)</m> in our computations with a linear function on domain <m>a \lt t \lt b</m>.
 </p>
-
-<p>TODO IMAGE</p>
 
 <example xml:id="example-poly-approx-linearize-sqrt">
 	<title>Approximate square roots</title>
@@ -186,17 +182,229 @@ why not just do that instead of approximating it?
 
 </example>
 
-<remark><p>
-	A linear approximation will quickly become a <em>bad</em> approximation if we stray too far from the base point.
-	TODO PICTURE
-</p></remark>
+<remark>
+
+	<p> A linear approximation will quickly become a <em>bad</em> approximation if we stray too far from the base point. </p>
+
+	<figure xml:id="figure-poly-approx-linear-approx-big-deltas">
+		<caption> The approximation <m>f(t) \approx L(t)</m> will have a large error if <m>t</m> is too far from the base point <m>t^\ast</m>. </caption>
+		<image label="image-poly-approx-linear-approx-big-deltas" width="88.8%">
+			<description> Comparing the graphs of a function and its linear approximation. </description>
+			<latex-image><xi:include href="poly-approx.d/linear-approx-error.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</remark>
 
 </subsection>
 
 <subsection>
 <title>Differentials</title>
 
-<p> TODO </p>
+<subsubsection>
+<title>Another look at linearization</title>
+
+<p>
+Here is another perspective on linear approximations.
+Recall that,
+from a base point <m>\bbrac{t^\ast, q(t^\ast)}</m> on the graph of <m>q(t)</m>,
+a second point <m>\bbrac{t,q(t)}</m> creates a secant line.
+The actual variation in quantity from base time to the second time is
+<me> \change{q} = q(t) - q(t^\ast) </me>,
+and this variation occurs over a time period of duration
+<me> \change{t} = t - t^\ast </me>.
+Over the same duration,
+we can contrast that the variation in the linear approximation,
+which we will label as <m>dq</m> instead of <m>\change{t}</m> as it follows the tangent line instead of a secant line.
+</p>
+
+<figure xml:id="figure-poly-approx-secant-vs-tangent">
+	<caption> Comparing variation along a secant line versus along a tangent line. </caption>
+
+	<sidebyside widths="42.3% 42.3%">
+
+		<figure>
+			<caption> Variation along a secant line between two points on the quantity graph. </caption>
+			<image label="image-poly-approx-variation-along-secant">
+				<description> A graph of a secant line between two points on a quantity graph. </description>
+				<latex-image><xi:include href="poly-approx.d/variation-along-secant.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure>
+			<caption> Variation along a tangent line to a point on the quantity graph. </caption>
+			<image label="image-poly-approx-variation-along-tangent">
+				<description> A graph of a tangent line as a linear approximation to a quantity graph. </description>
+				<latex-image><xi:include href="poly-approx.d/variation-along-tangent.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+<p>
+Mixing differential and derivative-function notation,
+and abusing notation to represent slope and variation along the tangent (linear approximation) line,
+we have <me> \dqdt = q'(t^\ast) \quad\implies\quad dq = q'(t^\ast) \, dt </me>.
+Now, the duration is the same whether we are looking at variation of the original function or variation of the linear approximation,
+so <me> \change{t} = dt </me>.
+But a linear approximation is only an <em>approximation</em>,
+so we have merely <m> \change{q} \approx dq </m>.
+So while we can write <me> q(t) = q(t^\ast + \change{t}) = q(t^\ast) + \change{q} </me> exactly,
+we can only approximate <me> q(t) = q(t^\ast + \change{t}) = q(t^\ast + dt) \approx q(t^\ast) + dq </me>.
+(But approximating is often what we choose to do if computing exactly is too computationally <q>expensive</q>.)
+</p>
+
+<p>
+Using <m> dq = q'(t^\ast) \, dt </m>,
+we may rewrite the linearization formula in <xref ref="definition-poly-approx-linearization" /> in differential notation.
+</p>
+
+<identity><p>
+	Given base point <m>t = t^\ast</m> where the values of <m>q(t^\ast)</m> and <m>q'(t^\ast)</m> are known,
+	for small values of <m>dt</m> (positive or negative) we have
+	<me> q(t^\ast + dt) \approx q(t^\ast) + q'(t^\ast) \, dt </me>.
+</p></identity>
+
+<example>
+	<title>Estimating a square root</title>
+	<p>
+	Let's repeat <xref ref="example-poly-approx-linearize-sqrt" /> using this new notation.
+	We would like to estimate <m>\sqrt{100.03}</m>,
+	which involves the square root process <m>q(t) = \sqrt{t}</m>.
+	We know <m>q(100) = 10</m>,
+	so <m>t^\ast = 100</m> is a convenient <q>nearby</q> base point.
+	The difference between this base point and the location <m>t = 100.03</m> of the desired output value is <me> dt = \change{t} = 0.03 </me>.
+	We also have derivative function <m>q'(t) = 1/2\sqrt{t}</m>,
+	and its value at the base point is <m>q'(100) = 1/20</m>.
+	So now we are ready to estimate
+	<md>
+		<mrow> \sqrt{100.03} \amp = q(100.03) </mrow>
+		<mrow> \amp = q(100 + 0.03) </mrow>
+		<mrow> \amp \approx q(100) + q'(100) \cdot 0.03 </mrow>
+		<mrow> \amp \approx 10 + 0.03/20 </mrow>
+		<mrow> \amp \approx 10.0015 </mrow>
+	</md>.
+	</p>
+</example>
+
+<example>
+	<title>Estimating a cosine value</title>
+	<p>
+	Let's use <m>d\bbrac{\cos(t)}/dt = -\sin(t)</m> to estimate the value of <m>\cos(40 \degree)</m>.
+	A convenient <q>nearby</q> base point could be <m>45 \degree</m>,
+	where we know that <md><mrow> \cos(45 \degree) \amp = \sin(45 \degree) = \frac{1}{\sqrt{2}} </mrow></md>.
+	However, it would be incorrect to use <m>-5 \degree</m> as the value of <m>dt</m>,
+	as we should always calculate in radians.
+	Now, <m>45 \degree</m> corresponds to <m>\pi/4</m> radians,
+	and each degree is <m>\pi/180</m> radians,
+	so we should use <me> dt = -5 \cdot \frac{\pi}{180} = - \frac{\pi}{36} </me>.
+	Now we are ready to approximate
+	<md>
+		<mrow> \cos(40 \degree) \amp = \cos\left( \frac{\pi}{4} - \frac{\pi}{36} \right) </mrow>
+		<mrow> \amp \approx \cos\left( \frac{\pi}{4} \right) - \cos'\left( \frac{\pi}{4} \right) \cdot \frac{\pi}{36} </mrow>
+		<mrow> \amp = \cos\left( \frac{\pi}{4} \right) - \left(- \sin\left( \frac{\pi}{4} \right) \right) \cdot \frac{\pi}{36} </mrow>
+		<mrow> \amp = \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}} \cdot \frac{\pi}{36} </mrow>
+		<mrow> \amp = \frac{1}{\sqrt{2}} \left( 1 + \frac{\pi}{36} \right) </mrow>
+	</md>.
+	If we just pull out our calculator now to compute the above,
+	that invalidates all our work in avoiding pulling out our calculator to compute <m>\cos(40 \degree)</m> in the first place.
+	So let's further approximate <md><mrow> \sqrt{2} \amp \approx 1.414 \text{,} \amp \pi \amp \approx 3.14159 \text{.} </mrow></md>
+	With these approximations we have
+	<me> \cos(40 \degree) \approx 0.7689 </me>.
+	</p>
+</example>
+
+</subsubsection>
+
+<subsubsection>
+<title>Relative error in a linear approximation</title>
+
+<p> We expect that the error in the approximation <m>\change{q} \approx dq</m> should be small if <m>dt</m> is kept small. </p>
+
+<fact>
+
+	<statement><p>
+		The error in the approximation <m>\change{q} \approx dq</m> relative to <m>dt</m> becomes arbitrarily small for sufficiently small values of <m>dt</m>.
+	</p></statement>
+
+	<proof><p>
+		The variation in <m>q</m> from base point <m>t^\ast</m> to <q>second</q> point <m>t</m> is
+		<me> \change{q} = q(t) - q(t^\ast) = q(t^\ast + dt) - q(t^\ast) </me>,
+		where <me> dt = \change{t} = t - t^\ast </me>.
+		So the error in approximating <m>\change{q} \approx dq</m> is
+		<me> \change{q} - dq = \bigl[q(t^\ast + dt) - q(t^\ast)\bigr] - q'(t^\ast) \, dt </me>.
+		The error relative to <m>dt</m> is then
+		<md>
+			<mrow> \frac{\change{q} - dq}{dt} \amp = \frac{\bigl[q(t^\ast + dt) - q(t^\ast)\bigr] - q'(t^\ast) \, dt}{dt} </mrow>
+			<mrow> \amp = \frac{q(t^\ast + dt) - q(t^\ast)}{dt} - q'(t^\ast) </mrow>
+		</md>
+		But the quotient on the left is precisely the difference quotient that approximates the value of <m>q'(t^\ast)</m>.
+		That is, for <m>dt \approx 0</m> we have
+		<me> \frac{q(t^\ast + dt) - q(t^\ast)}{dt} \approx q'(t^\ast) </me>,
+		and this approximation can be made arbitrarily good by taking <m>dt</m> to be sufficiently small.
+		Thus <me> \frac{\change{q} - dq}{dt} \approx q'(t^\ast) - q'(t^\ast) = 0 </me>,
+		and again this approximation can be made arbitrarily good by taking <m>dt</m> to be sufficiently small.
+	</p></proof>
+
+</fact>
+
+</subsubsection>
+
+<subsubsection>
+<title>Approximating relative variation</title>
+
+<p>
+Often what we interested in is the actual amount increase/decrease <m>\change{q}</m> in the quantity rather than the final amount <m>q(t)</m>,
+in which case we can simply use <me> \change{q} \approx dq = q'(t^\ast) \, dt </me>.
+Moreover,
+often we are interested in knowing the increase/decrease not as simply a difference but as a <em>relative</em> difference.
+</p>
+
+<definition>
+	<title>Relative variation</title>
+	<p>
+	The <term>relative variation</term> in a quantity is the ratio of the variation <m>\change{q}</m> to the initial quantity <m>q(t_0)</m>:
+	<me> \frac{\change{q}}{q(t_0)} = \frac{q(t) - q(t_0)}{q(t_0)} </me>.
+	</p>
+</definition>
+
+<p>
+In the context of linear approximations we will usually take the <q>initial</q> time to be our base point <m>t = t^\ast</m>,
+and then we may approximate the relative variation as
+<me> \frac{\change{q}}{q(t^\ast)} \approx \frac{dq}{q(t^\ast)} = \frac{q'(t^\ast)}{q(t^\ast)} \; dt </me>.
+</p>
+
+<example>
+	<title>Relative increase in area of a circle</title>
+
+	<p>
+	You are designing a circular part of diameter <quantity><mag>10</mag><unit base="meter" prefix="centi" /></quantity> for a machine.
+	During manufacturing the actual diameter of completed part can vary by up to <m>\pm 2%</m>.
+	What range of variation in the material used to make the part is possible?
+	</p>
+
+	<p>
+	If the part is a uniform thickness,
+	we can use the area of its circular face as a proxy measurement for the amount of material used.
+	Let's work with the area as a function of the radius: <m>A(r) = \pi r^2</m>.
+	A <m>\pm 2\%</m> variation in the diameter corresponds to a <m>\pm 1\%</m> variation in the radius,
+	so we will use <me> dr = \change{r} = \pm 0.1 </me>.
+	The variation in the area can be approximated via differentials:
+	<me> \change{A} \approx dA = \dd{A}{r} \, dr = 2 \pi r dr </me>.
+	Then relative variation is the ratio
+	<me> \frac{\change{A}}{A} \approx \frac{dA}{A} = \frac{2 \pi r dr}{\pi r^2} = \frac{2 dr}{r} </me>.
+	At radius <quantity><mag>5\</mag><unit base="meter" prefix="centi" /></quantity>,
+	the relative variation is
+	<me> \frac{\change{A}}{A} \approx \frac{2 \cdot (\pm 0.1)}{5} = \pm 0.04 </me>.
+	So a for a circle of diameter <quantity><mag>10</mag><unit base="meter" prefix="centi" /></quantity>,
+	a <m>\pm 2\%</m> variation in the diameter corresponds to an approximate <m>\pm 4\%</m> variation in the area.
+	</p>
+
+</example>
+
+</subsubsection>
 
 </subsection>
 
@@ -206,7 +414,7 @@ why not just do that instead of approximating it?
 <title>Quadratic approximations</title>
 
 <p>
-The linear approximation <m>sin(t) \approx t</m> is fine for <m>t \approx 0</m>,
+The linear approximation <m>\sin(t) \approx t</m> is fine for <m>t \approx 0</m>,
 but it quickly becomes inaccurate as the sine graph curves away from the approximating line.
 A linearization only matches the originating function in two aspects:
 <ul>
@@ -277,7 +485,13 @@ To make these match in all three rows we should use
 	quickly becomes a <em>poor</em> approximation as the graph of cosine curves downward, away from its <q>initial</q> value <m>\cos(0) = 1</m>
 	</p>
 
-	<p> TODO graph </p>
+	<figure xml:id="figure-poly-approx-cos-vs-1">
+		<caption> Comparing cosine to <m>1</m>. </caption>
+		<image label="image-poly-approx-cos-vs-1" width="67.9%">
+			<description> Comparing the graph of the cosine function to the horizontal line at 1. </description>
+			<latex-image><xi:include href="poly-approx.d/cos-vs-1.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
 
 	<p>
 	We can use a quadratic approximation to do better.
@@ -307,7 +521,13 @@ To make these match in all three rows we should use
 	just as the cosine graph is around <m>t = 0</m>.
 	</p>
 
-	<p> TODO graph </p>
+	<figure xml:id="figure-poly-approx-cos-vs-parabola">
+		<caption> Comparing cosine to a quadratic approximation. </caption>
+		<image label="image-poly-approx-cos-vs-parabola" width="67.6%">
+			<description> Comparing the graph of the cosine function to specially created parabola. </description>
+			<latex-image><xi:include href="poly-approx.d/cos-vs-parabola.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
 
 </example>
 
@@ -349,7 +569,13 @@ To make these match in all three rows we should use
 	<me> p(t) = (t - 1) - \frac{1}{2} (t - 1)^2 </me>.
 	</p>
 
-	<p> TODO graph </p>
+	<figure>
+		<caption> The quadratic approximation of the natural logarithm at <m>t = 1</m>. </caption>
+		<image label="image-poly-approx-quadratic-approx-ln" width="51.1%">
+			<description> A graph of the natural logarithm and its quadratic approximation at base point 1. </description>
+			<latex-image><xi:include href="poly-approx.d/quadratic-approx-ln.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
 
 	<p>
 	We can use this quadratic polynomial to improve on the specific approximations we made in <xref ref="example-poly-approx-linearize-log" />:
@@ -418,13 +644,102 @@ the approximate error in a quadratic linear approximation is related to the magn
 </section>
 
 <section xml:id="section-poly-approx-higher">
-<title>Higher-degree approximations: McLaurin and Taylor polynomials</title>
+<title>Higher-degree approximations: Maclaurin and Taylor polynomials</title>
+
+<subsection>
+<title>Higher derivatives</title>
+
+<p>
+In <xref ref="section-curves-concavity" /> we introduce the <term>second derivative</term> of a function.
+For a quantity <m>q(t)</m>,
+the derivative function <m>q'(t)</m> represents its rate of variation.
+But if we view that new derivative function as the <q>quantity</q> of variation,
+then we could ask how <em>that</em> quantity varies,
+and the answer would be the derivative of that derivative function.
+Being two derivative calculations removed from the original function <m>q(t)</m>,
+we refer to the derivative of <m>q'(t)</m> as the <term>second derivative</term> of <m>q</m>,
+and write <me> q''(t) \qquad\text{or}\qquad \dbldqdt </me>
+to represent it.
+</p>
+
+<p>
+But we can repeat the process that led us to the concept of second derivative.
+Viewing the second derivative as the <q>quantity</q> of variation of the variation of <m>q</m>,
+we could ask how <em>that</em> quantity varies,
+and the answer would be the derivative of that second derivative function.
+Being <em>three</em> derivative calculations removed from the original function <m>q(t)</m>,
+we refer to the derivative of <m>q''(t)</m> as the <term>third derivative</term> of <m>q</m>,
+and write <me> q'''(t) \qquad\text{or}\qquad \nthdqdt[3] </me>
+to represent it.
+And so on, creating the <term>higher derivatives</term> of the function <m>q(t)</m>.
+<md>
+	<mrow> \amp\text{first derivative:} \amp q'(t) \;\;\amp\text{or}\;\; \dqdt \amp \amp = \text{ derivative of } q(t) </mrow>
+	<mrow> \amp\text{second derivative:} \amp q''(t) \;\;\amp\text{or}\;\; \dbldqdt \amp \amp = \text{ derivative of } q'(t) </mrow>
+	<mrow> \amp\text{third derivative:} \amp q'''(t) \;\;\amp\text{or}\;\; \nthdqdt[3] \amp \amp = \text{ derivative of } q''(t) </mrow>
+</md>
+Eventually the number of tick marks becomes unreasonable,
+and we switch to a superscript,
+but in brackets to distinguish it from an exponent.
+<md>
+	<mrow> \amp\text{fourth derivative:} \amp \nthderiv[4]{q}(t) \;\;\amp\text{or}\;\; \nthdqdt[4] \amp \amp = \text{ derivative of } q'''(t) </mrow>
+	<mrow> \amp\text{fifth derivative:} \amp \nthderiv[5]{q}(t) \;\;\amp\text{or}\;\; \nthdqdt[5] \amp \amp = \text{ derivative of } \nthderiv[4]{q}(t) </mrow>
+	<mrow> \amp \amp \amp \vdots </mrow>
+</md>
+</p>
+
+<example>
+	<title>Higher derivatives of the natural logarithm function</title>
+	<p>
+	We have <m>d\bbrac{\ln(t)}/dt = 1/t</m>,
+	and after that we may use the pattern for the <xref ref="pattern-deriv-power" text="title" /> to compute higher derivatives:
+	<md>
+		<mrow> \opddt \bbrac{\ln(t)} \amp = \frac{1}{t} </mrow>
+		<mrow> \opdblddt \bbrac{\ln(t)} \amp = \opddt \left(\frac{1}{t}\right) = - \frac{1}{t^2} </mrow>
+		<mrow> \opnthddt[3] \bbrac{\ln(t)} \amp = \opddt \left(-\frac{1}{t^2}\right) = \frac{2}{t^3} </mrow>
+		<mrow> \opnthddt[4] \bbrac{\ln(t)} \amp = \opddt \left(\frac{2}{t^3}\right) = - \frac{6}{t^4} </mrow>
+		<mrow> \opnthddt[5] \bbrac{\ln(t)} \amp = \opddt \left(- \frac{6}{t^4}\right) = \frac{24}{t^5} </mrow>
+		<mrow> \amp \vdots </mrow>
+	</md>
+	There appears to be a pattern here,
+	where the higher derivatives alternate between positive and negative coefficients,
+	and the numerator grows by a factor equal to the previous power in the denominator.
+	<me> \opnthddt \bbrac{\ln(t)} = \frac{{(-1)}^{n - 1} (n - 1)!}{t^n} </me>.
+	(Note that <m>0! = 1</m>.)
+	</p>
+</example>
+
+<example>
+	<title>Higher derivatives of the natural exponential function</title>
+	<p>
+	Because <m>d(e^t)/dt = e^t</m>,
+	we have <me> \nthddt{(e^t)} = e^t </me>
+	for all <m>n</m>.
+	</p>
+</example>
+
+<exercise>
+	<title>Higher derivatives of trig functions</title>
+	<p> Work out the general pattern of the higher derivatives of <m>\sin(t)</m> and <m>\cos(t)</m>. </p>
+</exercise>
+
+</subsection>
+
+<subsection>
+<title>Matching higher derivatives</title>
 
 <p>
 A linear approximation is created by matching function value and derivative value at the base point.
-A quadratic approximation is created by also matching second derivative value at the base point.
+Graphically,
+the linear approximation is the simplest function that shares the same height and the same slope as the original function at the base point.
+A quadratic approximation is created by matching <em>both</em> the first and second derivative values at the base point.
+Graphically,
+the quadratic approximation is the simplest function that shares the same height, the same slope, and the same rate of variation of the slope (that is, the same concavity) as the original function at the base point.
 To get more accurate approximations,
 we should create a higher-degree polynomial that matches even more higher derivative values of the function at the base point.
+Graphically, this means our approximation function will be the simplest function that shares the same height, the same slope, the same concavity, the same rate of variation of concavity, and so on, at the base point.
+</p>
+
+<p>
 We begin with the general form of a degree-<m>n</m> polynomial:
 <me> p(t) = a_0 + a_1 t + a_2 t^2 + \dotsc + a_n t^n </me>.
 As before,
@@ -438,32 +753,32 @@ But what is the pattern in the derivative values of a polynomial?
 	<mrow> p'''(t) \amp = 6 a_3 + 24 a_4 t + 60 a_5 t^2 + \dotsc + k (k - 1) (k - 2) a_k t^{k - 3} </mrow>
 	<mrow> \amp \qquad + \dotsc + n (n - 1) (n - 2) a_n t^{n - 3} </mrow>
 	<mrow> \amp \vdots </mrow>
-	<mrow> p^{(k)}(t) \amp = k! \cdot a_k + \dotsc + n (n - 1) (n - 2) \dotsm (n - k + 1) a_n t^{n - k} </mrow>
+	<mrow> \nthderiv[k]{p}(t) \amp = k! \cdot a_k + \dotsc + n (n - 1) (n - 2) \dotsm (n - k + 1) a_n t^{n - k} </mrow>
 </md>.
 The factorial pattern occurs because as we apply the power rule repeatedly to each term,
 we repeatedly multiply the coefficient of that term by the decreasing exponent values.
 And then when we substitute <m>t = 0</m> into these derivative functions,
 all but the constant term zeros out:
-<me> p^{(k)}(0) = k! \cdot a_k </me>.
-To have <m>p^{(k)}(0) = f^{(k)}(0)</m> for all <m>k</m>,
+<me> \nthderiv[k]{p}(0) = k! \cdot a_k </me>.
+To have <m>\nthderiv[k]{p}(0) = \nthderiv[k]{f}(0)</m> for all <m>k</m>,
 we should set
-<me> a_k = \frac{f^{(k)}(0)}{k!} </me>.
+<me> a_k = \frac{\nthderiv[k]{f}(0)}{k!} </me>.
 </p>
 
 <identity xml:id="pattern-poly-approx-taylor">
-	<title>McLaurin and Taylor polynomials</title>
+	<title>Maclaurin and Taylor polynomials</title>
 	<p><ol>
 		<li>
 			If <m>f</m> is <m>n</m>-times differentiable at <m>t = 0</m>,
 			then the polynomial
-			<me> M_n(t) = \sum_{k = 0}^n \frac{f^{(k)}(0)}{k!} \; t^k </me>
+			<me> M_n(t) = \sum_{k = 0}^n \frac{\nthderiv[k]{f}(0)}{k!} \; t^k </me>
 			approximates the function <m>f(t)</m> on small domains containing <m>t = 0</m>.
-			This polynomial is called the <term>McLaurin polynomial of degree <m>n</m></term> for <m>f</m>.
+			This polynomial is called the <term>Maclaurin polynomial of degree <m>n</m></term> for <m>f</m>.
 		</li>
 		<li>
 			If <m>f</m> is <m>n</m>-times differentiable at <m>t = t^\ast</m>,
 			then the polynomial
-			<me> T_{n,t^\ast}(t) = \sum_{k = 0}^n \frac{f^{(k)}(t^\ast)}{k!} \; (t - t^\ast)^k </me>
+			<me> T_{n,t^\ast}(t) = \sum_{k = 0}^n \frac{\nthderiv[k]{f}(t^\ast)}{k!} \; (t - t^\ast)^k </me>
 			approximates the function <m>f(t)</m> on small domains containing <m>t = t^\ast</m>.
 			This polynomial is called the <term>Taylor polynomial of degree <m>n</m></term> for <m>f</m>.
 		</li>
@@ -471,16 +786,16 @@ we should set
 </identity>
 
 <remark><p>
-	Notice that a McLaurin polynomial is just a Taylor polynomial with <m>t^\ast = 0</m>:
+	Notice that a Maclaurin polynomial is just a Taylor polynomial with <m>t^\ast = 0</m>:
 	<me> M_n(t) = T_{n,0}(t) </me>.
-	Also notice that our previous linear and quadratic approximation formulas are just McLaurin/Taylor polynomials of degree 1 and 2, respectively.
+	Also notice that our previous linear and quadratic approximation formulas are just Maclaurin/Taylor polynomials of degree 1 and 2, respectively.
 	Finally, to be able to consolidate into summation notation,
 	we have adopted the convention that the <q>zeroth</q> derivative of a function is just the function itself:
-	<m>f^{(0)}(t) = f(t)</m>.
+	<m>\nthderiv[0]{f}(t) = f(t)</m>.
 </p></remark>
 
-<example xml:id="example-poly-approx-mclaurin-cos">
-	<title>McLaurin approximation of <m>\cos(t)</m></title>
+<example xml:id="example-poly-approx-maclaurin-cos">
+	<title>Maclaurin approximation of <m>\cos(t)</m></title>
 
 	<p>
 	The first four derivative values
@@ -503,7 +818,7 @@ we should set
 	</md>
 	After this,
 	the higher derivative values of <m>\cos(t)</m> repeat these four values.
-	So only the <em>even</em>-degree terms are present in the McLaurin polynomial:
+	So only the <em>even</em>-degree terms are present in the Maclaurin polynomial:
 	<me> M_n(t) = \sum_{\substack{k = 0 \\ k \text{ even}}}^n \frac{{(-1)}^{k/2}}{k!} \; t^k </me>.
 	In this case,
 	it is a little cleaner to replace our always-even index variable with the substitution <m>k = 2 m</m>:
@@ -517,17 +832,17 @@ we should set
 </example>
 
 <exercise>
-	<title>McLaurin approximation of <m>\sin(t)</m></title>
+	<title>Maclaurin approximation of <m>\sin(t)</m></title>
 	<p>
-	Perform a similar analysis as in <xref ref="example-poly-approx-mclaurin-cos" />
-	to create the McLaurin polynomial <m>M_n(t)</m> for <m>\sin(t)</m>.
+	Perform a similar analysis as in <xref ref="example-poly-approx-maclaurin-cos" />
+	to create the Maclaurin polynomial <m>M_n(t)</m> for <m>\sin(t)</m>.
 	You should see a similar alternating pattern to the coefficients.
 	</p>
 </exercise>
 
-<exercise>
-	<title>McLaurin approximation of the natural exponential function</title>
-	<p> Use the fact that <me> \ddt{(e^t)} = e^t </me> to create the McLaurin polynomial <m>M_n(t)</m> for the exponential function <m>\exp(t)</m>. </p>
+<exercise xml:id="exercise-poly-approx-maclaurin-exp">
+	<title>Maclaurin approximation of the natural exponential function</title>
+	<p> Use the fact that <me> \ddt{(e^t)} = e^t </me> to create the Maclaurin polynomial <m>M_n(t)</m> for the exponential function <m>\exp(t)</m>. </p>
 </exercise>
 
 <example xml:id="example-poly-approx-logarithm-at-1">
@@ -578,12 +893,12 @@ the error is approximately measured the the derivative value that is <em>not</em
 </p>
 
 <fact xml:id="fact-poly-approx-taylor-error"><p>
-	Suppose <m>a</m> is a number near <m>t^\ast</m> and <m>M</m> is a positive number so that <m>\abs{f^{(n+1)}(t)} \le M</m> for all <m>t</m> between <m>a</m> and <m>t^\ast</m>, inclusive.
+	Suppose <m>a</m> is a number near <m>t^\ast</m> and <m>M</m> is a positive number so that <m>\abs{\nthderiv[n+1]{f}(t)} \le M</m> for all <m>t</m> between <m>a</m> and <m>t^\ast</m>, inclusive.
 	Then the error <m>E</m> in using the approximation <m>f(a) \approx T_{n,t^\ast}(a)</m>
 	satisfies <me> \abs{E} \le \frac{M}{(n + 1)!} \, {\abs{a - t^\ast}}^{n + 1} </me>.
 </p></fact>
 
-<p> TODO check spelling of McLaurin </p>
+</subsection>
 
 </section>
 

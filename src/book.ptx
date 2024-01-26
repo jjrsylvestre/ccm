@@ -127,7 +127,7 @@ respective owners.
 <!-- TODO? or is auto chapter good enough ? -->
 <!-- <xi:include href="./logistic.ptx" /> -->
 
-<!-- Linearizations, differentials, McLaurin/Taylor -->
+<!-- Linearizations, differentials, Maclaurin/Taylor -->
 <xi:include href="./poly-approx.ptx" />
 
 <!-- Sequences -->
