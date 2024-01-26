@@ -10,10 +10,11 @@ ROOTDOCNAME=book
 SERVEPORT=8082
 BUILDDIR=${XDG_RUNTIME_DIR}/pretext/ccm
 PRETEXT=/opt/pretext/pretext/pretext
+ROOT_XMLID=book-calculus-concepts-modelling
 #PRETEXT=./pretext/pretext/pretext
 
 .PHONY: ptx validate-xml \
-  html html-images html-fonts html-all html-serve \
+  html html-images html-image-pdfs html-fonts html-all html-serve \
   clean ptx-clean html-clean html-images-clean \
   help list
 
@@ -23,11 +24,13 @@ help:
 	@echo "> validate-xml       : Check for XML syntax/format errors. (Does not validate against PTX schema.)"
 	@echo "> html-all           : Perform all steps necessary to create HTML version of the activity set."
 	@echo "> html               : Output (only) HTML files containing all worksheets."
-	@echo "> html-images        : Create SVG image files to accompany the html output for all worksheets."
+	@echo "> html-images        : Create SVG image files to accompany the html output."
+	@echo "> html-image-pdfs    : Create PDF image files for the html output."
+	@echo "                       (to feed to scripts/image-widths.sh)"
 	@echo "> html-fonts         : Copy STIX2Text fonts into the HTML build directory."
 	@echo "> html-serve         : Fire up a simple Python web server to locally host the HTML output."
 	@echo "> latex              : Output (only) LaTeX file containing all worksheets."
-	@echo "> ptx                : Only preprocess source to create a single XML file in PTX format containing all worksheets."
+	@echo "> ptx                : Only preprocess source to create a single XML file in PTX format."
 	@echo "> clean              : Remove all output files."
 	@echo "> ptx-clean          : Remove preprocessed PTX output."
 	@echo "> html-clean         : Remove all HTML output."
@@ -53,10 +56,12 @@ html-clean:
 html-images-clean:
 	@-rm -f ${BUILDDIR}/html/images/.sentinal
 	@-rm -f ${BUILDDIR}/html/images/*.svg
+	@-rm -f ${BUILDDIR}/image-pdfs/*.pdf
 
 ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx preprocess.xsl
 html: ${BUILDDIR}/html/.sentinal html-out.xml
 html-images: ${BUILDDIR}/html/images/.sentinal
+html-image-pdfs: ${BUILDDIR}/image-pdfs/.sentinal
 latex: ${BUILDDIR}/latex/${ROOTDOCNAME}.tex
 
 ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx: $(SOURCES) | validate-xml
@@ -98,7 +103,6 @@ ${BUILDDIR}/html/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "   make html-images  (to build SVG images)"
 	@echo "   make html-serve   (to serve the output locally for previewing)"
 
-
 ${BUILDDIR}/html/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Generating SVG files for HTML output..."
 	@mkdir -p ${BUILDDIR}/html/images
@@ -109,12 +113,31 @@ ${BUILDDIR}/html/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --verbose \
 	  --component latex-image \
 	  --format svg \
+	  --restrict ${ROOT_XMLID} \
 	  --directory ${BUILDDIR}/html/images \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...copying institution logo"
 	@-cp images/${BRANDLOGO} ${BUILDDIR}/html/images
 	@touch ${BUILDDIR}/html/images/.sentinal
 	@echo "...DONE"
+
+${BUILDDIR}/image-pdfs/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+	@echo "Generating PDF files for HTML output images..."
+	@mkdir -p ${BUILDDIR}/image-pdfs
+	@ln -sf --no-dereference ${BUILDDIR} build
+	@-rm -f ${BUILDDIR}/image-pdfs/.sentinal
+	@echo "...calling pretext to generate images"
+	@$(PRETEXT) \
+	  --verbose \
+	  --component latex-image \
+	  --format pdf \
+	  --restrict ${ROOT_XMLID} \
+	  --directory ${BUILDDIR}/image-pdfs \
+	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+	@touch ${BUILDDIR}/image-pdfs/.sentinal
+	@echo "...DONE"
+	@echo "Now call:"
+	@echo "   ./scripts/image-widths.sh build/image-pdfs/*.pdf   (to calculate width attributes for ptx source)"
 
 html-fonts: \
   ${BUILDDIR}/html/fonts/STIXTwoText-Bold.woff2 \
