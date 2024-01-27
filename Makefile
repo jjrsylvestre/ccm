@@ -53,6 +53,10 @@ html-clean:
 	@-rm -f ${BUILDDIR}/html/.sentinal
 	@-rm -f ${BUILDDIR}/html/*.html
 	@-rm -f ${BUILDDIR}/html/knowl/*.html
+	@-rm -f ${BUILDDIR}/html/knowl/index/*.html
+	@-rm -f ${BUILDDIR}/html/knowl/xref/*.html
+	@-rm -f ${BUILDDIR}/html/lunr-pretext-search-index.js
+	@-rm -f ${BUILDDIR}/html/ccm.css
 html-images-clean:
 	@-rm -f ${BUILDDIR}/html/images/.sentinal
 	@-rm -f ${BUILDDIR}/html/images/*.svg
