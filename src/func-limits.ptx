@@ -556,8 +556,20 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 
 <example xml:id="example-func-limits-one-sided">
 	<title>Limits of a piecewise-defined function</title>
-	<p> Consider the function <me> f(t) = \begin{cases} 2 t^2 \amp t \lt 1 \\ t - 1 \amp t \gt 1 \end{cases} </me>. </p>
-	<!-- TODO graph. NOTE t=1 not in domain -->
+
+	<p> Consider the function below. </p>
+
+	<sidebyside valign="middle" widths="40% 40.2%" margins="0% 10%">
+
+		<p><me> f(t) = \begin{cases} 2 t^2 \amp t \lt 1 \\ t - 1 \amp t \gt 1 \end{cases} </me> </p>
+
+		<image label="image-func-limits-piecewise-1">
+			<description>Graph of a discontinuous piecewise function.</description>
+			<latex-image><xi:include href="func-limits.d/piecewise-1.tex" parse="text" /></latex-image>
+		</image>
+
+	</sidebyside>
+
 	<p>
 	The value <m>t = 1</m> is not in the domain of this function,
 	but it is a limit point of the domain.
@@ -685,11 +697,20 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 
 <example xml:id="example-func-limits-exists-one-sided">
 	<title>More limits of a piecewise-defined function</title>
-	<p>
-	Here is a slightly modified version of <xref ref="example-func-limits-one-sided" />:
-	<me> f(t) = \begin{cases} 2 t^2 \amp t \lt 1 \\ t + 1 \amp t \gt 1 \end{cases} </me>.
-	</p>
-	<!-- TODO GRAPH -->
+
+	<p> Here is a slightly modified version of <xref ref="example-func-limits-one-sided" />. </p>
+
+	<sidebyside valign="middle" widths="40% 40.2%" margins="0% 10%">
+
+		<p><me> f(t) = \begin{cases} 2 t^2 \amp t \lt 1 \\ t + 1 \amp t \gt 1 \end{cases} </me></p>
+
+		<image label="image-func-limits-piecewise-2">
+			<description>Graph of a continuous piecewise function.</description>
+			<latex-image><xi:include href="func-limits.d/piecewise-2.tex" parse="text" /></latex-image>
+		</image>
+
+	</sidebyside>
+
 	<p>
 	Consider the <q>pieces</q> of <m>f</m> as separate functions without restricted domains.
 	Applying various <xref ref="pattern-func-limits-laws" text="title" />,
@@ -710,6 +731,7 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 	This says that the trend <em>result</em> of output values of <m>f(t)</m> for <m>t \approx 1</m> is consistent at <m>2</m>,
 	even though those output values will trend toward <m>2</m> in different ways on each side of input value <m>1</m> due to the piecewise nature of <m>f</m>.
 	</p>
+
 </example>
 
 <p>
@@ -962,17 +984,23 @@ we can similarly reduce a question of continuity of a function to determining th
 
 <example>
 
-	<p>
-	Consider function
-	<me>
-		f(t) = \begin{cases}
-			t^2 \amp t \le 0 \\
-			t + 1 \amp t \gt 0
-		\end{cases}
-	</me>.
-	</p>
+	<p> Consider the function below. </p>
 
-	<!-- TODO graph -->
+	<sidebyside valign="middle" widths="40% 27.9%" margins="5% 15%">
+
+		<p><me>
+			f(t) = \begin{cases}
+				t^2 \amp t \le 0 \\
+				t + 1 \amp t \gt 0
+			\end{cases}
+		</me></p>
+
+		<image label="image-func-limits-piecewise-3">
+			<description>Graph of a discontinuous piecewise function.</description>
+			<latex-image><xi:include href="func-limits.d/piecewise-3.tex" parse="text" /></latex-image>
+		</image>
+
+	</sidebyside>
 
 	<p>
 	The function is clearly discontinuous at <m>t = 0</m>.
@@ -980,11 +1008,22 @@ we can similarly reduce a question of continuity of a function to determining th
 	examining the <q>flow</q> of the graph from left to right,
 	the jump discontinuity is not evident until we move <em>past</em> <m>t = 0</m>.
 	Indeed, consider <m>f</m> restricted to the domain <m>t \le 0</m>.
-	Let <m>g</m> represent this restricted-domain version of <m>f</m>:
-	<me> g(t) = t^2 \text{,} \qquad t \le 0 \text{.} </me>
+	Let <m>g</m> represent this restricted-domain version of <m>f</m>.
 	</p>
 
-	<!-- TODO graph -->
+	<sidebyside valign="middle" widths="40% 27.9%" margins="5% 15%">
+
+		<p><md alignment="gather">
+			<mrow> g(t) = t^2 </mrow>
+			<mrow> t \le 0 </mrow>
+		</md></p>
+
+		<image label="image-func-limits-piecewise-3-left-half">
+			<description>Graph of one half of a discontinuous piecewise function.</description>
+			<latex-image><xi:include href="func-limits.d/piecewise-3-left-half.tex" parse="text" /></latex-image>
+		</image>
+
+	</sidebyside>
 
 	<p>
 	Note that <m>c = 0</m> is a limit point of the domain <me>\leftdomain = \setdef{t}{t \le 0}</me>.
@@ -1032,18 +1071,24 @@ we can similarly reduce a question of continuity of a function to determining th
 
 <example>
 
-<p>
-Consider the function
-<me>
-	f(t) = \begin{cases}
-		t^2 \amp t \le -1 \\[6pt]
-		{\displaystyle \frac{1}{t^2 - 1}} \amp -1 \lt t \lt 0 \\[6pt]
-		{\displaystyle \frac{t-2}{t^2 + t - 6}} \amp t \ge 0
-	\end{cases}
-</me>.
-</p>
+<p> Consider the function below. </p>
 
-<!-- TODO graph -->
+<sidebyside valign="middle" widths="40% 53.5%" margins="0% 0%">
+
+	<p><me>
+		f(t) = \begin{cases}
+			t^2 \amp t \le -1 \text{,} \\[6pt]
+			{\displaystyle \frac{1}{t^2 - 1}} \amp -1 \lt t \lt 0 \text{,} \\[6pt]
+			{\displaystyle \frac{t-2}{t^2 + t - 6}} \amp t \ge 0 \text{.}
+		\end{cases}
+	</me></p>
+
+	<image label="image-func-limits-piecewise-4" width="53.5%">
+		<description>Graph of a discontinuous piecewise function with continuous pieces.</description>
+		<latex-image><xi:include href="func-limits.d/piecewise-4.tex" parse="text" /></latex-image>
+	</image>
+
+</sidebyside>
 
 <p>
 The parabolic portion of the graph is continuous,
@@ -1209,7 +1254,25 @@ the number of steps to use:
 	and so in this case lower sums will be right Riemann sums and upper sums will be left Riemann sums.
 	</p>
 
-	<!-- TODO two graphs, one for lower sum and one for upper sum -->
+	<figure><sidebyside widths="40.5% 40.5%">
+
+		<figure>
+			<caption>Lower sum.</caption>
+			<image label="image-func-limits-lower-sum">
+				<description>A graph depicting a right Riemann sum for a decreasing function creating a lower sum.</description>
+				<latex-image><xi:include href="func-limits.d/lower-sum.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure>
+			<caption>Upper sum.</caption>
+			<image label="image-func-limits-upper-sum">
+				<description>A graph depicting a left Riemann sum for a decreasing function creating an upper sum.</description>
+				<latex-image><xi:include href="func-limits.d/upper-sum.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside></figure>
 
 	<p>
 	Following <xref ref="procedure-integ-riemann" /> twice,
@@ -1276,8 +1339,8 @@ We may now take a sequence perspective on this idea.
 	<p>
 	Suppose <m>f</m> is integrable on domain <m>a \le t \le b</m>.
 	Let <m>\nseq{U}</m> and <m>\nseq{L}</m> represent the sequences of upper and lower (regular) sums for <m>f</m> on that domain.
-	Then both <m>\nseq{U}</m> and <m>\nseq{L}</m> converge to the same value,
-	and that value is the value of <me> \ccmint{a}{b}{f(t)}{t} </me>.
+	Then both <m>\nseq{U}</m> and <m>\nseq{L}</m> converge to the same value:
+	the value of <me> \ccmint{a}{b}{f(t)}{t} </me>.
 	</p>
 </fact>
 
@@ -1327,8 +1390,6 @@ then we might write
 	but instead will flip.
 	</p>
 
-	<!-- TODO two graphs, one with even n and one with odd -->
-
 	<p>
 	We could exploit the symmetry of the graph to simplify things,
 	but instead let's exercise our reasoning skills and exploit the symmetry of the positioning within the domain of the critical point at <m>t = 1/2</m>,
@@ -1337,12 +1398,37 @@ then we might write
 	and so we will break our analysis up into those two cases.
 	</p>
 
-	<case><title>Even number of steps</title><p>
+	<case><title>Even number of steps</title>
+
+		<p>
 		In this case,
 		the critical point at <m>t = 1/2</m> will always line up with a partition boundary,
 		so we may split the domain in two:
 		for the first half of the domain, lower sum sample points will be right endpoints and upper sum sample points will be left endpoints,
 		and for the second half of the domain this will reverse.
+		</p>
+
+		<figure><sidebyside widths="40.5% 40.5%">
+
+				<figure>
+					<caption>Lower sum for even <m>n</m>.</caption>
+					<image label="image-func-limits-even-lower-sum">
+						<description>A graph depicting a lower sum for an even number of partition cells.</description>
+						<latex-image><xi:include href="func-limits.d/even-lower-sum.tex" parse="text" /></latex-image>
+					</image>
+				</figure>
+
+				<figure>
+					<caption>Upper sum for even <m>n</m>.</caption>
+					<image label="image-func-limits-even-upper-sum">
+						<description>A graph depicting an upper sum for an even number of partition cells.</description>
+						<latex-image><xi:include href="func-limits.d/even-upper-sum.tex" parse="text" /></latex-image>
+					</image>
+				</figure>
+
+		</sidebyside></figure>
+
+		<p>
 		So when <m>n</m> is even we have
 		<md>
 
@@ -1361,9 +1447,13 @@ then we might write
 			</mrow>
 
 		</md>
-	</p></case>
+		</p>
 
-	<case><title>Odd number of steps</title><p>
+	</case>
+
+	<case><title>Odd number of steps</title>
+
+		<p>
 		In this case,
 		the critical point at <m>t = 1/2</m> will always line up with a <em>midpoint</em> of a partition subdomain,
 		and so this time we will split the domain in <em>three</em>:
@@ -1376,6 +1466,29 @@ then we might write
 		But on that middle partition subdomain that straddles the critical point,
 		the lowest value occurs at <m>t = 1/2</m>,
 		while the highest value occurs symmetrically at the two endpoints.
+		</p>
+
+		<figure><sidebyside widths="40.5% 40.5%">
+
+			<figure>
+				<caption>Lower sum for odd <m>n</m>.</caption>
+				<image label="image-func-limits-odd-lower-sum">
+					<description>A graph depicting a lower sum for an odd number of partition cells.</description>
+					<latex-image><xi:include href="func-limits.d/odd-lower-sum.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+			<figure>
+				<caption>Upper sum for odd <m>n</m>.</caption>
+				<image label="image-func-limits-odd-upper-sum">
+					<description>A graph depicting an upper sum for an odd number of partition cells.</description>
+					<latex-image><xi:include href="func-limits.d/odd-upper-sum.tex" parse="text" /></latex-image>
+				</image>
+			</figure>
+
+		</sidebyside></figure>
+
+		<p>
 		So when <m>n</m> is odd we have
 		<md>
 
@@ -1398,7 +1511,9 @@ then we might write
 		Note that the <q>middle</q> partition subdomain is indexed by <m>k = (n+1)/2</m>.
 		For the upper sum we have chosen the right endpoint as the sample point for that subdomain,
 		and so have absorbed that term into the sum for the second <q>half</q> of partition cells.
-	</p></case>
+		</p>
+
+	</case>
 
 	<p>
 	Effectively we are analyzing subsequences of the upper and lower sum sequences.
