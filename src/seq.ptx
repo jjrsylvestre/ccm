@@ -142,7 +142,10 @@ Note that every tail of a tail is a tail of the original sequence.
 		as the sequence begins with a downward trend but then turns upward for <m>n \ge 3</m>.
 		</p>
 
-		<p> TODO image of plotted seq points but just bare not in figure </p>
+		<image label="image-seq-subseq-bdd-tail" width="82.9%">
+			<description>Plot of sequence values as points in the Cartesian plane.</description>
+			<latex-image><xi:include href="seq.d/subseq-bdd-tail.tex" parse="text" /></latex-image>
+		</image>
 
 		<p> So we may want to consider the sequence tail <m>\lrseqtail[n \ge 3]{ \frac{2^n}{n^2} }</m> instead. </p>
 
@@ -264,7 +267,10 @@ Note that every tail of a tail is a tail of the original sequence.
 	Putting all this together we have the following sketch of the graph.
 	</p>
 
-	<p> TODO graph image, just use a bare image, not a figure. Also, plot s(x) points along graph. </p>
+	<image label="image-seq-monotonic" width="80.0%">
+		<description>Graph of function associated to a sequence, with sequence values plotted along the graph.</description>
+		<latex-image><xi:include href="seq.d/monotonic.tex" parse="text" /></latex-image>
+	</image>
 
 	<p> From the graph we may conclude that <m>\nseq{s}</m> is bounded below by <m>1/2</m> and above by <m>1</m>. </p>
 
@@ -408,8 +414,6 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 		Since the two ranges we are considering do not overlap,
 		it is impossible for any of those tails of <m>\nseq{s}</m> to be contained within <m>(K - d, K + d)</m>.
 		</p>
-
-		<!-- TODO image? -->
 
 	</proof>
 
