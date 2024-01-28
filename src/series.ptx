@@ -838,7 +838,25 @@ the <q>amount left to add</q> must be getting small as well.
 		with <m>n</m> steps and regular with <m>\change{t} = 1</m> in both cases.
 		</p>
 
-		<!-- TODO images -->
+		<figure><sbsgroup>
+
+			<sidebyside width="70.5%"><figure>
+				<caption> Partial sum as a lower Riemann sum for a partial area of an improper integral. </caption>
+				<image label="image-series-lower-sum">
+					<description> A diagram of a partial series sum as a lower Riemann sum for a partial area of an improper integral. </description>
+					<latex-image><xi:include href="series.d/lower-sum.tex" parse="text" /></latex-image>
+				</image>
+			</figure></sidebyside>
+
+			<sidebyside width="70.5%"><figure>
+				<caption> Partial sum as an upper Riemann sum for a partial area of an improper integral. </caption>
+				<image label="image-series-upper-sum">
+					<description> A diagram of a partial series sum as an upper Riemann sum for a partial area of an improper integral. </description>
+					<latex-image><xi:include href="series.d/upper-sum.tex" parse="text" /></latex-image>
+				</image>
+			</figure></sidebyside>
+
+		</sbsgroup></figure>
 
 		<p>
 		As <m>f(t)</m> is decreasing,
