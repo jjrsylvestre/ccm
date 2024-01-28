@@ -24,7 +24,13 @@ Is it possible to attach a number to the <q>area</q> of the region bounded betwe
 Or is the area simply infinite because the domain being considered is unbounded?
 </p>
 
-<!-- TODO graph -->
+<figure>
+	<caption>An unbounded area under the graph of <m>f(t) = 1/t^2</m>.</caption>
+	<image label="image-improper-int-area-under-recip-square" width="56.1%">
+		<description>A graph illustrating an unbounded area under the graph of the reciprocal square function.</description>
+		<latex-image><xi:include href="improper-int.d/area-under-recip-square.tex" parse="text" /></latex-image>
+	</image>
+</figure>
 
 <p>
 As usual in calculus,
@@ -39,7 +45,13 @@ and so on,
 and look for a trend in these partial areas.
 </p>
 
-<!-- TODO graph -->
+<figure>
+	<caption>An bounded partial area under the graph of <m>f(t) = 1/t^2</m>.</caption>
+	<image label="image-improper-int-partial-area-under-recip-square" width="56.1%">
+		<description>A graph illustrating a bounded partial area under the graph of the reciprocal square function.</description>
+		<latex-image><xi:include href="improper-int.d/partial-area-under-recip-square.tex" parse="text" /></latex-image>
+	</image>
+</figure>
 
 <p>
 However,
@@ -133,9 +145,12 @@ and it seems reasonable to say that the area of the region bounded between the g
 
 	<li xml:id="example-improper-int-first-examples-two-sided">
 
-		<p> Consider <me> \ccmint{-\infty}{\infty}{t e^{-t^2}}{t} </me>. </p>
+		<p> Consider <m>\displaystyle \ccmint{-\infty}{\infty}{t e^{-t^2}}{t} </m>. </p>
 
-		<!-- TODO graph -->
+		<image label="image-improper-int-two-sided-exp" width="43.5%">
+			<description>A graph illustrating unbounded area under a graph in both directions.</description>
+			<latex-image><xi:include href="improper-int.d/two-sided-exp.tex" parse="text" /></latex-image>
+		</image>
 
 		<p> The graph of this function displays odd symmetry, so we expect the <q>two-sided</q> improper integral to compute to <m>0</m>. </p>
 
@@ -219,7 +234,10 @@ as <me> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </me>?
 	and the negative area over domain <m>t \le 0</m> should <q>cancel</q> with the positive area over domain <m>t \ge 0</m>.
 	</p>
 
-	<!-- TODO graph? -->
+	<image label="image-improper-int-two-sided-linear" width="35.0%">
+		<description>A graph illustrating unbounded area under a graph in both directions for a linear function.</description>
+		<latex-image><xi:include href="improper-int.d/two-sided-linear.tex" parse="text" /></latex-image>
+	</image>
 
 	<p>
 	This is exactly what happens if we compute
@@ -463,17 +481,23 @@ than it stands to reason that the second improper integral should converge as we
 		</ol>
 	</p></statement>
 
-	<proof><p>
-		If the area under the graph of <m>g</m> is finite,
-		and the graph of <m>f</m> is below the graph of <m>f</m>,
-		making the area under the graph of <m>f</m> smaller,
-		then the area under <m>f</m> must be finite as well.
-		And the second statement is just the contrapositive of the first.
-	</p></proof>
-
 </identity>
 
-<!-- TODO picture ? -->
+<figure>
+	<caption>An illustration of <xref ref="pattern-improper-int-compare" />.</caption>
+	<image label="image-improper-int-compare" width="49.4%">
+		<description>A graph depicting comparison of two improper integrals.</description>
+		<latex-image><xi:include href="improper-int.d/compare.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<proof><p>
+	If the area under the graph of <m>g</m> is finite,
+	and the graph of <m>f</m> is below the graph of <m>f</m>,
+	making the area under the graph of <m>f</m> smaller,
+	then the area under <m>f</m> must be finite as well.
+	And the second statement is just the contrapositive of the first.
+</p></proof>
 
 <example>
 	<title>Convergence by comparison</title>
