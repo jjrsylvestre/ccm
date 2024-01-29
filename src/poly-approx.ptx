@@ -334,17 +334,17 @@ we may rewrite the linearization formula in <xref ref="definition-poly-approx-li
 		<me> \change{q} = q(t) - q(t^\ast) = q(t^\ast + dt) - q(t^\ast) </me>,
 		where <me> dt = \change{t} = t - t^\ast </me>.
 		So the error in approximating <m>\change{q} \approx dq</m> is
-		<me> \change{q} - dq = \bigl[q(t^\ast + dt) - q(t^\ast)\bigr] - q'(t^\ast) \, dt </me>.
+		<me> dq - \change{q} = q'(t^\ast) \, dt - \bigl[q(t^\ast + dt) - q(t^\ast)\bigr] </me>.
 		The error relative to <m>dt</m> is then
 		<md>
-			<mrow> \frac{\change{q} - dq}{dt} \amp = \frac{\bigl[q(t^\ast + dt) - q(t^\ast)\bigr] - q'(t^\ast) \, dt}{dt} </mrow>
-			<mrow> \amp = \frac{q(t^\ast + dt) - q(t^\ast)}{dt} - q'(t^\ast) </mrow>
+			<mrow> \frac{dq - \change{q}}{dt} \amp = \frac{q'(t^\ast) \, dt - \bigl[q(t^\ast + dt) - q(t^\ast)\bigr]}{dt} </mrow>
+			<mrow> \amp = q'(t^\ast) - \frac{q(t^\ast + dt) - q(t^\ast)}{dt}</mrow>
 		</md>
-		But the quotient on the left is precisely the difference quotient that approximates the value of <m>q'(t^\ast)</m>.
+		But the quotient at the end is precisely the difference quotient that approximates the value of <m>q'(t^\ast)</m>.
 		That is, for <m>dt \approx 0</m> we have
 		<me> \frac{q(t^\ast + dt) - q(t^\ast)}{dt} \approx q'(t^\ast) </me>,
 		and this approximation can be made arbitrarily good by taking <m>dt</m> to be sufficiently small.
-		Thus <me> \frac{\change{q} - dq}{dt} \approx q'(t^\ast) - q'(t^\ast) = 0 </me>,
+		Thus <me> \frac{dq - \change{q}}{dt} \approx q'(t^\ast) - q'(t^\ast) = 0 </me>,
 		and again this approximation can be made arbitrarily good by taking <m>dt</m> to be sufficiently small.
 	</p></proof>
 
@@ -380,8 +380,8 @@ and then we may approximate the relative variation as
 	<title>Relative increase in area of a circle</title>
 
 	<p>
-	You are designing a circular part of diameter <quantity><mag>10</mag><unit base="meter" prefix="centi" /></quantity> for a machine.
-	During manufacturing the actual diameter of completed part can vary by up to <m>\pm 2%</m>.
+	You are designing a circular part for a machine.
+	During manufacturing the actual diameter of the completed part can vary by up to <m>\pm 2\%</m>.
 	What range of variation in the material used to make the part is possible?
 	</p>
 
@@ -389,17 +389,16 @@ and then we may approximate the relative variation as
 	If the part is a uniform thickness,
 	we can use the area of its circular face as a proxy measurement for the amount of material used.
 	Let's work with the area as a function of the radius: <m>A(r) = \pi r^2</m>.
-	A <m>\pm 2\%</m> variation in the diameter corresponds to a <m>\pm 1\%</m> variation in the radius,
-	so we will use <me> dr = \change{r} = \pm 0.1 </me>.
+	A <m>\pm 2\%</m> variation in the diameter also means a <m>\pm 2\%</m> variation in the radius,
+	because diameter and radius are proportional.
+	So we have <me> dr = \change{r} = (\pm 2\%) \times r = \pm 0.02 r </me>.
 	The variation in the area can be approximated via differentials:
 	<me> \change{A} \approx dA = \dd{A}{r} \, dr = 2 \pi r dr </me>.
 	Then relative variation is the ratio
 	<me> \frac{\change{A}}{A} \approx \frac{dA}{A} = \frac{2 \pi r dr}{\pi r^2} = \frac{2 dr}{r} </me>.
-	At radius <quantity><mag>5\</mag><unit base="meter" prefix="centi" /></quantity>,
-	the relative variation is
-	<me> \frac{\change{A}}{A} \approx \frac{2 \cdot (\pm 0.1)}{5} = \pm 0.04 </me>.
-	So a for a circle of diameter <quantity><mag>10</mag><unit base="meter" prefix="centi" /></quantity>,
-	a <m>\pm 2\%</m> variation in the diameter corresponds to an approximate <m>\pm 4\%</m> variation in the area.
+	Using <m> dr = \pm 0.02 r </m> we have
+	<me> \frac{\change{A}}{A} \approx \frac{2 (\pm 0.02 r)}{r} = \pm 0.04 </me>.
+	So a <m>\pm 2\%</m> variation in the diameter corresponds to an <em>approximate</em> <m>\pm 4\%</m> variation in the area.
 	</p>
 
 </example>
@@ -590,7 +589,7 @@ To make these match in all three rows we should use
 		<mrow>
 			\amp = 0.0009995 \text{,}
 			\amp
-			\amp -0.0010005 \text{.}
+			\amp = -0.0010005 \text{.}
 		</mrow>
 
 	</md>
