@@ -794,7 +794,7 @@ we should set
 </p></remark>
 
 <example xml:id="example-poly-approx-maclaurin-cos">
-	<title>Maclaurin approximation of <m>\cos(t)</m></title>
+	<title>Maclaurin approximation of cosine</title>
 
 	<p>
 	The first four derivative values
@@ -830,7 +830,7 @@ we should set
 
 </example>
 
-<exercise>
+<exercise xml:id="exercise-poly-approx-maclaurin-sin">
 	<title>Maclaurin approximation of <m>\sin(t)</m></title>
 	<p>
 	Perform a similar analysis as in <xref ref="example-poly-approx-maclaurin-cos" />
@@ -896,6 +896,24 @@ the error is approximately measured the the derivative value that is <em>not</em
 	Then the error <m>E</m> in using the approximation <m>f(a) \approx T_{n,t^\ast}(a)</m>
 	satisfies <me> \abs{E} \le \frac{M}{(n + 1)!} \, {\abs{a - t^\ast}}^{n + 1} </me>.
 </p></fact>
+
+<example><p>
+	What value of <m>n</m> can we use so that <m>\cos(1) \approx \nthmaclaurin (1)</m> is accurate to within <m>\pm 0.001</m>?
+	The derivatives of <m>\sin(t)</m> are all sine or cosine or their negatives,
+	so we can say <m>\abs{\nthderiv[n+1]{\sin}(t)} \le 1</m> for all <m>n</m> and all <m>t</m>.
+	Thus <me> \abs{E} \le \frac{1}{(n + 1)!} \, {\abs{1 - 0}}^{n + 1} = \frac{1}{(n + 1)!} </me>.
+	We first have <m>(n + 1)! \ge 1000</m> for <m>n = 6</m>,
+	so using <m>\cos(1) \approx \nthmaclaurin[6](1)</m> will give us the desired accuracy.
+	From the pattern in <xref ref="example-poly-approx-maclaurin-cos" />
+	we have <me> \nthmaclaurin[6](t) = 1 - \frac{t^2}{2} + \frac{t^4}{4!} - \frac{t^6}{6!} </me>,
+	and so at <m>t = 1</m> we have
+	<md>
+		<mrow> \nthmaclaurin[6](t) \amp = 1 - \frac{1}{2} + \frac{1}{4!} - \frac{1}{6!} </mrow>
+		<mrow> \amp = \frac{6!}{6!} - \frac{360}{6!} + \frac{30}{6!} - \frac{1}{6!} </mrow>
+		<mrow> \amp = \frac{389}{720} </mrow>
+	</md>.
+	Conclude that <me> \cos(1) \approx 0.540 \pm 0.001 </me>.
+</p></example>
 
 </subsection>
 
