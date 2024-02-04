@@ -118,51 +118,51 @@ We specify a tail by restricting the domain: <m>\nseqtail{s}</m>.
 Note that every tail of a tail is a tail of the original sequence.
 </p>
 
-<example xml:id="example-seq-subseq"><p><ol>
+<example xml:id="example-seq-alternating-subseq">
+	<title>Positive and negative subsequences of an alternating sequence</title>
+	<p>
+	The sequence <m>\lrseq{ \frac{(-1)^n}{n + 1} }</m> has terms
+	<me> 1, - \frac{1}{2}, \frac{1}{3}, - \frac{1}{4}, \dotsc </me>.
+	We can split this into two subsequences by considering only the even-indexed terms and skipping the odd-indexed terms,
+	or vice versa:
+	<md>
+		<mrow> a_n \amp \colon \quad 1, \frac{1}{3}, \frac{1}{5}, \dotsc </mrow>
+		<mrow> b_n \amp \colon \quad -\frac{1}{2}, -\frac{1}{4}, -\frac{1}{6} \dotsc </mrow>
+	</md>
+	We can describe <m>\nseq{a}</m> by the pattern <m>\lrseq{ \frac{1}{2 n + 1} }</m>,
+	and can describe <m>\nseq{b}</m> by the pattern <m>\lrseq{ - \frac{1}{2 (n + 1)} }</m>.
+	</p>
+</example>
 
-	<li><p>
-		The sequence <m>\lrseq{ \frac{(-1)^n}{n + 1} }</m> has terms
-		<me> 1, - \frac{1}{2}, \frac{1}{3}, - \frac{1}{4}, \dotsc </me>.
-		We can split this into two subsequences by considering only the even-indexed terms and skipping the odd-indexed terms,
-		or vice versa:
-		<md>
-			<mrow> a_n \amp \colon \quad 1, \frac{1}{3}, \frac{1}{5}, \dotsc </mrow>
-			<mrow> b_n \amp \colon \quad -\frac{1}{2}, -\frac{1}{4}, -\frac{1}{6} \dotsc </mrow>
-		</md>
-		We can describe <m>\nseq{a}</m> by the pattern <m>\lrseq{ \frac{1}{2 n + 1} }</m>,
-		and can describe <m>\nseq{b}</m> by the pattern <m>\lrseq{ - \frac{1}{2 (n + 1)} }</m>.
-	</p></li>
+<example xml:id="example-seq-incr-tail">
+	<title>An <q>eventually</q> increasing sequence</title>
 
-	<li xml:id="example-seq-subseq-tail">
+	<p>
+	The sequence <m>\lrseqtail[n \gt 0]{ \frac{2^n}{n^2} }</m> has terms
+	<me> 2, 1, \frac{8}{9}, 1, \frac{32}{25}, \frac{16}{9}, \dotsc </me>.
+	We may wish to omit the anomalous first two terms,
+	as the sequence begins with a downward trend but then turns upward for <m>n \ge 3</m>.
+	</p>
 
-		<p>
-		The sequence <m>\lrseqtail[n \gt 0]{ \frac{2^n}{n^2} }</m> has terms
-		<me> 2, 1, \frac{8}{9}, 1, \frac{32}{25}, \frac{16}{9}, \dotsc </me>.
-		We may wish to omit the anomalous first two terms,
-		as the sequence begins with a downward trend but then turns upward for <m>n \ge 3</m>.
-		</p>
+	<image label="image-seq-subseq-bdd-tail" width="82.9%">
+		<description>Plot of sequence values as points in the Cartesian plane.</description>
+		<latex-image><xi:include href="seq.d/subseq-bdd-tail.tex" parse="text" /></latex-image>
+	</image>
 
-		<image label="image-seq-subseq-bdd-tail" width="82.9%">
-			<description>Plot of sequence values as points in the Cartesian plane.</description>
-			<latex-image><xi:include href="seq.d/subseq-bdd-tail.tex" parse="text" /></latex-image>
-		</image>
+	<p> So we may want to consider the sequence tail <m>\lrseqtail[n \ge 3]{ \frac{2^n}{n^2} }</m> instead. </p>
 
-		<p> So we may want to consider the sequence tail <m>\lrseqtail[n \ge 3]{ \frac{2^n}{n^2} }</m> instead. </p>
-
-	</li>
-
-</ol></p></example>
+</example>
 
 </subsection>
 
 <subsection>
-<title>Bounded sequences</title>
+<title>Bounded and monotonic sequences</title>
 
 <definition xml:id="definition-seq-bounded">
 	<title>Bounded sequences</title>
 	<p><ul>
-		<li><p> A sequence is <term>bounded above</term> if there is some value <m>M</m> so that <m>s_n \le M</m> is true for all indices. </p></li>
-		<li><p> A sequence is <term>bounded below</term> if there is some value <m>N</m> so that <m>s_n \ge N</m> is true for all indices. </p></li>
+		<li><p> A sequence is <term>bounded below</term> if there is some value <m>A</m> so that <m>s_n \ge A</m> is true for all indices. </p></li>
+		<li><p> A sequence is <term>bounded above</term> if there is some value <m>B</m> so that <m>s_n \le B</m> is true for all indices. </p></li>
 		<li><p> A sequence is <term>bounded</term> if it is both bounded above and below. </p></li>
 	</ul></p>
 </definition>
@@ -224,7 +224,7 @@ Note that every tail of a tail is a tail of the original sequence.
 </heuristic>
 
 <example xml:id="example-seq-exp-power-ratio-increases"><p>
-	We claimed in <xref ref="example-seq-subseq-tail" /> that the tail <m>\lrseqtail[n \ge 3]{ \frac{2^n}{n^2} }</m> is an increasing sequence.
+	We claimed in <xref ref="example-seq-incr-tail" /> that the tail <m>\lrseqtail[n \ge 3]{ \frac{2^n}{n^2} }</m> is an increasing sequence.
 	We have
 	<md>
 		<mrow> s_{n+1} - s_n \amp = \frac{2^{n+1}}{{(n+1)}^2} - \frac{2^n}{n^2} </mrow>
@@ -253,15 +253,15 @@ Note that every tail of a tail is a tail of the original sequence.
 
 	<p>
 	The sequence <m>\lrseq{ \frac{n+1}{n+2} }</m> is associated to the function <m>s(n) = \frac{n+1}{n+2}</m>.
-	We can turn this into a continuous function: <me> f(x) = \frac{x+1}{x+2} \text{,} \qquad x \ge 0 \text{.} </me>
-	From <me> f'(x) = \frac{1}{(x+2)^2} \gt 0 </me> we see that the continuous version is always increasing,
+	We can turn this into a continuous function: <me> f(x) = \frac{x + 1}{x + 2} \text{,} \qquad x \ge 0 \text{.} </me>
+	From <me> f'(x) = \frac{1}{{(x + 2)}^2} \gt 0 </me> we see that the continuous version is always increasing,
 	and so the sequence is increasing as well.
 	Investigating a little further,
 	the long-term behaviour of <m>f</m> as <m>x \to \infty</m> is that
 	<me> f(x) \approx \frac{x}{x} = 1 </me>,
 	so the graph increases up to a horizontal asymptote at <m>y = 1</m>.
 	Double-checking, we have
-	<me> f''(x) = \frac{-2}{(x+2)^3} </me>
+	<me> f''(x) = \frac{-2}{{(x + 2)}^3} </me>
 	which is always negative on our stated domain for <m>f</m>,
 	and so the graph of <m>f</m> is concave down on that domain.
 	Putting all this together we have the following sketch of the graph.
@@ -399,20 +399,18 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	<proof>
 
 		<p>
-		Let <m>d</m> represent half of the distance between <m>K</m> and <m>L</m>:
-		<me> d = \frac{\abs{L - K}}{2} </me>.
-		Now consider the open ranges <m>(L - d, L + d)</m> around <m>L</m> and <m>(K - d, K + d)</m> around <m>K</m>.
-		Note that these ranges do not overlap,
-		as they share an open endpoint.
-		(Which endpoint is shared depends on whether <m>K \lt L</m> or <m>L \lt K</m>.)
+		Assume for the moment that <m>L \lt K</m>.
+		Take <m>b</m> to be the average of <m>L</m> and <m>K</m>.
+		Note that <m>b</m> is strictly greater than <m>L</m> and strictly less than <m>K</m>.
+		If <m>\nseq{s} \to L</m>,
+		then there is some tail <m>\nseqtail{s}</m> completely contained in the open range <m>(L - 1, b)</m> around <m>L</m>.
+		But then <em>no</em> tail can be completely contained in the open range <m>(b, K + 1)</m> around <m>K</m>,
+		because this range is disjoint from the range around <m>L</m>.
 		</p>
 
 		<p>
-		Since the sequence converges to <m>L</m>,
-		there is some tail <m>\nseqtail{s}</m> that is entirely contained within <m>(L - d, L + d)</m>.
-		And so also every tail of that tail is entirely contained within that range.
-		Since the two ranges we are considering do not overlap,
-		it is impossible for any of those tails of <m>\nseq{s}</m> to be contained within <m>(K - d, K + d)</m>.
+		In the case <m>L \gt K</m>,
+		make the same argument using range <m>(b, L + 1)</m> around <m>L</m> and range <m>(K - 1, b)</m> around <m>K</m>.
 		</p>
 
 	</proof>
@@ -444,7 +442,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 <example>
 	<title>An <q>oscillating</q> sequence</title>
 	<p>
-	The sequence <m>\bbseq{\cos(\pi n)}</m> has terms
+	The sequence <m>\bbseq{\cos(\pi n / 2)}</m> has terms
 	<me> 1, 0, -1, 0, 1, 0, -1, 0, \dotsc </me>.
 	This sequence is divergent as its tails do not cluster around any one value.
 	</p>
@@ -598,6 +596,12 @@ For example, convergence of tails is equivalent to convergence of the original s
 	</p>
 </corollary>
 
+<example><p>
+	The sequence <m>\seq{1 / (n + 10)}</m> contains the same terms as the tail of the sequence <m>\seqtail[n \ge 1]{1 / n}</m> that begins at index <m>n = 10</m>.
+	Since this second sequence converges to <m>0</m>,
+	so does the first.
+</p></example>
+
 <corollary xml:id="corollary-seq-same-tail">
 	<title>Same tails, same convergence</title>
 	<p>
@@ -671,8 +675,8 @@ as long as they collectively include all terms of the original.
 
 		<p>
 		Now let <m>L</m> represent the common limit value of <m>\nseq{a}</m> and <m>\nseq{b}</m>,
-		and let <m>(a,b)</m> be some open range containing <m>L</m>.
-		Then there are tails <m>\nseqtail[n \ge N_1]{a}</m> and <m>\nseqtail[n \ge N_2]{b}</m> that are completely contained in <m>(a,b)</m>.
+		and let <m>(c,d)</m> be some open range containing <m>L</m>.
+		Then there are tails <m>\nseqtail[n \ge N_1]{a}</m> and <m>\nseqtail[n \ge N_2]{b}</m> that are completely contained in <m>(c,d)</m>.
 		As <m>\nseq{a}</m> and <m>\nseq{b}</m> are subsequences,
 		both <m>a_{N_1}</m> and <m>b_{N_2}</m> appear in <m>\nseq{s}</m>,
 		but they represent different terms in <m>\nseq{s}</m> because we removed any overlap between <m>\nseq{a}</m> and <m>\nseq{b}</m>.
@@ -680,21 +684,14 @@ as long as they collectively include all terms of the original.
 		assume that <m>a_{N_1}</m> appears in <m>\nseq{s}</m> before <m>b_{N_2}</m>,
 		and let <m>N</m> be the index so that <m>b_{N_2} = s_N</m>.
 		(Note that this does <em>not</em> imply that <m>N_1 \lt N_2</m>, or that <m>N = N_2</m>.)
-		Now let <m>N_1'</m> be lowest index so that <m>a_{N_1'}</m> appears in the tail <m>\nseqtail{s}</m>.
-		Then <m>N_1' \gt N_1</m>,
-		since otherwise <m>a_{N_1}</m> would appear after <m>a_{N_1'}</m> in <m>\nseq{s}</m>,
-		and hence also in that order in <m>\nseqtail{s}</m>,
-		which would put <m>a_{N_1}</m> after <m>b_{N_2}</m> in <m>\nseq{s}</m>,
-		contrary to what we have assumed.
-		</p>
-
-		<p>
-		We now claim that <m>\nseqtail{s}</m> is completely contained in <m>(a,b)</m>.
-		Every term in <m>\nseqtail{s}</m> appears either in <m>\nseqtail[n \ge N_2]{b}</m>,
-		which we know is completely contained in <m>(a,b)</m>,
-		or in <m>\nseqtail[n \ge N_1']{a}</m> which itself is a tail of <m>\nseqtail[n \ge N_1]{a}</m>
-		(since <m>N_1' \gt N_1</m>),
-		and we know that <m>\nseqtail[n \ge N_1]{a}</m> is also completely contained in <m>(a,b)</m>.
+		Every term in the tail <m>\nseqtail{s}</m> that appears in <m>\nseq{a}</m> must do so with index greater than <m>N_1</m>,
+		since such a term will appear after <m>b_{N_2}</m>,
+		which appears after <m>a_{N_1}</m>.
+		And every term in the tail <m>\nseqtail{s}</m> that appears in <m>\nseq{b}</m> must obviously do so with index at least <m>N_2</m>.
+		In other words,
+		every term in the tail <m>\nseqtail{s}</m> is either in the tail <m>\nseqtail[n \gt N_1]{a}</m> or in the tail <m>\nseqtail[n \ge N_2]{b}</m>,
+		each of which are completely contained in <m>(c,d)</m>.
+		Thus the tail <m>\nseqtail{s}</m> is completely contained in <m>(c,d)</m>.
 		</p>
 
 	</proof>
@@ -819,13 +816,13 @@ However, a bounded sequence that doesn't bounce around like this example must co
 	even though we might not be sure of the value of its limit.
 </p></example>
 
-<p> The following fact is useful for comparing the convergence of one sequence to the known convergence of others. </p>
+<p> The following pattern is useful for comparing the convergence of one sequence to the known convergence of others. </p>
 
-<fact xml:id="fact-seq-squeeze">
-	<title>Squeeze Theorem</title>
+<identity xml:id="pattern-seq-squeeze">
+	<title>Sequence Squeeze Theorem</title>
 
 	<statement><p>
-		Suppose <m>\nseq{r}</m>, <m>\nseq{s}</m>, <m>\nseq{t}</m> are sequences so that some tail <m>\nseqtail[n \ge N_s]{s}</m> satisfies
+		Suppose <m>\nseq{r}</m>, <m>\nseq{s}</m>, <m>\nseq{t}</m> are sequences so that some tail <m>\nseqtail[n \ge N]{s}</m> satisfies
 		<me> r_n \le s_n \le t_n \qquad \text{for all } n \ge N </me>.
 		If both <m>\nseq{r}</m> and <m>\nseq{t}</m> converge to <m>L</m>,
 		then so does <m>\nseq{s}</m>.
@@ -833,16 +830,16 @@ However, a bounded sequence that doesn't bounce around like this example must co
 
 	<proof><p>
 		Consider open range <m>(a,b)</m> containing <m>L</m>.
-		Then there are tails <m>\nseqtail[n \ge N_r]{r}</m> and <m>\nseqtail[n \ge N_t]{t}</m> that are entirely contained within that range.
-		Let <m>N</m> represent the largest of <m>N_r, N_s, N_t</m>.
-		Then <me> a \lt r_n \le s_n \le t_n \lt b \qquad \text{for all } n \ge N </me>,
-		so the tail <m>\nseqtail{s}</m> is entirely contained within the range <m>(a,b)</m>.
+		Then there are tails <m>\nseqtail[n \ge N_1]{r}</m> and <m>\nseqtail[n \ge N_2]{t}</m> that are entirely contained within that range.
+		Let <m>N'</m> represent the largest of <m>N, N_1, N_2</m>.
+		Then <me> a \lt r_n \le s_n \le t_n \lt b \qquad \text{for all } n \ge N' </me>,
+		so the tail <m>\nseqtail[n \ge N']{s}</m> is entirely contained within the range <m>(a,b)</m>.
 	</p></proof>
 
-</fact>
+</identity>
 
 <example>
-	<title>Applying the <xref ref="fact-seq-squeeze" text="title" /></title>
+	<title>Applying the <xref ref="pattern-seq-squeeze" text="title" /></title>
 	<p>
 	Consider <md><mrow> r_n \amp = \frac{2}{n} \text{,} \amp s_n \amp = \frac{3 + {(-1)}^2}{n} \text{,} \amp t_n \amp = \frac{4}{n} \text{.} </mrow></md>
 	We have
@@ -857,7 +854,7 @@ However, a bounded sequence that doesn't bounce around like this example must co
 </example>
 
 <p>
-Using the <xref ref="fact-seq-squeeze" text="title" />,
+Using the <xref ref="pattern-seq-squeeze" text="title" />,
 we can say more about bounded sequences even in the case that they are not monotonic.
 </p>
 
@@ -927,7 +924,7 @@ we can say more about bounded sequences even in the case that they are not monot
 		</p>
 
 		<p>
-		Finally, we may apply the <xref ref="fact-seq-squeeze" text="title" /> to conclude that the constructed subsequence <m>\nseq{u}</m> converges to that common limit value of the two endpoint sequences.
+		Finally, we may apply the <xref ref="pattern-seq-squeeze" text="title" /> to conclude that the constructed subsequence <m>\nseq{u}</m> converges to that common limit value of the two endpoint sequences.
 		</p>
 
 	</proof>
@@ -1154,7 +1151,7 @@ and the reader is encouraged to be on the lookout for their applications.
 	<proof>
 		<title>Justification for <xref ref="pattern-seq-alg-limit-laws-sum" text="type-local">Statement</xref></title>
 		<p>
-		We will verify that <me>\bbseq{(s_n + t_n) - (L + M)} \to 0</me>,
+		We will verify that <me>\lrabsseq{(s_n + t_n) - (L + M)} \to 0</me>,
 		so consider haf-open range <m>[0,c)</m>.
 		As <m>\nseq{s} \to L</m> and <m>\nseq{t} \to M</m>,
 		there are absolute sequence tails <m>\absseqtail[n \ge N_1]{s_n - L}</m>
@@ -1170,7 +1167,7 @@ and the reader is encouraged to be on the lookout for their applications.
 			<mrow> \amp \lt \frac{c}{2} + \frac{c}{2} </mrow>
 			<mrow> \amp = c </mrow>
 		</md>,
-		and so the absolute sequence tail <m>\absseqtail{(s_n + t_n) - (L + M)}</m> is entirely contained within <m>[0,c)</m>,
+		and so the absolute sequence tail <m>\lrabsseqtail{(s_n + t_n) - (L + M)}</m> is entirely contained within <m>[0,c)</m>,
 		as required.
 		</p>
 	</proof>
@@ -1344,10 +1341,9 @@ and the reader is encouraged to be on the lookout for their applications.
 		there is some tail <m>\absseqtail[n \ge N_2]{t_n}</m> that is entirely contained in the range <m>[0, d)</m> for <m>d = \abs{L}/2K</m>.
 		Take <m>N</m> to be the greater of the two tail boundaries <m>N_1</m> and <m>N_2</m>.
 		But then for <m>n \ge N</m> we have
-		<md>
-			<mrow> \abs{s_n} \amp \gt \frac{\abs{L}}{2} \text{,} \amp \abs{t_n} \amp \lt \frac{\abs{L}}{2 K}  </mrow>
-			<mrow> \amp \amp \implies \qquad \frac{1}{\abs{t_n}} \amp \gt \frac{2 K}{\abs{L}} \text{.} </mrow>
-		</md>
+		<me> \abs{s_n} \gt \frac{\abs{L}}{2} </me>
+		and
+		<me> \abs{t_n} \lt \frac{\abs{L}}{2 K} \qquad\implies\qquad \frac{1}{\abs{t_n}} \gt \frac{2 K}{\abs{L}} </me>.
 		But then
 		<me> \abs{\frac{s_n}{t_n}} = \abs{s_n} \cdot \frac{1}{\abs{t_n}} \gt \frac{\abs{L}}{2} \cdot \frac{2 K}{\abs{L}} = K </me>.
 		We have proved that every <em>unbounded</em> open range <m>(K,\infty)</m> with <m>K \gt 0</m> contains a tail of <m>\absseq{s_n / t_n}</m>,
@@ -1366,25 +1362,28 @@ The following example effectively justifies our <term>dominant terms</term> appr
 <example>
 	<title>Dominant terms in a rational sequence</title>
 	<p>
-	Consider <m>\nseq{s}</m> for <me> s_n = \frac{n^2 - 1}{n^2 + 1} </me>.
+	Consider <m>\nseq{s}</m> for <me> s_n = \frac{n^2 - 1}{2 n^2 + 1} </me>.
 	The numerator and denominator sequences both diverge to infinity,
 	but for <m>n \gt 0</m> we may manipulate algebraically to obtain convergent numerator and denominator:
 	<me>
 		s_n
-		= \frac{n^2 - 1}{n^2 + 1} \cdot \frac{1/n^2}{1/n^2}
-		= \frac{1 - 1/n^2}{1 + 1/n^2}
+		= \frac{n^2 - 1}{2 n^2 + 1} \cdot \frac{1/n^2}{1/n^2}
+		= \frac{1 - 1/n^2}{2 + 1/n^2}
 	</me>.
 	Since <m>\seqtail[n \gt 0]{1/n^2} \to 0</m>,
-	we may apply <xref ref="pattern-seq-alg-limit-laws-sum" /> to both numerator and denominator to conclude
+	we may apply <xref ref="pattern-seq-alg-limit-laws-sum" text="type-local">Statement</xref>
+	of the <xref ref="pattern-seq-alg-limit-laws" text="title" /> to both numerator and denominator to conclude
 	<md>
 		<mrow>
 			\seqtail[n \gt 0]{1 - 1/n^2} \amp \to 1 \amp
-			\seqtail[n \gt 0]{1 + 1/n^2} \amp \to 1
+			\seqtail[n \gt 0]{2 + 1/n^2} \amp \to 2
 		</mrow>
 	</md>.
-	Then we apply <xref ref="pattern-seq-alg-limit-laws-quot" /> to see that the tail <m>\seqtail[n \gt 0]{s_n} \to 1</m>.
-	Since this tail converges to <m>1</m>,
-	we must have <m>\nseq{s} \to 1</m> as well.
+	Then apply <xref ref="pattern-seq-alg-limit-laws-quot" text="type-local">Statement</xref>
+	of the <xref ref="pattern-seq-alg-limit-laws" text="title" />
+	to see that the tail <m>\seqtail[n \gt 0]{s_n} \to 1/2</m>.
+	Since this tail converges to <m>1/2</m>,
+	we must have <m>\nseq{s} \to 1/2</m> as well.
 	</p>
 </example>
 
@@ -1467,32 +1466,6 @@ we record some patterns about how limits compare if we can compare their terms.
 	The conditions in <xref ref="pattern-seq-order" /> do not need to hold for <em>all</em> <m>n</m> in order for the conclusions to be true <mdash />
 	it is sufficient for them to hold for some tail of the sequence involved.
 </p></remark>
-
-<p>
-The following consequence of <xref ref="pattern-seq-order-compare" text="type-local">Statement</xref> of <xref ref="pattern-seq-order" /> is usually referred to by one of the three names <q>Squeeze/Sandwich/Pinching Theorem</q>.
-</p>
-
-<identity xml:id="pattern-seq-squeeze">
-	<title>Sequence Squeeze Theorem</title>
-
-	<statement><p>
-		Suppose <m>\nseq{s}, \nseq{t}, \nseq{u}</m> are three sequences whose terms satisfy <me> s_n \le t_n \le u_n </me> for all <m>n</m>.
-		If both <m>\nseq{s}</m> and <m>\nseq{u}</m> are convergent and converge to the same limit value,
-		then <m>\nseq{t}</m> must also be convergent,
-		and will converge to that same limit value.
-	</p></statement>
-
-	<proof><p>
-		Suppose <m>\nseq{s}</m> and <m>\nseq{u}</m> both converge to <m>L</m>,
-		and consider some open range <m>(a,b)</m> around <m>L</m>.
-		There are tails <m>\nseqtail[n \ge N_1]{s}</m> and <m>\nseqtail[n \ge N_2]{u}</m> that are entirely contained within that range.
-		Let <m>N</m> represent the larger of the tail boundaries <m>N_1</m> and <m>N_2</m>.
-		Then for all <m>n \ge N</m>,
-		we have <me> a \lt s_n \le t_n \le u_n \lt b </me>,
-		so that the tail <m>\nseqtail{t}</m> is also entirely contained within the range <m>(a,b)</m>.
-	</p></proof>
-
-</identity>
 
 </subsection>
 

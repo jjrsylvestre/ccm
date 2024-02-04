@@ -2402,7 +2402,7 @@ But the following fact comes close to saying that we can take them to be the sam
 	So the sequences
 	<md><mrow> \amp \lrseq{\frac{f'(t_n)}{g'(t_n)}} \amp \amp \lrseq{\frac{f(k_n)}{g(k_n)}} </mrow></md>
 	must both converge to the same limit or must both diverge in the same way.
-	By the <xref ref="fact-seq-squeeze" text="title" />,
+	By the <xref ref="pattern-seq-squeeze" text="title" />,
 	since <m>c \le k_n \le t_n</m> and <m>\nseq{t} \to c</m>,
 	we also have <m>\nseq{k} \to c</m>.
 	So if <me> \lim_{t \to c^{+}} \frac{f'(t)}{g'(t)} </me> exists,
