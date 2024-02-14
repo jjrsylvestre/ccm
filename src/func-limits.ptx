@@ -65,7 +65,7 @@ But we can also use sequences to help us investigate trends in functions and und
 	<title>Conflicting trends</title>
 
 	<p>
-	Now consider <m>g(t) = (\pi / t)</m>.
+	Now consider <m>g(t) = \sin(\pi / t)</m>.
 	This function is undefined at <m>t = 0</m>,
 	but what is the function's output trend for <m>t \approx 0</m>?
 	Since this function exhibits odd symmetry,
@@ -201,6 +201,13 @@ The idea here is that <m>c</m> is a <term>limit point of <m>D</m></term> when it
 		<li>
 			The number <m>c = 1</m> is a limit point of both the closed interval <m>D_1 = [0,2]</m> and the open interval <m>D_2 = (0,2)</m>.
 			(Can you come up with an example sequence that satisfies the three conditions of the definition in both cases?)
+		</li>
+
+		<li>
+			The number <m>c = 2.001</m> is <em>not</em> a limit point of either <m>D_1 = [0,2]</m> or <m>D_2 = (0,2)</m>.
+			Every sequence with <m>\nseq{t} \to 2.001</m> would eventually have to contain a tail <m>\nseqtail{t}</m> that is entirely contained in the open range <m>(2.0005,2.0015)</m>.
+			But then the terms of that tail would not be contained in either of these domains,
+			and so no sequence converging to <m>2.001</m> satisfies the requirements to demonstrate that this number is a limit point of either of those domains.
 		</li>
 
 	</ol></p>
@@ -485,7 +492,6 @@ allow us to handle limits of power functions, polynomial functions, and most rat
 		<ol>
 
 			<li xml:id="pattern-func-limits-order-constant-above">
-				Suppose <m>f(t) \to L</m> as <m>t \to c</m> within <m>D</m>.
 				If <m>f(t) \ge C</m> for all <m>t</m> in <m>D</m>,
 				then <m>L \ge C</m>.
 				In particular,
@@ -494,7 +500,6 @@ allow us to handle limits of power functions, polynomial functions, and most rat
 			</li>
 
 			<li xml:id="pattern-func-limits-order-constant-below">
-				Suppose <m>f(t) \to L</m> as <m>t \to c</m> within <m>D</m>.
 				If <m>f(t) \le C</m> for all <m>t</m> in <m>D</m>,
 				then <m>L \le C</m>.
 				In particular,
@@ -503,8 +508,7 @@ allow us to handle limits of power functions, polynomial functions, and most rat
 			</li>
 
 			<li xml:id="pattern-func-limits-order-compare">
-				Suppose <m>f(t) \to L</m> and <m>g(t) \to M</m> as <m>t \to c</m> within <m>D</m>.
-				If <m>f(t) \ge g(t)</m> for all <m>n</m>,
+				If <m>f(t) \ge g(t)</m> for all <m>t</m> in <m>D</m>,
 				then <m>L \ge M</m>.
 			</li>
 
@@ -634,7 +638,7 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 			If <m>c</m> is a limit point of <m>\rightdomain</m>,
 			then we write <m>f(t) \to L</m> as <m>t \to c^{+}</m> to mean that <m>f(t) \to L</m> as <m>t \to c</m> from within the restricted domain <m>\rightdomain</m>.
 			In this case,
-			we say <term><m>f(t)</m> approaches <m>L</m> as <m>t</m> approaches <m>c</m> from the left</term>.
+			we say <term><m>f(t)</m> approaches <m>L</m> as <m>t</m> approaches <m>c</m> from the right</term>.
 			In limit notation,
 			we write
 			<me> \lim_{t \to c^+} f(t) = L </me>,
@@ -658,11 +662,22 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 	<title>Two-sided limit versus one-sided limits</title>
 
 	<statment><p>
-		With <m>f</m>, <m>D</m>, <m>\leftdomain</m>, <m>\rightdomain</m>, <m>c</m> as in <xref ref="definition-func-limits-one-side" />,
-		if <m>c</m> is a limit point of both <m>\leftdomain</m> and <m>\rightdomain</m> then <m>f(t) \to L</m> as <m>t \to c</m> if and only if <m>f(t) \to L</m> both as <m>t \to c^{-}</m> and as <m>t \to c^{+}</m>.
+		Suppose <m>f</m>, <m>D</m>, <m>\leftdomain</m>, <m>\rightdomain</m>, and <m>c</m> are as in <xref ref="definition-func-limits-one-side" />,
+		with <m>c</m> a limit point of both <m>\leftdomain</m> and <m>\rightdomain</m>.
+		<ol>
+			<li xml:id="fact-func-limits-two-vs-one-sided-equiv">
+				We have <m>f(t) \to L</m> as <m>t \to c</m> if and only if <m>f(t) \to L</m> both as <m>t \to c^{-}</m> and as <m>t \to c^{+}</m>.
+			</li>
+			<li xml:id="fact-func-limits-two-vs-one-sided-dne">
+				If one (or both) of the one-sided limits of <m>f(t)</m> as <m>t \to c^{\pm}</m> does not exist,
+				or if they exist but do not agree,
+				then the two-sided limit of <m>f(t)</m> as <m>t \to c</m> does not exist.
+			</li>
+		</ol>
 	</p></statment>
 
 	<proof>
+		<title>Justification for <xref ref="fact-func-limits-two-vs-one-sided-equiv" text="type-local">Statement</xref></title>
 
 		<case direction="forward"><p>
 			If <m>f(t) \to L</m> as <m>t \to c</m>,
@@ -678,18 +693,24 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 			Let <m>\nseq{a}</m> be the subsequence of those terms <m>t_n</m> that satisfy <m>t_n \lt c</m> (reindexed to have indices progress consecutively from <m>n = 0</m>),
 			and similarly let <m>\nseq{b}</m> be the subsequence of terms that satisfy <m>t_n \gt c</m>.
 			Since we assume that <m>t_n \neq c</m> for all <m>n</m>,
-			the two subsequences together account for all terms of <m>\nseq{t}</m>.
-			Furthermore, from <xref ref="pattern-seq-conv-subseq" />,
-			both of these subsequences converge to <m>c</m>.
-			And since we assume <m>f(t) \to L</m> as both <m>t \to c^{-}</m> and <m>t \to c^{+}</m>,
-			the corresponding output sequences <m>\bbseq{f(a_n)}</m> and <m>\bbseq{f(b_n)}</m> both converge to <m>L</m>.
-			So if we consider an open range around <m>L</m>,
-			there are tails <m>\bbseqtail[n \ge N_a]{f(a_n)}</m> and <m>\bbseqtail[n \ge N_b]{f(b_n)}</m> completely contained in that range.
-			Choosing <m>N</m> large enough so that the term <m>t_N</m> is past both wherever the subsequence terms <m>a_{N_a}</m> and <m>b_{N_b}</m> appear in <m>\nseq{t}</m>,
-			then we can say that the tail <m>\bbseqtail[n \ge N]{f(t_n)}</m> is also contained in the range around <m>L</m> currently being considered.
-			Since we can determine such a tail in this fashion for every possible open range around <m>L</m>,
-			we conclude that <m>\bbseq{f(t_n)} \to L</m>.
+			the two subsequences together account for all terms of <m>\nseq{t}</m>,
+			and so it is also true that the two subsequences <m>\bbseq{f(a_n)}</m> and <m>\bbseq{f(b_n)}</m> together account for all terms of the output sequence <m>\bbseq{f(t_n)}</m>.
+			Furthermore,
+			since we assume <m>f(t) \to L</m> as both <m>t \to c^{-}</m> and <m>t \to c^{+}</m>,
+			the two output subsequences <m>\bbseq{f(a_n)}</m> and <m>\bbseq{f(b_n)}</m> both converge to <m>L</m>.
+			Therefore,
+			we may apply <xref ref="fact-seq-converge-by-subseq-union" /> to conclude that <m>\bbseq{f(t_n)} \to L</m>.
 		</p></case>
+
+	</proof>
+
+	<proof>
+		<title>Justification for <xref ref="fact-func-limits-two-vs-one-sided-dne" text="type-local">Statement</xref></title>
+
+		<p>
+		The definition of <m>f(t) \to L</m> as <m>t \to c</m> requires that <m>\bbseq{f(t_n)} \to L</m> for <em>every</em> input sequence <m>\nseq{t} \to c</m>,
+		whether <m>\nseq{t} \to c^{+}</m> or <m>\nseq{t} \to c^{-}</m>.
+		</p>
 
 	</proof>
 
@@ -745,7 +766,7 @@ the <xref ref="pattern-func-limits-laws" text="title" /> are equally valid for o
 <section>
 <title>An alternative characterization</title>
 
-<p> It is often useful in proofs to have a characterization of the concept of <m>function limit value</m> that does not explicitly refer to sequences. </p>
+<p> It is often useful in proofs to have a characterization of the concept of <term>function limit value</term> that does not explicitly refer to sequences. </p>
 
 <identity xml:id="pattern-func-limits-epsilon-delta">
 
