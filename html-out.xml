@@ -25,6 +25,9 @@ respective owners.
 		<tableofcontents
 		  focused="yes"
 		/>
+		<cross-references
+		  knowled="cross-page"
+		/>
 	</html>
 
 	<common>
