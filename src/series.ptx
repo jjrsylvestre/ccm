@@ -1600,7 +1600,7 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		Let <m>\nseq{r}</m> be the sequence of <q>remainders</q> for this convergent sequence:
 		<me> r_n = \sum_{k = n + 1}^\infty \abs{a_k} </me>.
 		<xref ref="fact-series-conv-remainder" /> tells us that <m>\nseq{r} \to 0</m>,
-		so there exists some tail <m>\nseqtail[n \ge N_2]{r}</m> also completely contained in the half-open range <m>[0,c/2)</m>.
+		so there exists some tail <m>\nseqtail[N_2]{r}</m> also completely contained in the half-open range <m>[0,c/2)</m>.
 		(Note that <m>\nseq{r}</m>) is a sequence of non-negative terms because a convergent series of non-negative terms must have a non-negative sum value.)
 		</p>
 
@@ -1674,7 +1674,7 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		</md>,
 		as required,
 		where the first inequality above is the Triangle Inequality,
-		the second is from our analysis of the terms of <m>\nseqtail[n \ge M]{t}</m> compared to the specific partial sum <m>s_N</m>,
+		the second is from our analysis of the terms of <m>\nseqtail[M]{t}</m> compared to the specific partial sum <m>s_N</m>,
 		and the third is from <xref ref="equation-series-rearrange-half-inequalities" />.
 		</p>
 
@@ -1834,7 +1834,7 @@ alternate between positive and negative:
 		Then <me> f'(t) = \frac{t (2 - t^3)}{{(t^3 + 1)}^2} </me>,
 		and this derivative is negative on domain <m>t \ge \sqrt[3]{2}</m>.
 		So we can say that <m>\nseq{a}</m> is decreasing for <m>n \ge 3</m>.
-		And from examining dominant terms it is clear that <m>\nseqtail[n \ge 3]{a} \to 0</m>,
+		And from examining dominant terms it is clear that <m>\nseqtail[3]{a} \to 0</m>,
 		so the <xref ref="fact-series-alternating-series-test" text="title" /> says that
 		<me> \sum_{k = 3}^\infty \frac{{(-1)}^{k + 1} k^2}{k^3 + 1} </me>
 		converges.

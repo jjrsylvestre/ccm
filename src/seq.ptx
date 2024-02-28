@@ -71,7 +71,7 @@ Another common notation is to express the pattern of the sequence values as an i
 Sometimes we wish to omit the index <m>n = 0</m>,
 usually to avoid division by <m>0</m> in the formula for the terms of our sequence.
 In this case,
-we will write <m>\nseqtail[n \gt 0]{s}</m> to clarify the domain of our sequence.
+we will write <m>\nseqtail[0]{s}</m> to clarify the domain of our sequence.
 </p>
 
 <example><p>
@@ -435,7 +435,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	<title>Constant sequences are convergent</title>
 	<p>
 	A sequence <m>\nseq{s}</m> where <m>s_n = c</m> for all <m>n</m> converges to that constant term value <m>c</m>,
-	because every open range containing <m>c</m> will contain the <q>tail</q> <m>\nseqtail[n \ge 0]{s}</m>.
+	because every open range containing <m>c</m> will contain the <q>tail</q> <m>\nseqtail[0]{s}</m>.
 	</p>
 </example>
 
@@ -498,7 +498,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	<me> f(x) = \frac{x^2 + 1}{x + 1} </me>
 	is increasing for <m>x \gt 1</m>,
 	which can be verified by checking that <m>f'(x) \gt 0</m> on this domain.
-	We conclude that the tail <m> \nseqtail[n \gt 0]{s} </m> is increasing,
+	We conclude that the tail <m> \nseqtail[0]{s} </m> is increasing,
 	and so is bounded below by <m>s_1 = 1</m>.
 	(In fact, <m>s_0 = 1</m> as well, so the full sequence is bounded below by <m>1</m>.)
 	</p>
@@ -676,7 +676,7 @@ as long as they collectively include all terms of the original.
 		<p>
 		Now let <m>L</m> represent the common limit value of <m>\nseq{a}</m> and <m>\nseq{b}</m>,
 		and let <m>(c,d)</m> be some open range containing <m>L</m>.
-		Then there are tails <m>\nseqtail[n \ge N_1]{a}</m> and <m>\nseqtail[n \ge N_2]{b}</m> that are completely contained in <m>(c,d)</m>.
+		Then there are tails <m>\nseqtail[N_1]{a}</m> and <m>\nseqtail[N_2]{b}</m> that are completely contained in <m>(c,d)</m>.
 		As <m>\nseq{a}</m> and <m>\nseq{b}</m> are subsequences,
 		both <m>a_{N_1}</m> and <m>b_{N_2}</m> appear in <m>\nseq{s}</m>,
 		but they represent different terms in <m>\nseq{s}</m> because we removed any overlap between <m>\nseq{a}</m> and <m>\nseq{b}</m>.
@@ -689,7 +689,7 @@ as long as they collectively include all terms of the original.
 		which appears after <m>a_{N_1}</m>.
 		And every term in the tail <m>\nseqtail{s}</m> that appears in <m>\nseq{b}</m> must obviously do so with index at least <m>N_2</m>.
 		In other words,
-		every term in the tail <m>\nseqtail{s}</m> is either in the tail <m>\nseqtail[n \gt N_1]{a}</m> or in the tail <m>\nseqtail[n \ge N_2]{b}</m>,
+		every term in the tail <m>\nseqtail{s}</m> is either in the tail <m>\nseqtail[N_1]{a}</m> or in the tail <m>\nseqtail[N_2]{b}</m>,
 		each of which are completely contained in <m>(c,d)</m>.
 		Thus the tail <m>\nseqtail{s}</m> is completely contained in <m>(c,d)</m>.
 		</p>
@@ -822,7 +822,7 @@ However, a bounded sequence that doesn't bounce around like this example must co
 	<title>Sequence Squeeze Theorem</title>
 
 	<statement><p>
-		Suppose <m>\nseq{r}</m>, <m>\nseq{s}</m>, <m>\nseq{t}</m> are sequences so that some tail <m>\nseqtail[n \ge N]{s}</m> satisfies
+		Suppose <m>\nseq{r}</m>, <m>\nseq{s}</m>, <m>\nseq{t}</m> are sequences so that some tail <m>\nseqtail{s}</m> satisfies
 		<me> r_n \le s_n \le t_n \qquad \text{for all } n \ge N </me>.
 		If both <m>\nseq{r}</m> and <m>\nseq{t}</m> converge to <m>L</m>,
 		then so does <m>\nseq{s}</m>.
@@ -830,10 +830,10 @@ However, a bounded sequence that doesn't bounce around like this example must co
 
 	<proof><p>
 		Consider open range <m>(a,b)</m> containing <m>L</m>.
-		Then there are tails <m>\nseqtail[n \ge N_1]{r}</m> and <m>\nseqtail[n \ge N_2]{t}</m> that are entirely contained within that range.
+		Then there are tails <m>\nseqtail[N_1]{r}</m> and <m>\nseqtail[n \ge N_2]{t}</m> that are entirely contained within that range.
 		Let <m>N'</m> represent the largest of <m>N, N_1, N_2</m>.
 		Then <me> a \lt r_n \le s_n \le t_n \lt b \qquad \text{for all } n \ge N' </me>,
-		so the tail <m>\nseqtail[n \ge N']{s}</m> is entirely contained within the range <m>(a,b)</m>.
+		so the tail <m>\nseqtail[N']{s}</m> is entirely contained within the range <m>(a,b)</m>.
 	</p></proof>
 
 </identity>

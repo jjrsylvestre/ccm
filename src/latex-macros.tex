@@ -93,12 +93,12 @@
 \newcommand{\lrabsseq}[1]{\lrseq{\abs{#1}}}% abs value sequence in sized brackets
 \newcommand{\nabsseq}[1]{\bbseq{\abs{{#1}_n}}}% abs value sequence with standard index variable n
 \newcommand{\seqtail}[2][n \ge N]{{\seq{#2}}_{#1}}% sequence in brackets with restricted domain
-\newcommand{\nseqtail}[2][n \ge N]{{\nseq{#2}}_{#1}}% sequence in brackets with restricted domain and standard index variable n
+\newcommand{\nseqtail}[2][N]{{\nseq{#2}}_{n \ge #1}}% sequence in brackets with restricted domain and standard index variable n
 \newcommand{\lrseqtail}[2][n \ge N]{{\lrseq{#2}}_{#1}}% sequence in sized brackets with restricted domain
 \newcommand{\bbseqtail}[2][n \ge N]{{\bbseq{#2}}_{#1}}% sequence in larger brackets with restricted domain
 \newcommand{\absseqtail}[2][n \ge N]{{\absseq{#2}}_{#1}}% abs value sequence in larger brackets with restricted domain
 \newcommand{\lrabsseqtail}[2][n \ge N]{{\lrabsseq{#2}}_{#1}}% abs value sequence in sized brackets with restricted domain
-\newcommand{\nabsseqtail}[2][n \ge N]{{\nabsseq{#2}}_{#1}}% abs value sequence in sized brackets with restricted domain and standard index variable n
+\newcommand{\nabsseqtail}[2][N]{{\nabsseq{#2}}_{n \ge #1}}% abs value sequence in sized brackets with restricted domain and standard index variable n
 
 \newcommand{\leftdomain}[1][D]{{#1}^{-}}% left-hand domain for left-hand limits
 \newcommand{\rightdomain}[1][D]{{#1}^{+}}% right-hand domain for right-hand limits
