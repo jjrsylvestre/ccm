@@ -684,7 +684,7 @@ so their convergence is dependent on being bounded.
 
 	<proof><p>
 		The forward direction is <xref ref="fact-seq-conv-then-bdd" />,
-		the reverse direction is the <xref ref="fact-seq-monotonic-conv" text="title" />.
+		the reverse direction is the <xref ref="theorem-seq-monotonic-conv" text="title" />.
 	</p></proof>
 
 </fact>
@@ -993,7 +993,7 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 		(or, at least, non-decreasing).
 		If <m>\sum b_k</m> converges then <m>\nseq{t}</m> must be bounded,
 		and from <m>s_n \le t_n</m> we conclude that <m>\nseq{s}</m> is bounded as well.
-		The <xref ref="fact-seq-monotonic-conv" text="title" /> now implies that <m>\nseq{s}</m> converges.
+		The <xref ref="theorem-seq-monotonic-conv" text="title" /> now implies that <m>\nseq{s}</m> converges.
 	</p></proof>
 
 	<proof><title>Justification for <xref ref="pattern-series-compare-partial-sums-diverge" text="type-local">Statement</xref></title><p>
@@ -1788,7 +1788,7 @@ alternate between positive and negative:
 			and so <m>t_{n + 1} \lt t_n</m>.
 			We have now established that <m>\nseq{t}</m> is positive and decreasing,
 			which means that it is bounded above by <m>t_0</m> and below by <m>0</m>.
-			The <xref ref="fact-seq-monotonic-conv" text="title" /> tells us that <m>t_n</m> converges;
+			The <xref ref="theorem-seq-monotonic-conv" text="title" /> tells us that <m>t_n</m> converges;
 			let <m>L</m> represent its limit value.
 			</p>
 

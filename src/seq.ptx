@@ -775,7 +775,7 @@ For example, the sequence <m>\bbseq{ \cos(n\pi) }</m> is bounded by does not con
 However, a bounded sequence that doesn't bounce around like this example must converge.
 </p>
 
-<fact xml:id="fact-seq-monotonic-conv">
+<theorem xml:id="theorem-seq-monotonic-conv">
 	<title>Monotone Convergence Theorem</title>
 
 	<statement><p> A bounded, monotonic sequence must converge. </p></statement>
@@ -807,7 +807,7 @@ However, a bounded sequence that doesn't bounce around like this example must co
 
 	</proof>
 
-</fact>
+</theorem>
 
 <example><p>
 	The sequence <m>\lrseq{\ln\left(\frac{n+2}{n+1}\right)}</m> is bounded below by <m>0</m> because the ratio inside the logarithm is always greater than <m>1</m>.
@@ -912,7 +912,7 @@ we can say more about bounded sequences even in the case that they are not monot
 		(if <m>R_{n+1}</m> was chosen to be the right half of <m>R_n</m>).
 		So <m>\nseq{a}</m> is non-decreasing and <m>\nseq{b}</m> is non-increasing.
 		Furthermore, both sequences are bounded within <m>R_0</m>.
-		By the <xref ref="fact-seq-monotonic-conv" text="title" />,
+		By the <xref ref="theorem-seq-monotonic-conv" text="title" />,
 		both sequences converge.
 		Since the <m>R_n</m> intervals were created by this splitting-in-half procedure,
 		the distance between an <m>a_n</m> term and the corresponding <m>b_n</m> term is
