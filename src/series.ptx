@@ -27,13 +27,13 @@ we have
 <md>
 	<mrow> \ln(1.001) \amp \approx T_{0,1}(1.001) = 0 </mrow>
 	<mrow> \ln(1.001) \amp \approx T_{1,1}(1.001) = 0 + 0.001 </mrow>
-	<mrow> \ln(1.001) \amp \approx T_{2,1}(1.001) = 0 + 0.001 + \frac{{0.001}^2}{2} </mrow>
-	<mrow> \ln(1.001) \amp \approx T_{3,1}(1.001) = 0 + 0.001 + \frac{{0.001}^2}{2} + \frac{{0.001}^3}{6} </mrow>
+	<mrow> \ln(1.001) \amp \approx T_{2,1}(1.001) = 0 + 0.001 - \frac{{0.001}^2}{2} </mrow>
+	<mrow> \ln(1.001) \amp \approx T_{3,1}(1.001) = 0 + 0.001 - \frac{{0.001}^2}{2} + \frac{{0.001}^3}{6} </mrow>
 	<mrow> \amp \quad \vdots </mrow>
 </md>.
 (This time we have included the <q>zero-degree</q> Taylor polynomial approximation value.)
 This creates a sequence <m>\nseq{t}</m> where
-<me> t_n = T_{n,1}(1.001) = 0 + 0.001 + \frac{{0.001}^2}{2} + \dotsc + \frac{{0.001}^n}{n!} </me>.
+<me> t_n = T_{n,1}(1.001) = 0 + 0.001 - \frac{{0.001}^2}{2} + \dotsc + \frac{{(-1)}^{n - 1} {0.001}^n}{n!} </me>.
 If we allow the possibility of an <q>infinite-degree</q> Taylor polynomial <m>T_{\infty,1}</m>,
 computing a value like <m>T_{\infty,1}(1.001)</m> of such a <q>polynomial</q> would involve adding up an infinite number of summands,
 while each term <m>t_n</m> from the sequence above represents a <term>partial summation</term> of only a finite number of summands.
@@ -296,57 +296,74 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 <identity xml:id="pattern-series-geometric">
 	<title>Geometric series</title>
 
-	<statement><p>
-		If <m>r</m> is a real number in the range <m>-1 \lt r \lt 1</m>,
-		then <me> \sum_{k = 0}^\infty r^k = \frac{1}{1 - r} </me>
-		(where we take the term with index <m>n = 0</m> in the sequence <m>\seq{r^n}</m> to always be <m>1</m>, even in the case <m>r = 0</m>).
-		For <m>r \ge 1</m>,
-		the series diverges.
-	</p></statement>
-
-	<proof>
+	<statement>
 
 		<p>
-		The convergence of a series is defined by the convergence of its sequence of partial sums;
-		in this case,
-		<me> s_n = \sum_{k = 0}^n r^n = 1 + r + r^2 + \dotsb + r^n </me>.
-		We will break our analysis of these partial sums into cases based on the value of <m>r</m>.
+		Consider the <term>geometric series</term> <m>\sum r^k</m> with constant base <m>r</m>.
+		Note that we take the term with index <m>n = 0</m> in the sequence of terms <m>\seq{r^n}</m> to always be <m>1</m>,
+		even in the case <m>r = 0</m>.
+		<ol>
+
+			<li xml:id="pattern-series-geometric-partial"><p>
+				For <m>r \neq 1</m>,
+				the general partial sum is <me> s_n = \frac{1 - r^{n + 1}}{1 - r} </me>.
+			</p></li>
+
+			<li xml:id="pattern-series-geometric-full">
+				<p>
+					For <m>-1 \lt r \lt 1</m>,
+					the geometric series of base <m>r</m> converges,
+					with sum
+					<me> \sum_{k = 0}^\infty r^k = \frac{1}{1 - r} </me>.
+				</p>
+			</li>
+
+			<li xml:id="pattern-series-geometric-diverge"><p>
+				For <m>r \le -1</m> or <m>r \ge 1</m>,
+				the geometric sum with base <m>r</m> diverges.
+			</p></li>
+
+		</ol>
+		</p>
+
+	</statement>
+
+	<proof>
+		<title>Justification of <xref ref="pattern-series-geometric-partial" text="type-local">Statement</xref></title>
+		<p>
+			For all values of <m>r</m>,
+			the partial sum <m>s_n</m> is
+			<me> s_n = \sum_{k = 0}^n r^k = 1 + r + r^2 + \dotsb + r^n </me>.
+			Notice what happens if we multiply a partial sum by <m>r</m> and subtract:
+			<me>
+				\begin{array}{rcccccccccccc}
+				s_n \amp = \amp 1 \amp + \amp r \amp + \amp r^2 \amp + \amp \dotsb \amp + \amp r^n \\
+				- \quad r s_n \amp = \amp   \amp   \amp r \amp + \amp r^2 \amp + \amp \dotsb \amp + \amp r^n \amp + \amp r^{n + 1} \\ \hline
+				s_n - r s_n \amp = \amp 1 \amp - \amp r^{n + 1}
+				\end{array}
+			</me>.
+			Factoring the common <m>s_n</m> on the left,
+			we have <me> s_n (1 - r) = 1 - r^{n + 1} </me>.
+			If <m>r \neq 1</m>,
+			then <m>1 - r \neq 0</m> and we may divide both sides to obtain <me> s_n = \frac{1 - r^{n + 1}}{1 - r} </me>.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Justification of <xref ref="pattern-series-geometric-full" text="type-local">Statement</xref></title>
+
+		<p>
+		Convergence of an infinite series is defined by the convergence of its sequence of partial sums.
+		We will break the assumption <m>-1 \lt r \lt 1</m> into several cases.
 		</p>
 
 		<case><title>Case <m>r = 0</m></title><p>
-			Recall that in this case we are taking the first term in the series to be <m>1</m>,
-			so as above the partial sums are
-			<me> s_n = 1 + 0 + 0^2 + \dotsb + 0^n = 1 </me>.
-			This constant sequence clearly converges to <m>1</m>,
+			Recall that in this case we are taking the first term in the series to be <m>1</m>.
+			But all other terms in the series are <m>0^n = 0</m>,
+			so that <m>s_n = 1</m> for all <m>n</m>.
+			Thus <m>\nseq{s}</m> is a constant sequence that converges to <m>1</m>,
 			which agrees with the value of the conjectured formula <m>1 / (1 - r)</m> when <m>r = 0</m>.
 		</p></case>
-
-		<case><title>Case <m>r = 1</m></title><p>
-			In this case we have <m> s_n = n + 1</m>,
-			and this sequence clearly diverges to infinity.
-		</p></case>
-
-		<p>
-		Before moving on to other specific cases,
-		let's further analyse the partial sums under the assumption that <m>r \neq 1</m>
-		(as that case has already been decided above).
-		Notice what happens if we multply a partial sum by <m>r</m> and subtract:
-		<me>
-			\begin{array}{rcccccccccccc}
-			s_n \amp = \amp 1 \amp + \amp r \amp + \amp r^2 \amp + \amp \dotsb \amp + \amp r^n \\
-			- \quad r s_n \amp = \amp   \amp   \amp r \amp + \amp r^2 \amp + \amp \dotsb \amp + \amp r^n \amp + \amp r^{n + 1} \\ \hline
-			s_n - r s_n \amp = \amp 1 \amp - \amp r^{n + 1}
-			\end{array}
-		</me>.
-		So
-		<md alignment="gather">
-			<mrow> s_n - r s_n = 1 - r^{n + 1} </mrow>
-			<mrow> s_n (1 - r) = 1 - r^{n + 1} </mrow>
-			<mrow> s_n = \frac{1 - r^{n + 1}}{1 - r} </mrow>
-		</md>.
-		(Here is where we needed <m>r \neq 1</m>,
-		to be able to divide by <m>1 - r</m>.)
-		</p>
 
 		<case><title>Case <m>0 \lt r \lt 1</m></title><p>
 			In this case the exponential function <m>f(t) = r^t</m> represents exponential decay,
@@ -357,7 +374,7 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 		</p></case>
 
 		<case><title>Case <m>-1 \lt r \lt 0</m></title><p>
-			In this case <m> 0 \lt \abs{r} \lt 0</m>,
+			In this case <m> 0 \lt \abs{r} \lt 1</m>,
 			and both the exponential function <m>f(t) = {\abs{r}}^t</m> and its vertical reflection <m>g(t) = - {\abs{r}}^t</m> have a horizontal asymptote at <m>y = 0</m>.
 			With a negative base <m>r</m>,
 			the terms of the sequence <m>\seq{r^{n + 1}}</m> bounce between the two curves,
@@ -367,19 +384,36 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 			as conjectured.
 		</p></case>
 
+	</proof>
+
+	<proof>
+		<title>Justification of <xref ref="pattern-series-geometric-diverge" text="type-local">Statement</xref></title>
+
+		<p> Again we will consider different cases. </p>
+
+		<case><title>Case <m>r = 1</m></title><p>
+			In this case we have <me> s_n = 1^0 + 1^1 + 1^2 + \dotsb + 1^n = n + 1</me>,
+			and this sequence clearly diverges to infinity.
+		</p></case>
+
+		<case><title>Case <m>r = -1</m></title><p>
+			In this case the partial sums alternate between <m>1</m> and <m>0</m>,
+			and so diverge.
+		</p></case>
+
 		<case><title>Case <m>r \gt 1</m></title><p>
-			Now the exponential function <m>f(t) = r^t</m> represents exponential growth,
+			In this case the exponential function <m>f(t) = r^t</m> represents exponential growth,
 			and the sequence <m>\seq{r^{n + 1}}</m> diverges to infinity along with that function.
-			Therefore the partial sums also diverge to infinity.
+			Therefore, the formula for the partial sums provided by <xref ref="pattern-series-geometric-partial" text="type-local">Statement</xref> also diverges.
 		</p></case>
 
 		<case><title>Case <m>r \lt -1</m></title><p>
-			Similar to a previous case,
-			the terms of the sequence <m>\seq{r^{n + 1}}</m> are bouncing between values on the graphs of the exponential function <m>f(t) = {\abs{r}}^t</m> and its vertical reflection.
-			Both these curves experience unbounded growth,
+			As in the case <m>-1 \lt r \lt 0</m> in the justification for <xref ref="pattern-series-geometric-full" text="type-local">Statement</xref>,
+			when <m>r</m> is negative the terms of the sequence <m>\seq{r^{n + 1}}</m> are bouncing between values on the graphs of the exponential function <m>f(t) = {\abs{r}}^t</m> and its vertical reflection.
+			But this time, if <m>r \lt -1</m> then both these exponential functions experience unbounded growth,
 			one in a positive direction and the other in a negative direction,
-			so <m>\seq{r^{n + 1}}</m> diverges,
-			hence so does the sequence of partial sums.
+			so <m>\seq{r^{n + 1}}</m> diverges.
+			Therefore, the formula for the partial sums provided by <xref ref="pattern-series-geometric-partial" text="type-local">Statement</xref> also diverges.
 		</p></case>
 
 	</proof>
@@ -431,6 +465,7 @@ the properties of infinite series mirror the properties of improper integrals.
 </p>
 
 <fact xml:id="fact-series-converge-restart">
+	<title>Earlier versus later start to an infinite series</title>
 
 	<statement><p>
 		If one of the infinite series
@@ -505,14 +540,15 @@ the properties of infinite series mirror the properties of improper integrals.
 <example>
 	<title>Splitting an infinite series</title>
 	<p>
-	The series <me> \sum_{k = 0}^\infty \frac{5^k + 1}{10^k} </me>
+	The series <me> \sum_{k = 0}^\infty \frac{5^k + 2}{10^k} </me>
 	looks complicated at first glance,
 	but we can split it into two geometric series that we've already computed:
 	<md>
-		<mrow> \sum_{k = 0}^\infty \frac{5^k + 1}{10^k} \amp = \sum_{k = 0}^\infty \left( \frac{5^k}{10^k} + \frac{1}{10^k} \right) </mrow>
-		<mrow> \amp = \sum_{k = 0}^\infty \frac{1}{2^k} + \sum_{k = 0}^\infty \frac{1}{10^k} </mrow>
-		<mrow> \amp = 2 + \frac{10}{9} </mrow>
-		<mrow> \amp = \frac{28}{9} </mrow>
+		<mrow> \sum_{k = 0}^\infty \frac{5^k + 2}{10^k} \amp = \sum_{k = 0}^\infty \left( \frac{5^k}{10^k} + \frac{2}{10^k} \right) </mrow>
+		<mrow> \amp = \sum_{k = 0}^\infty \frac{5^k}{10^k} + \sum_{k = 0}^\infty \frac{2}{10^k} </mrow>
+		<mrow> \amp = \sum_{k = 0}^\infty \frac{1}{2^k} + 2 \sum_{k = 0}^\infty \frac{1}{10^k} </mrow>
+		<mrow> \amp = 2 + 2 \cdot \frac{10}{9} </mrow>
+		<mrow> \amp = \frac{38}{9} </mrow>
 	</md>.
 	</p>
 </example>
@@ -636,7 +672,7 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 	The pattern continues,
 	so that <me> s_{2^n} \ge \frac{n + 2}{2} </me>.
 	(We have used <q>or equal</q> here so that <m>s_1</m> and <m>s_2</m> can be included.)
-	This particular subsequence of the sequence of partial sums diverges to infinity,
+	This particular subsequence of the sequence of partNow let's use the ial sums diverges to infinity,
 	hence it is not possible for the full sequence of partial sums to converge
 	(see <xref ref="pattern-seq-conv-subseq" />).
 	</p>
@@ -658,10 +694,13 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 
 <p> The contrapositive of <xref ref="fact-series-converges-implies-seq-tends-to-zero" /> is often useful to avoid unnecessary work. </p>
 
-<corollary xml:id="corollary-series-diverges-if-not-seq-tend-to-zero"><p>
+<corollary xml:id="corollary-series-diverges-if-not-seq-tend-to-zero">
+	<title>Test for Divergence</title>
+	<p>
 	If <m>\nseq{a} \not\to 0</m>,
 	then <m>\sum a_k</m> must diverge.
-</p></corollary>
+	</p>
+</corollary>
 
 <example><p>
 	The infinite series <me> \sum_{k = 0}^\infty \frac{2 k^3 - 3 k + 1}{k^3 + k^2 - 5} </me> must diverge because
@@ -921,28 +960,27 @@ the <q>amount left to add</q> must be getting small as well.
 	This derivative is negative as long as <m>\ln(t) \gt 1</m>,
 	which occurs for <m>t \gt e</m>.
 	So we may say that <m>f</m> is decreasing on domain <m>t \gt 3</m>,
-	and we have that <m>f</m> satisfies the conditions of the <xref ref="fact-series-integral-comparison" text="title" /> for <m>k_0 = 3</m>.
+	and we have verified that <m>f</m> satisfies the conditions of the <xref ref="fact-series-integral-comparison" text="title" /> for <m>k_0 = 3</m>.
+	Because of this,
+	we can say that the convergence/divergence of the sum and integral below are equivalent:
+	<md><mrow> \amp \sum_{k = 3}^\infty \frac{\ln(k)}{k} \text{,} \amp \amp \ccmint{3}{\infty}{\frac{\ln(t)}{t}}{t} \text{.} </mrow></md>
+	Also note that the convergence of the sum above is equivalent to the convergence of the full sum that begins at index <m>1</m>
+	(<xref ref="fact-series-converge-restart" />),
+	so investigating the integral above is sufficient to determine the convergence/divergence of <m>\sum \ln(k) / k</m>.
 	</p>
 
 	<p>
-	Now let's compute <me> \ccmint{3}{\infty}{\frac{\ln(t)}{t}}{t} = \lim_{t \to \infty} \ccmint{3}{t}{\frac{\ln(u)}{u}}{u} </me>.
-	Using substitution <m>v = \ln(u)</m>, we have
-	<md>
-		<mrow> \ccmint{3}{t}{\frac{\ln(u)}{u}}{u} \amp = \ccmint{3}{t}{\ln(u) \cdot \frac{1}{u}}{u} </mrow>
-		<mrow> \amp = \ccmint{u = 3}{u = t}{v \cdot \dd{v}{u}}{u} </mrow>
-		<mrow> \amp = \ccmint{\ln(3)}{\ln(t)}{v}{v} </mrow>
-		<mrow> \amp = \ccmint{0}{\ln(t)}{v}{v} - \ccmint{0}{\ln(3)}{v}{v} </mrow>
-		<mrow> \amp = \frac{{\bbrac{\ln(t)}}^2}{2} - \frac{{\bbrac{\ln(3)}^2}}{2} </mrow>
-	</md>.
-	But <m>\ln(t) \to \infty</m> as <m>t \to \infty</m>,
-	so the above partial area formula also diverges to infinity as <m>t \to \infty</m>,
-	and we have <me> \ccmint{3}{\infty}{\frac{\ln(t)}{t}}{t} = \infty </me>.
+	For the integral,
+	we have already noted that <m>\ln(t) \gt 1</m> for <m>t \gt e</m>
+	and so also for <m>t \ge 3</m>.
+	Hence <me> \frac{\ln(t)}{t} \gt \frac{1}{t} </me>
+	on domain <m>t \ge 3</m>.
+	And we know that an improper integral of <m>1/t</m> diverges
+	(<xref ref="fact-improper-int-p-funcs" />),
+	hence our improper integral of <m>\ln(t) / t</m> diverges as by the <xref ref="pattern-improper-int-compare" text="title" />.
 	</p>
 
-	<p>
-	The <xref ref="fact-series-integral-comparison" text="title" /> now implies that <me> \sum_{k = 3}^\infty \frac{\ln(k)}{k} </me> diverges,
-	which means that the infinite series beginning at <m>k = 1</m> must also diverge.
-	</p>
+	<p> From this we conclude that <m>\sum \ln(k) / k</m> diverges. </p>
 
 </example>
 
@@ -972,18 +1010,24 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 <identity xml:id="pattern-series-compare-partial-sums">
 	<title>Comparison test for series</title>
 
-	<statement><p>
+	<statement>
+
+		<p>
 		Suppose <m>\nseq{a}</m> and <m>\nseq{b}</m> are non-negative sequences,
 		and let <m>\nseq{s}</m> and <m>\nseq{t}</m> represent the sequences of partial sums for the infinite series <m>\sum a_k</m> and <m>\sum b_k</m>,
 		respectively.
+		</p>
+
+		<p>
+		Assume <m>s_n \le t_n</m> for all <m>n</m>.
 		<ol>
 			<li xml:id="pattern-series-compare-partial-sums-converge">
-				If <m>\sum b_k</m> converges and <m>s_n \le t_n</m> for all <m>n</m>,
+				If <m>\sum b_k</m> converges,
 				then <m>\sum a_k</m> also converges.
 			</li>
 			<li xml:id="pattern-series-compare-partial-sums-diverge">
-				If <m>\sum b_k</m> diverges and <m>s_n \ge t_n</m> for all <m>n</m>,
-				then <m>\sum a_k</m> also diverges.
+				If <m>\sum a_k</m> diverges,
+				then <m>\sum b_k</m> also diverges.
 			</li>
 		</ol>
 	</p></statement>
@@ -999,8 +1043,8 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 	<proof><title>Justification for <xref ref="pattern-series-compare-partial-sums-diverge" text="type-local">Statement</xref></title><p>
 		As in the justification of <xref ref="pattern-series-compare-partial-sums-converge" text="type-local">Statement</xref>,
 		<m>\nseq{s}</m> and <m>\nseq{t}</m> must be non-decreasing.
-		But if <m>\sum b_k</m> diverges then <m>\nseq{t}</m> cannot be bounded and must diverge to infinity.
-		Then from <m>s_n \ge t_n</m> we conclude that <m>\nseq{s} \to \infty</m> as well.
+		But if <m>\sum a_k</m> diverges then <m>\nseq{s}</m> cannot be bounded and must diverge to infinity.
+		Then from <m>s_n \le t_n</m> we conclude that <m>\nseq{t} \to \infty</m> as well.
 	</p></proof>
 
 </identity>
@@ -1008,15 +1052,16 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 <identity xml:id="pattern-series-compare-terms">
 
 	<statement><p>
-		Suppose <m>\nseq{a}</m> and <m>\nseq{b}</m> are non-negative sequences.
+		Suppose <m>\nseq{a}</m> and <m>\nseq{b}</m> are non-negative sequences,
+		and <m>a_n \le b_n</m> for all <m>n</m>.
 		<ol>
 			<li xml:id="pattern-series-compare-terms-converge">
-				If <m>\sum b_k</m> converges and <m>a_n \le b_n</m> for all <m>n</m>,
+				If <m>\sum b_k</m> converges,
 				then <m>\sum a_k</m> also converges.
 			</li>
 			<li xml:id="pattern-series-compare-terms-diverge">
-				If <m>\sum b_k</m> diverges and <m>a_n \ge b_n</m> for all <m>n</m>,
-				then <m>\sum a_k</m> also diverges.
+				If <m>\sum a_k</m> diverges,
+				then <m>\sum b_k</m> also diverges.
 			</li>
 		</ol>
 	</p></statement>
@@ -1024,12 +1069,9 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 	<proof><p>
 		Let <m>\nseq{s}</m> and <m>\nseq{t}</m> represent the sequences of partial sums for <m>\sum a_k</m> and <m>\sum b_k</m>,
 		respectively.
-		We have:
-		<ul>
-			<li> If <m>a_n \le b_n</m> for all <m>n</m>, then <m>s_n \le t_n</m> for all <m>n</m>. </li>
-			<li> If <m>a_n \ge b_n</m> for all <m>n</m>, then <m>s_n \ge t_n</m> for all <m>n</m>. </li>
-		</ul>
-		In either case, we are in the situation of one of the cases of <xref ref="pattern-series-compare-partial-sums" />.
+		Since <m>\nseq{a}</m> and <m>\nseq{b}</m> are non-negative,
+		our assumption <m>a_n \le b_n</m> for all <m>n</m> implies that <m>s_n \le t_n</m> for all <m>n</m> as well.
+		So the patterns of convergence/divergence of <m>\sum a_k</m> and <m>\sum b_k</m> follow <xref ref="pattern-series-compare-partial-sums" />.
 	</p></proof>
 
 </identity>
@@ -1171,15 +1213,15 @@ So we can test convergence/divergence by comparing the rate at which the terms t
 	So we'll attempt to compare with the convergent <m>p</m>-series <m>\sum 1 / k^{3/2}</m>:
 	<md>
 		<mrow>
-			\frac{(2 k^2 + 3 k) / \sqrt{5 + k^7}}{1 / k^{3/2}}
-			\amp = \frac{2 k^{7/2} + 3 k^{5/2}}{\sqrt{5 + k^7}}
+			\frac{(2 n^2 + 3 n) / \sqrt{5 + n^7}}{1 / n^{3/2}}
+			\amp = \frac{2 n^{7/2} + 3 n^{5/2}}{\sqrt{5 + n^7}}
 		</mrow>
-		<mrow> \amp = \frac{2 + 3 / k}{\sqrt{5 + k^7} / k^{7/2}} </mrow>
-		<mrow> \amp = \frac{2 + 3 / k}{\sqrt{5 / k^7 + 1}} </mrow>
+		<mrow> \amp = \frac{2 + 3 / n}{\sqrt{5 + n^7} / n^{7/2}} </mrow>
+		<mrow> \amp = \frac{2 + 3 / n}{\sqrt{5 / n^7 + 1}} </mrow>
 		<mrow> \amp \to \frac{2 + 0}{\sqrt{0 + 1}} </mrow>
 		<mrow> \amp = 2 </mrow>
 	</md>
-	as <m>k \to \infty</m>.
+	as <m>n \to \infty</m>.
 	From this limit result we conclude that <xref ref="equation-series-limit-comparison-1" /> converges by comparison with the convergent <m>p</m>-series <m>\sum 1 / k^{3/2}</m>.
 	</p>
 </example>
@@ -1404,7 +1446,7 @@ Another way to measure whether this is happening is to compare each term to the 
 
 </ul></p></remark>
 
-<example><p>
+<example><p><ol>
 
 	<li>
 		For series <m>\sum k^3 / 3^k</m>,
@@ -1455,7 +1497,7 @@ Another way to measure whether this is happening is to compare each term to the 
 		(Again, can you verify that the sequence <m>\seq{n^n / n!}</m> is eventually increasing?)
 	</li>
 
-</p></example>
+</ol></p></example>
 
 <exercise><p>
 	Verify that the case of <xref ref="pattern-series-ratio-test-fail" text="type-local">Statement</xref> of the <xref ref="pattern-series-ratio-test" text="title" /> really is inconclusive by testing both the <m>p</m>-series <m>\sum 1/k^2</m> and the harmonic series <m>\sum 1/k</m>.
@@ -1826,7 +1868,7 @@ alternate between positive and negative:
 		This series is unlikely to converge absolutely,
 		as <me> \abs{\frac{{(-1)}^{k - 1} k^2}{k^3 + 1}} = \frac{k^2}{k^3 + 1} \approx \frac{1}{k} \quad \text{for large } k </me>,
 		and we know that the harmonic series diverges.
-		Consider <m>\nseq{a}</m> with <m>a_n = k^2 / (k^3 + 1)</m>,
+		Consider <m>\nseq{a}</m> with <m>a_n = n^2 / (n^3 + 1)</m>,
 		beginning at index <m>n = 1</m>,
 		like our sum.
 		This is a positive sequence, but is it decreasing?
@@ -1844,7 +1886,7 @@ alternate between positive and negative:
 
 	<li>
 		Consider the alternating series <me> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1} \cdot k}{4 k - 1} </me>.
-		Let <m>\nseq{a}</m> represent the sequence of absolute terms: <m>a_n = k / (4 k - 1)</m>,
+		Let <m>\nseq{a}</m> represent the sequence of absolute terms: <m>a_n = n / (4 n - 1)</m>,
 		beginning at index <m>n = 1</m>,
 		like our sum.
 		This is a positive sequence,
@@ -1867,7 +1909,7 @@ alternate between positive and negative:
 	Then the sequence of absolute terms <m>\seq{1/n}</m> is positive, decreasing, and trends to <m>0</m>.
 	So the <xref ref="fact-series-alternating-series-test" text="title" /> says that the series converges.
 	As we have seen previously that this series does not converge absolutely,
-	we instead say that <m>\sum {(-1)}^{k - 1}{k}</m> converges conditionally.
+	we instead say that <m>\sum {(-1)}^{k - 1} / k</m> converges conditionally.
 	</p>
 </example>
 
