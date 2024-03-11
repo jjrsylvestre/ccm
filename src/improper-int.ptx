@@ -335,7 +335,7 @@ then we should be able to do so from any starting point.
 			<mrow> \ccmint{a_1}{\infty}{f(t)}{t} \amp = \lim_{t \to \infty} \ccmint{a_1}{t}{f(u)}{u} </mrow>
 			<mrow> \amp = \lim_{t \to \infty} \left( \ccmint{a_1}{a_2}{f(u)}{u} + \ccmint{a_2}{t}{f(u)}{u} \right) </mrow>
 			<mrow> \amp = \ccmint{a_1}{a_2}{f(u)}{u} + \lim_{t \to \infty} \ccmint{a_2}{t}{f(u)}{u} </mrow>
-			<mrow> \amp = \ccmint{a_1}{a_2}{f(u)}{u} + \ccmint{a_2}{\infty}{f(t)}{t} </mrow>
+			<mrow> \amp = \ccmint{a_1}{a_2}{f(t)}{t} + \ccmint{a_2}{\infty}{f(t)}{t} </mrow>
 		</md>.
 		Since the integral over domain <m>a_1 \le t \le a_2</m> is just a number,
 		the two integrals must both converge or both diverge.
@@ -491,15 +491,102 @@ than it stands to reason that the second improper integral should converge as we
 	</image>
 </figure>
 
-<proof><p>
+<proof>
+	<title>Idea of justification</title>
+
+	<p>
+	Since <m> 0 \le f(t) \le g(t)</m>,
+	the partial area functions
+	<md><mrow>
+		F(t) \amp = \ccmint{a}{t}{f(u)}{u} \amp
+		G(t) \amp = \ccmint{a}{t}{g(u)}{u}
+	</mrow></md>
+	are non-decreasing and also satisfy <m> 0 \le F(t) \le G(t)</m> for <m>t \ge a</m>.
+	</p>
+
+	<p>
+	If the improper integral of <m>g</m> converges,
+	then <m>G(t)</m> must be bounded,
+	hence <m>F(t)</m> must be bounded as well.
+	Since <m>F(t)</m> is non-decreasing,
+	it must converge as <m>t \to \infty</m>
+	(<xref ref="theorem-seq-monotonic-conv" text="title" />).
+	Hence the improper integral of <m>f</m> converges as well.
+	</p>
+
+	<p>
+	On the other hand,
+	suppose we start with the assumption that the improper integral of <m>f</m> diverges.
+	As the partial area function <m>F(t)</m> is non-decreasing,
+	we can conclude that it is unbounded.
+	Since <m>G(t) \ge F(t)</m> for <m>t \ge a</m>,
+	<m>G(t)</m> must be unbounded as well,
+	in which case the improper integral of <m>g</m> diverges as well.
+	</p>
+
+</proof>
+
+<!--
+<proof>
+
+	<p>
+	Let <m>F(t)</m> and <m>G(t)</m> be the partial area functions for <m>f(t)</m> and <m>g(t)</m>,
+	respectively:
+	<md><mrow>
+		F(t) \amp = \ccmint{a}{t}{f(u)}{u} \text{,} \amp
+		G(t) \amp = \ccmint{a}{t}{g(u)}{u} \text{.}
+	</mrow></md>
+	Since we assume both of <m>f</m> and <m>g</m> are non-negative,
+	these functions are both non-decreasing.
+	</p>
+
+	<p>
+	By definition,
+	we have
+	<md><mrow>
+		\ccmint{a}{\infty}{f(t)}{t} \amp = \lim_{t \to \infty} F(t) \text{,} \amp
+		\ccmint{a}{\infty}{g(t)}{t} \amp = \lim_{t \to \infty} G(t) \text{.}
+	</mrow></md>
+	To investigate those limits,
+	consider <m>\nseq{t} \to \infty</m> with <m>t_n \ge a</m> for all <m>n</m>,
+	and let <m>\nseq{F}</m> and <m>\nseq{G}</m> be the corresponding output sequences:
+	<m>F_n = F(t_n)</m>, <m>G_n = G(t_n)</m>.
+	These sequences are both non-decreasing,
+	and from the assumption <m>0 \le f(t) \le g(t)</m>,
+	we also have <m>0 \le F_n \le G_n</m> for all <m>n</m>.
+	</p>
+
+	<p>
+	If the improper integral of <m>g</m> converges,
+	then by definition so must the sequence <m>\nseq{G}</m>,
+	and so that sequence must be bounded.
+	From <m>0 \le F_n \le G_n</m>,
+	the sequence <m>\nseq{F}</m> must also be bounded,
+	and so must converge (<xref ref="theorem-seq-monotonic-conv" text="title" />).
+	Since we see this trend for every possible sequence <m>\nseq{t} \to \infty</m>,
+	the function limit of <m>F(t)</m> also converges,
+	hence so does the improper integral of <m>f</m>.
+	</p>
+
+	<p>
+	On the other hand,
+	suppose the improper integral of <m>f</m> diverges.
+	TODO CONTINUE
+
+	From our assumption on <m>f</m> and <m>g</m>,
+	we have
+	<me> 0 \le \ccmint{a}{t}{f(u)}{u} \le \ccmint{a}{t}{g(u)}{u} </me>
+	Since <m> 0 \le f(t) \le g(t)</m> for <m>t \ge a</m>.
+
 	If the area under the graph of <m>g</m> is finite,
 	and the graph of <m>f</m> is below the graph of <m>f</m>,
 	making the area under the graph of <m>f</m> smaller,
 	then the area under <m>f</m> must be finite as well.
 	And the second statement is just the contrapositive of the first.
 </p></proof>
+ -->
 
-<example>
+ <example>
 	<title>Convergence by comparison</title>
 
 	<p>
@@ -683,6 +770,32 @@ we take a limit as one of the boundaries approaches the location of the vertical
 	</p>
 </definition>
 
+<figure><sidebyside widths="44.4% 44.4%">
+
+	<figure>
+		<caption>
+			A left-handed improper integral at a vertical asymptote.
+			The partial area <m>\ccmint{a}{t}{f(u)}{u}</m> approximates the total area <m>\ccmint{a}{c}{f(t)}{t}</m>.
+		</caption>
+		<image label="image-improper-int-vert-asymptote-left">
+			<description>A graph depicting a left-handed improper integral at a vertical asymptote.</description>
+			<latex-image><xi:include href="improper-int.d/vert-asymptote-left.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+	<figure>
+		<caption>
+			A right-handed improper integral at a vertical asymptote.
+			The partial area <m>\ccmint{t}{b}{f(u)}{u}</m> approximates the total area <m>\ccmint{c}{b}{f(t)}{t}</m>.
+		</caption>
+		<image label="image-improper-int-vert-asymptote-right">
+			<description>A graph depicting a right-handed improper integral at a vertical asymptote.</description>
+			<latex-image><xi:include href="improper-int.d/vert-asymptote-right.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</sidebyside></figure>
+
 <example><p>
 	Let's try various (reciprocal) power functions near the asymptote at <m>t = 0</m>.
 	<ol>
@@ -711,7 +824,7 @@ we take a limit as one of the boundaries approaches the location of the vertical
 				<mrow> \amp = \infty </mrow>
 			</md>
 			It might be a surprise that this integral also diverges,
-			since the integral of <m>g</m> <em>converges</em> as <m>t \to infty</m>.
+			since the integral of <m>g</m> <em>converges</em> as <m>t \to \infty</m>.
 			But this function's graph is <em>not</em> symmetric about the line <m>y = t</m>,
 			so the two improper integrals (as <m>t \to 0^{+}</m> versus as <m>t \to \infty</m>)
 			are not related.
