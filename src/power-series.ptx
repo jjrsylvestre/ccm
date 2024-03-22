@@ -120,15 +120,15 @@ it should also converge at all smaller <m>t</m>-values.
 
 		<li xml:id="fact-power-series-radius-diverge">
 			If <m>\sum a_k t^k</m> diverges at <m>t = c</m>,
-			then it also diverges on both <m>t \lt \abs{c}</m> and <m>t \gt \abs{c}</m>.
+			then it also diverges on both <m>t \lt -\abs{c}</m> and <m>t \gt \abs{c}</m>.
 		</li>
 
 	</ol></p></statement>
 
 	<proof><title>Justification for <xref ref="fact-power-series-radius-converge" text="type-local">Statement</xref></title><p>
-		If <m>\sum a_k t^c</m> converges at <m>t = c</m>,
+		If <m>\sum a_k t^k</m> converges at <m>t = c</m>,
 		this means that the infinite series <m>\sum a_k c^k</m> converges.
-		So we must have <m>\seq{a_n c^n} \to 0</m>,
+		We must then have <m>\seq{a_n c^n} \to 0</m>,
 		and so there is some tail <m>\seqtail{a_n c^n}</m> completely contained in the range <m>(-1, 1)</m>.
 		For every value of <m>t</m> in the domain <m>-\abs{c} \lt t \lt \abs{c}</m>,
 		we have <m>\abs{t / c} \lt 1</m>,
@@ -322,7 +322,7 @@ introducing an absolute value will help measure the maximum magnitude of <m>t</m
 	<title>A series with <m>R = 0</m></title>
 	<p>
 	For <m>\sum (k!) t^k</m> we have
-	<me> \abs{\frac{(n + 1)! t^{n + 1}}{n! t^n}} = (n + 1) \; \abs{t} \to \infty \quad \text{as } n \to \infty </me>.
+	<me> \abs{\frac{(n + 1)! \cdot t^{n + 1}}{n! \cdot t^n}} = (n + 1) \; \abs{t} \to \infty \quad \text{as } n \to \infty </me>.
 	In particular, for every non-zero value of <m>t</m>,
 	no matter how small,
 	the factorial will eventually overwhelm the powers of <m>t</m> and so <m>a_k t^k \not\to 0</m>,
@@ -347,15 +347,17 @@ introducing an absolute value will help measure the maximum magnitude of <m>t</m
 
 <p>
 From our examples so far you might think that <m>0</m>, <m>1</m>, and <m>\infty</m> are the only possibilities for a radius of convergence.
-Here is one more example to demonstrate that any number is possible.
+Here is an example with radius of convergence <m>R = 2</m>.
+But if you replace the occurrences of the number <m>2</m> in this example by any other positive number,
+you can generate an example with that radius of convergence,
+demonstrating that any positive number is possible as a radius of convergence of some power series.
 </p>
 
 <example>
 	<title></title>
 
 	<p>
-	Let <m>b</m> represent an arbitrary positive number,
-	and consider <m>\sum t^k / b^k</m>.
+	Consider <m>\sum t^k / 2^k</m>.
 	This time we will use the <xref ref="pattern-series-root-test" text="title" /> to test absolute convergence:
 	<me> \sqrt[n]{\abs{\frac{t^n}{2^n}}} = \frac{\abs{t}}{2} </me>.
 	No limit is necessary,
@@ -370,7 +372,7 @@ Here is one more example to demonstrate that any number is possible.
 	<me> \sum_{k = 0}^\infty \frac{{(-1)}^k {(-2)}^k}{2^k} = \sum_{k = 0}^\infty \frac{1}{2^{k - 1}} </me>
 	which is a convergent geometric series.
 	At the other endpoint <m>t = 2</m> we have
-	<me> \sum_{k = 0}^\infty \frac{{(-1)}^k {2^k}{2^k} = \sum_{k = 0}^\infty \frac{{(-1)}^k}{2^{k - 1}} </me>.
+	<me> \sum_{k = 0}^\infty \frac{{(-1)}^k 2^k}{2^k} = \sum_{k = 0}^\infty \frac{{(-1)}^k}{2^{k - 1}} </me>.
 	But we have already established above that this series converges absolutely,
 	hence it converges.
 	</p>
