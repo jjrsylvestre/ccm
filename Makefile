@@ -10,10 +10,11 @@ ROOTDOCNAME=book
 SERVEPORT=8082
 BUILDDIR=${XDG_RUNTIME_DIR}/pretext/ccm
 #PRETEXT=/opt/pretext/pretext/pretext
-PRETEXT=./pretext/pretext/pretext
+#PRETEXT=./pretext/pretext/pretext
+PRETEXTDIR=./pretext
 ROOT_XMLID=book-calculus-concepts-modelling
 
-.PHONY: ptx validate-xml \
+.PHONY: ptx validate-xml validate-ptx \
   html html-images html-image-pdfs html-fonts html-all html-serve \
   clean ptx-clean html-clean html-images-clean \
   help list
@@ -22,6 +23,7 @@ list: help
 help:
 	@echo "== TARGETS ==============="
 	@echo "> validate-xml       : Check for XML syntax/format errors. (Does not validate against PTX schema.)"
+	@echo "> validate-ptx       : Check for PTX schema errors."
 	@echo "> html-all           : Perform all steps necessary to create HTML version of the activity set."
 	@echo "> html               : Output (only) HTML files containing all worksheets."
 	@echo "> html-images        : Create SVG image files to accompany the html output."
@@ -38,7 +40,7 @@ help:
 	@echo "== PARAMETERS ============"
 	@echo "> BUILDDIR   : Root directory for all output files. [Default: $(BUILDDIR)]"
 	@echo "> BRANDLOGO  : Filename of institutional logo. Needs to exist in images/. [Default: $(BRANDLOGO)]"
-	@echo "> PRETEXT : Path to pretext compilation script [Default: $(PRETEXT)]"
+	@echo "> PRETEXTDIR : Path to PreTeXt installation [Default: $(PRETEXTDIR)]"
 	@echo "> SERVEPORT  : Local port on which to serve HTML output when using the html-serve target. [Default: $(SERVEPORT)]"
 
 
@@ -86,7 +88,7 @@ ${BUILDDIR}/html/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@mkdir -p ${BUILDDIR}/html/knowl
 	@ln -sf --no-dereference ${BUILDDIR} build
 	@echo "...calling pretext to compile PreTeXt document"
-	@$(PRETEXT) \
+	@${PRETEXTDIR}/pretext/pretext \
 	  --verbose \
 	  --component all \
 	  --format html \
@@ -113,7 +115,7 @@ ${BUILDDIR}/html/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@ln -sf --no-dereference ${BUILDDIR} build
 	@-rm -f ${BUILDDIR}/html/images/.sentinal
 	@echo "...calling pretext to generate images"
-	@$(PRETEXT) \
+	@${PRETEXTDIR}/pretext/pretext \
 	  --verbose \
 	  --component latex-image \
 	  --format svg \
@@ -131,7 +133,7 @@ ${BUILDDIR}/image-pdfs/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@ln -sf --no-dereference ${BUILDDIR} build
 	@-rm -f ${BUILDDIR}/image-pdfs/.sentinal
 	@echo "...calling pretext to generate images"
-	@$(PRETEXT) \
+	@${PRETEXTDIR}/pretext/pretext \
 	  --verbose \
 	  --component latex-image \
 	  --format pdf \
@@ -163,7 +165,7 @@ ${BUILDDIR}/latex/${ROOTDOCNAME}.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@mkdir -p ${BUILDDIR}/latex
 	@ln -sf --no-dereference ${BUILDDIR} build
 	@echo "...calling pretext to compile PreTeXt document"
-	@${PRETEXT} \
+	@${PRETEXTDIR}/pretext/pretext \
 	  --XSL style-latex.xsl \
 	  --component all \
 	  --format latex \
@@ -181,4 +183,12 @@ html-serve:
 validate-xml: $(SOURCES)
 	@echo "Validating xml..."
 	@xmllint --xinclude src/${ROOTDOCNAME}.ptx | xmllint --noout -
+	@echo "...DONE"
+
+validate-ptx: ptx
+	@echo "Validating ptx..."
+	@jing ${PRETEXTDIR}/schema/pretext.rng ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx |\
+	  grep -v \
+	    -e "element \"worksheet\" not allowed anywhere"
+	@mkdir -p ${BUILDDIR}
 	@echo "...DONE"
