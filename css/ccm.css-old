@@ -1,0 +1,343 @@
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-Regular.woff2) format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-Italic.woff2) format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-Medium.woff2) format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-MediumItalic.woff2) format("woff2");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-SemiBold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-SemiBoldItalic.woff2) format("woff2");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-Bold.woff2) format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-BoldItalic.woff2) format("woff2");
+  font-weight: bold;
+  font-style: italic;
+}
+
+body.pretext,
+.ptx-content section .heading,
+.ptx-content article .heading
+{
+  font-family: "STIX Two Text", "Times New Roman", Times, serif;
+}
+
+dt {
+  font-style: italic;
+}
+
+header.ptx-masthead span.title,
+header.ptx-masthead span.subtitle {
+  color: #09AB0D;
+}
+
+.ptx-content .summary-links a {
+  color: #09AB0D;
+}
+
+.ptx-content .summary-links a:hover {
+  color: white;
+  background-color: #AB09A7;
+}
+
+.ptx-toc.focused .toc-chapter > .toc-title-box {
+  background-color: #09AB0D;
+}
+
+.ptx-toc.focused .toc-chapter,
+.ptx-toc.focused .toc-section
+{
+  border-color: #067409;
+}
+
+.ptx-toc.focused :is(.toc-frontmatter, .toc-backmatter) > .toc-title-box {
+  background-color: #067409;
+}
+
+.ptx-toc.focused :is(
+  .toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
+) > .toc-title-box {
+  color: #AB09A7;
+}
+
+.ptx-toc.focused .toc-subsection > .toc-title-box {
+  color: #333333;
+  background-color: #FEEBFD;
+}
+
+.ptx-toc.focused :is(
+  .toc-chapter, .toc-frontmatter, .toc-backmatter, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
+):is(.active, .contains-active) > .toc-title-box,
+.ptx-toc.focused :is(
+  .toc-chapter, .toc-frontmatter, .toc-backmatter, .toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
+) > .toc-title-box:hover,
+.ptx-toc.focused .toc-title-box > a:is(:hover, :focus)
+{
+  color: white;
+  background-color: #AB09A7;
+}
+
+.ptx-toc.focused.depth3 .toc-title-box > .toc-expander:hover,
+.ptx-toc.focused.depth3 .toc-title-box > .toc-expander > .icon:hover
+{
+  color: #AB09A7;
+  background-color: #FEEBFD;
+}
+
+
+/* xrefs */
+.ptx-content [data-knowl],
+.ptx-content .para > a.internal
+{
+  color: #067409;
+}
+
+.ptx-content [data-knowl]:hover,
+.ptx-content .para > a.internal:hover
+{
+  background-color: #FEEBFD;
+}
+
+.ptx-content [data-knowl].active {
+  background-color: #d9fdda;
+}
+
+/* knowls */
+.ptx-content .knowl-output {
+  border-color: #d9fdda;
+  background-color: #f7fbff;
+}
+
+
+
+/* highlight definitions ***********************/
+.ptx-content .definition.definition-like {
+  border: solid 2px #AB09A7;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #FEF2FE;
+}
+
+.ptx-content .definition.definition-like .heading {
+  margin-top: 0;
+}
+
+.ptx-content .definition.definition-like + .sidebyside {
+  margin-top: 1.25em;
+}
+.ptx-content section article.definition.definition-like .heading + p {
+  display: block;
+}
+
+/* undo Greg's L */
+.ptx-content article.definition.definition-like::after {
+    content:'';
+    border-bottom: none;
+    display: none;
+    margin: 0px;
+    padding-top: 0px;
+    width: 0px;
+}
+
+/***********************************************/
+
+
+/* highlight patterns (renamed from identity) ************/
+/*     and facts                              ************/
+/*     and conventions                        ************/
+/* TODO change these colors to be different from definitions */
+.ptx-content .convention.remark-like,
+.ptx-content .identity.theorem-like,
+.ptx-content .fact.theorem-like,
+.ptx-content .theorem.theorem-like,
+.ptx-content .corollary.theorem-like
+{
+  border: solid 2px #AB09A7;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #FEF2FE;
+}
+
+.ptx-content .convention.remark-like .heading,
+.ptx-content .identity.theorem-like .heading,
+.ptx-content .fact.theorem-like .heading,
+.ptx-content .theorem.theorem-like .heading,
+.ptx-content .corollary.theorem-like .heading
+{
+    margin-top: 0;
+}
+
+.ptx-content .convention.remark-like + .sidebyside,
+.ptx-content .identity.theorem-like + .sidebyside,
+.ptx-content .fact.theorem-like + .sidebyside,
+.ptx-content .theorem.theorem-like + .sidebyside,
+.ptx-content .corollary.theorem-like + .sidebyside
+{
+    margin-top: 1.25em;
+}
+
+.ptx-content section article.convention.remark-like .heading + p,
+.ptx-content section article.identity.theorem-like .heading + p,
+.ptx-content section article.fact.theorem-like .heading + p,
+.ptx-content section article.corollary.theorem-like .heading + p,
+.ptx-content section article.theorem.theorem-like .heading + p
+{
+  display: block;
+}
+
+/* undo Greg's L */
+.ptx-content article.convention.remark-like::after,
+.ptx-content article.identity.theorem-like::after,
+.ptx-content article.fact.theorem-like::after,
+.ptx-content article.theorem.theorem-like::after,
+.ptx-content article.corollary.theorem-like::after
+{
+    content:'';
+    border-bottom: none;
+    display: none;
+    margin: 0px;
+    padding-top: 0px;
+    width: 0px;
+}
+
+/* undo italics for patterns */
+.ptx-content section .remark-like .para,
+.ptx-content section .theorem-like .para,
+.ptx-content section .theorem-like li
+{
+    font-style: normal;
+}
+/* but then also reverse font-style for li headings */
+.ptx-content section .remark-like li > .heading,
+.ptx-content section .theorem-like li > .heading
+{
+    font-style: italic;
+}
+
+
+/*********************************************************/
+
+/* highlight principles (renamed from insight) ************/
+/* TODO change these colors to be different from definitions and patterns */
+.ptx-content .insight.remark-like {
+  border: solid 2px #AB09A7;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #FEF2FE;
+}
+
+.ptx-content .insight.remark-like .heading {
+  margin-top: 0;
+}
+
+.ptx-content .insight.remark-like + .sidebyside {
+  margin-top: 1.25em;
+}
+.ptx-content section article.insight.remark-like .heading + p {
+  display: block;
+}
+
+/* undo Greg's L */
+.ptx-content article.insight.remark-like::after {
+    content:'';
+    border-bottom: none;
+    display: none;
+    margin: 0px;
+    padding-top: 0px;
+    width: 0px;
+}
+
+/*********************************************************/
+
+/* highlight procedures (renamed from algorithm) ************/
+/*      and strategies (renamed from heuristic)  ************/
+/* TODO change these colors to be different from others above ? */
+/* Or maybe consolidate these styles into the other .theorem-like styles ? */
+.ptx-content .algorithm.theorem-like,
+.ptx-content .heuristic.theorem-like
+{
+  border: solid 2px #AB09A7;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #FEF2FE;
+}
+
+.ptx-content .algorithm.theorem-like .heading,
+.ptx-content .heuristic.theorem-like .heading
+{
+  margin-top: 0;
+}
+
+.ptx-content .algorithm.theorem-like + .sidebyside,
+.ptx-content .heuristic.theorem-like + .sidebyside
+{
+  margin-top: 1.25em;
+}
+
+.ptx-content section article.algorithm.theorem-like .heading + p,
+.ptx-content section article.heuristic.theorem-like .heading + p
+{
+  display: block;
+}
+
+/* undo Greg's L */
+.ptx-content article.algorithm.theorem-like::after,
+.ptx-content article.heuristic.theorem-like::after
+{
+    content:'';
+    border-bottom: none;
+    display: none;
+    margin: 0px;
+    padding-top: 0px;
+    width: 0px;
+}
+
+/* undo italics for patterns */
+.ptx-content section article.algorithm.theorem-like p,
+.ptx-content section article.heuristic.theorem-like p,
+.ptx-content section article.algorithm.theorem-like li,
+.ptx-content section article.heuristic.theorem-like li
+{
+      font-style: normal;
+}
+/* but then also reverse font-style for li headings */
+.ptx-content section article.algorithm.theorem-like li > .heading,
+.ptx-content section article.heuristic.theorem-like li > .heading
+{
+  font-style: italic;
+}
+
+/*********************************************************/
+

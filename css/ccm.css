@@ -1,3 +1,9 @@
+/******************************************************************************/
+/*                                   FONTS                                    */
+/******************************************************************************/
+
+/* Faces */
+
 @font-face {
   font-family: "STIX Two Text";
   src: url(./fonts/STIXTwoText-Regular.woff2) format("woff2");
@@ -47,275 +53,188 @@
   font-style: italic;
 }
 
-body.pretext,
-.ptx-content section .heading,
-.ptx-content article .heading
+/* Main body font */
+.ptx-content
+{ font-family: "STIX Two Text", "Times New Roman", Times, serif; }
+
+/* TOC Part titles */
+:is(.toc-part, .toc-frontmatter, .toc-backmatter) > .toc-title-box > .internal
 {
-  font-family: "STIX Two Text", "Times New Roman", Times, serif;
+  font-family: var(--font-headings);
+  font-weight: bold;
 }
 
+/* Introduction assemblage secondary links */
+.introduction > .assemblage .emphasis > a.internal { font-weight: normal; }
+
+/* italics for definitions */
 dt {
   font-style: italic;
 }
 
-header.ptx-masthead span.title,
-header.ptx-masthead span.subtitle {
-  color: #09AB0D;
+/* Chapter root pages: section titles */
+.ptx-content .summary-links li:hover .title {
+  font-weight: normal;
 }
 
-.ptx-content .summary-links a {
-  color: #09AB0D;
+/* Decrease font size for <case> headings */
+article.case > .heading {
+  font-size: 1.125em;
 }
 
-.ptx-content .summary-links a:hover {
-  color: white;
-  background-color: #AB09A7;
-}
-
-.ptx-toc.focused .toc-chapter > .toc-title-box {
-  background-color: #09AB0D;
-}
-
-.ptx-toc.focused .toc-chapter,
-.ptx-toc.focused .toc-section
-{
-  border-color: #067409;
-}
-
-.ptx-toc.focused :is(.toc-frontmatter, .toc-backmatter) > .toc-title-box {
-  background-color: #067409;
-}
-
-.ptx-toc.focused :is(
-  .toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
-) > .toc-title-box {
-  color: #AB09A7;
-}
-
-.ptx-toc.focused .toc-subsection > .toc-title-box {
-  color: #333333;
-  background-color: #FEEBFD;
-}
-
-.ptx-toc.focused :is(
-  .toc-chapter, .toc-frontmatter, .toc-backmatter, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
-):is(.active, .contains-active) > .toc-title-box,
-.ptx-toc.focused :is(
-  .toc-chapter, .toc-frontmatter, .toc-backmatter, .toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
-) > .toc-title-box:hover,
-.ptx-toc.focused .toc-title-box > a:is(:hover, :focus)
-{
-  color: white;
-  background-color: #AB09A7;
-}
-
-.ptx-toc.focused.depth3 .toc-title-box > .toc-expander:hover,
-.ptx-toc.focused.depth3 .toc-title-box > .toc-expander > .icon:hover
-{
-  color: #AB09A7;
-  background-color: #FEEBFD;
-}
-
-
-/* xrefs */
-.ptx-content [data-knowl],
-.ptx-content .para > a.internal
-{
-  color: #067409;
-}
-
-.ptx-content [data-knowl]:hover,
-.ptx-content .para > a.internal:hover
-{
-  background-color: #FEEBFD;
-}
-
-.ptx-content [data-knowl].active {
-  background-color: #d9fdda;
-}
-
-/* knowls */
-.ptx-content .knowl-output {
-  border-color: #d9fdda;
-  background-color: #f7fbff;
-}
-
-
-
-/* highlight definitions ***********************/
-.ptx-content .definition.definition-like {
-  border: solid 2px #AB09A7;
-  border-radius: 12px;
-  padding: 10px;
-  background-color: #FEF2FE;
-}
-
-.ptx-content .definition.definition-like .heading {
-  margin-top: 0;
-}
-
-.ptx-content .definition.definition-like + .sidebyside {
-  margin-top: 1.25em;
-}
-.ptx-content section article.definition.definition-like .heading + p {
-  display: block;
-}
-
-/* undo Greg's L */
-.ptx-content article.definition.definition-like::after {
-    content:'';
-    border-bottom: none;
-    display: none;
-    margin: 0px;
-    padding-top: 0px;
-    width: 0px;
-}
-
-/***********************************************/
-
-
-/* highlight patterns (renamed from identity) ************/
-/*     and facts                              ************/
-/*     and conventions                        ************/
-/* TODO change these colors to be different from definitions */
-.ptx-content .convention.remark-like,
-.ptx-content .identity.theorem-like,
-.ptx-content .fact.theorem-like,
-.ptx-content .theorem.theorem-like,
-.ptx-content .corollary.theorem-like
-{
-  border: solid 2px #AB09A7;
-  border-radius: 12px;
-  padding: 10px;
-  background-color: #FEF2FE;
-}
-
-.ptx-content .convention.remark-like .heading,
-.ptx-content .identity.theorem-like .heading,
-.ptx-content .fact.theorem-like .heading,
-.ptx-content .theorem.theorem-like .heading,
-.ptx-content .corollary.theorem-like .heading
-{
-    margin-top: 0;
-}
-
-.ptx-content .convention.remark-like + .sidebyside,
-.ptx-content .identity.theorem-like + .sidebyside,
-.ptx-content .fact.theorem-like + .sidebyside,
-.ptx-content .theorem.theorem-like + .sidebyside,
-.ptx-content .corollary.theorem-like + .sidebyside
-{
-    margin-top: 1.25em;
-}
-
-.ptx-content section article.convention.remark-like .heading + p,
-.ptx-content section article.identity.theorem-like .heading + p,
-.ptx-content section article.fact.theorem-like .heading + p,
-.ptx-content section article.corollary.theorem-like .heading + p,
-.ptx-content section article.theorem.theorem-like .heading + p
-{
-  display: block;
-}
-
-/* undo Greg's L */
-.ptx-content article.convention.remark-like::after,
-.ptx-content article.identity.theorem-like::after,
-.ptx-content article.fact.theorem-like::after,
-.ptx-content article.theorem.theorem-like::after,
-.ptx-content article.corollary.theorem-like::after
-{
-    content:'';
-    border-bottom: none;
-    display: none;
-    margin: 0px;
-    padding-top: 0px;
-    width: 0px;
-}
-
-/* undo italics for patterns */
-.ptx-content section .remark-like .para,
-.ptx-content section .theorem-like .para,
-.ptx-content section .theorem-like li
-{
-    font-style: normal;
-}
-/* but then also reverse font-style for li headings */
-.ptx-content section .remark-like li > .heading,
-.ptx-content section .theorem-like li > .heading
-{
-    font-style: italic;
-}
-
-
-/*********************************************************/
-
-/* highlight principles (renamed from insight) ************/
-/* TODO change these colors to be different from definitions and patterns */
-.ptx-content .insight.remark-like {
-  border: solid 2px #AB09A7;
-  border-radius: 12px;
-  padding: 10px;
-  background-color: #FEF2FE;
-}
-
-.ptx-content .insight.remark-like .heading {
-  margin-top: 0;
-}
-
-.ptx-content .insight.remark-like + .sidebyside {
-  margin-top: 1.25em;
-}
-.ptx-content section article.insight.remark-like .heading + p {
-  display: block;
-}
-
-/* undo Greg's L */
-.ptx-content article.insight.remark-like::after {
-    content:'';
-    border-bottom: none;
-    display: none;
-    margin: 0px;
-    padding-top: 0px;
-    width: 0px;
-}
-
-/*********************************************************/
-
-/* highlight procedures (renamed from algorithm) ************/
-/*      and strategies (renamed from heuristic)  ************/
-/* TODO change these colors to be different from others above ? */
-/* Or maybe consolidate these styles into the other .theorem-like styles ? */
-.ptx-content .algorithm.theorem-like,
-.ptx-content .heuristic.theorem-like
-{
-  border: solid 2px #AB09A7;
-  border-radius: 12px;
-  padding: 10px;
-  background-color: #FEF2FE;
-}
-
-.ptx-content .algorithm.theorem-like .heading,
-.ptx-content .heuristic.theorem-like .heading
-{
-  margin-top: 0;
-}
-
-.ptx-content .algorithm.theorem-like + .sidebyside,
-.ptx-content .heuristic.theorem-like + .sidebyside
-{
+article:has(.case)>*:not(:first-child):has(.heading) {
   margin-top: 1.25em;
 }
 
-.ptx-content section article.algorithm.theorem-like .heading + p,
-.ptx-content section article.heuristic.theorem-like .heading + p
-{
-  display: block;
+/******************************************************************************/
+/*                                  COLOURS                                   */
+/******************************************************************************/
+
+/*
+ *   primary:    #275d38 = 26% white  (UofA green)
+ *   secondary:  #f2cd00 = 47% white  (UofA gold)
+ *   (white percentages from https://www.w3schools.com/colors/colors_picker.asp)
+ */
+:root {
+  --uofa-green: #275d38;
+  --mono-green-complement: #36814E;
+  --analogous-blue: #275D53;
+  --complementary-mauve: #5D274C;
+  --complementary-mauve-white-10: #6d3b5c;
+  --lighter-green: #4bb46c;
+  --uofa-gold: #f2cd00;
+  --dark-gold: #4d4100;
+  --darker-gold: #332b00;
+  --darkest-gold: #1a1600;
 }
 
-/* undo Greg's L */
-.ptx-content article.algorithm.theorem-like::after,
-.ptx-content article.heuristic.theorem-like::after
+/* Light mode colour overrides */
+:root:not(.dark-mode) {
+  --primary-color: var(--uofa-green);
+  --secondary-color: var(--uofa-gold);
+  --banner-background: var(--primary-color-white-95);
+  --navbar-background: var(--primary-color-white-90);
+  --link-active-background: var(--primary-color-white-90);
+  --tocitem-active-text-color: var(--primary-color-black-20);
+  --toclevel1-background: var(--primary-color-white-10);
+  --toclevel2-background: var(--primary-color-white-90);
+  --toclevel3-background: var(--primary-color-white-90);
+  --toclevel2-text-color: black;
+  --summary-link-text-color: var(--primary-color);
+  --summary-link-hover-text-color: var(--primary-color);
+  --summary-link-hover-background: var(--secondary-color-white-50);
+  --button-hover-background: var(--secondary-color-white-50);
+}
+
+/* Dark mode colour overrides */
+:root.dark-mode {
+  --primary-color: var(--lighter-green);
+  --body-title-color: var(--primary-color-white-85);
+  --toclevel3-background: var(--background-color-gray-20);
+  --block-border-color: var(--primary-color-black-40);
+}
+/* fillin in math mode */
+:root.dark-mode mjx-mpadded {
+  background-color: #808080 !important;
+}
+
+
+/* "In this section" title links */
+.introduction > .assemblage .emphasis > a.internal { color: var(--body-text-color); }
+
+/* knowl link background */
+:root:not(.dark-mode) .knowl__link:is(:hover, :focus, [open]) {
+  background-color: var(--secondary-color-white-80);
+}
+:root.dark-mode .knowl__link:is(:hover, :focus, [open]) {
+  background-color: var(--dark-gold);
+}
+/* TODO dark mode version? */
+
+/* Adjust logo colour in dark mode */
+:root.dark-mode .ptx-banner img {
+  filter: grayscale(1) invert(1);
+}
+
+/*
+ * TOC tweaks
+*/
+
+/* change background of active chapter */
+:root:not(.dark-mode) .toc-item.toc-chapter.contains-active {
+  /* Surrounding toclevel2 items have background-color: var(--primary-color-white-10) */
+  background-color: var(--complementary-mauve-white-10);
+}
+:root:not(.dark-mode) .toc-item.toc-part.contains-active {
+  /* Surrounding toclevel2 items have background-color: var(--primary-color-white-10) */
+  background-color: var(--primary-color-black-20);
+}
+:root.dark-mode .toc-item.toc-chapter.contains-active {
+  /*
+   * Surrounding toclevel2 items have background-color: var(--background-color-gray-10)
+   * And following toclevel3 items have background-color: var(--background-color-gray-20);
+   *   (set above)
+   */
+  background-color: var(--background-color-gray-40);
+}
+:root.dark-mode .toc-item.toc-part.contains-active {
+  background-color: var(--background-color-black-10);
+}
+
+/* Get entire toc item bar to highlight (including chevron) on hover */
+:root:not(.dark-mode) .ptx-toc.focused .toc-item > .toc-title-box:hover,
+:root:not(.dark-mode) .ptx-toc.focused .toc-title-box > a:is(:hover, :focus)
 {
+  color: var(--primary-color-black-20);
+  background-color: var(--secondary-color-white-50);
+}
+:root.dark-mode .ptx-toc.focused .toc-item > .toc-title-box:hover,
+:root.dark-mode .ptx-toc.focused .toc-title-box > a:is(:hover, :focus)
+{
+  color: var(--toclevel1-text-color);
+  background-color: var(--dark-gold);
+}
+
+/* use drop-down arrows for expand/collapse instead of chevrons */
+.ptx-toc.focused .toc-item > .toc-title-box > .toc-expander > .icon:before { content: "arrow_drop_down"; }
+.ptx-toc.focused .toc-item.expanded > .toc-title-box > .toc-expander > .icon:before { content: "arrow_drop_up"; }
+.ptx-toc.focused .toc-item.expanded > .toc-title-box > .toc-expander > .icon { transform: none; }
+
+
+/******************************************************************************/
+/*                                  SPACING                                   */
+/******************************************************************************/
+
+.ptx-banner img {
+  margin: 5px;
+}
+
+/* this should match the first para under a li that has a title */
+li > .para:first-of-type:not(:first-child) {
+  margin-top: 0px;
+}
+
+
+/******************************************************************************/
+/*                              ASIDE HEADINGS                                */
+/******************************************************************************/
+
+.aside-like .heading .type,
+.aside-like .heading .space {
+  visibility: hidden;
+  width: 0;
+  display: inline-block;
+}
+
+
+/******************************************************************************/
+/*                          DEFINITION/THEOREM BOXES                          */
+/******************************************************************************/
+
+/* undo bottom of Greg's L */
+.ptx-content article.definition-like::after,
+.ptx-content article.theorem-like::after,
+.ptx-content article.remark-like::after {
     content:'';
     border-bottom: none;
     display: none;
@@ -324,20 +243,80 @@ header.ptx-masthead span.subtitle {
     width: 0px;
 }
 
-/* undo italics for patterns */
-.ptx-content section article.algorithm.theorem-like p,
-.ptx-content section article.heuristic.theorem-like p,
-.ptx-content section article.algorithm.theorem-like li,
-.ptx-content section article.heuristic.theorem-like li
-{
-      font-style: normal;
-}
-/* but then also reverse font-style for li headings */
-.ptx-content section article.algorithm.theorem-like li > .heading,
-.ptx-content section article.heuristic.theorem-like li > .heading
-{
-  font-style: italic;
+/* increase thickness of left border */
+/* increase padding                  */
+.ptx-content article.definition-like,
+.ptx-content article.theorem-like,
+.ptx-content article.remark-like,
+.ptx-content section.chapter article.exercise.exercise-like {
+  border-left: 10px solid var(--block-border-color);
+  padding: 10px;
 }
 
-/*********************************************************/
+/* colours */
+:root:not(.dark-mode) .ptx-content article.definition-like,
+:root:not(.dark-mode) .ptx-content article.theorem-like {
+  background: var(--secondary-color-white-90);
+}
+:root.dark-mode .ptx-content article.definition-like,
+:root.dark-mode .ptx-content article.theorem-like {
+  background: color-mix(in oklab, var(--page-color), var(--primary-color) 10%);
+}
+:root:not(.dark-mode) .ptx-content section.chapter article.exercise.exercise-like {
+  border-left-color: var(--secondary-color);
+  background: var(--primary-color-white-95);
+}
+:root.dark-mode .ptx-content section.chapter article.exercise.exercise-like {
+  border-left-color: color-mix(in oklab, var(--uofa-gold), black 20%);
+  background: color-mix(in oklab, var(--page-color), var(--uofa-gold) 10%);
+}
+.ptx-content article.remark-like {
+  border-left-color: var(--complementary-mauve);
+}
+:root:not(.dark-mode) .ptx-content article.remark-like {
+  background: color-mix(in oklab, var(--complementary-mauve), white 90%);
+}
+:root.dark-mode .ptx-content article.remark-like {
+  background: color-mix(in oklab, var(--page-color), var(--complementary-mauve) 20%);
+}
+:root:not(.dark-mode) .ptx-content article.warning.remark-like {
+  border-left-color: red;
+  background: color-mix(in oklab, red, white 90%);
+}
+:root.dark-mode .ptx-content article.warning.remark-like {
+  border-left-color: color-mix(in oklab, red, black 20%);
+  background: color-mix(in oklab, var(--page-color), red 15%);
+}
+.ptx-content article.convention.remark-like,
+.ptx-content article.insight.remark-like {
+  border-left-color: var(--block-border-color);
+}
+:root:not(.dark-mode) .ptx-content article.convention.remark-like,
+:root:not(.dark-mode) .ptx-content article.insight.remark-like {
+  background: var(--secondary-color-white-90);
+}
+:root.dark-mode .ptx-content article.convention.remark-like,
+:root.dark-mode .ptx-content article.insight.remark-like {
+  background: color-mix(in oklab, var(--page-color), var(--primary-color) 10%);
+}
 
+
+
+
+/******************************************************************************/
+/*                                  MATHJAX                                   */
+/******************************************************************************/
+
+/*
+ * attempt at increasing inter-line space in mathjax displays
+ * but has side:effect: equation tags/numbers get out of alignment
+ */
+/* div.displaymath
+  > mjx-container
+  > mjx-math
+  > mjx-mtable
+  > mjx-table
+  > mjx-itable
+  > mjx-mtr:not(:last-child)
+  > mjx-mtd
+{ padding-bottom: 0.5em !important; } */
