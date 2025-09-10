@@ -9,9 +9,9 @@ BRANDLOGO=AUG-Colour.png
 ROOTDOCNAME=book
 SERVEPORT=8082
 BUILDDIR=${XDG_RUNTIME_DIR}/pretext/ccm
-PRETEXT=/opt/pretext/pretext/pretext
+#PRETEXT=/opt/pretext/pretext/pretext
+PRETEXT=./pretext/pretext/pretext
 ROOT_XMLID=book-calculus-concepts-modelling
-#PRETEXT=./pretext/pretext/pretext
 
 .PHONY: ptx validate-xml \
   html html-images html-image-pdfs html-fonts html-all html-serve \
@@ -34,7 +34,7 @@ help:
 	@echo "> clean              : Remove all output files."
 	@echo "> ptx-clean          : Remove preprocessed PTX output."
 	@echo "> html-clean         : Remove all HTML output."
-	@echo "> html-images-clean  : Remove all accomanying SVG files."
+	@echo "> html-images-clean  : Remove all accompanying SVG files."
 	@echo "== PARAMETERS ============"
 	@echo "> BUILDDIR   : Root directory for all output files. [Default: $(BUILDDIR)]"
 	@echo "> BRANDLOGO  : Filename of institutional logo. Needs to exist in images/. [Default: $(BRANDLOGO)]"
