@@ -32,26 +32,25 @@ so in this section we will develop a more efficient process based on local extre
 
 <definition xml:id="definition-opt-abs-extremes">
 	<title>Absolute extremes</title>
-	<p>
-	<ul>
+	<statement><p>
+		<ul>
 
-		<li>
-			A function <m>q(t)</m> is said to have an <term>absolute minimum at <m>t = t^\ast</m></term>
-			on a specific domain if <m>q(t^\ast) \le q(t)</m> for all other <m>t</m>-values in that domain.
-			In this case, <m>q(t^\ast)</m> called the <term>absolute minimum value of <m>q</m></term> on that domain.
-		</li>
+			<li>
+				A function <m>q(t)</m> is said to have an <term>absolute minimum at <m>t = t^\ast</m></term>
+				on a specific domain if <m>q(t^\ast) \le q(t)</m> for all other <m>t</m>-values in that domain.
+				In this case, <m>q(t^\ast)</m> called the <term>absolute minimum value of <m>q</m></term> on that domain.
+			</li>
 
-		<li>
-			A function <m>q(t)</m> is said to have an <term>absolute maximum at <m>t = t^\ast</m></term>
-			on a specific domain if <m>q(t^\ast) \ge q(t)</m> for all other <m>t</m>-values in that domain.
-			In this case, <m>q(t^\ast)</m> called the <term>absolute maximum value of <m>q</m></term> on that domain.
-		</li>
+			<li>
+				A function <m>q(t)</m> is said to have an <term>absolute maximum at <m>t = t^\ast</m></term>
+				on a specific domain if <m>q(t^\ast) \ge q(t)</m> for all other <m>t</m>-values in that domain.
+				In this case, <m>q(t^\ast)</m> called the <term>absolute maximum value of <m>q</m></term> on that domain.
+			</li>
 
-	</ul>
-	In general,
-	we say that <m>q</m> has an <term>absolute extreme</term> at <m>t = t^\ast</m> if it has either a local minimum or a local maximum there.
-	</p>
-
+		</ul>
+		In general,
+		we say that <m>q</m> has an <term>absolute extreme</term> at <m>t = t^\ast</m> if it has either a local minimum or a local maximum there.
+	</p></statement>
 </definition>
 
 <remark><p>
@@ -77,7 +76,8 @@ so in this section we will develop a more efficient process based on local extre
 			<figure>
 				<caption>A parabola on a restricted domain with both an absolute minimum and maximum.</caption>
 				<image xml:id="image-opt-parabola-min-max-changing-domains-1">
-					<description>Graph of a parabola on a restricted domain with both an absolute minimum and maximum.</description>
+					<shortdescription>Graph of a parabola on a restricted domain with both an absolute minimum and maximum.</shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="opt.d/parabola-min-max-changing-domains-1.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -85,7 +85,8 @@ so in this section we will develop a more efficient process based on local extre
 			<figure>
 				<caption>A parabola on a less restricted domain with an absolute minimum and but no absolute maximum.</caption>
 				<image xml:id="image-opt-parabola-min-max-changing-domains-2">
-					<description>Graph of a parabola on a less restricted domain with an absolute minimum but no absolute maximum.</description>
+					<shortdescription>Graph of a parabola on a less restricted domain with an absolute minimum but no absolute maximum.</shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="opt.d/parabola-min-max-changing-domains-2.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -109,7 +110,8 @@ so in this section we will develop a more efficient process based on local extre
 	<figure xml:id="figure-opt-multiple-maxes">
 		<caption>The sine graph can have multiple absolute extremes.</caption>
 		<image xml:id="image-opt-sin-mins-and-maxes" width="49.7%">
-			<description>Demonstrating multiple absolute extremes on the sine graph.</description>
+			<shortdescription>Demonstrating multiple absolute extremes on the sine graph.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="opt.d/sin-mins-and-maxes.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -138,7 +140,8 @@ so in this section we will develop a more efficient process based on local extre
 	<figure xml:id="figure-opt-reciprocal-singularity">
 		<caption>Singular behaviour can sometimes preclude absolute extremes.</caption>
 		<image xml:id="image-opt-reciprocal-singularity-no-min-max" width="55.5%">
-			<description>Graph of the reciprocal function demonstrating that singular behaviour sometimes precludes absolute extremes.</description>
+			<shortdescription>Graph of the reciprocal function demonstrating that singular behaviour sometimes precludes absolute extremes.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="opt.d/reciprocal-singularity-no-min-max.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -168,7 +171,8 @@ so in this section we will develop a more efficient process based on local extre
 	<figure xml:id="figure-opt-sqrt">
 		<caption>Excluded domain endpoints sometimes preclude absolute extremes.</caption>
 		<image xml:id="image-opt-sqrt-no-min-max" width="40.2%">
-			<description>Graph demonstrating that excluded domain endpoints sometimes preclude absolute extremes.</description>
+			<shortdescription>Graph demonstrating that excluded domain endpoints sometimes preclude absolute extremes.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="opt.d/sqrt-no-min-max.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -191,13 +195,13 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 
 <definition>
 	<title>Closed and bounded domains</title>
-	<p><ol>
+	<statement><p><ol>
 		<li> A domain is called <term>closed</term> if it contains its endpoints. </li>
 		<li>
 			A domain is called <term>bounded</term> if it can be entirely contained in some finite-length domain <m>-M \le t \le M</m>
 			for some sufficiently large <m>M</m>.
 		</li>
-	</ol></p>
+	</ol></p></statement>
 </definition>
 
 <example>
@@ -299,7 +303,8 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 	<figure xml:id="figure-opt-reciprocal-long-term">
 		<caption>Long-term behaviour on an unbounded domain can sometimes preclude absolute extremes.</caption>
 		<image xml:id="image-opt-reciprocal-long-term-no-min-max" width="53.8%">
-			<description>Graph of the reciprocal function demonstrating that long-term behaviour sometimes precludes absolute extremes.</description>
+			<shortdescription>Graph of the reciprocal function demonstrating that long-term behaviour sometimes precludes absolute extremes.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="opt.d/reciprocal-long-term-no-min-max.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -319,7 +324,8 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 	<figure xml:id="figure-opt-discontinuous-no-min-max">
 		<caption>Discontinuities sometimes preclude absolute extremes.</caption>
 		<image xml:id="image-opt-discontinuous-no-min-max" width="50.8%">
-			<description>Graph of a discontinuous function demonstrating that discontinuities sometimes preclude absolute extremes.</description>
+			<shortdescription>Graph of a discontinuous function demonstrating that discontinuities sometimes preclude absolute extremes.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="opt.d/discontinuous-no-min-max.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -342,7 +348,8 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 	<figure xml:id="figure-opt-discontinuous-shifted-parabola">
 		<caption>A discontinuous function can still have absolute extremes.</caption>
 		<image xml:id="image-opt-discontinuous-shifted-parabola" width="59.7%">
-			<description>Graph of a broken parabola demonstrating that a discontinuous function can still have absolute extremes.</description>
+			<shortdescription>Graph of a broken parabola demonstrating that a discontinuous function can still have absolute extremes.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="opt.d/discontinuous-shifted-parabola.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -440,7 +447,8 @@ or not occur at all because of endpoint behaviour.
 	<figure xml:id="figure-opt-poly-min-max">
 		<caption>Graph of <m>q(t)</m> and its extreme values.</caption>
 		<image xml:id="image-opt-w" width="51.1%">
-			<description>Graph of the polynomial function analyzed in this example, with its absolute extremes marked.</description>
+			<shortdescription>Graph of the polynomial function analyzed in this example, with its absolute extremes marked.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="opt.d/w.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -463,9 +471,7 @@ or not occur at all because of endpoint behaviour.
 	The stated subdomains already split this function up into domains of continuity for us.
 	</p>
 
-	<case>
-		<title>On <m>-1 \le t \lt 2</m></title>
-		<p>
+	<case><title>On <m>-1 \le t \lt 2</m></title><p>
 		On this domain we have <m>q'(t) = 2 t</m>,
 		so there is a critical point at <m>t = 0</m>.
 		We evaluate <md><mrow> q(-1) \amp = 1 \amp q(0) = 0 </mrow></md>.
@@ -473,21 +479,17 @@ or not occur at all because of endpoint behaviour.
 		the graph rises to <m>q(t) \approx 4</m>.
 		So while <m>q(0) = 0</m> is the absolute minimum on this subdomain,
 		there is no absolute maximum here.
-		</p>
-	</case>
+	</p></case>
 
-	<case>
-		<title>On <m>2 \le t \le 8</m></title>
+	<case><title>On <m>2 \le t \le 8</m></title><p>
 		On this domain,
 		the derivative is <m>q'(t) = 1</m> and so there are no critical points.
 		In fact, the graph here is just a line with positive slope,
 		so we know that it rises from an absolute minimum <m>q(2) = -1</m> at the left endpoint
 		to an absolute maximum <m>q(8) = 5</m> at the right endpoint.
-	</case>
+	</p></case>
 
-	<case>
-		<title>On <m>t \gt 8</m></title>
-		<p>
+	<case><title>On <m>t \gt 8</m></title><p>
 		On this domain the derivative is <me> q'(t) = \frac{1}{(t - 8)^2} </me>,
 		so again there are no critical points.
 		At the excluded endpoint <m>t = 8</m> the function actually has a singularity,
@@ -499,8 +501,7 @@ or not occur at all because of endpoint behaviour.
 		Now, the derivative is positive on this subdomain,
 		so we can say that the graph is increasing up from the singularity at <m>t = 8</m> to the approach the horizontal asymptote at <m>q = 0</m> from below.
 		So there is also no absolute maximum on this domain.
-		</p>
-	</case>
+	</p></case>
 
 	<p>
 	Finally, we combine our findings.
@@ -533,7 +534,8 @@ or not occur at all because of endpoint behaviour.
 	<figure xml:id="figure-opt-procedure">
 		<caption>Results of analyzing absolute extremes of a discontinuous function.</caption>
 		<image xml:id="image-opt-abs-extreme-procedure-discont" width="85.5%">
-			<description>Graph illustrating results of analyzing absolute extremes of a discontinuous function.</description>
+			<shortdescription>Graph illustrating results of analyzing absolute extremes of a discontinuous function.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="opt.d/abs-extreme-procedure-discont.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -593,7 +595,8 @@ the concavity can tell us whether we are at a local maximum or a local minimum.
 		<figure>
 			<caption>A local minimum at the valley of a concave-up portion of the graph.</caption>
 			<image xml:id="image-opt-2nd-deriv-test-2">
-				<description>A graph illustrating a local minimum at the valley of a concave-up portion of the graph.</description>
+				<shortdescription>A graph illustrating a local minimum at the valley of a concave-up portion of the graph.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="opt.d/2nd-deriv-test-2.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -601,7 +604,8 @@ the concavity can tell us whether we are at a local maximum or a local minimum.
 		<figure>
 			<caption>A local maximum at the peak of a concave-down portion of the graph.</caption>
 			<image xml:id="image-opt-2nd-deriv-test-1">
-				<description>A graph illustrating a local maximum at the peak of a concave-down portion of the graph.</description>
+				<shortdescription>A graph illustrating a local maximum at the peak of a concave-down portion of the graph.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="opt.d/2nd-deriv-test-1.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -698,7 +702,8 @@ and provide an overall strategy.
 		<figure>
 			<caption>A rectangular region, fenced on three sides and bordered by a river on the fourth side.</caption>
 			<image xml:id="image-opt-fence" width="59.1%">
-				<description>Diagram of a rectangular region, fenced on three sides and bordered by a river on the fourth side.</description>
+				<shortdescription>Diagram of a rectangular region, fenced on three sides and bordered by a river on the fourth side.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="opt.d/fence.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -800,7 +805,8 @@ and provide an overall strategy.
 				<figure>
 					<caption>Surface area of a cylindrical can, in pieces.</caption>
 					<image xml:id="image-opt-can" width="83.5%">
-						<description>A diagram illustrating the surface area of a cylindrical can, in pieces.</description>
+						<shortdescription>A diagram illustrating the surface area of a cylindrical can, in pieces.</shortdescription>
+						<!-- TODO description -->
 						<latex-image><xi:include href="opt.d/can.tex" parse="text" /></latex-image>
 					</image>
 				</figure>

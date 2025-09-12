@@ -550,11 +550,11 @@ on one side we can reverse the differentiation by reversing the chain rule.
 
 <definition xml:id="definition-substitution-separable-DE">
 	<title>Separable rate equation</title>
-	<p>
-	A rate equation that can be expressed in the form
-	<me> m(q) \cdot \dqdt = n(t) </me>
-	for some functions <m>m</m> and <m>n</m> is called <term>separable</term>.
-	</p>
+	<statement><p>
+		A rate equation that can be expressed in the form
+		<me> m(q) \cdot \dqdt = n(t) </me>
+		for some functions <m>m</m> and <m>n</m> is called <term>separable</term>.
+	</p></statement>
 </definition>
 
 <p>

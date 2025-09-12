@@ -102,7 +102,8 @@ Then we might want a function to model it as well.
 	<figure xml:id="figure-models-speed">
 		<caption>Graph of a rate-of-travel model.</caption>
 		<image xml:id="image-models-speed" width="79.7%">
-			<description>Graph of a rate-of-travel model.</description>
+			<shortdescription>Graph of a rate-of-travel model.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="models.d/speed.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -172,15 +173,15 @@ The next step in analyzing the situation would be to try to make this observatio
 
 <definition xml:id="definition-models-diff-eqn">
 	<title>Rate equation</title>
-	<p>
-	Let <m>q(t)</m> represent a quantity function
-	(whose formula is unknown)
-	and let <m>r(t)</m> represent the rate function that models the rate of accumulation of the quantity
-	(also unknown).
-	A <term>rate equation</term>
-	(or <term>differential equation</term>)
-	is an equation relating <m>r(t)</m> to <m>q(t)</m>.
-	</p>
+	<statement><p>
+		Let <m>q(t)</m> represent a quantity function
+		(whose formula is unknown)
+		and let <m>r(t)</m> represent the rate function that models the rate of accumulation of the quantity
+		(also unknown).
+		A <term>rate equation</term>
+		(or <term>differential equation</term>)
+		is an equation relating <m>r(t)</m> to <m>q(t)</m>.
+	</p></statement>
 </definition>
 
 <note>
@@ -241,7 +242,8 @@ The next step in analyzing the situation would be to try to make this observatio
 	<figure xml:id="figure-models-brine-tank">
 		<caption>Brine entering and being drained from a tank so that volume is held constant.</caption>
 		<image xml:id="image-models-mixing" width="63.8%">
-			<description>Diagram of brine entering and being drained from a tank so that volume is held constant.</description>
+			<shortdescription>Diagram of brine entering and being drained from a tank so that volume is held constant.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="models.d/mixing.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -309,13 +311,13 @@ our goal is to recover a formula for the quantity function so that we can make p
 
 <definition xml:id="definition-models-solution">
 	<title>Solution to a rate equation</title>
-	<p>
-	Given a rate equation
-	<me> r(t) = \text{some formula in } t \text{ and } q(t) </me>,
-	a <term>solution</term> is a function <m>q(t)</m> that,
-	when substituted into the right-hand side of the rate equation,
-	gives the correct rate function <m>r(t)</m> for that particular <m>q(t)</m>.
-	</p>
+	<statement><p>
+		Given a rate equation
+		<me> r(t) = \text{some formula in } t \text{ and } q(t) </me>,
+		a <term>solution</term> is a function <m>q(t)</m> that,
+		when substituted into the right-hand side of the rate equation,
+		gives the correct rate function <m>r(t)</m> for that particular <m>q(t)</m>.
+	</p></statement>
 </definition>
 
 <example xml:id="example-models-linear-soln-to-rate-eqn">
@@ -367,23 +369,23 @@ not just individual solutions of a particular form.
 
 <definition>
 	<title>General solution to a rate equation</title>
-	<p>
-	Given a rate equation
-	<me> r(t) = \text{some formula in } t \text{ and } q(t) </me>,
-	the <term>general solution</term> is a formula involving the independent variable <m>t</m> and one or more parameters,
-	so that
-	<ul>
+	<statement><p>
+		Given a rate equation
+		<me> r(t) = \text{some formula in } t \text{ and } q(t) </me>,
+		the <term>general solution</term> is a formula involving the independent variable <m>t</m> and one or more parameters,
+		so that
+		<ul>
 
-		<li>
-			choosing particular value(s) for the parameter(s) provides a formula for a particular solution function <m>q(t)</m>
-		</li>
+			<li>
+				choosing particular value(s) for the parameter(s) provides a formula for a particular solution function <m>q(t)</m>
+			</li>
 
-		<li>
-			<em>every</em> particular solution can be recovered from choosing particular parameter value(s).
-		</li>
+			<li>
+				<em>every</em> particular solution can be recovered from choosing particular parameter value(s).
+			</li>
 
-	</ul>
-	</p>
+		</ul>
+	</p></statement>
 </definition>
 
 <example xml:id="example-models-general-solution">
@@ -477,7 +479,7 @@ choosing parameter value(s) should be done to match a desired initial state of t
 
 <definition>
 	<title>Initial value problem</title>
-	<p> A rate equation together with a data point <m>q(0) = q_0</m> representing the initial amount data point. </p>
+	<statement><p> A rate equation together with a data point <m>q(0) = q_0</m> representing the initial amount data point. </p></statement>
 </definition>
 
 <remark><p>
@@ -502,10 +504,10 @@ choosing parameter value(s) should be done to match a desired initial state of t
 	</p>
 </example>
 
-<warnging><p>
+<warning><p>
 	While it will often be the case,
 	it won't <em>always</em> happen that the parameter in the general solution ends up representing the initial amount <m>q(0)</m>.
-</p></warnging>
+</p></warning>
 
 </section>
 
@@ -528,11 +530,11 @@ we make a simplifying assumption.
 <!-- TODO add a reference back to this assumption in the average/instant rate chapter -->
 <assumption xml:id="assumption-models-locally-linear">
 	<title>Solution functions should be <em>locally linear</em></title>
-	<p>
-	We assume that a function <m>q(t)</m> that can be a particular solution to a rate equation is sufficiently <q>nice</q> to satisfy the following property:
-	at each data point <m>\bbrac{t_0, q(t_0)}</m>,
-	if we take a small enough time interval around <m>t = t_0</m> the associated rate function <m>r(t)</m> will be approximately constant over that interval.
-	</p>
+	<statement><p>
+		We assume that a function <m>q(t)</m> that can be a particular solution to a rate equation is sufficiently <q>nice</q> to satisfy the following property:
+		at each data point <m>\bbrac{t_0, q(t_0)}</m>,
+		if we take a small enough time interval around <m>t = t_0</m> the associated rate function <m>r(t)</m> will be approximately constant over that interval.
+	</p></statement>
 </assumption>
 
 <remark><p>
@@ -637,7 +639,8 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 	<figure xml:id="figure-models-radioactive-slopes">
 	<caption> Direction field for a rate equation modelling radioactive decay. </caption>
 		<image xml:id="image-models-radioactive" width="59.7%">
-			<description> Direction field for a rate equation modelling radioactive decay. </description>
+			<shortdescription> Direction field for a rate equation modelling radioactive decay. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="models.d/radioactive.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -656,7 +659,8 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 	<figure xml:id="figure-models-radioactive-int-curves">
 		<caption> Several solution curves superimposed onto the direction field for a rate equation modelling radioactive decay. </caption>
 		<image xml:id="image-models-radioactive-int-curves" width="59.7%">
-			<description> Several solution curves superimposed onto the direction field for a rate equation modelling radioactive decay. </description>
+			<shortdescription> Several solution curves superimposed onto the direction field for a rate equation modelling radioactive decay. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="models.d/radioactive-int-curves.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -709,7 +713,8 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 	<figure xml:id="figure-models-dirfield-vary-all-dirs">
 		<caption> Direction field for a rate equation involving both the dependent and independent variables. </caption>
 		<image xml:id="image-models-dirfield" width="38.8%">
-			<description> Direction field for a rate equation involving both the dependent and independent variables. </description>
+			<shortdescription> Direction field for a rate equation involving both the dependent and independent variables. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="models.d/dirfield.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -737,7 +742,8 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 	<figure xml:id="figure-models-dirfield-vary-all-dirs-int-curves">
 		<caption> Several solution curves superimposed onto the direction field for a rate equation. </caption>
 		<image xml:id="image-models-dirfield-int-curves" width="38.8%">
-			<description> Several solution curves superimposed onto the direction field for a rate equation. </description>
+			<shortdescription> Several solution curves superimposed onto the direction field for a rate equation. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="models.d/dirfield-int-curves.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -746,7 +752,7 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 
 <definition>
 	<title>Integral curve</title>
-	<p> A curve in the <m>tq</m>-plane that follows the direction field for a specific rate equation. </p>
+	<statement><p> A curve in the <m>tq</m>-plane that follows the direction field for a specific rate equation. </p></statement>
 </definition>
 
 <warning><p>

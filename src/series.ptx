@@ -41,12 +41,12 @@ while each term <m>t_n</m> from the sequence above represents a <term>partial su
 
 <definition>
 	<title>Partial sum</title>
-	<p>
-	For an infinite sequence <m>\nseq{a}</m> and a specific index <m>n</m>,
-	the sum <me> s_n = \sum_{k = 0}^n a_k </me>
-	is called the <term><m>\nth</m> partial sum of <m>\nseq{a}</m></term>.
-	The sequence <m>\nseq{s}</m> that indexes <em>all</em> such sums is called the <term>sequence of partial sums for <m>\nseq{a}</m></term>.
-	</p>
+	<statement><p>
+		For an infinite sequence <m>\nseq{a}</m> and a specific index <m>n</m>,
+		the sum <me> s_n = \sum_{k = 0}^n a_k </me>
+		is called the <term><m>\nth</m> partial sum of <m>\nseq{a}</m></term>.
+		The sequence <m>\nseq{s}</m> that indexes <em>all</em> such sums is called the <term>sequence of partial sums for <m>\nseq{a}</m></term>.
+	</p></statement>
 </definition>
 
 <example xml:id="example-series-decimals"><p><ol>
@@ -116,13 +116,13 @@ But sometimes they do not.
 
 <definition xml:id="definition-series-infinite">
 	<title>Infinite series</title>
-	<p>
-	Write <me> \sum_{k = 0}^\infty a_k </me>
-	(or sometimes just <m>\sum a_k</m>)
-	to represent the limit of the sequence of partial sums for the sequence <m> \nseq{a} </m>,
-	called an <term>infinite series</term>.
-	We say that the series <term>converges/diverges</term> if the sequence of partial sums does.
-	</p>
+	<statement><p>
+		Write <me> \sum_{k = 0}^\infty a_k </me>
+		(or sometimes just <m>\sum a_k</m>)
+		to represent the limit of the sequence of partial sums for the sequence <m> \nseq{a} </m>,
+		called an <term>infinite series</term>.
+		We say that the series <term>converges/diverges</term> if the sequence of partial sums does.
+	</p></statement>
 </definition>
 
 <example><p>
@@ -878,25 +878,36 @@ the <q>amount left to add</q> must be getting small as well.
 		with <m>n</m> steps and regular with <m>\change{t} = 1</m> in both cases.
 		</p>
 
-		<figure><sbsgroup>
+		<figure>
+			<caption> Interpreting partial sums of a series as Riemann sums for an integral. </caption>
 
-			<sidebyside width="70.5%"><figure>
-				<caption> Partial sum as a lower Riemann sum for a partial area of an improper integral. </caption>
-				<image label="image-series-lower-sum">
-					<description> A diagram of a partial series sum as a lower Riemann sum for a partial area of an improper integral. </description>
-					<latex-image><xi:include href="series.d/lower-sum.tex" parse="text" /></latex-image>
-				</image>
-			</figure></sidebyside>
+			<sbsgroup>
 
-			<sidebyside width="70.5%"><figure>
-				<caption> Partial sum as an upper Riemann sum for a partial area of an improper integral. </caption>
-				<image label="image-series-upper-sum">
-					<description> A diagram of a partial series sum as an upper Riemann sum for a partial area of an improper integral. </description>
-					<latex-image><xi:include href="series.d/upper-sum.tex" parse="text" /></latex-image>
-				</image>
-			</figure></sidebyside>
+				<sidebyside width="70.5%"><figure>
+					<caption> Partial sum as a lower Riemann sum for a partial area of an improper integral. </caption>
+					<image>
+						<shortdescription> A diagram of a partial series sum as a lower Riemann sum for a partial area of an improper integral. </shortdescription>
+						<!-- TODO description -->
+						<latex-image label="image-series-lower-sum">
+							<xi:include href="series.d/lower-sum.tex" parse="text" />
+						</latex-image>
+					</image>
+				</figure></sidebyside>
 
-		</sbsgroup></figure>
+				<sidebyside width="70.5%"><figure>
+					<caption> Partial sum as an upper Riemann sum for a partial area of an improper integral. </caption>
+					<image>
+						<shortdescription> A diagram of a partial series sum as an upper Riemann sum for a partial area of an improper integral. </shortdescription>
+						<!-- TODO description -->
+						<latex-image label="image-series-upper-sum">
+							<xi:include href="series.d/upper-sum.tex" parse="text" />
+						</latex-image>
+					</image>
+				</figure></sidebyside>
+
+			</sbsgroup>
+
+		</figure>
 
 		<p>
 		As <m>f(t)</m> is decreasing,
@@ -1559,10 +1570,10 @@ Another way to measure whether this is happening is to compare each term to the 
 
 <definition xml:id="definition-series-abs-cond-conv">
 	<title>Absolute and conditional convergence</title>
-	<p><ol>
+	<statement><p><ol>
 		<li> If <m>\sum \abs{a_k}</m> converges then we say that the infinite series <m>\sum a_k</m> is <term>absolutely convergent</term>. </li>
 		<li> If <m>\sum a_k</m> converges but <m>\sum \abs{a_k}</m> does not, then we say that the infinite series <m>\sum a_k</m> is <term>conditionally convergent</term>. </li>
-	</ol></p>
+	</ol></p></statement>
 </definition>
 
 <remark><p>
@@ -1747,7 +1758,7 @@ alternate between positive and negative:
 
 <definition xml:id="definition-series-alternating">
 	<title>Alternating series</title>
-	<p> An infinite series where the terms alternate between positive and negative values. </p>
+	<statement><p> An infinite series where the terms alternate between positive and negative values. </p></statement>
 </definition>
 
 <example><p><ol>

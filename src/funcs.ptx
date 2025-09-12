@@ -37,7 +37,8 @@ for us a function will always be <em>one number in, one number out</em>.
 <figure xml:id="figure-funcs-input-output-schematic">
 	<caption> Schematic of a function as an input-output process. </caption>
 	<image xml:id="image-funcs-in-out" width="60.2%">
-		<description>Schematic of a function as an input-output process.</description>
+		<shortdescription>Schematic of a function as an input-output process.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="funcs.d/in-out.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -150,12 +151,12 @@ we must accept that there are no such output values <m>f(-1)</m> and <m>f(1/2)</
 
 <definition xml:id="definition-funcs-domain">
 	<title>Domain of a function</title>
-	<p>
-	The set of all values of the independent variable <m>t</m> that can be used as an input value for the function,
-	in the sense that there is an associated output value.
-	For values of <m>t</m> that are not in the domain,
-	we say that the output value <m>f(t)</m> is <term>undefined</term>.
-	</p>
+	<statement><p>
+		The set of all values of the independent variable <m>t</m> that can be used as an input value for the function,
+		in the sense that there is an associated output value.
+		For values of <m>t</m> that are not in the domain,
+		we say that the output value <m>f(t)</m> is <term>undefined</term>.
+	</p></statement>
 </definition>
 
 <example xml:id="example-funcs-domain-table-and-desc">
@@ -214,7 +215,7 @@ even if the description of the function's input-output process could allow other
 
 <definition xml:id="definition-funcs-range">
 	<title>Range of a function</title>
-	<p> The set of all output values that can be achieved by a function. </p>
+	<statement><p> The set of all output values that can be achieved by a function. </p></statement>
 </definition>
 
 <example><p>
@@ -251,7 +252,7 @@ even if the description of the function's input-output process could allow other
 
 <definition xml:id="definition-funcs-graph">
 	<title>Graph of a function</title>
-	<p> The collection of all input-output pairs <m>\bbrac{t, f(t)}</m> in the Cartesian plane. </p>
+	<statement><p> The collection of all input-output pairs <m>\bbrac{t, f(t)}</m> in the Cartesian plane. </p></statement>
 </definition>
 
 <p>
@@ -271,7 +272,8 @@ the property of being on the graph or not on the graph of a function <m>f</m> is
 			one on the graph and one not on the graph.
 		</caption>
 		<image xml:id="image-funcs-parabola" width="67.9%">
-			<description> Parabolic graph of the basic quadratic function. </description>
+			<shortdescription> Parabolic graph of the basic quadratic function. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/parabola.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -301,7 +303,8 @@ the property of being on the graph or not on the graph of a function <m>f</m> is
 	<figure xml:id="figure-funcs-discrete">
 		<caption> An example graph that consists of only five points. </caption>
 		<image xml:id="image-funcs-discrete" width="34.7%">
-			<description> An example graph that consists of only five points. </description>
+			<shortdescription> An example graph that consists of only five points. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/discrete.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -337,7 +340,8 @@ in which case there is no corresponding point on the graph for a vertical line a
 		<figure xml:id="figure-funcs-VLT-1">
 			<caption> A curve that passes the Vertical Line Test. </caption>
 			<image xml:id="image-funcs-vlt1">
-				<description> A curve that passes the Vertical Line Test. </description>
+				<shortdescription> A curve that passes the Vertical Line Test. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="funcs.d/vlt1.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -345,7 +349,8 @@ in which case there is no corresponding point on the graph for a vertical line a
 		<figure xml:id="figure-funcs-VLT-2">
 			<caption> A curve that does not pass the Vertical Line Test. </caption>
 			<image xml:id="image-funcs-vlt2">
-				<description> A curve that does not pass the Vertical Line Test. </description>
+				<shortdescription> A curve that does not pass the Vertical Line Test. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="funcs.d/vlt2.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -454,7 +459,8 @@ As you can imagine, a piecewise function will also have a graph that appears to 
 	<figure xml:id="figure-funcs-piecewise">
 		<caption> Graph of a piecewise-defined function. </caption>
 		<image xml:id="image-funcs-piecewise" width="47%">
-			<description> Graph of a piecewise-defined function. </description>
+			<shortdescription> Graph of a piecewise-defined function. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/piecewise.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -490,7 +496,8 @@ there is no requirement that the pieces of the graph meet at the transition poin
 	<figure xml:id="figure-funcs-piecewise-2">
 		<caption> Graph of a piecewise-defined function with a <q>jump</q> in values. </caption>
 		<image xml:id="image-funcs-piecewise-2" width="47%">
-			<description> Graph of a piecewise-defined function with a "jump" in values. </description>
+			<shortdescription> Graph of a piecewise-defined function with a "jump" in values. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/piecewise-2.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -519,7 +526,8 @@ there is no requirement that the pieces of the graph meet at the transition poin
 	<figure xml:id="figure-funcs-piecewise-many">
 		<caption> Graph of a piecewise-defined function with many pieces. </caption>
 		<image xml:id="image-funcs-piecewise-many" width="67.9%">
-			<description> Graph of a piecewise-defined function with many pieces. </description>
+			<shortdescription> Graph of a piecewise-defined function with many pieces. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/piecewise-many.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -568,10 +576,10 @@ but it is not really any different than writing down a table of values.
 
 <definition xml:id="definition-funcs-point-continuous">
 	<title>Continuous at a point</title>
-	<p>
-	A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small open range around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small open subdomain around <m>t_0</m>.
-	Otherwise, the function is said to be <term>discontinuous</term> at that point.
-	</p>
+	<statement><p>
+		A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small open range around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small open subdomain around <m>t_0</m>.
+		Otherwise, the function is said to be <term>discontinuous</term> at that point.
+	</p></statement>
 </definition>
 
 <p>
@@ -616,7 +624,8 @@ and we can always make the first approximation better by tightening the second a
 					no matter how small of a subdomain around <m>t = 2</m> we take <m>t \approx 2</m> to mean.
 				</caption>
 				<image xml:id="image-funcs-piecewise-2-discont">
-					<description> The graph of a function near a point of discontinuity cannot be restricted to particular output range. </description>
+					<shortdescription> The graph of a function near a point of discontinuity cannot be restricted to particular output range. </shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="funcs.d/piecewise-2-discont.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -628,10 +637,11 @@ and we can always make the first approximation better by tightening the second a
 					(The Greek letter <m>\epsilon</m> in the figure represents a small amount above or below <m>f(1) = 1</m> to create a small range.)
 				</caption>
 				<image xml:id="image-funcs-piecewise-2-cont">
-					<description>
+					<shortdescription>
 						The graph of a function near a point of continuity can always be restricted to a small output range,
 						no matter how small.
-					</description>
+					</shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="funcs.d/piecewise-2-cont.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -661,14 +671,18 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 <definition xml:id="definition-funcs-domain-continuous">
 	<title>Continuous on a subdomain</title>
 
-	<p> A function <m>f(t)</m> is said to be <term>continuous on a specific subdomain</term> if it is continuous at every point in that subdomain. </p>
+	<statement>
 
-	<p>
-	If a function is continuous on its entire domain we will say exactly that:
-	the function is <term>continuous on its domain</term>.
-	If we just say that a function is <term>continuous</term>,
-	we mean that the function is continuous at all real input values.
-	</p>
+		<p> A function <m>f(t)</m> is said to be <term>continuous on a specific subdomain</term> if it is continuous at every point in that subdomain. </p>
+
+		<p>
+		If a function is continuous on its entire domain we will say exactly that:
+		the function is <term>continuous on its domain</term>.
+		If we just say that a function is <term>continuous</term>,
+		we mean that the function is continuous at all real input values.
+		</p>
+
+	</statement>
 
 </definition>
 
@@ -695,7 +709,8 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 			<figure>
 				<caption> A piecewise function can often (but not always!) jump values at transition points. </caption>
 				<image xml:id="image-funcs-jump-discont-1">
-					<description> A piecewise function with a jump discontinuity. </description>
+					<shortdescription> A piecewise function with a jump discontinuity. </shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="funcs.d/jump-discont-1.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -706,7 +721,8 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 					creating a jump discontinuity.
 				</caption>
 				<image xml:id="image-funcs-jump-discont-2">
-					<description> A function with a redefined point creating a jump discontinuity. </description>
+					<shortdescription> A function with a redefined point creating a jump discontinuity. </shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="funcs.d/jump-discont-2.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -745,7 +761,8 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	<figure>
 		<caption> A graph with a discontinuity caused by an undefined value. </caption>
 		<image xml:id="image-funcs-hole" width="38.8%">
-			<description> A graph with a discontinuity caused by an undefined value. </description>
+			<shortdescription> A graph with a discontinuity caused by an undefined value. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/hole.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -784,7 +801,8 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 			with a singularity at <m>t = 2</m>.
 		</caption>
 		<image xml:id="image-funcs-singular" width="51.1%">
-			<description> A graph of a function with a discontinuity caused by a singularity. </description>
+			<shortdescription> A graph of a function with a discontinuity caused by a singularity. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/singular.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -825,14 +843,16 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 		<figure xml:id="figure-funcs-IVT-low-to-high">
 			<caption>Ascending through each possible output value.</caption>
 			<image xml:id="image-funcs-IVT-low-to-high">
-				<description>A continuous function ascending through all possible output values from low to high.</description>
+				<shortdescription>A continuous function ascending through all possible output values from low to high.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="funcs.d/IVT-low-to-high.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
 		<figure xml:id="figure-funcs-IVT-high-to-low">
 			<caption>Descending through each possible output value.</caption>
 			<image xml:id="image-funcs-IVT-high-to-low">
-				<description>A continuous function descending through all possible output values from high to low.</description>
+				<shortdescription>A continuous function descending through all possible output values from high to low.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="funcs.d/IVT-high-to-low.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -940,10 +960,11 @@ we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
 			one up and one down.
 		</caption>
 		<image xml:id="image-funcs-vshifts" width="62.3%">
-			<description>
+			<shortdescription>
 				Two vertical shifts of the graph of the square root function,
 				one up and one down.
-			</description>
+			</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/vshifts.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -987,10 +1008,11 @@ we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
 			one stretched and one compressed.
 		</caption>
 		<image xml:id="image-funcs-vscales" width="60%">
-			<description>
+			<shortdescription>
 				Two vertical scales of the graph of the square root function,
 				one stretched and one compressed.
-			</description>
+			</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/vscales.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1032,7 +1054,8 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 	<figure xml:id="figure-funcs-vrefl">
 		<caption> Vertical reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
 		<image xml:id="image-funcs-vrefl" width="60%">
-			<description> Vertical reflection of the graph of the square root function. </description>
+			<shortdescription> Vertical reflection of the graph of the square root function. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/vrefl.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1046,26 +1069,21 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 
 	<p><ul>
 
-		<li>
-			<title>Shifts</title>
-			<p>
-				For a positive constant,
-				adding that constant to a function shifts its graph up by that amount,
-				while subtracting that constant shifts its graph down.
-			</p>
-		</li>
+		<li><title>Shifts</title><p>
+			For a positive constant,
+			adding that constant to a function shifts its graph up by that amount,
+			while subtracting that constant shifts its graph down.
+		</p></li>
 
-		<li>
-			<title>Scaling</title>
+		<li><title>Scaling</title><p>
 			Multiplying a function by a positive scale factor that is greater than one stretches the graph away from the horizontal axis by that factor,
 			while a positive scale factor that is less than one compresses the graph towards the horizontal axis.
-		</li>
+		</p></li>
 
-		<li>
-			<title>Reflection</title>
+		<li><title>Reflection</title><p>
 			Multiplying a function by a negative scale factor (or by <m>-1</m>)
 			reflects the graph in the horizontal axis (as well as any scaling effect).
-		</li>
+		</p></li>
 
 	</ul></p>
 
@@ -1147,10 +1165,11 @@ we call the <q>new</q> function a <term>horizontal shift</term> of the <q>old</q
 			one right and one left.
 		</caption>
 		<image xml:id="image-funcs-hshifts" width="77%">
-			<description>
+			<shortdescription>
 				Two horizontal shifts of the graph of the square root function,
 				one right and one left.
-			</description>
+			</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/hshifts.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1218,10 +1237,11 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 			one stretched and one compressed.
 		</caption>
 		<image xml:id="image-funcs-hscales" width="89.7%">
-			<description>
+			<shortdescription>
 				Two horizontal scales of the graph of the square root function,
 				one stretched and one compressed.
-			</description>
+			</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/hscales.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1282,7 +1302,8 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 	<figure xml:id="figure-funcs-hrefl">
 		<caption> Horizontal reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
 		<image xml:id="image-funcs-hrefl" width="85.0%">
-			<description> Horizontal reflection of the graph of the square root function. </description>
+			<shortdescription> Horizontal reflection of the graph of the square root function. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="funcs.d/hrefl.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1296,24 +1317,19 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 
 	<p><ul>
 
-		<li>
-			<title>Shifts</title>
-			<p>
-				Subtracting a positive constant from the independent variable of a function shifts its graph to the right by that amount,
-				while subtracting a negative constant shifts its graph to the left.
-			</p>
-		</li>
+		<li><title>Shifts</title><p>
+			Subtracting a positive constant from the independent variable of a function shifts its graph to the right by that amount,
+			while subtracting a negative constant shifts its graph to the left.
+		</p></li>
 
-		<li>
-			<title>Scaling</title>
+		<li><title>Scaling</title><p>
 			Dividing the independent variable of a function by a positive scale factor that is greater than one stretches the graph away from the vertical axis by that factor,
 			while dividing by a positive scale factor that is less than one compresses the graph towards the vertical axis.
-		</li>
+		</p></li>
 
-		<li>
-			<title>Reflection</title>
+		<li><title>Reflection</title><p>
 			Replacing the independent variable in a function by its negative reflects the graph in the vertical axis.
-		</li>
+		</p></li>
 
 	</ul></p>
 

@@ -29,11 +29,11 @@ For convenience, we will also give this special accumulation function a name.
 
 <definition xml:id="definition-log-natural">
 	<title>Natural logarithm</title>
-	<p>
-	The function that returns the accumulation for a quantity that is varying according to rate function <m>r(t) = 1/t</m>,
-	relative to <q>initial</q> time <m>t = 1</m>:
-	<me> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </me>.
-	</p>
+	<statement><p>
+		The function that returns the accumulation for a quantity that is varying according to rate function <m>r(t) = 1/t</m>,
+		relative to <q>initial</q> time <m>t = 1</m>:
+		<me> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </me>.
+	</p></statement>
 </definition>
 
 <figure xml:id="figure-log-positive-values">
@@ -44,7 +44,8 @@ For convenience, we will also give this special accumulation function a name.
 		<figure>
 			<caption>An accumulation under <m>r(t) = 1/t</m>.</caption>
 			<image xml:id="image-log-accumulation-positive" width="50.8%">
-				<description>An area under the reciprocal function.</description>
+				<shortdescription>An area under the reciprocal function.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="log.d/accumulation-positive.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -52,7 +53,8 @@ For convenience, we will also give this special accumulation function a name.
 		<figure xml:id="figure-log-positive-values-height">
 			<caption>The corresponding accumulation value.</caption>
 			<image xml:id="image-log-value-positive" width="51.7%">
-				<description>The corresponding value on the graph of the natural logarithm function.</description>
+				<shortdescription>The corresponding value on the graph of the natural logarithm function.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="log.d/value-positive.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -81,14 +83,16 @@ for <m>0 \lt t \lt 1</m> is the <em>negative</em> of the accumulation that occur
 		<figure>
 			<caption>A <q>reverse</q> accumulation under <m>r(t) = 1/t</m>.</caption>
 			<image xml:id="image-log-accumulation-negative" width="50.8%">
-				<description>An area under the reciprocal function.</description>
+				<shortdescription>An area under the reciprocal function.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="log.d/accumulation-negative.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
 		<figure xml:id="figure-log-negative-values-height">
 			<caption>The corresponding negative accumulation value.</caption>
 			<image xml:id="image-log-value-negative" width="51.7%">
-				<description>The corresponding value on the graph of the natural logarithm function.</description>
+				<shortdescription>The corresponding value on the graph of the natural logarithm function.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="log.d/value-negative.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -257,14 +261,16 @@ The first involves the logarithm of a product of two numbers.
 				<sidebyside width="50.8%"><figure xml:id="figure-log-slice-product-ln-value">
 					<caption>A representative slice of area in the integral defining <m>\ln b</m>.</caption>
 					<image xml:id="image-log-slice-log-product">
-						<description>A representative slice of area in the integral defining a natural logarithm value.</description>
+						<shortdescription>A representative slice of area in the integral defining a natural logarithm value.</shortdescription>
+						<!-- TODO description -->
 						<latex-image><xi:include href="log.d/slice-log-product.tex" parse="text" /></latex-image>
 					</image>
 				</figure></sidebyside>
 				<sidebyside width="80%"><figure xml:id="figure-log-slice-product-scaled">
 					<caption>A representative slice of area in integral <xref ref="equation-log-product-second-int" />.</caption>
 					<image xml:id="image-log-slice-log-product-scaled">
-						<description>A representative slice of area in an integral related to the natural logarithm.</description>
+						<shortdescription>A representative slice of area in an integral related to the natural logarithm.</shortdescription>
+						<!-- TODO description -->
 						<latex-image><xi:include href="log.d/slice-log-product-scaled.tex" parse="text" /></latex-image>
 					</image>
 				</figure></sidebyside>
@@ -334,7 +340,8 @@ What does it do to a reciprocal?
 		<figure xml:id="figure-log-slice-recip-before">
 			<caption>A representative rectangular area in a Riemann sum approximating <m>\ln a</m>.</caption>
 			<image xml:id="image-log-rect-log" width="50.8%">
-				<description>A representative rectangular area in a Riemann sum approximating the integral defining a natural logarithm value.</description>
+				<shortdescription>A representative rectangular area in a Riemann sum approximating the integral defining a natural logarithm value.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="log.d/rect-log.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -350,7 +357,8 @@ What does it do to a reciprocal?
 		<figure xml:id="figure-log-slice-recip-after">
 			<caption>A representative rectangular area in a Riemann sum approximating integral <xref ref="equation-log-reciprocal-int" />.</caption>
 			<image xml:id="image-log-rect-log-recip" width="68.2%">
-				<description>A representative rectangular area in a Riemann sum approximating an integral related to the natural logarithm.</description>
+				<shortdescription>A representative rectangular area in a Riemann sum approximating an integral related to the natural logarithm.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="log.d/rect-log-recip.tex" parse="text" /></latex-image>
 			</image>
 		</figure>

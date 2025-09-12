@@ -26,9 +26,12 @@ Or is the area simply infinite because the domain being considered is unbounded?
 
 <figure>
 	<caption>An unbounded area under the graph of <m>f(t) = 1/t^2</m>.</caption>
-	<image label="image-improper-int-area-under-recip-square" width="56.1%">
-		<description>A graph illustrating an unbounded area under the graph of the reciprocal square function.</description>
-		<latex-image><xi:include href="improper-int.d/area-under-recip-square.tex" parse="text" /></latex-image>
+	<image width="56.1%">
+		<shortdescription>A graph illustrating an unbounded area under the graph of the reciprocal square function.</shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-improper-int-area-under-recip-square">
+			<xi:include href="improper-int.d/area-under-recip-square.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -47,9 +50,12 @@ and look for a trend in these partial areas.
 
 <figure>
 	<caption>An bounded partial area under the graph of <m>f(t) = 1/t^2</m>.</caption>
-	<image label="image-improper-int-partial-area-under-recip-square" width="56.1%">
-		<description>A graph illustrating a bounded partial area under the graph of the reciprocal square function.</description>
-		<latex-image><xi:include href="improper-int.d/partial-area-under-recip-square.tex" parse="text" /></latex-image>
+	<image width="56.1%">
+		<shortdescription>A graph illustrating a bounded partial area under the graph of the reciprocal square function.</shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-improper-int-partial-area-under-recip-square">
+			<xi:include href="improper-int.d/partial-area-under-recip-square.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -84,7 +90,7 @@ and it seems reasonable to say that the area of the region bounded between the g
 
 <definition>
 	<title>Improper integrals on unbounded domains</title>
-	<p><ol>
+	<statement><p><ol>
 
 		<li>
 			For a given boundary value <m>a</m>,
@@ -112,7 +118,7 @@ and it seems reasonable to say that the area of the region bounded between the g
 			if it exists.
 		</li>
 
-	</ol></p>
+	</ol></p></statement>
 </definition>
 
 <remark><p>
@@ -147,9 +153,12 @@ and it seems reasonable to say that the area of the region bounded between the g
 
 		<p> Consider <m>\displaystyle \ccmint{-\infty}{\infty}{t e^{-t^2}}{t} </m>. </p>
 
-		<image label="image-improper-int-two-sided-exp" width="43.5%">
-			<description>A graph illustrating unbounded area under a graph in both directions.</description>
-			<latex-image><xi:include href="improper-int.d/two-sided-exp.tex" parse="text" /></latex-image>
+		<image width="43.5%">
+			<shortdescription>A graph illustrating unbounded area under a graph in both directions.</shortdescription>
+			<!-- TODO description -->
+			<latex-image label="image-improper-int-two-sided-exp">
+				<xi:include href="improper-int.d/two-sided-exp.tex" parse="text" />
+			</latex-image>
 		</image>
 
 		<p> The graph of this function displays odd symmetry, so we expect the <q>two-sided</q> improper integral to compute to <m>0</m>. </p>
@@ -234,9 +243,12 @@ as <me> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </me>?
 	and the negative area over domain <m>t \le 0</m> should <q>cancel</q> with the positive area over domain <m>t \ge 0</m>.
 	</p>
 
-	<image label="image-improper-int-two-sided-linear" width="35.0%">
-		<description>A graph illustrating unbounded area under a graph in both directions for a linear function.</description>
-		<latex-image><xi:include href="improper-int.d/two-sided-linear.tex" parse="text" /></latex-image>
+	<image width="35.0%">
+		<shortdescription>A graph illustrating unbounded area under a graph in both directions for a linear function.</shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-improper-int-two-sided-linear">
+			<xi:include href="improper-int.d/two-sided-linear.tex" parse="text" />
+		</latex-image>
 	</image>
 
 	<p>
@@ -256,11 +268,11 @@ as <me> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </me>?
 
 <definition>
 	<title>Convergence/divergence of improper integrals</title>
-	<p>
-	If the limit defining an improper integral exists,
-	then we say the improper integral <term>converges</term>,
-	otherwise we say it <term>diverges</term>.
-	</p>
+	<statement><p>
+		If the limit defining an improper integral exists,
+		then we say the improper integral <term>converges</term>,
+		otherwise we say it <term>diverges</term>.
+	</p></statement>
 </definition>
 
 <example xml:id="example-improper-int-one-over"><p>
@@ -485,9 +497,12 @@ than it stands to reason that the second improper integral should converge as we
 
 <figure>
 	<caption>An illustration of <xref ref="pattern-improper-int-compare" />.</caption>
-	<image label="image-improper-int-compare" width="49.4%">
-		<description>A graph depicting comparison of two improper integrals.</description>
-		<latex-image><xi:include href="improper-int.d/compare.tex" parse="text" /></latex-image>
+	<image width="49.4%">
+		<shortdescription>A graph depicting comparison of two improper integrals.</shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-improper-int-compare">
+			<xi:include href="improper-int.d/compare.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -758,43 +773,57 @@ we take a limit as one of the boundaries approaches the location of the vertical
 
 <definition>
 	<title>Improper integrals near a vertical asymptote</title>
-	<p>
-	Suppose the graph of <m>f(t)</m> has a vertical asymptote at <m>t = c</m>,
-	and that <m>a \lt c \lt b</m>.
-	Then we define
-	<ol>
-		<li><m> \ccmint{a}{c}{f(t)}{t} = \lim_{t \to c^{-}} \ccmint{a}{t}{f(u)}{u} </m></li>
-		<li><m> \ccmint{c}{b}{f(t)}{t} = \lim_{t \to c^{+}} \ccmint{t}{b}{f(u)}{u} </m></li>
-		<li><m> \ccmint{a}{b}{f(t)}{t} = \ccmint{a}{c}{f(t)}{t} + \ccmint{c}{b}{f(t)}{t} \text{.} </m></li>
-	</ol>
-	</p>
+	<statement><p>
+		Suppose the graph of <m>f(t)</m> has a vertical asymptote at <m>t = c</m>,
+		and that <m>a \lt c \lt b</m>.
+		Then we define
+		<ol>
+			<li><m> \ccmint{a}{c}{f(t)}{t} = \lim_{t \to c^{-}} \ccmint{a}{t}{f(u)}{u} </m></li>
+			<li><m> \ccmint{c}{b}{f(t)}{t} = \lim_{t \to c^{+}} \ccmint{t}{b}{f(u)}{u} </m></li>
+			<li><m> \ccmint{a}{b}{f(t)}{t} = \ccmint{a}{c}{f(t)}{t} + \ccmint{c}{b}{f(t)}{t} \text{.} </m></li>
+		</ol>
+	</p></statement>
 </definition>
 
-<figure><sidebyside widths="44.4% 44.4%">
+<figure>
+	<caption>
+		Improper integrals near a vertical asymptote,
+		from left and from right.
+	</caption>
 
-	<figure>
-		<caption>
-			A left-handed improper integral at a vertical asymptote.
-			The partial area <m>\ccmint{a}{t}{f(u)}{u}</m> approximates the total area <m>\ccmint{a}{c}{f(t)}{t}</m>.
-		</caption>
-		<image label="image-improper-int-vert-asymptote-left">
-			<description>A graph depicting a left-handed improper integral at a vertical asymptote.</description>
-			<latex-image><xi:include href="improper-int.d/vert-asymptote-left.tex" parse="text" /></latex-image>
-		</image>
-	</figure>
+	<sidebyside widths="44.4% 44.4%">
 
-	<figure>
-		<caption>
-			A right-handed improper integral at a vertical asymptote.
-			The partial area <m>\ccmint{t}{b}{f(u)}{u}</m> approximates the total area <m>\ccmint{c}{b}{f(t)}{t}</m>.
-		</caption>
-		<image label="image-improper-int-vert-asymptote-right">
-			<description>A graph depicting a right-handed improper integral at a vertical asymptote.</description>
-			<latex-image><xi:include href="improper-int.d/vert-asymptote-right.tex" parse="text" /></latex-image>
-		</image>
-	</figure>
+		<figure>
+			<caption>
+				A left-handed improper integral at a vertical asymptote.
+				The partial area <m>\ccmint{a}{t}{f(u)}{u}</m> approximates the total area <m>\ccmint{a}{c}{f(t)}{t}</m>.
+			</caption>
+			<image>
+				<shortdescription>A graph depicting a left-handed improper integral at a vertical asymptote.</shortdescription>
+				<!-- TODO description -->
+				<latex-image label="image-improper-int-vert-asymptote-left">
+					<xi:include href="improper-int.d/vert-asymptote-left.tex" parse="text" />
+				</latex-image>
+			</image>
+		</figure>
 
-</sidebyside></figure>
+		<figure>
+			<caption>
+				A right-handed improper integral at a vertical asymptote.
+				The partial area <m>\ccmint{t}{b}{f(u)}{u}</m> approximates the total area <m>\ccmint{c}{b}{f(t)}{t}</m>.
+			</caption>
+			<image>
+				<shortdescription>A graph depicting a right-handed improper integral at a vertical asymptote.</shortdescription>
+				<!-- TODO description -->
+				<latex-image label="image-improper-int-vert-asymptote-right">
+					<xi:include href="improper-int.d/vert-asymptote-right.tex" parse="text" />
+				</latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
 
 <example><p>
 	Let's try various (reciprocal) power functions near the asymptote at <m>t = 0</m>.

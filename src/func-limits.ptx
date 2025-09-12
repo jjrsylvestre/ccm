@@ -19,7 +19,7 @@ respective owners.
 <section xml:id="section-func-limits-def">
 <title>Concept and definition</title>
 
-<subsection xml:id="subsection-func-limits-motivation">>
+<subsection xml:id="subsection-func-limits-motivation">
 <title>Motivation</title>
 
 <p>
@@ -163,15 +163,15 @@ our investigation would not have been possible if there weren't at least some do
 
 <definition xml:id="definition-func-limits-limit-point">
 	<title>Limit point</title>
-	<p>
-	Given a domain set <m>D</m>,
-	a number <m>c</m> is called a <term>limit point of <m>D</m></term> when there is at least one example of a sequence <m>\nseq{t}</m> that satisfies:
-	<ul>
-		<li> <m>\nseq{t}</m> is entirely contained in <m>D</m> </li>
-		<li> no term of <m>\nseq{t}</m> is equal to <m>c</m> </li>
-		<li> <m>\nseq{t} \to c</m> </li>
-	</ul>
-	</p>
+	<statement><p>
+		Given a domain set <m>D</m>,
+		a number <m>c</m> is called a <term>limit point of <m>D</m></term> when there is at least one example of a sequence <m>\nseq{t}</m> that satisfies:
+		<ul>
+			<li> <m>\nseq{t}</m> is entirely contained in <m>D</m> </li>
+			<li> no term of <m>\nseq{t}</m> is equal to <m>c</m> </li>
+			<li> <m>\nseq{t} \to c</m> </li>
+		</ul>
+	</p></statement>
 </definition>
 
 <p>
@@ -231,23 +231,27 @@ Then we can consider domain-value sequences <m>\nseq{t}</m> that converge to <m>
 <definition xml:id="definition-func-limits">
 	<title>Limit of a function</title>
 
-	<p>
-	Suppose <m>f</m> is a function and let <m>D</m> represent the domain set of <m>f</m>.
-	For limit point <m>t = c</m> of <m>D</m>,
-	we say that <term><m>f(t)</m> approaches <m>L</m> as <m>t</m> approaches <m>c</m></term>
-	and write
-	<me> f(t) \to L \qquad \text{as} \qquad t \to c </me>
-	when <em>every possible</em> sequence <m>\nseq{t}</m> that satisifies the three conditions of <xref ref="definition-func-limits-limit-point" text="title" /> for <m>c</m> (and <m>D</m>)
-	creates a corresponding output sequence <m>\bbseq{f(t_n)}</m> that converges to <m>L</m>.
-	Alternatively,
-	we may say that <term><m>L</m> is the limit of <m>f(t)</m> as <m>t</m> approaches <m>c</m></term>
-	and write <me> \lim_{t \to c} f(t) = L </me>.
-	</p>
+	<statement>
 
-	<p>
-	If there is <em>no</em> value <m>L</m> so that the above holds,
-	then we say that the limit of <m>f(t)</m> as <m>t</m> approaches <m>c</m> <term>does not exist</term>.
-	</p>
+		<p>
+		Suppose <m>f</m> is a function and let <m>D</m> represent the domain set of <m>f</m>.
+		For limit point <m>t = c</m> of <m>D</m>,
+		we say that <term><m>f(t)</m> approaches <m>L</m> as <m>t</m> approaches <m>c</m></term>
+		and write
+		<me> f(t) \to L \qquad \text{as} \qquad t \to c </me>
+		when <em>every possible</em> sequence <m>\nseq{t}</m> that satisifies the three conditions of <xref ref="definition-func-limits-limit-point" text="title" /> for <m>c</m> (and <m>D</m>)
+		creates a corresponding output sequence <m>\bbseq{f(t_n)}</m> that converges to <m>L</m>.
+		Alternatively,
+		we may say that <term><m>L</m> is the limit of <m>f(t)</m> as <m>t</m> approaches <m>c</m></term>
+		and write <me> \lim_{t \to c} f(t) = L </me>.
+		</p>
+
+		<p>
+		If there is <em>no</em> value <m>L</m> so that the above holds,
+		then we say that the limit of <m>f(t)</m> as <m>t</m> approaches <m>c</m> <term>does not exist</term>.
+		</p>
+
+	</statement>
 
 </definition>
 
@@ -567,9 +571,12 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 
 		<p><me> f(t) = \begin{cases} 2 t^2 \amp t \lt 1 \\ t - 1 \amp t \gt 1 \end{cases} </me> </p>
 
-		<image label="image-func-limits-piecewise-1">
-			<description>Graph of a discontinuous piecewise function.</description>
-			<latex-image><xi:include href="func-limits.d/piecewise-1.tex" parse="text" /></latex-image>
+		<image>
+			<shortdescription>Graph of a discontinuous piecewise function.</shortdescription>
+			<!-- TODO description -->
+			<latex-image label="image-func-limits-piecewise-1">
+				<xi:include href="func-limits.d/piecewise-1.tex" parse="text" />
+			</latex-image>
 		</image>
 
 	</sidebyside>
@@ -616,7 +623,7 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 
 <definition xml:id="definition-func-limits-one-side">
 	<title>One-sided limits</title>
-	<p>
+	<statement><p>
 	Let <m>D</m> represent the domain of a function <m>f</m>
 	and suppose <m>c</m> is a limit point of <m>D</m>.
 	Let <m>\leftdomain</m> represent only those values in <m>D</m> that satisfy <m>t \lt c</m>,
@@ -646,7 +653,7 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 		</p></li>
 
 	</ol>
-	</p>
+	</p></statement>
 </definition>
 
 <example><p>
@@ -661,7 +668,7 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 <fact xml:id="fact-func-limits-two-vs-one-sided">
 	<title>Two-sided limit versus one-sided limits</title>
 
-	<statment><p>
+	<statement><p>
 		Suppose <m>f</m>, <m>D</m>, <m>\leftdomain</m>, <m>\rightdomain</m>, and <m>c</m> are as in <xref ref="definition-func-limits-one-side" />,
 		with <m>c</m> a limit point of both <m>\leftdomain</m> and <m>\rightdomain</m>.
 		<ol>
@@ -674,7 +681,7 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 				then the two-sided limit of <m>f(t)</m> as <m>t \to c</m> does not exist.
 			</li>
 		</ol>
-	</p></statment>
+	</p></statement>
 
 	<proof>
 		<title>Justification for <xref ref="fact-func-limits-two-vs-one-sided-equiv" text="type-local">Statement</xref></title>
@@ -725,9 +732,12 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 
 		<p><me> f(t) = \begin{cases} 2 t^2 \amp t \lt 1 \\ t + 1 \amp t \gt 1 \end{cases} </me></p>
 
-		<image label="image-func-limits-piecewise-2">
-			<description>Graph of a continuous piecewise function.</description>
-			<latex-image><xi:include href="func-limits.d/piecewise-2.tex" parse="text" /></latex-image>
+		<image>
+			<shortdescription>Graph of a continuous piecewise function.</shortdescription>
+			<!-- TODO description -->
+			<latex-image label="image-func-limits-piecewise-2">
+				<xi:include href="func-limits.d/piecewise-2.tex" parse="text" />
+			</latex-image>
 		</image>
 
 	</sidebyside>
@@ -1016,9 +1026,12 @@ we can similarly reduce a question of continuity of a function to determining th
 			\end{cases}
 		</me></p>
 
-		<image label="image-func-limits-piecewise-3">
-			<description>Graph of a discontinuous piecewise function.</description>
-			<latex-image><xi:include href="func-limits.d/piecewise-3.tex" parse="text" /></latex-image>
+		<image>
+			<shortdescription>Graph of a discontinuous piecewise function.</shortdescription>
+			<!-- TODO description -->
+			<latex-image label="image-func-limits-piecewise-3">
+				<xi:include href="func-limits.d/piecewise-3.tex" parse="text" />
+			</latex-image>
 		</image>
 
 	</sidebyside>
@@ -1039,9 +1052,12 @@ we can similarly reduce a question of continuity of a function to determining th
 			<mrow> t \le 0 </mrow>
 		</md></p>
 
-		<image label="image-func-limits-piecewise-3-left-half">
-			<description>Graph of one half of a discontinuous piecewise function.</description>
-			<latex-image><xi:include href="func-limits.d/piecewise-3-left-half.tex" parse="text" /></latex-image>
+		<image>
+			<shortdescription>Graph of one half of a discontinuous piecewise function.</shortdescription>
+			<!-- TODO description -->
+			<latex-image label="image-func-limits-piecewise-3-left-half">
+				<xi:include href="func-limits.d/piecewise-3-left-half.tex" parse="text" />
+			</latex-image>
 		</image>
 
 	</sidebyside>
@@ -1066,7 +1082,7 @@ we can similarly reduce a question of continuity of a function to determining th
 
 <definition xml:id="definition-func-limits-one-sided-cont">
 	<title>One-sided continuity</title>
-	<p>
+	<statement><p>
 	Let <m>D</m> represent the domain of a function <m>f</m>
 	and suppose <m>c</m> is a limit point of <m>D</m>.
 	<ol>
@@ -1082,7 +1098,7 @@ we can similarly reduce a question of continuity of a function to determining th
 		</p></li>
 
 	</ol>
-	</p>
+	</p></statement>
 </definition>
 
 <paragraphs><title>Notation</title><p>
@@ -1104,9 +1120,12 @@ we can similarly reduce a question of continuity of a function to determining th
 		\end{cases}
 	</me></p>
 
-	<image label="image-func-limits-piecewise-4" width="53.5%">
-		<description>Graph of a discontinuous piecewise function with continuous pieces.</description>
-		<latex-image><xi:include href="func-limits.d/piecewise-4.tex" parse="text" /></latex-image>
+	<image width="53.5%">
+		<shortdescription>Graph of a discontinuous piecewise function with continuous pieces.</shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-func-limits-piecewise-4">
+			<xi:include href="func-limits.d/piecewise-4.tex" parse="text" />
+		</latex-image>
 	</image>
 
 </sidebyside>
@@ -1270,30 +1289,44 @@ the number of steps to use:
 <example xml:id="example-func-limits-upper-lower-sums">
 
 	<p>
-	For <me> \ccmint{0}{1}{t^2 - 2 t + 2}{t} </me>,
+	For
+	<md><mrow tag="star" xml:id="equation-func-limits-example-integral-1">
+		\ccmint{0}{1}{t^2 - 2 t + 2}{t}
+	</mrow></md>,
 	the integrand function <m>f(t) = t^2 - 2 t + 2</m> is decreasing on the domain of integration,
 	and so in this case lower sums will be right Riemann sums and upper sums will be left Riemann sums.
 	</p>
 
-	<figure><sidebyside widths="40.5% 40.5%">
+	<figure>
+		<caption> Lower and upper sum approximations to the integral in <xref ref="equation-func-limits-example-integral-1" />. </caption>
 
-		<figure>
-			<caption>Lower sum.</caption>
-			<image label="image-func-limits-lower-sum">
-				<description>A graph depicting a right Riemann sum for a decreasing function creating a lower sum.</description>
-				<latex-image><xi:include href="func-limits.d/lower-sum.tex" parse="text" /></latex-image>
-			</image>
-		</figure>
+		<sidebyside widths="40.5% 40.5%">
 
-		<figure>
-			<caption>Upper sum.</caption>
-			<image label="image-func-limits-upper-sum">
-				<description>A graph depicting a left Riemann sum for a decreasing function creating an upper sum.</description>
-				<latex-image><xi:include href="func-limits.d/upper-sum.tex" parse="text" /></latex-image>
-			</image>
-		</figure>
+			<figure>
+				<caption>Lower sum.</caption>
+				<image>
+					<shortdescription>A graph depicting a right Riemann sum for a decreasing function creating a lower sum.</shortdescription>
+					<!-- TODO description -->
+					<latex-image label="image-func-limits-lower-sum">
+						<xi:include href="func-limits.d/lower-sum.tex" parse="text" />
+					</latex-image>
+				</image>
+			</figure>
 
-	</sidebyside></figure>
+			<figure>
+				<caption>Upper sum.</caption>
+				<image>
+					<shortdescription>A graph depicting a left Riemann sum for a decreasing function creating an upper sum.</shortdescription>
+					<!-- TODO description -->
+					<latex-image label="image-func-limits-upper-sum">
+						<xi:include href="func-limits.d/upper-sum.tex" parse="text" />
+					</latex-image>
+				</image>
+			</figure>
+
+		</sidebyside>
+
+	</figure>
 
 	<p>
 	Following <xref ref="procedure-integ-riemann" /> twice,
@@ -1405,7 +1438,11 @@ then we might write
 <example>
 
 	<p>
-	Analyzing <me> \ccmint{0}{1}{t^2 - t + 1} </me> via upper and lower sums seems like it should be just as simple as our previous example,
+	Analyzing
+	<md><mrow tag="dstar" xml:id="equation-func-limits-example-integral-2">
+		\ccmint{0}{1}{t^2 - t + 1}{t}
+	</mrow></md>
+	via upper and lower sums seems like it should be just as simple as our previous example,
 	but in this case our integrand function <m>f(t) = t^2 - t + 1</m> is sometimes decreasing and sometimes increasing,
 	which means the sample points will not remain consistently at one endpoint or another,
 	but instead will flip.
@@ -1429,25 +1466,39 @@ then we might write
 		and for the second half of the domain this will reverse.
 		</p>
 
-		<figure><sidebyside widths="40.5% 40.5%">
+		<figure>
+			<caption>
+				Lower and upper sum approximations to the integral in <xref ref="equation-func-limits-example-integral-2" />,
+				using an even number of steps.
+			</caption>
+
+			<sidebyside widths="40.5% 40.5%">
 
 				<figure>
 					<caption>Lower sum for even <m>n</m>.</caption>
-					<image label="image-func-limits-even-lower-sum">
-						<description>A graph depicting a lower sum for an even number of partition cells.</description>
-						<latex-image><xi:include href="func-limits.d/even-lower-sum.tex" parse="text" /></latex-image>
+					<image>
+						<shortdescription>A graph depicting a lower sum for an even number of partition cells.</shortdescription>
+						<!-- TODO description -->
+						<latex-image label="image-func-limits-even-lower-sum">
+							<xi:include href="func-limits.d/even-lower-sum.tex" parse="text" />
+						</latex-image>
 					</image>
 				</figure>
 
 				<figure>
 					<caption>Upper sum for even <m>n</m>.</caption>
-					<image label="image-func-limits-even-upper-sum">
-						<description>A graph depicting an upper sum for an even number of partition cells.</description>
-						<latex-image><xi:include href="func-limits.d/even-upper-sum.tex" parse="text" /></latex-image>
+					<image>
+						<shortdescription>A graph depicting an upper sum for an even number of partition cells.</shortdescription>
+						<!-- TODO description -->
+						<latex-image label="image-func-limits-even-upper-sum">
+							<xi:include href="func-limits.d/even-upper-sum.tex" parse="text" />
+						</latex-image>
 					</image>
 				</figure>
 
-		</sidebyside></figure>
+			</sidebyside>
+
+		</figure>
 
 		<p>
 		So when <m>n</m> is even we have
@@ -1489,25 +1540,40 @@ then we might write
 		while the highest value occurs symmetrically at the two endpoints.
 		</p>
 
-		<figure><sidebyside widths="40.5% 40.5%">
+		<figure>
+			<caption>
+				Lower and upper sum approximations to the integral in <xref ref="equation-func-limits-example-integral-2" />,
+				using an odd number of steps.
+			</caption>
 
-			<figure>
-				<caption>Lower sum for odd <m>n</m>.</caption>
-				<image label="image-func-limits-odd-lower-sum">
-					<description>A graph depicting a lower sum for an odd number of partition cells.</description>
-					<latex-image><xi:include href="func-limits.d/odd-lower-sum.tex" parse="text" /></latex-image>
-				</image>
-			</figure>
 
-			<figure>
-				<caption>Upper sum for odd <m>n</m>.</caption>
-				<image label="image-func-limits-odd-upper-sum">
-					<description>A graph depicting an upper sum for an odd number of partition cells.</description>
-					<latex-image><xi:include href="func-limits.d/odd-upper-sum.tex" parse="text" /></latex-image>
-				</image>
-			</figure>
+			<sidebyside widths="40.5% 40.5%">
 
-		</sidebyside></figure>
+				<figure>
+					<caption>Lower sum for odd <m>n</m>.</caption>
+					<image>
+						<shortdescription>A graph depicting a lower sum for an odd number of partition cells.</shortdescription>
+						<!-- TODO description -->
+						<latex-image label="image-func-limits-odd-lower-sum">
+							<xi:include href="func-limits.d/odd-lower-sum.tex" parse="text" />
+						</latex-image>
+					</image>
+				</figure>
+
+				<figure>
+					<caption>Upper sum for odd <m>n</m>.</caption>
+					<image>
+						<shortdescription>A graph depicting an upper sum for an odd number of partition cells.</shortdescription>
+						<!-- TODO description -->
+						<latex-image label="image-func-limits-odd-upper-sum">
+							<xi:include href="func-limits.d/odd-upper-sum.tex" parse="text" />
+						</latex-image>
+					</image>
+				</figure>
+
+			</sidebyside>
+
+		</figure>
 
 		<p>
 		So when <m>n</m> is odd we have
@@ -1590,7 +1656,7 @@ Reviewing the definition of derivative value <xref ref="definition-avg-rate-deri
 it attempts to describe the pattern of difference quotient values at a specific point <m>t = t^\ast</m> for <m>\change{t} \approx 0</m>.
 So it is not a limit of the function <m>q</m> whose derivative values we are computing,
 but instead a limit of a new function whose independent variable is <m>\change{t}</m>:
-<md><mrow tag="star" xml:id="equation-func-limits-diff-quotient-func">
+<md><mrow tag="dagger" xml:id="equation-func-limits-diff-quotient-func">
 	Q_{t^\ast}(\change{t}) = \frac{\change{q}}{\change{t}} = \frac{q(t^\ast + \change{t}) - q(t^\ast)}{\change{t}}
 </mrow></md>,
 where <m>t^\ast</m> is a specific point in the domain of <m>q</m>.
@@ -1673,7 +1739,7 @@ What if both <m>f(t) \to 0</m> and <m>g(t) \to 0</m> as <m>t \to c</m>?
 
 <definition>
 	<title>Indeterminate form <m>0/0</m></title>
-	<p> A limit of the form <me> \lim_{t \to c} \frac{f(t)}{g(t)} </me> where both <m>f(t) \to 0</m> and <m>g(t) \to 0</m> as <m>t \to c</m>. </p>
+	<statement><p> A limit of the form <me> \lim_{t \to c} \frac{f(t)}{g(t)} </me> where both <m>f(t) \to 0</m> and <m>g(t) \to 0</m> as <m>t \to c</m>. </p></statement>
 </definition>
 
 <example xml:id="example-func-limits-0-0-indeteminate-possibilities"><p><ol>
@@ -1946,7 +2012,7 @@ And the reason this form is <q>indeterminate</q> is that we cannot reliably dete
 
 <definition>
 	<title>Indeterminate form <m>\infty/\infty</m></title>
-	<p> A limit of the form <me> \lim_{t \to c} \frac{f(t)}{g(t)} </me> where both <m>f(t) \to \infty</m> and <m>g(t) \to \infty</m> as <m>t \to c</m>. </p>
+	<statement><p> A limit of the form <me> \lim_{t \to c} \frac{f(t)}{g(t)} </me> where both <m>f(t) \to \infty</m> and <m>g(t) \to \infty</m> as <m>t \to c</m>. </p></statement>
 </definition>
 
 <note><p>
@@ -2022,18 +2088,18 @@ Again this form of limit is indeterminate because we cannot reliably determine t
 
 <heuristic xml:id="strategy-func-limits-indeterminate-0-inf">
 	<title>For evaluating a <m>0 \cdot \infty</m>-form limit</title>
-	<p>
-	If <me> \lim_{t \to c} f(t) \cdot g(t) </me> is of <m>0 \cdot \infty</m> form,
-	then instead consider the equivalent limits
-	<md>
-		<mrow>
-			\amp \lim_{t \to c} \frac{f(t)}{1/g(t)} \amp
-			\amp \lim_{t \to c} \frac{g(t)}{1/f(t)}
-		</mrow>
-	</md>.
-	One of these limits will be <m>0/0</m> form and the other will by <m>\infty/\infty</m> form.
-	Apply L'Hôpital's Rule to the one that seems most likely to lead to final result.
-	</p>
+	<statement><p>
+		If <me> \lim_{t \to c} f(t) \cdot g(t) </me> is of <m>0 \cdot \infty</m> form,
+		then instead consider the equivalent limits
+		<md>
+			<mrow>
+				\amp \lim_{t \to c} \frac{f(t)}{1/g(t)} \amp
+				\amp \lim_{t \to c} \frac{g(t)}{1/f(t)}
+			</mrow>
+		</md>.
+		One of these limits will be <m>0/0</m> form and the other will by <m>\infty/\infty</m> form.
+		Apply L'Hôpital's Rule to the one that seems most likely to lead to final result.
+	</p></statement>
 </heuristic>
 
 <example><p>
@@ -2079,10 +2145,10 @@ Consider the possibilities:
 
 <heuristic xml:id="strategy-func-limits-indeterminate-inf-minus-inf">
 	<title>For evaluating a <m>(\infty - \infty)</m>-form limit</title>
-	<p>
-	If <me> \lim_{t \to c} f(t) \cdot g(t) </me> is of <m>\infty - \infty</m> form,
-	attempt to collect the two terms into a single ratio and see if that new limit is of <m>0/0</m> or <m>\infty/\infty</m> form.
-	</p>
+	<statement><p>
+		If <me> \lim_{t \to c} f(t) \cdot g(t) </me> is of <m>\infty - \infty</m> form,
+		attempt to collect the two terms into a single ratio and see if that new limit is of <m>0/0</m> or <m>\infty/\infty</m> form.
+	</p></statement>
 </heuristic>
 
 <example><p>
@@ -2184,14 +2250,14 @@ we may exploit the algebraic properties of logarithms to help us deal with expon
 
 <heuristic xml:id="strategy-func-limits-indeterminate-exp">
 	<title>For evaluating an indeterminate exponential form</title>
-	<p>
-	If <me> \lim_{t \to c} {\bigl[f(t)\bigr]}^{g(t)} </me> is of an indeterminate form,
-	instead attempt to compute
-	<me> \lim_{t \to c} \ln\left({\bigl[f(t)\bigr]}^{g(t)}\right) = \lim_{t \to c} g(t) \cdot \ln\bbrac{f(t)} </me>
-	(which is also likely of an indeterminate form).
-	If this new limit has value <m>L</m>,
-	then <me> \lim_{t \to c} {\bigl[f(t)\bigr]}^{g(t)} = e^L </me>.
-	</p>
+	<statement><p>
+		If <me> \lim_{t \to c} {\bigl[f(t)\bigr]}^{g(t)} </me> is of an indeterminate form,
+		instead attempt to compute
+		<me> \lim_{t \to c} \ln\left({\bigl[f(t)\bigr]}^{g(t)}\right) = \lim_{t \to c} g(t) \cdot \ln\bbrac{f(t)} </me>
+		(which is also likely of an indeterminate form).
+		If this new limit has value <m>L</m>,
+		then <me> \lim_{t \to c} {\bigl[f(t)\bigr]}^{g(t)} = e^L </me>.
+	</p></statement>
 </heuristic>
 
 <example><p>

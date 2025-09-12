@@ -49,10 +49,10 @@ Is there some sense in which we could say that <m>T_{\infty,1}(1.001)</m> (whate
 
 <definition xml:id="definition-seq">
 	<title>Infinite sequence</title>
-	<p>
-	An <term>infinite sequence</term> is a function whose domain is the non-negative integers.
-	The values in the range of a sequence are called the <term>terms</term> of the sequence.
-	</p>
+	<statement><p>
+		An <term>infinite sequence</term> is a function whose domain is the non-negative integers.
+		The values in the range of a sequence are called the <term>terms</term> of the sequence.
+	</p></statement>
 </definition>
 
 <p>
@@ -107,10 +107,10 @@ sequences can also be defined recursively.
 
 <definition>
 	<title>Subsequences and tails</title>
-	<p><ul>
+	<statement><p><ul>
 		<li><p> A <term>subsequence</term> of <m>\nseq{s}</m> is obtained by skipping/omitting specific terms. </p></li>
 		<li><p> A <term>tail</term> of <m>\nseq{s}</m> is a subsequence obtained by omitting a finite number of the initial terms. </p></li>
-	</ul></p>
+	</ul></p></statement>
 </definition>
 
 <p>
@@ -144,9 +144,12 @@ Note that every tail of a tail is a tail of the original sequence.
 	as the sequence begins with a downward trend but then turns upward for <m>n \ge 3</m>.
 	</p>
 
-	<image label="image-seq-subseq-bdd-tail" width="82.9%">
-		<description>Plot of sequence values as points in the Cartesian plane.</description>
-		<latex-image><xi:include href="seq.d/subseq-bdd-tail.tex" parse="text" /></latex-image>
+	<image width="82.9%">
+		<shortdescription>Plot of sequence values as points in the Cartesian plane.</shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-seq-subseq-bdd-tail">
+			<xi:include href="seq.d/subseq-bdd-tail.tex" parse="text" />
+		</latex-image>
 	</image>
 
 	<p> So we may want to consider the sequence tail <m>\lrseqtail[n \ge 3]{ \frac{2^n}{n^2} }</m> instead. </p>
@@ -160,11 +163,11 @@ Note that every tail of a tail is a tail of the original sequence.
 
 <definition xml:id="definition-seq-bounded">
 	<title>Bounded sequences</title>
-	<p><ul>
+	<statement><p><ul>
 		<li><p> A sequence is <term>bounded below</term> if there is some value <m>A</m> so that <m>s_n \ge A</m> is true for all indices. </p></li>
 		<li><p> A sequence is <term>bounded above</term> if there is some value <m>B</m> so that <m>s_n \le B</m> is true for all indices. </p></li>
 		<li><p> A sequence is <term>bounded</term> if it is both bounded above and below. </p></li>
-	</ul></p>
+	</ul></p></statement>
 </definition>
 
 <example><p><ol>
@@ -181,15 +184,15 @@ Note that every tail of a tail is a tail of the original sequence.
 
 <definition xml:id="definition-seq-monotonic">
 	<title>Increasing/decreasing sequences</title>
-	<p>
-	<ul>
-		<li><p> A sequence <m>\nseq{s}</m> is <term>increasing</term> if <m>s_{n+1} \gt s_n</m> always. </p></li>
-		<li><p> A sequence <m>\nseq{s}</m> is <term>non-decreasing</term> if <m>s_{n+1} \ge s_n</m> always. </p></li>
-		<li><p> A sequence <m>\nseq{s}</m> is <term>decreasing</term> if <m>s_{n+1} \lt s_n</m> always. </p></li>
-		<li><p> A sequence <m>\nseq{s}</m> is <term>non-increasing</term> if <m>s_{n+1} \le s_n</m> always. </p></li>
-	</ul>
-	In <em>all</em> of these cases, the sequence is called <term>monotonic</term>.
-	</p>
+	<statement><p>
+		<ul>
+			<li><p> A sequence <m>\nseq{s}</m> is <term>increasing</term> if <m>s_{n+1} \gt s_n</m> always. </p></li>
+			<li><p> A sequence <m>\nseq{s}</m> is <term>non-decreasing</term> if <m>s_{n+1} \ge s_n</m> always. </p></li>
+			<li><p> A sequence <m>\nseq{s}</m> is <term>decreasing</term> if <m>s_{n+1} \lt s_n</m> always. </p></li>
+			<li><p> A sequence <m>\nseq{s}</m> is <term>non-increasing</term> if <m>s_{n+1} \le s_n</m> always. </p></li>
+		</ul>
+		In <em>all</em> of these cases, the sequence is called <term>monotonic</term>.
+	</p></statement>
 </definition>
 
 <example xml:id="example-seq-monotonic"><p><ol>
@@ -206,20 +209,24 @@ Note that every tail of a tail is a tail of the original sequence.
 <heuristic xml:id="strategy-seq-monotonic">
 	<title>To verify that a sequence is monotonic</title>
 
-	<p>
-	To verify that a sequence is non-decreasing
-	(that is, <m>s_{n+1} \ge s_n</m> always),
-	we may instead verify the equivalent condition
-	<me> s_{n+1} - s_n \ge 0 </me>.
-	Or, if the terms of the sequence are never zero,
-	we may instead verify the equivalent condition
-	<me> \frac{s_{n+1}}{s_n} \ge 1 </me>.
-	</p>
+	<statement>
 
-	<p>
-	When verifying that a sequence is increasing/decreasing/non-increasing,
-	just modify the inequality sign in the condition as appropriate.
-	</p>
+		<p>
+		To verify that a sequence is non-decreasing
+		(that is, <m>s_{n+1} \ge s_n</m> always),
+		we may instead verify the equivalent condition
+		<me> s_{n+1} - s_n \ge 0 </me>.
+		Or, if the terms of the sequence are never zero,
+		we may instead verify the equivalent condition
+		<me> \frac{s_{n+1}}{s_n} \ge 1 </me>.
+		</p>
+
+		<p>
+		When verifying that a sequence is increasing/decreasing/non-increasing,
+		just modify the inequality sign in the condition as appropriate.
+		</p>
+
+	</statement>
 
 </heuristic>
 
@@ -267,9 +274,12 @@ Note that every tail of a tail is a tail of the original sequence.
 	Putting all this together we have the following sketch of the graph.
 	</p>
 
-	<image label="image-seq-monotonic" width="80.0%">
-		<description>Graph of function associated to a sequence, with sequence values plotted along the graph.</description>
-		<latex-image><xi:include href="seq.d/monotonic.tex" parse="text" /></latex-image>
+	<image width="80.0%">
+		<shortdescription>Graph of function associated to a sequence, with sequence values plotted along the graph.</shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-seq-monotonic">
+			<xi:include href="seq.d/monotonic.tex" parse="text" />
+		</latex-image>
 	</image>
 
 	<p> From the graph we may conclude that <m>\nseq{s}</m> is bounded below by <m>1/2</m> and above by <m>1</m>. </p>
@@ -316,14 +326,14 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 
 <definition xml:id="definition-seq-limit">
 	<title>Limit of a sequence</title>
-	<p>
-	We say that <term><m>\nseq{s}</m> approaches <m>L</m></term>
-	and write <me> \lim_{n \to \infty} s_n = L </me>
-	or simply <m>\nseq{s} \to L</m>
-	if every open range around <m>L</m> contains all terms of some tail of the sequence <m>\nseq{s}</m>.
-	In this case,
-	<m>L</m> is called the <term>limit</term> of the sequence.
-	</p>
+	<statement><p>
+		We say that <term><m>\nseq{s}</m> approaches <m>L</m></term>
+		and write <me> \lim_{n \to \infty} s_n = L </me>
+		or simply <m>\nseq{s} \to L</m>
+		if every open range around <m>L</m> contains all terms of some tail of the sequence <m>\nseq{s}</m>.
+		In this case,
+		<m>L</m> is called the <term>limit</term> of the sequence.
+	</p></statement>
 </definition>
 
 <warning><p>
@@ -425,10 +435,10 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 
 <definition xml:id="definition-seq-converg-diverg">
 	<title>Convergent/divergent sequences</title>
-	<p>
-	A sequence is called <term>convergent</term> if it has a limit,
-	and <term>divergent</term> otherwise.
-	</p>
+	<statement><p>
+		A sequence is called <term>convergent</term> if it has a limit,
+		and <term>divergent</term> otherwise.
+	</p></statement>
 </definition>
 
 <example xml:id="example-seq-constant">
@@ -467,7 +477,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 
 <definition xml:id="definition-seq-inf-limit">
 	<title>Infinite limits</title>
-	<p><ol>
+	<statement><p><ol>
 
 		<li xml:id="definition-seq-inf-limit-pos"><p>
 			We write <me> \lim_{n \to \infty} s_n = \infty </me>
@@ -485,7 +495,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 			we say that <m>\nseq{s}</m> <term>diverges to negative infinity</term>.
 		</p></li>
 
-	</ol></p>
+	</ol></p></statement>
 </definition>
 
 <example>
@@ -547,12 +557,12 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 		If <m>\nseq{s} \to L</m>, then also <m>\nseq{a} \to L</m> for every subsequence <m>\nseq{a}</m> of <m>\nseq{s}</m>.
 	</p></statement>
 
-	<proof>
+	<proof><p>
 		Every tail of <m>\nseq{a}</m> will be a subsequence of a tail of <m>\nseq{s}</m>.
 		For a given open range around <m>L</m>,
 		there will be a tail of <m>\nseq{s}</m> that is entirely contained within that range,
 		and therefore so will the tail <m>\nseqtail{a}</m> where <m>a_N</m> is the first term of <m>\nseq{a}</m> that appears in that tail of <m>\nseq{s}</m>.
-	</proof>
+	</p></proof>
 
 </identity>
 

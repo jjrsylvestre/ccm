@@ -35,7 +35,8 @@ respective owners.
 			Note that axes are not the same scale.
 		</caption>
 		<image xml:id="image-exp-trees-points" width="58.5%">
-			<description> Data points for rate of growth of a population. </description>
+			<shortdescription> Data points for rate of growth of a population. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="exp.d/trees-points.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -48,7 +49,8 @@ respective owners.
 	<figure xml:id="figure-exp-doubling-curve">
 		<caption> Fitted curve for rate of growth of a population. </caption>
 		<image xml:id="image-exp-trees-curve" width="58.5%">
-			<description> Fitted curve for rate of growth of a population. </description>
+			<shortdescription> Fitted curve for rate of growth of a population. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="exp.d/trees-curve.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -81,7 +83,8 @@ we find the fitted curve matches other values of this rate function.
 		on our <q>doubling</q> model curve.
 	</caption>
 	<image xml:id="image-exp-base2-recip-root" width="85%">
-		<description> Plotting additional rate function values against our "doubling" model curve. </description>
+		<shortdescription> Plotting additional rate function values against our "doubling" model curve. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="exp.d/base2-recip-root.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -105,11 +108,11 @@ but for the moment we will assume that our formula <m> r(t) = 2^t </m> matches o
 
 <definition xml:id="definition-exp-func">
 	<title>Exponential function with base <m>a</m></title>
-	<p>
-	For positive constant <m>a</m>,
-	the <term>exponential function with base <m>a</m></term> is the function <me> f(t) = c a^t </me>,
-	where the constant <m>c</m> represents the initial value <m>c = f(0)</m>.
-	</p>
+	<statement><p>
+		For positive constant <m>a</m>,
+		the <term>exponential function with base <m>a</m></term> is the function <me> f(t) = c a^t </me>,
+		where the constant <m>c</m> represents the initial value <m>c = f(0)</m>.
+	</p></statement>
 </definition>
 
 <p>
@@ -135,7 +138,8 @@ Exponential functions come in three varieties:
 		<sidebyside widths="67.6%"><figure>
 			<caption> A typical exponential growth graph. </caption>
 			<image xml:id="image-exp-generic-growth-graph">
-				<description> A typical exponential growth graph. </description>
+				<shortdescription> A typical exponential growth graph. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="exp.d/generic-growth-graph.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
@@ -143,7 +147,8 @@ Exponential functions come in three varieties:
 		<sidebyside widths="50.8%"><figure>
 			<caption> A typical exponential decay graph. </caption>
 			<image xml:id="image-exp-generic-decay-graph">
-				<description> A typical exponential decay graph. </description>
+				<shortdescription> A typical exponential decay graph. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="exp.d/generic-decay-graph.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
@@ -210,7 +215,8 @@ Exponential functions come in three varieties:
 		<figure xml:id="figure-exp-new-base-on-generic-graph">
 			<caption> New base as an output of an exponential function. </caption>
 			<image xml:id="image-exp-new-base-on-generic-graph" width="67.6%">
-				<description> New base as an output of an exponential function. </description>
+				<shortdescription> New base as an output of an exponential function. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="exp.d/new-base-on-generic-graph.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -231,7 +237,8 @@ Exponential functions come in three varieties:
 		<figure xml:id="figure-exp-new-base-horiz-scale-graph">
 			<caption> Graph of one exponential function as a horizontal scaling of another. </caption>
 			<image xml:id="image-exp-new-base-horiz-scale-graph" width="75.8%">
-				<description> Graph of one exponential function as a horizontal scaling of another. </description>
+				<shortdescription> Graph of one exponential function as a horizontal scaling of another. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="exp.d/new-base-horiz-scale-graph.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -265,23 +272,29 @@ the special number so that <m>\ln (a) = 1</m> is given its own symbol.
 <definition xml:id="definition-exp-euler">
 	<title>Euler's number</title>
 
-	<aside>
-		<title>Leonhard Euler</title>
-		<p> 1707 <ndash /> 1783. </p>
-	</aside>
+	<statement>
 
-	<p>
-	The real number,
-	denoted by the letter <m>e</m>,
-	so that <m> \ln (e) = 1 </m>.
-	</p>
+		<!-- TODO valign? move this below the <p> ? -->
+		<biographical>
+			<title>Leonhard Euler</title>
+			<p> 1707 <ndash /> 1783. </p>
+		</biographical>
+
+		<p>
+		The real number,
+		denoted by the letter <m>e</m>,
+		so that <m> \ln (e) = 1 </m>.
+		</p>
+
+	</statement>
 
 </definition>
 
 <figure xml:id="figure-exp-euler">
 	<caption> Euler's number defined relative to the special rate function <m>r(t) = 1/t</m>. </caption>
 	<image xml:id="image-exp-euler" width="34.7%">
-		<description> Euler's number defined relative to a special rate function. </description>
+		<shortdescription> Euler's number defined relative to a special rate function. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="exp.d/euler.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -291,7 +304,7 @@ Sage knows about Euler's number <c>e</c>.
 We can express it as a decimal number using the <c>n()</c> method.
 </p>
 
-<sage xml:id="sage-exp-euler-as-number">
+<sage>
 	<input>e.n()</input>
 	<output>2.71828182845905</output>
 </sage>
@@ -303,7 +316,7 @@ it becomes <q>natural</q> to compare every exponential function to the exponenti
 
 <definition xml:id="definition-exp-natural">
 	<title>Natural exponential function</title>
-	<p> The function <m>\exp(t) = e^t</m>, where the constant base <m>e</m> is Euler's number. </p>
+	<statement><p> The function <m>\exp(t) = e^t</m>, where the constant base <m>e</m> is Euler's number. </p></statement>
 </definition>
 
 <identity xml:id="pattern-exp-shift-to-natural">
@@ -328,7 +341,8 @@ Consider what happens when we reflect the graph of the natural logarithm in the 
 <figure xml:id="figure-exp-reflect-ln">
 	<caption> A reflection of the graph of the natural logarithm function. </caption>
 	<image xml:id="image-exp-reflect-ln" width="88.8%">
-		<description> A reflection of the graph of the natural logarithm function. </description>
+		<shortdescription> A reflection of the graph of the natural logarithm function. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="exp.d/reflect-ln.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -368,7 +382,8 @@ so
 <figure xml:id="figure-exp-points-on-reflect-ln">
 	<caption> Specific points on a reflection of the graph of the natural logarithm function. </caption>
 	<image xml:id="image-exp-points-reflect-ln" width="88.8%">
-		<description> Specific points on a reflection of the graph of the natural logarithm function. </description>
+		<shortdescription> Specific points on a reflection of the graph of the natural logarithm function. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="exp.d/points-reflect-ln.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -609,7 +624,8 @@ a horizontal scaling of <m>\exp(t)</m> corresponds to a <em>vertical</em> scalin
 <figure xml:id="figure-exp-reflect-hscale-of-exp">
 	<caption> A reflection of the graph of a horizontal scaling of the natural exponential function. </caption>
 	<image xml:id="image-exp-reflect-hscale-exp" width="88.8%">
-		<description> A reflection of the graph of a horizontal scaling of the natural exponential function. </description>
+		<shortdescription> A reflection of the graph of a horizontal scaling of the natural exponential function. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="exp.d/reflect-hscale-exp.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -632,11 +648,11 @@ the scaled version of the natural logarithm pictured in <xref ref="figure-exp-re
 
 <definition xml:id="definition-exp-log-base-a">
 	<title>Base-<m>a</m> logarithm</title>
-	<p>
-	For <m>a \gt 0</m>,
-	define the <term>base-<m>a</m> logarithm</term> to be the function
-	<me> \log_a(t) = \frac{\ln(t)}{\ln(a)} </me>.
-	</p>
+	<statement><p>
+		For <m>a \gt 0</m>,
+		define the <term>base-<m>a</m> logarithm</term> to be the function
+		<me> \log_a(t) = \frac{\ln(t)}{\ln(a)} </me>.
+	</p></statement>
 </definition>
 
 <note><p>
@@ -710,15 +726,19 @@ we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to ob
 </identity>
 
 <remark><p>
-	Comparing <xref ref="pattern-exp-sum" /> with <xref ref="pattern-log-product" />,
-	the patterns are
-	<blockquote><p>the exponential of a sum is the product of the exponentials</p></blockquote>
-	versus
-	<blockquote><p>the logarithm of a product is the sum of the logarithms.</p></blockquote>
+	Compare patterns:
+	<ul>
+		<li><title><xref ref="pattern-exp-sum" /></title><p>
+			The exponential of a sum is the product of the exponentials.
+		</p></li>
+		<li><title><xref ref="pattern-log-product" /></title><p>
+			The logarithm of a product is the sum of the logarithms.
+		</p></li>
+	</ul>
 	The <q>reflection</q> here is the interchanging of the words <em>sum</em> and <em>product</em>.
-	See if you can see the <q>reflection</q> in each of the next two properties,
+	Try to identify the <q>reflection</q> in each of the next two properties,
 	compared to the corresponding property in <xref ref="section-log-props" />.
-	Also see if you can provide a justification for each of these two properties in the same manner as the justification for <xref ref="pattern-exp-shift-to-natural" />.
+	Also try to provide a justification for each of these two properties in the same manner as the justification for <xref ref="pattern-exp-shift-to-natural" />.
 </p></remark>
 
 <identity xml:id="pattern-exp-negative">
@@ -835,7 +855,8 @@ similar to <xref ref="pattern-poly-int-power" />.
 <figure xml:id="figure-exp-integral">
 	<caption> Area under the natural exponential function is measured by the natural exponential function. </caption>
 	<image xml:id="image-exp-natural-integral" width="62.0%">
-		<description> Graph demonstrating that the area under the natural exponential function is measured by the natural exponential function. </description>
+		<shortdescription> Graph demonstrating that the area under the natural exponential function is measured by the natural exponential function. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="exp.d/natural-integral.tex" parse="text" /></latex-image>
 	</image>
 </figure>

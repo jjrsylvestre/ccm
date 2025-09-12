@@ -61,7 +61,7 @@ similarly to our use of step functions in <xref ref="chapter-step" />.
 
 <definition xml:id="definition-avg-rate">
 	<title>Average rate of accumulation</title>
-	<p> The constant rate of accumulation that produces the same accumulation amount over a given time period. </p>
+	<statement><p> The constant rate of accumulation that produces the same accumulation amount over a given time period. </p></statement>
 </definition>
 
 <p>
@@ -99,7 +99,8 @@ simply divide the accumulation amount by the time duration.
 	<figure xml:id="figure-avg-rate-camrose-wetaskiwin">
 		<caption> Maintaining a constant speed at the average speed value traverses the same distance. </caption>
 		<image xml:id="image-avg-rate-camrose-wetaskiwin" width="84.7%">
-			<description>Graph comparing accumulation as area between constant average rate and variable rate in a rate-of-travel model.</description>
+			<shortdescription>Graph comparing accumulation as area between constant average rate and variable rate in a rate-of-travel model.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/camrose-wetaskiwin.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -235,7 +236,8 @@ as accumulation is equal to total (oriented) area under the rate graph
 		so that the rectangular green area is exactly equal to the total of the blue area and the (negative) red area.
 	</caption>
 	<image xml:id="image-avg-rate-bound-same-area" width="67.6%">
-		<description>Interpreting an average rate graphically as bounding an equivalent area.</description>
+		<shortdescription>Interpreting an average rate graphically as bounding an equivalent area.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="avg-rate.d/bound-same-area.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -258,7 +260,8 @@ and the formula for <m>\avg{r}</m> above is just the <em>rise-over-run</em> form
 <figure xml:id="figure-avg-rate-slope-on-quantity-graph">
 	<caption> Average rate of accumulation as a slope on the quantity graph. </caption>
 	<image xml:id="image-avg-rate-secant" width="62.6%">
-		<description>Interpreting an average rate graphically as a slope of a secant line.</description>
+		<shortdescription>Interpreting an average rate graphically as a slope of a secant line.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="avg-rate.d/secant.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -282,7 +285,8 @@ and the formula for <m>\avg{r}</m> above is just the <em>rise-over-run</em> form
 	<figure xml:id="figure-avg-rate-secant-on-height-graph">
 		<caption> An average velocity as a secant-line slope on the position graph. </caption>
 		<image xml:id="image-avg-rate-parabolic-motion-secant" width="66.1%">
-			<description>An average velocity as a secant-line slope on the position graph.</description>
+			<shortdescription>An average velocity as a secant-line slope on the position graph.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/parabolic-motion-secant.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -298,7 +302,8 @@ and the formula for <m>\avg{r}</m> above is just the <em>rise-over-run</em> form
 	<figure xml:id="figure-avg-rate-area-on-velocity-graph">
 		<caption> An average velocity as an <q>equivalent</q> constant velocity on the velocity graph. </caption>
 		<image xml:id="image-avg-rate-parabolic-motion-area" width="75%">
-			<description>An average velocity as an "equivalent" constant velocity on the velocity graph.</description>
+			<shortdescription>An average velocity as an "equivalent" constant velocity on the velocity graph.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/parabolic-motion-area.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -330,7 +335,8 @@ and the formula for <m>\avg{r}</m> above is just the <em>rise-over-run</em> form
 	<figure xml:id="figure-avg-rate-secant-on-linear">
 		<caption> A secant on a linear quantity graph is parallel to the graph. </caption>
 		<image xml:id="image-avg-rate-linear-quantity" width="59.7%">
-			<description> A graph depicting the fact that a secant on a linear quantity graph is parallel to the graph. </description>
+			<shortdescription> A graph depicting the fact that a secant on a linear quantity graph is parallel to the graph. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/linear-quantity.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -513,7 +519,8 @@ Here is an extreme example to illustrate this.
 	<figure xml:id="figure-avg-rate-bailing-graph">
 		<caption> Quantity of water in tub during emptying. </caption>
 		<image xml:id="image-avg-rate-tub-step" width="90.5%">
-			<description> A graph of volume versus time for the process of bailing water out of a tub. </description>
+			<shortdescription> A graph of volume versus time for the process of bailing water out of a tub. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/tub-step.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -555,10 +562,11 @@ Here is an extreme example to illustrate this.
 	<figure xml:id="figure-avg-rate-bailing-slopes">
 		<caption> Two secant lines on the quantity graph. </caption>
 		<image xml:id="image-avg-rate-tub-slopes" width="93.5%">
-			<description>
+			<shortdescription>
 				A graph of volume versus time for the process of bailing water out of a tub,
 				including two secant lines.
-			</description>
+			</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/tub-slopes.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -609,39 +617,43 @@ Here are three such approaches.
 <definition xml:id="definition-avg-rate-three-standard-approximations">
 	<title>Three standard difference approximations to rate</title>
 
-	<p>
-	Assume a small value of <m>\change{t}</m> has been chosen
+	<statement>
 
-	<ul>
+		<p>
+		Assume a small value of <m>\change{t}</m> has been chosen
 
-		<li>
-			<title>Forward difference approximation at <m>t^\ast</m></title>
-			<p>
-			The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast \le t \le t^\ast + \change{t} </me>,
-			so that <me> r(t^\ast) \approx \frac{ q(t^\ast + \change{t}) - q(t^\ast) }{ \change{t} } </me>.
-			</p>
-		</li>
+		<ul>
 
-		<li>
-			<title>Backward difference approximation at <m>t^\ast</m></title>
-			<p>
-			The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast - \change{t} \le t \le t^\ast </me>,
-			so that <me> r(t^\ast) \approx \frac{ q(t^\ast) - q(t^\ast - \change{t}) }{ \change{t} } </me>.
-			</p>
-		</li>
+			<li>
+				<title>Forward difference approximation at <m>t^\ast</m></title>
+				<p>
+				The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast \le t \le t^\ast + \change{t} </me>,
+				so that <me> r(t^\ast) \approx \frac{ q(t^\ast + \change{t}) - q(t^\ast) }{ \change{t} } </me>.
+				</p>
+			</li>
 
-		<li>
-			<title>Central difference approximation at <m>t^\ast</m></title>
-			<p>
-			The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast - c \le t \le t^\ast + c </me> for
-			<me> c = \frac{\change{t}}{2} </me>,
-			so that <me> r(t^\ast) \approx \frac{ q(t^\ast + c) - q(t^\ast - c) }{ \change{t} } </me>.
-			</p>
-		</li>
+			<li>
+				<title>Backward difference approximation at <m>t^\ast</m></title>
+				<p>
+				The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast - \change{t} \le t \le t^\ast </me>,
+				so that <me> r(t^\ast) \approx \frac{ q(t^\ast) - q(t^\ast - \change{t}) }{ \change{t} } </me>.
+				</p>
+			</li>
 
-	</ul>
+			<li>
+				<title>Central difference approximation at <m>t^\ast</m></title>
+				<p>
+				The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast - c \le t \le t^\ast + c </me> for
+				<me> c = \frac{\change{t}}{2} </me>,
+				so that <me> r(t^\ast) \approx \frac{ q(t^\ast + c) - q(t^\ast - c) }{ \change{t} } </me>.
+				</p>
+			</li>
 
-	</p>
+		</ul>
+
+		</p>
+
+	</statement>
 
 </definition>
 
@@ -650,7 +662,8 @@ Here are three such approaches.
 		Secant lines whose slopes represent the forward (green), backward (red), and central (blue) approximations to rate.
 	</caption>
 	<image xml:id="image-avg-rate-forward-backward-central" width="67.6%">
-		<description>Secant lines on a graph whose slopes represent the forward, backward, and central approximations to rate.</description>
+		<shortdescription>Secant lines on a graph whose slopes represent the forward, backward, and central approximations to rate.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="avg-rate.d/forward-backward-central.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -782,20 +795,24 @@ so we will have to be a little more subtle.
 <definition xml:id="definition-avg-rate-derivative-value">
 	<title>Derivative value</title>
 
-	<p>
-	Given a function <m>q(t)</m> on domain <m>a \le t \le b</m>
-	and a specific time <m>t^\ast</m> strictly within that domain
-	(so that <m>a \lt t^\ast \lt b</m>),
-	suppose there exists one unique number <m>d</m> so that all values of average rate calculations
-	<me> \slope{q}{t} </me>
-	over subdomains containing <m>t^\ast</m> can be made arbitrarily close to <m>d</m> by taking <m>\change{t}</m> sufficiently small.
-	</p>
+	<statement>
 
-	<p>
-	In this case, we say that <m>q(t)</m> is <term>differentiable</term> at <m>t = t^\ast</m>,
-	call the value <m>d</m> the <term>derivative of <m>q(t)</m> at <m>t = t^\ast</m></term>,
-	and write <me> \funceval{\dqdt}{t = t^\ast} </me> to represent the value of <m>d</m>.
-	</p>
+		<p>
+		Given a function <m>q(t)</m> on domain <m>a \le t \le b</m>
+		and a specific time <m>t^\ast</m> strictly within that domain
+		(so that <m>a \lt t^\ast \lt b</m>),
+		suppose there exists one unique number <m>d</m> so that all values of average rate calculations
+		<me> \slope{q}{t} </me>
+		over subdomains containing <m>t^\ast</m> can be made arbitrarily close to <m>d</m> by taking <m>\change{t}</m> sufficiently small.
+		</p>
+
+		<p>
+		In this case, we say that <m>q(t)</m> is <term>differentiable</term> at <m>t = t^\ast</m>,
+		call the value <m>d</m> the <term>derivative of <m>q(t)</m> at <m>t = t^\ast</m></term>,
+		and write <me> \funceval{\dqdt}{t = t^\ast} </me> to represent the value of <m>d</m>.
+		</p>
+
+	</statement>
 
 </definition>
 
@@ -922,10 +939,11 @@ For emphasis, we will extend the associated secant line segments to actual lines
 		<sidebyside><figure xml:id="figure-avg-rate-converging-to-tangent-1">
 			<caption>Somewhat large <m>\change{t}</m>.</caption>
 			<image xml:id="image-avg-rate-forward-backward-central-to-tangent-1">
-				<description>
+				<shortdescription>
 					Secant lines on a graph whose slopes represent the forward, backward, and central approximations to rate,
 					using a somewhat long time subdomain.
-				</description>
+				</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="avg-rate.d/forward-backward-central-to-tangent-1.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
@@ -933,10 +951,11 @@ For emphasis, we will extend the associated secant line segments to actual lines
 		<sidebyside><figure xml:id="figure-avg-rate-converging-to-tangent-2">
 			<caption>Smaller <m>\change{t}</m>.</caption>
 			<image xml:id="image-avg-rate-forward-backward-central-to-tangent-2">
-				<description>
+				<shortdescription>
 					Secant lines on a graph whose slopes represent the forward, backward, and central approximations to rate,
 					using a shorter time subdomain.
-				</description>
+				</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="avg-rate.d/forward-backward-central-to-tangent-2.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
@@ -944,10 +963,11 @@ For emphasis, we will extend the associated secant line segments to actual lines
 		<sidebyside><figure xml:id="figure-avg-rate-converging-to-tangent-3">
 			<caption>Small <m>\change{t}</m>.</caption>
 			<image xml:id="image-avg-rate-forward-backward-central-to-tangent-3">
-				<description>
+				<shortdescription>
 					Secant lines on a graph whose slopes represent the forward, backward, and central approximations to rate,
 					using a very short time subdomain.
-				</description>
+				</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="avg-rate.d/forward-backward-central-to-tangent-3.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
@@ -971,7 +991,8 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 <figure xml:id="figure-avg-rate-tangent-line">
 	<caption>A <q>secant</q> line over a subdomain of <q>infinitesimal length</q> <m>dt</m>.</caption>
 	<image xml:id="image-avg-rate-tangent" width="67.6%">
-		<description> A "secant line" on a graph over an infinitesimally short time subdomain. </description>
+		<shortdescription> A "secant line" on a graph over an infinitesimally short time subdomain. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="avg-rate.d/tangent.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -980,12 +1001,12 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 
 <definition xml:id="definition-avg-rate-tangent-line">
 	<title>Tangent line</title>
-	<p>
-	If <m>q(t)</m> is differentiable at <m>t = t^\ast</m>,
-	then the line that passes through the point <m>\bbrac{ t^\ast, q(t^\ast) }</m> with slope
-	<me> \funceval{\dqdt}{t = t^\ast} </me>
-	is called the <term>tangent line</term> to the graph of <m>q(t)</m> at <m>t = t^\ast</m>.
-	</p>
+	<statement><p>
+		If <m>q(t)</m> is differentiable at <m>t = t^\ast</m>,
+		then the line that passes through the point <m>\bbrac{ t^\ast, q(t^\ast) }</m> with slope
+		<me> \funceval{\dqdt}{t = t^\ast} </me>
+		is called the <term>tangent line</term> to the graph of <m>q(t)</m> at <m>t = t^\ast</m>.
+	</p></statement>
 </definition>
 
 <identity xml:id="pattern-avg-rate-tangent-line-equation">
@@ -1026,7 +1047,8 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 	<figure>
 		<caption> A tangent line to the graph of <m>q(t) = t^3</m>. </caption>
 		<image xml:id="image-avg-rate-example-tangent" width="88.8%">
-			<description> A tangent line on the cubic graph. </description>
+			<shortdescription> A tangent line on the cubic graph. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/example-tangent.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1047,13 +1069,19 @@ and then that square is used as the frame for the next zoom level with a smaller
 </p>
 
 <figure xml:id="figure-avg-rate-local-linearity">
-	<caption> Zooming in to see the <term>local linearity</term> of a graph. </caption>
+	<caption>
+		Zooming in to see the <term>local linearity</term> of a graph.
+		For each subsequent graph,
+		the outer bounding box is the same as the small box around the point of interest in the previous graph.
+	</caption>
 
 	<sbsgroup>
 
 		<sidebyside widths="67.6%"><figure xml:id="figure-avg-rate-local-linearity-1">
+			<caption> Focussing on a point of interest. </caption>
 			<image xml:id="image-avg-rate-local-linearity">
-				<description> Graph with a box that will be zoomed into next. </description>
+				<shortdescription> Graph with a box that will be zoomed into next. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="avg-rate.d/local-linearity-1.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
@@ -1061,15 +1089,22 @@ and then that square is used as the frame for the next zoom level with a smaller
 		<sidebyside widths="34.4% 34.4%">
 
 			<figure xml:id="figure-avg-rate-local-linearity-2">
+				<caption>
+					 A closer look,
+					 along with a smaller window to be investigated next.
+				</caption>
 				<image xml:id="image-avg-rate-local-linearity-2">
-					<description> Graph with a box that will be zoomed into next. </description>
+					<shortdescription> Graph with a box that will be zoomed into next. </shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="avg-rate.d/local-linearity-2.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
 
 			<figure xml:id="figure-avg-rate-local-linearity-3">
+				<caption> Still closer around the point of interest. </caption>
 				<image xml:id="image-avg-rate-local-linearity-3">
-					<description> Graph with a box that will be zoomed into next. </description>
+					<shortdescription> Graph with a box that will be zoomed into next. </shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="avg-rate.d/local-linearity-3.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -1079,15 +1114,19 @@ and then that square is used as the frame for the next zoom level with a smaller
 		<sidebyside widths="33.2% 33.2%">
 
 			<figure xml:id="figure-avg-rate-local-linearity-4">
+				<caption> And closer. </caption>
 				<image xml:id="image-avg-rate-local-linearity-4">
-					<description> Graph with a box that will be zoomed into next. </description>
+					<shortdescription> Graph with a box that will be zoomed into next. </shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="avg-rate.d/local-linearity-4.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
 
 			<figure xml:id="figure-avg-rate-local-linearity-5">
+				<caption> And closer still. </caption>
 				<image xml:id="image-avg-rate-local-linearity-5">
-					<description> Graph with a box that will be zoomed into next. </description>
+					<shortdescription> Graph with a box that will be zoomed into next. </shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="avg-rate.d/local-linearity-5.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -1133,9 +1172,10 @@ with the derivative value describing the slope of that essentially linear piece 
 			with backward (red), forward (green), and central (purple) secant lines.
 		</caption>
 		<image xml:id="image-avg-rate-distance" width="59.7%">
-			<description>
+			<shortdescription>
 				A graph of an object's distance from a sensor as the object travels toward and then away from the sensor, with accompanying secant lines.
-			</description>
+			</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/distance.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1188,7 +1228,8 @@ and functions with such a feature are never differentiable at that point.
 	<figure xml:id="figure-avg-rate-simplified-bailing-graph">
 		<caption> Quantity of water in tub during emptying as a step function. </caption>
 		<image xml:id="image-avg-rate-tub-stepped" width="90.5%">
-			<description> A graph of a step function as volume versus time modelling the process of bailing water out of a tub. </description>
+			<shortdescription> A graph of a step function as volume versus time modelling the process of bailing water out of a tub. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/tub-stepped.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1245,7 +1286,8 @@ and functions with such a feature are never differentiable at that point.
 	<figure xml:id="figure-avg-rate-secant-on-singularity">
 		<caption> Average rates near a singularity as secant-line slopes. </caption>
 		<image xml:id="image-avg-rate-singularity-secants" width="80.5%">
-			<description>Average rates near a singularity as secant-line slopes on the quantity graph.</description>
+			<shortdescription>Average rates near a singularity as secant-line slopes on the quantity graph.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/singularity-secants.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1286,7 +1328,8 @@ and functions with such a feature are never differentiable at that point.
 	<figure xml:id="figure-avg-rate-secant-on-vertical-tangent">
 		<caption> Average rate as a secant-line slope near an instantaneously vertical point. </caption>
 		<image xml:id="image-avg-rate-vertical-secant" width="45.8%">
-			<description>Average rate as a secant-line slope near an instantaneously vertical point.</description>
+			<shortdescription>Average rate as a secant-line slope near an instantaneously vertical point.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="avg-rate.d/vertical-secant.tex" parse="text" /></latex-image>
 		</image>
 	</figure>

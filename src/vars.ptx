@@ -98,9 +98,11 @@ using positive and negative to distinguish between the two.
 
 <definition xml:id="definition-vars-accumulation">
 	<title>Accumulation of a variable quantity</title>
-	For variable quantity <m>q</m>,
-	the <term>accumulation</term> between data points <m>q_1</m> and <m>q_2</m> is
-	<me> \change{q} = q_2 - q_1 </me>.
+	<statement><p>
+		For variable quantity <m>q</m>,
+		the <term>accumulation</term> between data points <m>q_1</m> and <m>q_2</m> is
+		<me> \change{q} = q_2 - q_1 </me>.
+	</p></statement>
 </definition>
 
 <p>
@@ -187,7 +189,8 @@ and we wish to compare the amounts by which they vary.
 	<figure xml:id="figure-vars-cylinder-delta-volume">
 		<caption> Variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </caption>
 		<image xml:id="image-vars-cylinder" width="27.3%">
-			<description> A diagram illustrating a variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </description>
+			<shortdescription> A diagram illustrating a variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="vars.d/cylinder.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -213,13 +216,13 @@ and we wish to compare the amounts by which they vary.
 
 <definition xml:id="definition-vars-avg-rate">
 	<title>Average rate of variation</title>
-	<p>
-	If <m>q</m> and <m>t</m> are two quantities that are varying in tandem,
-	so that a variation in one of the quantities is always accompanied by a corresponding variation in the other,
-	then a ratio
-	<me> \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </me>
-	is called an <term>(average) rate of variation</term> between data points <m>(t_1,q_1)</m> and <m>(t_2,q_2)</m>.
-	</p>
+	<statement><p>
+		If <m>q</m> and <m>t</m> are two quantities that are varying in tandem,
+		so that a variation in one of the quantities is always accompanied by a corresponding variation in the other,
+		then a ratio
+		<me> \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </me>
+		is called an <term>(average) rate of variation</term> between data points <m>(t_1,q_1)</m> and <m>(t_2,q_2)</m>.
+	</p></statement>
 </definition>
 
 <p>
@@ -312,7 +315,8 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 	<figure xml:id="figure-vars-constant-rate-data-points">
 		<caption> Data points and trend line for a quantity varying at a constant rate. </caption>
 		<image xml:id="image-vars-constant-rate-data-points" width="50.8%">
-			<description> Data points and trend line for a quantity varying at a constant rate. </description>
+			<shortdescription> Data points and trend line for a quantity varying at a constant rate. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="vars.d/constant-rate-data-points.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -353,7 +357,7 @@ and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
 	but instead know that <m>q = 1</m> when <m>t = 3</m>.
 	Then
 	<md alignment="gather">
-		<mrow> q = -2 t + q_0 </mrow>.
+		<mrow> q = -2 t + q_0 </mrow>
 		<mrow> 1 = -2 \cdot 3 + q_0 </mrow>
 		<mrow> 1 = q_0 - 6 </mrow>
 		<mrow> q_0 = 7 </mrow>
@@ -365,7 +369,8 @@ and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
 	<figure xml:id="figure-vars-constant-rate-neg-slope">
 		<caption> Linear relationship for a quantity varying at a constant, negative rate. </caption>
 		<image xml:id="image-vars-constant-rate-neg-slope" width="50.8%">
-			<description> Graph and linear relationship for a quantity varying at a constant, negative rate. </description>
+			<shortdescription> Graph and linear relationship for a quantity varying at a constant, negative rate. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="vars.d/constant-rate-neg-slope.tex" parse="text" /></latex-image>
 		</image>
 	</figure>

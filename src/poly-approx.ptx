@@ -77,12 +77,12 @@ we would like a linear function <m>L(t)</m> that has <q>inital value</q> <m>L(t^
 
 <definition xml:id="definition-poly-approx-linearization">
 	<title>Linearization of a function</title>
-	<p>
-	If <m>f(t)</m> is defined on domain <m>a \lt t \lt b</m> and differentiable at <m>t = t^\ast</m> within that domain,
-	then the <term>linearization</term> of <m>f(t)</m> based at <m>t = t^\ast</m> is the linear function
-	<me> L(t) = f(t^\ast) + f'(t^\ast) (t - t^\ast) </me>,
-	restricted to the domain <m>a \lt t \lt b</m>.
-	</p>
+	<statement><p>
+		If <m>f(t)</m> is defined on domain <m>a \lt t \lt b</m> and differentiable at <m>t = t^\ast</m> within that domain,
+		then the <term>linearization</term> of <m>f(t)</m> based at <m>t = t^\ast</m> is the linear function
+		<me> L(t) = f(t^\ast) + f'(t^\ast) (t - t^\ast) </me>,
+		restricted to the domain <m>a \lt t \lt b</m>.
+	</p></statement>
 </definition>
 
 <remark><p><ul>
@@ -188,9 +188,12 @@ why not just do that instead of approximating it?
 
 	<figure xml:id="figure-poly-approx-linear-approx-big-deltas">
 		<caption> The approximation <m>f(t) \approx L(t)</m> will have a large error if <m>t</m> is too far from the base point <m>t^\ast</m>. </caption>
-		<image label="image-poly-approx-linear-approx-big-deltas" width="88.8%">
-			<description> Comparing the graphs of a function and its linear approximation. </description>
-			<latex-image><xi:include href="poly-approx.d/linear-approx-error.tex" parse="text" /></latex-image>
+		<image width="88.8%">
+			<shortdescription> Comparing the graphs of a function and its linear approximation. </shortdescription>
+			<!-- TODO description -->
+			<latex-image label="image-poly-approx-linear-approx-big-deltas">
+				<xi:include href="poly-approx.d/linear-approx-error.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -225,17 +228,23 @@ which we will label as <m>dq</m> instead of <m>\change{t}</m> as it follows the 
 
 		<figure>
 			<caption> Variation along a secant line between two points on the quantity graph. </caption>
-			<image label="image-poly-approx-variation-along-secant">
-				<description> A graph of a secant line between two points on a quantity graph. </description>
-				<latex-image><xi:include href="poly-approx.d/variation-along-secant.tex" parse="text" /></latex-image>
+			<image>
+				<shortdescription> A graph of a secant line between two points on a quantity graph. </shortdescription>
+				<!-- TODO description -->
+				<latex-image label="image-poly-approx-variation-along-secant">
+					<xi:include href="poly-approx.d/variation-along-secant.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
 		<figure>
 			<caption> Variation along a tangent line to a point on the quantity graph. </caption>
-			<image label="image-poly-approx-variation-along-tangent">
-				<description> A graph of a tangent line as a linear approximation to a quantity graph. </description>
-				<latex-image><xi:include href="poly-approx.d/variation-along-tangent.tex" parse="text" /></latex-image>
+			<image>
+				<shortdescription> A graph of a tangent line as a linear approximation to a quantity graph. </shortdescription>
+				<!-- TODO description -->
+				<latex-image label="image-poly-approx-variation-along-tangent">
+					<xi:include href="poly-approx.d/variation-along-tangent.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
@@ -364,10 +373,10 @@ often we are interested in knowing the increase/decrease not as simply a differe
 
 <definition>
 	<title>Relative variation</title>
-	<p>
-	The <term>relative variation</term> in a quantity is the ratio of the variation <m>\change{q}</m> to the initial quantity <m>q(t_0)</m>:
-	<me> \frac{\change{q}}{q(t_0)} = \frac{q(t) - q(t_0)}{q(t_0)} </me>.
-	</p>
+	<statement><p>
+		The <term>relative variation</term> in a quantity is the ratio of the variation <m>\change{q}</m> to the initial quantity <m>q(t_0)</m>:
+		<me> \frac{\change{q}}{q(t_0)} = \frac{q(t) - q(t_0)}{q(t_0)} </me>.
+	</p></statement>
 </definition>
 
 <p>
@@ -486,9 +495,12 @@ To make these match in all three rows we should use
 
 	<figure xml:id="figure-poly-approx-cos-vs-1">
 		<caption> Comparing cosine to <m>1</m>. </caption>
-		<image label="image-poly-approx-cos-vs-1" width="67.9%">
-			<description> Comparing the graph of the cosine function to the horizontal line at 1. </description>
-			<latex-image><xi:include href="poly-approx.d/cos-vs-1.tex" parse="text" /></latex-image>
+		<image width="67.9%">
+			<shortdescription> Comparing the graph of the cosine function to the horizontal line at 1. </shortdescription>
+			<!-- TODO description -->
+			<latex-image label="image-poly-approx-cos-vs-1">
+				<xi:include href="poly-approx.d/cos-vs-1.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -522,9 +534,12 @@ To make these match in all three rows we should use
 
 	<figure xml:id="figure-poly-approx-cos-vs-parabola">
 		<caption> Comparing cosine to a quadratic approximation. </caption>
-		<image label="image-poly-approx-cos-vs-parabola" width="67.6%">
-			<description> Comparing the graph of the cosine function to specially created parabola. </description>
-			<latex-image><xi:include href="poly-approx.d/cos-vs-parabola.tex" parse="text" /></latex-image>
+		<image width="67.6%">
+			<shortdescription> Comparing the graph of the cosine function to specially created parabola. </shortdescription>
+			<!-- TODO description -->
+			<latex-image label="image-poly-approx-cos-vs-parabola">
+				<xi:include href="poly-approx.d/cos-vs-parabola.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -570,9 +585,12 @@ To make these match in all three rows we should use
 
 	<figure>
 		<caption> The quadratic approximation of the natural logarithm at <m>t = 1</m>. </caption>
-		<image label="image-poly-approx-quadratic-approx-ln" width="51.1%">
-			<description> A graph of the natural logarithm and its quadratic approximation at base point 1. </description>
-			<latex-image><xi:include href="poly-approx.d/quadratic-approx-ln.tex" parse="text" /></latex-image>
+		<image width="51.1%">
+			<shortdescription> A graph of the natural logarithm and its quadratic approximation at base point 1. </shortdescription>
+			<!-- TODO description -->
+			<latex-image label="image-poly-approx-quadratic-approx-ln">
+				<xi:include href="poly-approx.d/quadratic-approx-ln.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 

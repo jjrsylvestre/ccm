@@ -73,7 +73,8 @@ respective owners.
 	<figure xml:id="figure-step-air-pump">
 		<caption>Graph modelling output of an air pump with three settings.</caption>
 		<image xml:id="image-step-air-pump-graph" width="49.1%">
-			<description>Graph modelling output of an air pump with three settings.</description>
+			<shortdescription>Graph modelling output of an air pump with three settings.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="step.d/air-pump-graph.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -87,7 +88,7 @@ is an example of a <term>step function</term>.
 
 <definition xml:id="definition-step-function">
 	<title>Step function</title>
-	<p> A function that <q>steps</q> between constant values on non-overlapping intervals. </p>
+	<statement><p> A function that <q>steps</q> between constant values on non-overlapping intervals. </p></statement>
 </definition>
 
 <p>
@@ -113,7 +114,8 @@ we use piecewise notation to specify the constant output values on different sub
 	<figure xml:id="figure-step-piecewise">
 		<caption>An example step function.</caption>
 		<image xml:id="image-step-piecewise" width="67.6%">
-			<description>Graph of an example step function.</description>
+			<shortdescription>Graph of an example step function.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="step.d/piecewise.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -144,10 +146,10 @@ we use piecewise notation to specify the constant output values on different sub
 
 <definition xml:id="definition-step-regular-function">
 	<title>Regular step function</title>
-	<p>
-	A step function whose domain can be split into equal-length intervals
-	so that the <q>steps</q> in output value only occur at boundaries between these intervals.
-	</p>
+	<statement><p>
+		A step function whose domain can be split into equal-length intervals
+		so that the <q>steps</q> in output value only occur at boundaries between these intervals.
+	</p></statement>
 </definition>
 
 <p>
@@ -167,7 +169,8 @@ and then changes in output-value still only occur at boundaries of these length-
 <figure xml:id="figure-step-air-pump-regular">
 	<caption>Graph modelling output of an air pump with three settings.</caption>
 	<image xml:id="image-step-air-pump-regular-graph" width="49.1%">
-		<description>Graph modelling output of an air pump with three settings.</description>
+		<shortdescription>Graph modelling output of an air pump with three settings.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="step.d/air-pump-regular-graph.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -302,7 +305,8 @@ so we can still apply the above formula on each of those subdomains and then tot
 	<figure xml:id="figure-step-saffron">
 		<caption>Graph for a saffron pricing model.</caption>
 		<image xml:id="image-step-saffron-graph" width="56.7%">
-			<description>Graph for a saffron pricing model.</description>
+			<shortdescription>Graph for a saffron pricing model.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="step.d/saffron-graph.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -374,7 +378,8 @@ corresponds to an area calculation for a rectangle of height <m>0.5</m> and leng
 <figure xml:id="figure-step-air-pump-1st-minute">
 	<caption>Running the air pump on medium for one minute.</caption>
 	<image xml:id="image-step-air-pump-graph-1st-min" width="49.1%">
-		<description>Graph modelling output of an air pump for one minute.</description>
+		<shortdescription>Graph modelling output of an air pump for one minute.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="step.d/air-pump-graph-1st-min.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -395,7 +400,8 @@ corresponds to an area calculation for a rectangle of height <m>0.75</m> and len
 <figure xml:id="figure-step-air-pump-middle-minutes">
 	<caption>Running the air pump on high for another two minutes.</caption>
 	<image xml:id="image-step-air-pump-graph-middle-mins" width="49.1%">
-		<description>Graph modelling output of an air pump for another two minutes.</description>
+		<shortdescription>Graph modelling output of an air pump for another two minutes.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="step.d/air-pump-graph-middle-mins.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -415,7 +421,8 @@ for the final minute running on low corresponds to an area calculation for a rec
 <figure xml:id="figure-step-air-pump-last-minute">
 	<caption>Running the air pump on high for the final minute.</caption>
 	<image xml:id="image-step-air-pump-graph-last-min" width="49.1%">
-		<description>Graph modelling output of an air pump for another one minute.</description>
+		<shortdescription>Graph modelling output of an air pump for another one minute.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="step.d/air-pump-graph-last-min.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -429,7 +436,8 @@ Graphically,
 <figure xml:id="figure-step-air-pump-all">
 	<caption>Total accumulation over the time period.</caption>
 	<image xml:id="image-step-air-pump-graph-all" width="49.1%">
-		<description>Graph modelling total accumulation pumped air.</description>
+		<shortdescription>Graph modelling total accumulation pumped air.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="step.d/air-pump-graph-all.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -514,7 +522,8 @@ Graphically,
 	<figure xml:id="figure-step-camrose-wetaskiwin">
 		<caption>Graph of a rate-of-travel model.</caption>
 		<image xml:id="image-step-camrose-wetaskiwin" width="84.7%">
-			<description>Graph of a rate-of-travel model.</description>
+			<shortdescription>Graph of a rate-of-travel model.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="step.d/camrose-wetaskiwin.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -723,45 +732,44 @@ then the above calculation is still a sum of rectangle areas.
 <figure xml:id="figure-step-air-pump-leakage">
 	<caption>Inflating and re-inflating an air raft.</caption>
 	<image xml:id="image-step-air-pump-graph-leakage" width="81.7%">
-		<description>Graph modelling inflating, partially deflating, and re-inflating an air raft.</description>
+		<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="step.d/air-pump-graph-leakage.tex" parse="text" /></latex-image>
 	</image>
 </figure>
 
 <definition xml:id="definition-step-positively-oriented-area">
 	<title>Positively-oriented area</title>
-
-	<p>
-	If a function is positive on a domain,
-	then the area bounded between the graph of the function and the horizontal axis over that domain is <term>positively-oriented</term>
-	and we assign positive number to that area.
-	</p>
-
+	<statement><p>
+		If a function is positive on a domain,
+		then the area bounded between the graph of the function and the horizontal axis over that domain is <term>positively-oriented</term>
+		and we assign positive number to that area.
+	</p></statement>
 </definition>
 
 <figure xml:id="figure-step-positively-oriented">
 	<caption>A positively-oriented area.</caption>
 	<image xml:id="image-step-positively-oriented" width="45.5%">
-		<description>A diagram of a positively-oriented area under the graph of a function.</description>
+		<shortdescription>A diagram of a positively-oriented area under the graph of a function.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="step.d/positively-oriented.tex" parse="text" /></latex-image>
 	</image>
 </figure>
 
 <definition xml:id="definition-step-negatively-oriented-area">
 	<title>Negatively-oriented area</title>
-
-	<p>
-	If a function is negative on a domain,
-	then the area bounded between the graph of the function and the horizontal axis over that domain is <term>negatively-oriented</term>
-	and we assign a negative number to that area.
-	</p>
-
+	<statement><p>
+		If a function is negative on a domain,
+		then the area bounded between the graph of the function and the horizontal axis over that domain is <term>negatively-oriented</term>
+		and we assign a negative number to that area.
+	</p></statement>
 </definition>
 
 <figure xml:id="figure-step-negatively-oriented">
 	<caption>A negatively-oriented area.</caption>
 	<image xml:id="image-step-negatively-oriented" width="45.5%">
-		<description>A diagram of a negatively-oriented area under the graph of a function.</description>
+		<shortdescription>A diagram of a negatively-oriented area under the graph of a function.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="step.d/negatively-oriented.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -1047,23 +1055,23 @@ the sum is called a <term>Riemann sum</term>.
 
 <definition xml:id="definition-step-riemann">
 	<title>Riemann sum</title>
-	<p>
-	Suppose <m>s(t)</m> is a step function that takes on values
-	<me>
-		s(t) = \begin{cases}
-			h_1 \amp t_0 \le t \lt t_1 \\
-			h_2 \amp t_1 \le t \lt t_2 \\
-			h_3 \amp t_2 \le t \lt t_3 \\
-			\amp \vdots \\
-			h_n \amp t_{n - 1} \le t \lt t_n
-		\end{cases}
-	</me>.
-	If we write <m>\change{t_k}</m> to represent the length of the subdomain <m>t_{k - 1} \le t \lt t_k</m> so that
-	<me> \change{t_k} = t_k - t_{k - 1} </me>,
-	then the sum of (oriented) rectangle areas
-	<me> \sum_{k = 1}^{n} h_k \change{t_k} </me>
-	is called the <term>Riemann sum</term> for <m>s(t)</m> over the domain <m>t_0 \le t \le t_n</m>.
-	</p>
+	<statement><p>
+		Suppose <m>s(t)</m> is a step function that takes on values
+		<me>
+			s(t) = \begin{cases}
+				h_1 \amp t_0 \le t \lt t_1 \\
+				h_2 \amp t_1 \le t \lt t_2 \\
+				h_3 \amp t_2 \le t \lt t_3 \\
+				\amp \vdots \\
+				h_n \amp t_{n - 1} \le t \lt t_n
+			\end{cases}
+		</me>.
+		If we write <m>\change{t_k}</m> to represent the length of the subdomain <m>t_{k - 1} \le t \lt t_k</m> so that
+		<me> \change{t_k} = t_k - t_{k - 1} </me>,
+		then the sum of (oriented) rectangle areas
+		<me> \sum_{k = 1}^{n} h_k \change{t_k} </me>
+		is called the <term>Riemann sum</term> for <m>s(t)</m> over the domain <m>t_0 \le t \le t_n</m>.
+	</p></statement>
 </definition>
 
 <example xml:id="example-step-riemann-air-pump">
@@ -1087,7 +1095,8 @@ the sum is called a <term>Riemann sum</term>.
 	<figure xml:id="figure-step-air-pump-leakage-riemann">
 		<caption>Riemann sum parameters for inflating and re-inflating an air raft.</caption>
 		<image xml:id="image-step-air-pump-graph-leakage-riemann" width="100%">
-			<description>Graph modelling inflating, partially deflating, and re-inflating an air raft.</description>
+			<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="step.d/air-pump-graph-leakage-riemann.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1156,7 +1165,8 @@ the sum is called a <term>Riemann sum</term>.
 	<figure xml:id="figure-step-air-pump-leakage-regular-riemann">
 		<caption>Regular Riemann sum parameters for inflating and re-inflating an air raft.</caption>
 		<image xml:id="image-step-air-pump-graph-leakage-regular-riemann" width="100%">
-			<description>Graph modelling inflating, partially deflating, and re-inflating an air raft.</description>
+			<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="step.d/air-pump-graph-leakage-regular-riemann.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1188,7 +1198,8 @@ the sum is called a <term>Riemann sum</term>.
 	<figure xml:id="figure-step-air-pump-regular-leakage">
 		<caption>Inflating and re-inflating an air raft.</caption>
 		<image xml:id="image-step-air-pump-graph-regular-leakage" width="81.7%">
-			<description>Graph modelling inflating, partially deflating, and re-inflating an air raft.</description>
+			<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="step.d/air-pump-graph-regular-leakage.tex" parse="text" /></latex-image>
 		</image>
 	</figure>

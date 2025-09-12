@@ -41,7 +41,8 @@ respective owners.
 					where the spring is neither compressed nor stretched.
 				</caption>
 				<image xml:id="image-periodic-mass-equil">
-					<description>A mass attached to a spring, at equilibrium position.</description>
+					<shortdescription>A mass attached to a spring, at equilibrium position.</shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="periodic.d/mass-equil.tex" parse="text" /></latex-image>
 				</image>
 			</figure></sidebyside>
@@ -52,7 +53,8 @@ respective owners.
 					where the spring is compressed.
 				</caption>
 				<image xml:id="image-periodic-mass-compressed">
-					<description>A mass attached to a spring, at a negative position with the spring compressed.</description>
+					<shortdescription>A mass attached to a spring, at a negative position with the spring compressed.</shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="periodic.d/mass-compressed.tex" parse="text" /></latex-image>
 				</image>
 			</figure></sidebyside>
@@ -63,7 +65,8 @@ respective owners.
 					where the spring is stretched.
 				</caption>
 				<image xml:id="image-periodic-mass-stretched">
-					<description>A mass attached to a spring, at a positive position with the spring stretched.</description>
+					<shortdescription>A mass attached to a spring, at a positive position with the spring stretched.</shortdescription>
+					<!-- TODO description -->
 					<latex-image><xi:include href="periodic.d/mass-stretched.tex" parse="text" /></latex-image>
 				</image>
 			</figure></sidebyside>
@@ -93,7 +96,8 @@ respective owners.
 	<figure xml:id="figure-periodic-velocity-spring-mass">
 		<caption> A velocity graph for a mass attached to a spring. </caption>
 		<image xml:id="image-periodic-sine-for-spring" width="69.4%">
-			<description> A velocity graph for a mass attached to a spring. </description>
+			<shortdescription> A velocity graph for a mass attached to a spring. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="periodic.d/sine-for-spring.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -115,7 +119,8 @@ respective owners.
 	<figure xml:id="figure-periodic-position-spring-mass">
 		<caption> A position graph for a mass attached to a spring. </caption>
 		<image xml:id="image-periodic-cos-for-spring" width="67%">
-			<description> A position graph for a mass attached to a spring. </description>
+			<shortdescription> A position graph for a mass attached to a spring. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="periodic.d/cos-for-spring.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -149,7 +154,8 @@ its length would be <m>2 \pi</m>.
 <figure xml:id="figure-periodic-full-circumference">
 	<caption> An unrolled circle of radius <m>1</m>. </caption>
 	<image xml:id="image-periodic-circumference" width="92.9%">
-		<description> An unrolled unit circle. </description>
+		<shortdescription> An unrolled unit circle. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="periodic.d/circumference.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -162,7 +168,8 @@ Given two points on the circle, we may ask the question:
 <figure xml:id="figure-periodic-partial-circumference">
 	<caption> A straightened arc of a unit circle. </caption>
 	<image xml:id="image-periodic-arc" width="92.9%">
-		<description> A straightened arc of a unit circle. </description>
+		<shortdescription> A straightened arc of a unit circle. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="periodic.d/arc.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -176,21 +183,20 @@ an angle is created.
 
 <definition>
 	<title>Radian measure of an angle</title>
-
-	<p>
-	Given an angle formed by two line segments that meet at a vertex,
-	extend the segments in the direction away from the vertex until each has length at least <m>1</m> unit,
-	if necessary.
-	Then the circle of radius <m>R = 1</m> centred at the vertex will cut the two segments.
-	Define the <term>radian measure</term> of this angle to be the arc length between the points where the circle cuts the segments.
-	</p>
-
+	<statement><p>
+		Given an angle formed by two line segments that meet at a vertex,
+		extend the segments in the direction away from the vertex until each has length at least <m>1</m> unit,
+		if necessary.
+		Then the circle of radius <m>R = 1</m> centred at the vertex will cut the two segments.
+		Define the <term>radian measure</term> of this angle to be the arc length between the points where the circle cuts the segments.
+	</p></statement>
 </definition>
 
 <figure xml:id="figure-periodic-radian">
 	<caption> Radian measure of an angle equals arc length along a unit circle. </caption>
 	<image xml:id="image-periodic-radian" width="42.9%">
-		<description> Radian measure of an angle equals arc length along a unit circle. </description>
+		<shortdescription> Radian measure of an angle equals arc length along a unit circle. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="periodic.d/radian.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -211,7 +217,8 @@ and so has radian measure <m>\pi / 4</m>.
 		<figure xml:id="figure-periodic-radian-two-examples-right">
 			<caption> Radian measure of a right angle. </caption>
 			<image xml:id="image-periodic-radian-right">
-				<description> Radian measure of a right angle. </description>
+				<shortdescription> Radian measure of a right angle. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="periodic.d/radian-right.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -219,7 +226,8 @@ and so has radian measure <m>\pi / 4</m>.
 		<figure xml:id="figure-periodic-radian-two-examples-45">
 			<caption> Radian measure of a <m>45 \degree</m> angle. </caption>
 			<image xml:id="image-periodic-radian-45">
-				<description> Radian measure of a 45-degree angle. </description>
+				<shortdescription> Radian measure of a 45-degree angle. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="periodic.d/radian-45.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -235,21 +243,27 @@ with the corresponding angle measure in degrees.
 
 <figure xml:id="figure-periodic-table-radian-measure">
 	<caption>Some common radian measures.</caption>
-	<tabular halign="center">
-		<col right="minor" /><col />
-		<row bottom="minor"> <cell>Degrees</cell> <cell>Radians</cell> </row>
-		<row> <cell><m>0 \degree</m></cell> <cell>0</cell> </row>
-		<row> <cell><m>30 \degree</m></cell> <cell><m>\frac{\pi}{6}</m></cell> </row>
-		<row> <cell><m>45 \degree</m></cell> <cell><m>\frac{\pi}{4}</m></cell> </row>
-		<row> <cell><m>60 \degree</m></cell> <cell><m>\frac{\pi}{3}</m></cell> </row>
-		<row> <cell><m>90 \degree</m></cell> <cell><m>\frac{\pi}{2}</m></cell> </row>
-		<row> <cell><m>120 \degree</m></cell> <cell><m>\frac{2 \pi}{3}</m></cell> </row>
-		<row> <cell><m>135 \degree</m></cell> <cell><m>\frac{3 \pi}{4}</m></cell> </row>
-		<row> <cell><m>150 \degree</m></cell> <cell><m>\frac{5 \pi}{6}</m></cell> </row>
-		<row> <cell><m>180 \degree</m></cell> <cell><m>\pi</m></cell> </row>
-		<row> <cell><m>270 \degree</m></cell> <cell><m>\frac{3 \pi}{2}</m></cell> </row>
-		<row> <cell><m>360 \degree</m></cell> <cell><m>2 \pi</m></cell> </row>
-	</tabular>
+	<sidebyside>
+		<tabular halign="center">
+			<col right="minor" /><col />
+			<row header="yes" bottom="minor"> <cell>Degrees</cell> <cell>Radians</cell> </row>
+			<row> <cell><m>0 \degree</m></cell> <cell><m>0</m></cell> </row>
+			<row> <cell><m>30 \degree</m></cell> <cell><m>\pi / 6</m></cell> </row>
+			<row> <cell><m>45 \degree</m></cell> <cell><m>\pi / 4</m></cell> </row>
+			<row> <cell><m>60 \degree</m></cell> <cell><m>\pi / 3</m></cell> </row>
+			<row> <cell><m>90 \degree</m></cell> <cell><m>\pi / 2</m></cell> </row>
+		</tabular>
+		<tabular halign="center">
+			<col right="minor" /><col />
+			<row header="yes" bottom="minor"> <cell>Degrees</cell> <cell>Radians</cell> </row>
+			<row> <cell><m>120 \degree</m></cell> <cell><m>2 \pi / 3</m></cell> </row>
+			<row> <cell><m>135 \degree</m></cell> <cell><m>3 \pi / 4</m></cell> </row>
+			<row> <cell><m>150 \degree</m></cell> <cell><m>5 \pi / 6</m></cell> </row>
+			<row> <cell><m>180 \degree</m></cell> <cell><m>\pi</m></cell> </row>
+			<row> <cell><m>270 \degree</m></cell> <cell><m>3 \pi / 2</m></cell> </row>
+			<row> <cell><m>360 \degree</m></cell> <cell><m>2 \pi</m></cell> </row>
+		</tabular>
+	</sidebyside>
 </figure>
 
 <p>
@@ -289,7 +303,8 @@ so that every period is one traversal of the circle.
 <figure xml:id="figure-periodic-traverse-circle">
 	<caption> Traversing the unit circle. </caption>
 	<image xml:id="image-periodic-traverse-circle" width="53.5%">
-		<description> Traversing the unit circle. </description>
+		<shortdescription> Traversing the unit circle. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="periodic.d/traverse-circle.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -340,17 +355,18 @@ Here is the graph of <em>angle-versus-<m>x</m>-coordinate</em> formed by this be
 		which tracks the <m>x</m>-coordinate of positions on the unit circle.
 	</caption>
 	<image xml:id="image-periodic-cos" width="100%">
-		<description> Graph of the cosine function. </description>
+		<shortdescription> Graph of the cosine function. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="periodic.d/cos.tex" parse="text" /></latex-image>
 	</image>
 </figure>
 
 <definition>
 	<title>The cosine function</title>
-	<p>
-	Given input value <m>t</m>,
-	the output value <m>\cos(t)</m> is taken to be the <m>x</m>-coordinate of the point <m>(x,y)</m> on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
-	</p>
+	<statement><p>
+		Given input value <m>t</m>,
+		the output value <m>\cos(t)</m> is taken to be the <m>x</m>-coordinate of the point <m>(x,y)</m> on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
+	</p></statement>
 </definition>
 
 <p>
@@ -366,7 +382,8 @@ we arrive at the following graph of <em>angle-versus-<m>y</m>-coordinate</em>.
 		which tracks the <m>x</m>-coordinate of positions on the unit circle.
 	</caption>
 	<image xml:id="image-periodic-sin" width="100%">
-		<description> Graph of the sine function. </description>
+		<shortdescription> Graph of the sine function. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="periodic.d/sin.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -374,10 +391,10 @@ we arrive at the following graph of <em>angle-versus-<m>y</m>-coordinate</em>.
 
 <definition>
 	<title>The sine function</title>
-	<p>
-	Given input value <m>t</m>,
-	the output value <m>\sin(t)</m> is taken to be the <m>y</m>-coordinate of the point <m>(x,y)</m> on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
-	</p>
+	<statement><p>
+		Given input value <m>t</m>,
+		the output value <m>\sin(t)</m> is taken to be the <m>y</m>-coordinate of the point <m>(x,y)</m> on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
+	</p></statement>
 </definition>
 
 <p>
@@ -422,15 +439,15 @@ we make the following definitions of four more trigonometric functions as ratios
 
 <definition xml:id="definition-periodic-tan-cot-sec-csc">
 	<title>The tangent function and reciprocal trigonometric functions</title>
-	<p>
-	Given input value <m>t</m>,
-	let <m>(x,y)</m> represent the point on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
-	Then we define the <term>tangent</term>, <term>cotangent</term>, <term>secant</term>, and <term>cosecant</term> functions by
-	<md>
-		<mrow> \tan t \amp = \frac{y}{x} \amp \sec t \amp = \frac{1}{x} </mrow>
-		<mrow> \cot t \amp = \frac{x}{y} \amp \csc t \amp = \frac{1}{y} </mrow>
-	</md>.
-	</p>
+	<statement><p>
+		Given input value <m>t</m>,
+		let <m>(x,y)</m> represent the point on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
+		Then we define the <term>tangent</term>, <term>cotangent</term>, <term>secant</term>, and <term>cosecant</term> functions by
+		<md>
+			<mrow> \tan t \amp = \frac{y}{x} \amp \sec t \amp = \frac{1}{x} </mrow>
+			<mrow> \cot t \amp = \frac{x}{y} \amp \csc t \amp = \frac{1}{y} </mrow>
+		</md>.
+	</p></statement>
 </definition>
 
 <!-- TODO graphs of these new trig functions -->
@@ -499,7 +516,8 @@ we may use the angle formed by the hypotenuse and that leg as the input to the t
 		<figure>
 			<caption> Cutting a right triangle with a unit circle. </caption>
 			<image xml:id="image-periodic-cut-right-1">
-				<description> Cutting a right triangle with a unit circle. </description>
+				<shortdescription> Cutting a right triangle with a unit circle. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="periodic.d/cut-right-1.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -507,7 +525,8 @@ we may use the angle formed by the hypotenuse and that leg as the input to the t
 		<figure>
 			<caption> Extending a right triangle within a unit circle. </caption>
 			<image xml:id="image-periodic-cut-right-2">
-				<description> Extending a right triangle within a unit circle. </description>
+				<shortdescription> Extending a right triangle within a unit circle. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="periodic.d/cut-right-2.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -545,7 +564,8 @@ leading to the familiar acronyms SOH CAH TOA:
 <figure>
 	<caption>SOH CAH TOA.</caption>
 	<image xml:id="image-periodic-soh-cah-toa" width="35.2%">
-		<description>SOH CAH TOA.</description>
+		<shortdescription>SOH CAH TOA.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="periodic.d/soh-cah-toa.tex" parse="text" /></latex-image>
 	</image>
 </figure>

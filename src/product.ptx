@@ -329,7 +329,8 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	<figure xml:id="figure-product-brine-tank-1">
 		<caption>Brine entering and being drained from a tank so that volume is held constant.</caption>
 		<image xml:id="image-product-models-mixing" width="63.8%">
-			<description>Diagram of brine entering and being drained from a tank so that volume is held constant.</description>
+			<shortdescription>Diagram of brine entering and being drained from a tank so that volume is held constant.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="models.d/mixing.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -349,10 +350,11 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 			where the incoming brine is assumed to be of varying concentration.
 		</caption>
 		<image xml:id="image-product-mixing" width="88.8%">
-			<description>
+			<shortdescription>
 				Diagram of brine entering and being drained from a tank so that volume is held constant,
 				where the incoming brine is assumed to be of varying concentration.
-			</description>
+			</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="product.d/mixing.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -367,7 +369,8 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	<figure xml:id="figure-product-brine-forcing-function">
 		<caption>A model function for the ramping up of salt concentration in the incoming brine supply.</caption>
 		<image xml:id="image-product-forcing" width="59.4%">
-			<description>Graph of a model function for the ramping up of salt concentration in the incoming brine supply.</description>
+			<shortdescription>Graph of a model function for the ramping up of salt concentration in the incoming brine supply.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="product.d/forcing.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -476,14 +479,14 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 
 <definition xml:id="definition-product-1st-order-linear-DE">
 	<title>First-order, linear rate equation</title>
-	<p>
-	A rate equation that can be expressed in the form
-	<me> \dqdt + p(t) \cdot q = f(t) </me>
-	for some functions <m>p</m> and <m>f</m>
-	is called a <term>first-order, linear rate equation</term>.
-	The function <m>p(t)</m> is called the <term>coefficient function</term>,
-	and the function <m>f(t)</m> is called the <term>forcing function</term> for the system.
-	</p>
+	<statement><p>
+		A rate equation that can be expressed in the form
+		<me> \dqdt + p(t) \cdot q = f(t) </me>
+		for some functions <m>p</m> and <m>f</m>
+		is called a <term>first-order, linear rate equation</term>.
+		The function <m>p(t)</m> is called the <term>coefficient function</term>,
+		and the function <m>f(t)</m> is called the <term>forcing function</term> for the system.
+	</p></statement>
 </definition>
 
 <p>

@@ -38,37 +38,37 @@ respective owners.
 
 <definition xml:id="definition-inf-behaviour-horiz">
 	<title>Long-term behaviour</title>
-	<p>
-	Suppose <m>f(t)</m> is a function whose domain contains an infinite subdomain <m>t \gt t_0</m>.
-	<ol>
+	<statement><p>
+		Suppose <m>f(t)</m> is a function whose domain contains an infinite subdomain <m>t \gt t_0</m>.
+		<ol>
 
-		<li>
-			<title>Unbounded growth</title>
-			<p>
-			We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to \infty </me>
-			to mean that output values of <m>f(t)</m> eventually become and stay positive and arbitrarily large in magnitude.
-			</p>
-		</li>
+			<li>
+				<title>Unbounded growth</title>
+				<p>
+				We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to \infty </me>
+				to mean that output values of <m>f(t)</m> eventually become and stay positive and arbitrarily large in magnitude.
+				</p>
+			</li>
 
-		<li>
-			<title>Unbounded decay</title>
-			<p>
-			We write <me> f(t) \to - \infty \qquad \text{as} \qquad t \to \infty </me>
-			to mean that output values of <m>f(t)</m> eventually become and stay negative and arbitrarily large in magnitude.
-			</p>
-		</li>
+			<li>
+				<title>Unbounded decay</title>
+				<p>
+				We write <me> f(t) \to - \infty \qquad \text{as} \qquad t \to \infty </me>
+				to mean that output values of <m>f(t)</m> eventually become and stay negative and arbitrarily large in magnitude.
+				</p>
+			</li>
 
-		<li>
-			<title>Approaching steady-state</title>
-			<p>
-			For some steady-state output value <m>L</m>,
-			we write <me> f(t) \to L \qquad \text{as} \qquad t \to \infty </me>
-			to mean that output values of <m>f(t)</m> eventually become and stay arbitrarily close to <m>L</m>.
-			</p>
-		</li>
+			<li>
+				<title>Approaching steady-state</title>
+				<p>
+				For some steady-state output value <m>L</m>,
+				we write <me> f(t) \to L \qquad \text{as} \qquad t \to \infty </me>
+				to mean that output values of <m>f(t)</m> eventually become and stay arbitrarily close to <m>L</m>.
+				</p>
+			</li>
 
-	</ol>
-	</p>
+		</ol>
+	</p></statement>
 </definition>
 
 <warning>
@@ -149,7 +149,8 @@ and how far out we need to go to observe this behaviour will vary depending on t
 	<figure xml:id="figure-inf-behaviour-parabola">
 		<caption> The function <m>f(t) = t^2</m> grows beyond any potential ceiling. </caption>
 		<image xml:id="image-inf-behaviour-unbdd-growth-parabola" width="40.2%">
-			<description> Graph demonstrating that a parabola grows beyond any potential ceiling. </description>
+			<shortdescription> Graph demonstrating that a parabola grows beyond any potential ceiling. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="inf-behaviour.d/unbdd-growth-parabola.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -200,9 +201,10 @@ and how far out we need to go to observe this behaviour will vary depending on t
 	<figure xml:id="figure-inf-behaviour-error-bounds">
 		<caption> The function <m>f(t) = 2 + 1/t^2</m> eventually moves within every arbitrarily small range around a proposed approximate long-term value. </caption>
 		<image xml:id="image-inf-behaviour-error-bounds" width="47.9%">
-			<description>
+			<shortdescription>
 				Graph demonstrating that a shifted reciprocal power function eventually moves within every arbitrarily small range around a proposed approximate long-term value.
-			</description>
+			</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="inf-behaviour.d/error-bounds.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -217,16 +219,17 @@ we often place a dashed horizontal line at that level when drawing the function'
 
 <definition xml:id="definition-inf-behaviour-hasymp">
 	<title>Horizontal asymptote</title>
-	<p>
-	A horizontal line that a function's graph approaches,
-	becoming closer and closer to it as one goes further out on the graph.
-	</p>
+	<statement><p>
+		A horizontal line that a function's graph approaches,
+		becoming closer and closer to it as one goes further out on the graph.
+	</p></statement>
 </definition>
 
 <figure xml:id="figure-inf-behaviour-horiz-asymp">
 	<caption> The graph of <m>f(t) = 2 + 1/t^2</m> approaches a horizontal asymptote at height <m>2</m>. </caption>
 	<image xml:id="image-inf-behaviour-horiz-asymp" width="45.5%">
-		<description> A function's graph approaching a horizontal asymptote. </description>
+		<shortdescription> A function's graph approaching a horizontal asymptote. </shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="inf-behaviour.d/horiz-asymp.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -253,7 +256,8 @@ Finally, here is an example where the long-term behaviour does not fall into any
 	<figure xml:id="figure-inf-behaviour-pulsar">
 		<caption> A model of the observed on/off pattern of a pulsar. </caption>
 		<image xml:id="image-inf-behaviour-pulsar" width="90.5%">
-			<description> A graphical model of the observed on/off pattern of a pulsar. </description>
+			<shortdescription> A graphical model of the observed on/off pattern of a pulsar. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="inf-behaviour.d/pulsar.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -459,13 +463,13 @@ We can do this by forming ratios inside the overall ratio to more directly compa
 
 <heuristic xml:id="strategy-inf-behaviour-dominant-terms">
 	<title>Comparing terms as <m>t \to \infty</m> in a rational expression </title>
-	<p>
-	To determine dominant terms as <m>t \to \infty</m> in a rational expression,
-	divide each term in both numerator and denominator by the
-	<em>largest term in the denominator</em>.
-	After simplifying and applying <xref ref="pattern-inf-behaviour-reciprocal-of-inf" />,
-	whatever is left are the dominant terms.
-	</p>
+	<statement><p>
+		To determine dominant terms as <m>t \to \infty</m> in a rational expression,
+		divide each term in both numerator and denominator by the
+		<em>largest term in the denominator</em>.
+		After simplifying and applying <xref ref="pattern-inf-behaviour-reciprocal-of-inf" />,
+		whatever is left are the dominant terms.
+	</p></statement>
 </heuristic>
 
 <example xml:id="example-inf-behaviour-ratio-by-ratios">
@@ -600,7 +604,8 @@ with the following alterations.
 	<figure xml:id="figure-inf-behaviour-two-sided-horiz-asymp">
 		<caption> A function with a symmetric horizontal asymptote. </caption>
 		<image xml:id="image-inf-behaviour-two-sided-horiz-asymp" width="100%">
-			<description> The graph of a function with a symmetric horizontal asymptote. </description>
+			<shortdescription> The graph of a function with a symmetric horizontal asymptote. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="inf-behaviour.d/two-sided-horiz-asymp.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -663,7 +668,8 @@ with the following alterations.
 	<figure xml:id="figure-inf-behaviour-separate-two-sided-horiz-asymp">
 		<caption> A graph with two different horizontal asymptotes. </caption>
 		<image xml:id="image-inf-behaviour-separate-two-sided-horiz-asymp" width="92%">
-			<description> The graph of a function with two different horizontal asymptotes. </description>
+			<shortdescription> The graph of a function with two different horizontal asymptotes. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="inf-behaviour.d/separate-two-sided-horiz-asymp.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -753,7 +759,8 @@ with the following alterations.
 			The graph will slowly approach the dashed line both to the upper right and the lower left.
 		</caption>
 		<image xml:id="image-inf-behaviour-slant-asymp" width="100%">
-			<description> The graph of a function with a slant asymptote. </description>
+			<shortdescription> The graph of a function with a slant asymptote. </shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="inf-behaviour.d/slant-asymp.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -762,10 +769,10 @@ with the following alterations.
 
 <definition xml:id="definition-inf-behaviour-slant-asymp">
 	<title>Slant asymptote</title>
-	<p>
-	A line with non-zero slope that a function's graph approaches,
-	becoming closer and closer to it as one goes further out on the graph.
-	</p>
+	<statement><p>
+		A line with non-zero slope that a function's graph approaches,
+		becoming closer and closer to it as one goes further out on the graph.
+	</p></statement>
 </definition>
 
 </subsection>
@@ -797,39 +804,39 @@ this pits them against each other in a race to <m>\infty</m>.
 
 <definition xml:id="definition-inf-behaviour-relative-rates">
 	<title>Relative rates of growth</title>
-	<p>
-	Assume functions <m>f(t)</m> and <m>g(t)</m> both satisfy
-	<md><mrow> f(t) \amp \to \infty \amp g(t) \amp \to \infty </mrow></md>
-	as <m>t \to \infty</m>.
-	<ol>
+	<statement><p>
+		Assume functions <m>f(t)</m> and <m>g(t)</m> both satisfy
+		<md><mrow> f(t) \amp \to \infty \amp g(t) \amp \to \infty </mrow></md>
+		as <m>t \to \infty</m>.
+		<ol>
 
-		<li>
-			<title>Faster growth</title>
-			<p>
-			If <me> \frac{f(t)}{g(t)} \to \infty \text{ as } t \to \infty </me>
-			then we say that <m>f(t)</m> <term>grows faster than</term> <m>g(t)</m>.
-			</p>
-		</li>
+			<li>
+				<title>Faster growth</title>
+				<p>
+				If <me> \frac{f(t)}{g(t)} \to \infty \text{ as } t \to \infty </me>
+				then we say that <m>f(t)</m> <term>grows faster than</term> <m>g(t)</m>.
+				</p>
+			</li>
 
-		<li>
-			<title>Slower growth</title>
-			<p>
-			If <me> \frac{f(t)}{g(t)} \to 0 \text{ as } t \to \infty </me>
-			then we say that <m>f(t)</m> <term>grows more slowly than</term> <m>g(t)</m>.
-			</p>
-		</li>
+			<li>
+				<title>Slower growth</title>
+				<p>
+				If <me> \frac{f(t)}{g(t)} \to 0 \text{ as } t \to \infty </me>
+				then we say that <m>f(t)</m> <term>grows more slowly than</term> <m>g(t)</m>.
+				</p>
+			</li>
 
-		<li>
-			<title>Comparable growth</title>
-			<p>
-			If <me> \frac{f(t)}{g(t)} \to L \text{ as } t \to \infty </me>
-			where <m>L</m> is a positive, finite number,
-			then we say that <m>f(t)</m> and <m>g(t)</m> <term>grow at comparable rates</term>.
-			</p>
-		</li>
+			<li>
+				<title>Comparable growth</title>
+				<p>
+				If <me> \frac{f(t)}{g(t)} \to L \text{ as } t \to \infty </me>
+				where <m>L</m> is a positive, finite number,
+				then we say that <m>f(t)</m> and <m>g(t)</m> <term>grow at comparable rates</term>.
+				</p>
+			</li>
 
-	</ol>
-	</p>
+		</ol>
+	</p></statement>
 </definition>
 
 <remark><p>
@@ -905,29 +912,29 @@ you might want to know if there are any particular operating states that cause i
 
 <definition xml:id="definition-inf-behaviour-singular">
 	<title>Singular behaviour</title>
-	<p>
-	<ol>
+	<statement><p>
+		<ol>
 
-		<li>
-			<title>Growth singularity</title>
-			<p>
-				We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to c </me>
-				to mean that output values of <m>f(t)</m> become arbitrarily large and positive for all inputs <m>t</m> sufficiently close to (but not equal to) <m>c</m>.
-			</p>
-		</li>
+			<li>
+				<title>Growth singularity</title>
+				<p>
+					We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to c </me>
+					to mean that output values of <m>f(t)</m> become arbitrarily large and positive for all inputs <m>t</m> sufficiently close to (but not equal to) <m>c</m>.
+				</p>
+			</li>
 
-		<li>
-			<title>Decay singularity</title>
-			<p>
-				We write <me> f(t) \to -\infty \qquad \text{as} \qquad t \to c </me>
-				to mean that output values of <m>f(t)</m> become arbitrarily large and negative for all inputs <m>t</m> sufficiently close to (but not equal to) <m>c</m>.
-			</p>
-		</li>
+			<li>
+				<title>Decay singularity</title>
+				<p>
+					We write <me> f(t) \to -\infty \qquad \text{as} \qquad t \to c </me>
+					to mean that output values of <m>f(t)</m> become arbitrarily large and negative for all inputs <m>t</m> sufficiently close to (but not equal to) <m>c</m>.
+				</p>
+			</li>
 
-	</ol>
-	In either case,
-	we say that <m>f(t)</m> has a <term>singularity</term> at <m>t = c</m>.
-	</p>
+		</ol>
+		In either case,
+		we say that <m>f(t)</m> has a <term>singularity</term> at <m>t = c</m>.
+	</p></statement>
 </definition>
 
 <p>
@@ -1020,28 +1027,28 @@ we make the following definition.
 
 <definition xml:id="definition-inf-behaviour-one-sided-singular">
 	<title>One-sided singular behaviour</title>
-	<p>
-	<ol>
+	<statement><p>
+		<ol>
 
-		<li>
-			<title>Right-hand singularity</title>
-			<p>
-				We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to c^+ </me>
-				to mean that output values of <m>f(t)</m> become arbitrarily large and positive for all inputs <m>t</m> sufficiently close to but strictly greater than <m>c</m>.
-			</p>
-		</li>
+			<li>
+				<title>Right-hand singularity</title>
+				<p>
+					We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to c^+ </me>
+					to mean that output values of <m>f(t)</m> become arbitrarily large and positive for all inputs <m>t</m> sufficiently close to but strictly greater than <m>c</m>.
+				</p>
+			</li>
 
-		<li>
-			<title>Left-hand singularity</title>
-			<p>
-				We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to c^- </me>
-				to mean that output values of <m>f(t)</m> become arbitrarily large and positive for all inputs <m>t</m> sufficiently close to but strictly less than <m>c</m>.
-			</p>
-		</li>
+			<li>
+				<title>Left-hand singularity</title>
+				<p>
+					We write <me> f(t) \to \infty \qquad \text{as} \qquad t \to c^- </me>
+					to mean that output values of <m>f(t)</m> become arbitrarily large and positive for all inputs <m>t</m> sufficiently close to but strictly less than <m>c</m>.
+				</p>
+			</li>
 
-	</ol>
-	And we can make similar definitions for the meanings of <m>f(t) \to -\infty</m> as <m>t \to c^+</m> or as <m>t \to c^-</m>.
-	</p>
+		</ol>
+		And we can make similar definitions for the meanings of <m>f(t) \to -\infty</m> as <m>t \to c^+</m> or as <m>t \to c^-</m>.
+	</p></statement>
 </definition>
 
 <example xml:id="example-inf-behaviour-two-sided-singularity">
@@ -1058,6 +1065,8 @@ we make the following definition.
 	Hence <me> f(t) \to \infty \qquad \text{as} \qquad t \to 1^- </me>.
 	</p>
 </example>
+
+</subsection>
 
 <subsection>
 <title>Vertical asymptotes</title>
@@ -1077,10 +1086,10 @@ so that the function's graph is approaching a <em>vertical</em> line at a specif
 
 <definition xml:id="definition-inf-behaviour-vasymp">
 	<title>Vertical asymptote</title>
-	<p>
-	A vertical line that a function's graph approaches,
-	becoming closer and closer to it as the inputs are made closer to the location of the vertical line.
-	</p>
+	<statement><p>
+		A vertical line that a function's graph approaches,
+		becoming closer and closer to it as the inputs are made closer to the location of the vertical line.
+	</p></statement>
 </definition>
 
 <figure xml:id="figure-inf-behaviour-vert-asymp">
@@ -1094,7 +1103,8 @@ so that the function's graph is approaching a <em>vertical</em> line at a specif
 				(From <xref ref="example-inf-behaviour-1-over-square-singularity" />.)
 			</caption>
 			<image xml:id="image-inf-behaviour-vert-asymp-1">
-				<description> The graph of a function that displays the same behaviour on either side of a vertical asymptote. </description>
+				<shortdescription> The graph of a function that displays the same behaviour on either side of a vertical asymptote. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="inf-behaviour.d/vert-asymp-1.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -1105,7 +1115,8 @@ so that the function's graph is approaching a <em>vertical</em> line at a specif
 				(From <xref ref="example-inf-behaviour-two-sided-singularity" />.)
 			</caption>
 			<image xml:id="image-inf-behaviour-vert-asymp-2">
-				<description> The graph of a function that displays different behaviours on either side of a vertical asymptote. </description>
+				<shortdescription> The graph of a function that displays different behaviours on either side of a vertical asymptote. </shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="inf-behaviour.d/vert-asymp-2.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -1113,8 +1124,6 @@ so that the function's graph is approaching a <em>vertical</em> line at a specif
 	</sidebyside>
 
 </figure>
-
-</subsection>
 
 </subsection>
 

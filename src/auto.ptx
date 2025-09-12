@@ -180,7 +180,8 @@ by applying the concepts we learned in <xref ref="chapter-curves" />.
 	<figure xml:id="figure-auto-first-example-phase-line">
 		<caption> A <term>phase line</term> describing solution behaviours on different quantity ranges. </caption>
 		<image xml:id="image-auto-first-example-phase" width="30.8%">
-			<description>Diagram illustrating a vertical phase line that describes solution behaviours on different quantity ranges.</description>
+			<shortdescription>Diagram illustrating a vertical phase line that describes solution behaviours on different quantity ranges.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="auto.d/first-example-phase.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -190,7 +191,8 @@ by applying the concepts we learned in <xref ref="chapter-curves" />.
 	<figure xml:id="figure-auto-first-example-solutions">
 		<caption> Typical solution curves to the original rate equation. </caption>
 		<image xml:id="image-auto-first-example-solutions" width="100%">
-			<description>Diagram illustrating graphs of typical solution curves to the original rate equation.</description>
+			<shortdescription>Diagram illustrating graphs of typical solution curves to the original rate equation.</shortdescription>
+			<!-- TODO description -->
 			<latex-image><xi:include href="auto.d/first-example-solutions.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -213,29 +215,31 @@ and sometimes the system reacts violently and moves quickly away from the origin
 
 <definition>
 	<title>Stable and unstable equilibriums</title>
+	<statement>
 
-	<p>
-	For an autonomous system <m>q'(t) = f(q)</m>,
-	a constant solution function <m>q(t) = C</m>
-	(so that <m>f(C) = 0</m>)
-	is called an <term>equilibrium solution</term> for the system.
-	</p>
+		<p>
+		For an autonomous system <m>q'(t) = f(q)</m>,
+		a constant solution function <m>q(t) = C</m>
+		(so that <m>f(C) = 0</m>)
+		is called an <term>equilibrium solution</term> for the system.
+		</p>
 
-	<p>
-	If solution curves with <m>q \approx C</m> tend <em>toward</em> that equilibrium as <m>t \to \infty</m>,
-	then the equilibrium is called <term>stable</term>.
-	</p>
+		<p>
+		If solution curves with <m>q \approx C</m> tend <em>toward</em> that equilibrium as <m>t \to \infty</m>,
+		then the equilibrium is called <term>stable</term>.
+		</p>
 
-	<p>
-	If solution curves with <m>q \approx C</m> tend <em>away</em> from that equilibrium as <m>t \to \infty</m>,
-	then the equilibrium is called <term>unstable</term>.
-	</p>
+		<p>
+		If solution curves with <m>q \approx C</m> tend <em>away</em> from that equilibrium as <m>t \to \infty</m>,
+		then the equilibrium is called <term>unstable</term>.
+		</p>
 
-	<p>
-	If solution curves exhibit different trending behaviours for <m>q \approx C^+</m> versus <m>q \approx C^-</m>,
-	then the equilibrium is called <term>semi-stable</term>.
-	</p>
+		<p>
+		If solution curves exhibit different trending behaviours for <m>q \approx C^+</m> versus <m>q \approx C^-</m>,
+		then the equilibrium is called <term>semi-stable</term>.
+		</p>
 
+	</statement>
 </definition>
 
 <p>
@@ -398,7 +402,8 @@ so we have concave-up behaviour for <m>q > 0</m>.
 <figure xml:id="figure-auto-exp-growth">
 	<caption> Typical solution curves when rate is proportional to quantity. </caption>
 	<image xml:id="image-auto-exp-growth" width="57.9%">
-		<description>Diagram illustrating graphs of typical solution curves when rate is proportional to quantity.</description>
+		<shortdescription>Diagram illustrating graphs of typical solution curves when rate is proportional to quantity.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="auto.d/exp-growth.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -458,7 +463,7 @@ is a concave-down parabola as a function in <m>q</m>.
 		Note that <em><m>q</m> is on the horizontal axis</em>.
 	</caption>
 	<image xml:id="image-auto-logistic-rate-func" width="89.1%">
-		<description>Graph of the logistic growth rate function as a function of quantity.</description>
+		<shortdescription>Graph of the logistic growth rate function as a function of quantity.</shortdescription>
 		<latex-image><xi:include href="auto.d/logistic-rate-func.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -519,7 +524,8 @@ but not at <m>q = M</m> since that is one of our equilibrium solutions.
 <figure xml:id="figure-auto-logistic-solutions">
 	<caption> Phase line and representative solution curves for logistic growth. </caption>
 	<image xml:id="image-auto-logistic-solutions" width="100%">
-		<description>Phase line and representative solution curves for logistic growth.</description>
+		<shortdescription>Phase line and representative solution curves for logistic growth.</shortdescription>
+		<!-- TODO description -->
 		<latex-image><xi:include href="auto.d/logistic-solutions.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -560,7 +566,8 @@ so we will leave the details to you, the reader.
 				Note that <em><m>q</m> is on the horizontal axis</em>.
 			</caption>
 			<image xml:id="image-auto-threshold-rate-func">
-				<description>Graph of the growth-with-threshold rate function as a function of quantity.</description>
+				<shortdescription>Graph of the growth-with-threshold rate function as a function of quantity.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="auto.d/threshold-rate-func.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
@@ -568,7 +575,8 @@ so we will leave the details to you, the reader.
 		<sidebyside widths="100%"><figure xml:id="figure-auto-threshold-solutions">
 			<caption> Phase line and representative solution curves for growth with threshold. </caption>
 			<image xml:id="image-auto-threshold-solutions">
-				<description>Phase line and representative solution curves for growth with threshold.</description>
+				<shortdescription>Phase line and representative solution curves for growth with threshold.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="auto.d/threshold-solutions.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
@@ -615,7 +623,8 @@ and we assume that the threshold <m>T</m> is less than the carrying capacity <m>
 				Note that <em><m>q</m> is on the horizontal axis</em>.
 			</caption>
 			<image xml:id="image-auto-both-rate-func">
-				<description>Graph of the rate function for logistic growth with threshold, as a function of quantity.</description>
+				<shortdescription>Graph of the rate function for logistic growth with threshold, as a function of quantity.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="auto.d/both-rate-func.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>
@@ -623,7 +632,8 @@ and we assume that the threshold <m>T</m> is less than the carrying capacity <m>
 		<sidebyside widths="100%"><figure xml:id="figure-auto-both-solutions">
 			<caption> Phase line and representative solution curves for logistic growth with threshold. </caption>
 			<image xml:id="image-auto-both-solutions">
-				<description>Phase line and representative solution curves for logistic growth with threshold.</description>
+				<shortdescription>Phase line and representative solution curves for logistic growth with threshold.</shortdescription>
+				<!-- TODO description -->
 				<latex-image><xi:include href="auto.d/both-solutions.tex" parse="text" /></latex-image>
 			</image>
 		</figure></sidebyside>

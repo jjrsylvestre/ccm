@@ -58,11 +58,11 @@ In this chapter we will study infinite series that involve such an <q>input vari
 
 <definition xml:id="definition-power-series">
 	<title>Power series</title>
-	<p>
+	<statement><p>
 		An infinite series involving non-negative powers of an indeterminate <m>t</m>: <me> \sum_{k = 0}^\infty a_k t^k </me>,
 		using the convention <m>t^0 = 1</m> for all values of <m>t</m> (including <m>t = 0</m>).
 		The sequence <m>\nseq{a}</m> is called the <term>coefficient sequence</term> for the power series.
-	</p>
+	</p></statement>
 </definition>
 
 <example><p>
@@ -474,12 +474,12 @@ where we just allow the coefficient pattern to continue indefinitely.
 
 <definition>
 	<title>Taylor series at <m>0</m></title>
-	<p>
-	If all orders of derivative value for function <m>f</m> exist at <m>t =0</m>,
-	then the power series
-	<me> T_0(t) = \sum_{k = 0}^\infty \frac{\nthderiv[k]{f}(0)}{k!} \; t^k </me>
-	is called the <term>Taylor series at <m>0</m> for <m>f</m></term>.
-	</p>
+	<statement><p>
+		If all orders of derivative value for function <m>f</m> exist at <m>t =0</m>,
+		then the power series
+		<me> T_0(t) = \sum_{k = 0}^\infty \frac{\nthderiv[k]{f}(0)}{k!} \; t^k </me>
+		is called the <term>Taylor series at <m>0</m> for <m>f</m></term>.
+	</p></statement>
 </definition>
 
 <p>
@@ -610,10 +610,10 @@ And the <q>potential limiting value</q> we propose is the original function valu
 
 <definition>
 	<title>Remainder sequence for a Taylor series</title>
-	<p>
-	Given a function <m>f</m> for which the derivative values <m>\nthderiv{f}(t^\ast)</m> exist for all <m>n</m>,
-	for each <m>n</m> define <term>remainder function</term> <m>\nthremainder{t^\ast}(t) = f(t) - \nthtaylor{t^\ast}(t)</m>.
-	</p>
+	<statement><p>
+		Given a function <m>f</m> for which the derivative values <m>\nthderiv{f}(t^\ast)</m> exist for all <m>n</m>,
+		for each <m>n</m> define <term>remainder function</term> <m>\nthremainder{t^\ast}(t) = f(t) - \nthtaylor{t^\ast}(t)</m>.
+	</p></statement>
 </definition>
 
 <fact xml:id="fact-power-series-taylor-remainder">
