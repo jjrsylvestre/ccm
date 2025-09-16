@@ -94,7 +94,9 @@ simply divide the accumulation amount by the time duration.
 	this equality of distances is represented by equality of the red and blue areas.
 	</p>
 
-	<aside><p> We take <q>average speed</q> to mean <q>average rate of accumulation of distance</q>. </p></aside>
+	<aside valign="top"><title>Terminology</title><p>
+		We take <q>average speed</q> to mean <q>average rate of accumulation of distance</q>.
+	</p></aside>
 
 	<figure xml:id="figure-avg-rate-camrose-wetaskiwin">
 		<caption> Maintaining a constant speed at the average speed value traverses the same distance. </caption>
@@ -609,7 +611,7 @@ we need a more systematic approach than just <q>compute <m>\avg{r}</m> over a sh
 Here are three such approaches.
 </p>
 
-<aside><title>Notation</title><p>
+<aside valign="middle"><title>Notation</title><p>
 	Here <m>t^\ast</m> does not indicate a <q>sample point</q> in a Riemann sum <mdash />
 	instead the asterisk just marks this <m>t</m> value as of <q>special</q> interest.
 </p></aside>

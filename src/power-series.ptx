@@ -1131,7 +1131,7 @@ an alternative is to use term-by-term integration of a known power series repres
 	</mrow></md>.
 	</p>
 
-	<aside><p>
+	<aside><title>Power versus Taylor/Maclaurin series</title><p>
 		Compare the power series representation for <m>\ln(t)</m> obtained here with the Maclaurin series for <m>\ln(1 + t)</m> obtained in
 		<xref ref="example-power-series-shifted-logarithm" />.
 	</p></aside>
@@ -1195,8 +1195,8 @@ an alternative is to use term-by-term integration of a known power series repres
 	<me> \ccmiint{\ln(t)}{t} = t \ln(t) - t + C </me>.
 	</p>
 
-	<aside><p>
-		If you know the method of integration called <term>integration by parts</term>,
+	<aside><title>Previous knowledge</title><p>
+		If you have previously learned the method of integration called <term>integration by parts</term>,
 		then you likely already know that our result here for the integral of <m>\ln(t)</m> matches what can be obtained by that method more simply.
 	</p></aside>
 

@@ -1186,15 +1186,6 @@ To separate these roles,
 we'll choose a different letter for the independent variable in the rate function when we choose to have a variable upper bound of integration.
 </p>
 
-<aside>
-	<title>Recall</title>
-	<p>
-	The choice of letter for the independent variable in a function is <q>cosmetic</q> <mdash />
-	writing <m>r(t)</m> or <m>r(x)</m> or <m>r(\alpha)</m> does not change the function,
-	it only changes how we describe the function notationally.
-	</p>
-</aside>
-
 <p>
 Also,
 we used the subscript <m>0</m> on the function <m>A_0(t)</m> in <xref ref="example-integ-air-accum-function" />
@@ -1212,13 +1203,21 @@ in which case we can just change that subscript.
 	<me> A_{t_0}(t) = \ccmint{t_0}{t}{r(u)}{u} </me>,
 	where <m>A_{t_0}(t)</m> represents the amount accumulated starting at the fixed time <m>t_0</m> and ending at the variable time <m>t</m>.
 	</p>
+	<aside valign="middle">
+		<title>Recall</title>
+		<p>
+		The choice of letter for the independent variable in a function is <q>cosmetic</q> <mdash />
+		writing <m>r(t)</m> or <m>r(x)</m> or <m>r(\alpha)</m> or <m>r(u)</m> does not change the function,
+		it only changes how we describe the function notationally.
+		</p>
+	</aside>
 </identity>
 
 <p>
 As a <q>formula</q> for an accumulation function,
 a definite integral is not very convenient <mdash />
 computing a definite integral requires examining patterns of upper and lower sums,
-which is not so easy if the upper bound of integration is a variable.
+which is not so easy when the end point of the domain of integration is a variable.
 Luckily Sage can also handle this for us.
 </p>
 

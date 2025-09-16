@@ -788,7 +788,7 @@ the <xref ref="pattern-func-limits-laws" text="title" /> are equally valid for o
 		if and only if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small open range around the value <m>L</m> by restricting the input values <m>t</m> to some sufficiently small open subdomain around <m>c</m> (but excluding <m>c</m> itself).
 		</p>
 
-		<aside><p>
+		<aside valign="middle"><title>A look back</title><p>
 			Compare this statement with the definition of <term><xref ref="definition-funcs-point-continuous" text="title"/></term>.
 			We will connect function limits to continuity in <xref ref="subsection-func-limits-continuity" />.
 		</p></aside>

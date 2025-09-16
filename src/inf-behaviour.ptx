@@ -79,7 +79,7 @@ respective owners.
 	so it is not permitted as an output of a function.
 	Instead, we use the <q>idea</q> of infinity to indicate unbounded behaviour.
 	</p>
-	<aside><p>
+	<aside valign="middle"><title>Further investigation</title><p>
 		It is possible to create mathematical systems where infinity <em>can</em> be considered a number,
 		but such discussion is beyond the scope of this course.
 	</p></aside>

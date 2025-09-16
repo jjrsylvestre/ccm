@@ -274,17 +274,16 @@ the special number so that <m>\ln (a) = 1</m> is given its own symbol.
 
 	<statement>
 
-		<!-- TODO valign? move this below the <p> ? -->
-		<biographical>
-			<title>Leonhard Euler</title>
-			<p> 1707 <ndash /> 1783. </p>
-		</biographical>
-
 		<p>
 		The real number,
 		denoted by the letter <m>e</m>,
 		so that <m> \ln (e) = 1 </m>.
 		</p>
+
+		<biographical valign="top">
+			<title>Leonhard Euler</title>
+			<p> 1707 <ndash /> 1783. </p>
+		</biographical>
 
 	</statement>
 
@@ -506,12 +505,13 @@ they <q>reverse</q> each other algebraically,
 just as <em>cube</em> and <em>cube root</em> reverse each other.
 </p>
 
-<aside>
-	<title>Remark</title>
+<aside valign="middle">
+	<title>Warning</title>
 	<p>
-	You might wonder why <em>square</em> and <em>square root</em> weren't chosen as a comparison pair instead <mdash />
-	the reason is that square root is actually not a perfect reversal of square,
-	as the example <me> \sqrt{(-1)^2} = 1 </me> demonstrates.
+	<em>Square</em> and <em>square root</em> do <alert>not</alert> <em>perfectly</em> reverse each other in the same way that exponential/logarithm or cube/cube root do.
+	For example, in a perfect reversal we would expect <m> \sqrt{(-1)^2} </m> to evaluate to the starting value of <m>-1</m>,
+	but in fact <m> \sqrt{(-1)^2} = 1 </m>.
+	We will account for this mismatch in <xref ref="chapter-comp-inv" />.
 	</p>
 </aside>
 

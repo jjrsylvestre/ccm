@@ -1048,10 +1048,10 @@ When we sum up the (oriented) areas of rectangles formed by a step function,
 the sum is called a <term>Riemann sum</term>.
 </p>
 
-<aside>
+<biographical>
 	<title>Georg Friedrich Bernhard Riemann</title>
 	<p>1826 <ndash /> 1866.</p>
-</aside>
+</biographical>
 
 <definition xml:id="definition-step-riemann">
 	<title>Riemann sum</title>

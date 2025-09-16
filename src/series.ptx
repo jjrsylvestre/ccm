@@ -631,6 +631,23 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 
 <example xml:id="example-series-harmonic">
 	<title>Harmonic Series</title>
+
+	<p>
+	The infinite series <m>\sum 1/k</m> (beginning at index <m>k = 1</m>) has <m>\seq{1/n} \to 0</m>,
+	but does not converge.
+	To see this,
+	we'll consider a particular subsequence of the sequence of partial sums.
+	But first, some analysis of some <q>partial</q> partial sums.
+	Because the sequence <m>1/n</m> is decreasing,
+	in any sum of consecutive terms of that sequence,
+	we can replace all terms by the last term and end up with a smaller result:
+	<md>
+		<mrow> \sum_{k = m}^n \frac{1}{k} \amp = \frac{1}{m} + \frac{1}{m+1} + \dotsb + \frac{1}{n} </mrow>
+		<mrow> \amp \gt \frac{1}{n} + \frac{1}{n} + \dotsb + \frac{1}{n} </mrow>
+		<mrow> \amp = \frac{n - m + 1}{n} </mrow>
+	</md>.
+	</p>
+
 	<aside><title>Counting indexed objects</title><p>
 		In an indexed collection,
 		counting the number of objects from index <m>m</m> to index <m>n</m> is <m>n - m + 1</m>,
@@ -639,19 +656,8 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 		but we want to include object <m>m</m> in our count.
 		The <m>+1</m> adds it back in.
 	</p></aside>
+
 	<p>
-	The infinite series <m>\sum 1/k</m> (beginning at index <m>k = 1</m>) has <m>\seq{1/n} \to 0</m>,
-	but does not converge.
-	To see this,
-	we'll consider a particular subsequence of the sequence of partial sums.
-	But first, some analysis of some <q>partial</q> partial sums.
-	Because this sequence is decreasing,
-	in any sum of consecutive terms we can replace all terms by the last term and end up with a smaller result:
-	<md>
-		<mrow> \sum_{k = m}^n \frac{1}{k} \amp = \frac{1}{m} + \frac{1}{m+1} + \dotsb + \frac{1}{n} </mrow>
-		<mrow> \amp \gt \frac{1}{n} + \frac{1}{n} + \dotsb + \frac{1}{n} </mrow>
-		<mrow> \amp = \frac{n - m + 1}{n} </mrow>
-	</md>.
 	In particular,
 	a <q>partial</q> partial sum between two indices that are consecutive powers of <m>2</m> exhibits the following pattern:
 	<md>
