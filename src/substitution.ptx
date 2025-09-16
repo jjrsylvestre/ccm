@@ -122,7 +122,7 @@ just as in <xref ref="equation-substitution-integral-of-deriv" />.
 
 <aside><title>Note</title><p>
 	We could make this discussion more precise by considering an actual Riemann sum involving <m>\change{q}</m> and <m>\change{t}</m>,
-	but we won't purse that here.
+	but we won't pursue that here.
 </p></aside>
 
 <example>
