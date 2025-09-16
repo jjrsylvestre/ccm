@@ -13,11 +13,14 @@ BUILDDIR=${XDG_RUNTIME_DIR}/pretext/ccm
 #PRETEXT=./pretext/pretext/pretext
 PRETEXTDIR=./pretext
 ROOT_XMLID=book-calculus-concepts-modelling
+REMOTE_LOCATION=
 
 .PHONY: ptx validate-xml validate-ptx \
   html html-images html-image-pdfs html-fonts html-all html-serve \
   clean ptx-clean html-clean html-images-clean \
-  help list
+  deploy help list
+
+log_error = (>&2 echo ">>>> $1" && exit 1)
 
 list: help
 help:
@@ -37,11 +40,14 @@ help:
 	@echo "> ptx-clean          : Remove preprocessed PTX output."
 	@echo "> html-clean         : Remove all HTML output."
 	@echo "> html-images-clean  : Remove all accompanying SVG files."
+	@echo "> deploy             : rsync HTML files to a remote server."
 	@echo "== PARAMETERS ============"
-	@echo "> BUILDDIR   : Root directory for all output files. [Default: $(BUILDDIR)]"
-	@echo "> BRANDLOGO  : Filename of institutional logo. Needs to exist in images/. [Default: $(BRANDLOGO)]"
-	@echo "> PRETEXTDIR : Path to PreTeXt installation [Default: $(PRETEXTDIR)]"
-	@echo "> SERVEPORT  : Local port on which to serve HTML output when using the html-serve target. [Default: $(SERVEPORT)]"
+	@echo "> BUILDDIR       : Root directory for all output files. [Default: $(BUILDDIR)]"
+	@echo "> BRANDLOGO      : Filename of institutional logo. Needs to exist in images/. [Default: $(BRANDLOGO)]"
+	@echo "> PRETEXTDIR     : Path to PreTeXt installation [Default: $(PRETEXTDIR)]"
+	@echo "> SERVEPORT      : Local port on which to serve HTML output when using the html-serve target. [Default: $(SERVEPORT)]"
+	@echo "> REMOTE_LOCATION: Remote path to use as rsync target for HTML output."
+	@echo "                   [Default: unset]"
 
 
 html-all: html html-images html-fonts
@@ -69,6 +75,11 @@ html: ${BUILDDIR}/html/.sentinal html-out.xml
 html-images: ${BUILDDIR}/html/images/.sentinal
 html-image-pdfs: ${BUILDDIR}/image-pdfs/.sentinal
 latex: ${BUILDDIR}/latex/${ROOTDOCNAME}.tex
+
+deploy: html-all
+	@[ "$(REMOTE_LOCATION)" ] || $(call log_error, "REMOTE_LOCATION not set!")
+	@echo "Transferring ${BUILDDIR}/html/ to ${REMOTE_LOCATION} ..."
+	@./scripts/deploy.sh ${BUILDDIR}/html deploy.exclude ${REMOTE_LOCATION}
 
 ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx: $(SOURCES) | validate-xml
 	@echo "Consolidating document into one PTX file, output will be placed in build/ptx..."
