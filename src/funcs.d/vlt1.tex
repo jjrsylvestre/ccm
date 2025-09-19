@@ -25,7 +25,7 @@
 
 	% axes
 	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below] {$t$};
-	\draw[->,thick] (0,\ymin) -- (0,\ymax);
+	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[right] {$q$};
 
 	% graph
 	\draw[thick, blue, domain=0:2, smooth] plot ({\x * \x},\x);

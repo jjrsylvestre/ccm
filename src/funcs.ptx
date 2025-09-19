@@ -38,7 +38,11 @@ for us a function will always be <em>one number in, one number out</em>.
 	<caption> Schematic of a function as an input-output process. </caption>
 	<image xml:id="image-funcs-in-out" width="60.2%">
 		<shortdescription>Schematic of a function as an input-output process.</shortdescription>
-		<!-- TODO description -->
+		<description><p>
+			A rectangle labelled by the function <m>f</m> appears in the centre,
+			with an input arrow labelled <m>t</m> pointing into the left side of the rectangle,
+			and an output arrow labelled <m>q</m> point out of the right side of the rectangle.
+		</p></description>
 		<latex-image><xi:include href="funcs.d/in-out.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -221,13 +225,13 @@ even if the description of the function's input-output process could allow other
 <example><p>
 	The function <me> f(t) = \frac{1}{t^2} </me> only outputs positive values.
 	But is every positive value an <em>actual</em> output of the function?
-	Yes, because if <m>y</m> is a positive number,
-	there is at least one example of an input value so that <m>f(t) = y</m>;
+	Yes, because if <m>q</m> is a positive number,
+	there is at least one example of an input value so that <m>f(t) = q</m>;
 	in particular,
 	<md><mrow>
-		t \amp = \frac{1}{\sqrt{y}}
+		t \amp = \frac{1}{\sqrt{q}}
 		\amp
-		f(t) \amp = \frac{1}{{1/\sqrt{y}}^2} = y
+		f(t) \amp = \frac{1}{{1/\sqrt{q}}^2} = q
 	</mrow></md>.
 	So the range of this function is the set of all positive numbers.
 </p></example>
@@ -273,7 +277,13 @@ the property of being on the graph or not on the graph of a function <m>f</m> is
 		</caption>
 		<image xml:id="image-funcs-parabola" width="67.9%">
 			<shortdescription> Parabolic graph of the basic quadratic function. </shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The graph of the function <m>f(t) = t^2</m>,
+				taking the shape of a parabola,
+				is drawn on a set of <m>tq</m>-axes.
+				The point <m>(2,4)</m> is plotted as a point on the graph,
+				and the point <m>(-1,6)</m> is plotted as a point not on the graph.
+			</p></description>
 			<latex-image><xi:include href="funcs.d/parabola.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -304,7 +314,12 @@ the property of being on the graph or not on the graph of a function <m>f</m> is
 		<caption> An example graph that consists of only five points. </caption>
 		<image xml:id="image-funcs-discrete" width="34.7%">
 			<shortdescription> An example graph that consists of only five points. </shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				Five points are plotted on a set of <m>tq</m>-axes.
+				One point appears at the origin,
+				one point appears in the fourth quadrant of the plane,
+				and the other three points appear at various positions in the first quadrant of the plane.
+			</p></description>
 			<latex-image><xi:include href="funcs.d/discrete.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -341,7 +356,27 @@ in which case there is no corresponding point on the graph for a vertical line a
 			<caption> A curve that passes the Vertical Line Test. </caption>
 			<image xml:id="image-funcs-vlt1">
 				<shortdescription> A curve that passes the Vertical Line Test. </shortdescription>
-				<!-- TODO description -->
+				<description>
+
+					<p>
+					A set of <m>tq</m>-axes is drawn,
+					and a curve is drawn in the first quadrant of the plane only.
+					The curve begins at the origin,
+					rises steeply into the first quadrant,
+					and then flattens out somewhat as it continues rising to the right.
+					No part of the graph appears to the left of the vertical axis.
+					</p>
+
+					<p>
+					Two representative vertical lines are drawn to illustrate the Vertical Line Test.
+					The first vertical line appears to the left of the vertical axis,
+					and does not intersect the curve.
+					The second vertical line appears to the right of the vertical axis,
+					and intersects the curve exactly one.
+					The point of intersection is plotted.
+					</p>
+
+				</description>
 				<latex-image><xi:include href="funcs.d/vlt1.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -350,7 +385,32 @@ in which case there is no corresponding point on the graph for a vertical line a
 			<caption> A curve that does not pass the Vertical Line Test. </caption>
 			<image xml:id="image-funcs-vlt2">
 				<shortdescription> A curve that does not pass the Vertical Line Test. </shortdescription>
-				<!-- TODO description -->
+				<description>
+
+					<p>
+					A set of <m>tq</m>-axes is drawn,
+					and on them a curve is drawn.
+					The curve can be described in two parts,
+					with one part in the first quadrant of the plane, one part in the fourth quadrant,
+					and the two parts meeting at the origin.
+					The former part begins at the origin,
+					rises steeply into the first quadrant,
+					and then flattens out somewhat as it continues rising to the right.
+					The latter part is the mirror image:
+					it descends steeply into the fourth quadrant,
+					and then flattens out somewhat as it continues descending to the right.
+					No part of the graph appears to the left of the vertical axis.
+					</p>
+
+					<p>
+					A representative vertical line is drawn to illustrate the Vertical Line Test.
+					This line appears to the right of the vertical axis,
+					and intersects the curve exactly twice,
+					once in the first quadrant and once in the fourth quadrant.
+					Both points of intersection are plotted.
+					</p>
+
+				</description>
 				<latex-image><xi:include href="funcs.d/vlt2.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -440,18 +500,18 @@ a <term>piecewise function</term>.
 As you can imagine, a piecewise function will also have a graph that appears to be built out of pieces.
 </p>
 
-<example xml:id="example-funcs-piecewise-graph">
+<example xml:id="example-funcs-piecewise-graph-1">
 	<title>Graph of a piecewise function</title>
 
 	<p>
-	Consider the piecewise function
+	Consider the following piecewise function.
 	<me>
 		f(t) = \begin{cases}
 			t^2 \amp 0 \le t \le 2 \\
 			6 - t \amp t \gt 2
 		\end{cases}
-	</me>,
-	the graph of which appears in <xref ref="figure-funcs-piecewise" />.
+	</me>
+	The graph of this function appears in <xref ref="figure-funcs-piecewise" />.
 	Notice how the graph is made of part parabola,
 	and part line.
 	</p>
@@ -460,7 +520,15 @@ As you can imagine, a piecewise function will also have a graph that appears to 
 		<caption> Graph of a piecewise-defined function. </caption>
 		<image xml:id="image-funcs-piecewise" width="47%">
 			<shortdescription> Graph of a piecewise-defined function. </shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The graph of a piecewise function is drawn on a set of <m>tq</m>-axes.
+				Between <m>t = 0</m> and <m>t = 2</m> the graph is a portion of a concave-up parabola,
+				with vertex at the origin.
+				From <m>t = 2</m> onward,
+				the graph is a downwards-sloping line.
+				These two pieces of the graph meet at the point <m>(2,4)</m>,
+				so that the linear piece begins precisely where the parabolic piece ends.
+			</p></description>
 			<latex-image><xi:include href="funcs.d/piecewise.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -497,7 +565,19 @@ there is no requirement that the pieces of the graph meet at the transition poin
 		<caption> Graph of a piecewise-defined function with a <q>jump</q> in values. </caption>
 		<image xml:id="image-funcs-piecewise-2" width="47%">
 			<shortdescription> Graph of a piecewise-defined function with a "jump" in values. </shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The graph of a piecewise function is drawn on a set of <m>tq</m>-axes.
+				Between <m>t = 0</m> and <m>t = 2</m> the graph is a portion of a concave-up parabola,
+				with vertex at the origin.
+				The point <m>(2,4)</m> is plotted,
+				representing the endpoint of the parabolic portion of the graph.
+				From <m>t = 2</m> onward,
+				the graph is a downwards-sloping line,
+				beginning at point <m>(2,2)</m>.
+				(This point is plotted as an open circle,
+				indicating that the point itself is not part of the graph.)
+				A vertical dashed line (not part of the graph) bridges the gap between the endpoint of the parabolic piece and the starting point of the linear piece.
+			</p></description>
 			<latex-image><xi:include href="funcs.d/piecewise-2.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -513,11 +593,11 @@ there is no requirement that the pieces of the graph meet at the transition poin
 	Now consider the piecewise function
 	<me>
 		h(t) = \begin{cases}
-			0 \amp t \lt 0 \\
-			t^2 \amp 0 \le t \le 2 \\
-			5 \amp 2 \lt t \lt 3 \\
-			10 - 2 t \amp 3 \le t \le 5 \\
-			0 \amp t \gt 5
+			1 \amp t \lt 0 \\
+			t^2 + 1 \amp 0 \le t \le 2 \\
+			6 \amp 2 \lt t \lt 3 \\
+			11 - 2 t \amp 3 \le t \le 5 \\
+			1 \amp t \gt 5
 		\end{cases}
 	</me>,
 	the graph of which appears in <xref ref="figure-funcs-piecewise-many" />.
@@ -527,7 +607,36 @@ there is no requirement that the pieces of the graph meet at the transition poin
 		<caption> Graph of a piecewise-defined function with many pieces. </caption>
 		<image xml:id="image-funcs-piecewise-many" width="67.9%">
 			<shortdescription> Graph of a piecewise-defined function with many pieces. </shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The graph of a piecewise function is drawn on a set of <m>tq</m>-axes.
+				<ul>
+					<li> On domain <m>t \lt 0</m> the graph is a horizontal line at height <m>q = 1</m>. </li>
+					<li>
+						On domain <m>0 \le t \le 2</m> the graph is a concave-up parabola,
+						with vertex at point <m>(0,1)</m>,
+						where it the previous linear piece of the graph meets this new piece.
+						The other endpoint of this piece of the graph at <m>(2,5)</m> is plotted as a closed circle,
+						indicating that it is part of the graph.
+					</li>
+					<li>
+						On domain <m> 2 \lt t \lt 3</m> the graph is a horizontal line at height <m>q = 6</m>.
+						The endpoints of this piece of the graph at <m>(2,6)</m> and <m>(3,6)</m> are plotted as open circles,
+						indicating that they are <em>not</em> part of the graph.
+					</li>
+					<li>
+						On domain <m>3 \le t \le 5</m> the graph is a downward-sloping line,
+						running between points <m>(3,5)</m> and <m>(5,1)</m>.
+						The point <m>(3,5)</m> is plotted as a closed circle,
+						indicating that it is part of the graph.
+					</li>
+					<li>
+						On domain <m>t \gt 5</m> the graph is a horizontal line at height <m>q = 1</m>.
+						This piece of the graph meets the previous piece at the point <m>(5,1)</m>.
+					</li>
+				</ul>
+				A vertical dashed line (not part of the graph) bridges the gap between the endpoint of the parabolic piece and the starting point of the <q>middle</q> horizontal piece,
+				and a similar dashed line bridges the gap between the endpoint of the <q>middle</q> horizontal piece and the starting point of the downward-sloping linear piece.
+			</p></description>
 			<latex-image><xi:include href="funcs.d/piecewise-many.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -614,7 +723,7 @@ and we can always make the first approximation better by tightening the second a
 	<figure xml:id="figure-funcs-discont-cont">
 		<caption> A point of discontinuity and one of continuity. </caption>
 
-		<sidebyside widths="54.1% 43.5%">
+		<sidebyside widths="41.7% 43.5%">
 
 			<figure>
 				<caption>
@@ -625,7 +734,32 @@ and we can always make the first approximation better by tightening the second a
 				</caption>
 				<image xml:id="image-funcs-piecewise-2-discont">
 					<shortdescription> The graph of a function near a point of discontinuity cannot be restricted to particular output range. </shortdescription>
-					<!-- TODO description -->
+					<description>
+
+						<p>
+						The graph of a piecewise function is plotted on a set of <m>tq</m>-axes.
+						Over the domain <m> 0 \le t \le 2 </m>,
+						the graph is a concave-up parabolic curve,
+						beginning with its vertex at the origin and rising to an endpoint in the first quadrant of the plane,
+						at <m>t = 2</m>.
+						The height of this point is labelled on the vertical axis as <m>f(2)</m>.
+						Over the domain <m> t \gt 2</m> the graph is a downwards-sloping line,
+						beginning at a height roughly half that of the endpoint of the parabolic piece.
+						This beginning endpoint of the linear piece of the graph is drawn as an open circle.
+						</p>
+
+						<p>
+						The range <m>f(2) - 1 \lt q \lt f(2) + 1</m> is indicated by dashed, horizontal lines at those two boundary heights,
+						symmetrically one unit below and above the height <m>q = f(2)</m>.
+						The portion of the parabolic piece of the graph that lies within this range,
+						from left of <m>t = 2</m> where the curve meets the lower boundary <m>q = f(2) - 1</m> up to the point <m> \bbrac{2, f(2)} </m>,
+						is highlighted green.
+						A portion of the linear piece of the graph that lies outside this range,
+						for a short stretch extending rightwards and downwards from the open circle at <m>t = 2</m>,
+						is highlighted red.
+						</p>
+
+					</description>
 					<latex-image><xi:include href="funcs.d/piecewise-2-discont.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -641,7 +775,34 @@ and we can always make the first approximation better by tightening the second a
 						The graph of a function near a point of continuity can always be restricted to a small output range,
 						no matter how small.
 					</shortdescription>
-					<!-- TODO description -->
+					<description>
+
+						<p>
+						The graph of a piecewise function is plotted on a set of <m>tq</m>-axes.
+						Over the domain <m> 0 \le t \le 2 </m>,
+						the graph is a concave-up parabolic curve,
+						beginning with its vertex at the origin and rising to an endpoint in the first quadrant of the plane,
+						at <m>t = 2</m>.
+						The height of this point is labelled on the vertical axis as <m>f(2)</m>.
+						Over the domain <m> t \gt 2</m> the graph is a downwards-sloping line,
+						beginning at a height roughly half that of the endpoint of the parabolic piece.
+						This beginning endpoint of the linear piece of the graph is drawn as an open circle.
+						</p>
+
+						<p>
+						The point on the parabolic piece of the graph at <m>t = 1</m> is plotted,
+						and its height <m>f(1)</m> is marked on the vertical axis.
+						The range <m>f(1) - \epsilon \lt q \lt f(2) + \epsilon</m>,
+						where <m>\epsilon</m> represents a small value,
+						is indicated by dashed, horizontal lines at those two boundary heights,
+						symmetrically below and above the height <m>q = f(1)</m>.
+						Dashed vertical lines run from the points of intersection of the parabolic piece of the graph with the two range boundary lines down to the horizontal axis,
+						and the portion of the graph between those two points of intersection is highlighted green.
+						These two vertical lines appear on either side of <m>t = 1</m>,
+						but not symmetrically so.
+						</p>
+
+					</description>
 					<latex-image><xi:include href="funcs.d/piecewise-2-cont.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -710,7 +871,17 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 				<caption> A piecewise function can often (but not always!) jump values at transition points. </caption>
 				<image xml:id="image-funcs-jump-discont-1">
 					<shortdescription> A piecewise function with a jump discontinuity. </shortdescription>
-					<!-- TODO description -->
+					<description><p>
+						The graph of a piecewise function is drawn on a set of <m>tq</m>-axes.
+						The initial piece of the graph is a vaguely sinusoidal curve that increases from the left edge of the view up to a peak,
+						smoothly falls away to a trough,
+						and then increases up to a closed endpoint.
+						Some distance above that endpoint is an open starting point of the second piece of the curve,
+						from which the graph descends down to a trough before smoothly increasing upwards until the right edge of the view.
+						A dashed vertical line runs from the open starting point of the second piece,
+						down through the closed endpoint of the first piece,
+						and then down to the horizontal axis.
+					</p></description>
 					<latex-image><xi:include href="funcs.d/jump-discont-1.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -722,7 +893,25 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 				</caption>
 				<image xml:id="image-funcs-jump-discont-2">
 					<shortdescription> A function with a redefined point creating a jump discontinuity. </shortdescription>
-					<!-- TODO description -->
+					<description>
+
+						<p>
+						The graph of a function with a displaced point is drawn on a set of <m>tq</m>-axes.
+						From the bottom-left corner of the view the graph rises steeply up to a peak,
+						from which it smoothly and gently descends to a trough.
+						From the trough,
+						the graph rises smoothly but steeply to the top-right corner of the view.
+						</p>
+
+						<p>
+						Two-thirds of the way from peak to trough,
+						a single point of the graph is missing,
+						and this <q>removed</q> point is indicated with a small open circle.
+						A short distance above this point appears a closed point,
+						representing the output value of the function at that particular input value.
+						</p>
+
+					</description>
 					<latex-image><xi:include href="funcs.d/jump-discont-2.tex" parse="text" /></latex-image>
 				</image>
 			</figure>
@@ -762,7 +951,13 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 		<caption> A graph with a discontinuity caused by an undefined value. </caption>
 		<image xml:id="image-funcs-hole" width="38.8%">
 			<shortdescription> A graph with a discontinuity caused by an undefined value. </shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The graph of a linear function with a positive slope is drawn on a set of <m>tq</m>-axes,
+				but a single point has been removed from the graph above the input value <m>t = 1</m>.
+				To indicate this removal,
+				small open circle appears at that position on the graph,
+				so that the line of the graph appears to <q>skip over</q> that point.
+			</p></description>
 			<latex-image><xi:include href="funcs.d/hole.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -802,7 +997,19 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 		</caption>
 		<image xml:id="image-funcs-singular" width="51.1%">
 			<shortdescription> A graph of a function with a discontinuity caused by a singularity. </shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The graph of a function with a vertical asymptote at <m>t = 2</m> is drawn on a set of <m>tq</m>-axes.
+				The graph begins to the left of the vertical axis,
+				just slightly above the horizontal axis.
+				It rises very slowly at first,
+				but over a short domain it begins to rise more and more steeply,
+				until finally becomes almost vertical just to the left of <m>t = 2</m>.
+				The vertical asymptote at <m>t = 2</m> is represented as a dashed vertical line at that position.
+				The graph continues just to the right of that vertical asymptote,
+				beginning at the top of the view and descending steeply (almost vertically at first) towards the horizontal axis.
+				As it nears the horizontal axis it quickly flattens out,
+				so that it descends very slowly as it nears the horizontal axis at the right edge of the view.
+			</p></description>
 			<latex-image><xi:include href="funcs.d/singular.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -844,7 +1051,27 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 			<caption>Ascending through each possible output value.</caption>
 			<image xml:id="image-funcs-IVT-low-to-high">
 				<shortdescription>A continuous function ascending through all possible output values from low to high.</shortdescription>
-				<!-- TODO description -->
+				<description>
+
+					<p>
+					The graph of a function over a closed, bounded domain <m>t_1 \lt t \lt t_2</m> is drawn on a set of <m>tq</m>-axes.
+					The graph begins at a closed endpoint at position <m>\bbrac{t_1, f(t_1)}</m>.
+					From there is dips slightly down to a trough before rising significantly up to a peak,
+					before dipping slightly again down to a closed endpoint at position <m>\bbrac{t_2, f(t_2)}</m>.
+					In this configuration, <m>f(t_1) \lt f(t_2)</m>.
+					The values <m>q = f(t_1)</m> and <m>q = f(t_2)</m> are marked on the vertical axis,
+					and a dashed horizontal line runs from each of those positions on the vertical axis to the corresponding endpoint of the graph.
+					</p>
+
+					<p>
+					A value <m>q = K</m> is marked on the vertical axis,
+					approximately three-quarters of the way from <m>q = f(t_1)</m> up to <m>q = f(t_2)</m>,
+					and a third dashed horizontal line runs from this position on the vertical axis to the right edge of the view.
+					This horizontal line necessarily intersects the graph,
+					and the point of intersection is marked on the graph to illustrate the conclusion of the <xref ref="theorem-funcs-intermediate-value" /> in this case.
+					</p>
+
+				</description>
 				<latex-image><xi:include href="funcs.d/IVT-low-to-high.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -852,7 +1079,27 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 			<caption>Descending through each possible output value.</caption>
 			<image xml:id="image-funcs-IVT-high-to-low">
 				<shortdescription>A continuous function descending through all possible output values from high to low.</shortdescription>
-				<!-- TODO description -->
+				<description>
+
+					<p>
+					The graph of a function over a closed, bounded domain <m>t_1 \lt t \lt t_2</m> is drawn on a set of <m>tq</m>-axes.
+					The graph begins at a closed endpoint at position <m>\bbrac{t_1, f(t_1)}</m>.
+					From there is rises slightly up to a peak before descending significantly down to a trough,
+					before rising slightly again up to a closed endpoint at position <m>\bbrac{t_2, f(t_2)}</m>.
+					In this configuration, <m>f(t_1) \gt f(t_2)</m>.
+					The values <m>q = f(t_1)</m> and <m>q = f(t_2)</m> are marked on the vertical axis,
+					and a dashed horizontal line runs from each of those positions on the vertical axis to the corresponding endpoint of the graph.
+					</p>
+
+					<p>
+					A value <m>q = K</m> is marked on the vertical axis,
+					approximately three-quarters of the way from <m>q = f(t_1)</m> down to <m>q = f(t_2)</m>,
+					and a third dashed horizontal line runs from this position on the vertical axis to the right edge of the view.
+					This horizontal line necessarily intersects the graph,
+					and the point of intersection is marked on the graph to illustrate the conclusion of the <xref ref="theorem-funcs-intermediate-value" /> in this case.
+					</p>
+
+				</description>
 				<latex-image><xi:include href="funcs.d/IVT-high-to-low.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -964,7 +1211,38 @@ we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
 				Two vertical shifts of the graph of the square root function,
 				one up and one down.
 			</shortdescription>
-			<!-- TODO description -->
+			<description>
+
+				<p>
+				Three graphs with identical shapes are drawn on the same set of <m>tq</m>-axes.
+				The identical shape of the three graphs is the top half of a sideways parabola that opens to the right.
+				</p>
+
+				<p>
+				The first such graph begins with its vertex at the origin,
+				rises steeply up to a marked point at <m>(1,1)</m>,
+				and then continues to rise (but less steeply) to the right edge of the view.
+				</p>
+
+				<p>
+				The second identical copy begins with its vertex at height <m>q = 2</m> on the vertical axis,
+				rises steeply up to a marked point at <m>(1,3)</m>,
+				and then continues to rise (but less steeply) to the right edge of the view.
+				This graph lies entirely above the first graph,
+				and an arrow points upwards from the first graph to it,
+				indicating that this second graph is a vertical translation of the first graph upwards by <m>2</m> units.
+				</p>
+
+				<p>
+				The third identical copy begins with its vertex at height <m>q = -2</m> on the vertical axis,
+				rises steeply up to a marked point at <m>(1,-1)</m>,
+				and then continues to rise (but less steeply) to the right edge of the view.
+				This graph lies entirely below the first graph,
+				and an arrow points downwards from the first graph to it,
+				indicating that this third graph is a vertical translation of the first graph downwards by <m>2</m> units.
+				</p>
+
+			</description>
 			<latex-image><xi:include href="funcs.d/vshifts.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1012,7 +1290,40 @@ we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
 				Two vertical scales of the graph of the square root function,
 				one stretched and one compressed.
 			</shortdescription>
-			<!-- TODO description -->
+			<description>
+
+				<p>
+				Three graphs with similar shapes are drawn on the same set of <m>tq</m>-axes.
+				The shape of each of the graphs is that of the top half of a sideways parabola that opens to the right.
+				</p>
+
+				<p>
+				The first such graph begins with its vertex at the origin,
+				rises steeply up to a marked point at <m>(1,1)</m>,
+				and then continues to rise (but less steeply) to the right edge of the view.
+				</p>
+
+				<p>
+				The second graph also begins with its vertex at the origin,
+				but rises even more steeply up to a marked point at <m>(1,2)</m>,
+				and then continues to rise (less steeply than before but more steeply than the first graph) to the right edge of the view.
+				Except for the shared vertex at the origin,
+				this graph lies entirely above the first graph,
+				and an arrow points upwards from the first graph to it,
+				indicating that this second graph is a vertical stretch of the first graph away from the horizontal axis by a factor of <m>2</m>.
+				</p>
+
+				<p>
+				The third graph also begins with its vertex at the origin,
+				but rises less steeply up to a marked point at <m>(1,1/2)</m>,
+				and then continues to rise (both less steeply than before and less steeply than the first graph) to the right edge of the view.
+				Except for the shared vertex at the origin,
+				this graph lies entirely below the first graph,
+				and an arrow points downwards from the first graph to it,
+				indicating that this third graph is a vertical compression of the first graph towards the horizontal axis by a factor of <m>2</m>.
+				</p>
+
+			</description>
 			<latex-image><xi:include href="funcs.d/vscales.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1055,7 +1366,32 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 		<caption> Vertical reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
 		<image xml:id="image-funcs-vrefl" width="60%">
 			<shortdescription> Vertical reflection of the graph of the square root function. </shortdescription>
-			<!-- TODO description -->
+			<description>
+
+				<p>
+				Two graphs with identical shapes are drawn on the same set of <m>tq</m>-axes,
+				with one a vertical reflection of the other.
+				The identical shape of the two graphs is that of half of a sideways parabola that opens to the right,
+				with one graph being the top half and the other being the bottom half.
+				</p>
+
+				<p>
+				The first such graph begins with its vertex at the origin,
+				rises steeply up to a marked point at <m>(1,1)</m>,
+				and then continues to rise (but less steeply) to the right edge of the view.
+				</p>
+
+				<p>
+				The second identical but reflected graph begins with its vertex at the origin,
+				descends steeply down to a marked point at <m>(1,-1)</m>,
+				and then continues to descend (but less steeply) to the right edge of the view.
+				</p>
+
+				<p>
+				A double-headed arrow runs between the two graphs to indicate that they are reflections of each other through the horizontal axis.
+				</p>
+
+			</description>
 			<latex-image><xi:include href="funcs.d/vrefl.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1172,7 +1508,38 @@ we call the <q>new</q> function a <term>horizontal shift</term> of the <q>old</q
 				Two horizontal shifts of the graph of the square root function,
 				one right and one left.
 			</shortdescription>
-			<!-- TODO description -->
+			<description>
+
+				<p>
+				Three graphs with identical shapes are drawn on the same set of <m>tq</m>-axes.
+				The identical shape of the three graphs is the top half of a sideways parabola that opens to the right.
+				</p>
+
+				<p>
+				The first such graph begins with its vertex at the origin,
+				rises steeply up to a marked point at <m>(1,1)</m>,
+				and then continues to rise (but less steeply) to the right edge of the view.
+				</p>
+
+				<p>
+				The second identical copy begins with its vertex at position <m>t = 2</m> on the horizontal axis,
+				rises steeply up to a marked point at <m>(3,1)</m>,
+				and then continues to rise (but less steeply) to the right edge of the view.
+				This graph lies entirely to the right of and below the first graph,
+				and an arrow points from the first graph rightwards to it,
+				indicating that this second graph is a horizontal translation of the first graph to the right by <m>2</m> units.
+				</p>
+
+				<p>
+				The third identical copy begins with its vertex at position <m>t = -2</m> on the horizontal axis,
+				rises steeply up to a marked point at <m>(-1,1)</m>,
+				and then continues to rise (but less steeply) to the right edge of the view.
+				This graph lies entirely to the left of and, once it passes the vertical axis, above the first graph,
+				and an arrow points from the first graph leftwards to it,
+				indicating that this third graph is a horizontal translation of the first graph to the left by <m>2</m> units.
+				</p>
+
+			</description>
 			<latex-image><xi:include href="funcs.d/hshifts.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1244,7 +1611,40 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 				Two horizontal scales of the graph of the square root function,
 				one stretched and one compressed.
 			</shortdescription>
-			<!-- TODO description -->
+			<description>
+
+				<p>
+				Three graphs with similar shapes are drawn on the same set of <m>tq</m>-axes.
+				The shape of each of the graphs is that of the top half of a sideways parabola that opens to the right.
+				</p>
+
+				<p>
+				The first such graph begins with its vertex at the origin,
+				rises steeply up to a marked point at <m>(1,1)</m>,
+				and then continues to rise (but less steeply) to the right edge of the view.
+				</p>
+
+				<p>
+				The second graph also begins with its vertex at the origin,
+				but rises less steeply up to a marked point at <m>(2,1)</m>,
+				and then continues to rise (both less steeply than before and less steeply than the first graph) to the right edge of the view.
+				Except for the shared vertex at the origin,
+				this graph lies entirely below and to the right of the first graph,
+				and an arrow points rightwards from the first graph to it,
+				indicating that this second graph is a horizontal stretch of the first graph away from the vertical axis by a factor of <m>2</m>.
+				</p>
+
+				<p>
+				The third graph also begins with its vertex at the origin,
+				but rises even more steeply up to a marked point at <m>(1/2,1)</m>,
+				and then continues to rise (less steeply than before but more steeply than the first graph) to the right edge of the view.
+				Except for the shared vertex at the origin,
+				this graph lies entirely above and to the left the first graph,
+				and an arrow points leftwards from the first graph to it,
+				indicating that this third graph is a horizontal compression of the first graph towards the horizontal axis by a factor of <m>2</m>.
+				</p>
+
+			</description>
 			<latex-image><xi:include href="funcs.d/hscales.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1306,7 +1706,32 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 		<caption> Horizontal reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
 		<image xml:id="image-funcs-hrefl" width="85.0%">
 			<shortdescription> Horizontal reflection of the graph of the square root function. </shortdescription>
-			<!-- TODO description -->
+			<description>
+
+				<p>
+				Two graphs with identical shapes are drawn on the same set of <m>tq</m>-axes,
+				with one a horizontal reflection of the other.
+				</p>
+
+				<p>
+				The first graph has the shape of the top half of a sideways parabola that opens to the right.
+				It begins with its vertex at the origin,
+				rises steeply up to a marked point at <m>(1,1)</m>,
+				and then continues to rise (but less steeply) to the right edge of the view.
+				</p>
+
+				<p>
+				The second identical but reflected graph has the shape of the top half of a sideways parabola that opens to the left.
+				It begins with its vertex at the origin,
+				rises steeply (moving to the left) to a marked point at <m>(-1,1)</m>,
+				and then continues to rise (but less steeply, and still moving to the left) to the left edge of the view.
+				</p>
+
+				<p>
+				A double-headed arrow runs between the two graphs to indicate that they are reflections of each other through the vertical axis.
+				</p>
+
+			</description>
 			<latex-image><xi:include href="funcs.d/hrefl.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
