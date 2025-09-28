@@ -27,44 +27,49 @@
 	\node[below left] at (0,0.75) {$R_0$};
 
 	% axes
-	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below right] {$t$};
-	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[above right] {$R(t)$};
+	\draw[->,thin] (\xmin,0) -- (\xmax,0) node[below] {$t$};
+	\draw[->,thin] (0,\ymin) -- (0,\ymax) node[above right] {$R(t)$};
 
 	% off
-	\node[blue,thick,openpt] at (0,0) (stop) {};
-	\draw[blue,thick] (\xmin,0) -- (stop);
+	\node[blue,line width=0.5mm,openpt] at (0,0) (stop) {};
+	\draw[blue,line width=0.5mm] (\xmin,0) -- (stop);
 
 	% on
 	\node[blue,closedpt] at (0,0.75) (onstart) {};
-	\node[blue,thick,openpt] at (1,0.75) (onstop) {};
-	\draw[blue,thick] (onstart) -- (onstop);
-	\draw[dashed] (\xmin,0.75) -- (onstart);
+	\node[blue,line width=0.5mm,openpt] at (1,0.75) (onstop) {};
+	\draw[blue,line width=0.5mm] (onstart) -- (onstop);
+	\draw[dashed,thin] (\xmin,0.75) -- (onstart);
 
 	% off
 	\node[blue,closedpt] at (1,0) (start) {};
-	\node[blue,thick,openpt] at (3,0) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\node[blue,line width=0.5mm,openpt] at (3,0) (stop) {};
+	\draw[blue,line width=0.5mm] (start) -- (stop);
 
 	% on
 	\node[blue,closedpt] at (3,0.75) (onstart) {};
-	\draw[dashed] (onstop) -- (onstart);
-	\node[blue,thick,openpt] at (4,0.75) (onstop) {};
-	\draw[blue,thick] (onstart) -- (onstop);
+	\draw[dashed,thin] (onstop) -- (onstart);
+	\node[blue,line width=0.5mm,openpt] at (4,0.75) (onstop) {};
+	\draw[blue,line width=0.5mm] (onstart) -- (onstop);
 
 	% off
 	\node[blue,closedpt] at (4,0) (start) {};
-	\node[blue,thick,openpt] at (7,0) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\node[blue,line width=0.5mm,openpt] at (6,0) (stop) {};
+	\draw[blue,line width=0.5mm] (start) -- (stop);
 
 	% on
-	\node[blue,closedpt] at (7,0.75) (onstart) {};
-	\draw[dashed] (onstop) -- (onstart);
-	\node[blue,thick,openpt] at (8,0.75) (onstop) {};
-	\draw[blue,thick] (onstart) -- (onstop);
-	\draw[dashed] (onstop) -- (\xmax,0.75);
+	\node[blue,closedpt] at (6,0.75) (onstart) {};
+	\draw[dashed,thin] (onstop) -- (onstart);
+	\node[blue,line width=0.5mm,openpt] at (7,0.75) (onstop) {};
+	\draw[blue,line width=0.5mm] (onstart) -- (onstop);
 
 	% off
-	\node[blue,closedpt] at (8,0) (start) {};
-	\draw[blue,thick] (start) -- (\xmax,0);
+	\node[blue,closedpt] at (7,0) (start) {};
+	\node[blue,line width=0.5mm,openpt] at (9,0) (stop) {};
+	\draw[blue,line width=0.5mm] (start) -- (stop);
+
+	% on
+	\node[blue,closedpt] at (9,0.75) (onstart) {};
+	\draw[dashed,thin] (onstop) -- (onstart);
+	\draw[blue,line width=0.5mm] (onstart) -- (9.9,0.75);
 
 \end{tikzpicture}
