@@ -103,7 +103,19 @@ Then we might want a function to model it as well.
 		<caption>Graph of a rate-of-travel model.</caption>
 		<image xml:id="image-models-speed" width="79.7%">
 			<shortdescription>Graph of a rate-of-travel model.</shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				A speed-vs-time graph,
+				with the vertical axis in kilometres-per-hour and the horizontal axis in hours.
+				The function graphed is a constant zero along the negative horizontal axis.
+				After <m>t = 0</m>,
+				the graph increases steeply and continuously up to <m>50</m> and maintains that level until <m>t = 1</m>,
+				at which point it decreases steeply and continuously back down to <m>0</m>.
+				It remains <m>0</m> until just before <m>t = 1.5</m>,
+				and from there is again increases steeply and continuously up to <m>50</m>.
+				It again maintains that level until just after <m>t = 3</m>,
+				before increasing steeply and continuously up to <m>100</m>,
+				a level it maintains for the remainder of the graph (which ends at <m>t = 5</m>).
+			</p></description>
 			<latex-image><xi:include href="models.d/speed.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -243,7 +255,11 @@ The next step in analyzing the situation would be to try to make this observatio
 		<caption>Brine entering and being drained from a tank so that volume is held constant.</caption>
 		<image xml:id="image-models-mixing" width="63.8%">
 			<shortdescription>Diagram of brine entering and being drained from a tank so that volume is held constant.</shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				A diagram of a <quantity><mag>1000</mag><unit base="liter" /></quantity> tank.
+				Also picture are an inlet pipe pouring liquid into the top of the tank,
+				and an outlet pipe draining liquid from the bottom.
+			</p></description>
 			<latex-image><xi:include href="models.d/mixing.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -637,10 +653,18 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 	</p>
 
 	<figure xml:id="figure-models-radioactive-slopes">
-	<caption> Direction field for a rate equation modelling radioactive decay. </caption>
+		<caption> Direction field for a rate equation modelling radioactive decay. </caption>
 		<image xml:id="image-models-radioactive" width="59.7%">
 			<shortdescription> Direction field for a rate equation modelling radioactive decay. </shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				A direction field is plotted in the first quadrant of a set of <m>tq</m>-axes.
+				Very short line segments are drawn at regular intervals in a grid pattern.
+				Along each horizontal row of the grid,
+				each line segment is identical to the others in that row.
+				But along vertical columns of the grid,
+				the line segments progress from very steep negative slopes at the top to very shallow negative slopes at the bottom,
+				just above the horizontal axis.
+			</p></description>
 			<latex-image><xi:include href="models.d/radioactive.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -660,7 +684,39 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 		<caption> Several solution curves superimposed onto the direction field for a rate equation modelling radioactive decay. </caption>
 		<image xml:id="image-models-radioactive-int-curves" width="59.7%">
 			<shortdescription> Several solution curves superimposed onto the direction field for a rate equation modelling radioactive decay. </shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The direction field from <xref ref="figure-models-radioactive-slopes" /> is reproduced exactly.
+				Over top,
+				six representative solution curves are drawn,
+				following the pattern of the direction field:
+				descending steeply from high vertical positions and descending shallowly from low vertical positions.
+				From left to right:
+				<ol>
+					<li>
+						The first solution curve begins by crossing into the first quadrant at a relatively small <m>q</m>-value on the vertical axis,
+						and then gently descends toward the horizontal axis.
+					</li>
+					<li>
+						The second solution curve begins by crossing into the first quadrant approximately midway up the vertical axis,
+						descends fairly steeply toward the horizontal axis,
+						but quickly begins to level out,
+						so that approximately halfway across the diagram horizontally it is descending much more gently.
+					</li>
+					<li>
+						The third solution curve begins by crossing into the first quadrant near the top of the vertical axis,
+						descends very steeply toward the horizontal axis,
+						but gradually levels out,
+						so that near the right edge of the diagram it is descending more gently.
+					</li>
+					<li>
+						The fourth, fifth, and sixth solution curves are all similar:
+						beginning at the top of the diagram and to the right of the vertical axis,
+						they descend very steeply,
+						but as they get closer to the right edge of the diagram they begin to show signs of levelling out.
+						The difference in the curves is how far to the right they begin at the top of the diagram.
+					</li>
+				</ol>
+			</p></description>
 			<latex-image><xi:include href="models.d/radioactive-int-curves.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -714,7 +770,34 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 		<caption> Direction field for a rate equation involving both the dependent and independent variables. </caption>
 		<image xml:id="image-models-dirfield" width="38.8%">
 			<shortdescription> Direction field for a rate equation involving both the dependent and independent variables. </shortdescription>
-			<!-- TODO description -->
+			<description>
+
+				<p>
+				A direction field is drawn in the first and fourth quadrants of a set of <m>tq</m>-axes.
+				Very short line segments are drawn at regular intervals in a grid pattern.
+				In the first horizontal row of the grid,
+				at the top of the diagram,
+				the line segments are very steep with a negative slope,
+				but the slope of the segments becomes slightly less steep along the row from left to right.
+				Subsequent rows below that are similar,
+				except that the <q>starting</q> slope at the left end of the row becomes less steep as we descend rows,
+				until the segments in the row at height <m>q = 1</m> are all flat horizontal.
+				</p>
+
+				<p>
+				We see the same pattern starting at the bottom row in the fourth quadrant:
+				the segments in that bottom row are very steep with a negative slope,
+				but the slope of the segments becomes slightly less steep along the row from left to right,
+				and then as we progress rows upwards the <q>starting</q> slope at the left end of the row becomes less steep,
+				until finally the segments in the row at height <m>q = 0</m> are all flat along the horizontal axis.
+				</p>
+
+				<p>
+				Finally, there is a single row between heights <m>q = 0</m> and <m>q = 1</m> where the segments are nearly flat but with a slight positive slope,
+				and the segments become more flat along the row from left to right.
+				</p>
+
+			</description>
 			<latex-image><xi:include href="models.d/dirfield.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -743,7 +826,32 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 		<caption> Several solution curves superimposed onto the direction field for a rate equation. </caption>
 		<image xml:id="image-models-dirfield-int-curves" width="38.8%">
 			<shortdescription> Several solution curves superimposed onto the direction field for a rate equation. </shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The direction field from <xref ref="figure-models-dirfield-vary-all-dirs" /> is reproduced exactly.
+				Over top, four example solution curves are drawn:
+				<ol>
+					<li>
+						The first curve begins at the very top of the vertical axis and descends steeply,
+						before quickly flattening out,
+						approaching a horizontal asymptote at <m>q = 1</m> from above.
+					</li>
+					<li>
+						The second curve begins near but slightly above the origin and then gradually increases,
+						approaching a horizontal asymptote at <m>q = 1</m> from below.
+					</li>
+					<li>
+						The third curve begins near but slightly below the origin,
+						then gradually decreases,
+						reaching the right edge of the diagram only a little below the height at which it started at the left edge of the diagram.
+					</li>
+					<li>
+						The fourth curve begins only a little was below the third curve,
+						but descends quickly,
+						becoming even more steep in its descent as it goes,
+						until it finally reaches the bottom edge of the diagram only a third of the way from left to right across the diagram.
+					</li>
+				</ol>
+			</p></description>
 			<latex-image><xi:include href="models.d/dirfield-int-curves.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
