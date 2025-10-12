@@ -46,21 +46,21 @@
 	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[above right] {$\$/\mathrm{g}$};
 
 	% zero out negative amounts
-	\node[blue,thick,openpt] at (0,0) (stop) {};
-	\draw[blue,thick] (\xmin,0) -- (stop);
+	\node[blue,closedpt] at (0,0) (stop) {};
+	\draw[blue,very thick] (\xmin,0) -- (stop);
 
 	% first step
 	\node[blue,thick,openpt] at (0,3) (start) {};
 	\node[blue,closedpt] at (5,3) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 
 	% second step
 	\node[blue,thick,openpt] at (5,2.75) (start) {};
 	\node[blue,closedpt] at (10,2.75) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 
 	% final step
 	\node[blue,thick,openpt] at (10,2.5) (start) {};
-	\draw[blue,thick] (start) -- (\xmax,2.5);
+	\draw[blue,very thick] (start) -- (\xmax,2.5);
 
 \end{tikzpicture}

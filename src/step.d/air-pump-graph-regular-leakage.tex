@@ -54,17 +54,17 @@
 
 	% off
 	\node[blue,thick,openpt] at (0,0) (stop) {};
-	\draw[blue,thick] (\xmin,0) -- (stop);
+	\draw[blue,very thick] (\xmin,0) -- (stop);
 
 	% medium
 	\node[blue,closedpt] at (0,0.5) (mstart) {};
 	\node[blue,thick,openpt] at (1,0.5) (mstop) {};
-	\draw[blue,thick] (mstart) -- (mstop);
+	\draw[blue,very thick] (mstart) -- (mstop);
 
 	% high
 	\node[blue,closedpt] at (1,0.75) (hstart) {};
 	\node[blue,thick,openpt] at (3,0.75) (hstop) {};
-	\draw[blue,thick] (hstart) -- (hstop);
+	\draw[blue,very thick] (hstart) -- (hstop);
 	\node[blue,closedpt] at (2,0.75) (hmid) {};
 
 	% area dividers
@@ -77,7 +77,7 @@
 	% low
 	\node[blue,closedpt] at (3,0.25) (lstart) {};
 	\node[blue,thick,openpt] at (4,0.25) (lstop) {};
-	\draw[blue,thick] (lstart) -- (lstop);
+	\draw[blue,very thick] (lstart) -- (lstop);
 
 	% area dividers
 	\draw[blue,thin]
@@ -88,7 +88,7 @@
 	% off
 	\node[blue,closedpt] at (4,0) (ostart) {};
 	\node[blue,thick,openpt] at (5,0) (ostop) {};
-	\draw[blue,thick] (ostart) -- (ostop);
+	\draw[blue,very thick] (ostart) -- (ostop);
 
 	% area dividers
 	\draw[blue,thin]
@@ -98,7 +98,7 @@
 	% leaking
 	\node[red,closedpt] at (5,-0.2) (lstart) {};
 	\node[red,thick,openpt] at (8,-0.2) (lstop) {};
-	\draw[red,thick] (lstart) -- (lstop);
+	\draw[red,very thick] (lstart) -- (lstop);
 	\node[red,closedpt] at (6,-0.2) (lmid1) {};
 	\node[red,closedpt] at (7,-0.2) (lmid2) {};
 
@@ -112,7 +112,7 @@
 	% medium
 	\node[blue,closedpt] at (8,0.5) (mstart) {};
 	\node[blue,thick,openpt] at (10,0.5) (mstop) {};
-	\draw[blue,thick] (mstart) -- (mstop);
+	\draw[blue,very thick] (mstart) -- (mstop);
 	\node[blue,closedpt] at (9,0.5) (mmid) {};
 
 	% area dividers
@@ -123,7 +123,7 @@
 
 	% off
 	\node[blue,closedpt] at (10,0) (ostart) {};
-	\draw[blue,thick] (ostart) -- (\xmax,0);
+	\draw[blue,very thick] (ostart) -- (\xmax,0);
 
 	% area divider
 	\draw[blue,thin]

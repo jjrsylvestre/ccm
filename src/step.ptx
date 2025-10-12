@@ -74,7 +74,21 @@ respective owners.
 		<caption>Graph modelling output of an air pump with three settings.</caption>
 		<image xml:id="image-step-air-pump-graph" width="49.1%">
 			<shortdescription>Graph modelling output of an air pump with three settings.</shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				A rate-versus-time graph,
+				with the vertical axis in metres-cubed-per-minute,
+				and the horizontal axis in minutes.
+				The graph is a piecewise function,
+				with each piece a horizontal line segment.
+				The graph begins at rate <m>0</m> for negative time,
+				and then
+				<ul>
+					<li> a one-minute period at rate <m>0.5</m>, </li>
+					<li> followed by a two-minute period at rate <m>0.75</m>, </li>
+					<li> followed by a one-minute period at rate <m>0.25</m>, </li>
+				</ul>
+				and finally the graph returns to rate <m>0</m> forever more.
+			</p></description>
 			<latex-image><xi:include href="step.d/air-pump-graph.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -115,7 +129,22 @@ we use piecewise notation to specify the constant output values on different sub
 		<caption>An example step function.</caption>
 		<image xml:id="image-step-piecewise" width="67.6%">
 			<shortdescription>Graph of an example step function.</shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The graph of a step function is drawn on a set of <m>tq</m>-axes.
+				The initial step runs along the negative horizontal axis at height <m>0</m>,
+				and ends in an open endpoint at the origin.
+				The next four steps are horizontal line segments with a closed endpoint at the left end and an open endpoint at the right end,
+				each beginning at the <m>t</m>-value where the previous ended:
+				<ul>
+					<li> The first of these steps is at height <m>q = 1</m> and runs for one unit of <m>t</m>. </li>
+					<li> The second is at height <m>q = 2</m> and also runs for one unit of <m>t</m>. </li>
+					<li> The third is at height <m>q = 3</m> and has its endpoint at <m>t = \pi</m>. </li>
+					<li> The fourth is at height <m>q = \sqrt{2}</m> and has its endpoint at <m>t = 4.5</m>. </li>
+				</ul>
+				The final step again runs along the horizontal axis,
+				beginning with a closed endpoint at <m>t = 4.5</m>,
+				but with no endpoint.
+			</p></description>
 			<latex-image><xi:include href="step.d/piecewise.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -170,7 +199,12 @@ and then changes in output-value still only occur at boundaries of these length-
 	<caption>Graph modelling output of an air pump with three settings.</caption>
 	<image xml:id="image-step-air-pump-regular-graph" width="49.1%">
 		<shortdescription>Graph modelling output of an air pump with three settings.</shortdescription>
-		<!-- TODO description -->
+		<description><p>
+			The rate-versus-time graph of <xref ref="figure-step-air-pump" /> is reproduced,
+			except that the step at rate <m>0.75</m> of duration <m>2</m> is split by an extra <q>endpoint</q> in the middle,
+			so that it can instead be regarded as two separate steps,
+			each of duration <m>1</m>.
+		</p></description>
 		<latex-image><xi:include href="step.d/air-pump-regular-graph.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -306,7 +340,18 @@ so we can still apply the above formula on each of those subdomains and then tot
 		<caption>Graph for a saffron pricing model.</caption>
 		<image xml:id="image-step-saffron-graph" width="56.7%">
 			<shortdescription>Graph for a saffron pricing model.</shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				A rate-versus-mass graph,
+				with the vertical axis in dollars-per-gram and the horizontal axis in grams.
+				The function graphed is a step function.
+				The initial step runs along the negative horizontal axis,
+				ending in a closed endpoint at the origin.
+				The next two steps each run for a <q>duration</q> of <m>500</m> grams,
+				each beginning with an open endpoint at the horizontal location where the previous step ended,
+				and ending with a closed endpoint.
+				The first such step runs at height <m>3</m> and the second at height <m>2.75</m>.
+				The final step begins with an open endpoint at the horizontal location where the previous step left off and runs forever more at height <m>2.5</m>.
+			</p></description>
 			<latex-image><xi:include href="step.d/saffron-graph.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -379,7 +424,21 @@ corresponds to an area calculation for a rectangle of height <m>0.5</m> and leng
 	<caption>Running the air pump on medium for one minute.</caption>
 	<image xml:id="image-step-air-pump-graph-1st-min" width="49.1%">
 		<shortdescription>Graph modelling output of an air pump for one minute.</shortdescription>
-		<!-- TODO description -->
+		<description><p>
+			A rate-versus-time graph,
+			with the vertical axis in metres-cubed-per-minute,
+			and the horizontal axis in minutes.
+			The function graphed is a step function,
+			but with only three levels.
+			The initial level runs along the negative horizontal axis,
+			ending in an open endpoint at the origin.
+			The next step runs at height <m>0.5</m> for a one-minute duration,
+			beginning with a closed endpoint and ending in an open endpoint.
+			The final step runs from that horizontal location along the positive horizontal axis,
+			beginning with a closed endpoint but with no endpoint.
+			Finally,
+			the rectangle formed by the middle step as top side and the corresponding width along the horizontal axis as bottom side is shaded in.
+		</p></description>
 		<latex-image><xi:include href="step.d/air-pump-graph-1st-min.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -401,7 +460,27 @@ corresponds to an area calculation for a rectangle of height <m>0.75</m> and len
 	<caption>Running the air pump on high for another two minutes.</caption>
 	<image xml:id="image-step-air-pump-graph-middle-mins" width="49.1%">
 		<shortdescription>Graph modelling output of an air pump for another two minutes.</shortdescription>
-		<!-- TODO description -->
+		<description><p>
+			A rate-versus-time graph,
+			with the vertical axis in metres-cubed-per-minute,
+			and the horizontal axis in minutes.
+			The function graphed is a step function,
+			but with only four levels.
+			The initial level runs along the negative horizontal axis,
+			ending in an open endpoint at the origin.
+			The next two steps each begin with a closed endpoint at the horizontal location where the previous step ended,
+			and end in an open endpoint,
+			with the first such step running at height <m>0.5</m> for a one-minute duration,
+			and the second running at height <m>0.75</m> for a two-minute duration.
+			The final step runs along the positive horizontal axis,
+			beginning with a closed endpoint at the horizontal location where the previous step ended,
+			but with no endpoint.
+			Finally,
+			each of the middle two steps forms a rectangle where the step is the top side and the corresponding width along the horizontal axis is the bottom side,
+			and these two rectangles are shaded in,
+			with the second rectangle a different color to highlight it as <q>new</q>
+			(relative to the shaded rectangular area in <xref ref="figure-step-air-pump-1st-minute" />).
+		</p></description>
 		<latex-image><xi:include href="step.d/air-pump-graph-middle-mins.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -422,7 +501,30 @@ for the final minute running on low corresponds to an area calculation for a rec
 	<caption>Running the air pump on high for the final minute.</caption>
 	<image xml:id="image-step-air-pump-graph-last-min" width="49.1%">
 		<shortdescription>Graph modelling output of an air pump for another one minute.</shortdescription>
-		<!-- TODO description -->
+		<description><p>
+			A rate-versus-time graph,
+			with the vertical axis in metres-cubed-per-minute,
+			and the horizontal axis in minutes.
+			The function graphed is a step function with five levels.
+			The initial level runs along the negative horizontal axis,
+			ending in an open endpoint at the origin.
+			The next three steps each begin with a closed endpoint at the horizontal location where the previous step ended,
+			and end in an open endpoint,
+			where:
+			<ol>
+				<li> The first such step runs at height <m>0.5</m> for a one-minute duration. </li>
+				<li> The second runs at height <m>0.75</m> for a two-minute duration. </li>
+				<li> The third runs at height <m>0.25</m> for a one-minute duration. </li>
+			</ol>
+			The final step runs along the positive horizontal axis,
+			beginning with a closed endpoint at the horizontal location where the previous step ended,
+			but with no endpoint.
+			Finally,
+			each of the middle three steps forms a rectangle where the step is the top side and the corresponding width along the horizontal axis is the bottom side,
+			and these three rectangles are shaded in,
+			with the third rectangle a different color to highlight it as <q>new</q>
+			(relative to the shaded rectangular areas in <xref ref="figure-step-air-pump-middle-minutes" />).
+		</p></description>
 		<latex-image><xi:include href="step.d/air-pump-graph-last-min.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -430,14 +532,17 @@ for the final minute running on low corresponds to an area calculation for a rec
 <p>
 For the total accumulation, we added up the results of these three calculations.
 Graphically,
-<alert>the total accumulation corresponds to the total area of the rectangles formed between the stepped rate function's levels and the <m>t</m>-axis</alert>.
+<alert>the total accumulation corresponds to the total area of the rectangles formed between the stepped rate function's levels and the horizontal axis</alert>.
 </p>
 
 <figure xml:id="figure-step-air-pump-all">
 	<caption>Total accumulation over the time period.</caption>
 	<image xml:id="image-step-air-pump-graph-all" width="49.1%">
 		<shortdescription>Graph modelling total accumulation pumped air.</shortdescription>
-		<!-- TODO description -->
+		<description><p>
+			The graph of <xref ref="figure-step-air-pump-last-minute" /> is reproduced,
+			but now all three rectangular areas are shaded the same colour to identify them as one combined area.
+		</p></description>
 		<latex-image><xi:include href="step.d/air-pump-graph-all.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -523,7 +628,29 @@ Graphically,
 		<caption>Graph of a rate-of-travel model.</caption>
 		<image xml:id="image-step-camrose-wetaskiwin" width="84.7%">
 			<shortdescription>Graph of a rate-of-travel model.</shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				A rate-versus-time graph,
+				with the vertical axis in kilometres-per-hour,
+				and the horizontal axis in hours.
+				The function graphed is a step function,
+				with five levels.
+				The initial level runs along the negative horizontal axis,
+				ending in an open endpoint at the origin.
+				The next three steps each begin with a closed endpoint at the horizontal location where the previous step ended,
+				and end in an open endpoint,
+				where:
+				<ol>
+					<li> The first such step runs at height <m>50</m> for a duration of <m>0.1</m>. </li>
+					<li> The second runs at height <m>100</m> for a duration of <m>0.4</m>. </li>
+					<li> The third runs at height <m>50</m> for duration of <m>0.15</m>. </li>
+				</ol>
+				The final step runs along the positive horizontal axis,
+				beginning with a closed endpoint at the horizontal location where the previous step ended,
+				but with no endpoint.
+				Finally,
+				each of the middle three steps forms a rectangle where the step is the top side and the corresponding width along the horizontal axis is the bottom side,
+				and these three rectangles are shaded in,
+			</p></description>
 			<latex-image><xi:include href="step.d/camrose-wetaskiwin.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -733,7 +860,42 @@ then the above calculation is still a sum of rectangle areas.
 	<caption>Inflating and re-inflating an air raft.</caption>
 	<image xml:id="image-step-air-pump-graph-leakage" width="81.7%">
 		<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
-		<!-- TODO description -->
+		<description>
+
+			<p>
+			A rate-versus-time graph,
+			with the vertical axis in metres-cubed-per-minute,
+			and the horizontal axis in minutes.
+			The function graphed is a step function,
+			with eight levels.
+			The initial level runs along the negative horizontal axis,
+			ending in an open endpoint at the origin.
+			The next six steps each begin with a closed endpoint at the horizontal location where the previous step ended,
+			and end in an open endpoint,
+			where:
+			<ol>
+				<li> The first such step runs at height <m>0.5</m> for a one-minute duration. </li>
+				<li> The second runs at height <m>0.75</m> for a two-minute duration. </li>
+				<li> The third runs at height <m>0.25</m> for a one-minute duration. </li>
+				<li> The fourth runs along the horizontal axis for a one-minute duration. </li>
+				<li> The fifth runs at height <m>-0.2</m> for a three-minute duration. </li>
+				<li> The sixth runs at height <m>0.5</m> for a two-minute duration. </li>
+			</ol>
+			The final step runs along the positive horizontal axis,
+			beginning with a closed endpoint at the horizontal location where the previous step ended,
+			but with no endpoint.
+			</p>
+
+			<p>
+			Of the six middle steps,
+			each of the four at a positive height forms a rectangle where the step is the top side and the corresponding width along the horizontal axis is the bottom side.
+			Additionally,
+			the step at a negative height forms a rectangle where the step is the bottom side and the corresponding width along the horizontal axis is the top side.
+			All five of these rectangles are shaded in,
+			with the four extending above the horizontal axis shaded blue and the one extending below the horizontal axis shaded red.
+			</p>
+
+		</description>
 		<latex-image><xi:include href="step.d/air-pump-graph-leakage.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -751,7 +913,25 @@ then the above calculation is still a sum of rectangle areas.
 	<caption>A positively-oriented area.</caption>
 	<image xml:id="image-step-positively-oriented" width="45.5%">
 		<shortdescription>A diagram of a positively-oriented area under the graph of a function.</shortdescription>
-		<!-- TODO description -->
+		<description>
+
+			<p>
+			A graph is drawn on a set of <m>xy</m>-axes.
+			The graph begins in the fourth quadrant and rises to a peak in the first quadrant,
+			crossing the horizontal axis as is does so.
+			The graph then descends to a trough in the fourth quadrant,
+			again crossing the horizontal axis between the peak and the trough.
+			Finally, the graph rises from that trough until it reaches the top edge of the diagram,
+			once more crossing the horizontal axis between the trough and the apparent end of the graph.
+			</p>
+
+			<p>
+			The first two of the three points of intersection of the graph with the horizontal axis are plotted,
+			and over the domain between those two points the graph is entirely above the horizontal axis.
+			The region in the first quadrant that is bounded above by the graph and below by the horizontal axis is shaded in blue.
+			</p>
+
+		</description>
 		<latex-image><xi:include href="step.d/positively-oriented.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -769,7 +949,25 @@ then the above calculation is still a sum of rectangle areas.
 	<caption>A negatively-oriented area.</caption>
 	<image xml:id="image-step-negatively-oriented" width="45.5%">
 		<shortdescription>A diagram of a negatively-oriented area under the graph of a function.</shortdescription>
-		<!-- TODO description -->
+		<description>
+
+			<p>
+			A graph is drawn on a set of <m>xy</m>-axes.
+			The graph begins in the fourth quadrant and rises to a peak in the first quadrant,
+			crossing the horizontal axis as is does so.
+			The graph then descends to a trough in the fourth quadrant,
+			again crossing the horizontal axis between the peak and the trough.
+			Finally, the graph rises from that trough until it reaches the top edge of the diagram,
+			once more crossing the horizontal axis between the trough and the apparent end of the graph.
+			</p>
+
+			<p>
+			The last two of the three points of intersection of the graph with the horizontal axis are plotted,
+			and over the domain between those two points the graph is entirely below the horizontal axis.
+			The region in the fourth quadrant that is bounded below by the graph and above by the horizontal axis is shaded in red.
+			</p>
+
+		</description>
 		<latex-image><xi:include href="step.d/negatively-oriented.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -1096,7 +1294,18 @@ the sum is called a <term>Riemann sum</term>.
 		<caption>Riemann sum parameters for inflating and re-inflating an air raft.</caption>
 		<image xml:id="image-step-air-pump-graph-leakage-riemann" width="100%">
 			<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The steps from the rate-versus-time graph of <xref ref="figure-step-air-pump-leakage" /> are redrawn,
+				this time without shading any rectangles.
+				The horizontal positions where one step ends and the next begins have been labelled as <m>t_0</m> through <m>t_6</m>,
+				with <m>t_0</m> at the origin and <m>t_6</m> at the closed endpoint on the horizontal axis as the beginning of the final step.
+				The span along the horizontal axis between <m>t_0</m> and <m>t_1</m> has been labelled as <m>{\change{t}}_1</m>,
+				the span along the horizontal axis between <m>t_1</m> and <m>t_2</m> has been labelled as <m>{\change{t}}_2</m>,
+				and so on,
+				until the final finite span along the horizontal axis between <m>t_5</m> and <m>t_6</m> has been labelled as <m>{\change{t}}_6</m>.
+				Finally,
+				the heights of the six middle steps have been labelled <m>h_1</m> through <m>h_6</m>.
+			</p></description>
 			<latex-image><xi:include href="step.d/air-pump-graph-leakage-riemann.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1166,7 +1375,29 @@ the sum is called a <term>Riemann sum</term>.
 		<caption>Regular Riemann sum parameters for inflating and re-inflating an air raft.</caption>
 		<image xml:id="image-step-air-pump-graph-leakage-regular-riemann" width="100%">
 			<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The graph of <xref ref="figure-step-air-pump-leakage-riemann" /> has been reproduced with some changes:
+				<ul>
+					<li>
+						Each of the middle steps that were multiple minutes in duration has been split into multiple segments,
+						all of duration one minute,
+						by additional closed endpoints along the step.
+					</li>
+					<li>
+						The horizontal locations of the segment endpoints (new and old) have been relabelled <m>t_0</m> through <m>t_{10}</m>,
+						so that now they are placed at one-minute intervals,
+						with <m>t_0</m> at the origin and <m>t_{10}</m> at the closed endpoint on the horizontal axis as the beginning of the final step.
+					</li>
+					<li>
+						The spans between those labelled horizontal locations are all labelled simply as <m>\change{t}</m>,
+						as they are all now of equal width.
+					</li>
+					<li>
+						The heights of the segments have been relabelled with <m>h_1</m> through <m>h_{10}</m>,
+						so that each one-minute segment is assigned a separate label even if it is at the same height as the previous segment.
+					</li>
+				</ul>
+			</p></description>
 			<latex-image><xi:include href="step.d/air-pump-graph-leakage-regular-riemann.tex" parse="text" /></latex-image>
 		</image>
 	</figure>
@@ -1199,7 +1430,27 @@ the sum is called a <term>Riemann sum</term>.
 		<caption>Inflating and re-inflating an air raft.</caption>
 		<image xml:id="image-step-air-pump-graph-regular-leakage" width="81.7%">
 			<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
-			<!-- TODO description -->
+			<description><p>
+				The graph of <xref ref="figure-step-air-pump-leakage-regular-riemann" /> is reproduced,
+				but now with highlighted rectangles:
+				<ul>
+					<li>
+						Each of the first four steps of the graph creates a rectangle with top side along the step and bottom side along the corresponding one-minute domain on horizontal axis.
+						These rectangles have been shaded in blue and labelled <m>R_1</m> through <m>R_4</m>.
+					</li>
+					<li>
+						The rectangles similarly formed by the last two steps of the graph have also been shaded blue and are labelled <m>R_9</m> and <m>R_{10}</m>.
+					</li>
+					<li>
+						Each of the sixth through eighth steps of the graph creates a rectangle with bottom side along the step and top side along the corresponding one-minute domain on horizontal axis.
+						These rectangles have been shaded in red and labelled <m>R_6</m> through <m>R_8</m>.
+					</li>
+					<li>
+						The fifth step of the graph lies along the horizontal axis,
+						and so does not form a rectangle.
+					</li>
+				</ul>
+			</p></description>
 			<latex-image><xi:include href="step.d/air-pump-graph-regular-leakage.tex" parse="text" /></latex-image>
 		</image>
 	</figure>

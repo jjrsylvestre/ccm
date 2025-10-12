@@ -49,15 +49,15 @@
 
 	% off
 	\node[blue,thick,openpt] at (0,0) (stop) {};
-	\draw[blue,thick] (\xmin,0) -- (stop);
+	\draw[blue,very thick] (\xmin,0) -- (stop);
 
 	% medium
 	\node[green!33!black,closedpt] at (0,0.5) (start) {};
 	\node[green!33!black,thick,openpt] at (1,0.5) (stop) {};
-	\draw[green!33!black,thick] (start) -- (stop);
+	\draw[green!33!black,very thick] (start) -- (stop);
 
 	% off
 	\node[blue,closedpt] at (1,0) (start) {};
-	\draw[blue,thick] (start) -- (\xmax,0);
+	\draw[blue,very thick] (start) -- (\xmax,0);
 
 \end{tikzpicture}

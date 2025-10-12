@@ -52,17 +52,17 @@
 
 	% before
 	\node[blue,thick,openpt] at (0,0) (stop) {};
-	\draw[blue,thick] (\xmin,0) -- (stop);
+	\draw[blue,very thick] (\xmin,0) -- (stop);
 
 	% Camrose
 	\node[blue,closedpt] at (0,50) (cstart) {};
 	\node[blue,thick,openpt] at (0.1,50) (cstop) {};
-	\draw[blue,thick] (cstart) -- (cstop);
+	\draw[blue,very thick] (cstart) -- (cstop);
 
 	% highway
 	\node[blue,closedpt] at (0.1,100) (hstart) {};
 	\node[blue,thick,openpt] at (0.5,100) (hstop) {};
-	\draw[blue,thick] (hstart) -- (hstop);
+	\draw[blue,very thick] (hstart) -- (hstop);
 
 	% area divider
 	\draw[blue,dashed]
@@ -73,7 +73,7 @@
 	% Wetaskiwin
 	\node[blue,closedpt] at (0.5,50) (wstart) {};
 	\node[blue,thick,openpt] at (0.65,50) (wstop) {};
-	\draw[blue,thick] (wstart) -- (wstop);
+	\draw[blue,very thick] (wstart) -- (wstop);
 
 	% area divider
 	\draw[blue,dashed]
@@ -82,6 +82,6 @@
 
 	% after
 	\node[blue,closedpt] at (0.65,0) (start) {};
-	\draw[blue,thick] (start) -- (\xmax,0);
+	\draw[blue,very thick] (start) -- (\xmax,0);
 
 \end{tikzpicture}

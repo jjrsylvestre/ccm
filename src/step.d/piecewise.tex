@@ -45,32 +45,32 @@
 
 	% zero before
 	\node[blue,thick,openpt] at (0,0) (stop) {};
-	\draw[blue,thick] (\tmin,0) -- (stop);
+	\draw[blue,very thick] (\tmin,0) -- (stop);
 
 	% one
 	\node[blue,closedpt] at (0,1) (start) {};
 	\node[blue,thick,openpt] at (1,1) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 
 	% two
 	\node[blue,closedpt] at (1,2) (start) {};
 	\node[blue,thick,openpt] at (2,2) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 
 	% three
 	\node[blue,closedpt] at (2,3) (start) {};
 	\node[blue,thick,openpt] at (3.142,3) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 	\draw[dashed,thin] (stop) -- (3.142,0) node[below] {$\pi$};
 
 	% root two
 	\node[blue,closedpt] at (3.142,1.414) (start) {};
 	\node[blue,thick,openpt] at (4.5,1.414) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 	\draw[dashed,thin] (start) -- (0,1.414) node[left] {$\scriptstyle \sqrt{2}$};
 
 	% zero after
 	\node[blue,closedpt] at (4.5,0) (start) {};
-	\draw[blue,thick] (start) -- (\tmax,0);
+	\draw[blue,very thick] (start) -- (\tmax,0);
 
 \end{tikzpicture}

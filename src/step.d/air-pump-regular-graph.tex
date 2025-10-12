@@ -46,26 +46,26 @@
 
 	% off
 	\node[blue,thick,openpt] at (0,0) (stop) {};
-	\draw[blue,thick] (\xmin,0) -- (stop);
+	\draw[blue,very thick] (\xmin,0) -- (stop);
 
 	% medium
 	\node[blue,closedpt] at (0,0.5) (start) {};
 	\node[blue,thick,openpt] at (1,0.5) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 
 	% high
 	\node[blue,closedpt] at (1,0.75) (start) {};
 	\node[blue,thick,openpt] at (3,0.75) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 	\node[blue,closedpt] at (2,0.75) {};
 
 	% low
 	\node[blue,closedpt] at (3,0.25) (start) {};
 	\node[blue,thick,openpt] at (4,0.25) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 
 	% off
 	\node[blue,closedpt] at (4,0) (start) {};
-	\draw[blue,thick] (start) -- (\xmax,0);
+	\draw[blue,very thick] (start) -- (\xmax,0);
 
 \end{tikzpicture}

@@ -54,17 +54,17 @@
 
 	% off
 	\node[blue,thick,openpt] at (0,0) (stop) {};
-	\draw[blue,thick] (\xmin,0) -- (stop);
+	\draw[blue,very thick] (\xmin,0) -- (stop);
 
 	% medium
 	\node[blue,closedpt] at (0,0.5) (mstart) {};
 	\node[blue,thick,openpt] at (1,0.5) (mstop) {};
-	\draw[blue,thick] (mstart) -- (mstop);
+	\draw[blue,very thick] (mstart) -- (mstop);
 
 	% high
 	\node[blue,closedpt] at (1,0.75) (hstart) {};
 	\node[blue,thick,openpt] at (3,0.75) (hstop) {};
-	\draw[blue,thick] (hstart) -- (hstop);
+	\draw[blue,very thick] (hstart) -- (hstop);
 
 	% area divider
 	\draw[blue,dashed]
@@ -75,7 +75,7 @@
 	% low
 	\node[blue,closedpt] at (3,0.25) (lstart) {};
 	\node[blue,thick,openpt] at (4,0.25) (lstop) {};
-	\draw[blue,thick] (lstart) -- (lstop);
+	\draw[blue,very thick] (lstart) -- (lstop);
 
 	% area divider
 	\draw[blue,dashed]
@@ -85,20 +85,20 @@
 	% off
 	\node[blue,closedpt] at (4,0) (start) {};
 	\node[blue,thick,openpt] at (5,0) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 
 	% leaking
 	\node[red,closedpt] at (5,-0.2) (start) {};
 	\node[red,thick,openpt] at (8,-0.2) (stop) {};
-	\draw[red,thick] (start) -- (stop);
+	\draw[red,very thick] (start) -- (stop);
 
 	% medium
 	\node[blue,closedpt] at (8,0.5) (start) {};
 	\node[blue,thick,openpt] at (10,0.5) (stop) {};
-	\draw[blue,thick] (start) -- (stop);
+	\draw[blue,very thick] (start) -- (stop);
 
 	% off
 	\node[blue,closedpt] at (10,0) (start) {};
-	\draw[blue,thick] (start) -- (\xmax,0);
+	\draw[blue,very thick] (start) -- (\xmax,0);
 
 \end{tikzpicture}
