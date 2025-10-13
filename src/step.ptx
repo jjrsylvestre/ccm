@@ -1266,9 +1266,9 @@ the sum is called a <term>Riemann sum</term>.
 		</me>.
 		If we write <m>\change{t_k}</m> to represent the length of the subdomain <m>t_{k - 1} \le t \lt t_k</m> so that
 		<me> \change{t_k} = t_k - t_{k - 1} </me>,
-		then the sum of (oriented) rectangle areas
+		then the sum
 		<me> \sum_{k = 1}^{n} h_k \change{t_k} </me>
-		is called the <term>Riemann sum</term> for <m>s(t)</m> over the domain <m>t_0 \le t \le t_n</m>.
+		of (oriented) rectangle areas is called the <term>Riemann sum</term> for <m>s(t)</m> over the domain <m>t_0 \le t \le t_n</m>.
 	</p></statement>
 </definition>
 

@@ -495,12 +495,12 @@ choosing parameter value(s) should be done to match a desired initial state of t
 
 <definition>
 	<title>Initial value problem</title>
-	<statement><p> A rate equation together with a data point <m>q(0) = q_0</m> representing the initial amount data point. </p></statement>
+	<statement><p> A rate equation together with a data point <m>q(t_0) = q_0</m> representing the <q>initial</q> amount. </p></statement>
 </definition>
 
 <remark><p>
-	Technically, there is no reason to require that the <q>initial</q> data point be at <m>t = 0</m> <mdash />
-	any single data point should be enough to turn a general solution into a particular solution that matches that data point.
+	Often the known data point is at <m>t_0 = 0</m>,
+	making it truly the <q>initial</q> value.
 </p></remark>
 
 <example>
@@ -522,7 +522,7 @@ choosing parameter value(s) should be done to match a desired initial state of t
 
 <warning><p>
 	While it will often be the case,
-	it won't <em>always</em> happen that the parameter in the general solution ends up representing the initial amount <m>q(0)</m>.
+	it won't <em>always</em> happen that the parameter in the general solution ends up representing the initial value <m>q(t_0)</m>.
 </p></warning>
 
 </section>
@@ -562,7 +562,7 @@ To put <xref ref="assumption-models-locally-linear" /> in other words,
 for such a quantity function,
 over a small enough time interval there isn't enough time for the rate of variation to vary much.
 (We could say the same about the quantity function itself,
-but assuming the quantity function is approximately constant isn't useful because we the whole idea of a rate equation is to model how <m>q(t)</m> is varying.)
+but assuming the quantity function is approximately constant isn't useful because the whole idea of a rate equation is to model how <m>q(t)</m> is <em>varying</em>.)
 </p>
 
 <p>
