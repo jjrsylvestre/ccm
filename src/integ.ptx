@@ -42,7 +42,151 @@ and slowing down to negotiate the traffic circle at the junction of highways 13 
 	<caption>Graph of a rate-of-travel model.</caption>
 	<image xml:id="image-integ-camrose-wetaskiwin" width="84.7%">
 		<shortdescription>Graph of a rate-of-travel model.</shortdescription>
-		<!-- TODO description -->
+		<description><p>
+			A speed-versus-time graph is drawn on a set of axes,
+			with the vertical axis in kilometres-per-hour,
+			and the horizontal axis in hours.
+			<ul>
+				<li><p>
+					Starting at initial speed
+					<quantity>
+						<mag>0</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>,
+					over the first
+					<quantity>
+						<mag>0.1</mag>
+						<unit base="hour" />
+					</quantity>
+					the graph rapidly but continuously alternates between a short period at a constant
+					<quantity>
+						<mag>50</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>,
+					followed by a short period at
+					<quantity>
+						<mag>0</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>,
+					followed by a short period at
+					<quantity>
+						<mag>50</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>
+					again.
+					At the end of this
+					<quantity>
+						<mag>0.1</mag>
+						<unit base="hour" />
+					</quantity>
+					period the graph rapidly increases up to
+					<quantity>
+						<mag>100</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>.
+				</p></li>
+				<li><p>
+					Over the next
+					<quantity>
+						<mag>0.4</mag>
+						<unit base="hour" />
+					</quantity>,
+					the graph begins at a constant
+					<quantity>
+						<mag>100</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>
+					for a period before briefly dipping down to
+					<quantity>
+						<mag>30</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>
+					and immediately increasing back to
+					<quantity>
+						<mag>100</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>.
+					It remains constant at
+					<quantity>
+						<mag>100</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>
+					for another period before increasing gradually up to
+					<quantity>
+						<mag>110</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>,
+					where it remains constant for another period.
+					After this it dips down to
+					<quantity>
+						<mag>90</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>
+					where it remains constant for a short period before increasing back up to
+					<quantity>
+						<mag>100</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>
+					and remaining constant there for yet another short period.
+				</p></li>
+				<li><p>
+					Over the last
+					<quantity>
+						<mag>0.15</mag>
+						<unit base="hour" />
+					</quantity>,
+					the graph decreases from its previous level at
+					<quantity>
+						<mag>100</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>
+					to a very short constant period at
+					<quantity>
+						<mag>80</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>,
+					before descending all the way down to a short constant period at
+					<quantity>
+						<mag>0</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>.
+					It then increases back up to spend a period constant at
+					<quantity>
+						<mag>50</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>,
+					before finally descending to
+					<quantity>
+						<mag>0</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>.
+				</p></li>
+			</ul>
+			After this,
+			the graph remains at a constant
+			<quantity>
+				<mag>0</mag>
+				<unit base="metre" prefix="kilo" />
+				<per  base="hour" />
+			</quantity>.
+		</p></description>
 		<latex-image><xi:include href="integ.d/camrose-wetaskiwin.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -60,7 +204,54 @@ our previous stepped rate function can still be used as a <em>simplified</em> mo
 	<caption>Simplifying a rate model with a step-function.</caption>
 	<image xml:id="image-integ-camrose-wetaskiwin-simplified" width="84.7%">
 		<shortdescription>Graph of a rate-of-travel model.</shortdescription>
-		<!-- TODO description -->
+		<description><p>
+			The graph of <xref ref="figure-integ-camrose-wetaskiwin" /> is reproduced,
+			but three shaded rectangles are added:
+			<ul>
+				<li>
+					A rectangle with base along the first
+					<quantity>
+						<mag>0.1</mag>
+						<unit base="hour" />
+					</quantity>
+					of the horizontal axis,
+					and top at height
+					<quantity>
+						<mag>50</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>.
+				</li>
+				<li>
+					A rectangle with base along the next
+					<quantity>
+						<mag>0.4</mag>
+						<unit base="hour" />
+					</quantity>
+					of the horizontal axis,
+					and top at height
+					<quantity>
+						<mag>100</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>.
+				</li>
+				<li>
+					A rectangle with base along the next
+					<quantity>
+						<mag>0.15</mag>
+						<unit base="hour" />
+					</quantity>
+					of the horizontal axis,
+					and top at height
+					<quantity>
+						<mag>50</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>.
+				</li>
+			</ul>
+		</p></description>
 		<latex-image><xi:include href="integ.d/camrose-wetaskiwin-simplified.tex" parse="text" /></latex-image>
 	</image>
 </figure>
@@ -93,7 +284,123 @@ so that the step function's values can change more often to better keep up with 
 	<caption>Using more steps to increase accuracy of accumulation estimate.</caption>
 	<image xml:id="image-integ-camrose-wetaskiwin-simplified-more-rect" width="84.7%">
 		<shortdescription>Diagram of using more steps to increase accuracy of accumulation estimate.</shortdescription>
-		<!-- TODO description -->
+		<description><p>
+			The graph of <xref ref="figure-integ-camrose-wetaskiwin" /> is once again reproduced,
+			and similarly to <xref ref="figure-integ-camrose-wetaskiwin-simplified" /> a number of shaded rectangles have been added to the diagram,
+			but this time many more than just three,
+			with heights more closely following the rise-and-fall of the graph.
+			<ul>
+				<li>
+					The first
+					<quantity>
+						<mag>0.1</mag>
+						<unit base="hour" />
+					</quantity>
+					of the horizontal axis has now been split into three rectangles.
+					The first and third of these rectangles each has its top at height
+					<quantity>
+						<mag>50</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>,
+					while the second rectangle in the middle has its top at height
+					<quantity>
+						<mag>0</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>
+					(so really just a line segment along the horizontal axis instead of a rectangle).
+				</li>
+				<li>
+					The next
+					<quantity>
+						<mag>0.4</mag>
+						<unit base="hour" />
+					</quantity>
+					of the horizontal axis has now been split into thirteen rectangles.
+					Here are the heights of their tops,
+					in order:
+					<ul>
+						<li><quantity>
+							<mag>100</mag>
+							<unit base="metre" prefix="kilo" />
+							<per  base="hour" />
+						</quantity>.</li>
+						<li><quantity>
+							<mag>80</mag>
+							<unit base="metre" prefix="kilo" />
+							<per  base="hour" />
+						</quantity>.</li>
+						<li>
+							Two at
+							<quantity>
+								<mag>100</mag>
+								<unit base="metre" prefix="kilo" />
+								<per  base="hour" />
+							</quantity>.
+						</li>
+						<li><quantity>
+							<mag>105</mag>
+							<unit base="metre" prefix="kilo" />
+							<per  base="hour" />
+						</quantity>.</li>
+						<li>
+							Three at
+							<quantity>
+								<mag>110</mag>
+								<unit base="metre" prefix="kilo" />
+								<per  base="hour" />
+							</quantity>.
+						</li>
+						<li><quantity>
+							<mag>100</mag>
+							<unit base="metre" prefix="kilo" />
+							<per  base="hour" />
+						</quantity>.</li>
+						<li><quantity>
+							<mag>95</mag>
+							<unit base="metre" prefix="kilo" />
+							<per  base="hour" />
+						</quantity>.</li>
+						<li>
+							Two at
+							<quantity>
+								<mag>100</mag>
+								<unit base="metre" prefix="kilo" />
+								<per  base="hour" />
+							</quantity>.
+						</li>
+					</ul>
+				</li>
+				<li>
+					The last
+					<quantity>
+						<mag>0.15</mag>
+						<unit base="hour" />
+					</quantity>
+					of the horizontal axis has now been split into four rectangles,
+					starting with one with its top at height
+					<quantity>
+						<mag>80</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>,
+					followed by one with its top at height
+					<quantity>
+						<mag>0</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>
+					(so really just a line segment along the horizontal axis instead of a rectangle),
+					and finally two rectangles each with its top at height
+					<quantity>
+						<mag>100</mag>
+						<unit base="metre" prefix="kilo" />
+						<per  base="hour" />
+					</quantity>.
+				</li>
+			</ul>
+		</p></description>
 		<latex-image><xi:include href="integ.d/camrose-wetaskiwin-simplified-more-rect.tex" parse="text" /></latex-image>
 	</image>
 </figure>
