@@ -321,6 +321,8 @@ So we'll start by analysing the two simplest possible quantity models built on t
 	</image>
 </figure>
 
+<remark>
+
 <p>
 <xref ref="pattern-deriv-h-scale" /> applies equally well when the vertical scale factor is negative.
 Thinking in terms of tangent lines,
@@ -335,6 +337,8 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 		<latex-image><xi:include href="deriv.d/v-reflect-tangent.tex" parse="text" /></latex-image>
 	</image>
 </figure>
+
+</remark>
 
 <example><p>
 	In <xref ref="example-deriv-parabolic-motion" />,
@@ -607,6 +611,9 @@ let's consider the effect of horizontal transformations on derivative.
 
 </identity>
 
+
+<remark>
+
 <p>
 <xref ref="pattern-deriv-h-scale" /> applies equally well when the horizontal scale factor is negative.
 Thinking in terms of tangent lines,
@@ -622,6 +629,8 @@ Meanwhile, the <em>amount</em> of run stays the same.
 		<latex-image><xi:include href="deriv.d/h-reflect-tangent.tex" parse="text" /></latex-image>
 	</image>
 </figure>
+
+</remark>
 
 <p>
 We need some basic example derivatives to work with before we can consider examples of the previous two patterns,
