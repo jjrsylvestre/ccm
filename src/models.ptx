@@ -37,20 +37,20 @@ Then we might want a function to model it as well.
 	we modelled the salary of salespeople who were paid a base salary,
 	commission on each sale, and a bonus commission on each sale above some threshold.
 	The model we came up with for the salary <m>s(q)</m> as a function of the number of units <m>q</m> sold was
-	<me>
+	<md>
 		s(q) = \begin{cases}
 			4000 + 10 q \amp 0 \le q \le 100 \\
 			4000 + 10 q + 5 (q - 100) \amp q \gt 100
 		\end{cases}
-	</me>.
+	</md>.
 	Simplifying the second formula in the piecewise definition,
 	we can write
-	<me>
+	<md>
 		s(q) = \begin{cases}
 			4000 + 10 q \amp 0 \le q \le 100 \\
 			3500 + 15 q \amp q \gt 100
 		\end{cases}
-	</me>.
+	</md>.
 	That rate of accumulation of salary relative to number of units sold is constant <mdash />
 	salary increases by <m>10</m> dollars per extra unit sold <mdash />
 	up until the threshold where the bonus kicks in,
@@ -60,12 +60,12 @@ Then we might want a function to model it as well.
 	salary increases by <m>15</m> dollars per extra unit sold.
 	To keep track of how the rate varies,
 	we create a function to model the rate:
-	<me>
+	<md>
 		r(q) = \begin{cases}
 			10 \amp 0 \le q \le 100 \\
 			15 \amp q \gt 100
 		\end{cases}
-	</me>.
+	</md>.
 	We know that the constant rate for a linear function is just the slope of the line,
 	so essentially we have just extracted the slopes of the two <q>pieces</q> of <m>s(q)</m> on their respective subdomains.
 	</p>
@@ -224,7 +224,7 @@ The next step in analyzing the situation would be to try to make this observatio
 
 	<p>
 	We can re-arrange <xref ref="equation-models-radioactive" /> to
-	<me> r(t) = - k q(t) </me>,
+	<md> r(t) = - k q(t) </md>,
 	a rate equation relating rate to quantity.
 	Even though this is a linear relationship between <m>r</m> and <m>q</m>,
 	the model for <m>q(t)</m> in terms of <m>t</m> is definitely not linear,
@@ -277,7 +277,7 @@ The next step in analyzing the situation would be to try to make this observatio
 	We seem to have both behaviours at once,
 	since salt is entering through the fresh brine supply and is being lost through the drained liquid.
 	The actual rate of variation of the quantity of salt is the net effect:
-	<me> r(t) = (\text{rate in }) - (\text{rate out}) </me>.
+	<md> r(t) = (\text{rate in }) - (\text{rate out}) </md>.
 	Let's analyze these one at a time.
 	The rate of salt entering is
 	<md>
@@ -290,14 +290,14 @@ The next step in analyzing the situation would be to try to make this observatio
 	However, since the volume in the tank is staying constant at
 	<quantity><mag>1000</mag><unit base="liter" /></quantity>,
 	then at any given moment if we knew the value of <m>q(t)</m> the concentration in the tank would be
-	<me> \frac{q(t)}{1000} </me>.
+	<md> \frac{q(t)}{1000} </md>.
 	Thus,
 	<md>
 		<mrow> \text{rate out} \amp = \left(\frac{q(t)}{1000} \; \mathrm{g}/\mathrm{L}\right) (2 \; \mathrm{L}/\mathrm{s}) </mrow>
 		<mrow> \amp = \frac{q(t)}{500} \; \mathrm{g}/\mathrm{s} </mrow>
 	</md>.
 	Combining the last two calculations yields rate equation
-	<me> r(t) = 30 - \frac{q(t)}{500} </me>.
+	<md> r(t) = 30 - \frac{q(t)}{500} </md>.
 	</p>
 
 </example>
@@ -310,7 +310,7 @@ The next step in analyzing the situation would be to try to make this observatio
 	If <m>q(t)</m> represents some quantity that is changing over time,
 	and <m>r(t)</m> models the rate of accumulation of that quantity,
 	then the equation
-	<me> r(t) = \frac{q(t) \bbrac{1 - q(t)}}{t + 1} </me>
+	<md> r(t) = \frac{q(t) \bbrac{1 - q(t)}}{t + 1} </md>
 	is a rate equation.
 	</p>
 </example>
@@ -329,7 +329,7 @@ our goal is to recover a formula for the quantity function so that we can make p
 	<title>Solution to a rate equation</title>
 	<statement><p>
 		Given a rate equation
-		<me> r(t) = \text{some formula in } t \text{ and } q(t) </me>,
+		<md> r(t) = \text{some formula in } t \text{ and } q(t) </md>,
 		a <term>solution</term> is a function <m>q(t)</m> that,
 		when substituted into the right-hand side of the rate equation,
 		gives the correct rate function <m>r(t)</m> for that particular <m>q(t)</m>.
@@ -340,10 +340,10 @@ our goal is to recover a formula for the quantity function so that we can make p
 	<title>A simple rate equation with a simple solution</title>
 	<p>
 	Suppose we have an unknown quantity <m>q(t)</m> that satisfies the rate equation
-	<me> r(t) = q(t) - 5 t </me>.
+	<md> r(t) = q(t) - 5 t </md>.
 	Could any linear quantity models satisfy this equation?
 	That is, are there any values of <m>m</m> and <m>q_0</m> so that
-	<me> q(t) = m t + q_0 </me>
+	<md> q(t) = m t + q_0 </md>
 	is a solution to this rate equation?
 	We know that a linear quantity function has a constant rate function,
 	so we can compare left-hand and right-hand sides in the rate equation to see when they are equal.
@@ -358,13 +358,13 @@ our goal is to recover a formula for the quantity function so that we can make p
 	That is, we need them to be the same function.
 	And since the left-hand side is a constant function,
 	we will only get equality if the right-hand side is also a constant function,
-	which requires <me> m - 5 = 0 </me>,
+	which requires <md> m - 5 = 0 </md>,
 	or <m>m = 5</m>.
 	In that case,
 	we are left with just <m>q_0</m> on the right-hand side,
 	so matching left with right we also need <m>q_0 = 5</m>.
 	This tells us that the only linear quantity model that solves the rate equation is
-	<me> q(t) = 5 t + 5 </me>.
+	<md> q(t) = 5 t + 5 </md>.
 	</p>
 </example>
 
@@ -387,7 +387,7 @@ not just individual solutions of a particular form.
 	<title>General solution to a rate equation</title>
 	<statement><p>
 		Given a rate equation
-		<me> r(t) = \text{some formula in } t \text{ and } q(t) </me>,
+		<md> r(t) = \text{some formula in } t \text{ and } q(t) </md>,
 		the <term>general solution</term> is a formula involving the independent variable <m>t</m> and one or more parameters,
 		so that
 		<ul>
@@ -408,11 +408,11 @@ not just individual solutions of a particular form.
 	<title>A general solution based on one parameter</title>
 
 	<p>
-	Consider the rate equation <me> r(t) = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </me>.
+	Consider the rate equation <md> r(t) = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </md>.
 	We will learn a technique for solving this equation
 	in <xref ref="chapter-substitution" />,
 	and when that technique is successfully applied it leads to general solution
-	<me> q(t) = \frac{c (t + 1)}{c t + 1} </me>
+	<md> q(t) = \frac{c (t + 1)}{c t + 1} </md>
 	involving the parameter <m>c</m>.
 	From this we can obtain many different particular solutions,
 	one for each value of <m>c</m>.
@@ -420,13 +420,13 @@ not just individual solutions of a particular form.
 
 	<p>
 	For example,
-	<me> c = 1 \qquad \implies \qquad q(t) = \frac{t + 1}{t + 1} = 1 </me>,
+	<md> c = 1 \qquad \implies \qquad q(t) = \frac{t + 1}{t + 1} = 1 </md>,
 	so in fact in this case we have a constant solution.
 	Is it actually a solution?
 	We know that a constant function isn't varying,
 	so its rate of variation is <m>0</m>.
 	That is,
-	<me> q(t) = 1 \qquad \implies \qquad r(t) = 0 </me>.
+	<md> q(t) = 1 \qquad \implies \qquad r(t) = 0 </md>.
 	In this case,
 	<md>
 		<mrow> \mathrm{LHS} \amp = r(t) \amp \mathrm{RHS} \amp = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </mrow>
@@ -468,11 +468,11 @@ not just individual solutions of a particular form.
 	<p>
 	The <c>t |--></c> portion of the Sage output says that the rate function also uses input variable <m>t</m>,
 	and then the formula for the rate function follows:
-	<me> r(t) = \frac{-c^2 (t + 1)}{{(c t + 1)}^2} + \frac{c}{c t + 1} </me>.
+	<md> r(t) = \frac{-c^2 (t + 1)}{{(c t + 1)}^2} + \frac{c}{c t + 1} </md>.
 	To verify that the general solution formula always provides a solution to the rate equation,
 	no matter the value of the parameter <m>c</m>,
 	we would substitute
-	<me> q(t) = \frac{c (t + 1)}{c t + 1} </me>
+	<md> q(t) = \frac{c (t + 1)}{c t + 1} </md>
 	into the left-hand side of the rate equation and manipulate it algebraically until it resembles the rate function <m>r(t)</m> above.
 	</p>
 
@@ -508,7 +508,7 @@ choosing parameter value(s) should be done to match a desired initial state of t
 	<p>
 	Let's return to the rate equation and general solution from <xref ref="example-models-general-solution" />.
 	Suppose we want the particular solution that satisfies initial condition
-	<me> q(0) = 7 </me>.
+	<md> q(0) = 7 </md>.
 	Then
 	<md>
 		<mrow> q(t) = \frac{c (t + 1)}{c t + 1}  \qquad \implies \qquad q(0) \amp = \frac{c (0 + 1)}{0 + 1} </mrow>
@@ -516,7 +516,7 @@ choosing parameter value(s) should be done to match a desired initial state of t
 	</md>.
 	So to get <m>q(0) = 7</m> we need <m>c = 7</m>,
 	and the particular solution we were looking for is
-	<me> q(t) = \frac{7 (t + 1)}{7 t + 1} </me>.
+	<md> q(t) = \frac{7 (t + 1)}{7 t + 1} </md>.
 	</p>
 </example>
 
@@ -534,7 +534,7 @@ choosing parameter value(s) should be done to match a desired initial state of t
 Even though we haven't yet developed any techniques for solving rate equations,
 we can still get an idea of what solutions look like graphically from the rate formula in a rate equation.
 Suppose we have
-<me> r(t) = \text{some formula in } t \text{ and } q(t) </me>.
+<md> r(t) = \text{some formula in } t \text{ and } q(t) </md>.
 Then the formula on the right will tells us the rate of variation at any data point <m>\bbrac{t_0, q(t_0)}</m>.
 That is,
 if we assume that a particular solution with <q>initial</q> condition <m>\bbrac{t_0, q(t_0)}</m> is possible,
@@ -591,11 +591,11 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 
 	<p>
 	Let's return to the rate equation
-	<me> r(t) = - k q(t) </me>
+	<md> r(t) = - k q(t) </md>
 	from <xref ref="example-models-radioactive-decay" />,
 	and for the purposes of this example,
 	let's take <m>k = 1/2</m>,
-	so that <me> r(t) = - \frac{q(t)}{2} </me>.
+	so that <md> r(t) = - \frac{q(t)}{2} </md>.
 	If the graph of a potential solution passes through the data point <m>(1,4)</m>,
 	then <m>q(1) = 4</m> and
 	<md>
@@ -732,7 +732,7 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 	For example,
 	it appears that no matter the initial amount <m>q(0)</m>,
 	all solution functions will satisfy
-	<me> q(t) \to 0 \qquad \text{as} \qquad t \to \infty </me>.
+	<md> q(t) \to 0 \qquad \text{as} \qquad t \to \infty </md>.
 	</p>
 
 </example>
@@ -747,7 +747,7 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 
 	<p>
 	Our rate equation in that example was
-	<me> r(t) = \frac{q(t) \bbrac{1 - q(t)}}{t + 1} </me>.
+	<md> r(t) = \frac{q(t) \bbrac{1 - q(t)}}{t + 1} </md>.
 	Here is an example slope calculation for one of the line segments in the direction field.
 	If we assume that there exists a solution function <m>q(t)</m> whose graph passes through the point <m>(1,-2)</m>,
 	then that means <m>q(1) = -2</m>,
@@ -814,12 +814,12 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 	the solutions appear to tend to <m>1</m> over the long term.
 	That is, when <m>q(0) \gt 0</m>,
 	it appears that we will have
-	<me> q(t) \to 1 \qquad \text{as} \qquad t \to \infty </me>.
+	<md> q(t) \to 1 \qquad \text{as} \qquad t \to \infty </md>.
 	However, when the initial amount <m>q(0)</m> is negative,
 	the solutions appear to eventually head sharply downward.
 	That is, when <m>q(0) \lt 0</m>,
 	it appears that we will have
-	<me> q(t) \to -\infty \qquad \text{as} \qquad t \to \infty </me>.
+	<md> q(t) \to -\infty \qquad \text{as} \qquad t \to \infty </md>.
 	</p>
 
 	<figure xml:id="figure-models-dirfield-vary-all-dirs-int-curves">

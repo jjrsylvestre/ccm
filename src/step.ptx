@@ -152,7 +152,7 @@ we use piecewise notation to specify the constant output values on different sub
 	<p>
 	There is no <em>single</em> constant value or formula that describes the function's output values at every possible input value,
 	so we describe the function's output values using different output values on different subdomains.
-	<me>
+	<md>
 		f(t) = \begin{cases}
 			0 \amp t \lt 0 \\
 			1 \amp 0 \le t \lt 1 \\
@@ -161,7 +161,7 @@ we use piecewise notation to specify the constant output values on different sub
 			\sqrt{2} \amp \pi \le t \lt 4.5 \\
 			0 \amp t \ge 4.5
 		\end{cases}
-	</me>
+	</md>
 	Suppose we wanted to determine the output value <m>f(\sqrt{3})</m> without the graph in front of us.
 	We would first scan the subdomains in the right column,
 	and notice that the input <m>t = \sqrt{3}</m> falls into the subdomain <m>1 \le t \lt 2</m>.
@@ -220,7 +220,7 @@ and then changes in output-value still only occur at boundaries of these length-
 <p>
 When a rate function is known to be constant,
 computing accumulation is easy:
-<me> \text{amount} = \text{rate} \times \text{duration} </me>.
+<md> \text{amount} = \text{rate} \times \text{duration} </md>.
 When a quantity changes with a rate function that can be modelled by a step function,
 then the rate function is not constant over its entire domain because it is not always the same rate value for all time.
 However, a stepped rate function is constant over specific subdomains,
@@ -245,39 +245,39 @@ so we can still apply the above formula on each of those subdomains and then tot
 		<per  base="minute" />
 	</quantity>
 	for one minute accumulates
-	<me>
+	<md>
 		(0.5 \unitsp \mathrm{m}^3 / \mathrm{min})
 		\times
 		(1 \unitsp \mathrm{min})
 		=
 		0.5 \unitsp \mathrm{m}^3
-	</me>
+	</md>
 	of air in the raft.
 	</p>
 
 	<p>
 	Over the next two minutes, when the air pump is on the high setting,
 	we accumulate an additional
-	<me>
+	<md>
 		(0.75 \unitsp \mathrm{m}^3 / \mathrm{min})
 		\times
 		(2 \unitsp \mathrm{min})
 		=
 		1.5 \unitsp \mathrm{m}^3
-	</me>
+	</md>
 	of air in the raft.
 	</p>
 
 	<p>
 	Finally, over the final minute on the low setting,
 	we accumulate an additional
-	<me>
+	<md>
 		(0.25 \unitsp \mathrm{m}^3 / \mathrm{min})
 		\times
 		(1 \unitsp \mathrm{min})
 		=
 		0.25 \unitsp \mathrm{m}^3
-	</me>
+	</md>
 	of air in the raft.
 	</p>
 
@@ -397,11 +397,11 @@ so we can still apply the above formula on each of those subdomains and then tot
 <p>
 Consider what the calculations in <xref ref="example-step-accumulation-air-pump" /> represent on the graph of the inflation rate function.
 On each subdomain, we used the constant-rate accumulation formula
-<me> \text{amount} = \text{rate} \times \text{duration} </me>.
+<md> \text{amount} = \text{rate} \times \text{duration} </md>.
 The rate represents the <em>height</em> of the graph on that particular subdomain,
 while the duration represents the <em>length</em> of time that this rate was in effect.
 Geometrically, the product of a <em>height</em> and a <em>length</em> represents the area of a rectangle:
-<me> \text{area} = \text{height} \times \text{length} </me>.
+<md> \text{area} = \text{height} \times \text{length} </md>.
 So each partial accumulation calculation in <xref ref="example-step-accumulation-air-pump" />
 corresponds to an area of a rectangle related to the graph of the stepped rate function.
 Let's see exactly how.
@@ -410,13 +410,13 @@ Let's see exactly how.
 <p>
 First, suppose we actually turned the air pump off after the first minute of running on the medium setting.
 The accumulation formula
-<me>
+<md>
 	\text{air accumulation}
 	=
 	(0.5 \unitsp \mathrm{m}^3 / \mathrm{min})
 	\times
 	(1 \unitsp \mathrm{min})
-</me>
+</md>
 corresponds to an area calculation for a rectangle of height <m>0.5</m> and length <m>1</m>.
 </p>
 
@@ -446,13 +446,13 @@ corresponds to an area calculation for a rectangle of height <m>0.5</m> and leng
 <p>
 Now let's take into account the additional two minutes running on high.
 The accumulation formula
-<me>
+<md>
 	\text{air accumulation}
 	=
 	(0.75 \unitsp \mathrm{m}^3 / \mathrm{min})
 	\times
 	(2 \unitsp \mathrm{min})
-</me>
+</md>
 corresponds to an area calculation for a rectangle of height <m>0.75</m> and length <m>2</m>.
 </p>
 
@@ -487,13 +487,13 @@ corresponds to an area calculation for a rectangle of height <m>0.75</m> and len
 
 <p>
 Finally, the accumulation formula
-<me>
+<md>
 	\text{air accumulation}
 	=
 	(0.25 \unitsp \mathrm{m}^3 / \mathrm{min})
 	\times
 	(1 \unitsp \mathrm{min})
-</me>
+</md>
 for the final minute running on low corresponds to an area calculation for a rectangle of height <m>0.25</m> and length <m>1</m>.
 </p>
 
@@ -996,9 +996,9 @@ so mathematicians have developed a special notation for it.
 <p>
 If we write <m>P(k)</m> to mean a calculation formula or pattern in the variable <m>k</m>,
 then we can write
-<me> \sum_{k = 1}^n P(k) </me>
+<md> \sum_{k = 1}^n P(k) </md>
 to represent the sum
-<me> P(1) + P(2) + P(3) + \dotsb + P(n) </me>.
+<md> P(1) + P(2) + P(3) + \dotsb + P(n) </md>.
 The <term>Greek letter <m>\Sigma</m></term> stands for <q>Sum</q>,
 the variable <m>k</m> is called the <term>index variable</term> for the sum,
 and the <q>start</q> and <q>end</q> values <m>1</m> and <m>n</m> are called the <term>lower bound</term> and <term>upper bound</term>,
@@ -1021,14 +1021,14 @@ for the summation.
 	<title>Sum of squares</title>
 	<p>
 	Consider the <term>sum-of-squares</term> formula
-	<me> 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 100 </me>.
+	<md> 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 100 </md>.
 	Recognizing each term in the sum as a square number,
 	we can express each term as the result of the pattern
-	<me> P(k) = k^2 </me>
+	<md> P(k) = k^2 </md>
 	for increasing integer values of the variable <m>k</m>:
-	<me> 1^2 + 2^2 + 3^2 + 4^2 + 5^2 + 6^2 + 7^2 + 8^2 + 9^2 + {10}^2 </me>.
+	<md> 1^2 + 2^2 + 3^2 + 4^2 + 5^2 + 6^2 + 7^2 + 8^2 + 9^2 + {10}^2 </md>.
 	Based on this pattern, we can compactly express the above sum of squares using Sigma notation:
-	<me> \sum_{k = 1}^{10} k^2 </me>.
+	<md> \sum_{k = 1}^{10} k^2 </md>.
 	</p>
 </example>
 
@@ -1041,10 +1041,10 @@ we can use any start value we like, according to the summation pattern we are tr
 	<title>Different starting value</title>
 	<p>
 	Here is another <term>sum-of-squares</term> formula:
-	<me> 16 + 25 + 36 + 49 + 64 + 81 + 100 </me>.
+	<md> 16 + 25 + 36 + 49 + 64 + 81 + 100 </md>.
 	Since this summation pattern begins at the square of <m>4</m>,
 	our Sigma-notation version of this sum is
-	<me> \sum_{k = 4}^{10} k^2 </me>.
+	<md> \sum_{k = 4}^{10} k^2 </md>.
 	</p>
 </example>
 
@@ -1064,7 +1064,7 @@ we can use any start value we like, according to the summation pattern we are tr
 <p>
 Take care when counting an indexed collection:
 the number of objects is
-<me> (\text{ending index value}) - (\text{starting index value}) + 1 </me>.
+<md> (\text{ending index value}) - (\text{starting index value}) + 1 </md>.
 The <q><m>+ 1</m></q> is required because in the subtraction we have <q>taken away</q> every object up to and including the one indexed by the <q>starting index value,</q>
 but we actually want to include that <q>starting</q> object in the collection being counted.
 For example, if we have a sum indexed from <m>k = 1</m> to <m>k = n</m>,
@@ -1075,7 +1075,7 @@ then we are adding up <m>n</m> terms, not <m>n - 1</m> terms.
 	<title>Summing a constant value</title>
 	<p>
 	For a constant value <m>c</m> and integers <m>m</m> and <m>n</m> with <m>n \gt m</m>:
-	<me> \sum_{k = m}^{n} c = (n - m + 1) \times c </me>.
+	<md> \sum_{k = m}^{n} c = (n - m + 1) \times c </md>.
 	</p>
 </identity>
 
@@ -1093,17 +1093,17 @@ so every algebra rule for addition can be applied to Sigma notation.
 	<title>Sum of evens</title>
 	<p>
 	Suppose we want to sum a collection of even numbers:
-	<me> 2 + 4 + 6 + 8 + 10 </me>.
+	<md> 2 + 4 + 6 + 8 + 10 </md>.
 	While there are variations of Sigma notation where the index variable may <q>step</q> by more than <m>1</m>,
 	we can avoid that by expressing each of our even numbers as <m>2</m> times a number that increases by only <m>1</m> from term to term:
-	<me> 2 \cdot 1 + 2 \cdot 2 + 2 \cdot 3 + 2 \cdot 4 + 2 \cdot 5 </me>.
+	<md> 2 \cdot 1 + 2 \cdot 2 + 2 \cdot 3 + 2 \cdot 4 + 2 \cdot 5 </md>.
 	In Sigma notation, this sum can be expressed as
-	<me> \sum_{k = 1}^{5} 2 k </me>.
+	<md> \sum_{k = 1}^{5} 2 k </md>.
 	However, we also know that a common factor can be factored out of a sum:
-	<me> 2 (1 + 2 + 3 + 4 + 5) </me>.
+	<md> 2 (1 + 2 + 3 + 4 + 5) </md>.
 	This formula is <m>2</m> times a sum,
 	so we can express it as <m>2</m> times a Sigma expression:
-	<me> 2 \sum_{k = 1}^{5} k </me>.
+	<md> 2 \sum_{k = 1}^{5} k </md>.
 	</p>
 </example>
 
@@ -1111,7 +1111,7 @@ so every algebra rule for addition can be applied to Sigma notation.
 	<title>Factoring in a Sigma expression</title>
 	<p>
 	For pattern <m>P(k)</m> and constant value <m>c</m>,
-	<me> \sum_{k = 1}^n c P(k) = c \sum_{k = 1}^n P(k) </me>.
+	<md> \sum_{k = 1}^n c P(k) = c \sum_{k = 1}^n P(k) </md>.
 	</p>
 </identity>
 
@@ -1129,17 +1129,17 @@ As well as factoring out of sums, we also know that we may perform a series of a
 	<title>Summing two patterns</title>
 	<p>
 	Consider the sum
-	<me> 2 + 6 + 12 + 20 + 30 + 42 + 56 + 72 + 90 + 110 </me>.
+	<md> 2 + 6 + 12 + 20 + 30 + 42 + 56 + 72 + 90 + 110 </md>.
 	It may not be obvious at first glance,
 	but is the summation from <xref ref="example-step-sigma-squares" /> with each term increased by its index:
-	<me> (1^2 + 1) + (2^2 + 2) + (3^2 + 3) + \dotsb + (10^2 + 10) </me>.
+	<md> (1^2 + 1) + (2^2 + 2) + (3^2 + 3) + \dotsb + (10^2 + 10) </md>.
 	In Sigma notation, this can be written
-	<me> \sum_{k = 1}^{10} (k^2 + k) </me>.
+	<md> \sum_{k = 1}^{10} (k^2 + k) </md>.
 	But we would come to the same result if we added all the squares first,
 	and then added to that result the sum of the extra bits:
-	<me> (1^2 + 2^2 + 3^2 + \dotsb + 10^2) + (1 + 2 + 3 + \dotsb + 10) </me>.
+	<md> (1^2 + 2^2 + 3^2 + \dotsb + 10^2) + (1 + 2 + 3 + \dotsb + 10) </md>.
 	We can write each of the bracketed Sigma expressions in Sigma notation separately:
-	<me> \sum_{k = 1}^{10} k^2 + \sum_{k = 1}^{10} k </me>.
+	<md> \sum_{k = 1}^{10} k^2 + \sum_{k = 1}^{10} k </md>.
 	</p>
 </example>
 
@@ -1147,7 +1147,7 @@ As well as factoring out of sums, we also know that we may perform a series of a
 	<title>Summing separate patterns in a Sigma expression</title>
 	<p>
 	For patterns <m>P_1(k)</m> and <m>P_2(k)</m>,
-	<me> \sum_{k = 1}^n \bigl( P_1(k) + P_2(k) \bigr) = \sum_{k = 1}^n P_1(k) + \sum_{k = 1}^n P_2(k) </me>.
+	<md> \sum_{k = 1}^n \bigl( P_1(k) + P_2(k) \bigr) = \sum_{k = 1}^n P_1(k) + \sum_{k = 1}^n P_2(k) </md>.
 	</p>
 </identity>
 
@@ -1156,9 +1156,9 @@ As well as factoring out of sums, we also know that we may perform a series of a
 
 	<p>
 	Again consider the sum-of-squares pattern
-	<me> 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 100 </me>.
+	<md> 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 100 </md>.
 	We can put brackets around any portions of the sum without changing the result:
-	<me> (1 + 4 + 9 + 16 + 25 + 36) + (49 + 64 + 81 + 100) </me>.
+	<md> (1 + 4 + 9 + 16 + 25 + 36) + (49 + 64 + 81 + 100) </md>.
 	</p>
 
 	<aside><title>BEDMAS</title><p>
@@ -1169,7 +1169,7 @@ As well as factoring out of sums, we also know that we may perform a series of a
 	<p>
 	So this same sum that we expressed in <xref ref="example-step-sigma-squares" /> using a single Sigma expression
 	can be re-expressed using two Sigma expressions, if we had some particular reason for wanting to do so:
-	<me> \sum_{k = 1}^{6} k^2 + \sum_{k = 7}^{10} k^2 </me>.
+	<md> \sum_{k = 1}^{6} k^2 + \sum_{k = 7}^{10} k^2 </md>.
 	</p>
 
 </example>
@@ -1179,7 +1179,7 @@ As well as factoring out of sums, we also know that we may perform a series of a
 	<p>
 	If <m>q</m> is an index value between the starting index <m>m</m> and the ending index <m>n</m>,
 	then
-	<me> \sum_{k = m}^{n} P(k) = \sum_{k = m}^{q} P(k) + \sum_{k = q + 1}^{n} P(k) </me>.
+	<md> \sum_{k = m}^{n} P(k) = \sum_{k = m}^{q} P(k) + \sum_{k = q + 1}^{n} P(k) </md>.
 	</p>
 </identity>
 
@@ -1195,7 +1195,7 @@ The syntax is below.
 	sum(pattern, variable, start, end)
 </cline></cd>
 For example, the summation
-<me> \sum_{k=1}^{5} 2 k + 1 </me>
+<md> \sum_{k=1}^{5} 2 k + 1 </md>
 becomes Sage input
 <cd><cline>
 	sum(2*k + 1, k, 1, 5)
@@ -1224,7 +1224,7 @@ we have to first tell Sage that we want <c>k</c> to be treated as a variable.
 	<title>Try it yourself</title>
 	<p>
 	Use the blank Sage cell below to compute the sum
-	<me> \sum_{k = 1}^{17} k^2 </me>.
+	<md> \sum_{k = 1}^{17} k^2 </md>.
 	(If you've already evaluated the example Sage cell above,
 	you won't need the <c>var('k')</c> command.)
 	</p>
@@ -1255,7 +1255,7 @@ the sum is called a <term>Riemann sum</term>.
 	<title>Riemann sum</title>
 	<statement><p>
 		Suppose <m>s(t)</m> is a step function that takes on values
-		<me>
+		<md>
 			s(t) = \begin{cases}
 				h_1 \amp t_0 \le t \lt t_1 \\
 				h_2 \amp t_1 \le t \lt t_2 \\
@@ -1263,11 +1263,11 @@ the sum is called a <term>Riemann sum</term>.
 				\amp \vdots \\
 				h_n \amp t_{n - 1} \le t \lt t_n
 			\end{cases}
-		</me>.
+		</md>.
 		If we write <m>\change{t_k}</m> to represent the length of the subdomain <m>t_{k - 1} \le t \lt t_k</m> so that
-		<me> \change{t_k} = t_k - t_{k - 1} </me>,
+		<md> \change{t_k} = t_k - t_{k - 1} </md>,
 		then the sum
-		<me> \sum_{k = 1}^{n} h_k \change{t_k} </me>
+		<md> \sum_{k = 1}^{n} h_k \change{t_k} </md>
 		of (oriented) rectangle areas is called the <term>Riemann sum</term> for <m>s(t)</m> over the domain <m>t_0 \le t \le t_n</m>.
 	</p></statement>
 </definition>
@@ -1350,19 +1350,19 @@ the sum is called a <term>Riemann sum</term>.
 	Writing <m>\change{t}</m> for this common subdomain length,
 	if the original domain is <m>a \le t \le b</m>
 	then the length of each subdomain should be
-	<me> \change{t} = \frac{b - a}{n} </me>,
+	<md> \change{t} = \frac{b - a}{n} </md>,
 	where <m>n</m> is the number of subdomains.
 	</p>
 
 	<p>
 	Furthermore, we can factor this common length out of our sum,
 	so that
-	<me>
+	<md>
 		\sum_{k = 1}^{n} h_k \change{t_k}
 		= \sum_{k = 1}^{n} h_k \change{t}
 		= \left(\sum_{k = 1}^{n} h_k\right) \change{t}
 		= \left(\sum_{k = 1}^{n} h_k\right) \left( \frac{b - a}{n} \right)
-	</me>.
+	</md>.
 	</p>
 </identity>
 

@@ -102,7 +102,7 @@ so in this section we will develop a more efficient process based on local extre
 
 	<p>
 	For <m>\sin(t)</m> on the domain <m>0 \lt t \lt 3 \pi</m>,
-	the absolute minimum value of <m>-1</m> occurs at only one location: <me> \sin(3 \pi / 2) = -1 </me>.
+	the absolute minimum value of <m>-1</m> occurs at only one location: <md> \sin(3 \pi / 2) = -1 </md>.
 	However, the absolute maximum value of <m>1</m> occurs at two locations:
 	<md><mrow> \sin(\pi / 2) \amp = 1 \amp \sin(5 \pi / 2) \amp = 1 </mrow></md>.
 	</p>
@@ -130,7 +130,7 @@ so in this section we will develop a more efficient process based on local extre
 
 	<p>
 	The function <m>q(t) = 1 / t</m> has no absolute minimum because
-	<me> q \to -\infty \qquad\text{as}\qquad t \to t^- </me>.
+	<md> q \to -\infty \qquad\text{as}\qquad t \to t^- </md>.
 	In particular,
 	for every <m>t \lt 0</m>,
 	we will always see <m>q(t/2) \lt q(t)</m>,
@@ -148,7 +148,7 @@ so in this section we will develop a more efficient process based on local extre
 
 	<p>
 	With similar reasoning we can say that <m>q</m> has no absolute maximum on its domain because
-	<me> q \to \infty \qquad\text{as}\qquad t \to t^+ </me>.
+	<md> q \to \infty \qquad\text{as}\qquad t \to t^+ </md>.
 	</p>
 
 </example>
@@ -161,7 +161,7 @@ so in this section we will develop a more efficient process based on local extre
 	This function has <em>no</em> absolute minimum on this domain,
 	because for every <m>t</m> you consider in the domain,
 	you will find that <m>t/2</m> is also in the domain but the function achieves a lower value there:
-	<me> \sqrt{t / 2} \lt \sqrt{t} \qquad\text{for every}\qquad 0 \lt t \lt 1 </me>.
+	<md> \sqrt{t / 2} \lt \sqrt{t} \qquad\text{for every}\qquad 0 \lt t \lt 1 </md>.
 	By similar reasoning near <m>t \approx 1</m>,
 	there is no absolute maximum on this domain because you can always make <m>t</m> slightly closer to <m>1</m>
 	(but still less than <m>1</m>)
@@ -315,7 +315,7 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 	<title>Discontinuous behaviour on a closed, bounded domain</title>
 
 	<p>
-	The function <me> q(t) = \begin{cases} t \amp -1 \lt t \lt 1 \\ 0 \amp t = \pm 1 \end{cases} </me>
+	The function <md> q(t) = \begin{cases} t \amp -1 \lt t \lt 1 \\ 0 \amp t = \pm 1 \end{cases} </md>
 	has a closed and bounded domain <m>-1 \le t \le 1</m> but is discontinuous at its endpoints,
 	so the <xref ref="theorem-opt-EVT" text="title" /> does not apply.
 	And this function in fact has no absolute extremes because it is always possible to get a little closer to the endpoints and achieve a slightly higher or lower output than before.
@@ -337,7 +337,7 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 
 	<p>
 	Consider the function
-	<me> q(t) = \begin{cases} -t^2 \amp -1 \lt t \lt 0 \\ 1 - 2 t^2 \amp 0 \le t \le 1 \end{cases} </me>.
+	<md> q(t) = \begin{cases} -t^2 \amp -1 \lt t \lt 0 \\ 1 - 2 t^2 \amp 0 \le t \le 1 \end{cases} </md>.
 	This function is not continuous,
 	and its domain <m>-1 \lt t \le 1</m> is bounded but not closed,
 	since the endpoint <m>t = -1</m> is not included in the domain.
@@ -404,7 +404,7 @@ or not occur at all because of endpoint behaviour.
 	<title>Absolute extremes for a continuous function on a closed and bounded domain</title>
 
 	<p>
-	Consider the function <me> q(t) = t^2 (4 - t)^2 \qquad 1 \le t \le 5 </me>.
+	Consider the function <md> q(t) = t^2 (4 - t)^2 \qquad 1 \le t \le 5 </md>.
 	This is a polynomial so it is continuous,
 	and the stated domain is both closed and bounded.
 	</p>
@@ -424,12 +424,12 @@ or not occur at all because of endpoint behaviour.
 
 	<p>
 	From the factored form of the derivative,
-	<me> q'(t) = 4 t (t - 2) (t - 4) </me>,
+	<md> q'(t) = 4 t (t - 2) (t - 4) </md>,
 	we see that the critical points are <m>t = 0, 2, 4</m>.
 	However, <m>t = 0</m> is outside of our stated domain,
 	so we discard it.
 	So our full list of critical points and endpoints is
-	<me> t = 1, 2, 4, 5 </me>.
+	<md> t = 1, 2, 4, 5 </md>.
 	Now we evaluate:
 	<md>
 		<mrow>
@@ -460,14 +460,14 @@ or not occur at all because of endpoint behaviour.
 
 	<p>
 	Consider the function
-	<me>
+	<md>
 		q(t) =
 		\begin{cases}
 			t^2 \amp -1 \le t \lt 2 \\
 			t - 3 \amp 2 \le t \le 8 \\
 			- \frac{1}{t - 8} \amp t \gt 8
 		\end{cases}
-	</me>.
+	</md>.
 	The stated subdomains already split this function up into domains of continuity for us.
 	</p>
 
@@ -490,14 +490,14 @@ or not occur at all because of endpoint behaviour.
 	</p></case>
 
 	<case><title>On <m>t \gt 8</m></title><p>
-		On this domain the derivative is <me> q'(t) = \frac{1}{(t - 8)^2} </me>,
+		On this domain the derivative is <md> q'(t) = \frac{1}{(t - 8)^2} </md>,
 		so again there are no critical points.
 		At the excluded endpoint <m>t = 8</m> the function actually has a singularity,
-		with <me> q \to - \infty \qquad\text{as}\qquad t \to 8^+ </me>.
+		with <md> q \to - \infty \qquad\text{as}\qquad t \to 8^+ </md>.
 		In fact, not only does this tell us that the function cannot have an absolute minimum on this domain,
 		it tells us that <alert>the function cannot have an overall absolute minimum</alert>.
 		We should also investigate the unbounded endpoint by considering long-term behaviour:
-		<me>  q \to 0 \qquad\text{as}\qquad t \to \infty </me>.
+		<md>  q \to 0 \qquad\text{as}\qquad t \to \infty </md>.
 		Now, the derivative is positive on this subdomain,
 		so we can say that the graph is increasing up from the singularity at <m>t = 8</m> to the approach the horizontal asymptote at <m>q = 0</m> from below.
 		So there is also no absolute maximum on this domain.
@@ -649,7 +649,7 @@ the concavity can tell us whether we are at a local maximum or a local minimum.
 	</sage>
 
 	<p>
-	We have chosen to have Sage return the second derivative <me> A''(t) = (3 t - 8) (t - 4) </me>
+	We have chosen to have Sage return the second derivative <md> A''(t) = (3 t - 8) (t - 4) </md>
 	in factored form not because we are looking for inflection points,
 	but just so that it is easier to determine whether <m>q''(t)</m> is positive or negative at specific points.
 	For example, at the critical point <m>t = 2</m>,
@@ -714,30 +714,30 @@ and provide an overall strategy.
 		we should use all of the fence available,
 		but we can't use more than that.
 		So we are constrained by requirement that the portion of the perimeter that is to be fenced should be equal to the available amount of fencing:
-		<me> x + 2 y = 2400 </me>.
+		<md> x + 2 y = 2400 </md>.
 		Isolating <m>x</m>,
-		we can use this constraint to re-express the area as a function of <m>y</m>: <me> A(y) = (2400 - 2 y) y = 2400 y - 2 y^2 </me>.
-		The domain we are concerned with is <me> 0 \lt y \lt 1200 </me>,
+		we can use this constraint to re-express the area as a function of <m>y</m>: <md> A(y) = (2400 - 2 y) y = 2400 y - 2 y^2 </md>.
+		The domain we are concerned with is <md> 0 \lt y \lt 1200 </md>,
 		where at one extreme of <m>y = 0</m> we would have arranged all of the fence in a line parallel to the river,
 		enclosing no area,
 		and at the other extreme of <m>y = 1200</m> we would have arranged two lines of fence
 		<quantity><mag>1200</mag><unit base="foot" /></quantity> long right next to each other,
 		perpendicular to the river, and again enclosing no area.
-		Since our area function is a concave down parabola with <me> A(0) = A(1200) = 0 </me>,
+		Since our area function is a concave down parabola with <md> A(0) = A(1200) = 0 </md>,
 		by symmetry we can probably guess that the peak of the parabola will occur at <m>y = 600</m>,
 		but let's confirm.
 		</p>
 
 		<p>
 		The derivative is
-		<me> A'(y) = 2400 - 4 y = 4 (600 - y) </me>,
+		<md> A'(y) = 2400 - 4 y = 4 (600 - y) </md>,
 		so we indeed have a critical point at <m>y = 600</m>.
-		We also have <me> A''(y) = -4 </me>,
+		We also have <md> A''(y) = -4 </md>,
 		so the function's graph is always concave down
 		(as we knew),
 		and so there is a local maximum at <m>y = 600</m>.
 		We have already investigated the endpoint behaviour and found <m>0</m> enclosed area at those extremes,
-		so <me> A(600) = 720000 </me> is the absolute maximum.
+		so <md> A(600) = 720000 </md> is the absolute maximum.
 		This means that a maximum area of
 		<quantity><mag>72000</mag><unit base="foot" exp="2" /></quantity>,
 		running <quantity><mag>1200</mag><unit base="foot" /></quantity> along the river,
@@ -813,7 +813,7 @@ and provide an overall strategy.
 
 				<p>
 				So the surface area is
-				<me> A = 2 \pi R^2 + 2 \pi R h </me>.
+				<md> A = 2 \pi R^2 + 2 \pi R h </md>.
 				We would like to minimize this quantity.
 				</p>
 
@@ -822,16 +822,16 @@ and provide an overall strategy.
 			<li>
 				Our constraint is that the volume needs to be
 				<quantity><mag>1</mag><unit base="liter" /></quantity>.
-				The volume of a cylinder is <me> V = \pi R^2 h </me>.
+				The volume of a cylinder is <md> V = \pi R^2 h </md>.
 				(Notice that this formula is the result of <q>adding up</q> the constant cross-sectional area <m>\pi R^2</m>,
 				<m>h</m> times.)
 				But we need to make sure our units are in accord,
 				so let's take our constraint as a volume of
 				<quantity><mag>1000</mag><unit base="meter" prefix="centi" exp="3" /></quantity>.
 				Isolating <m>h</m> in the equation <m>V = 1000</m>,
-				we have <me> h = \frac{1000}{\pi R^2} </me>,
+				we have <md> h = \frac{1000}{\pi R^2} </md>,
 				and so our area formula becomes
-				<me> A(R) = 2 \pi R^2 + 2 \pi R \cdot \frac{1000}{\pi R^2} = 2 \pi R^2 + \frac{2000}{R} </me>.
+				<md> A(R) = 2 \pi R^2 + 2 \pi R \cdot \frac{1000}{\pi R^2} = 2 \pi R^2 + \frac{2000}{R} </md>.
 			</li>
 
 			<li>
@@ -850,7 +850,7 @@ and provide an overall strategy.
 				</p>
 
 				<p>
-				We have <me> A'(R) = 4 \pi R - \frac{2000}{R^2} </me>.
+				We have <md> A'(R) = 4 \pi R - \frac{2000}{R^2} </md>.
 				This derivative is undefined at <m>R = 0</m>,
 				but that is not in our domain.
 				So let's look for critical points of the <m>A'(R) = 0</m> variety.
@@ -866,15 +866,15 @@ and provide an overall strategy.
 				we need to investigate the endpoint behaviour.
 				Our domain does not include the endpoint <m>R = 0</m>,
 				but for <m>R \approx 0^+</m>,
-				in <me> A(R) = 2 \pi R^2 + \frac{2000}{R} </me>
+				in <md> A(R) = 2 \pi R^2 + \frac{2000}{R} </md>
 				the first term is also close to zero but the second term is large and positive.
-				So we can say <me> A \to \infty \qquad\text{as}\qquad R \to 0^+ </me>.
+				So we can say <md> A \to \infty \qquad\text{as}\qquad R \to 0^+ </md>.
 				Our domain is also unbounded to the right,
 				so we should check the long-term behaviour.
 				For <m>R \to \infty</m>,
 				the first term in our expression for <m>A</m> is now large and positive,
 				while the second term is close to zero.
-				So we can also say <me> A \to \infty \qquad\text{as}\qquad R \to \infty </me>.
+				So we can also say <md> A \to \infty \qquad\text{as}\qquad R \to \infty </md>.
 				Since we only found one interior critical point,
 				the fact that <m>A</m> gets large on either side of this critical point let us conclude that <m>A</m> must hit its absolute minimum there.
 				</p>
@@ -882,7 +882,7 @@ and provide an overall strategy.
 			</li>
 
 			<li>
-				We also have <me> A''(R) = 4 \pi + \frac{4000}{R^3} </me>,
+				We also have <md> A''(R) = 4 \pi + \frac{4000}{R^3} </md>,
 				which is positive on our entire domain.
 				So the graph of <m>A(R)</m> is always concave up on our domain,
 				which corroborates our conclusion that our critical point is a minimum.
@@ -898,7 +898,7 @@ and provide an overall strategy.
 		the radius,
 		but we should also calculate the corresponding height.
 		We have
-		<me> R = \sqrt[3]{\frac{500}{\pi}} \approx 5.42 \; \mathrm{cm} </me>
+		<md> R = \sqrt[3]{\frac{500}{\pi}} \approx 5.42 \; \mathrm{cm} </md>
 		<md>
 			<mrow> h \amp = \frac{1000}{\pi R^2} </mrow>
 			<mrow> \amp = \frac{1000}{\pi {(500/\pi)}^{2/3}} </mrow>

@@ -57,7 +57,7 @@ It often represents a choice that can be made in creating or defining some mathe
 and can be used to <term>parametrize</term> (or index) the entire collection of objects that can be created.
 For example, the collection of all lines in the Cartesian <m>xy</m>-plane that pass through the origin can be parametrized by their slopes <mdash />
 for each slope value <m>m</m>,
-we can create a line through the origin with equation <me> y = m x </me>.
+we can create a line through the origin with equation <md> y = m x </md>.
 For a particular such line the slope value <m>m</m> is constant,
 but a different slope creates a different line.
 </p>
@@ -101,7 +101,7 @@ using positive and negative to distinguish between the two.
 	<statement><p>
 		For variable quantity <m>q</m>,
 		the <term>accumulation</term> between data points <m>q_1</m> and <m>q_2</m> is
-		<me> \change{q} = q_2 - q_1 </me>.
+		<md> \change{q} = q_2 - q_1 </md>.
 	</p></statement>
 </definition>
 
@@ -154,7 +154,7 @@ and we wish to compare the amounts by which they vary.
 	A graduated cylinder is a vessel for measuring a volume of liquid using a ruled scale printed vertically on its side.
 	It works because at a constant diameter,
 	the volume can be directly related to depth by
-	<me> V = \frac{\pi d^2 h}{4} </me>,
+	<md> V = \frac{\pi d^2 h}{4} </md>,
 	where <m>d</m> is the diameter and <m>h</m> is the depth (or height) in the cylinder.
 	</p>
 
@@ -173,16 +173,16 @@ and we wish to compare the amounts by which they vary.
 	</md>.
 	If we turn this into a ratio <m>\inlineslope{V}{h}</m>,
 	we can directly see how a variation in depth leads to a variation in volume.
-	<me> \slope{V}{h} = \frac{\pi d^2}{4} </me>.
+	<md> \slope{V}{h} = \frac{\pi d^2}{4} </md>.
 	We can think of this ratio as describing <em>variation in volume per unit variation in depth</em>.
 	This is because if <m>\change{h} = 1</m>,
-	then <me> \slope{V}{h} = \frac{\change{V}}{1} = \change{V} </me>.
+	then <md> \slope{V}{h} = \frac{\change{V}}{1} = \change{V} </md>.
 	So whenever the depth changes by <m>1</m> centimetre, the volume will change by
-	<me> \frac{\pi d^2}{4} </me>
+	<md> \frac{\pi d^2}{4} </md>
 	cubic centimetres.
 	But if the depth changes by <m>20</m> centimetres,
 	then the volume will change by
-	<me> 20 \cdot \frac{\pi d^2}{4} = 5 \pi d^2 </me>
+	<md> 20 \cdot \frac{\pi d^2}{4} = 5 \pi d^2 </md>
 	cubic centimetres.
 	</p>
 
@@ -206,7 +206,7 @@ and we wish to compare the amounts by which they vary.
 	<p>
 	We can now answer the original question:
 	the requirement that each centimetre of change in depth correspond to <m>10</m> cubic centimetres change in volume can be stated as
-	<me> \slope{V}{h} = 10 </me>
+	<md> \slope{V}{h} = 10 </md>
 	if was assume that both the diameter <m>d</m> and the depth <m>h</m> are measured in centimetres.
 	Solving,
 	we obtain
@@ -228,7 +228,7 @@ and we wish to compare the amounts by which they vary.
 		If <m>q</m> and <m>t</m> are two quantities that are varying in tandem,
 		so that a variation in one of the quantities is always accompanied by a corresponding variation in the other,
 		then a ratio
-		<me> \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </me>
+		<md> \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </md>
 		is called an <term>(average) rate of variation</term> between data points <m>(t_1,q_1)</m> and <m>(t_2,q_2)</m>.
 	</p></statement>
 </definition>
@@ -258,7 +258,7 @@ The following example from physics with time as the independent variable should 
 	in about an hour.
 	If we let <m>d</m> represent distance from the starting point of the trip and <m>t</m> represent time,
 	then
-	<me> \slope{d}{t} = \frac{100}{1} = 100 </me>
+	<md> \slope{d}{t} = \frac{100}{1} = 100 </md>
 	represents your average speed in kilometres per hour.
 	</p>
 </example>
@@ -299,7 +299,7 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 	<p>
 	Suppose <m>q</m> and <m>t</m> are quantities so that <m>q</m> varies as <m>t</m> varies,
 	and it is observed that
-	<me> \slope{q}{t} = \frac{1}{2} </me>
+	<md> \slope{q}{t} = \frac{1}{2} </md>
 	seems to always be true between every pair of data points.
 	Then we can predict the quantity <m>q</m> at any level of quantity <m>t</m> using only a single known data point.
 	For example, suppose we know an <q>initial</q> data point where <m>q = 1</m> when <m>t = 0</m>.
@@ -341,10 +341,10 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 	<title>Constant rate means linear relationship</title>
 	<p>
 	If <m>q</m> and <m>t</m> are two quantities that are varying in tandem so that
-	<me> \slope{q}{t} </me>
+	<md> \slope{q}{t} </md>
 	is constant,
 	then <m>q</m> and <m>t</m> are linearly related by
-	<me> q = r t + q_0 </me>,
+	<md> q = r t + q_0 </md>,
 	where <m>r</m> is the constant value of <m>\inlineslope{q}{t}</m> and <m>q_0</m> is the <q>initial value</q> of quantity <m>q</m> corresponding to <m>t = 0</m>.
 	</p>
 </identity>
@@ -354,7 +354,7 @@ Graphically,
 when two quantities exhibit a constant rate of variation,
 we can plot the relationship between <m>q</m> and <m>t</m> on a set of <m>tq</m>-axes and obtain a line with equation as in <xref ref="pattern-vars-constant-rate" />,
 where the slope of the line is
-<me> \slope{q}{t} </me>
+<md> \slope{q}{t} </md>
 and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
 </p>
 
@@ -362,11 +362,11 @@ and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
 	<title>Determining linear relation for a quantity with constant rate of variation</title>
 	<p>
 	Suppose <m>q</m> and <m>t</m> are quantities so that <m>q</m> exhibits a constant rate of variation relative to <m>t</m>,
-	with <me> \slope{q}{t} = -2 </me>
+	with <md> \slope{q}{t} = -2 </md>
 	for all pairs of data points.
 	Then using <xref ref="pattern-vars-constant-rate" />,
 	we can say that
-	<me> q = -2 t + q_0 </me>.
+	<md> q = -2 t + q_0 </md>.
 	However, suppose we don't know the data point at <m>t = 0</m>,
 	but instead know that <m>q = 1</m> when <m>t = 3</m>.
 	Then
@@ -396,7 +396,7 @@ and the <q><m>q</m>-intercept</q> is at the data point <m>(0,q_0)</m>.
 	<p>
 	In <xref ref="figure-vars-constant-rate-neg-slope" />,
 	we see that the plotted line crosses the <m>q</m>-axis at <m>q_0 = 7</m>.
-	Interpreting <me> \slope{q}{t} = -2 </me> as the <em>variation in <m>q</m> per unit variation in <m>t</m></em>,
+	Interpreting <md> \slope{q}{t} = -2 </md> as the <em>variation in <m>q</m> per unit variation in <m>t</m></em>,
 	we also see that the plotted line descends two units for each unit increase in <m>t</m>.
 	</p>
 

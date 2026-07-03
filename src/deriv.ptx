@@ -47,7 +47,7 @@ returns the associated derivative value.
 	<statement><p>
 		Given quantity function <m>q(t)</m>,
 		the associated <term>derivative function</term> is the function <m>q'(t)</m> so that
-		<me>q'(t) = \dqdt </me>
+		<md>q'(t) = \dqdt </md>
 		if <m>q</m> is differentiable at <m>t</m>,
 		and <m>q'(t)</m> is undefined if <m>q</m> is not differentiable at <m>t</m>.
 	</p></statement>
@@ -58,10 +58,10 @@ returns the associated derivative value.
 
 	<p>
 	We use <m>q'(t)</m> when we want to refer to the derivative function for <m>q</m> in function notation,
-	while we use <me>\dqdt</me> to represent an input-output formula in <m>t</m> for <m>q'</m>.
+	while we use <md>\dqdt</md> to represent an input-output formula in <m>t</m> for <m>q'</m>.
 	Of course, both of these forms are relative to the initial choice of letter <m>q</m> <mdash />
 	if we were dealing with a position function <m>s(t)</m> as our quantity function,
-	then we would use <m>s'(t)</m> and <me>\ddt{s}</me> to refer to the derivative.
+	then we would use <m>s'(t)</m> and <md>\ddt{s}</md> to refer to the derivative.
 	In some contexts,
 	particularly physics,
 	you might see <m>\dot{q}</m> used to representative the derivative function for <m>q(t)</m>.
@@ -71,9 +71,9 @@ returns the associated derivative value.
 	It is also common practice in mathematics and other science disciplines to use a <q>bare</q> <m>\opddt</m> as an <term>operator</term> that applies the differentiation process to a function or formula.
 	For example,
 	notation in the form
-	<me> \ddt{e^t} = \text{(some formula)} </me>
+	<md> \ddt{e^t} = \text{(some formula)} </md>
 	or
-	<me> \opddt e^t = \text{(some formula)} </me>,
+	<md> \opddt e^t = \text{(some formula)} </md>,
 	is meant to be read as <q><em>a formula for the derivative function associated to the exponential function is</em> (some formula).</q>
 	Or, more simply,
 	<q><em>the derivative of the exponential function is</em> (some formula)</q> <mdash />
@@ -96,9 +96,9 @@ until <xref ref="chapter-fund-thm" />,
 <!-- a later chapter, -->
 where we will see that if we start with a rate model <m>r(t)</m>,
 use an accumulation function to create an associated quantity model
-<me> q(t) = q(t_0) + \ccmint{t_0}{t}{r(u)}{u} </me>,
+<md> q(t) = q(t_0) + \ccmint{t_0}{t}{r(u)}{u} </md>,
 then this quantity model will be differentiable and its derivative function will be exactly the rate function we began with:
-<me> q'(t) = r(t) </me>.
+<md> q'(t) = r(t) </md>.
 Intuitively it seems simple that the above description is a circular process,
 so of course we should return back to the rate function we began with.
 But mathematically, it is far from obvious that the processes behind the two concepts <term>integral</term> and <term>derivative</term> are reverse processes.
@@ -122,13 +122,13 @@ but always consider <m>dt \neq 0</m>
 <p>
 For this, we will exclusively use the forward approximation formula,
 so that the approximation at a specific point in time
-<me>
+<md>
 	\funceval{\dqdt}{t = t^\ast}
 	\approx \slope{q}{t}
 	= \frac{ q(t^\ast + \change{t}) - q(t^\ast) }{ \change{t} }
-</me>
+</md>
 becomes the general, exact formula
-<me> \dqdt = \frac{ q(t + dt) - q(t) }{ dt } </me>.
+<md> \dqdt = \frac{ q(t + dt) - q(t) }{ dt } </md>.
 The key to the process is to not consider the <q>infinitesimal</q> length <m>dt</m> negligible too early,
 since if we take <m>dt \approx 0</m> right away,
 we will always end up with
@@ -154,12 +154,12 @@ we simplify as much as possible until we can definitively see the effect of <m>d
 	and <xref ref="example-poly-parabolic-motion" />.)
 	In those examples,
 	we began with a constant acceleration model and traced it back to a parabolic position model
-	<me> s(t) = -\frac{g}{2} t^2 + v_0 t </me>.
+	<md> s(t) = -\frac{g}{2} t^2 + v_0 t </md>.
 	For simplicity in this example,
 	let's use actual numbers for <m>g</m> and <m>v_0</m> <mdash />
 	say, <m>g = 4</m> and <m>v_0 = 6</m>.
 	Our positional model is then
-	<me> s(t) = -2 t^2 + 6 t </me>,
+	<md> s(t) = -2 t^2 + 6 t </md>,
 	and we have
 	<md>
 		<mrow> s(t + dt) \amp = -2 (t + dt)^2 + 6 (t + dt) </mrow>
@@ -179,22 +179,22 @@ we simplify as much as possible until we can definitively see the effect of <m>d
 		<mrow> \amp = - 4 t + 6 - 2 dt </mrow>
 	</md>.
 	Now treating <m>dt</m> as negligible, we can clearly see that
-	<me> \ddt{s} = -4 t + 6 </me>.
+	<md> \ddt{s} = -4 t + 6 </md>.
 	</p>
 
 	<p>
 	In <xref ref="example-poly-parabolic-motion" />,
 	we obtained the position model
-	<me> s(t) = -\frac{g}{2} t^2 + v_0 t </me>
+	<md> s(t) = -\frac{g}{2} t^2 + v_0 t </md>
 	from the velocity model
-	<me> v(t) = -g t + v_0 </me>.
+	<md> v(t) = -g t + v_0 </md>.
 	Substituting in the values for <m>g</m> and <m>v_0</m> chosen in this example,
 	we have
-	<me> v(t) = -2 t + 6 </me>,
+	<md> v(t) = -2 t + 6 </md>,
 	which matches exactly with our <m>ds/dt</m> formula calculated above.
 	So, taking <m>ds/dt</m> as a formula for the derivative function <m>s'(t)</m>,
 	we have
-	<me> s'(t) = v(t) </me>
+	<md> s'(t) = v(t) </md>
 	as expected.
 	</p>
 
@@ -205,7 +205,7 @@ we simplify as much as possible until we can definitively see the effect of <m>d
 	<p>
 	To compute a formula for the derivative function <m>q'(t)</m> from a formula for a quantity function <m>q(t)</m>:
 	<ol>
-		<li> Use the formula for <m>q(t)</m> to form the difference quotient <me> \dqdt = \frac{q(t + dt) - q(t)}{dt} </me>. </li>
+		<li> Use the formula for <m>q(t)</m> to form the difference quotient <md> \dqdt = \frac{q(t + dt) - q(t)}{dt} </md>. </li>
 		<li> Manipulate this expression algebraically until division by <m>dt</m> no longer occurs. </li>
 		<li>
 			Now consider all remaining instances of <m>dt</m> to be negligible.
@@ -233,21 +233,21 @@ So we'll start by analysing the two simplest possible quantity models built on t
 	<title>Derivative of a constant</title>
 
 	<statement><p>
-		For any constant <m>c</m>, we have <me> \ddt{c} = 0 </me>.
+		For any constant <m>c</m>, we have <md> \ddt{c} = 0 </md>.
 		That is, <alert>the derivative of a constant is zero</alert>.
 	</p></statement>
 
 	<proof><p>
 		Consider quantity function <m>q(t) = c</m>.
 		Then also <m>q(t + dt) = c</m>,
-		so <me> q(t + dt) - q(t) = 0 </me>.
-		Therefore, <me> \dqdt = \frac{ q(t + dt) - q(t) }{ dt } = \frac{0}{dt} </me>.
+		so <md> q(t + dt) - q(t) = 0 </md>.
+		Therefore, <md> \dqdt = \frac{ q(t + dt) - q(t) }{ dt } = \frac{0}{dt} </md>.
 		In an actual average-rate approximation
 		(that is, with <m>dt \neq 0</m>),
 		this would always compute to <m>0</m>.
 		So, in fact, these approximations would not be approximations but instead they are already the exact value,
 		and it is correct to write
-		<me> \dqdt = \frac{0}{dt} = 0 </me>.
+		<md> \dqdt = \frac{0}{dt} = 0 </md>.
 		We are not making the mistake of taking <m>0/0 = 0</m> to be true,
 		because we think of our infinitesimal time domain length <m>dt</m> as being so small as to be negligible,
 		but we always consider <m>dt \neq 0</m> to be true.
@@ -258,12 +258,12 @@ So we'll start by analysing the two simplest possible quantity models built on t
 <identity xml:id="pattern-deriv-var">
 	<title>Derivative of the independent variable</title>
 
-	<statement><p> We have <me> \ddt{t} = 1 </me>. </p></statement>
+	<statement><p> We have <md> \ddt{t} = 1 </md>. </p></statement>
 
 	<proof><p>
 		Consider quantity function <m>q(t) = t</m>.
 		Then <m>q(t + dt) = t + dt</m>,
-		so <me> q(t + dt) - q(t) = dt </me>.
+		so <md> q(t + dt) - q(t) = dt </md>.
 		Therefore,
 		<md>
 			<mrow> \dqdt \amp = \frac{ q(t + dt) - q(t) }{ dt } </mrow>
@@ -288,13 +288,13 @@ So we'll start by analysing the two simplest possible quantity models built on t
 
 	<statement><p>
 		If <m>q(t)</m> is a differentiable quantity function,
-		then for any constant <m>c</m> we have <me> \opddt (c q) = c \, \dqdt </me>.
+		then for any constant <m>c</m> we have <md> \opddt (c q) = c \, \dqdt </md>.
 		That is, <alert>the derivative of a constant multiple is the constant multiple of the derivative</alert>.
 	</p></statement>
 
 	<proof><p>
 		Consider quantity function <m>p(t) = c q(t)</m>.
-		Then <me> p(t + dt) = c q(t + dt) </me>,
+		Then <md> p(t + dt) = c q(t + dt) </md>,
 		so
 		<md>
 			<mrow> p(t + dt) - p(t) \amp = c q(t + dt) - c q(t) </mrow>
@@ -342,8 +342,8 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 
 <example><p>
 	In <xref ref="example-deriv-parabolic-motion" />,
-	for <me> s(t) = -2 t^2 + 6 t </me>
-	we computed <me> \ddt{s} = -4 t + 6 </me>.
+	for <md> s(t) = -2 t^2 + 6 t </md>
+	we computed <md> \ddt{s} = -4 t + 6 </md>.
 	So if we had
 	<md>
 		<mrow>
@@ -365,13 +365,13 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 
 	<statement><p>
 		If <m>q_1(t)</m> and <m>q_2(t)</m> are differentiable quantity functions,
-		then <me>\opddt (q_1 + q_2) = \ddt{q_1} + \ddt{q_2} </me>.
+		then <md>\opddt (q_1 + q_2) = \ddt{q_1} + \ddt{q_2} </md>.
 		That is, <alert>the derivative of a sum is the sum of the derivatives</alert>.
 	</p></statement>
 
 	<proof><p>
-		Consider quantity function <me>p(t) = q_1(t) + q_2(t)</me>.
-		Then <me> p(t + dt) = q_1(t + dt) + q_2(t + dt) </me>,
+		Consider quantity function <md>p(t) = q_1(t) + q_2(t)</md>.
+		Then <md> p(t + dt) = q_1(t + dt) + q_2(t + dt) </md>,
 		so
 		<md>
 			<mrow> p(t + dt) - p(t) \amp = \bbrac{ q_1(t + dt) + q_2(t + dt) } - \bbrac{ q_1(t) + q_2(t) } </mrow>
@@ -393,7 +393,7 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 	<title>Derivative of a linear quantity function</title>
 
 	<p>
-	For <me> q(t) = r t + q_0 </me>,
+	For <md> q(t) = r t + q_0 </md>,
 	we may apply a combination of our rules and basic formulas so far:
 	<md>
 		<mrow> \dqdt \amp = \opddt (r t + q_0) </mrow>
@@ -426,7 +426,7 @@ In fact,
 a function is forced to be linear by the property of exhibiting a uniformly constant rate.
 Graphically, this corresponds to exhibiting a constant slope,
 so that an average rate calculation
-<me> \slope{q}{t} </me>
+<md> \slope{q}{t} </md>
 between any pair of points on the graph leads to the same result.
 (See <xref ref="example-avg-rate-linear-quantity" />,
 and <xref ref="figure-avg-rate-secant-on-linear" /> in particular.)
@@ -450,7 +450,7 @@ so in fact they will be the same line.
 <p>
 Now consider the special case of <xref ref="pattern-deriv-sum" />
 where the second function is a constant function:
-if <me> q(t) = q_1(t) + c </me>,
+if <md> q(t) = q_1(t) + c </md>,
 then
 <md>
 	<mrow> \dqdt \amp = \opddt (q_1 + c) </mrow>
@@ -465,9 +465,9 @@ then
 	<p>
 	Suppose quantity functions <m>q_1</m> and <m>q_2</m> are vertical shifts of each other,
 	so that there exists a constant <m>c</m> with
-	<me> q_2(t) = q_1(t) + c </me>.
+	<md> q_2(t) = q_1(t) + c </md>.
 	Then the two functions are differentiable at the same input values,
-	with <me> \ddt{q_1} = \ddt{q_2} </me>.
+	with <md> \ddt{q_1} = \ddt{q_2} </md>.
 	</p>
 </identity>
 
@@ -489,9 +489,9 @@ let's consider the effect of horizontal transformations on derivative.
 	<title>Derivative of a horizontally-shifted quantity function</title>
 
 	<statement><p>
-		If we shift a differentiable quantity function <m>p(t)</m> to create a new function <me> q(t) = p(t - c) </me>,
+		If we shift a differentiable quantity function <m>p(t)</m> to create a new function <md> q(t) = p(t - c) </md>,
 		then the new function is also differentiable,
-		and the associated derivative function is also a shift: <me> q'(t) = p'(t - c) </me>.
+		and the associated derivative function is also a shift: <md> q'(t) = p'(t - c) </md>.
 	</p></statement>
 
 	<proof><title>Justification idea</title>
@@ -499,7 +499,7 @@ let's consider the effect of horizontal transformations on derivative.
 		Instead of carrying out a detailed calculation of <m>dq / dt</m>,
 		let's just argue in terms of the concept of the derivative.
 		If the value of <m>dq / dt</m> at a particular time <m>t = t_0</m> represents the rate of variation of <m>q</m> at that time,
-		but <me> q(t) = p(t - c) </me>,
+		but <md> q(t) = p(t - c) </md>,
 		then we are really just measuring the rate of variation of <m>p</m> at the <q>earlier</q> time <m>t = t_0 -c</m>.
 		</p>
 	</proof>
@@ -519,10 +519,10 @@ let's consider the effect of horizontal transformations on derivative.
 	<title>Derivative of a horizontally-scaled quantity function</title>
 
 	<statement><p>
-		If we horizontally scale a differentiable quantity function <m>p(t)</m> to create a new function <me> q(t) = p(a t) </me>,
+		If we horizontally scale a differentiable quantity function <m>p(t)</m> to create a new function <md> q(t) = p(a t) </md>,
 		then the new function is also differentiable,
 		and the associated derivative function is also a scaling,
-		but both vertically and horizontally by the same factor: <me> q'(t) = a p'(a t) </me>.
+		but both vertically and horizontally by the same factor: <md> q'(t) = a p'(a t) </md>.
 	</p></statement>
 
 	<proof>
@@ -589,11 +589,11 @@ let's consider the effect of horizontal transformations on derivative.
 		<p>
 		If we are considering a specific time <m>t = t^\ast</m>,
 		our calculations above say that <em>every</em> average rate calculation for <m>q</m> on a domain containing <m>t^\ast</m> can be converted into a scaled average rate calculation for <m>p</m> on a domain containing <m>a t^\ast</m>,
-		since <me> t_1 \le t^\ast \le t_2 \qquad \implies a t_1 \le a t^\ast \le a t_2 </me>.
+		since <md> t_1 \le t^\ast \le t_2 \qquad \implies a t_1 \le a t^\ast \le a t_2 </md>.
 		Referring back to <xref ref="definition-avg-rate-derivative-value" />,
 		since <m>p</m> is assumed to be differentiable,
-		<me> p'(a t^\ast) \approx \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1} </me>,
-		where the approximation can be made arbitrarily close by taking <me> a \change{t} = a t_2 - a t_1 </me> sufficiently small.
+		<md> p'(a t^\ast) \approx \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1} </md>,
+		where the approximation can be made arbitrarily close by taking <md> a \change{t} = a t_2 - a t_1 </md> sufficiently small.
 		If we take <m>\change{t}</m> small enough so that <m>a \change{t}</m> can be described as <q>sufficiently small</q> in this sense,
 		then
 		<md>
@@ -603,7 +603,7 @@ let's consider the effect of horizontal transformations on derivative.
 		</md>,
 		satisfying <xref ref="definition-avg-rate-derivative-value" /> for <m>q</m> at <m>t = t^\ast</m>.
 		That is,
-		<me> q'(t^\ast) = a p'(a t^\ast) </me>,
+		<md> q'(t^\ast) = a p'(a t^\ast) </md>,
 		as desired.
 		</p>
 
@@ -661,10 +661,10 @@ so let's try a cubic.
 	<title>Derivative of the basic cubic function</title>
 	<p>
 	For <m>q(t) = t^3</m>,
-	we have <me> q(t + dt) = (t + dt)^3 </me>.
+	we have <md> q(t + dt) = (t + dt)^3 </md>.
 	This <em>sum-inside-a-power</em> formula is an example of a <term>binomial expression</term>,
 	and there is a formula for expanding it:
-	<me> (t + dt)^3 = t^3 + 3 t^2 dt + 3 t dt^2 + dt^3 </me>.
+	<md> (t + dt)^3 = t^3 + 3 t^2 dt + 3 t dt^2 + dt^3 </md>.
 	So we have
 	<md>
 		<mrow> q(t + dt) - q(t) \amp = (\bcancel{t^3} + 3 t^2 dt + 3 t dt^2 + dt^3) - \bcancel{t^3} </mrow>
@@ -693,10 +693,10 @@ so let's try a cubic.
 	Suppose we start with <m>r(t) = t^2</m>.
 	<xref ref="pattern-poly-int-power-positive-exp" text="type-local">Formula</xref>
 	of <xref ref="pattern-poly-int-power" />
-	says that the associated quantity model will be <me> q(t) = \frac{t^3}{3} + q_0 </me>,
+	says that the associated quantity model will be <md> q(t) = \frac{t^3}{3} + q_0 </md>,
 	where <m>q_0 = q(0)</m> is the initial quantity.
 	The constant denominator is actually a scale factor:
-	<me> q(t) = \frac{1}{3} \, t^3 + q_0 </me>.
+	<md> q(t) = \frac{1}{3} \, t^3 + q_0 </md>.
 	Apply <xref ref="pattern-deriv-scale" /> and <xref ref="pattern-deriv-sum" />,
 	as well as our result from <xref ref="example-deriv-cubic" />:
 	<md>
@@ -729,7 +729,7 @@ we might guess that the pattern is:
 
 	<statement><p>
 		The quantity function <m>q(t) = t^n</m> is differentiable everywhere that it is defined,
-		with <me>\ddt{(t^n)} = n t^{n - 1} </me>.
+		with <md>\ddt{(t^n)} = n t^{n - 1} </md>.
 	</p></statement>
 
 	<proof>
@@ -737,7 +737,7 @@ we might guess that the pattern is:
 
 		<p>
 		We follow the template of <xref ref="example-deriv-cubic" />.
-		For quantity function <me>q(t) = t^n</me>,
+		For quantity function <md>q(t) = t^n</md>,
 		we have
 		<md>
 			<mrow> q(t + dt) \amp = (t + dt)^n </mrow>
@@ -763,7 +763,7 @@ we might guess that the pattern is:
 		Finally,
 		it turns out that the first binomial coefficient <m>b_1</m> for the expansion of a binomial expression of the form <m>(x+y)^n</m> is <m>b_1 = n</m>
 		(refer to the <term>Binomial Theorem</term>), <!-- TODO give a reference? -->
-		so that <me> \ddt{(t^n)} = n t^{n - 1} </me>, as claimed.
+		so that <md> \ddt{(t^n)} = n t^{n - 1} </md>, as claimed.
 		</p>
 
 	</proof>
@@ -784,7 +784,7 @@ we might guess that the pattern is:
 	since in that case the quantity function satisfies
 	<md> <mrow> q(t) \amp = t^0 = 1 \amp \text{for } t \amp \gt 0 </mrow> </md>,
 	while <xref ref="pattern-deriv-power" /> gives
-	<me> \ddt{(t^0)} = 0 t^{-1} = 0 </me>
+	<md> \ddt{(t^0)} = 0 t^{-1} = 0 </md>
 	(again assuming <m>t \gt 0</m>).
 	So in some sense <xref ref="pattern-deriv-power" /> <q>contains</q> <xref ref="pattern-deriv-constant" />.
 	(And, for that matter, it also <q>contains</q> <xref ref="pattern-deriv-var" /> when we take <m>n = 1</m>.)
@@ -821,8 +821,8 @@ We will leave the justification up to you, the reader.
 <identity xml:id="pattern-deriv-poly">
 	<title>Derivative of a polynomial</title>
 	<p>
-	A polynomial quantity function <me> q(t) = a_0 + a_1 t + a_2 t^2 + \dotsb + a_n t^n </me> is differentiable at all input values,
-	with <me>\dqdt = a_1 + 2 a_2 t + 3 a_3 t^2 + \dotsb + n a_n t^{n - 1} </me>.
+	A polynomial quantity function <md> q(t) = a_0 + a_1 t + a_2 t^2 + \dotsb + a_n t^n </md> is differentiable at all input values,
+	with <md>\dqdt = a_1 + 2 a_2 t + 3 a_3 t^2 + \dotsb + n a_n t^{n - 1} </md>.
 	</p>
 </identity>
 
@@ -836,7 +836,7 @@ We will leave the justification up to you, the reader.
 
 <exercise><p>
 	Verify for yourself that beginning with a polynomial rate function
-	<me> r(t) = r_0 + r_1 t + r_2 t^2 + \dotsb + r_m t^m </me>,
+	<md> r(t) = r_0 + r_1 t + r_2 t^2 + \dotsb + r_m t^m </md>,
 	applying <xref ref="pattern-poly-quantity-from-rate" /> to obtain an associated quantity model
 	(don't forget to include the initial value),
 	and then applying <xref ref="pattern-deriv-poly" /> to obtain the derivative function of that quantity function will return you back to the original rate function.
@@ -861,7 +861,7 @@ tells us how to differentiate the natural logarithm function.
 	<title>Derivative of the natural logarithm</title>
 	<p>
 	The natural logarithm function is differentiable for all <m>t \gt 0</m>,
-	with <me> \ddt{\bbrac{\ln (t)}} = \frac{1}{t} </me>.
+	with <md> \ddt{\bbrac{\ln (t)}} = \frac{1}{t} </md>.
 	</p>
 </identity>
 
@@ -889,10 +889,10 @@ There is a corresponding point at the same height at <m>t = \abs{a}</m>.
 As <m>\abs{a} > 0</m>,
 this second point is on the graph of <m>y = \ln (t)</m>,
 and so we know its derivative value as
-<me> \funceval{\ddt{\bbrac{\ln (t)}}}{t = \abs{a}} = \frac{1}{\abs{a}} </me>.
+<md> \funceval{\ddt{\bbrac{\ln (t)}}}{t = \abs{a}} = \frac{1}{\abs{a}} </md>.
 This derivative value describes the slope of the tangent line at this point.
 The derivative value
-<me> \funceval{\ddt{(\ln \abs{t})}}{t = a} </me>
+<md> \funceval{\ddt{(\ln \abs{t})}}{t = a} </md>
 describes the slope of the tangent line at the original point.
 But since these two points are reflections of each other in the vertical axis,
 we can see that the two slopes will be equal in magnitude but have opposite signs.
@@ -913,11 +913,11 @@ we can see that the two slopes will be equal in magnitude but have opposite sign
 
 <p>
 So by symmetry we have
-<me> \funceval{\ddt{(\ln \abs{t})}}{t = a} = - \frac{1}{\abs{a}} = \frac{1}{- \abs{a}} </me>.
+<md> \funceval{\ddt{(\ln \abs{t})}}{t = a} = - \frac{1}{\abs{a}} = \frac{1}{- \abs{a}} </md>.
 However, as <m>a</m> was negative to begin with,
-<me> - \abs{a} = a </me>,
+<md> - \abs{a} = a </md>,
 and we end up with
-<me> \funceval{\ddt{(\ln \abs{t})}}{t = a} = - \frac{1}{\abs{a}} = \frac{1}{a} </me>,
+<md> \funceval{\ddt{(\ln \abs{t})}}{t = a} = - \frac{1}{\abs{a}} = \frac{1}{a} </md>,
 which is the same <q>one-over</q> formula as for the derivative of the natural logarithm.
 </p>
 
@@ -925,22 +925,22 @@ which is the same <q>one-over</q> formula as for the derivative of the natural l
 	<title>Derivative of the natural logarithm composed with the absolute value</title>
 	<p>
 	The quantity function <m>q(t) = \ln\abs{a}</m> is differentiable for all <m>t \neq 0</m>,
-	with <me> \ddt{(\ln\abs{t})} = \frac{1}{t} </me>.
+	with <md> \ddt{(\ln\abs{t})} = \frac{1}{t} </md>.
 	</p>
 </identity>
 
 <example xml:id="example-deriv-h-transform-log">
 	<title>Derivative of a horizontally transformed logarithm</title>
 	<p>
-	To calculate <me> \opddt \ln\abs{3 t - 5} </me>,
+	To calculate <md> \opddt \ln\abs{3 t - 5} </md>,
 	start with <m>p_1(t) = \ln \abs{t}</m>.
-	Then <xref ref="pattern-deriv-abs-log" /> says that <me> p'(t) = \frac{1}{t} </me>.
-	Now consider <me> p_2(t) = p_1(t - 5) = \ln \abs{t - 5} </me>.
-	<xref ref="pattern-deriv-h-shift" /> says that <me> p_2'(t) = p_1'(t - 5) = \frac{1}{t - 5} </me>.
-	Finally, consider <me> q(t) = p_2(3 t) = \ln \abs{3 t - 5} </me>,
+	Then <xref ref="pattern-deriv-abs-log" /> says that <md> p'(t) = \frac{1}{t} </md>.
+	Now consider <md> p_2(t) = p_1(t - 5) = \ln \abs{t - 5} </md>.
+	<xref ref="pattern-deriv-h-shift" /> says that <md> p_2'(t) = p_1'(t - 5) = \frac{1}{t - 5} </md>.
+	Finally, consider <md> q(t) = p_2(3 t) = \ln \abs{3 t - 5} </md>,
 	the function whose derivative we would like to calculate.
-	<xref ref="pattern-deriv-h-scale" /> tells us <me> q'(t) = 3 p_2'(3 t) = \frac{3}{3 t - 5} </me>.
-	So we have determined that <me> \opddt \ln\abs{3 t - 5} = q'(t) = \frac{3}{3 t - 5} </me>.
+	<xref ref="pattern-deriv-h-scale" /> tells us <md> q'(t) = 3 p_2'(3 t) = \frac{3}{3 t - 5} </md>.
+	So we have determined that <md> \opddt \ln\abs{3 t - 5} = q'(t) = \frac{3}{3 t - 5} </md>.
 	</p>
 </example>
 
@@ -969,18 +969,18 @@ By symmetry,
 the areas in <xref ref="figure-deriv-natural-log-abs-as-integral" /> have the same magnitude,
 but are oppositely oriented.
 We can counteract the negative orientation of the area on the left by integrating backwards in time:
-<me>
+<md>
 	\ccmint{-1}{t}{\frac{1}{u}}{u}
 	= - \ccmint{t}{-1}{\frac{1}{u}}{u}
 	= \ccmint{1}{\abs{t}}{\frac{1}{u}}{u}
-</me>.
+</md>.
 Thus we can say that
-<me>
+<md>
 	\ln\abs{t} = \begin{cases}
 		\displaystyle \ccmint{1}{t}{\frac{1}{u}}{u} \amp t \gt 0 \\[3pt]
 		\displaystyle \ccmint{-1}{t}{\frac{1}{u}}{u} \amp t \lt 0
 	\end{cases}
-</me>.
+</md>.
 </p>
 
 </subsection>
@@ -998,10 +998,10 @@ In particular,
 says that rate function <m>r(t) = e^t</m> leads to the accumulation function <m>A_0(t) = e^t - 1</m>.
 If we assume that <m>q(0) = 0</m>,
 then this accumulation function is also the quantity function:
-<me> q(t) = e^t - 1 </me>,
+<md> q(t) = e^t - 1 </md>,
 and <xref ref="principle-deriv-equals-rate" />
 tells us to expect that
-<me> \opddt (e^t - 1) = r(t) = e^t </me>.
+<md> \opddt (e^t - 1) = r(t) = e^t </md>.
 Now, the quantity functions
 <md>
 	<mrow>
@@ -1018,8 +1018,8 @@ so <xref ref="pattern-deriv-vertical-shift" /> tells us that they have the same 
 	<title>Derivative of the natural exponential</title>
 	<p>
 	The natural exponential function is differentiable for all <m>t</m>,
-	with <me> \ddt{e^t} = e^t </me>.
-	In function notation, this says that <me> \exp'(t) = \exp(t) </me>.
+	with <md> \ddt{e^t} = e^t </md>.
+	In function notation, this says that <md> \exp'(t) = \exp(t) </md>.
 	</p>
 </identity>
 
@@ -1048,14 +1048,14 @@ as in our <xref ref="example-models-radioactive-decay" text="title" /> example.
 	Let's take our proportionality constant to be <m>k = 3</m>,
 	so that
 	<md><mrow xml:id="equation-deriv-proportional-rate-eqn" tag="star"> r(t) = 3 q(t) </mrow></md>.
-	We expect <me> r(t) = q'(t) </me>,
+	We expect <md> r(t) = q'(t) </md>,
 	so we are looking for a function whose derivative is a multiple of that original function.
-	The pattern <me> \ddt{e^t} = e^t </me> is almost correct,
+	The pattern <md> \ddt{e^t} = e^t </md> is almost correct,
 	but the <q>multiple</q> is only <m>1</m>.
 	However,
 	we know from <xref ref="pattern-deriv-h-scale" /> that introducing a horizontal scale factor into the quantity function also introduces a vertical scale factor into the derivative function.
 	In this case,
-	if we take <me> q(t) = \exp(3 t) </me>,
+	if we take <md> q(t) = \exp(3 t) </md>,
 	then <xref ref="pattern-deriv-h-scale" /> says that
 	<md>
 		<mrow> q'(t) \amp = 3 \exp'(3 t) </mrow>
@@ -1069,7 +1069,7 @@ as in our <xref ref="example-models-radioactive-decay" text="title" /> example.
 	<p>
 	This is only one particular solution to <xref ref="equation-deriv-proportional-rate-eqn" />.
 	Can we guess at the general solution by introducing some parameter?
-	Our particular solution above has initial value <me> q(0) = e^{3 \cdot 0} = 1 </me>.
+	Our particular solution above has initial value <md> q(0) = e^{3 \cdot 0} = 1 </md>.
 	But exponential growth or decay does not turn into some other behaviour if there is a different initial value <mdash />
 	otherwise a horizontal shift (so that the point in time that is considered <m>t = 0</m> is shifted)
 	would change the type of graph,
@@ -1082,7 +1082,7 @@ as in our <xref ref="example-models-radioactive-decay" text="title" /> example.
 
 	<p>
 	Recall from <xref ref="definition-exp-func" /> that introducing a constant multiple in an exponential function changes the initial amount.
-	So let's try <me> q(t) = A e^{3 t} </me>,
+	So let's try <md> q(t) = A e^{3 t} </md>,
 	where <m>A</m> represents the initial amount <m>A = q(0)</m>.
 	Now using <xref ref="pattern-deriv-scale" /> for our first step,
 	we have
@@ -1104,8 +1104,8 @@ as in our <xref ref="example-models-radioactive-decay" text="title" /> example.
 	<title>General solution to a proportional rate equation</title>
 	<p>
 	For each constant of proportionality <m>k</m>,
-	the general solution to the rate equation <me> r(t) = k q(t) </me>
-	is <me> q(t) = A e^{k t} </me>,
+	the general solution to the rate equation <md> r(t) = k q(t) </md>
+	is <md> q(t) = A e^{k t} </md>,
 	where the parameter <m>A</m> represents the initial quantity <m>q(0)</m>.
 	</p>
 </identity>
@@ -1120,12 +1120,12 @@ as in our <xref ref="example-models-radioactive-decay" text="title" /> example.
 <p>
 Looking at <xref ref="pattern-periodic-int-sin" />,
 <xref ref="principle-deriv-equals-rate" /> tells us to expect that
-<me> \opddt (1 - \cos(t)) = \sin(t) </me>.
+<md> \opddt (1 - \cos(t)) = \sin(t) </md>.
 If this is true,
-then <xref ref="pattern-deriv-vertical-shift" /> tells us that <me> \opddt (- \cos(t)) = \sin(t) </me>
+then <xref ref="pattern-deriv-vertical-shift" /> tells us that <md> \opddt (- \cos(t)) = \sin(t) </md>
 as well.
 Finally, applying <xref ref="pattern-deriv-scale" /> would lead us to
-<me> \opddt \cos(t) = - \sin(t) </me>.
+<md> \opddt \cos(t) = - \sin(t) </md>.
 We will verify this fact using the definition of derivative,
 but first we need a special property of the sine and cosine functions,
 each.
@@ -1173,7 +1173,7 @@ But in each of these cases we can say something much stronger about how close th
 		(that is, for <m>t \approx 0</m>),
 		we have <m>\sin(t) \approx t</m>.
 		In fact,
-		we can say that values of <me> \frac{\sin(t)}{t} </me> become arbitrarily close to <m>1</m> for non-zero values of <m>t</m> sufficiently close to <m>0</m>.
+		we can say that values of <md> \frac{\sin(t)}{t} </md> become arbitrarily close to <m>1</m> for non-zero values of <m>t</m> sufficiently close to <m>0</m>.
 	</p></statement>
 
 	<proof>
@@ -1211,7 +1211,7 @@ But in each of these cases we can say something much stronger about how close th
 		But also <m>d \lt c</m> because <m>c</m> is a hypotenuse and <m>d</m> is a leg.
 		And we have <m>b + c = \tan(t)</m> by using <em>opposite-over-adjacent</em> in the large right triangle.
 		So we finally have
-		<me> \sin(t) = y \lt a \lt t \lt b + d \lt b + c = \tan(t) </me>.
+		<md> \sin(t) = y \lt a \lt t \lt b + d \lt b + c = \tan(t) </md>.
 		Splitting in two at <m>t</m> and doing a little re-arranging,
 		we have
 		<md>
@@ -1225,10 +1225,10 @@ But in each of these cases we can say something much stronger about how close th
 
 		<p>
 		Combining these inequalities, we have
-		<me>
+		<md>
 			\cos(t) \lt \frac{\sin(t)}{t} \lt 1
 			\qquad \text{for} \qquad t \approx 0^+
-		</me>,
+		</md>,
 		where the superscript <m>+</m> indicates that <m>t</m> is assumed to be positive.
 		This inequality says that the graph of <m>\sin(t)/t</m>,
 		whatever it might look like,
@@ -1237,8 +1237,8 @@ But in each of these cases we can say something much stronger about how close th
 		this graph must be <em>squeezed</em> into the little wedge in the upper-left corner of the shaded region,
 		very close to a height of <m>1</m>,
 		and so we conclude
-		<me> \frac{\sin(t)}{t} \approx 1 \qquad \text{for} \qquad t \approx 0^+
-		</me>.
+		<md> \frac{\sin(t)}{t} \approx 1 \qquad \text{for} \qquad t \approx 0^+
+		</md>.
 		</p>
 
 		<figure xml:id="figure-deriv-trig-squeeze">
@@ -1267,20 +1267,20 @@ The following corresponding property of the cosine function can be justified in 
 		(that is, for <m>t \approx 0</m>),
 		we obviously have <m>\cos(t) \approx 1</m>.
 		But this approximation becomes so tight that we can say
-		we can say that values of <me> \frac{\cos(t) - 1}{t} </me> become arbitrarily close to <m>0</m> for non-zero values of <m>t</m> sufficiently close to <m>0</m>.
+		we can say that values of <md> \frac{\cos(t) - 1}{t} </md> become arbitrarily close to <m>0</m> for non-zero values of <m>t</m> sufficiently close to <m>0</m>.
 	</p>
 </identity>
 
 <remark><p>
-	The statement that <me> \frac{\cos(t) - 1}{t} \approx 0 </me> for <m>t \approx 0</m> says something stronger than just <m>\cos(t) \approx 1</m>.
-	In the ratio <me> \frac{\cos(t) - 1}{t} </me>,
+	The statement that <md> \frac{\cos(t) - 1}{t} \approx 0 </md> for <m>t \approx 0</m> says something stronger than just <m>\cos(t) \approx 1</m>.
+	In the ratio <md> \frac{\cos(t) - 1}{t} </md>,
 	both the numerator and denominator are approximately <m>0</m> for small values of <m>t</m>.
 	But similarly to <xref ref="section-inf-behaviour-relative-growth" />,
 	it becomes a <q>race</q> to <m>0</m>.
-	The fact that <me> \frac{\cos(t) - 1}{t} \approx 0 </me>
+	The fact that <md> \frac{\cos(t) - 1}{t} \approx 0 </md>
 	says that the numerator <q>wins</q> the race,
 	so that the approximation <m>\cos(t) \approx 1</m> must be very tight compared to <m>t \approx 0</m>
-	since if it were the other way around then we would expect the expression <me> \frac{\cos(t) - 1}{t} </me> to have a singularity at <m>t = 0</m>.
+	since if it were the other way around then we would expect the expression <md> \frac{\cos(t) - 1}{t} </md> to have a singularity at <m>t = 0</m>.
 </p></remark>
 
 <identity xml:id="pattern-deriv-cos">
@@ -1288,14 +1288,14 @@ The following corresponding property of the cosine function can be justified in 
 
 	<statement><p>
 		The cosine function is differentiable for all <m>t</m>,
-		with <me> \opddt \cos(t) = - \sin(t) </me>.
+		with <md> \opddt \cos(t) = - \sin(t) </md>.
 	</p></statement>
 
 	<proof><p>
 		As usual, we start with
-		<me> \opddt \cos(t) = \frac{ \cos(t + dt) - \cos(t) }{ dt } </me>.
+		<md> \opddt \cos(t) = \frac{ \cos(t + dt) - \cos(t) }{ dt } </md>.
 		Using the addition identity for cosine,
-		we have <me> \cos(t + dt) = \cos(t) \cos(dt) - \sin(t) \sin(dt) </me>.
+		we have <md> \cos(t + dt) = \cos(t) \cos(dt) - \sin(t) \sin(dt) </md>.
 		Therefore,
 		<md>
 
@@ -1335,7 +1335,7 @@ The following corresponding property of the cosine function can be justified in 
 Similarly,
 combining <xref ref="pattern-periodic-int-cos" />
 with <xref ref="principle-deriv-equals-rate" /> tells us to expect that
-<me> \opddt \sin(t) = \cos(t) </me>,
+<md> \opddt \sin(t) = \cos(t) </md>,
 and this is in fact the case.
 </p>
 
@@ -1344,14 +1344,14 @@ and this is in fact the case.
 
 	<statement><p>
 		The sine function is differentiable for all <m>t</m>,
-		with <me> \opddt \sin(t) = \cos(t) </me>.
+		with <md> \opddt \sin(t) = \cos(t) </md>.
 	</p></statement>
 
 	<proof><title>Justification idea</title><p>
 		Apply the same sort of reasoning as in the justification for
 		<xref ref="pattern-deriv-cos" />,
 		beginning by applying an addition identity to <m>\sin(t + dt)</m> in
-		<me> \opddt \sin(t) = \frac{ \sin(t + dt) - \sin(t) }{ dt } </me>,
+		<md> \opddt \sin(t) = \frac{ \sin(t + dt) - \sin(t) }{ dt } </md>,
 		and then applying <xref ref="pattern-deriv-sin-over-theta" />
 		and <xref ref="pattern-deriv-cos-over-theta" />
 		as appropriate.
@@ -1395,9 +1395,9 @@ a function is returned to that can be evaluated with function notation.
 
 <p>
 Consider function
-<me> q(t) = t^3 - 2 t + 5 </me>.
+<md> q(t) = t^3 - 2 t + 5 </md>.
 What is the equation of the tangent line to the graph of this function at the point
-<me> q(1) = 4 </me>?
+<md> q(1) = 4 </md>?
 It is not too difficult to use <xref ref="pattern-deriv-poly" /> to carry this out with pencil-and-paper,
 but let's use Sage.
 </p>

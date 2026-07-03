@@ -59,9 +59,9 @@ respective owners.
 	In <xref ref="definition-curves-increase-decrease" />,
 	we are always looking for <term>increase</term> or <term>decrease</term> as time increases,
 	so <q>Between any two points in that domain</q> requires that we are looking at
-	<me> \change{q} = q(t_2) - q(t_1) </me>
+	<md> \change{q} = q(t_2) - q(t_1) </md>
 	for <m>t_1,t_2</m> in the stated domain with positive
-	<me> \change{t} = t_2 - t_1 </me>.
+	<md> \change{t} = t_2 - t_1 </md>.
 </p></note>
 
 <remark><p>
@@ -224,7 +224,7 @@ we can connect domains of increase and decrease to the sign of the derivative.
 	<p>
 	On the other hand,
 	consider the rate function <m>r(t) = 1/t</m> itself.
-	Its derivative is <me> r'(t) = - \frac{1}{t^2} </me>,
+	Its derivative is <md> r'(t) = - \frac{1}{t^2} </md>,
 	and that derivative function is always negative on the domain <m>t \gt 0</m>.
 	<xref ref="pattern-curves-increase-decrease-vs-derivative" /> then says that <m>r(t)</m> should be decreasing on that same domain,
 	and we know from its graph that this is so.
@@ -265,7 +265,7 @@ we can connect domains of increase and decrease to the sign of the derivative.
 	<title>Determining domains of increase and decrease</title>
 
 	<p>
-	Consider the function <me> q(t) = \frac{2 t^2}{t^2 - 1} </me>.
+	Consider the function <md> q(t) = \frac{2 t^2}{t^2 - 1} </md>.
 	Let's ask Sage to compute its derivative.
 	(We could also turn the denominator into a factor with a negative exponent,
 	and then use a combination of the <xref ref="pattern-product-rule" text="title" />
@@ -283,7 +283,7 @@ we can connect domains of increase and decrease to the sign of the derivative.
 	</sage>
 
 	<p>
-	That denominator can be factored: <me> q'(t) = \frac{ - 4 t }{ (t^2 - 1)^2 } </me>.
+	That denominator can be factored: <md> q'(t) = \frac{ - 4 t }{ (t^2 - 1)^2 } </md>.
 	To use <xref ref="pattern-curves-increase-decrease-vs-derivative" /> to determine the domains of increase and decrease,
 	we would like to solve the inequalities
 	<md><mrow> q'(t) \amp \gt 0 \amp q'(t) \amp \lt 0 </mrow></md>,
@@ -319,10 +319,10 @@ we can connect domains of increase and decrease to the sign of the derivative.
 	We should never talk about increasing or decreasing at one single point.
 	But suppose we compare the output <m>q(0) = 0</m> to other nearby outputs.
 	For example, if we use <m>t_1 = 0</m> and <m>t_2 \gt 0</m>,
-	then <me> \change{q} = q(t_2) - q(t_1) = t_2^3 - 0 \gt 0 </me>.
+	then <md> \change{q} = q(t_2) - q(t_1) = t_2^3 - 0 \gt 0 </md>.
 	On the other side,
 	if we use <m>t_1 \lt 0</m> and <m>t_2 = 0</m>,
-	then <me> \change{q} = q(t_2) - q(t_1) = 0 - t_2^3 \gt 0 </me>,
+	then <md> \change{q} = q(t_2) - q(t_1) = 0 - t_2^3 \gt 0 </md>,
 	because <m>t_2^3</m> itself will be negative for <m>t_2 \lt 0</m>.
 	So it <em>is</em> appropriate to say that <m>q</m> increases <em>through</em> <m>t = 0</m>,
 	and we can join our two domains of increase together to say that <m>q(t) = t^3</m> is <em>always</em> increasing.
@@ -461,7 +461,7 @@ Here is an example of the other variety of critical point.
 
 	<p>
 	Consider <m>q(t) = t^{2/3}</m>.
-	Then the derivative function <me> q'(t) = - \frac{2}{3 t^{1/3}} </me> is undefined at <m>t = 0</m>,
+	Then the derivative function <md> q'(t) = - \frac{2}{3 t^{1/3}} </md> is undefined at <m>t = 0</m>,
 	even though the original function <m>q</m> is defined there.
 	</p>
 
@@ -693,10 +693,10 @@ and what kind if it does.
 	<title>Applying the First Derivative Test</title>
 
 	<p>
-	Consider the accumulation function <me> A(t) = \ccmint{0}{t}{ (u - 2) (u - 4)^2 }{u} </me>.
+	Consider the accumulation function <md> A(t) = \ccmint{0}{t}{ (u - 2) (u - 4)^2 }{u} </md>.
 	When does the accumulated quantity come to a momentary high or low value?
 	By the <xref ref="theorem-fund-thm" />,
-	the derivative function is <me> A'(t) = \opddt \, \ccmint{0}{t}{ (u - 2) (u - 4)^2 }{u} = (t - 2) (t - 4)^2 </me>.
+	the derivative function is <md> A'(t) = \opddt \, \ccmint{0}{t}{ (u - 2) (u - 4)^2 }{u} = (t - 2) (t - 4)^2 </md>.
 	So there are two critical points, at <m>t = 2</m> and <m>t = 4</m>.
 	Except for at <m>t = 4</m>,
 	the squared factor in the derivative function is always positive,
@@ -739,7 +739,7 @@ then <m>r'(t)</m> is the rate of variation of that rate of variation.
 Since this derivative function is the derivative of the derivative of <m>q</m>,
 we usually refer to it as the <term>second derivative</term> of <m>q</m>,
 and write
-<me> q''(t) \qquad\text{or}\qquad \dbldqdt </me>
+<md> q''(t) \qquad\text{or}\qquad \dbldqdt </md>
 to represent it.
 </p>
 
@@ -774,7 +774,7 @@ we've got to be careful to take <q>direction</q> into account.
 		<mrow> \amp = 3 (t - 2) (t - 6) </mrow>
 	</md>.
 	Variation in velocity is called <term>acceleration</term>:
-	<me> a(t) = v'(t) = s''(t) = 6 t - 24 = 6 (t - 4) </me>.
+	<md> a(t) = v'(t) = s''(t) = 6 t - 24 = 6 (t - 4) </md>.
 	As described at the beginning of this chapter,
 	when <m>v(t) \gt 0</m>,
 	position is increasing and we think of the object as <em>moving forward</em>.
@@ -979,7 +979,7 @@ whereas each graph with an increasing rate exhibits a curve that opens downward.
 	<p>
 	Let's continue <xref ref="example-curves-domains-of-inc-dec" />,
 	where we've already determined the domains of increase and decrease for
-	<me> q(t) = \frac{2 t^2}{t^2 - 1} </me>.
+	<md> q(t) = \frac{2 t^2}{t^2 - 1} </md>.
 	Let's now ask Sage to calculate the second derivative for us.
 	</p>
 
@@ -1007,7 +1007,7 @@ whereas each graph with an increasing rate exhibits a curve that opens downward.
 	</sage>
 
 	<p>
-	So now we have <me> q''(t) = \frac{4 (3 t^2 + 1)}{ {(t + 1)}^3 {(t - 1)}^3 } </me>.
+	So now we have <md> q''(t) = \frac{4 (3 t^2 + 1)}{ {(t + 1)}^3 {(t - 1)}^3 } </md>.
 	Note that the numerator is always positive,
 	so <m>q''(t) = 0</m> is not possible.
 	This function is undefined at <m>t = \pm 1</m>,
@@ -1079,7 +1079,7 @@ and then connect these using our knowledge of the graph's behaviour between them
 	Let's finish analyzing the function
 	from <xref ref="example-curves-domains-of-inc-dec" />
 	and <xref ref="example-curves-concavity" />:
-	<me> q(t) = \frac{2 t^2}{t^2 - 1} </me>.
+	<md> q(t) = \frac{2 t^2}{t^2 - 1} </md>.
 	We already know:
 	<ul>
 		<li> increasing on <m>t \lt -1</m> and <m>-1 \lt t \lt 0</m> </li>
@@ -1097,11 +1097,11 @@ and then connect these using our knowledge of the graph's behaviour between them
 		<li> singularities at <m>t = -1</m> and <m>t = 1</m> </li>
 		<li><p>
 			long-term behaviour
-			<me> \frac{2 t^2}{t^2 - 1} \to 2 \qquad\text{as}\qquad t \to \infty </me>
+			<md> \frac{2 t^2}{t^2 - 1} \to 2 \qquad\text{as}\qquad t \to \infty </md>
 		</p></li>
 		<li><p>
 			ancient behaviour
-			<me> \frac{2 t^2}{t^2 - 1} \to 2 \qquad\text{as}\qquad t \to -\infty </me>.
+			<md> \frac{2 t^2}{t^2 - 1} \to 2 \qquad\text{as}\qquad t \to -\infty </md>.
 		</p></li>
 	</ul>
 	We can also combine some of these pieces of information.
@@ -1202,7 +1202,7 @@ the reader.
 <example>
 	<title>Using the curve-sketching procedure</title>
 	<p>
-	For function <me> q(t) = \frac{t^3}{t^2 + 1} </me>,
+	For function <md> q(t) = \frac{t^3}{t^2 + 1} </md>,
 	we have derivative and second derivative
 	<md><mrow>
 		q'(t) \amp = \frac{t^2 (t^2 + 3)}{(x^2 + 1)^3}
@@ -1236,8 +1236,8 @@ the reader.
 			</md>
 			So no horizontal asymptotes,
 			but we can divide
-			<me> \frac{t^3}{t^2 + 1} = t - \frac{t}{t^2 + 1} </me>,
-			with <me> \frac{t}{t^2 + 1} \to 0 \qquad\text{as}\qquad t \to \pm \infty </me>,
+			<md> \frac{t^3}{t^2 + 1} = t - \frac{t}{t^2 + 1} </md>,
+			with <md> \frac{t}{t^2 + 1} \to 0 \qquad\text{as}\qquad t \to \pm \infty </md>,
 			so we have a slant asymptote of <m>y = t</m>.
 			</p>
 		</li>

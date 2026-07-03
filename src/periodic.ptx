@@ -204,7 +204,7 @@ an angle is created.
 <p>
 For example,
 a right angle creates an arc that is one quarter of a circle,
-and so has radian measure <me> \frac{2 \pi}{4} = \frac{\pi}{2} </me>.
+and so has radian measure <md> \frac{2 \pi}{4} = \frac{\pi}{2} </md>.
 A <m>45 \degree</m> angle will create an arc half the length of that for a right angle,
 and so has radian measure <m>\pi / 4</m>.
 </p>
@@ -268,7 +268,7 @@ with the corresponding angle measure in degrees.
 
 <p>
 In general, we can convert between degrees and radians by the relation
-<me> 1 \degree = \frac{2 \pi}{360} \text{ radians} </me>.
+<md> 1 \degree = \frac{2 \pi}{360} \text{ radians} </md>.
 </p>
 
 <p>
@@ -424,7 +424,7 @@ which we can express as transformations of functions.
 			\cos(t + \pi/2) \amp = - \sin(t)
 		</mrow>
 	</md>
-	<me> {\bbrac{\cos(t)}}^2 + {\bbrac{\sin(t)}}^2 = 1 </me>
+	<md> {\bbrac{\cos(t)}}^2 + {\bbrac{\sin(t)}}^2 = 1 </md>
 	</p>
 </identity>
 
@@ -602,21 +602,21 @@ it accumulates displacement from the initial position <m>s(0) = -1</m>:
 </md>.
 On the other hand,
 we have already modelled position as <m>s(t) = - \cos(t)</m>:
-<me> - \cos(t) = -1 + \ccmint{0}{t}{\sin(u)}{u} </me>.
+<md> - \cos(t) = -1 + \ccmint{0}{t}{\sin(u)}{u} </md>.
 </p>
 
 <identity xml:id="pattern-periodic-int-sin">
 	<title>Accumulation when rate function is sine</title>
 	<p>
 	For all values of <m>t</m>,
-	<me> \ccmint{0}{t}{\sin(u)}{u} = 1 - \cos(t) </me>.
+	<md> \ccmint{0}{t}{\sin(u)}{u} = 1 - \cos(t) </md>.
 	</p>
 </identity>
 
 <p>
 For a cosine rate function,
 we can use the fact that cosine is just a horizontal shift of the sine function:
-<me> \cos(t) = \sin(t + \pi/2) </me>.
+<md> \cos(t) = \sin(t + \pi/2) </md>.
 (See <xref ref="pattern-periodic-sin-cos-identities" />.)
 Accordingly, if we shift time so that we consider the velocity of the object in <xref ref="example-periodic-spring" /> as being modelled by <m>v(t) = \cos(t)</m>,
 then we can just shift our position function by the same amount:
@@ -645,14 +645,14 @@ we think of the object as accumulating displacement from its initial position:
 </md>.
 As we have decided that position in this shifted scenario should be modelled as <m>s(t) = \sin(t)</m>,
 we have
-<me> \sin(t) = 0 + \ccmint{0}{t}{\cos(u)}{u} </me>.
+<md> \sin(t) = 0 + \ccmint{0}{t}{\cos(u)}{u} </md>.
 </p>
 
 <identity xml:id="pattern-periodic-int-cos">
 	<title>Accumulation when rate function is cosine</title>
 	<p>
 	For all values of <m>t</m>,
-	<me> \ccmint{0}{t}{\cos(u)}{u} = \sin(t) </me>.
+	<md> \ccmint{0}{t}{\cos(u)}{u} = \sin(t) </md>.
 	</p>
 </identity>
 
@@ -660,13 +660,13 @@ we have
 	<title>Computing an accumulation for a rate function involving sine and cosine</title>
 
 	<p>
-	Suppose we would like to compute <me> \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{ 3 \sin(t) + 5 \cos(t) }{t} </me>.
+	Suppose we would like to compute <md> \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{ 3 \sin(t) + 5 \cos(t) }{t} </md>.
 	As usual, we use <xref ref="pattern-integ-definite-props" /> to split into separate integrals and factor out the constant multiples:
-	<me>
+	<md>
 		\ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{ 3 \sin(t) + 5 \cos(t) }{t}
 		= 3 \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{\sin(t)}{t}
 		+ 5 \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{\cos(t)}{t}
-	</me>.
+	</md>.
 	Let's continue by computing these two integrals separately.
 	As we've done before in other examples,
 	we use

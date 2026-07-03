@@ -64,7 +64,7 @@ However,
 we will take a more <term>continuous</term> approach compared to the step-by-step approach described in the previous paragraph.
 As usual, we can consider the domain endpoint as a variable,
 and then the partial area values can all be collected together as an <em>integral function</em>:
-<me> \text{Total area } \approx A(t) = \ccmint{1}{t}{\frac{1}{u^2}}{u} </me>.
+<md> \text{Total area } \approx A(t) = \ccmint{1}{t}{\frac{1}{u^2}}{u} </md>.
 A larger value of <m>t</m> will account for more of the area over the full, unbounded domain <m>t \ge 1</m>,
 and so should be a better approximation.
 Is there any trend to these increasingly better approximations?
@@ -84,7 +84,7 @@ we have
 	<mrow> \amp = 1 - \frac{1}{t} </mrow>
 </md>
 But <m>1/t \to 0</m> as <m>t \to \infty</m>,
-so <me> \lim_{t \to \infty} A(t) = 1 </me>,
+so <md> \lim_{t \to \infty} A(t) = 1 </md>,
 and it seems reasonable to say that the area of the region bounded between the graph of <m>f(t) = 1/t^2</m> and the horizontal axis from <m>t = 1</m> onwards is equal to <m>1</m>.
 </p>
 
@@ -96,9 +96,9 @@ and it seems reasonable to say that the area of the region bounded between the g
 			For a given boundary value <m>a</m>,
 			if <m>f</m> is integrable on every domain <m>a \le t \le b</m>,
 			then write
-			<me> \ccmint{a}{\infty}{f(t)}{t} </me>
+			<md> \ccmint{a}{\infty}{f(t)}{t} </md>
 			to represent the value of
-			<me> \lim_{t \to \infty} \ccmint{a}{t}{f(u)}{u} </me>,
+			<md> \lim_{t \to \infty} \ccmint{a}{t}{f(u)}{u} </md>,
 			if it exists.
 		</li>
 
@@ -106,15 +106,15 @@ and it seems reasonable to say that the area of the region bounded between the g
 			For a given boundary value <m>b</m>,
 			if <m>f</m> is integrable on every domain <m>a \le t \le b</m>,
 			then write
-			<me> \ccmint{-\infty}{b}{f(t)}{t} </me>
+			<md> \ccmint{-\infty}{b}{f(t)}{t} </md>
 			to represent the value of
-			<me> \lim_{t \to -\infty} \ccmint{t}{b}{f(u)}{u} </me>,
+			<md> \lim_{t \to -\infty} \ccmint{t}{b}{f(u)}{u} </md>,
 			if it exists.
 		</li>
 
 		<li>
-			Write <me> \ccmint{-\infty}{\infty}{f(t)}{t} </me> to represent the value of
-			<me> \ccmint{-\infty}{0}{f(t)}{t} + \ccmint{0}{\infty}{f(t)}{t} </me>,
+			Write <md> \ccmint{-\infty}{\infty}{f(t)}{t} </md> to represent the value of
+			<md> \ccmint{-\infty}{0}{f(t)}{t} + \ccmint{0}{\infty}{f(t)}{t} </md>,
 			if it exists.
 		</li>
 
@@ -224,12 +224,12 @@ and it seems reasonable to say that the area of the region bounded between the g
 <p>
 It's important when computing a <q>two-sided</q> improper integral to compute the two <q>halves</q> independently.
 One might wonder why we need to split
-<me> \ccmint{-\infty}{\infty}{f(t)}{t} = \ccmint{-\infty}{0}{f(t)}{t} + \ccmint{0}{\infty}{f(t)}{t} </me>
+<md> \ccmint{-\infty}{\infty}{f(t)}{t} = \ccmint{-\infty}{0}{f(t)}{t} + \ccmint{0}{\infty}{f(t)}{t} </md>
 at all <mdash />
 if improper integrals are computed a bit at a time and taking a limit,
 why can't we directly compute
-<me> \ccmint{-\infty}{\infty}{f(t)}{t} </me>
-as <me> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </me>?
+<md> \ccmint{-\infty}{\infty}{f(t)}{t} </md>
+as <md> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </md>?
 </p>
 
 <example>
@@ -253,7 +253,7 @@ as <me> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </me>?
 
 	<p>
 	This is exactly what happens if we compute
-	<me> \lim_{t \to \infty} \ccmint{-t}{t}{u}{u} = \lim_{t \to \infty} 0 = 0 </me>.
+	<md> \lim_{t \to \infty} \ccmint{-t}{t}{u}{u} = \lim_{t \to \infty} 0 = 0 </md>.
 	However, the cancellation of negative area with positive area only works over bounded domains.
 	We have
 	<md><mrow tag="dstar" xml:id="equation-improper-int-one-sided-lines">
@@ -294,7 +294,7 @@ as <me> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </me>?
 	<title>Convergence of improper integrals for (reciprocal) power functions</title>
 
 	<statement><p>
-		The improper integral <me> \ccmint{1}{\infty}{\frac{1}{t^p}}{t} </me> converges for <m>p \gt 1</m> and diverges for <m>p \le 1</m>.
+		The improper integral <md> \ccmint{1}{\infty}{\frac{1}{t^p}}{t} </md> converges for <m>p \gt 1</m> and diverges for <m>p \le 1</m>.
 	</p></statement>
 
 	<proof><p>
@@ -309,7 +309,7 @@ as <me> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </me>?
 		</md>.
 		Whether this limit exists depends on whether the exponent on <m>t</m> is negative or positive.
 		If <m>p \gt 1</m> then the exponent is negative and <m>t^{1 - p} \to 0</m> as <m>t \to \infty</m>,
-		so that <me> \ccmint{1}{\infty}{\frac{1}{t^p}}{t} = \frac{1}{p - 1} </me>.
+		so that <md> \ccmint{1}{\infty}{\frac{1}{t^p}}{t} = \frac{1}{p - 1} </md>.
 		If <m>p \lt 1</m> then the exponent is positive and <m>t^{1 - p} \to \infty</m> as <m>t \to \infty</m>,
 		and the limit doesn't exist.
 	</p></proof>
@@ -335,9 +335,9 @@ then we should be able to do so from any starting point.
 		then they both do
 		(as long as we remain within the domain of integrability of <m>f(t)</m>),
 		with
-		<me> \ccmint{a_1}{\infty}{f(t)}{t} = \ccmint{a_1}{a_2}{f(t)}{t} + \ccmint{a_2}{\infty}{f(t)}{t} </me>.
+		<md> \ccmint{a_1}{\infty}{f(t)}{t} = \ccmint{a_1}{a_2}{f(t)}{t} + \ccmint{a_2}{\infty}{f(t)}{t} </md>.
 		And similarly for improper integrals on domains <m>-\infty \lt t \le b_1</m> and <m>-\infty \lt t \le b_2</m>,
-		with <me> \ccmint{-\infty}{b_2}{f(t)}{t} = \ccmint{-\infty}{b_1}{f(t)}{t} + \ccmint{b_1}{b_2}{f(t)}{t} </me>.
+		with <md> \ccmint{-\infty}{b_2}{f(t)}{t} = \ccmint{-\infty}{b_1}{f(t)}{t} + \ccmint{b_1}{b_2}{f(t)}{t} </md>.
 	</p></statement>
 
 	<proof><p>
@@ -369,13 +369,13 @@ Here are some other familiar patterns from <xref ref="pattern-integ-definite-pro
 			<li>
 				If <m>\displaystyle \ccmint{a}{\infty}{f(t)}{t}</m> converges,
 				then so does <m>\displaystyle \ccmint{a}{\infty}{k f(t)}{t}</m>,
-				and <me> \ccmint{a}{\infty}{k f(t)} = k \ccmint{a}{\infty}{f(t)} </me>.
+				and <md> \ccmint{a}{\infty}{k f(t)} = k \ccmint{a}{\infty}{f(t)} </md>.
 			</li>
 
 			<li>
 				If both <md><mrow> \amp \ccmint{a}{\infty}{f(t)}{t} \amp \amp \ccmint{a}{\infty}{g(t)}{t} </mrow></md> converge,
 				then so does <m>\displaystyle \ccmint{a}{\infty}{f(t) + g(t)}{t}</m>,
-				and <me> \ccmint{a}{\infty}{f(t) + g(t)}{t} = \ccmint{a}{\infty}{f(t)}{t} + \ccmint{a}{\infty}{g(t)}{t} </me>.
+				and <md> \ccmint{a}{\infty}{f(t) + g(t)}{t} = \ccmint{a}{\infty}{f(t)}{t} + \ccmint{a}{\infty}{g(t)}{t} </md>.
 			</li>
 
 		</ol>
@@ -424,8 +424,8 @@ it should be clear that the only way that an improper integral can converge is i
 </ol></p></corollary>
 
 <example><p>
-	The improper integral <me> \ccmint{2}{\infty}{\frac{2 t^3 - 3 t + 1}{t^3 + t^2 - 5}}{t} </me> must diverge because
-	<me> \frac{2 t^3 - 3 t + 1}{t^3 + t^2 - 5} \to 2 \qquad\text{as}\qquad t \to \infty </me>.
+	The improper integral <md> \ccmint{2}{\infty}{\frac{2 t^3 - 3 t + 1}{t^3 + t^2 - 5}}{t} </md> must diverge because
+	<md> \frac{2 t^3 - 3 t + 1}{t^3 + t^2 - 5} \to 2 \qquad\text{as}\qquad t \to \infty </md>.
 </p></example>
 
 </section>
@@ -448,7 +448,7 @@ it should be clear that the only way that an improper integral can converge is i
 	</p>
 
 	<p>
-	Now consider <me> \ccmint{0}{\infty}{e^{-t^2}}{t} </me>.
+	Now consider <md> \ccmint{0}{\infty}{e^{-t^2}}{t} </md>.
 	We saw that an improper integral of exponential decay converges in <xref ref="example-improper-int-first-examples-backward-exp-decay" text="type-local">Integral</xref> of <xref ref="example-improper-int-first-examples" />,
 	which is not surprising because exponential decay decays very quickly.
 	And this integral squares <m>t</m> before inputting it into exponential decay,
@@ -590,7 +590,7 @@ than it stands to reason that the second improper integral should converge as we
 
 	From our assumption on <m>f</m> and <m>g</m>,
 	we have
-	<me> 0 \le \ccmint{a}{t}{f(u)}{u} \le \ccmint{a}{t}{g(u)}{u} </me>
+	<md> 0 \le \ccmint{a}{t}{f(u)}{u} \le \ccmint{a}{t}{g(u)}{u} </md>
 	Since <m> 0 \le f(t) \le g(t)</m> for <m>t \ge a</m>.
 
 	If the area under the graph of <m>g</m> is finite,
@@ -608,7 +608,7 @@ than it stands to reason that the second improper integral should converge as we
 	We will use the <xref ref="pattern-improper-int-compare" text="title" /> to compare the following two integrals:
 	<md><mrow> \amp \ccmint{0}{\infty}{e^{-t^2}}{t} \amp \amp \ccmint{0}{\infty}{e^{-t}}{t} </mrow></md>.
 	A horizontal reflection of <xref ref="example-improper-int-first-examples-backward-exp-decay" text="type-local">Integral</xref> of <xref ref="example-improper-int-first-examples" /> yields
-	<me> \ccmint{0}{\infty}{e^{-t}}{t} = 1 </me>,
+	<md> \ccmint{0}{\infty}{e^{-t}}{t} = 1 </md>,
 	hence this integral converges.
 	For the comparison,
 	first consider that exponential values are always positive.
@@ -659,10 +659,10 @@ than it stands to reason that the second improper integral should converge as we
 </example>
 
 <example><title>Divergence by comparison</title><p>
-	Consider <me> \ccmint{1}{\infty}{\frac{e^t + 1}{t e^t}}{t} </me>.
+	Consider <md> \ccmint{1}{\infty}{\frac{e^t + 1}{t e^t}}{t} </md>.
 	Since exponential values are always positive,
 	we have
-	<me> \frac{e^t + 1}{t e^t} = \frac{1}{t} + \frac{1}{t e^t} \gt \frac{1}{t} </me>
+	<md> \frac{e^t + 1}{t e^t} = \frac{1}{t} + \frac{1}{t e^t} \gt \frac{1}{t} </md>
 	for positive <m>t</m>.
 	Therefore the integral above diverges by comparison with the improper integral of <m>1/t</m>
 	(<xref ref="example-improper-int-one-over" />).
@@ -682,7 +682,7 @@ the following fact sometimes allows us to convert the question of convergence to
 	</p></statement>
 
 	<proof><p>
-		Assume <me> \ccmint{a}{\infty}{\abs{f(t)}}{t} </me> converges.
+		Assume <md> \ccmint{a}{\infty}{\abs{f(t)}}{t} </md> converges.
 		Then from <xref ref="pattern-improper-int-linearity" />,
 		so do both of
 		<md><mrow> \amp \ccmint{a}{\infty}{2 \abs{f(t)}}{t} \text{,} \amp \amp \ccmint{a}{\infty}{- \abs{f(t)}}{t} \text{.} </mrow></md>
@@ -691,20 +691,20 @@ the following fact sometimes allows us to convert the question of convergence to
 			<mrow> \phantom{\implies} \quad -\abs{f(t)} \le f(t) \le \abs{f(t)} \quad \phantom{\implies} </mrow>
 			<mrow> \implies \quad 0 \le f(t) + \abs{f(t)} \le 2 \abs{f(t)} \text{.} \quad \phantom{\implies} </mrow>
 		</md>
-		So by comparison, <me> \ccmint{a}{\infty}{f(t) + \abs{f(t)}}{t} </me> must converge.
+		So by comparison, <md> \ccmint{a}{\infty}{f(t) + \abs{f(t)}}{t} </md> must converge.
 		But then adding this convergent integral to another will yield a convergent integral
 		(<xref ref="pattern-improper-int-linearity" />),
-		so <me> \ccmint{a}{\infty}{\Bbrac{f(t) + \abs{f(t)} + \bbrac{-\abs{f(t)}}}}{t} = \ccmint{a}{\infty}{f(t)}{t} </me>
+		so <md> \ccmint{a}{\infty}{\Bbrac{f(t) + \abs{f(t)} + \bbrac{-\abs{f(t)}}}}{t} = \ccmint{a}{\infty}{f(t)}{t} </md>
 		converges.
 	</p></proof>
 
 </fact>
 
 <example><p>
-	Consider <me> \ccmint{0}{\infty}{e^{-t} \sin(t)}{t} </me>.
+	Consider <md> \ccmint{0}{\infty}{e^{-t} \sin(t)}{t} </md>.
 	The amplitude of the sine function in the integrand is decaying exponentially,
 	so it seems like this integral should converge.
-	We have <me> 0 \le \abs{\sin(t)} \le 1 \qquad \implies \qquad 0 \le \abs{e^{-t} \sin(t)} \le e^{-t}  </me>,
+	We have <md> 0 \le \abs{\sin(t)} \le 1 \qquad \implies \qquad 0 \le \abs{e^{-t} \sin(t)} \le e^{-t}  </md>,
 	and so the improper integral of <m>\abs{e^{-t} \sin(t)}</m> converges by comparison with the improper integral of <m>e^{-t}</m>.
 	And then the improper integral of <m>e^{-t} \sin(t)</m> converges by <xref ref="fact-improper-int-abs-conv" />.
 </p></example>
@@ -723,7 +723,7 @@ So we should be able to compare improper integrals based on how quickly the func
 <identity xml:id="pattern-improper-int-limit-compare">
 	<title>Limit comparison test for integrals</title>
 	<p>
-	If <me>\lim_{t \to \infty} \frac{f(t)}{g(t)}</me> exists and is positive
+	If <md>\lim_{t \to \infty} \frac{f(t)}{g(t)}</md> exists and is positive
 	(that is, <m>f(t)</m> and <m>g(t)</m> grow/decay at the same rate as <m>t \to \infty</m>),
 	then the two improper integrals
 	<md><mrow> \amp \ccmint{a}{\infty}{f(t)}{t} \amp \amp \ccmint{a}{\infty}{g(t)}{t} </mrow></md>
@@ -732,9 +732,9 @@ So we should be able to compare improper integrals based on how quickly the func
 </identity>
 
 <example><p>
-	Consider <me> \ccmint{2}{\infty}{\frac{2 t^2 - 3 t + 1}{t^3 + t^2 - 5}}{t} </me>.
+	Consider <md> \ccmint{2}{\infty}{\frac{2 t^2 - 3 t + 1}{t^3 + t^2 - 5}}{t} </md>.
 	For large <m>t</m>,
-	considering dominant terms we have <me> \frac{2 t^2 - 3 t + 1}{t^3 + t^2 - 5} \approx \frac{2}{t} </me>,
+	considering dominant terms we have <md> \frac{2 t^2 - 3 t + 1}{t^3 + t^2 - 5} \approx \frac{2}{t} </md>,
 	But comparing the two using the <xref ref="pattern-improper-int-compare" text="title" /> might be difficult.
 	Instead,
 	let's compare their relative rates of growth:
@@ -896,16 +896,16 @@ we <em>can</em> shift vertical asymptotes around without affecting convergence o
 	The function <m>f(t) = 1/\sqrt{t - 2}</m> is a shift to the right of a previous example we have computed,
 	and has a vertical asymptote at <m>t = 2</m>.
 	Let's verify that the shifted integral converges as well:
-	<me> \ccmint{2}{3}{\frac{1}{\sqrt{t - 2}}}{t} </me>.
+	<md> \ccmint{2}{3}{\frac{1}{\sqrt{t - 2}}}{t} </md>.
 	First,
-	we'll compute <me> \ccmint{t}{3}{\frac{1}{\sqrt{u - 2}}}{u} </me>,
+	we'll compute <md> \ccmint{t}{3}{\frac{1}{\sqrt{u - 2}}}{u} </md>,
 	assuming <m>t \gt 2</m>.
 	For integrand <m>f(u) = 1/\sqrt{u - 2}</m> we can simply guess an antiderivative <m>F(u) = 2 \sqrt{u - 2}</m> and apply
 	<xref ref="pattern-fund-thm-def-int-by-antideriv" />:
-	<me> \ccmint{t}{3}{\frac{1}{\sqrt{u - 2}}}{u} = 2 \sqrt{3 - 2} - 2 \sqrt{t - 2} = 2 (1 - \sqrt{t - 2}) </me>.
+	<md> \ccmint{t}{3}{\frac{1}{\sqrt{u - 2}}}{u} = 2 \sqrt{3 - 2} - 2 \sqrt{t - 2} = 2 (1 - \sqrt{t - 2}) </md>.
 	But as <m>t \to 2^{+}</m>,
 	we have <m>\sqrt{t - 2} \to 0</m>,
-	so we conclude that <me> \ccmint{2}{3}{\frac{1}{\sqrt{t - 2}}}{t} = 2 (1 - 0) = 2 </me>,
+	so we conclude that <md> \ccmint{2}{3}{\frac{1}{\sqrt{t - 2}}}{t} = 2 (1 - 0) = 2 </md>,
 	as expected.
 </p></example>
 

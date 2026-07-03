@@ -25,7 +25,7 @@ respective owners.
 <xref ref="theorem-fund-thm" text="title" />
 says that if we create an accumulation function <m>A(t)</m> out of a function <m>f(t)</m>,
 then we in fact have created an antiderivatitve for <m>f(t)</m>:
-<me> A(t) = \ccmint{t_0}{t}{f(w)}{dw} \qquad\implies\qquad A'(t) = f(t) </me>.
+<md> A(t) = \ccmint{t_0}{t}{f(w)}{dw} \qquad\implies\qquad A'(t) = f(t) </md>.
 (Here we are using <m>w</m> as the variable of integration because we are about to use the variable <m>u</m> for another purpose.)
 </p>
 
@@ -33,21 +33,21 @@ then we in fact have created an antiderivatitve for <m>f(t)</m>:
 What if we repeat the above for a derivative function?
 Suppose <m>u(t)</m> is a differentiable function.
 Then
-<me> A(t) = \ccmint{t_0}{t}{u'(w)}{dw} \qquad\implies\qquad A'(t) = u'(t) </me>.
+<md> A(t) = \ccmint{t_0}{t}{u'(w)}{dw} \qquad\implies\qquad A'(t) = u'(t) </md>.
 We know that two functions that have the same derivative must be vertical shifts of one another
 (<xref ref="fact-fund-thm-antideriv-v-shifts" />),
 so
-<me> A(t) = u(t) + C </me>
+<md> A(t) = u(t) + C </md>
 for some constant <m>C</m>.
 </p>
 
 <p>
 Let's analyze this using Riemann sums.
-We have <me> \ccmint{t_0}{t}{u'(w)}{dw} \approx \sum_{k=1}^n u'(w_k^\ast) \change{w} </me>.
+We have <md> \ccmint{t_0}{t}{u'(w)}{dw} \approx \sum_{k=1}^n u'(w_k^\ast) \change{w} </md>.
 At each sample point <m>w_k^\ast</m>,
 we can also approximate the derivative value by an average rate value over the same subdomain of width <m>dw</m> from which <m>w_k^\ast</m> was taken:
-<me> u'(w_k^\ast) = \funceval{\dd{u}{w}}{w = w_k^\ast} \approx \slope{u}{w} </me>,
-where <me> \slope{u}{w} = \frac{u(w_k) - u(w_{k-1})}{\change{w}} </me>.
+<md> u'(w_k^\ast) = \funceval{\dd{u}{w}}{w = w_k^\ast} \approx \slope{u}{w} </md>,
+where <md> \slope{u}{w} = \frac{u(w_k) - u(w_{k-1})}{\change{w}} </md>.
 This gives us
 <md>
 	<mrow> \ccmint{t_0}{t}{u'(w)}{dw} \amp \approx \sum_{k=1}^n u'(w_k^\ast) \change{w} </mrow>
@@ -58,13 +58,13 @@ This gives us
 This looks like a Riemann sum,
 but where <m>u</m> is the <em>independent</em> variable instead of a dependent variable,
 and the function used is just the constant function <m>1</m>:
-<me> \sum_{k=1}^n 1 \cdot \change{u} \approx \ccmint{t_0}{t}{1}{u} </me>.
+<md> \sum_{k=1}^n 1 \cdot \change{u} \approx \ccmint{t_0}{t}{1}{u} </md>.
 Since <m>u(t)</m> is assumed to be differentiable,
 we may make <m>\change{u}</m> arbitrarily small by taking <m>\change{w}</m> sufficiently small,
 so all of the approximations above can be made arbitrarily good:
-<me> \ccmint{t_0}{t}{\dd{u}{w}}{w} = \ccmint{t_0}{t}{1}{u} </me>.
+<md> \ccmint{t_0}{t}{\dd{u}{w}}{w} = \ccmint{t_0}{t}{1}{u} </md>.
 Normally, we don't bother to write the integrand <m>1</m> inside the second integral:
-<me> \ccmint{t_0}{t}{\dd{u}{w}}{w} = \ccmint{t_0}{t}{}{u} </me>.
+<md> \ccmint{t_0}{t}{\dd{u}{w}}{w} = \ccmint{t_0}{t}{}{u} </md>.
 Choosing <m>u</m> as an antiderivative of <m>1</m> relative to the independent variable <m>u</m>,
 we apply <xref ref="pattern-fund-thm-def-int-by-antideriv" /> to get
 <md>
@@ -78,12 +78,12 @@ which is a vertical shift of <m>u(t)</m> as expected from our initial analysis a
 
 <p>
 <xref ref="pattern-fund-thm-def-int-by-antideriv" /> tells us that we may use an antiderivative to compute an integral:
-<me> \ccmint{a}{b}{q(t)}{t} = Q(b) - Q(a) </me>
+<md> \ccmint{a}{b}{q(t)}{t} = Q(b) - Q(a) </md>
 if <m>Q'(t) = q(t)</m>.
 What if we apply the above to an integral of a derivative?
 A function is an antiderivative of its own derivative,
 so we have
-<me> \ccmint{a}{b}{q'(t)}{t} = q(b) - q(a) </me>.
+<md> \ccmint{a}{b}{q'(t)}{t} = q(b) - q(a) </md>.
 Since <m>q'(t)</m> is the rate of accumulation of the quantity <m>q(t)</m>,
 this equality is stating the obvious:
 accumulation is equal to accumulation.
@@ -96,11 +96,11 @@ we could write
 	\ccmint{a}{b}{\dqdt}{t} = q(b) - q(a)
 </mrow></md>.
 Recall that this integral is a sum of small
-<me> \text{accumulation} = \text{rate} \times \text{duration} </me>
+<md> \text{accumulation} = \text{rate} \times \text{duration} </md>
 calculations over tiny time intervals of duration <m>dt</m>.
 But also, <m>dq/dt</m> is essentially an average rate calculation over a short time interval of duration <m>dt</m>.
 If we assume that these two calculations are aligned to use the same <m>dt</m> <q>value</q>,
-we could write <me> \dqdt \, dt = dq </me>,
+we could write <md> \dqdt \, dt = dq </md>,
 and so
 <md><mrow xml:id="equation-substitution-convert-integral-of-deriv" tag="dstar">
 	\ccmint{a}{b}{\dqdt}{t} = \ccmint{q(a)}{q(b)}{}{q}
@@ -131,7 +131,7 @@ just as in <xref ref="equation-substitution-integral-of-deriv" />.
 	Consider <m>q(t) = \sin(t)</m>,
 	so that <m>q'(t) = \cos(t)</m>.
 	Then
-	<me> dq = \dqdt \, dt = \cos(t) dt </me>,
+	<md> dq = \dqdt \, dt = \cos(t) dt </md>,
 	so we can compute
 	<md>
 		<mrow> \ccmint{-\pi/2}{\pi/2}{\cos(t)}{t} \amp = \ccmint{\sin(-\pi/2)}{\sin(\pi/2)}{}{q} </mrow>
@@ -149,14 +149,14 @@ What if we apply all of the above to a derivative that has been calculated using
 Suppose <m>q</m> is a function of <m>u</m> and <m>u</m> is a function of <m>t</m>.
 Then ultimately <m>q</m> is a function of <m>t</m>,
 and the <xref ref="pattern-chain-differential-version" text="title" /> says that
-<me> \dqdt = \dqdu \cdot \dudt </me>.
+<md> \dqdt = \dqdu \cdot \dudt </md>.
 If we are computing an integral
-<me> \ccmint{a}{b}{\dqdt}{t} </me>,
+<md> \ccmint{a}{b}{\dqdt}{t} </md>,
 we would need to know <m>q(t)</m> in order to use an analysis like that in <xref ref="equation-substitution-convert-integral-of-deriv" />.
 So instead, we will use <m>u</m> as an <em>intermediate</em> variable:
-<me> \dqdt \, dt = \dqdu \cdot \dudt \, dt = \dqdu \, du </me>,
+<md> \dqdt \, dt = \dqdu \cdot \dudt \, dt = \dqdu \, du </md>,
 giving us
-<me> \ccmint{a}{b}{\dqdt}{t} = \ccmint{u(a)}{u(b)}{\dqdu}{u} </me>.
+<md> \ccmint{a}{b}{\dqdt}{t} = \ccmint{u(a)}{u(b)}{\dqdu}{u} </md>.
 The hope is that this second integral is either something for which we already have a formula,
 or for which it is simpler to guess an antiderivative.
 </p>
@@ -166,7 +166,7 @@ or for which it is simpler to guess an antiderivative.
 	<p>
 	Consider <m>q(t) = \sqrt{t^2 + 1}</m>.
 	In <xref ref="example-chain-radical" /> we used the substitution <m>u = t^2 + 1</m> to compute
-	<me> q'(t) = \frac{t}{\sqrt{t^2 + 1}} = \frac{2 t}{2 \sqrt{t^2 + 1}} </me>,
+	<md> q'(t) = \frac{t}{\sqrt{t^2 + 1}} = \frac{2 t}{2 \sqrt{t^2 + 1}} </md>,
 	where <m>du/dt = 2 t</m>.
 	Let's pretend we don't know the formula for <m>q(t)</m> and work in reverse.
 	We can use <m>u</m> to compute
@@ -193,7 +193,7 @@ or for which it is simpler to guess an antiderivative.
 		</mrow>
 		<mrow> \amp = \frac{1}{2} \ccmint{5}{10}{u^{-1/2}}{u} </mrow>
 	</md>
-	Using antiderivative <me> U(t) = \frac{u^{1/2}}{1/2} </me>,
+	Using antiderivative <md> U(t) = \frac{u^{1/2}}{1/2} </md>,
 	we have
 	<md>
 		<mrow>
@@ -205,7 +205,7 @@ or for which it is simpler to guess an antiderivative.
 	</md>.
 	Remembering that we actually <em>do</em> know <m>q(t)</m>,
 	notice that this result is the same as computing
-	<me> \ccmint{2}{3}{\dqdt}{t} = q(3) - q(2) </me>.
+	<md> \ccmint{2}{3}{\dqdt}{t} = q(3) - q(2) </md>.
 	</p>
 </example>
 
@@ -225,9 +225,9 @@ So we create a slightly more general procedure that can be tried when we merely 
 <algorithm xml:id="procedure-substitution">
 	<title>Method of substitution</title>
 	<p>
-	If <m>f(t)</m> is a function that can be expressed as <me> f(t) = g(t) \, \dudt </me>,
+	If <m>f(t)</m> is a function that can be expressed as <md> f(t) = g(t) \, \dudt </md>,
 	where <m>g(t)</m> can be converted into a function of <m>u</m> alone by substituting <m>u = u(t)</m>,
-	then <me> \ccmint{a}{b}{f(t)}{t} = \ccmint{u(a)}{u(b)}{g(u)}{u} </me>.
+	then <md> \ccmint{a}{b}{f(t)}{t} = \ccmint{u(a)}{u(b)}{g(u)}{u} </md>.
 	</p>
 </algorithm>
 
@@ -253,12 +253,12 @@ So we create a slightly more general procedure that can be tried when we merely 
 <example>
 	<title>Integral of a horizontal scaling</title>
 	<p>
-	For <me> \ccmint{0}{\pi/10}{\cos(5 t)}{t} </me>,
+	For <md> \ccmint{0}{\pi/10}{\cos(5 t)}{t} </md>,
 	consider <m>u = 5 t</m> with <m>du/dt = 5</m>.
 	Since our integrand doesn't involve a multiple of <m>5</m> <em>outside</em> of the cosine function,
 	we need to introduce one:
-	<me> \cos(t) = \frac{\cos(5 t)}{5} \cdot 5 = \frac{\cos(5 t)}{5} \cdot \dudt </me>.
-	So our <m>g(t)</m> is <me> g(t) = \frac{\cos(5 t)}{5} \qquad\implies\qquad g(u) = \frac{\cos(u)}{5} </me>,
+	<md> \cos(t) = \frac{\cos(5 t)}{5} \cdot 5 = \frac{\cos(5 t)}{5} \cdot \dudt </md>.
+	So our <m>g(t)</m> is <md> g(t) = \frac{\cos(5 t)}{5} \qquad\implies\qquad g(u) = \frac{\cos(u)}{5} </md>,
 	and our new bounds of integration are
 	<md>
 		<mrow> u(0) \amp = 5 \cdot 0 \amp u(\pi/10) \amp = 5 \cdot \pi/10 </mrow>
@@ -279,11 +279,11 @@ So we create a slightly more general procedure that can be tried when we merely 
 <example xml:id="example-substitution-hshift">
 	<title>Integral of a horizontal shift</title>
 	<p>
-	For <me> \ccmint{0}{e^3 - 1}{\frac{1}{t + 1}}{t} </me>,
+	For <md> \ccmint{0}{e^3 - 1}{\frac{1}{t + 1}}{t} </md>,
 	we could probably guess an antiderivative involving a logarithm.
 	But we can also be more systematic using substitution.
 	Using
-	<me> u = t + 1 \qquad\implies\qquad \dudt = 1 </me>
+	<md> u = t + 1 \qquad\implies\qquad \dudt = 1 </md>
 	and
 	<md>
 		<mrow> u(0) \amp = 0 + 1 \amp u(e^3 - 1) \amp = (e^3 - 1) + 1 </mrow>
@@ -307,7 +307,7 @@ So we create a slightly more general procedure that can be tried when we merely 
 <example>
 	<title>Another trig example</title>
 	<p>
-	For <me> \ccmint{0}{\pi/2}{\cos(t) \sin^2(t)}{t} </me>,
+	For <md> \ccmint{0}{\pi/2}{\cos(t) \sin^2(t)}{t} </md>,
 	we recognize that <m>\cos(t)</m> is the derivative of <m>\sin(t)</m>,
 	so if we substitute
 	<md><mrow> u \amp = \sin(t) \amp \dudt \amp = \cos(t) </mrow></md>
@@ -331,7 +331,7 @@ So we create a slightly more general procedure that can be tried when we merely 
 <example>
 	<title>Substitution in an indefinite integral</title>
 	<p>
-	For <me> \ccmiint{t e^{t^2}}{t} </me> we recognize <m>d(t^2)/dt = 2 t</m>,
+	For <md> \ccmiint{t e^{t^2}}{t} </md> we recognize <m>d(t^2)/dt = 2 t</m>,
 	so let's try substituting <m>u = t^2</m>.
 	As with a previous example,
 	the factor of <m>2</m> in <m>du/dt</m> is missing in our integrand,
@@ -358,7 +358,7 @@ So we create a slightly more general procedure that can be tried when we merely 
 <example xml:id="example-substitution-two-choices">
 	<title>Choosing the substitution</title>
 	<p>
-	For <me> \ccmiint{\sin(t) \cos(t)}{t} </me>,
+	For <md> \ccmiint{\sin(t) \cos(t)}{t} </md>,
 	each of the two factors in the integrand is related to the derivative of the other.
 	Let's choose <m>u = \sin(t)</m> so that <m>du/dt = \cos(t)</m>.
 	Then,
@@ -390,7 +390,7 @@ we can sometimes use substitution to <q>shift</q> a complicated expression to an
 <example>
 	<title>Shifting a sum from the denominator to the numerator</title>
 	<p>
-	For <me> \ccmiint{\frac{t^5}{t^2 + 1}}{t} </me>,
+	For <md> \ccmiint{\frac{t^5}{t^2 + 1}}{t} </md>,
 	the integrand would be easier to deal with if there wasn't a plus sign in the denominator.
 	So let's try substituting <m>u = t^2 + 1</m>.
 	Since <m>du/dt = 2 t</m>,
@@ -443,7 +443,7 @@ on one side we can reverse the differentiation by reversing the chain rule.
 	<title>A first example</title>
 
 	<p>
-	Consider the rate equation <me> r(t) = \frac{t^2 + 1}{2 q(t) + 1} </me>.
+	Consider the rate equation <md> r(t) = \frac{t^2 + 1}{2 q(t) + 1} </md>.
 	Let's simply write <m>q</m> instead of <m>q(t)</m>.
 	But let's also replace <m>r(t)</m> with <m>dq/dt</m>,
 	since <m>dq/dt</m> is the rate of variation of <m>q</m>.
@@ -471,20 +471,20 @@ on one side we can reverse the differentiation by reversing the chain rule.
 	let us <em>antidifferentiate</em> both sides of our re-arranged rate equation.
 	First, we'll tackle the right-hand side of <xref ref="equation-substitution-first-separable-rearranged" />,
 	since it is straight-forward:
-	<me> \ccmiint{t^2 + 1}{t} = \frac{t^3}{3} + t + C </me>.
+	<md> \ccmiint{t^2 + 1}{t} = \frac{t^3}{3} + t + C </md>.
 	For now, let us choose the specific antiderivative with <m>C = 0</m>.
 	By definition of <term>antiderivative</term>,
 	our calculation above says
-	<me> t^2 + 1 = \opddt \left( \frac{t^3}{3} + t \right) </me>.
+	<md> t^2 + 1 = \opddt \left( \frac{t^3}{3} + t \right) </md>.
 	Antidifferentiating the left-hand side of <xref ref="equation-substitution-first-separable-rearranged" />,
 	involves computing
-	<me> \ccmiint{(2 q + 1) \dqdt}{t} </me>.
+	<md> \ccmiint{(2 q + 1) \dqdt}{t} </md>.
 	But this looks like an integral involving the method of substitution,
 	just with <m>q</m> in place of <m>u</m>:
-	<me> \ccmiint{(2 q + 1) \dqdt}{t} = \ccmiint{2 q + 1}{q} = q^2 + q + C </me>.
+	<md> \ccmiint{(2 q + 1) \dqdt}{t} = \ccmiint{2 q + 1}{q} = q^2 + q + C </md>.
 	Again, let us choose the specific antiderivative with <m>C = 0</m>.
 	Then our calculation above says that
-	<me> (2 q + 1) \dqdt = \opddt (q^2 + q) </me>.
+	<md> (2 q + 1) \dqdt = \opddt (q^2 + q) </md>.
 	</p>
 
 	<p>
@@ -498,7 +498,7 @@ on one side we can reverse the differentiation by reversing the chain rule.
 	<xref ref="corollary-fund-thm-same-deriv-v-shifts" /> states that two derivatives can only be equal when the two functions being differentiated are vertical shifts of one another.
 	In other words,
 	we must have
-	<me> q^2 + q = \frac{t^3}{3} + t + K </me>
+	<md> q^2 + q = \frac{t^3}{3} + t + K </md>
 	for some unknown constant <m>K</m>.
 	</p>
 
@@ -541,7 +541,7 @@ on one side we can reverse the differentiation by reversing the chain rule.
 		<mrow> 225 = K </mrow>
 	</md>.
 	So the solution that satisfies <m>q(0) = 2</m> is
-	<me> q(t) = \frac{-3 + \sqrt{225 + 12 (t^3 + 3 t)}}{6} </me>.
+	<md> q(t) = \frac{-3 + \sqrt{225 + 12 (t^3 + 3 t)}}{6} </md>.
 	Note that there is no solution of the <q>lower</q> type (with the minus sign before the square root) that satisfies <m>q(0) = 2</m>,
 	since that would require <m>\sqrt{K}</m> to be a negative value.
 	</p>
@@ -552,7 +552,7 @@ on one side we can reverse the differentiation by reversing the chain rule.
 	<title>Separable rate equation</title>
 	<statement><p>
 		A rate equation that can be expressed in the form
-		<me> m(q) \cdot \dqdt = n(t) </me>
+		<md> m(q) \cdot \dqdt = n(t) </md>
 		for some functions <m>m</m> and <m>n</m> is called <term>separable</term>.
 	</p></statement>
 </definition>
@@ -566,7 +566,7 @@ also known as <em>antidifferentiating</em>.
 <algorithm xml:id="procedure-substitution-solve-separable">
 	<title>Solving a separable rate equation</title>
 	<p>
-	To solve <me> m(q) \cdot \dqdt = n(t) </me>,
+	To solve <md> m(q) \cdot \dqdt = n(t) </md>,
 	integrate both sides:
 	<md alignment="gather">
 		<mrow> m(q) \cdot \dqdt = n(t) </mrow>
@@ -588,7 +588,7 @@ also known as <em>antidifferentiating</em>.
 	<p>
 	Let's once again revisit <xref ref="example-models-radioactive-decay" />,
 	which involved the rate equation
-	<me> \frac{r(t)}{q(t)} = - k </me>.
+	<md> \frac{r(t)}{q(t)} = - k </md>.
 	In <xref ref="example-deriv-solution-to-proportional-rate-equation" />
 	we verified that an horizontally-transformed exponential function can be a solution to this type of rate equation.
 	Now we'll solve this equation to verify that exponential functions are the <em>only</em> possible solutions.
@@ -611,7 +611,7 @@ also known as <em>antidifferentiating</em>.
 	However, as <m>C</m> is an arbitrary constant,
 	together <m>\pm e^C</m> can take on any non-zero value,
 	so we unify these two solutions by letting <m>A</m> represent either of <m>\pm e^C</m>:
-	<me> q(t) = A e^{-k t} </me>.
+	<md> q(t) = A e^{-k t} </md>.
 	Notice that <m>A</m> represents the initial value <m>q(0)</m>,
 	since <m>e^0 = 1</m>.
 	</p>
@@ -621,10 +621,10 @@ also known as <em>antidifferentiating</em>.
 	then <m>A = 0</m> is not possible.
 	And that's good,
 	because <m>q = 0</m> would not work in
-	<me> \frac{r(t)}{q(t)} = - k </me>.
+	<md> \frac{r(t)}{q(t)} = - k </md>.
 	However,
 	if we rearrange this to
-	<me> r(t) = - k q(t) </me>,
+	<md> r(t) = - k q(t) </md>,
 	then <m>q(t) = 0</m> would in fact be a solution,
 	since then <m>q'(t) = 0</m> also,
 	so
@@ -643,8 +643,8 @@ also known as <em>antidifferentiating</em>.
 	<title>Solution to proportional rate equation</title>
 	<p>
 	If <m>q(t)</m> is a varying quantity so that its rate of variation <m>r(t)</m> is always proportional to the amount <m>q(t)</m> according to the rate equation
-	<me> r(t) = k q(t) </me>,
-	then <m>q(t)</m> is the exponential function <me> q(t) = q_0 e^{k t} </me>,
+	<md> r(t) = k q(t) </md>,
+	then <m>q(t)</m> is the exponential function <md> q(t) = q_0 e^{k t} </md>,
 	where <m>q_0 = q(0)</m> is the initial quantity.
 	</p>
 </identity>
@@ -658,14 +658,14 @@ let's return to the rate equation from <xref ref="example-models-general-solutio
 
 	<p>
 	In <xref ref="example-models-general-solution" /> we considered the rate equation
-	<me> r(t) = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </me>.
+	<md> r(t) = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </md>.
 	This is somewhat similar to <xref ref="example-substitution-first-separable" />,
 	except this time the solution will involve logarithms,
 	because after separating variables we will have reciprocal functions on both sides.
-	<me> \frac{1}{q (1 - q)} \cdot \dqdt = \frac{1}{t + 1} </me>.
+	<md> \frac{1}{q (1 - q)} \cdot \dqdt = \frac{1}{t + 1} </md>.
 	Because of the product in the denominator,
 	the left-hand side looks like something you get after obtaining a common denominator.
-	In fact, combining <me> \frac{1}{q} + \frac{1}{1 - q} </me>
+	In fact, combining <md> \frac{1}{q} + \frac{1}{1 - q} </md>
 	into a single fraction leads to our left-hand side above (without the <m>dq/dt</m>).
 	<md>
 		<mrow> \left(\frac{1}{q} + \frac{1}{1 - q}\right) \cdot \dqdt = \frac{1}{t + 1} </mrow>
@@ -674,7 +674,7 @@ let's return to the rate equation from <xref ref="example-models-general-solutio
 	For each of the right-hand side and the second term on the left-hand side,
 	we could perform a substitution similarly to <xref ref="example-substitution-hshift" />,
 	but we can probably just guess-and-check these antiderivatives using the logarithm:
-	<me> \ln\abs{q} - \ln\abs{1 - q} = \ln\abs{t + 1} + C </me>,
+	<md> \ln\abs{q} - \ln\abs{1 - q} = \ln\abs{t + 1} + C </md>,
 	where the original addition on the left has turned into subtraction to correct the extra negative we would get from the chain rule if we differentiated <m>\ln\abs{1 - q}</m> to check our answer.
 	</p>
 
@@ -700,7 +700,7 @@ let's return to the rate equation from <xref ref="example-models-general-solutio
 	</md>,
 	where <m>A</m> is an arbitrary constant.
 	This general solution appears different from the one previously provided in <xref ref="example-models-general-solution" />,
-	but this solution can be converted into that solution by substituting <me> A = \frac{c}{1 -c} </me>,
+	but this solution can be converted into that solution by substituting <md> A = \frac{c}{1 -c} </md>,
 	where <m>c</m> also represents an arbitrary constant.
 	</p>
 

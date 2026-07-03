@@ -23,7 +23,7 @@ respective owners.
 Suppose <m>q(t)</m> is a quantity that is varying over time,
 and <m>r(t) = q'(t)</m> is its association rate function.
 If <m>q</m> and <m>r</m> satisfy a rate equation of the form
-<me> r(t) = f(q) </me>
+<md> r(t) = f(q) </md>
 for some function <m>f</m>,
 then the rate of variation of <m>q</m> is entirely dependent on the amount <m>q</m> and not on the actual time at which that particular amount occurs.
 We call such a model an <term>autonomous system</term>,
@@ -352,7 +352,7 @@ that meets the increasing/decreasing and concavity behaviour requirements both a
 		</li>
 		<li>
 			Noting that
-			<me> \dbldqdt = f'(q) \cdot \dqdt = f'(q) f(q) </me>,
+			<md> \dbldqdt = f'(q) \cdot \dqdt = f'(q) f(q) </md>,
 			determine ranges of concavity by testing for <m>f'(q) f(q) \gt 0</m> or <m>f'(q) f(q) \lt 0</m>
 			between equilibrium solutions,
 			and equilibrium solutions and the levels identified in the previous step.
@@ -379,7 +379,7 @@ but we will review it once again as it will serve as a <q>base</q> model that we
 
 <p>
 Suppose <m>q</m> is a quantity that varies over time so that its rate of variation is always proportional to its current amount:
-<me> \frac{dq/dt}{q} = k </me>,
+<md> \frac{dq/dt}{q} = k </md>,
 for some constant of proportionality <m>k</m>.
 We might use such a model when we study a population that has lots of food and space and no predators or disease.
 In this case,
@@ -389,12 +389,12 @@ in which case <m>dq/dt</m> should also be positive.
 </p>
 
 <p>
-Rewriting the rate equation as <me> \dqdt = k q </me>,
+Rewriting the rate equation as <md> \dqdt = k q </md>,
 our rate function is <m>f(q) = k q</m>.
 The only equilibrium solution is <m>q(t) = 0</m>,
 and above that we have increasing behaviour.
 The second derivative is
-<me> \dbldqdt = k \, \dqdt = k^2 q </me>,
+<md> \dbldqdt = k \, \dqdt = k^2 q </md>,
 which will also be positive when <m>q</m> is,
 so we have concave-up behaviour for <m>q > 0</m>.
 </p>
@@ -430,7 +430,7 @@ then the population would experience decline instead of growth.
 To model this mathematically,
 we might assume that the rate of growth is still proportional to the population level,
 but in a proportion that varies according to how close the population level is to the carrying capacity:
-<me> \frac{dq/dt}{q} = \rho \, (M - q) = \rho M \left( 1 - \frac{q}{M} \right) </me>.
+<md> \frac{dq/dt}{q} = \rho \, (M - q) = \rho M \left( 1 - \frac{q}{M} \right) </md>.
 In this model:
 <ul>
 	<li><p>
@@ -441,7 +441,7 @@ In this model:
 		The growth rate factor <m>\rho</m> is also a (positive) constant,
 		and the quantity <m>k = \rho M</m> is called the <term>intrinsic growth rate</term>;
 		if <m>q \approx 0</m>, then our rate equation becomes
-		<me> \frac{dq/dt}{q} \approx k </me>,
+		<md> \frac{dq/dt}{q} \approx k </md>,
 		and we should observe approximately exponential growth as in <xref ref="section-auto-exp" />.
 	</p></li>
 </ul>
@@ -451,9 +451,9 @@ In this model:
 For this model,
 we will demonstrate an entirely graphical analysis.
 Our rate equation is
-<me> \dqdt = \rho \, (M - q) \, q = \rho M q - \rho q^2 </me>,
+<md> \dqdt = \rho \, (M - q) \, q = \rho M q - \rho q^2 </md>,
 so our rate function
-<me> f(q) = \rho M q - \rho q^2 </me>
+<md> f(q) = \rho M q - \rho q^2 </md>
 is a concave-down parabola as a function in <m>q</m>.
 </p>
 
@@ -490,7 +490,7 @@ and <m>q = M</m> as a stable equilibrium as solutions below increase toward it a
 <p>
 Finally,
 we can analyze concavity by considering
-<me> \dbldqdt = f'(q) \cdot \dqdt = f'(q) f(q) </me>.
+<md> \dbldqdt = f'(q) \cdot \dqdt = f'(q) f(q) </md>.
 So concavity is determined by combinations of positive/negative <m>f(q)</m>
 (where our plot in <xref ref="figure-auto-logistic-rate-function" /> is above/below the horizontal axis)
 and positive/negative <m>f'(q)</m>
@@ -540,7 +540,7 @@ Another way to modify our initial exponential-growth model is to assume that the
 below which the population is not large enough to thrive and instead dwindles away.
 Again we create a model where the rate of variation is proportional to the population,
 but this time with a variable proportion that is negative when <m>q</m> is below the threshold and positive when <m>q</m> is above it.
-<me> \frac{dq/dt}{q} = \rho \, (q - T) = - \rho T \left( 1 - \frac{q}{T} \right) </me>.
+<md> \frac{dq/dt}{q} = \rho \, (q - T) = - \rho T \left( 1 - \frac{q}{T} \right) </md>.
 Similarly to the logistic growth model,
 the factor <m>k = - \rho T</m>
 (with <m>\rho</m> assumed to be positive)
@@ -550,7 +550,7 @@ so that for <m>q \approx 0</m> we have approximately exponential decay.
 
 <p>
 Rewriting the rate equation to leave only <m>dq/dt</m> on the left,
-we have rate function <me> f(q) = \rho \, (q - T) \, q = \rho q^2 - \rho T q </me>.
+we have rate function <md> f(q) = \rho \, (q - T) \, q = \rho q^2 - \rho T q </md>.
 The analysis of this model is very similar to the analysis of logistic growth in <xref ref="section-auto-log" />,
 so we will leave the details to you, the reader.
 </p>
@@ -605,9 +605,9 @@ above which the environment is not able to sustain such a large population,
 and a threshold,
 below which the population is not robust enough to thrive and grow.
 The rate equation for this model is of the form
-<me> \dqdt = \rho \, (M - q) \, (q - T) \, y </me>,
+<md> \dqdt = \rho \, (M - q) \, (q - T) \, y </md>,
 where <m>\rho</m> is a positive growth factor,
-<me> f(q) = \rho \, (M - q) \, (q - T) \, y </me>
+<md> f(q) = \rho \, (M - q) \, (q - T) \, y </md>
 is our rate function,
 and we assume that the threshold <m>T</m> is less than the carrying capacity <m>M</m>.
 </p>

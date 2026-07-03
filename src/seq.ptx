@@ -21,7 +21,7 @@ respective owners.
 
 <p>
 Notice that each Taylor polynomial is equal to the previous plus one more term:
-<me> T_{n,t^\ast}(t) = T_{n-1,t^\ast}(t) + \frac{f^{(n)}(t^\ast)}{n!} \; (t - t^\ast)^n </me>.
+<md> T_{n,t^\ast}(t) = T_{n-1,t^\ast}(t) + \frac{f^{(n)}(t^\ast)}{n!} \; (t - t^\ast)^n </md>.
 Suppose we want to approximate <m>\ln (1.001)</m> using Taylor polynomials.
 We can begin with the linear approximation based at <m>1</m>,
 and then obtain better and better approximations by increasing the degree.
@@ -98,8 +98,8 @@ sequences can also be defined recursively.
 	<p>
 	We start by specifying <q>initial values</q> <m>s_0 = 1</m> and <m>s_1 = 1</m>,
 	and then require that each subsequent term satisfy
-	<me> s_n = s_{n - 1} + s_{n - 2}, \qquad n \ge 2 </me>.
-	This creates a sequence with terms <me> 1, 1, 2, 3, 5, 8, 13, 21, \dotsc </me>.
+	<md> s_n = s_{n - 1} + s_{n - 2}, \qquad n \ge 2 </md>.
+	This creates a sequence with terms <md> 1, 1, 2, 3, 5, 8, 13, 21, \dotsc </md>.
 	</p>
 </example>
 
@@ -122,7 +122,7 @@ Note that every tail of a tail is a tail of the original sequence.
 	<title>Positive and negative subsequences of an alternating sequence</title>
 	<p>
 	The sequence <m>\lrseq{ \frac{(-1)^n}{n + 1} }</m> has terms
-	<me> 1, - \frac{1}{2}, \frac{1}{3}, - \frac{1}{4}, \dotsc </me>.
+	<md> 1, - \frac{1}{2}, \frac{1}{3}, - \frac{1}{4}, \dotsc </md>.
 	We can split this into two subsequences by considering only the even-indexed terms and skipping the odd-indexed terms,
 	or vice versa:
 	<md>
@@ -139,7 +139,7 @@ Note that every tail of a tail is a tail of the original sequence.
 
 	<p>
 	The sequence <m>\lrseqtail[n \gt 0]{ \frac{2^n}{n^2} }</m> has terms
-	<me> 2, 1, \frac{8}{9}, 1, \frac{32}{25}, \frac{16}{9}, \dotsc </me>.
+	<md> 2, 1, \frac{8}{9}, 1, \frac{32}{25}, \frac{16}{9}, \dotsc </md>.
 	We may wish to omit the anomalous first two terms,
 	as the sequence begins with a downward trend but then turns upward for <m>n \ge 3</m>.
 	</p>
@@ -177,7 +177,7 @@ Note that every tail of a tail is a tail of the original sequence.
 	</p></li>
 	<li><p>
 		The sequence <m>\lrseq{ \frac{(-3)^n}{n + 1} }</m> has terms
-		<me> 1, - \frac{3}{2}, \frac{9}{3}, - \frac{27}{4}, \dotsc </me>,
+		<md> 1, - \frac{3}{2}, \frac{9}{3}, - \frac{27}{4}, \dotsc </md>,
 		and is <term>unbounded</term>.
 	</p></li>
 </ol></p></example>
@@ -202,7 +202,7 @@ Note that every tail of a tail is a tail of the original sequence.
 	<li><p>
 		The sequence <m>\lrseq{ \floor{\frac{n}{2}} }</m> is non-decreasing because no term is less than the previous,
 		but it is not increasing because it repeats terms:
-		<me> 0, 0, 1, 1, 2, 2, 3, 3, \dotsc </me>.
+		<md> 0, 0, 1, 1, 2, 2, 3, 3, \dotsc </md>.
 	</p></li>
 </ol></p></example>
 
@@ -215,10 +215,10 @@ Note that every tail of a tail is a tail of the original sequence.
 		To verify that a sequence is non-decreasing
 		(that is, <m>s_{n+1} \ge s_n</m> always),
 		we may instead verify the equivalent condition
-		<me> s_{n+1} - s_n \ge 0 </me>.
+		<md> s_{n+1} - s_n \ge 0 </md>.
 		Or, if the terms of the sequence are never zero,
 		we may instead verify the equivalent condition
-		<me> \frac{s_{n+1}}{s_n} \ge 1 </me>.
+		<md> \frac{s_{n+1}}{s_n} \ge 1 </md>.
 		</p>
 
 		<p>
@@ -250,7 +250,7 @@ Note that every tail of a tail is a tail of the original sequence.
 	Verify algebraically that the sequence <m>\nseq{s}</m> with
 	<md><mrow> s_0 \amp = 1 \text{,} \amp s_n \amp = \frac{n}{n^2 + 1} \text{ for } n \ge 1 \text{,} </mrow></md>
 	is decreasing by verifying that
-	<me> s_{n+1} - s_n \lt 0 </me>
+	<md> s_{n+1} - s_n \lt 0 </md>
 	always.
 </p></exercise>
 
@@ -260,15 +260,15 @@ Note that every tail of a tail is a tail of the original sequence.
 
 	<p>
 	The sequence <m>\lrseq{ \frac{n+1}{n+2} }</m> is associated to the function <m>s(n) = \frac{n+1}{n+2}</m>.
-	We can turn this into a continuous function: <me> f(x) = \frac{x + 1}{x + 2} \text{,} \qquad x \ge 0 \text{.} </me>
-	From <me> f'(x) = \frac{1}{{(x + 2)}^2} \gt 0 </me> we see that the continuous version is always increasing,
+	We can turn this into a continuous function: <md> f(x) = \frac{x + 1}{x + 2} \text{,} \qquad x \ge 0 \text{.} </md>
+	From <md> f'(x) = \frac{1}{{(x + 2)}^2} \gt 0 </md> we see that the continuous version is always increasing,
 	and so the sequence is increasing as well.
 	Investigating a little further,
 	the long-term behaviour of <m>f</m> as <m>x \to \infty</m> is that
-	<me> f(x) \approx \frac{x}{x} = 1 </me>,
+	<md> f(x) \approx \frac{x}{x} = 1 </md>,
 	so the graph increases up to a horizontal asymptote at <m>y = 1</m>.
 	Double-checking, we have
-	<me> f''(x) = \frac{-2}{{(x + 2)}^3} </me>
+	<md> f''(x) = \frac{-2}{{(x + 2)}^3} </md>
 	which is always negative on our stated domain for <m>f</m>,
 	and so the graph of <m>f</m> is concave down on that domain.
 	Putting all this together we have the following sketch of the graph.
@@ -328,7 +328,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	<title>Limit of a sequence</title>
 	<statement><p>
 		We say that <term><m>\nseq{s}</m> approaches <m>L</m></term>
-		and write <me> \lim_{n \to \infty} s_n = L </me>
+		and write <md> \lim_{n \to \infty} s_n = L </md>
 		or simply <m>\nseq{s} \to L</m>
 		if every open range around <m>L</m> contains all terms of some tail of the sequence <m>\nseq{s}</m>.
 		In this case,
@@ -355,17 +355,17 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 
 	<p>
 	In <xref ref="example-seq-bdd" /> we observed that the associated continuous function
-	<me> f(x) = \frac{x + 1}{x + 2} </me>
+	<md> f(x) = \frac{x + 1}{x + 2} </md>
 	is an increasing function on domain <m>x \ge 0</m> by considering its derivative.
 	With some algebra we can determine that
-	<me> f(x) = a \qquad \text{when} \qquad x = \frac{2a - 1}{1 - a} </me>.
+	<md> f(x) = a \qquad \text{when} \qquad x = \frac{2a - 1}{1 - a} </md>.
 	Since <m>f</m> is increasing,
 	we have
-	<me> f(x) \gt a \qquad \text{when} \qquad x \gt \frac{2a - 1}{1 - a} </me>.
+	<md> f(x) \gt a \qquad \text{when} \qquad x \gt \frac{2a - 1}{1 - a} </md>.
 	In particular,
-	<m>s_n \gt a</m> for all positive integers satisfying <me> n \gt \frac{2a - 1}{1 - a} </me>.
+	<m>s_n \gt a</m> for all positive integers satisfying <md> n \gt \frac{2a - 1}{1 - a} </md>.
 	Take <m>N</m> to represent the <q>next</q> integer that is greater than (or equal to) <m>(2a - 1)/(1 - a)</m>:
-	<me> N = \ceil{\frac{2a - 1}{1 - a}} </me>.
+	<md> N = \ceil{\frac{2a - 1}{1 - a}} </md>.
 	Then all terms of the tail <m>\nseqtail{s}</m> satisfy <m>s_n \gt a</m>.
 	</p>
 
@@ -374,7 +374,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	<m>s_n \lt 1</m> is true for all terms in the sequence,
 	as the denominator is always one larger than the numerator.
 	So we may say that
-	<me> s_n \lt 1 \lt b</me>.
+	<md> s_n \lt 1 \lt b</md>.
 	Combining,
 	we have <m>a \lt s_n \lt b</m> for all terms in the tail <m>\nseqtail{s}</m>.
 	</p>
@@ -453,7 +453,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	<title>An <q>oscillating</q> sequence</title>
 	<p>
 	The sequence <m>\bbseq{\cos(\pi n / 2)}</m> has terms
-	<me> 1, 0, -1, 0, 1, 0, -1, 0, \dotsc </me>.
+	<md> 1, 0, -1, 0, 1, 0, -1, 0, \dotsc </md>.
 	This sequence is divergent as its tails do not cluster around any one value.
 	</p>
 </example>
@@ -464,7 +464,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	In <xref ref="example-seq-exp-power-ratio-increases" /> we verified that the sequence
 	<m>\lrseq{ \frac{2^n}{n^2} }</m> increases for <m>n \ge 3</m> by looking at the difference between subsequent terms.
 	Now let's look at the ratio between subsequent terms:
-	<me> \frac{s_{n+1}}{s_n} = \frac{2^{n+1}/{(n+1)}^2}{2^n/n^2} = 2 \; {\left(\frac{n}{n+1}\right)}^2 </me>.
+	<md> \frac{s_{n+1}}{s_n} = \frac{2^{n+1}/{(n+1)}^2}{2^n/n^2} = 2 \; {\left(\frac{n}{n+1}\right)}^2 </md>.
 	Since <m>n/(n+1) \approx 1</m> for large <m>n</m>,
 	we can say that terms eventually almost double from one to the next.
 	This sequence must be divergent,
@@ -480,7 +480,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	<statement><p><ol>
 
 		<li xml:id="definition-seq-inf-limit-pos"><p>
-			We write <me> \lim_{n \to \infty} s_n = \infty </me>
+			We write <md> \lim_{n \to \infty} s_n = \infty </md>
 			or simply <m>\nseq{s} \to \infty</m>
 			if every open range <m>(M,\infty)</m> contains all terms of some tail of the sequence <m>\nseq{s}</m>.
 			In this case,
@@ -488,7 +488,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 		</p></li>
 
 		<li xml:id="definition-seq-inf-limit-neg"><p>
-			We write <me> \lim_{n \to \infty} s_n = -\infty </me>
+			We write <md> \lim_{n \to \infty} s_n = -\infty </md>
 			or simply <m>\nseq{s} \to -\infty</m>
 			if every open range <m>(-\infty,M)</m> contains all terms of some tail of the sequence <m>\nseq{s}</m>.
 			In this case,
@@ -505,7 +505,7 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	Suppose we want to verify <m>\lrseq{ \frac{n^2 + 1}{n + 1} } \to \infty</m>,
 	which seems likely since the numerator grows larger than the denominator.
 	The associated function
-	<me> f(x) = \frac{x^2 + 1}{x + 1} </me>
+	<md> f(x) = \frac{x^2 + 1}{x + 1} </md>
 	is increasing for <m>x \gt 1</m>,
 	which can be verified by checking that <m>f'(x) \gt 0</m> on this domain.
 	We conclude that the tail <m> \nseqtail[0]{s} </m> is increasing,
@@ -533,9 +533,9 @@ we should eventually see the terms of the sequence <q>clustered</q> near <m>1</m
 	and let <m>N</m> represent the next largest integer.
 	That is, <m>N = \ceil{x_+}</m>.
 	Since <m>f</m> is increasing,
-	we have <me> s_N = f(N) \gt f(x_+) = M </me>.
+	we have <md> s_N = f(N) \gt f(x_+) = M </md>.
 	And since the sequence is increasing,
-	for all <m>n \ge N</m> we will have <me> s_n \gt s_N \gt M </me>.
+	for all <m>n \ge N</m> we will have <md> s_n \gt s_N \gt M </md>.
 	In other words,
 	the tail <m>\nseqtail{s}</m> is entirely contained within the range <m>(M,\infty)</m>,
 	as required.
@@ -716,14 +716,14 @@ as long as they collectively include all terms of the original.
 	discarding any overlap,
 	to recover the original sequence.
 	For example, for
-	<me> \nseq{s} = 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, \dotsc </me>
+	<md> \nseq{s} = 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, \dotsc </md>
 	we could take
 	<md>
 		<mrow> \nseq{a} \amp = 1, 1, 3, 3, 5, 5, 7, 7, \dotsc </mrow>
 		<mrow> \nseq{b} \amp = 2, 2, 3, 4, 4, 5, 6, 6, 7, \dotsc </mrow>
 	</md>
 	and then we could recover <m>\nseq{s}</m> by discarding the duplication of the odd numbers in <m>\nseq{b}</m> and interleaving terms:
-	<me> \nseq{s} = a_0, a_1, b_0, b_1, a_2, a_3, b_3, b_4, a_4, a_5, b_6, b_7, \dotsc </me>.
+	<md> \nseq{s} = a_0, a_1, b_0, b_1, a_2, a_3, b_3, b_4, a_4, a_5, b_6, b_7, \dotsc </md>.
 	However, in general we should be careful not to do things like
 	<md>
 		<mrow> \nseq{a} \amp = 1, 3, 5, 7, \dotsc </mrow>
@@ -753,7 +753,7 @@ So there must be connections between boundedness and convergence.
 		There there is some tail <m>\nseqtail{s}</m> entirely contained within that range,
 		and so that tail is bounded above and below by <m>L \pm 1</m>, respectively.
 		The excluded sequence terms
-		<me> s_0, s_1, s_2, \dotsc, s_{N-1} </me>
+		<md> s_0, s_1, s_2, \dotsc, s_{N-1} </md>
 		are a finite collection of numbers,
 		and so have a maximum value and a minimum value.
 		Let <m>M</m> represent that maximum excluded term value,
@@ -803,7 +803,7 @@ However, a bounded sequence that doesn't bounce around like this example must co
 		so let <m>L</m> be its <em>least</em> upper bound.
 		Consider the open range <m>(a,b)</m> containing <m>L</m>.
 		Since <m>L</m> bounds the sequence above,
-		for all <m>n</m> we have <me> s_n \le L \lt b</me>.
+		for all <m>n</m> we have <md> s_n \le L \lt b</md>.
 		On the other hand,
 		it cannot be that <m>s_n \le a</m> for all <m>n</m>,
 		since then <m>a</m> would be an upper bound for <m>\nseq{s}</m> that is less than <m>L</m>,
@@ -821,7 +821,7 @@ However, a bounded sequence that doesn't bounce around like this example must co
 
 <example><p>
 	The sequence <m>\lrseq{\ln\left(\frac{n+2}{n+1}\right)}</m> is bounded below by <m>0</m> because the ratio inside the logarithm is always greater than <m>1</m>.
-	And the sequence is decreasing because the associated function <me> f(x) = \ln\left(\frac{x+2}{x+1}\right) </me> has negative derivative for positive values of <m>x</m>.
+	And the sequence is decreasing because the associated function <md> f(x) = \ln\left(\frac{x+2}{x+1}\right) </md> has negative derivative for positive values of <m>x</m>.
 	Therefore, it must be convergent,
 	even though we might not be sure of the value of its limit.
 </p></example>
@@ -833,7 +833,7 @@ However, a bounded sequence that doesn't bounce around like this example must co
 
 	<statement><p>
 		Suppose <m>\nseq{r}</m>, <m>\nseq{s}</m>, <m>\nseq{t}</m> are sequences so that some tail <m>\nseqtail{s}</m> satisfies
-		<me> r_n \le s_n \le t_n \qquad \text{for all } n \ge N </me>.
+		<md> r_n \le s_n \le t_n \qquad \text{for all } n \ge N </md>.
 		If both <m>\nseq{r}</m> and <m>\nseq{t}</m> converge to <m>L</m>,
 		then so does <m>\nseq{s}</m>.
 	</p></statement>
@@ -842,7 +842,7 @@ However, a bounded sequence that doesn't bounce around like this example must co
 		Consider open range <m>(a,b)</m> containing <m>L</m>.
 		Then there are tails <m>\nseqtail[N_1]{r}</m> and <m>\nseqtail[n \ge N_2]{t}</m> that are entirely contained within that range.
 		Let <m>N'</m> represent the largest of <m>N, N_1, N_2</m>.
-		Then <me> a \lt r_n \le s_n \le t_n \lt b \qquad \text{for all } n \ge N' </me>,
+		Then <md> a \lt r_n \le s_n \le t_n \lt b \qquad \text{for all } n \ge N' </md>,
 		so the tail <m>\nseqtail[N']{s}</m> is entirely contained within the range <m>(a,b)</m>.
 	</p></proof>
 
@@ -911,7 +911,7 @@ we can say more about bounded sequences even in the case that they are not monot
 			<li> The sequence <m>\nseq{u}</m> of terms from <m>\nseq{s}</m>. </li>
 		</ol>
 		Then each <m>R_n</m> is the interval <m>[a_n, b_n]</m> and contains <m>u_n</m>,
-		so that <me> a_n \le u_n \le b_n \qquad \text{for all } n</me>.
+		so that <md> a_n \le u_n \le b_n \qquad \text{for all } n</md>.
 		</p>
 
 		<p>
@@ -926,7 +926,7 @@ we can say more about bounded sequences even in the case that they are not monot
 		both sequences converge.
 		Since the <m>R_n</m> intervals were created by this splitting-in-half procedure,
 		the distance between an <m>a_n</m> term and the corresponding <m>b_n</m> term is
-		<me> \frac{b - a}{2^n} </me>.
+		<md> \frac{b - a}{2^n} </md>.
 		(Recall that <m>a</m> and <m>b</m> are the endpoints of the first range <m>R_0</m>.)
 		This distance gets very small for large <m>n</m>,
 		so we may conclude that these two convergent sequences must have the same limit.
@@ -962,10 +962,10 @@ we can say more about bounded sequences even in the case that they are not monot
 	<proof><p>
 		Suppose <m>(a,b)</m> is an open range containing <m>L</m>.
 		Then there is a tail <m>\nseqtail{s}</m> entirely contained within that range,
-		so that <me> a \lt s_n \lt b \qquad \text{for all } n \ge N </me>.
+		so that <md> a \lt s_n \lt b \qquad \text{for all } n \ge N </md>.
 		But <m> a \lt L \lt b </m>,
 		and so since each <m>t_n</m> is equal to either <m>s_n</m> or <m>L</m>,
-		then also <me> a \lt t_n \lt b \qquad \text{for all } n \ge N </me>.
+		then also <md> a \lt t_n \lt b \qquad \text{for all } n \ge N </md>.
 		In other words, the tail <m>\nseq{t}</m> is also entirely contained within that range.
 	</p></proof>
 
@@ -1023,8 +1023,8 @@ we can say more about bounded sequences even in the case that they are not monot
 			and will simply consider arbitrary open range <m>(a,b)</m> containing <m>0</m>.
 			Then <m>(a + L, b + L)</m> is an open range containing <m>L</m>,
 			and so contains a tail <m>\nseqtail{s}</m>,
-			so that <me> a + L \le s_n \le b + L \qquad \text{for all } n \ge N </me>.
-			But then <me> a \le s_n - L \le b \qquad \text{for all } n \ge N </me>,
+			so that <md> a + L \le s_n \le b + L \qquad \text{for all } n \ge N </md>.
+			But then <md> a \le s_n - L \le b \qquad \text{for all } n \ge N </md>,
 			so that <m>(a,b)</m> contains the tail <m>\seqtail{s_n - L}</m>,
 			confirming that <m>\seq{s_n - L} \to 0</m>.
 			</p>
@@ -1112,8 +1112,8 @@ along with the fact that an absolute sequence <m>\nabsseq{s}</m> never contains 
 		and so some tail <m>\nseqtail{s}</m> is entirely contained in <m>(-b,-a)</m>.
 		But <m>(-b,-a)</m> is a range of negative numbers,
 		and so <m>s_n</m> is negative for all <m>n \ge N</m>.
-		Therefore, we can turn <me> -b \lt s_n \lt -a \qquad\text{for all } n \ge N </me>
-		into <me> a \lt \abs{s_n} \lt b \qquad\text{for all } n \ge N </me>,
+		Therefore, we can turn <md> -b \lt s_n \lt -a \qquad\text{for all } n \ge N </md>
+		into <md> a \lt \abs{s_n} \lt b \qquad\text{for all } n \ge N </md>,
 		which says that the tail <m>\nabsseqtail{s}</m> is entirely contained in <m>(a,b)</m>,
 		as required.
 		</p>
@@ -1161,7 +1161,7 @@ and the reader is encouraged to be on the lookout for their applications.
 	<proof>
 		<title>Justification for <xref ref="pattern-seq-alg-limit-laws-sum" text="type-local">Statement</xref></title>
 		<p>
-		We will verify that <me>\lrabsseq{(s_n + t_n) - (L + M)} \to 0</me>,
+		We will verify that <md>\lrabsseq{(s_n + t_n) - (L + M)} \to 0</md>,
 		so consider haf-open range <m>[0,c)</m>.
 		As <m>\nseq{s} \to L</m> and <m>\nseq{t} \to M</m>,
 		there are absolute sequence tails <m>\absseqtail[n \ge N_1]{s_n - L}</m>
@@ -1221,7 +1221,7 @@ and the reader is encouraged to be on the lookout for their applications.
 			that are both entirely contained within <m>[0, \sqrt{c})</m>.
 			Let <m>N</m> represent the larger of the two tail boundaries <m>N_1</m> and <m>N_2</m>.
 			Then for <m>n \ge N</m> we have
-			<me> \abs{s_n t_n} = \abs{s_n} \abs{t_n} \lt \sqrt{c} \cdot \sqrt{c} = c </me>,
+			<md> \abs{s_n t_n} = \abs{s_n} \abs{t_n} \lt \sqrt{c} \cdot \sqrt{c} = c </md>,
 			so that the tail <m>\absseqtail{s_n t_n}</m> is entirely contained within <m>[0, c)</m>,
 			as required.
 		</p></case>
@@ -1235,7 +1235,7 @@ and the reader is encouraged to be on the lookout for their applications.
 			There is also a tail <m>\absseqtail[n \ge N_2]{t_n}</m> entirely contained within half-open range <m>[0,d)</m> for <m>d = c/2\abs{L}</m>.
 			Let <m>N</m> represent the larger of the two tail boundaries <m>N_1</m> and <m>N_2</m>.
 			Then for <m>n \ge N</m> we have
-			<me> \abs{s_n t_n} = \abs{s_n} \abs{t_n} \lt 2 \abs{L} \cdot \frac{c}{2 \abs{L}} = c </me>,
+			<md> \abs{s_n t_n} = \abs{s_n} \abs{t_n} \lt 2 \abs{L} \cdot \frac{c}{2 \abs{L}} = c </md>,
 			so that the tail <m>\absseqtail{s_n t_n}</m> is entirely contained within <m>[0, c)</m>,
 			as required.
 		</p></case>
@@ -1351,11 +1351,11 @@ and the reader is encouraged to be on the lookout for their applications.
 		there is some tail <m>\absseqtail[n \ge N_2]{t_n}</m> that is entirely contained in the range <m>[0, d)</m> for <m>d = \abs{L}/2K</m>.
 		Take <m>N</m> to be the greater of the two tail boundaries <m>N_1</m> and <m>N_2</m>.
 		But then for <m>n \ge N</m> we have
-		<me> \abs{s_n} \gt \frac{\abs{L}}{2} </me>
+		<md> \abs{s_n} \gt \frac{\abs{L}}{2} </md>
 		and
-		<me> \abs{t_n} \lt \frac{\abs{L}}{2 K} \qquad\implies\qquad \frac{1}{\abs{t_n}} \gt \frac{2 K}{\abs{L}} </me>.
+		<md> \abs{t_n} \lt \frac{\abs{L}}{2 K} \qquad\implies\qquad \frac{1}{\abs{t_n}} \gt \frac{2 K}{\abs{L}} </md>.
 		But then
-		<me> \abs{\frac{s_n}{t_n}} = \abs{s_n} \cdot \frac{1}{\abs{t_n}} \gt \frac{\abs{L}}{2} \cdot \frac{2 K}{\abs{L}} = K </me>.
+		<md> \abs{\frac{s_n}{t_n}} = \abs{s_n} \cdot \frac{1}{\abs{t_n}} \gt \frac{\abs{L}}{2} \cdot \frac{2 K}{\abs{L}} = K </md>.
 		We have proved that every <em>unbounded</em> open range <m>(K,\infty)</m> with <m>K \gt 0</m> contains a tail of <m>\absseq{s_n / t_n}</m>,
 		so it is impossible that tails of that absolute sequence will ever become bounded around some potential limit value.
 		Therefore, <m>\absseq{s_n / t_n}</m> diverges,
@@ -1372,14 +1372,14 @@ The following example effectively justifies our <term>dominant terms</term> appr
 <example>
 	<title>Dominant terms in a rational sequence</title>
 	<p>
-	Consider <m>\nseq{s}</m> for <me> s_n = \frac{n^2 - 1}{2 n^2 + 1} </me>.
+	Consider <m>\nseq{s}</m> for <md> s_n = \frac{n^2 - 1}{2 n^2 + 1} </md>.
 	The numerator and denominator sequences both diverge to infinity,
 	but for <m>n \gt 0</m> we may manipulate algebraically to obtain convergent numerator and denominator:
-	<me>
+	<md>
 		s_n
 		= \frac{n^2 - 1}{2 n^2 + 1} \cdot \frac{1/n^2}{1/n^2}
 		= \frac{1 - 1/n^2}{2 + 1/n^2}
-	</me>.
+	</md>.
 	Since <m>\seqtail[n \gt 0]{1/n^2} \to 0</m>,
 	we may apply <xref ref="pattern-seq-alg-limit-laws-sum" text="type-local">Statement</xref>
 	of the <xref ref="pattern-seq-alg-limit-laws" text="title" /> to both numerator and denominator to conclude

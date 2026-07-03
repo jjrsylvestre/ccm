@@ -28,7 +28,7 @@ respective owners.
 A polynomial is the result of performing algebra in one variable when you restrict yourself to the operations of addition, subtraction, and multiplication.
 (Keep in mind that a power with a positive integer exponent just represents repeated multiplication.)
 The generic form of a polynomial in the variable <m>t</m> is
-<me> p(t) = a_0 + a_1 t + a_2 t^2 + a_3 t^3 + \dotsb + a_{n-1} t^{n-1} + a_n t^n </me>
+<md> p(t) = a_0 + a_1 t + a_2 t^2 + a_3 t^3 + \dotsb + a_{n-1} t^{n-1} + a_n t^n </md>
 where we assume <m>a_n \neq 0</m>
 (since otherwise we would have omitted that term and terminated the polynomial at a lower power of <m>t</m>).
 The constants <m>a_0, a_1, \dotsc, a_n</m> are called the <term>coefficients</term> of the polynomial,
@@ -37,7 +37,7 @@ and the highest exponent <m>n</m> is called the <term>degree</term>.
 
 <p>
 A polynomial that consists of just a single term,
-<me> p(t) = a_n t^n </me>,
+<md> p(t) = a_n t^n </md>,
 is called a <term>power function</term>.
 For <m>n \ge 2</m> and even,
 the graph of a power function is essentially a parabola,
@@ -78,8 +78,8 @@ Solving <m>p(t) = 0</m> for <m>p</m> a polynomial is of fundamental importance i
 A solution to <m>p(t) = 0</m> is called a <term>root</term> of <m>p</m>,
 and graphically these solutions coincide with horizontal intercepts of the polynomial's graph.
 The meaning of the term <term><m>\nth</m> root</term> of a number is tied to the roots of polynomials,
-as a square root <m>\sqrt{a}</m> means the (positive) root of the equation <me>t^2 - a = 0</me>,
-a cube root <m>\sqrt[3]{a}</m> means the unique real root of the equation <me>t^3 - a = 0</me>,
+as a square root <m>\sqrt{a}</m> means the (positive) root of the equation <md>t^2 - a = 0</md>,
+a cube root <m>\sqrt[3]{a}</m> means the unique real root of the equation <md>t^3 - a = 0</md>,
 and so on.
 </p>
 
@@ -104,7 +104,7 @@ and so on.
 
 <subsubsection><title>Linear polynomials</title><p>
 	A polynomial of degree <m>1</m>,
-	<me> p(t) = a_0 + a_1 t </me>,
+	<md> p(t) = a_0 + a_1 t </md>,
 	is called a <term>linear polynomial</term> because its graph is a line,
 	with vertical intercept <m>a_0</m> and slope <m>a_1</m>,
 	as usual.
@@ -117,7 +117,7 @@ and so on.
 
 <p>
 A polynomial of degree <m>2</m>,
-<me> p(t) = a_0 + a_1 t + a_2 t^2 </me>,
+<md> p(t) = a_0 + a_1 t + a_2 t^2 </md>,
 is called a <term>quadratic polynomial</term>.
 Its graph is always a parabola, though it may be shifted and/or reflected.
 If the parabola opens upward we say that it is <term>concave up</term>,
@@ -139,7 +139,7 @@ we can determine the location of the vertex of its graph by <term>completing the
 	<title>Completing the square</title>
 
 	<p>
-	Consider polynomial <me> p(t) = 6 + 10 t - 2 t^2 </me>.
+	Consider polynomial <md> p(t) = 6 + 10 t - 2 t^2 </md>.
 	First, we note that this parabola is concave down because of the negative coefficient on the <m>t^2</m> term.
 	After factoring out that coefficient,
 	we complete the square by manipulating the constant term to create a <term>perfect square</term>.
@@ -180,9 +180,9 @@ we can determine the location of the vertex of its graph by <term>completing the
 By considering different shifts and vertical reflections of parabolas,
 we can see that a quadratic polynomial can have no roots, one unique root, or two distinct roots.
 If we write our quadratic polynomial as
-<me> a t^2 + b t + c </me>,
+<md> a t^2 + b t + c </md>,
 then whether this polynomial has none, one, or two roots is determined by the <term>discriminant</term>
-<me> b^2 - 4 a c </me>.
+<md> b^2 - 4 a c </md>.
 <dl>
 
 	<li>
@@ -218,7 +218,7 @@ there exists a formula for the roots of quadratic polynomial.
 	<title>Quadratic formula</title>
 	<p>
 	If the discriminant satisfies <m>b^2 - 4 a c \ge 0</m>,
-	then the roots of <me> a t^2 + b t + c = 0 </me>
+	then the roots of <md> a t^2 + b t + c = 0 </md>
 	are <md><mrow> t \amp = \frac{-b - \sqrt{b^2 - 4 a c}}{2 a} \amp t \amp = \frac{-b + \sqrt{b^2 - 4 a c}}{2 a} </mrow></md>,
 	where these two roots are one and the same in the case that <m>b^2 - 4 a c = 0</m>.
 	</p>
@@ -294,7 +294,7 @@ However, we can say something about the <em>number</em> of roots of a polynomial
 	<p>
 	If <m>p(t)</m> is a polynomial of degree <m>n</m>,
 	then <m>t = a</m> is a root of <m>p(t) = 0</m> if and only if there exists a polynomial <m>q(t)</m> of degree <m>n - 1</m> so that
-	<me> p(t) = (t - a) q(t) </me>.
+	<md> p(t) = (t - a) q(t) </md>.
 	</p>
 </identity>
 
@@ -311,7 +311,7 @@ at which point we will have reached the degree of the polynomial and can factor 
 	<p>
 	Clearly <m>t = -1</m> is a root of <m>p(t) = t^4 - 1</m>.
 	This means that we can factor
-	<me> \bbrac{t - (-1)} = (t + 1) </me>
+	<md> \bbrac{t - (-1)} = (t + 1) </md>
 	out of <m>p</m>.
 	</p>
 
@@ -429,7 +429,7 @@ at which point we will have reached the degree of the polynomial and can factor 
 	<p>
 	The remainder of <m>0</m> tells us that <m>t + 1</m> does indeed divide evenly into <m>t^4 - 1</m>,
 	and the quotient result at the top says
-	<me> t^4 - 1 = (t + 1) (t^3 - t^2 + t - 1) </me>.
+	<md> t^4 - 1 = (t + 1) (t^3 - t^2 + t - 1) </md>.
 	</p>
 
 </example>
@@ -495,7 +495,7 @@ We have already seen in <xref ref="pattern-vars-constant-rate" /> that a constan
 	or <xref ref="pattern-vars-constant-rate" />
 	to compute its velocity at any point in time after that,
 	up until the time that the object hits the surface of the planet:
-	<me> v(t) = 0 + \ccmint{0}{t}{g}{u} = g t </me>.
+	<md> v(t) = 0 + \ccmint{0}{t}{g}{u} = g t </md>.
 	</p>
 
 </example>
@@ -505,7 +505,7 @@ We have already seen in <xref ref="pattern-vars-constant-rate" /> that a constan
 	<p>
 	If a quantity experiences a constant rate of variation <m>r(t) = c</m>
 	then the quantity itself can be modelled by a linear function
-	<me> q(t) = c t + q_0 </me>
+	<md> q(t) = c t + q_0 </md>
 	where <m>q_0 = q(0)</m> is the initial amount.
 	</p>
 </identity>
@@ -516,10 +516,10 @@ We have already seen in <xref ref="pattern-vars-constant-rate" /> that a constan
 	<title>Linear quantity model</title>
 	<p>
 	If a quantity is modelled by a linear function
-	<me> q(t) = m t + b </me>,
+	<md> q(t) = m t + b </md>,
 	then the rate of variation is constant,
 	equal to the slope of the linear function's graph:
-	<me> r(t) = m </me>.
+	<md> r(t) = m </md>.
 	</p>
 </identity>
 
@@ -572,7 +572,7 @@ in <xref ref="chapter-deriv" />.
 	The triangle in <xref ref="figure-poly-linear-accumulation-from-area" /> has height <m>v(t)</m> and base length <m>t</m>.
 	So, using the formula for area of a triangle,
 	we obtain
-	<me> \ccmint{0}{t}{v(u)}{u} = \frac{v(t) \cdot t}{2} = \frac{g t^2}{2} </me>.
+	<md> \ccmint{0}{t}{v(u)}{u} = \frac{v(t) \cdot t}{2} = \frac{g t^2}{2} </md>.
 	</p>
 
 	<p> Let's ask Sage to confirm this for us. </p>
@@ -595,7 +595,7 @@ We can combine the pattern of the result of <xref ref="example-poly-linear-velo"
 with <xref ref="pattern-poly-constant-rate" /> to deal with all linear rate functions,
 since <xref ref="pattern-integ-definite-props-additive" text="type-local">Property</xref>
 of <xref ref="pattern-integ-definite-props" /> says that
-<me> \ccmint{0}{t}{ m u + b }{u} = \ccmint{0}{t}{ m u }{u} + \ccmint{0}{t}{ b }{u} </me>.
+<md> \ccmint{0}{t}{ m u + b }{u} = \ccmint{0}{t}{ m u }{u} + \ccmint{0}{t}{ b }{u} </md>.
 </p>
 
 <identity xml:id="pattern-poly-linear-rate">
@@ -603,7 +603,7 @@ of <xref ref="pattern-integ-definite-props" /> says that
 	<p>
 	If a quantity experiences a linear rate of variation in the form <m>r(t) = m t + b</m>
 	then the quantity itself can be modelled by the quadratic function
-	<me> q(t) = \frac{m}{2} t^2 + b t + q_0 </me>
+	<md> q(t) = \frac{m}{2} t^2 + b t + q_0 </md>
 	where <m>q_0 = q(0)</m> is the initial amount.
 	</p>
 </identity>
@@ -617,15 +617,15 @@ of <xref ref="pattern-integ-definite-props" /> says that
 	We start as before with the acceleration function <m>a(t)</m>.
 	As the object is initially moving <em>upwards</em> and the gravity of the planet pulls the object <em>downwards</em>,
 	this time we will take the constant acceleration to be a negative function:
-	<me> a(t) = - g </me>, where <m>g</m> represents the acceleration due to gravity in metres per second per second.
+	<md> a(t) = - g </md>, where <m>g</m> represents the acceleration due to gravity in metres per second per second.
 	Since acceleration is the rate of variation of velocity,
 	<xref ref="pattern-poly-constant-rate" />
 	tells us that the velocity of the object can be modelled as
-	<me> v(t) = -g t + v_0 </me>.
+	<md> v(t) = -g t + v_0 </md>.
 	And velocity is the rate of variation of position,
 	so from <xref ref="pattern-poly-constant-rate" />,
 	the position of the object (as a height above the surface) can be modelled as
-	<me> s(t) = -\frac{g}{2} t^2 + v_0 t </me>
+	<md> s(t) = -\frac{g}{2} t^2 + v_0 t </md>
 	if we take the initial position to be <m>s(0) = 0</m> at the surface of the planet.
 	</p>
 
@@ -640,7 +640,7 @@ of <xref ref="pattern-integ-definite-props" /> says that
 			we want to solve for <m>t</m> in the instances where <m>s(t) = 0</m>.
 			We can do this by factoring;
 			for convenience we will also factor out the fraction.
-			<me> s(t) = -\frac{g}{2} t^2 + v_0 t = \frac{t}{2} ( - g t + 2 v_0 ) </me>
+			<md> s(t) = -\frac{g}{2} t^2 + v_0 t = \frac{t}{2} ( - g t + 2 v_0 ) </md>
 			From the factored form,
 			we can see that the object will be at the position of the surface when <m>t = 0</m>
 			(as we assumed)
@@ -656,7 +656,7 @@ of <xref ref="pattern-integ-definite-props" /> says that
 			<title>With what velocity does it strike the surface?</title>
 			<p>
 			We just need to substitute the time of return into the velocity model:
-			<me> v(2 v_0 / g) = - g (2 v_0 / g) + v_0 = - v_0 </me>.
+			<md> v(2 v_0 / g) = - g (2 v_0 / g) + v_0 = - v_0 </md>.
 			Considering the symmetry of the parabolic position function (see <xref ref="figure-poly-parabolic-motion" />)
 			it makes sense that the object returns to the surface at the same speed that it left the surface,
 			but oppositely directed.
@@ -668,7 +668,7 @@ of <xref ref="pattern-integ-definite-props" /> says that
 			<p>
 			From the symmetry of the parabolic position function (again see <xref ref="figure-poly-parabolic-motion" />),
 			we expect that the object will reach its maximum height halfway between its departure from and return to the surface,
-			at <me> t = \frac{v_0}{g} </me>.
+			at <md> t = \frac{v_0}{g} </md>.
 			</p>
 		</li>
 
@@ -743,8 +743,8 @@ and that pattern appears to be
 <example xml:id="example-poly-quantity-from-rate">
 	<title>Obtaining a quantity model from a polynomial rate function</title>
 	<p>
-	For rate function <me> r(t) = 3 t^5 - 37 t^4 + 22 t^3 + 7 t^2 - t + 56 </me>,
-	the associated quantity model is <me> q(t) = 3 \cdot \frac{t^6}{6} - 37 \cdot \frac{t^5}{5} + 22 \cdot \frac{t^4}{4} + 7 \cdot \frac{t^3}{3} - \frac{t^2}{2} + 56 t + q_0 </me>,
+	For rate function <md> r(t) = 3 t^5 - 37 t^4 + 22 t^3 + 7 t^2 - t + 56 </md>,
+	the associated quantity model is <md> q(t) = 3 \cdot \frac{t^6}{6} - 37 \cdot \frac{t^5}{5} + 22 \cdot \frac{t^4}{4} + 7 \cdot \frac{t^3}{3} - \frac{t^2}{2} + 56 t + q_0 </md>,
 	where <m>q_0 = q(0)</m> is the initial quantity.
 	</p>
 </example>
@@ -772,7 +772,7 @@ where we tell Sage a little extra information about our variable domain end time
 </sage>
 
 <p>
-If we rewrite the Sage result as <me> \frac{t^{-1}}{-1} + 1 </me>,
+If we rewrite the Sage result as <md> \frac{t^{-1}}{-1} + 1 </md>,
 then it essentially fits the pattern of <xref ref="equation-poly-int-pattern" /> for <m>m = -2</m>,
 and we can think of the extra <em>plus-<m>1</m></em> as an <q>initial value correction term</q>
 from the fact that we have shifted our <q>initial</q> time.
@@ -786,7 +786,7 @@ from the fact that we have shifted our <q>initial</q> time.
 			<title>Positive exponents, with integral based at <m>t = 0</m></title>
 			<p>
 			For every positive, real value of exponent <m>m</m>,
-			<me> \ccmint{0}{t}{u^m}{u} = \frac{t^{m + 1}}{m + 1} </me>
+			<md> \ccmint{0}{t}{u^m}{u} = \frac{t^{m + 1}}{m + 1} </md>
 			for <m>t \ge 0 </m>.
 			</p>
 		</li>
@@ -794,7 +794,7 @@ from the fact that we have shifted our <q>initial</q> time.
 			<title>(Almost) All exponents, with integral based at <m>t = 1</m></title>
 			<p>
 			For <em>every</em> real value of exponent <m>m</m> <em>except</em> <m>m = -1</m>,
-			<me> \ccmint{1}{t}{u^m}{u} = \frac{t^{m + 1} - 1}{m + 1} </me>
+			<md> \ccmint{1}{t}{u^m}{u} = \frac{t^{m + 1} - 1}{m + 1} </md>
 			for <m>t \gt 0 </m>.
 			</p>
 		</li>
@@ -804,7 +804,7 @@ from the fact that we have shifted our <q>initial</q> time.
 
 <p>
 The case of <m>m = -1</m> where the power integral becomes
-<me> \ccmint{1}{t}{\frac{1}{u}}{u} </me>
+<md> \ccmint{1}{t}{\frac{1}{u}}{u} </md>
 is a special one that we will explore in the next chapter.
 </p>
 
@@ -844,7 +844,7 @@ is a special one that we will explore in the next chapter.
 		For positive exponents,
 		both formulas are valid as-is for <m>t \lt 0</m>,
 		as long as the rate function <m>r(t) = t^m</m> is defined there.
-		For example, the formulas would <em>not</em> be valid on <m>t \lt 0</m> for <me> r(t) = t^{1/2} = \sqrt{t} </me>,
+		For example, the formulas would <em>not</em> be valid on <m>t \lt 0</m> for <md> r(t) = t^{1/2} = \sqrt{t} </md>,
 		since that rate function is only defined for <m>t \ge 0</m>.
 		For negative exponents,
 		a very similar formula to the one based at <m>t = 1</m> can be obtained for <m>t \lt 0</m> using a lower bound of <m>t = -1</m> instead.
@@ -867,16 +867,16 @@ is a special one that we will explore in the next chapter.
 <identity xml:id="pattern-poly-quantity-from-rate">
 	<title>Integral of a polynomial</title>
 	<p>
-	For rate function <me> r(t) = r_0 + r_1 t + r_2 t^2 + \dotsb + r_m t^m </me>,
+	For rate function <md> r(t) = r_0 + r_1 t + r_2 t^2 + \dotsb + r_m t^m </md>,
 	we have
-	<me> \ccmint{0}{t}{r(u)}{u} = r_0 t + \frac{r_1}{2} t^2 + \frac{r_2}{3} t^3 + \dotsb + \frac{r_{m - 1}}{m} t^m + \frac{r_m}{m + 1} t^{m + 1} </me>.
+	<md> \ccmint{0}{t}{r(u)}{u} = r_0 t + \frac{r_1}{2} t^2 + \frac{r_2}{3} t^3 + \dotsb + \frac{r_{m - 1}}{m} t^m + \frac{r_m}{m + 1} t^{m + 1} </md>.
 	</p>
 </identity>
 
 <example xml:id="example-poly-definite-integral-poly">
 	<title>Using <xref ref="pattern-poly-quantity-from-rate" /></title>
 	<p>
-	Suppose we want to compute <me> \ccmint{2}{5}{ 4 - 5 t^2 + 9 t^3 }{t} </me>.
+	Suppose we want to compute <md> \ccmint{2}{5}{ 4 - 5 t^2 + 9 t^3 }{t} </md>.
 	<xref ref="pattern-poly-quantity-from-rate" /> tells us how to compute a polynomial integral based at <m>t = 0</m>,
 	but our integral is based at <m>t = 2</m>.
 	However,
@@ -901,7 +901,7 @@ is a special one that we will explore in the next chapter.
 <example xml:id="example-poly-definite-integral-mixed-exponents">
 	<title>Using <xref ref="pattern-poly-int-power" /></title>
 	<p>
-	Suppose we want to compute <me> \ccmint{2}{5}{ 6 t^2 + \frac{7}{t^4} }{t} </me>.
+	Suppose we want to compute <md> \ccmint{2}{5}{ 6 t^2 + \frac{7}{t^4} }{t} </md>.
 	This time,
 	since the rate function involves a negative exponent,
 	we'll use <xref ref="pattern-integ-rebase" /> to re-base the integral at <m>t = 1</m>,

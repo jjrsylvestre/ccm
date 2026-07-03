@@ -80,8 +80,8 @@ simply divide the accumulation amount by the time duration.
 	and the trip lasts a total of
 	<quantity><mag>39</mag><unit base="minute" /></quantity>,
 	for an average speed of
-	<!-- <me> \frac{50.5}{39/60} \approx <quantity><mag>77.7</mag><unit base="metre" prefix="kilo" /><per base="hour" /></quantity> </me>. -->
-	<me> \frac{50.5}{39/60} \approx 77.7 </me>
+	<!-- <md> \frac{50.5}{39/60} \approx <quantity><mag>77.7</mag><unit base="metre" prefix="kilo" /><per base="hour" /></quantity> </md>. -->
+	<md> \frac{50.5}{39/60} \approx 77.7 </md>
 	in kilometres per hour.
 	If it were possible to go from parked to full speed instantaneously,
 	maintain that full speed constantly over the full
@@ -120,7 +120,7 @@ so here is a formula that takes both those possibilities into account.
 	<p>
 	Given model <m>q(t)</m> representing the amount of some quantity,
 	the average rate of accumulation over the time interval <m>t_0 \le t \le t_1</m> is
-	<me> \avg{r} = \slope{q}{t} = \frac{ q(t_1) - q(t_0) }{ t_1 - t_0 } </me>.
+	<md> \avg{r} = \slope{q}{t} = \frac{ q(t_1) - q(t_0) }{ t_1 - t_0 } </md>.
 	</p>
 </identity>
 
@@ -131,8 +131,8 @@ so here is a formula that takes both those possibilities into account.
 
 <p>
 We can interpret the formula in <xref ref="pattern-avg-rate" /> in words as
-<me> \text{avg rate} = \frac{\text{accumulation}}{\text{duration}} </me>,
-where <me> \text{accumulation} = (\text{final quantity}) - (\text{initial quantity}) </me>.
+<md> \text{avg rate} = \frac{\text{accumulation}}{\text{duration}} </md>,
+where <md> \text{accumulation} = (\text{final quantity}) - (\text{initial quantity}) </md>.
 </p>
 
 <example>
@@ -141,10 +141,10 @@ where <me> \text{accumulation} = (\text{final quantity}) - (\text{initial quanti
 	You check your investment account and find a balance of <m>\$10,385.92</m>.
 	Four weeks later, you check again and find a balance of <m>\$10,593.64</m>.
 	So over that time period, your account has accumulated
-	<me> 10,593.64 - 10,385.92 = 207.72 </me>
+	<md> 10,593.64 - 10,385.92 = 207.72 </md>
 	dollars,
 	at an average rate of
-	<me> \frac{207.72}{4} = 51.93 </me>
+	<md> \frac{207.72}{4} = 51.93 </md>
 	dollars per week.
 	</p>
 </example>
@@ -167,7 +167,7 @@ where <me> \text{accumulation} = (\text{final quantity}) - (\text{initial quanti
 	</quantity>.
 	According to the analysis <xref ref="example-poly-parabolic-motion" />,
 	the objects height above the surface at any time <m>t \ge 0</m> can be determined using the model
-	<me> h(t) = -5 t^2 + 30 t </me>,
+	<md> h(t) = -5 t^2 + 30 t </md>,
 	with <m>t</m> measured in seconds.
 	(In <xref ref="example-poly-parabolic-motion" /> we used the traditional physics notation <m>s(t)</m> to represent the position function,
 	but here we will use <m>h(t)</m> in its place to avoid confusion with the use of the letter s to represent seconds as the unit of time.)
@@ -247,7 +247,7 @@ as accumulation is equal to total (oriented) area under the rate graph
 <p>
 But on the quantity graph,
 the formula
-<me> \avg{r} = \slope{q}{t} = \frac{ q(t_1) - q(t_0) }{ t_1 - t_0 } </me>
+<md> \avg{r} = \slope{q}{t} = \frac{ q(t_1) - q(t_0) }{ t_1 - t_0 } </md>
 leads to a completely different interpretation.
 The data points <m>\bbrac{t_0, q(t_0)}</m> and <m>\bbrac{t_1, q(t_1)}</m> used in the average rate calculation represent points on the graph of the quantity function,
 the line segment connecting them is called a <term>secant line</term> for the graph,
@@ -317,7 +317,7 @@ and the formula for <m>\avg{r}</m> above is just the <em>rise-over-run</em> form
 
 	<p>
 	Suppose we have a linear quantity model
-	<me> q(t) = m t + q_0 </me>,
+	<md> q(t) = m t + q_0 </md>,
 	where <m>q_0 = q(0)</m> is the initial quantity.
 	Over any time domain <m>t_0 \le t \le t_1</m>,
 	the average rate of accumulation is
@@ -331,7 +331,7 @@ and the formula for <m>\avg{r}</m> above is just the <em>rise-over-run</em> form
 	The average rate of accumulation is the same, no matter what time domain is used,
 	and is equal to the slope of the quantity's graph,
 	so that our model could be expressed as
-	<me> q(t) = \avg{r} t + q_0 </me>.
+	<md> q(t) = \avg{r} t + q_0 </md>.
 	</p>
 
 	<figure xml:id="figure-avg-rate-secant-on-linear">
@@ -377,7 +377,7 @@ We'll need more data to be more specific.
 	<quantity><mag>35</mag><unit base="hour" /></quantity>
 	of driving time split over three days,
 	for a total-trip average speed of approximately
-	<me> \frac{3375}{35} = 96.4 </me>
+	<md> \frac{3375}{35} = 96.4 </md>
 	kilometres per hour.
 	</p>
 
@@ -389,7 +389,7 @@ We'll need more data to be more specific.
 	<quantity><mag>13</mag><unit base="hour" /></quantity>
 	of driving,
 	for a first-day average speed of approximately
-	<me> \frac{1305}{13} = 100.4 </me>
+	<md> \frac{1305}{13} = 100.4 </md>
 	kilometres per hour.
 	</p>
 
@@ -402,7 +402,7 @@ We'll need more data to be more specific.
 	<quantity><mag>15</mag><unit base="hour" /></quantity>
 	of driving,
 	for a second-day average speed of approximately
-	<me> \frac{1385}{15} = 92.3 </me>
+	<md> \frac{1385}{15} = 92.3 </md>
 	kilometres per hour.
 	</p>
 
@@ -415,7 +415,7 @@ We'll need more data to be more specific.
 	takes you
 	<quantity><mag>7</mag><unit base="hour" /></quantity>,
 	for a final-day average speed of approximately
-	<me> \frac{685}{7} = 97.9 </me>
+	<md> \frac{685}{7} = 97.9 </md>
 	kilometres per hour.
 	</p>
 
@@ -449,14 +449,14 @@ What if we take this idea further?
 	<p>
 	Let <m>q(t)</m> represent the quantity of axle revolutions reported at time <m>t</m>,
 	where <m>t</m> is measured in milliseconds.
-	Then <me> \change{q} = q(t) - q(t - 100) </me>
+	Then <md> \change{q} = q(t) - q(t - 100) </md>
 	represents the number of revolutions in a given
 	<quantity><mag>100</mag><unit base="second" prefix="milli" /></quantity> interval,
 	The rear wheels on the RC vehicle measure <quantity><mag>108</mag><unit base="metre" prefix="milli" /></quantity> in diameter,
 	so that the distance travelled in a <quantity><mag>100</mag><unit base="second" prefix="milli" /></quantity> interval is
-	<me> \change{s} = 108 \pi \change{q} </me>.
+	<md> \change{s} = 108 \pi \change{q} </md>.
 	So you program the app on your phone to display the result of calculating
-	<me> \slope{s}{t} = \frac{ 108 \pi \bbrac{ q(t) - q(t - 100) } }{100} \cdot \frac{3600}{1000} </me>,
+	<md> \slope{s}{t} = \frac{ 108 \pi \bbrac{ q(t) - q(t - 100) } }{100} \cdot \frac{3600}{1000} </md>,
 	where
 	<ul>
 		<li> <m>q(t)</m> represents the most recent tachometer reading </li>
@@ -482,10 +482,10 @@ our average rate calculations give us a pretty good idea of the actual rate.
 	<p>
 	In general,
 	given a quantity function <m>q(t)</m> over a time domain <m>t_0 \le t \le t_1</m> so that
-	<me> \change{t} = t_1 - t_0 </me>
+	<md> \change{t} = t_1 - t_0 </md>
 	is sufficiently small,
 	it is reasonable to approximate
-	<me> r(t) \approx \avg{r} </me>
+	<md> r(t) \approx \avg{r} </md>
 	for all <m>t</m> in that time domain.
 	</p>
 </insight>
@@ -629,25 +629,25 @@ Here are three such approaches.
 			<li>
 				<title>Forward difference approximation at <m>t^\ast</m></title>
 				<p>
-				The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast \le t \le t^\ast + \change{t} </me>,
-				so that <me> r(t^\ast) \approx \frac{ q(t^\ast + \change{t}) - q(t^\ast) }{ \change{t} } </me>.
+				The average-rate approximation to <m>r(t^\ast)</m> over the time domain <md> t^\ast \le t \le t^\ast + \change{t} </md>,
+				so that <md> r(t^\ast) \approx \frac{ q(t^\ast + \change{t}) - q(t^\ast) }{ \change{t} } </md>.
 				</p>
 			</li>
 
 			<li>
 				<title>Backward difference approximation at <m>t^\ast</m></title>
 				<p>
-				The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast - \change{t} \le t \le t^\ast </me>,
-				so that <me> r(t^\ast) \approx \frac{ q(t^\ast) - q(t^\ast - \change{t}) }{ \change{t} } </me>.
+				The average-rate approximation to <m>r(t^\ast)</m> over the time domain <md> t^\ast - \change{t} \le t \le t^\ast </md>,
+				so that <md> r(t^\ast) \approx \frac{ q(t^\ast) - q(t^\ast - \change{t}) }{ \change{t} } </md>.
 				</p>
 			</li>
 
 			<li>
 				<title>Central difference approximation at <m>t^\ast</m></title>
 				<p>
-				The average-rate approximation to <m>r(t^\ast)</m> over the time domain <me> t^\ast - c \le t \le t^\ast + c </me> for
-				<me> c = \frac{\change{t}}{2} </me>,
-				so that <me> r(t^\ast) \approx \frac{ q(t^\ast + c) - q(t^\ast - c) }{ \change{t} } </me>.
+				The average-rate approximation to <m>r(t^\ast)</m> over the time domain <md> t^\ast - c \le t \le t^\ast + c </md> for
+				<md> c = \frac{\change{t}}{2} </md>,
+				so that <md> r(t^\ast) \approx \frac{ q(t^\ast + c) - q(t^\ast - c) }{ \change{t} } </md>.
 				</p>
 			</li>
 
@@ -673,13 +673,13 @@ Here are three such approaches.
 <remark><p><ul>
 
 	<li>
-		Since <me> \frac{ q(t^\ast) - q(t^\ast - \change{t}) }{ \change{t} } = \frac{ q(t^\ast - \change{t}) - q(t^\ast) }{ - \change{t} } </me>,
+		Since <md> \frac{ q(t^\ast) - q(t^\ast - \change{t}) }{ \change{t} } = \frac{ q(t^\ast - \change{t}) - q(t^\ast) }{ - \change{t} } </md>,
 		the forward and backward approximations can be unified into one by using the formula for the forward difference approximation but allowing <m>\change{t}</m> to be chosen as either a positive or negative value.
 	</li>
 
 	<li>
 		The central difference formula could also be written as
-		<me> \frac{ q(t^\ast + c) - q(t^\ast - c) }{ 2 c } </me>.
+		<md> \frac{ q(t^\ast + c) - q(t^\ast - c) }{ 2 c } </md>.
 	</li>
 
 </ul></p></remark>
@@ -804,14 +804,14 @@ so we will have to be a little more subtle.
 		and a specific time <m>t^\ast</m> strictly within that domain
 		(so that <m>a \lt t^\ast \lt b</m>),
 		suppose there exists one unique number <m>d</m> so that all values of average rate calculations
-		<me> \slope{q}{t} </me>
+		<md> \slope{q}{t} </md>
 		over subdomains containing <m>t^\ast</m> can be made arbitrarily close to <m>d</m> by taking <m>\change{t}</m> sufficiently small.
 		</p>
 
 		<p>
 		In this case, we say that <m>q(t)</m> is <term>differentiable</term> at <m>t = t^\ast</m>,
 		call the value <m>d</m> the <term>derivative of <m>q(t)</m> at <m>t = t^\ast</m></term>,
-		and write <me> \funceval{\dqdt}{t = t^\ast} </me> to represent the value of <m>d</m>.
+		and write <md> \funceval{\dqdt}{t = t^\ast} </md> to represent the value of <m>d</m>.
 		</p>
 
 	</statement>
@@ -820,15 +820,15 @@ so we will have to be a little more subtle.
 
 <remark><title>Derivative versus rate</title><p>
 	Given that we use average rate calculations over short time domains to approximate actual rate,
-	we expect that <me> \funceval{\dqdt}{t = t^\ast} = r(t^\ast) </me> will be true,
+	we expect that <md> \funceval{\dqdt}{t = t^\ast} = r(t^\ast) </md> will be true,
 	and in fact we will be able to theoretically justify this in later chapters.
 </p></remark>
 
 <p>
 Compare the notation
-<me> \slope{q}{t} \to \dqdt </me>
+<md> \slope{q}{t} \to \dqdt </md>
 with the previous notation
-<me> \sum_{k = 1}^{n} r(t_k^\ast) \change{t_k} \to \ccmint{a}{b}{r(t)}{t} </me>.
+<md> \sum_{k = 1}^{n} r(t_k^\ast) \change{t_k} \to \ccmint{a}{b}{r(t)}{t} </md>.
 In both situations, we are computing approximations that (we hope) are more and more accurate,
 until they are so close we can't tell the difference.
 And in both notational choices,
@@ -844,7 +844,7 @@ Here is a reminder of what they mean in the context of <xref ref="definition-avg
 <em>Arbitrarily close</em> means that we may choose any small range around the proposed value <m>d</m> that we like,
 and in response we will be able to set a <q>maximum</q> <m>\change{t}</m> so that the result of <em>every</em> average rate calculation over a time subdomain containing <m>t^\ast</m> and of that maximum <m>\change{t}</m> length or smaller will fall within our proposed range around <m>d</m>.
 That is, given a small positive <m>\epsilon</m> we expect to always find that
-<me> d - \epsilon \lt \slope{q}{t} \lt d + \epsilon </me>
+<md> d - \epsilon \lt \slope{q}{t} \lt d + \epsilon </md>
 for all average rate calculations calculated over a domain containing <m>t^\ast</m> and with <m>\change{t}</m> smaller than some particular maximum.
 (Making the range around <m>d</m> smaller by changing the value of <m>\epsilon</m> will likely require a different maximum <m>\change{t}</m> value <mdash />
 in general, we expect a smaller range around <m>d</m> to require a smaller maximum <m>\change{t}</m> value.)
@@ -867,7 +867,7 @@ in general, we expect a smaller range around <m>d</m> to require a smaller maxim
 
 	<p>
 	Below is some Sage code to test an arbitrarily chosen range around <m>12</m>,
-	<me> 12 - \epsilon \lt \slope{q}{t} \lt 12 + \epsilon </me>.
+	<md> 12 - \epsilon \lt \slope{q}{t} \lt 12 + \epsilon </md>.
 	(We use <c>e</c> in place of the Greek letter <m>\epsilon</m>.)
 	Try to determine a small enough <m>\change{t}</m> value
 	(again, represented as <c>dt</c> in the Sage code) so that all three of the forward, backward, and central approximations
@@ -1006,7 +1006,7 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 	<statement><p>
 		If <m>q(t)</m> is differentiable at <m>t = t^\ast</m>,
 		then the line that passes through the point <m>\bbrac{ t^\ast, q(t^\ast) }</m> with slope
-		<me> \funceval{\dqdt}{t = t^\ast} </me>
+		<md> \funceval{\dqdt}{t = t^\ast} </md>
 		is called the <term>tangent line</term> to the graph of <m>q(t)</m> at <m>t = t^\ast</m>.
 	</p></statement>
 </definition>
@@ -1016,7 +1016,7 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 	<p>
 	If <m>q(t)</m> is differentiable at <m>t = t^\ast</m>,
 	then the equation of the tangent line to the graph of <m>q(t)</m> at <m>t = t^\ast</m> is
-	<me> y = m t + b </me>
+	<md> y = m t + b </md>
 	where
 	<md>
 		<mrow>
@@ -1038,7 +1038,7 @@ a secant line over a subdomain containing <m>t^\ast</m> of length so small that 
 	in <xref ref="example-avg-rate-cubic-instant-rate" />
 	and <xref ref="example-avg-rate-within-error-bound" />,
 	where we found that
-	<me> \funceval{\dqdt}{t = 2} = 12 </me>.
+	<md> \funceval{\dqdt}{t = 2} = 12 </md>.
 	So the tangent line through the point <m>(2, 8)</m> with slope <m>m = 12</m> is
 	<md>
 		<mrow> y \amp = 12 t + (8 - 12 \cdot 2) </mrow>
@@ -1269,7 +1269,7 @@ and functions with such a feature are never differentiable at that point.
 <example>
 
 	<p>
-	Consider a model function <me> q(t) = \frac{1}{(t-2)^2} </me>.
+	Consider a model function <md> q(t) = \frac{1}{(t-2)^2} </md>.
 	This function has a singularity at <m>t = 2</m>,
 	where <m>q(t) \to \infty</m> for both <m>t \to 2^\plus</m> and <m>t \to 2^\minus</m>.
 	</p>
@@ -1323,7 +1323,7 @@ and functions with such a feature are never differentiable at that point.
 
 	<p>
 	Now consider a shifted cube-root function,
-	<me> q(t) = 1 + \sqrt[3]{t - 1} </me>,
+	<md> q(t) = 1 + \sqrt[3]{t - 1} </md>,
 	and picture a secant line about <m>t = 1</m>.
 	</p>
 

@@ -32,7 +32,7 @@ For convenience, we will also give this special accumulation function a name.
 	<statement><p>
 		The function that returns the accumulation for a quantity that is varying according to rate function <m>r(t) = 1/t</m>,
 		relative to <q>initial</q> time <m>t = 1</m>:
-		<me> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </me>.
+		<md> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </md>.
 	</p></statement>
 </definition>
 
@@ -73,7 +73,7 @@ Notice that the graph of the logarithm function in <xref ref="figure-log-positiv
 This is because of <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref> in <xref ref="convention-integ-definite-props" /> <mdash />
 if we allow time to <q>run backwards</q>,
 then we consider the quantity to be dissipating instead of accumulating,
-so that <me> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </me>
+so that <md> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </md>
 for <m>0 \lt t \lt 1</m> is the <em>negative</em> of the accumulation that occurs over time interval <m> t \le u \le 1 </m>.
 </p>
 
@@ -103,7 +103,7 @@ for <m>0 \lt t \lt 1</m> is the <em>negative</em> of the accumulation that occur
 	<title>Using the natural logarithm to represent integral values</title>
 	<p>
 	Suppose we would like to calculate
-	<me> \ccmint{3}{4}{ t + \frac{1}{t} }{t} </me>.
+	<md> \ccmint{3}{4}{ t + \frac{1}{t} }{t} </md>.
 	Similarly to <xref ref="example-poly-definite-integral-mixed-exponents" />,
 	we split into two integrals,
 	and then use <xref ref="pattern-integ-rebase" /> to re-base our integrals to match our formulas.
@@ -140,7 +140,7 @@ for <m>0 \lt t \lt 1</m> is the <em>negative</em> of the accumulation that occur
 
 <remark><p>
 	It might seem like <q>cheating</q> to write <m>\ln 4</m> as the value of
-	<me> \ccmint{1}{4}{\frac{1}{t}}{t} </me>,
+	<md> \ccmint{1}{4}{\frac{1}{t}}{t} </md>,
 	since <xref ref="definition-log-natural" /> says that to calculate <m>\ln 4</m> we would need to calculate that very integral
 	(and similarly for <m>\ln 3</m>).
 	But this is an acceptable way to represent the value of this integral,
@@ -162,13 +162,13 @@ leads immediately to a special value of the natural logarithm.
 <identity xml:id="pattern-log-value-at-1">
 	<title>Logarithm at <m>t = 1</m></title>
 
-	<statement><p> We have <me> \ln 1 = 0 </me>. </p> </statement>
+	<statement><p> We have <md> \ln 1 = 0 </md>. </p> </statement>
 
 	<proof><p>
 		Combining <xref ref="convention-integ-definite-props-zero-length" text="type-local">Property</xref>
 		of <xref ref="convention-integ-definite-props" />
 		with <xref ref="definition-log-natural" />,
-		<me> \ln 1 = \ccmint{1}{1}{\frac{1}{u}}{u} = 0 </me>.
+		<md> \ln 1 = \ccmint{1}{1}{\frac{1}{u}}{u} = 0 </md>.
 	</p></proof>
 
 </identity>
@@ -225,14 +225,14 @@ The first involves the logarithm of a product of two numbers.
 
 	<statement><p>
 		For all positive <m>a</m> and <m>b</m>,
-		we have <me> \ln (a b) = \ln a + \ln b </me>.
+		we have <md> \ln (a b) = \ln a + \ln b </md>.
 		In other words, <em>the logarithm of a product is the sum of the logarithms</em>.
 	</p></statement>
 
 	<proof>
 
 		<p>
-		By definition, <me> \ln (a b) = \ccmint{1}{a b}{\frac{1}{u}}{u} </me>.
+		By definition, <md> \ln (a b) = \ccmint{1}{a b}{\frac{1}{u}}{u} </md>.
 		Using <xref ref="pattern-integ-definite-props-split" text="type-local">Property</xref>
 		of <xref ref="pattern-integ-definite-props" />,
 		we may write
@@ -243,7 +243,7 @@ The first involves the logarithm of a product of two numbers.
 		So we already have the first part of our desired formula, <m>\ln a</m>.
 		What about the second integral
 		<md><mrow xml:id="equation-log-product-second-int" tag="star"> \ccmint{a}{a b}{\frac{1}{u}}{u} </mrow></md>?
-		How does it compare to <me> \ln b = \ccmint{1}{b}{\frac{1}{s}}{s} </me>?
+		How does it compare to <md> \ln b = \ccmint{1}{b}{\frac{1}{s}}{s} </md>?
 		(We have changed the integration variable to help keep things separate during our comparison of these two integrals.)
 		It appears that the domain in integral <xref ref="equation-log-product-second-int" /> has been stretched by a factor of <m>a</m>
 		compared to the domain in the integral defining <m>\ln b</m>.
@@ -280,22 +280,22 @@ The first involves the logarithm of a product of two numbers.
 		<p>
 		Because we are stretching horizontally by a factor of <m>a</m>,
 		the slice at position <m>u</m> on the second graph will also be wider by a factor of <m>a</m>:
-		<me> du = a ds </me>.
+		<md> du = a ds </md>.
 		But we are only transforming our <em>domain</em> values,
 		we are not actually stretching our rate graph.
 		So the slice at <m>u</m> has both a different width and a different height compared to the original slice at position <m>s</m>,
 		since we have moved to a different place on the rate graph:
-		<me> r(u) = \frac{1}{u} = \frac{1}{a s} = \frac{r(s)}{a} </me>.
+		<md> r(u) = \frac{1}{u} = \frac{1}{a s} = \frac{r(s)}{a} </md>.
 		However, when calculate the <q>area</q> of this <q>stretched slice</q>,
 		we find it's the same area as the slice at position <m>s</m> for the <m>\ln b</m> integral:
-		<me> r(u) \intspace du = \left( \frac{r(s)}{a} \right) \left( a \intspace ds \right) = r(s) \intspace ds </me>.
+		<md> r(u) \intspace du = \left( \frac{r(s)}{a} \right) \left( a \intspace ds \right) = r(s) \intspace ds </md>.
 		So as we add up <q>slices</q> of area to compute the integral for <m>\ln b</m>,
 		or we add up <q>slices</q> of area to compute integral <xref ref="equation-log-product-second-int" />,
 		we will be adding up the <em>same values</em> for those slices of area at corresponding positions,
 		and so we will come out to the same total area:
-		<me> \ccmint{a}{a b}{\frac{1}{u}}{u} = \ccmint{1}{b}{\frac{1}{s}}{s} = \ln b </me>,
+		<md> \ccmint{a}{a b}{\frac{1}{u}}{u} = \ccmint{1}{b}{\frac{1}{s}}{s} = \ln b </md>,
 		and thus
-		<me> \ln (a b) = \ccmint{1}{a}{\frac{1}{u}}{u} + \ccmint{a}{a b}{\frac{1}{u}}{u} = \ln a + \ln b </me>.
+		<md> \ln (a b) = \ccmint{1}{a}{\frac{1}{u}}{u} + \ccmint{a}{a b}{\frac{1}{u}}{u} = \ln a + \ln b </md>.
 		</p>
 
 	</proof>
@@ -319,7 +319,7 @@ What does it do to a reciprocal?
 
 	<statement><p>
 		For all positive <m>a</m>,
-		we have <me> \ln (1 / a) = - \ln a </me>.
+		we have <md> \ln (1 / a) = - \ln a </md>.
 		In other words, <em>the logarithm of a reciprocal is the negative of the logarithm</em>.
 	</p></statement>
 
@@ -329,12 +329,12 @@ What does it do to a reciprocal?
 		This time we will deal with an actual rectangular area in a typical Riemann sum,
 		instead of just working with <q>slices</q>.
 		For the integral
-		<me> \ln a = \ccmint{1}{a}{\frac{1}{s}}{s} </me>,
+		<md> \ln a = \ccmint{1}{a}{\frac{1}{s}}{s} </md>,
 		consider a typical rectangle at sample point <m>s</m> in an <em>upper sum</em> approximation.
 		Because of the shape of the graph of the rate function,
 		this sample point will appear at the left endpoint of the base of the rectangular area.
 		Mark the right endpoint as <m>s'</m>,
-		so that <me> \change{s} = s' - s </me>
+		so that <md> \change{s} = s' - s </md>
 		</p>
 
 		<figure xml:id="figure-log-slice-recip-before">
@@ -394,12 +394,12 @@ What does it do to a reciprocal?
 
 		<p>
 		Therefore, the patterns of upper and lower sum approximations for each integral would <q>squeeze</q> down to the same values.
-		That is, <me> \ccmint{1}{a}{\frac{1}{s}}{s} = \ccmint{1 / a}{1}{\frac{1}{u}}{u} </me>.
+		That is, <md> \ccmint{1}{a}{\frac{1}{s}}{s} = \ccmint{1 / a}{1}{\frac{1}{u}}{u} </md>.
 		The first integral is the value of <m>\ln a</m>,
 		while the second integral is the value of <m>- \ln (1 / a)</m>,
 		using <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref> of <xref ref="convention-integ-definite-props" />.
 		Flipping the negative sign to the other side of the equality of integrals above,
-		we obtain <me> \ln (1 / a) = - \ln a </me>, as desired.
+		we obtain <md> \ln (1 / a) = - \ln a </md>, as desired.
 		</p>
 
 	</proof>
@@ -408,7 +408,7 @@ What does it do to a reciprocal?
 
 <p>
 We could rewrite <xref ref="pattern-log-reciprocal" /> as
-<me> \ln (a^{-1}) = - \ln a </me>.
+<md> \ln (a^{-1}) = - \ln a </md>.
 Using <xref ref="pattern-log-product" />,
 we also have
 <md alignment="gather">
@@ -424,7 +424,7 @@ in fact this pattern holds for all exponents.
 	<title>Logarithm of a power</title>
 	<p>
 	For all exponents <m>r</m> and all positive bases <m>a</m>,
-	we have <me> \ln (a ^ r) = r \ln a </me>.
+	we have <md> \ln (a ^ r) = r \ln a </md>.
 	In other words, <em>the logarithm of a power is a multiple of the logarithm</em>.
 	</p>
 </identity>
@@ -438,7 +438,7 @@ we can combine <xref ref="pattern-log-product" /> and <xref ref="pattern-log-rec
 	<title>Logarithm of a quotient</title>
 	<p>
 	For all positive <m>a</m> and <m>b</m>,
-	we have <me> \ln (a / b) = \ln a - \ln b </me>.
+	we have <md> \ln (a / b) = \ln a - \ln b </md>.
 	In other words, <em>the logarithm of a quotient is the difference of the logarithms</em>.
 	</p>
 </identity>

@@ -33,7 +33,7 @@ we have
 </md>.
 (This time we have included the <q>zero-degree</q> Taylor polynomial approximation value.)
 This creates a sequence <m>\nseq{t}</m> where
-<me> t_n = T_{n,1}(1.001) = 0 + 0.001 - \frac{{0.001}^2}{2} + \dotsc + \frac{{(-1)}^{n - 1} {0.001}^n}{n!} </me>.
+<md> t_n = T_{n,1}(1.001) = 0 + 0.001 - \frac{{0.001}^2}{2} + \dotsc + \frac{{(-1)}^{n - 1} {0.001}^n}{n!} </md>.
 If we allow the possibility of an <q>infinite-degree</q> Taylor polynomial <m>T_{\infty,1}</m>,
 computing a value like <m>T_{\infty,1}(1.001)</m> of such a <q>polynomial</q> would involve adding up an infinite number of summands,
 while each term <m>t_n</m> from the sequence above represents a <term>partial summation</term> of only a finite number of summands.
@@ -43,7 +43,7 @@ while each term <m>t_n</m> from the sequence above represents a <term>partial su
 	<title>Partial sum</title>
 	<statement><p>
 		For an infinite sequence <m>\nseq{a}</m> and a specific index <m>n</m>,
-		the sum <me> s_n = \sum_{k = 0}^n a_k </me>
+		the sum <md> s_n = \sum_{k = 0}^n a_k </md>
 		is called the <term><m>\nth</m> partial sum of <m>\nseq{a}</m></term>.
 		The sequence <m>\nseq{s}</m> that indexes <em>all</em> such sums is called the <term>sequence of partial sums for <m>\nseq{a}</m></term>.
 	</p></statement>
@@ -117,7 +117,7 @@ But sometimes they do not.
 <definition xml:id="definition-series-infinite">
 	<title>Infinite series</title>
 	<statement><p>
-		Write <me> \sum_{k = 0}^\infty a_k </me>
+		Write <md> \sum_{k = 0}^\infty a_k </md>
 		(or sometimes just <m>\sum a_k</m>)
 		to represent the limit of the sequence of partial sums for the sequence <m> \nseq{a} </m>,
 		called an <term>infinite series</term>.
@@ -140,7 +140,7 @@ But sometimes they do not.
 
 	<p>
 	<em>Every</em> real number <m>r</m> is equal to the series formed by the digits in its decimal expansion:
-	<me> r = \sum_{k = -N}^\infty \frac{r_k}{{10}^k} </me>,
+	<md> r = \sum_{k = -N}^\infty \frac{r_k}{{10}^k} </md>,
 	where each <m>r_k</m> is an integer between <m>0</m> and <m>9</m> (inclusive) and <m>N</m> is the highest <q>place</q> that a non-zero digit appears.
 	For example, for <m>r = 9876</m> then <m>N = 3</m> because the first digit <m>r_{-3} = 9</m> appears in the thousands (<m>{10}^3</m>) place,
 	but for <m>r = 0.009876</m> then <m>N = -3</m> because the first digit <m>r_3 = 9</m> appears in the thousandths (<m>{10}^{-3}</m>) place.
@@ -158,7 +158,7 @@ But sometimes they do not.
 <example xml:id="example-series-grouping-terms-incorrect-result">
 	<title>Grouping terms can produce an incorrect result</title>
 	<p>
-	Consider the <q>alternating</q> series <me> \sum_{k = 0}^\infty {(-1)}^k = 1 + (-1) + 1 + (-1) + 1 + (-1) + \dotsb </me>.
+	Consider the <q>alternating</q> series <md> \sum_{k = 0}^\infty {(-1)}^k = 1 + (-1) + 1 + (-1) + 1 + (-1) + \dotsb </md>.
 	It is tempting to use the associative property of addition and group terms in this sum as follows:
 	<md>
 		<mrow>
@@ -189,7 +189,7 @@ But sometimes they do not.
 
 	<p>
 	It is possible to demonstrate that the <term>alternating harmonic series</term>
-	<me> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1}}{k} = 1 + \left(- \frac{1}{2}\right) + \frac{1}{3} + \left(-\frac{1}{4}\right) + \dotsb </me>
+	<md> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1}}{k} = 1 + \left(- \frac{1}{2}\right) + \frac{1}{3} + \left(-\frac{1}{4}\right) + \dotsb </md>
 	converges to <m>\ln(2)</m>.
 	(See <xref ref="subsection-power-series-abel" />.)
 	In the Sage cell below you can investigate the behaviour of the partial sums numerically.
@@ -219,7 +219,7 @@ But sometimes they do not.
 	However,
 	if we rearrange the terms of the sequence we actually get a different result.
 	It is possible to demonstrate that
-	<me> 1 + \frac{1}{3} + \left(- \frac{1}{2}\right) + \frac{1}{5} + \frac{1}{7} + \left(-\frac{1}{4}\right) + \dotsb = \frac{3}{2} \ln(2) </me>.
+	<md> 1 + \frac{1}{3} + \left(- \frac{1}{2}\right) + \frac{1}{5} + \frac{1}{7} + \left(-\frac{1}{4}\right) + \dotsb = \frac{3}{2} \ln(2) </md>.
 	Again, the Sage cell below is provided for you to investigate this convergence numerically.
 	</p>
 
@@ -271,10 +271,10 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 <example>
 	<title>A telescoping sum</title>
 	<p>
-		Consider <me> \sum_{k = 1}^\infty \frac{2}{k (k + 2)} </me>.
-		The terms can be rewritten as <me> \frac{2}{k (k + 2)} = \frac{1}{k} - \frac{1}{k + 2} </me>,
+		Consider <md> \sum_{k = 1}^\infty \frac{2}{k (k + 2)} </md>.
+		The terms can be rewritten as <md> \frac{2}{k (k + 2)} = \frac{1}{k} - \frac{1}{k + 2} </md>,
 		and so the <m>\nth</m> partial sum is
-		<me> s_n = \sum_{k = 1}^n \left( \frac{1}{k} - \frac{1}{k + 2} \right) = \sum_{k = 1}^n \frac{1}{k} - \sum_{k = 1}^n \frac{1}{k + 2} </me>.
+		<md> s_n = \sum_{k = 1}^n \left( \frac{1}{k} - \frac{1}{k + 2} \right) = \sum_{k = 1}^n \frac{1}{k} - \sum_{k = 1}^n \frac{1}{k + 2} </md>.
 		More explicitly,
 		<md>
 			<mrow> s_n = 1 + \frac{1}{2} \amp + \frac{1}{3} + \frac{1}{4} + \dotsb + \frac{1}{n} </mrow>
@@ -282,12 +282,12 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 		</md>.
 		You can see that most of the terms of in the two finite sums will cancel,
 		leaving only
-		<me> s_n = 1 + \frac{1}{2} + \frac{1}{n + 1} + \frac{1}{n + 2} </me>.
+		<md> s_n = 1 + \frac{1}{2} + \frac{1}{n + 1} + \frac{1}{n + 2} </md>.
 		But as <m>n \to \infty</m>,
 		the terms with <m>n</m> in the denominator will become negligibly small,
 		and so <m>\nseq{s} \to 1 + \frac{1}{2}</m>.
 		That is,
-		<me> \sum_{k = 1}^\infty \frac{2}{k (k + 2)} = \frac{3}{2} </me>.
+		<md> \sum_{k = 1}^\infty \frac{2}{k (k + 2)} = \frac{3}{2} </md>.
 	</p>
 </example>
 
@@ -306,7 +306,7 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 
 			<li xml:id="pattern-series-geometric-partial"><p>
 				For <m>r \neq 1</m>,
-				the general partial sum is <me> s_n = \frac{1 - r^{n + 1}}{1 - r} </me>.
+				the general partial sum is <md> s_n = \frac{1 - r^{n + 1}}{1 - r} </md>.
 			</p></li>
 
 			<li xml:id="pattern-series-geometric-full">
@@ -314,7 +314,7 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 					For <m>-1 \lt r \lt 1</m>,
 					the geometric series of base <m>r</m> converges,
 					with sum
-					<me> \sum_{k = 0}^\infty r^k = \frac{1}{1 - r} </me>.
+					<md> \sum_{k = 0}^\infty r^k = \frac{1}{1 - r} </md>.
 				</p>
 			</li>
 
@@ -333,19 +333,19 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 		<p>
 			For all values of <m>r</m>,
 			the partial sum <m>s_n</m> is
-			<me> s_n = \sum_{k = 0}^n r^k = 1 + r + r^2 + \dotsb + r^n </me>.
+			<md> s_n = \sum_{k = 0}^n r^k = 1 + r + r^2 + \dotsb + r^n </md>.
 			Notice what happens if we multiply a partial sum by <m>r</m> and subtract:
-			<me>
+			<md>
 				\begin{array}{rcccccccccccc}
 				s_n \amp = \amp 1 \amp + \amp r \amp + \amp r^2 \amp + \amp \dotsb \amp + \amp r^n \\
 				- \quad r s_n \amp = \amp   \amp   \amp r \amp + \amp r^2 \amp + \amp \dotsb \amp + \amp r^n \amp + \amp r^{n + 1} \\ \hline
 				s_n - r s_n \amp = \amp 1 \amp - \amp r^{n + 1}
 				\end{array}
-			</me>.
+			</md>.
 			Factoring the common <m>s_n</m> on the left,
-			we have <me> s_n (1 - r) = 1 - r^{n + 1} </me>.
+			we have <md> s_n (1 - r) = 1 - r^{n + 1} </md>.
 			If <m>r \neq 1</m>,
-			then <m>1 - r \neq 0</m> and we may divide both sides to obtain <me> s_n = \frac{1 - r^{n + 1}}{1 - r} </me>.
+			then <m>1 - r \neq 0</m> and we may divide both sides to obtain <md> s_n = \frac{1 - r^{n + 1}}{1 - r} </md>.
 		</p>
 	</proof>
 
@@ -369,7 +369,7 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 			In this case the exponential function <m>f(t) = r^t</m> represents exponential decay,
 			and the terms of the sequence <m>\seq{r^{n + 1}}</m> are discrete values along that decay curve.
 			So we conclude that <m>\seq{r^{n + 1}} \to 0</m> and
-			<me> s_n = \frac{1 - r^{n + 1}}{1 - r} \to \frac{1}{1 - r} </me>,
+			<md> s_n = \frac{1 - r^{n + 1}}{1 - r} \to \frac{1}{1 - r} </md>,
 			as conjectured.
 		</p></case>
 
@@ -380,7 +380,7 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 			the terms of the sequence <m>\seq{r^{n + 1}}</m> bounce between the two curves,
 			but still trend to <m>0</m> along with the curves.
 			So again <m>\seq{r^{n + 1}} \to 0</m> and
-			<me> s_n = \frac{1 - r^{n + 1}}{1 - r} \to \frac{1}{1 - r} </me>,
+			<md> s_n = \frac{1 - r^{n + 1}}{1 - r} \to \frac{1}{1 - r} </md>,
 			as conjectured.
 		</p></case>
 
@@ -392,7 +392,7 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 		<p> Again we will consider different cases. </p>
 
 		<case><title>Case <m>r = 1</m></title><p>
-			In this case we have <me> s_n = 1^0 + 1^1 + 1^2 + \dotsb + 1^n = n + 1</me>,
+			In this case we have <md> s_n = 1^0 + 1^1 + 1^2 + \dotsb + 1^n = n + 1</md>,
 			and this sequence clearly diverges to infinity.
 		</p></case>
 
@@ -428,14 +428,14 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 			The infinite series of the sequence <m>\seq{1/2^k}</m> is geometric with <m>r = 1/2</m>,
 			which converges since <m>1/2</m> is less than <m>1</m>,
 			and we have
-			<me> \sum_{k = 0}^\infty \frac{1}{2^k} = \frac{1}{1 - 1/2} = 2 </me>.
+			<md> \sum_{k = 0}^\infty \frac{1}{2^k} = \frac{1}{1 - 1/2} = 2 </md>.
 		</li>
 
 		<li xml:id="example-series-two-geometric-recip-powers-of-10">
 			The infinite series of the sequence <m>\seq{1/{10}^k}</m> is geometric with <m>r = 1/10</m>,
 			which converges since <m>1/10</m> is less than <m>1</m>,
 			and we have
-			<me> \sum_{k = 0}^\infty \frac{1}{{10}^k} = \frac{1}{1 - 1/10} = \frac{10}{9} </me>.
+			<md> \sum_{k = 0}^\infty \frac{1}{{10}^k} = \frac{1}{1 - 1/10} = \frac{10}{9} </md>.
 			We already looked at this series in <xref ref="example-series-decimals-recip-powers-of-10" text="type-local">Series</xref> of <xref ref="example-series-decimals" /> <mdash />
 			you may wish to go back and compare the conjectured sum result expressed as a decimal with the result above.
 		</li>
@@ -450,7 +450,7 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 
 <p>
 An infinite series can be thought of as an improper integral of a step function:
-<me> \sum_{k = 0}^\infty a_k = \ccmint{0}{\infty}{a(t)}{t} </me>,
+<md> \sum_{k = 0}^\infty a_k = \ccmint{0}{\infty}{a(t)}{t} </md>,
 where <m>a(t)</m> is the step function that takes on value <m>a(t) = a_k</m> on the subdomain <m>k \le t \lt k + 1</m>.
 Effectively we are viewing the infinite series as a regular Riemann sum with <m>\change{t} = 1</m>,
 but with an unbounded domain (hence an infinite number of rectangles).
@@ -474,7 +474,7 @@ the properties of infinite series mirror the properties of improper integrals.
 		then they both do
 		(as long as we remain within the domain of the sequence <m>\nseq{a}</m>),
 		with
-		<me> \sum_{k = k_1}^\infty a_k = \sum_{k = k_1}^{k_2 - 1} a_k + \sum_{k = k_2}^\infty a_k </me>
+		<md> \sum_{k = k_1}^\infty a_k = \sum_{k = k_1}^{k_2 - 1} a_k + \sum_{k = k_2}^\infty a_k </md>
 		if <m>k_1 \lt k_2</m>.
 	</p></statement>
 
@@ -516,13 +516,13 @@ the properties of infinite series mirror the properties of improper integrals.
 			<li xml:id="pattern-series-linearity-homog">
 				If <m>\sum a_k</m> converges,
 				then so does <m>\sum c a_k</m> for constant <m>c</m>,
-				and <me> \sum c a_k = c \sum a_k </me>.
+				and <md> \sum c a_k = c \sum a_k </md>.
 			</li>
 
 			<li xml:id="pattern-series-linearity-additive">
 				If both <m>\sum a_k</m> and <m>\sum b_k</m> converge,
 				then so does <m>\sum (a_k + b_k)</m>,
-				and <me> \sum (a_k + b_k) = \sum a_k + \sum b_k </me>.
+				and <md> \sum (a_k + b_k) = \sum a_k + \sum b_k </md>.
 			</li>
 
 		</ol>
@@ -540,7 +540,7 @@ the properties of infinite series mirror the properties of improper integrals.
 <example>
 	<title>Splitting an infinite series</title>
 	<p>
-	The series <me> \sum_{k = 0}^\infty \frac{5^k + 2}{10^k} </me>
+	The series <md> \sum_{k = 0}^\infty \frac{5^k + 2}{10^k} </md>
 	looks complicated at first glance,
 	but we can split it into two geometric series that we've already computed:
 	<md>
@@ -605,7 +605,7 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 		we have <m>\nseq{s} \to L</m> for some limit value <m>L</m>.
 		Let <m>\nseq{t}</m> be the sequence of <q>delayed</q> partial sums:
 		for <m>n \ge 1</m> set
-		<me> t_n = \sum_{k = 0}^{n - 1} a_n </me>
+		<md> t_n = \sum_{k = 0}^{n - 1} a_n </md>
 		(and we'll set <m>t_0 = 0</m>).
 		Then also <m>\nseq{t} \to L</m>.
 		By the <xref ref="pattern-seq-alg-limit-laws" text="title" />,
@@ -676,7 +676,7 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 		<mrow> s_{16} \amp = s_8 + \sum_{k = 9}^{16} \frac{1}{k} \gt \frac{5}{2} + \frac{1}{2} = \frac{6}{2} </mrow>
 	</md>.
 	The pattern continues,
-	so that <me> s_{2^n} \ge \frac{n + 2}{2} </me>.
+	so that <md> s_{2^n} \ge \frac{n + 2}{2} </md>.
 	(We have used <q>or equal</q> here so that <m>s_1</m> and <m>s_2</m> can be included.)
 	This particular subsequence of the sequence of partNow let's use the ial sums diverges to infinity,
 	hence it is not possible for the full sequence of partial sums to converge
@@ -692,7 +692,7 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 	Let <m>m = k + 1</m>.
 	As <m>k</m> increments through the values <m>0,1,2,3,\dotsc</m>,
 	<m>m</m> will increment through the values <m>1,2,3,4,\dotsc</m>.
-	Then we have <me> \sum_{k = 0}^\infty \frac{1}{k + 1} = \sum_{m = 1}^\infty \frac{1}{m} </me>,
+	Then we have <md> \sum_{k = 0}^\infty \frac{1}{k + 1} = \sum_{m = 1}^\infty \frac{1}{m} </md>,
 	and so the series <m>\sum 1/(k+1)</m> must diverge,
 	being equivalent to the divergent harmonic series.
 	</p>
@@ -709,8 +709,8 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 </corollary>
 
 <example><p>
-	The infinite series <me> \sum_{k = 0}^\infty \frac{2 k^3 - 3 k + 1}{k^3 + k^2 - 5} </me> must diverge because
-	<me> \lrseq{\frac{2 k^3 - 3 k + 1}{k^3 + k^2 - 5}} \to 2 </me>.
+	The infinite series <md> \sum_{k = 0}^\infty \frac{2 k^3 - 3 k + 1}{k^3 + k^2 - 5} </md> must diverge because
+	<md> \lrseq{\frac{2 k^3 - 3 k + 1}{k^3 + k^2 - 5}} \to 2 </md>.
 </p></example>
 
 <p>
@@ -771,11 +771,11 @@ so their convergence is dependent on being bounded.
 		<mrow> s_{15} \amp = s_7 + \sum_{k = 8}^{15} \frac{1}{k^2} \lt \frac{7}{4} + \frac{1}{8} = \frac{15}{8} </mrow>
 	</md>.
 	The pattern continues,
-	so that <me> s_{2^n - 1} \le \frac{2^n - 1}{2^{n - 1}} \lt \frac{2^n}{2^{n - 1}} = 2 </me>.
+	so that <md> s_{2^n - 1} \le \frac{2^n - 1}{2^{n - 1}} \lt \frac{2^n}{2^{n - 1}} = 2 </md>.
 	But since the terms of <m>\seq{1/n^2}</m> are positive,
 	the sequence of partical sums is increasing.
 	And for all <m>n \ge 1</m>, we have <m>n \le 2^n - 1</m>,
-	so that <me> s_n \le s_{2^n - 1} \lt 2 </me>.
+	so that <md> s_n \le s_{2^n - 1} \lt 2 </md>.
 	As the sequence of partial sums is monotonic and bounded,
 	it must converge.
 	</p>
@@ -795,7 +795,7 @@ the <q>amount left to add</q> must be getting small as well.
 	<statement><p>
 		If <m>\sum a_k</m> converges,
 		then the sequence of<q>remainders</q> <m>\nseq{r}</m> with
-		<me> r_n = \sum_{k = n + 1}^\infty a_k </me>
+		<md> r_n = \sum_{k = n + 1}^\infty a_k </md>
 		must converge to <m>0</m>.
 	</p></statement>
 
@@ -809,7 +809,7 @@ the <q>amount left to add</q> must be getting small as well.
 		because if <m>\sum a_k</m> converges beginning at index <m>0</m>,
 		then it converges beginning at any index,
 		and in fact we have
-		<me> r_n = \sum_{k = 0}^\infty a_k - \sum_{k = 0}^n a_k = S - s_n </me>
+		<md> r_n = \sum_{k = 0}^\infty a_k - \sum_{k = 0}^n a_k = S - s_n </md>
 		from <xref ref="fact-series-converge-restart" />.
 		Thus <m>\nseq{r} = \seq{S - s_n} \to 0</m>.
 	</p></proof>
@@ -862,9 +862,9 @@ the <q>amount left to add</q> must be getting small as well.
 		</p>
 
 		<p>
-		Define the integral function <me> F(t) = \ccmint{0}{t}{f(u)}{u} </me>,
+		Define the integral function <md> F(t) = \ccmint{0}{t}{f(u)}{u} </md>,
 		which is continuous on domain <m>t \ge 0</m> by the <xref ref="theorem-fund-thm" text="title" />.
-		By definition, we have <me> \ccmint{0}{\infty}{f(t)}{t} = \lim_{t \to \infty} F(t) </me>.
+		By definition, we have <md> \ccmint{0}{\infty}{f(t)}{t} = \lim_{t \to \infty} F(t) </md>.
 		Note that <m>F(t)</m> is an increasing function,
 		as we are accumulating more area as the integration domain endpoint <m>t</m> increases.
 		(And the derivative function <m>F'(t) = f(t)</m> is positive,
@@ -918,7 +918,7 @@ the <q>amount left to add</q> must be getting small as well.
 		<p>
 		As <m>f(t)</m> is decreasing,
 		each right sum <m>\ell_n</m> is a lower sum and each left sum <m>u_n</m> is an upper sum:
-		<me> \ell_n \le F(n) \le u_n \qquad \text{for all } n </me>.
+		<md> \ell_n \le F(n) \le u_n \qquad \text{for all } n </md>.
 		</p>
 
 		<case><title>Convergent integral</title><p>
@@ -973,7 +973,7 @@ the <q>amount left to add</q> must be getting small as well.
 	starting at <m>k = 1</m>.
 	Set <m>f(t) = \ln(t) / t</m>,
 	a function that is continuous for <m>t \gt 0</m> and positive for <m>t \gt 1</m>.
-	Compute <me> f'(t) = \frac{1 - \ln(t)}{t^2} </me>.
+	Compute <md> f'(t) = \frac{1 - \ln(t)}{t^2} </md>.
 	This derivative is negative as long as <m>\ln(t) \gt 1</m>,
 	which occurs for <m>t \gt e</m>.
 	So we may say that <m>f</m> is decreasing on domain <m>t \gt 3</m>,
@@ -990,7 +990,7 @@ the <q>amount left to add</q> must be getting small as well.
 	For the integral,
 	we have already noted that <m>\ln(t) \gt 1</m> for <m>t \gt e</m>
 	and so also for <m>t \ge 3</m>.
-	Hence <me> \frac{\ln(t)}{t} \gt \frac{1}{t} </me>
+	Hence <md> \frac{\ln(t)}{t} \gt \frac{1}{t} </md>
 	on domain <m>t \ge 3</m>.
 	And we know that an improper integral of <m>1/t</m> diverges
 	(<xref ref="fact-improper-int-p-funcs" />),
@@ -1104,14 +1104,14 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 <example><p><ol>
 
 	<li>
-		Since <me> \frac{1}{2^n + 1} \lt \frac{1}{2^n} </me> for all <m>n</m>,
+		Since <md> \frac{1}{2^n + 1} \lt \frac{1}{2^n} </md> for all <m>n</m>,
 		<m> \sum 1 / (2^k + 1) </m> converges by comparison with the geometric series <m> \sum 1 / 2^k </m>.
 	</li>
 
 	<li>
 		For <md><mrow xml:id="equation-series-comparison-1" tag="star"> \sum \frac{5}{2 k^2 + 4 k + 3} </mrow></md>
 		we have
-		<me> \frac{5}{2 n^2 + 4 n + 3} \lt \frac{5}{2} \cdot \frac{1}{n^2} </me>
+		<md> \frac{5}{2 n^2 + 4 n + 3} \lt \frac{5}{2} \cdot \frac{1}{n^2} </md>
 		for all <m>n</m>,
 		and <m>\sum 5 / 2 k^2</m> converges because <m>\sum 1 / k^2</m> does
 		(see <xref ref="pattern-series-linearity" />).
@@ -1119,8 +1119,8 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 	</li>
 
 	<li>
-		Since <me> \frac{6}{n - 1} \gt \frac{1}{n} </me> for all <m>n \ge 2</m>,
-		the series <me> \sum_{k = 2}^\infty \frac{6}{k - 1} </me>
+		Since <md> \frac{6}{n - 1} \gt \frac{1}{n} </md> for all <m>n \ge 2</m>,
+		the series <md> \sum_{k = 2}^\infty \frac{6}{k - 1} </md>
 		diverges by comparison with the harmonic series <m>\sum 1/k</m>.
 	</li>
 
@@ -1202,7 +1202,7 @@ So we can test convergence/divergence by comparing the rate at which the terms t
 		(<xref ref="example-series-change-vars" />),
 		so <m>\sum 6 / (k + 1)</m> must diverge as well.
 		But let's check that the <xref ref="pattern-series-limit-comparison" text="title" /> says the same:
-		<me> \frac{6 / (n + 1)}{1 / n} = \frac{6 n}{n + 1} \to 6 \qquad \text{as } n \to \infty </me>.
+		<md> \frac{6 / (n + 1)}{1 / n} = \frac{6 n}{n + 1} \to 6 \qquad \text{as } n \to \infty </md>.
 		By comparison with the divergent harmonic series <m>\sum 1/k</m>,
 		the series <m>\sum 6 / (k + 1)</m> diverges.
 	</li>
@@ -1210,7 +1210,7 @@ So we can test convergence/divergence by comparing the rate at which the terms t
 	<li>
 		Consider <m>\sum 1 / (2^k - 1)</m>.
 		Compare with the geometric series <m>\sum 1 / 2^k</m>:
-		<me> \frac{1 / (2^n - 1)}{ 1 / 2^n} = \frac{2^n}{2^n - 1} \to 1 \qquad \text{as } n \to \infty </me>.
+		<md> \frac{1 / (2^n - 1)}{ 1 / 2^n} = \frac{2^n}{2^n - 1} \to 1 \qquad \text{as } n \to \infty </md>.
 		So <m>\sum 1 / (2^k - 1)</m> converges.
 	</li>
 
@@ -1226,7 +1226,7 @@ So we can test convergence/divergence by comparing the rate at which the terms t
 	<title>Choosing a comparator series</title>
 	<p>
 	Consider <md><mrow xml:id="equation-series-limit-comparison-1" tag="dstar"> \sum \frac{2 k^2 + 3 k}{\sqrt{5 + k^7}} </mrow></md>.
-	For large <m>k</m> we have <me> \frac{2 k^2 + 3 k}{\sqrt{5 + k^7}} \approx \frac{2 k^2}{\sqrt{k^7}} = \frac{2}{k^{3/2}} </me>.
+	For large <m>k</m> we have <md> \frac{2 k^2 + 3 k}{\sqrt{5 + k^7}} \approx \frac{2 k^2}{\sqrt{k^7}} = \frac{2}{k^{3/2}} </md>.
 	So we'll attempt to compare with the convergent <m>p</m>-series <m>\sum 1 / k^{3/2}</m>:
 	<md>
 		<mrow>
@@ -1299,10 +1299,10 @@ we can determine the convergence of the series by examing the trend of the base 
 		We can create an open range <m>(c,d)</m> around <m>L</m> with <m>d \lt 1</m>.
 		(For example, we could take <m>c = L/2</m> and <m>d = (1 - L)/2</m>.)
 		Then there is some tail <m>\seqtail{\sqrt[n]{a_n}}</m> that is completely contained in this range:
-		<me> c \lt \sqrt[n]{a_n} \lt d </me>.
+		<md> c \lt \sqrt[n]{a_n} \lt d </md>.
 		Since power functions are always increasing functions on non-negative domains,
 		we may raise each <q>side</q> of the above inequality to the <m>\nth</m> power and the inequalities will be maintained:
-		<me> c^n \lt a_n \lt d^n </me>.
+		<md> c^n \lt a_n \lt d^n </md>.
 		We know have our base <m>r = d</m> for a geometric series,
 		and <m>\sum d^k</m> converges because <m>0 \lt d \lt 1</m>.
 		Since <m>a_n \lt d^n</m> for all terms in the tail <m>\nseqtail{a}</m>,
@@ -1334,13 +1334,13 @@ we can determine the convergence of the series by examing the trend of the base 
 <example><p><ol>
 
 	<li>
-		For series <m>\sum a_k</m> with terms <me> a_n = {\left(\frac{2 n + 3}{3 n + 2}\right)}^n </me> we have
-		<me> \sqrt[n]{a_n} = \frac{2 n + 3}{3 n + 2} \to \frac{2}{3} \qquad \text{as } n \to \infty </me>
+		For series <m>\sum a_k</m> with terms <md> a_n = {\left(\frac{2 n + 3}{3 n + 2}\right)}^n </md> we have
+		<md> \sqrt[n]{a_n} = \frac{2 n + 3}{3 n + 2} \to \frac{2}{3} \qquad \text{as } n \to \infty </md>
 		so we conclude that <m>\sum a_k</m> converges.
 	</li>
 
 	<li>
-		For series <m>\sum a_k</m> with terms <me> a_n = \frac{2^n}{(n + 1) 3^{n + 1}} </me>,
+		For series <m>\sum a_k</m> with terms <md> a_n = \frac{2^n}{(n + 1) 3^{n + 1}} </md>,
 		we appear to have a mix of geometric behaviour and harmonic behaviour,
 		but likely the geometric behaviour will win (exponentials beat polynomials) and the series should converge.
 		Let's verify with the <xref ref="pattern-series-root-test" text="title" />:
@@ -1412,7 +1412,7 @@ Another way to measure whether this is happening is to compare each term to the 
 			<mrow> \vdots </mrow>
 		</md>.
 		The pattern continues,
-		and we can say that <me> 0 \lt a_{N + k} \lt d^k a_N </me> for all <m>k \ge 1</m>.
+		and we can say that <md> 0 \lt a_{N + k} \lt d^k a_N </md> for all <m>k \ge 1</m>.
 		Now, since <m>0 \lt d \lt 1</m>,
 		the geometric series <m>\sum d^k</m> converges,
 		and by linearity so does <m>\sum d^k a_N</m>.
@@ -1421,9 +1421,9 @@ Another way to measure whether this is happening is to compare each term to the 
 		Then by comparison,
 		the <q>shifted</q> series <m>\sum b_k</m> with terms <m>b_n = a_{N + n}</m> converges.
 		But since
-		<me> \sum_{k = 0}^\infty a_{N + k} = a_N + a_{N + 1} + a_{N + 2} + \dotsb </me>
+		<md> \sum_{k = 0}^\infty a_{N + k} = a_N + a_{N + 1} + a_{N + 2} + \dotsb </md>
 		we may rewrite this (convergent) series as
-		<me> \sum_{k = N}^\infty a_k</me>.
+		<md> \sum_{k = N}^\infty a_k</md>.
 		Applying <xref ref="fact-series-converge-restart" /> now tells us that the full series <m>\sum a_k</m> also converges.
 	</p></proof>
 
@@ -1456,7 +1456,7 @@ Another way to measure whether this is happening is to compare each term to the 
 		Because if <m>\seq{a_{n + 1} / a_n}</m> converged to a limit value less than <m>1</m> then the series would converge,
 		and if it converged to a limit value greater than <m>1</m> then <m>\nseq{a} \not\to 0</m>.
 		So in this divergent case the terms are trending to <m>0</m> but not very fast,
-		because we eventually always have <me> \frac{a_{n + 1}}{a_n} \approx 1 </me>,
+		because we eventually always have <md> \frac{a_{n + 1}}{a_n} \approx 1 </md>,
 		which implies that we eventually always have <m>a_{n + 1} \approx a_n</m>,
 		and this approximation becomes better and better as we go further out in the sequence.
 	</p></li>
@@ -1568,7 +1568,7 @@ Another way to measure whether this is happening is to compare each term to the 
 		So by comparison, <m>\sum \bbrac{a_k + \abs{a_k}}</m> must converge.
 		But then adding this convergent series to another will yield a convergent series
 		(<xref ref="pattern-series-linearity" />),
-		so <me> \sum \Bbrac{a_k + \abs{a_k} + \bbrac{-\abs{a_k}}} = \sum a_k </me>
+		so <md> \sum \Bbrac{a_k + \abs{a_k} + \bbrac{-\abs{a_k}}} = \sum a_k </md>
 		converges.
 	</p></proof>
 
@@ -1593,7 +1593,7 @@ Another way to measure whether this is happening is to compare each term to the 
 	<li xml:id="example-series-abs-conv-alternating-p-series">
 		For the series <m>\sum {(-1)}^{k - 1} / k^2</m>
 		(beginning at index <m>k = 1</m>),
-		we have <me> \sum_{k = 1}^\infty \abs{\frac{{(-1)}^{k - 1}}{k^2}} = \sum_{k = 1}^\infty \frac{1}{k^2} </me>,
+		we have <md> \sum_{k = 1}^\infty \abs{\frac{{(-1)}^{k - 1}}{k^2}} = \sum_{k = 1}^\infty \frac{1}{k^2} </md>,
 		which is a convergent <m>p</m>-series.
 		So <m>\sum {(-1)}^{k - 1} / k^2</m> converges absolutely,
 		hence converges.
@@ -1602,7 +1602,7 @@ Another way to measure whether this is happening is to compare each term to the 
 	<li xml:id="example-series-abs-conv-cosine-p-series">
 		For the series <m>\sum \cos(k) / k^2</m>
 		(beginning at index <m>k = 1</m>),
-		we have <me> \sum_{k = 1}^\infty \abs{\frac{\cos(k)}{k^2}} = \sum_{k = 1}^\infty \frac{\abs{\cos(k)}}{k^2} </me>.
+		we have <md> \sum_{k = 1}^\infty \abs{\frac{\cos(k)}{k^2}} = \sum_{k = 1}^\infty \frac{\abs{\cos(k)}}{k^2} </md>.
 		Since <m>0 \le \abs{\cos(k)} \le 1</m> for all <m>k</m>,
 		we have <m>\abs{\cos(k)} / k^2 \le 1/k^2</m>,
 		and so <m>\sum \cos(k) / k^2</m> converges absolutely by comparison with the convergent <m>p</m>-series <m>\sum 1/k^2</m>.
@@ -1611,7 +1611,7 @@ Another way to measure whether this is happening is to compare each term to the 
 	<li xml:id="example-series-abs-conv-alternating-harmonic">
 		For the series <m>\sum {(-1)}^{k - 1} / k</m>
 		(beginning at index <m>k = 1</m>),
-		we have <me> \sum_{k = 1}^\infty \abs{\frac{{(-1)}^{k - 1}}{k}} = \sum_{k = 1}^\infty \frac{1}{k} </me>,
+		we have <md> \sum_{k = 1}^\infty \abs{\frac{{(-1)}^{k - 1}}{k}} = \sum_{k = 1}^\infty \frac{1}{k} </md>,
 		which is the divergent harmonic series.
 		So <m>\sum {(-1)}^{k - 1} / k</m> does not converge absolutely.
 		However,
@@ -1657,7 +1657,7 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		we assume it converges <em>absolutely</em>.
 		That is, <m>\sum \abs{a_k}</m> converges.
 		Let <m>\nseq{r}</m> be the sequence of <q>remainders</q> for this convergent sequence:
-		<me> r_n = \sum_{k = n + 1}^\infty \abs{a_k} </me>.
+		<md> r_n = \sum_{k = n + 1}^\infty \abs{a_k} </md>.
 		<xref ref="fact-series-conv-remainder" /> tells us that <m>\nseq{r} \to 0</m>,
 		so there exists some tail <m>\nseqtail[N_2]{r}</m> also completely contained in the half-open range <m>[0,c/2)</m>.
 		(Note that <m>\nseq{r}</m>) is a sequence of non-negative terms because a convergent series of non-negative terms must have a non-negative sum value.)
@@ -1677,7 +1677,7 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		Remember that the series we would like to investigate is <m>\sum a_{\varphi(k)}</m>,
 		but the terms of this sequence are all mixed up.
 		However, from the original series <m>\sum a_k</m>,
-		the specific partial sum of the original series <me> s_N = \sum_{k = 0}^N a_k = a_0 + a_1 + a_2 + \dotsb + a_N </me>
+		the specific partial sum of the original series <md> s_N = \sum_{k = 0}^N a_k = a_0 + a_1 + a_2 + \dotsb + a_N </md>
 		involves only a finite number of terms,
 		and all of these terms must appear eventually in the mixed-up sequence <m>\seq{a_{\varphi(n)}}</m>.
 		Choose <m>M</m> large enough that this happens.
@@ -1685,7 +1685,7 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		inclusive.)
 		The two partial sums <m>s_N</m> and <m>t_M</m> involve only a finite number of terms each,
 		and so we can subtract them and manipulate them without worrying about convergence.
-		But we have chosen <m>M</m> so that in the partial sum <me> t_M = \sum_{k = 0}^M a_{\varphi(k)} </me>,
+		But we have chosen <m>M</m> so that in the partial sum <md> t_M = \sum_{k = 0}^M a_{\varphi(k)} </md>,
 		all the terms of <m>s_N</m> appear,
 		just in a mix-up order.
 		So if we subtract <m>t_M - s_N</m>,
@@ -1693,7 +1693,7 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		Because <m>s_N</m> involves all terms up to and including <m>a_N</m>,
 		the terms remaining must all have indices that are <em>larger</em> than <m>N</m>
 		(as part of the original sequence of terms <m>\nseq{a}</m>):
-		<me> \abs{t_M - s_N} = \abs{a_{j_1} + a_{j_2} + \dotsb + a_{j_\ell}} </me>
+		<md> \abs{t_M - s_N} = \abs{a_{j_1} + a_{j_2} + \dotsb + a_{j_\ell}} </md>
 		for some collection of indices <m>j_1,\dotsc,j_\ell</m> that are all greater than <m>N</m>.
 		Using the extended Triangle Inequality,
 		we can say that
@@ -1703,11 +1703,11 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		In this form,
 		because the indices are all larger than <m>N</m>,
 		each of these absolute terms appears in the <m>\nth[N]</m> absolute remainder
-		<me> r_N = \sum_{k = N + 1}^\infty \abs{a_k} </me>.
+		<md> r_N = \sum_{k = N + 1}^\infty \abs{a_k} </md>.
 		We know the series defining <m>r_N</m> converges,
 		and since it is an <em>infinite</em> sum of <em>non-negative</em> terms,
 		it  must add up to a larger value than the finite sum in <xref ref="equation-series-rearrange-another-half-inequality" />.
-		So we can say <me> \abs{t_M - s_N} \le r_N </me>.
+		So we can say <md> \abs{t_M - s_N} \le r_N </md>.
 		</p>
 
 		<p>
@@ -1864,7 +1864,7 @@ alternate between positive and negative:
 			This says that <m>\nseq{u}</m> is the difference of two convergent sequences:
 			<m>\nseq{t} \to L</m> and <m>\nseq{b} \to 0</m>
 			(since <m>\nseq{a} \to 0</m>).
-			The <xref ref="pattern-seq-alg-limit-laws" text="title" /> tell us that <me> \nseq{u} \to L - 0 = L </me>.
+			The <xref ref="pattern-seq-alg-limit-laws" text="title" /> tell us that <md> \nseq{u} \to L - 0 = L </md>.
 			</p>
 
 			<p>
@@ -1881,28 +1881,28 @@ alternate between positive and negative:
 <example><p><ol>
 
 	<li>
-		Consider the alternating series <me> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1} k^2}{k^3 + 1} </me>.
+		Consider the alternating series <md> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1} k^2}{k^3 + 1} </md>.
 		This series is unlikely to converge absolutely,
-		as <me> \abs{\frac{{(-1)}^{k - 1} k^2}{k^3 + 1}} = \frac{k^2}{k^3 + 1} \approx \frac{1}{k} \quad \text{for large } k </me>,
+		as <md> \abs{\frac{{(-1)}^{k - 1} k^2}{k^3 + 1}} = \frac{k^2}{k^3 + 1} \approx \frac{1}{k} \quad \text{for large } k </md>,
 		and we know that the harmonic series diverges.
 		Consider <m>\nseq{a}</m> with <m>a_n = n^2 / (n^3 + 1)</m>,
 		beginning at index <m>n = 1</m>,
 		like our sum.
 		This is a positive sequence, but is it decreasing?
 		Let <m> f(t) = t^2 / (t^3 + 1) </m>.
-		Then <me> f'(t) = \frac{t (2 - t^3)}{{(t^3 + 1)}^2} </me>,
+		Then <md> f'(t) = \frac{t (2 - t^3)}{{(t^3 + 1)}^2} </md>,
 		and this derivative is negative on domain <m>t \ge \sqrt[3]{2}</m>.
 		So we can say that <m>\nseq{a}</m> is decreasing for <m>n \ge 3</m>.
 		And from examining dominant terms it is clear that <m>\nseqtail[3]{a} \to 0</m>,
 		so the <xref ref="fact-series-alternating-series-test" text="title" /> says that
-		<me> \sum_{k = 3}^\infty \frac{{(-1)}^{k + 1} k^2}{k^3 + 1} </me>
+		<md> \sum_{k = 3}^\infty \frac{{(-1)}^{k + 1} k^2}{k^3 + 1} </md>
 		converges.
 		And since this <q>tail</q> converges,
 		our original series must converge as well.
 	</li>
 
 	<li>
-		Consider the alternating series <me> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1} \cdot k}{4 k - 1} </me>.
+		Consider the alternating series <md> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1} \cdot k}{4 k - 1} </md>.
 		Let <m>\nseq{a}</m> represent the sequence of absolute terms: <m>a_n = n / (4 n - 1)</m>,
 		beginning at index <m>n = 1</m>,
 		like our sum.
@@ -1922,7 +1922,7 @@ alternate between positive and negative:
 <example xml:id="example-series-alt-harmonic-cond-conv">
 	<title>Conditional convergence of the Alternating Harmonic Series</title>
 	<p>
-	Consider the alternating harmonic series <me> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1}}{k} </me>.
+	Consider the alternating harmonic series <md> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1}}{k} </md>.
 	Then the sequence of absolute terms <m>\seq{1/n}</m> is positive, decreasing, and trends to <m>0</m>.
 	So the <xref ref="fact-series-alternating-series-test" text="title" /> says that the series converges.
 	As we have seen previously that this series does not converge absolutely,
@@ -1979,7 +1979,7 @@ the distance between consecutive terms in the sequence of partial sums is the te
 	<p>
 	Suppose <m>\nseq{a}</m> is a positive, decreasing sequence so that the associated alternating sum converges.
 	Let
-	<me> S = \sum_{k = 0}^\infty {(-1)}^k a_k </me>,
+	<md> S = \sum_{k = 0}^\infty {(-1)}^k a_k </md>,
 	and let <m>\nseq{s}</m> represent the sequence of partial sums.
 	<ol>
 		<li> For even <m>n</m>, the partial sum <m>s_n</m> is an overestimate of <m>S</m>. </li>
@@ -2001,20 +2001,20 @@ we simply need to determine the index at which the terms of <m>\nseq{a}</m> get 
 
 <example>
 
-	<p> Suppose we would like to estimate the sum <me> \sum_{k = 0}^\infty {(-1)}^k \frac{k + 1}{4^k} </me> to within a tolerance of <m>\pm 5 \times {10}^{-5}</m>. </p>
+	<p> Suppose we would like to estimate the sum <md> \sum_{k = 0}^\infty {(-1)}^k \frac{k + 1}{4^k} </md> to within a tolerance of <m>\pm 5 \times {10}^{-5}</m>. </p>
 
 	<p>
 	First let's verify that the sequence <m>\bbseq{(n + 1) / 4^n}</m> satisfies the conditions of <xref ref="fact-series-alternating-series-test" text="title" />.
 	Clearly this sequence is positive.
 	To investigate whether the sequence decreases to <m>0</m>,
 	we will instead consider the corresponding continuous function <m>f(t) = (t + 1) / 4^t</m>.
-	We have <me> f'(t) = \frac{1 - (t + 1) \ln(4)}{4^t} </me>,
+	We have <md> f'(t) = \frac{1 - (t + 1) \ln(4)}{4^t} </md>,
 	which is negative on domain <m>t \gt 1 - 1/\ln(4)</m>,
 	so we can say that <m>\bbseq{(n + 1) / 4^n}</m> is a decreasing sequence for <m>n \ge 1</m>.
 	Furthermore,
 	<m>f(t)</m> has <m>\infty/\infty</m> form as <m>t \to \infty</m>,
 	so
-	<me> \lim_{t \to \infty} \frac{t + 1}{4^t} \lhopeq \lim_{t \to \infty} \frac{1}{4^t \ln(4)} = 0 </me>,
+	<md> \lim_{t \to \infty} \frac{t + 1}{4^t} \lhopeq \lim_{t \to \infty} \frac{1}{4^t \ln(4)} = 0 </md>,
 	and we conclude that <m>\nseq{a} \to 0</m> as well.
 	All of this confirms that <m>\sum {(-1)}^k a_k</m> converges,
 	and we can use partial sums to estimate its value.
@@ -2026,7 +2026,7 @@ we simply need to determine the index at which the terms of <m>\nseq{a}</m> get 
 	and then we can backtrack one index from that.
 	You may calculate that the denominator of the terms of <m>\nseq{a}</m> becomes greater than <m>{10}^5</m> at <m>n = 9</m>.
 	From <m>4^9 \gt 2 \times {10}^5</m> we can compute:
-	<me> a_9 = \frac{9 + 1}{4^9} \lt \frac{10}{2 \times {10}^5} = \frac{5}{10^5} </me>.
+	<md> a_9 = \frac{9 + 1}{4^9} \lt \frac{10}{2 \times {10}^5} = \frac{5}{10^5} </md>.
 	This means that <m>s_8</m> will estimate the infinite sum to within <m>\pm 5 \times {10}^{-5}</m>:
 	<md>
 		<mrow> \sum_{k = 0}^\infty {(-1)}^k \frac{k + 1}{4^k} \amp \approx \sum_{k = 0}^8 {(-1)}^k \frac{k + 1}{4^k} </mrow>
@@ -2050,7 +2050,7 @@ we simply need to determine the index at which the terms of <m>\nseq{a}</m> get 
 	And if you increase the <c>digits</c> parameter in the Sage cell above,
 	you'll see that it is already rounded up from the exact value.
 	So we can be confident that
-	<me> 0.639979 \lt \sum_{k = 0}^\infty {(-1)}^k \frac{k + 1}{4^k} \lt 0.640030 </me>
+	<md> 0.639979 \lt \sum_{k = 0}^\infty {(-1)}^k \frac{k + 1}{4^k} \lt 0.640030 </md>
 	(where we have subtracted off <m>5.1 \times {10}^{-5}</m> to account for the fact that <m>0.640030</m> is a rounded-up value).
 	</p>
 

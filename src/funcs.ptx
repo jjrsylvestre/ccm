@@ -191,7 +191,7 @@ and includes all possible input values that <q>make sense</q> in the function de
 	<title>An implicit domain</title>
 	<p>
 	Let <m>f</m> represent the function described by the input-output formula
-	<me> f(t) = \frac{1}{t} </me>.
+	<md> f(t) = \frac{1}{t} </md>.
 	The domain of this function is <m>t \neq 0</m>,
 	meaning the set of all input values <em>except</em> <m>t = 0</m>,
 	since at <m>t = 0</m> the output formula would involve division by zero.
@@ -223,7 +223,7 @@ even if the description of the function's input-output process could allow other
 </definition>
 
 <example><p>
-	The function <me> f(t) = \frac{1}{t^2} </me> only outputs positive values.
+	The function <md> f(t) = \frac{1}{t^2} </md> only outputs positive values.
 	But is every positive value an <em>actual</em> output of the function?
 	Yes, because if <m>q</m> is a positive number,
 	there is at least one example of an input value so that <m>f(t) = q</m>;
@@ -467,8 +467,8 @@ and so on.
 	<p>
 	Let <m>q</m> represent the number of units sold in a month by any one salesperson,
 	and let <m>s(q)</m> represent the salary to be paid to that employee.
-	In the domain <m> 0 \le q \le 100 </m> we have <me> s(q) = 4000 + 10 q </me>.
-	But on the domain <m> q \gt 100 </m> we have <me> s(q) = 4000 + 10 q + 5 (q - 100) </me>.
+	In the domain <m> 0 \le q \le 100 </m> we have <md> s(q) = 4000 + 10 q </md>.
+	But on the domain <m> q \gt 100 </m> we have <md> s(q) = 4000 + 10 q + 5 (q - 100) </md>.
 	</p>
 
 </example>
@@ -477,12 +477,12 @@ and so on.
 We can collect together several formulas into one function definition with some notation.
 For example,
 the salary function from <xref ref="example-funcs-commissions" /> can be expressed as
-<me>
+<md>
 	s(q) = \begin{cases}
 		4000 + 10 q \amp 0 \le q \le 100 \\
 		4000 + 10 q + 5 (q - 100) \amp q \gt 100
 	\end{cases}
-</me>.
+</md>.
 The format of this notation begins with a large left brace,
 which alerts the reader that the formulas on the right are to be grouped together as cases in the definition of the function.
 Then we have the formulas and their associated domain of application,
@@ -505,12 +505,12 @@ As you can imagine, a piecewise function will also have a graph that appears to 
 
 	<p>
 	Consider the following piecewise function.
-	<me>
+	<md>
 		f(t) = \begin{cases}
 			t^2 \amp 0 \le t \le 2 \\
 			6 - t \amp t \gt 2
 		\end{cases}
-	</me>
+	</md>
 	The graph of this function appears in <xref ref="figure-funcs-piecewise" />.
 	Notice how the graph is made of part parabola,
 	and part line.
@@ -545,12 +545,12 @@ there is no requirement that the pieces of the graph meet at the transition poin
 
 	<p>
 	Now consider the piecewise function
-	<me>
+	<md>
 		g(t) = \begin{cases}
 			t^2 \amp 0 \le t \le 2 \\
 			4 - t \amp t \gt 2
 		\end{cases}
-	</me>,
+	</md>,
 	the graph of which appears in <xref ref="figure-funcs-piecewise-2" />.
 	At <m>t = 2</m>,
 	the parabola portion on the left ends at height <m>4</m> but the line begins at height <m>2</m>,
@@ -591,7 +591,7 @@ there is no requirement that the pieces of the graph meet at the transition poin
 
 	<p>
 	Now consider the piecewise function
-	<me>
+	<md>
 		h(t) = \begin{cases}
 			1 \amp t \lt 0 \\
 			t^2 + 1 \amp 0 \le t \le 2 \\
@@ -599,7 +599,7 @@ there is no requirement that the pieces of the graph meet at the transition poin
 			11 - 2 t \amp 3 \le t \le 5 \\
 			1 \amp t \gt 5
 		\end{cases}
-	</me>,
+	</md>,
 	the graph of which appears in <xref ref="figure-funcs-piecewise-many" />.
 	</p>
 
@@ -652,7 +652,7 @@ but it is not really any different than writing down a table of values.
 	<title>Piecewise table of values</title>
 	<p>
 	Here is the function from <xref ref="example-funcs-by-table" /> in piecewise-function notation.
-	<me>
+	<md>
 		f(t) = \begin{cases}
 			0 \amp t = 0 \\
 			1/3 \amp t = 1 \\
@@ -660,7 +660,7 @@ but it is not really any different than writing down a table of values.
 			2 \amp t = 3 \\
 			\sqrt{5} \amp t = \pi
 		\end{cases}
-	</me>.
+	</md>.
 	This function is still only defined at a handful of points <mdash />
 	for example, <m>f(1/2)</m> is undefined because there is no listed formula whose associated subdomain is or contains <m>t = 1/2</m>.
 	</p>
@@ -705,7 +705,7 @@ and we can always make the first approximation better by tightening the second a
 	It has value <m>f(2) = 4</m> there,
 	but if <m>t</m> is slightly bigger than <m>2</m> then <m>f(t) \approx 2</m>, not <m>4</m>.
 	So it's not possible to restrict output values to the open range
-	<me> 3 \lt f(t) \lt 5 </me>
+	<md> 3 \lt f(t) \lt 5 </md>
 	around the actual output value <m>f(2) = 4</m>.
 	That is, when we take <m>f(t) \approx 4</m> to mean <q> no lower than <m>3</m> and no higher than <m>5</m></q>,
 	there is no way to make this true for all <m>t \approx 2</m>,
@@ -927,7 +927,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 
 	<p>
 	You might think of this kind of discontinuity as a <q>hole in the graph</q>.
-	For example, for the function <me> f(t) = \frac{t^2 - 1}{t - 1} </me>,
+	For example, for the function <md> f(t) = \frac{t^2 - 1}{t - 1} </md>,
 	for <em>most</em> values of <m>t</m> we can simplify the input-output formula to
 	<md>
 		<mrow> f(t) \amp = \frac{t^2 - 1}{t - 1} </mrow>
@@ -1110,7 +1110,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	<title>Searching for horizontal intercepts</title>
 
 	<p>
-	The graph of the cubic function <me> p(t) = 5 - t + t^2 - t^3 </me> is continuous,
+	The graph of the cubic function <md> p(t) = 5 - t + t^2 - t^3 </md> is continuous,
 	so from the information
 	<md>
 		<mrow>
@@ -1127,7 +1127,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	In particular,
 	since <m>p(1) \gt 0</m> and <m>p(2) \lt 0</m>,
 	we may apply the <xref ref="theorem-funcs-intermediate-value" text="title" /> with <m>K = 0</m> to conclude that there must be at least one solution to
-	<me> 5 - t + t^2 - t^3 = 0 </me>
+	<md> 5 - t + t^2 - t^3 = 0 </md>
 	somewhere between <m>t = 1</m> and <m>t = 2</m>.
 	</p>
 
@@ -1151,9 +1151,9 @@ The issue is that you may overlook important features that occur between the poi
 </p>
 
 <p>
-For example, consider function <me> f(t) = \frac{2}{2 t - 1} </me>.
+For example, consider function <md> f(t) = \frac{2}{2 t - 1} </md>.
 On a set of axes,
-plot points at integer values of <m>t</m>: <me> t = -2, -1, 0, 1, 2</me>.
+plot points at integer values of <m>t</m>: <md> t = -2, -1, 0, 1, 2</md>.
 Then join your points together smoothly to make a <q>graph</q> for <m>f(t)</m>.
 Finally, get an online graphing app to graph <m>f(t)</m> for you and compare with your <q>graph</q> <mdash />
 you will find that they are very different.
@@ -1181,7 +1181,7 @@ we create a <q>new</q> function whose graph is moved up
 or down
 (if the added fixed value is negative).
 Accordingly, for
-<me> g(t) = f(t) + C </me>,
+<md> g(t) = f(t) + C </md>,
 we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
 </p>
 
@@ -1261,7 +1261,7 @@ we create a <q>new</q> function whose graph has been stretched away from the hor
 or compressed towards the horizontal axis
 (if the scale factor is less than <m>1</m>).
 Accordingly, for
-<me> g(t) = k f(t) </me>,
+<md> g(t) = k f(t) </md>,
 we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
 </p>
 
@@ -1339,11 +1339,11 @@ we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
 If we take an <q>old</q> function and change the sign of every output,
 we create a <q>new</q> function whose graph has been reflected in the horizontal axis.
 Accordingly, for
-<me> g(t) = - f(t) </me>,
+<md> g(t) = - f(t) </md>,
 we call <m>g</m> a <term>vertical reflection</term> of <m>f</m>.
 Similarly,
 if we have
-<me> g(t) = k f(t) </me>
+<md> g(t) = k f(t) </md>
 with <m>k</m> negative,
 then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 </p>
@@ -1353,7 +1353,7 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 
 	<p>
 	To graph
-	<me> g(t) = - \sqrt{t} </me>
+	<md> g(t) = - \sqrt{t} </md>
 	again we relate it to the graph of the function <m>f(t) = \sqrt{t} </m>,
 	and again focus on anchor points at <m>t = 0</m> and <m>t = 1</m>.
 	<md>
@@ -1456,7 +1456,7 @@ we are essentially causing output values to occur <q>later.</q>
 For example,
 for <m>g(t) = f(t - 2)</m>,
 the <q>old</q> function's initial output value <m>f(0)</m> occurs at <m>t = 2</m> for the <q>new</q> function:
-<me> g(2) = f(2 - 2) = f(0) </me>.
+<md> g(2) = f(2 - 2) = f(0) </md>.
 So subtracting a positive constant from the independent variable shifts the graph to the right by that amount.
 </p>
 
@@ -1468,7 +1468,7 @@ we cause output values to occur <q>earlier</q>.
 For example,
 for <m>g(t) = f\bbrac{t - (-2)}</m>,
 the initial value of the <q>new</q> function is the same as the <q>old</q> function's value at <m>t = 2</m>:
-<me> g(0) = f\bbrac{0 - (-2)} = f(2) </me>.
+<md> g(0) = f\bbrac{0 - (-2)} = f(2) </md>.
 So subtracting a negative constant from the independent variable shifts the graph to the left by that amount.
 </p>
 
@@ -1558,11 +1558,11 @@ at least for positive inputs.
 For example,
 for <m>g(t) = f(t/2)</m>,
 the value <m>f(1)</m> achieved by the <q>old</q> function at <m>t = 1</m> won't be achieved by the <q>new</q> function until <m>t = 2</m>:
-<me> g(2) = f(2 / 2) = f(1) </me>.
+<md> g(2) = f(2 / 2) = f(1) </md>.
 However, this effect is symmetric about the vertical axis <mdash />
 using our same example <m>g(t) = f(t/2)</m>
 the value <m>f(-1)</m> achieved by the <q>old</q> function at <m>t = -1</m> is achieved by the <q>new</q> function until <m>t = -2</m>:
-<me> g(-2) = f(-2 / 2) = f(-1) </me>.
+<md> g(-2) = f(-2 / 2) = f(-1) </md>.
 Overall, the effect is to stretch the graph of the <q>old</q> function away from the vertical axis.
 </p>
 
@@ -1572,7 +1572,7 @@ so that outputs of the old function are <q>pulled in</q> towards the vertical ax
 For example,
 for <m>g(t) = f\bbrac{t / 0.5}</m>,
 the output value of the <q>old</q> function at <m>t = 2</m> becomes the output value of the <q>new</q> function at <m>t = 1</m>:
-<me> g(1) = f(1 / 0.5) = f(2) </me>.
+<md> g(1) = f(1 / 0.5) = f(2) </md>.
 Again, the effect is symmetric about the vertical axis,
 so that the overall effect is to compress the graph of the <q>old</q> function towards the vertical axis.
 </p>
@@ -1655,7 +1655,7 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 	Sometimes it is possible to re-interpret a horizontal scale as a vertical scale or vice versa,
 	depending on the algebraic properties of the function's formula.
 	For example, for
-	<me> g(t) = \sqrt{\frac{t}{2}} = \frac{\sqrt{t}}{\sqrt{2}} </me>
+	<md> g(t) = \sqrt{\frac{t}{2}} = \frac{\sqrt{t}}{\sqrt{2}} </md>
 	from <xref ref="example-funcs-hscale" />,
 	we could interpret the <q>new</q> function as either a horizontal stretch by a factor of <m>2</m> or as a vertical compression by a factor of <m>\sqrt{2}</m>.
 </p></remark>
@@ -1669,11 +1669,11 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 If we take an <q>old</q> function and change the sign of inputs before they are used,
 we create a <q>new</q> function whose graph has been reflected in the vertical axis.
 Accordingly, for
-<me> g(t) = f(- t) </me>,
+<md> g(t) = f(- t) </md>,
 we call <m>g</m> a <term>horizontal reflection</term> of <m>f</m>.
 Similarly,
 if we have
-<me> g(t) = f(t / c) </me>
+<md> g(t) = f(t / c) </md>
 with <m>c</m> negative,
 then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 </p>
@@ -1683,7 +1683,7 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 
 	<p>
 	To graph
-	<me> g(t) = \sqrt{- t} </me>
+	<md> g(t) = \sqrt{- t} </md>
 	again we relate it to the graph of the function <m>f(t) = \sqrt{t} </m>.
 	It may seem like the formula for <m>g(t)</m> makes no sense,
 	since the square root of a negative number is undefined.

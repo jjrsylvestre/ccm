@@ -23,10 +23,10 @@ respective owners.
 The examples in <xref ref="section-chain-differential-version" /> all had a similar pattern to the initial approach:
 we made a substitution for <m>u</m> based on recognizing an inner component and an outer component to the function.
 For example,
-for <me> q(t) = \sin^3(t) = {\bbrac{\sin(t)}}^3 </me>
+for <md> q(t) = \sin^3(t) = {\bbrac{\sin(t)}}^3 </md>
 from <xref ref="example-chain-power-of-sine" />,
 the inner component is the sine function and the outer component is a power function.
-For <me> q(t) = \sqrt{t^2 + 1} </me>
+For <md> q(t) = \sqrt{t^2 + 1} </md>
 from <xref ref="example-chain-radical" />,
 the inner component is a polynomial function and the outer component is the square root component.
 It is just a matter of changing perspective on the function from a single input-output process to a <em>chain</em> of two (or more) input-output processes.
@@ -46,7 +46,7 @@ It is just a matter of changing perspective on the function from a single input-
 	<statement><p>
 		Given functions <m>f</m> and <m>g</m>,
 		the composite function <m>\comp{g}{f}</m> is the function defined by
-		<me> (\comp{g}{f})(t) = g\bbrac{f(t)} </me>.
+		<md> (\comp{g}{f})(t) = g\bbrac{f(t)} </md>.
 		If <m>f(t)</m> and <m>g(t)</m> are described in terms of formulas,
 		a formula for <m>(\comp{g}{f})(t)</m> can be obtained by replacing every occurrence of <m>t</m> in the formula for <m>g(t)</m> with the entire formula for <m>f(t)</m>.
 	</p></statement>
@@ -111,7 +111,7 @@ More important than computing composite functions is recognizing an existing fun
 		<mrow> \amp = e^{f(t)} </mrow>
 		<mrow> \amp = e^{t^2 + 1} </mrow>
 	</md>,
-	so we can say <me> h = \comp{\exp}{f} </me>.
+	so we can say <md> h = \comp{\exp}{f} </md>.
 	</p>
 </example>
 
@@ -120,9 +120,9 @@ More important than computing composite functions is recognizing an existing fun
 <example>
 	<title>A composition of four functions</title>
 	<p>
-	Consider the function <me> h(t) = e^{\sqrt{\abs{\cos(t)}}} </me>.
+	Consider the function <md> h(t) = e^{\sqrt{\abs{\cos(t)}}} </md>.
 	Working from the outside inward,
-	we can write <me> h = \comp{\exp}{\comp{\sqrtop}{\comp{\absop}{\cos}}} </me>.
+	we can write <md> h = \comp{\exp}{\comp{\sqrtop}{\comp{\absop}{\cos}}} </md>.
 	To verify that this is correct,
 	we can compute:
 	<md>
@@ -150,14 +150,14 @@ Finally, here is a version of the <xref ref="pattern-chain-differential-version"
 		If function <m>g(t)</m> is differentiable at <m>t = c</m>
 		and function <m>f(t)</m> is differentiable at <m>t = g(c)</m>,
 		then the composition <m>\comp{f}{g}</m> is differentiable at <m>t = c</m>,
-		with <me> (\comp{f}{g})'(c) = f'\bbrac{g(c)} \cdot g'(c) </me>.
+		with <md> (\comp{f}{g})'(c) = f'\bbrac{g(c)} \cdot g'(c) </md>.
 		</p>
 	</statement>
 
 	<proof><p>
 		If we set <m>u = g(t)</m>,
 		then we may regard the composite
-		<me> (\comp{f}{g})(t) = f\bbrac{g(t)} = f(u) </me> as a function of <m>u</m>.
+		<md> (\comp{f}{g})(t) = f\bbrac{g(t)} = f(u) </md> as a function of <m>u</m>.
 		Using our inital version of the <xref ref="pattern-chain-differential-version" text="title" />,
 		we have
 		<md>
@@ -184,7 +184,7 @@ Finally, here is a version of the <xref ref="pattern-chain-differential-version"
 	A period of steady, heavy rain begins,
 	and it is observed that the depth of water is increasing by <quantity><mag>50</mag><unit base="meter" prefix="centi" /><per base="hour" /></quantity>.
 	Knowing that a constant variation must mean a linear quantity,
-	we can create quantity model <me> D(t) = 0.5 t + 3 </me> for the depth of water in metres at time <m>t</m> hours after it began raining.
+	we can create quantity model <md> D(t) = 0.5 t + 3 </md> for the depth of water in metres at time <m>t</m> hours after it began raining.
 	</p>
 
 	<p>
@@ -248,9 +248,9 @@ The key is to recognize that in special situations, computing a composition has 
 
 		<p>
 		If <m>f(t)</m> and <m>g(t)</m> are functions so that
-		<me> f\bbrac{g(t)} = t </me> for all <m>t</m> in the domain of <m>g</m>
+		<md> f\bbrac{g(t)} = t </md> for all <m>t</m> in the domain of <m>g</m>
 		and
-		<me> g\bbrac{f(t)} = t </me> for all <m>t</m> in the domain of <m>f</m>,
+		<md> g\bbrac{f(t)} = t </md> for all <m>t</m> in the domain of <m>f</m>,
 		then <m>f</m> and <m>g</m> are a pair of <term>inverse functions</term>.
 		</p>
 
@@ -302,7 +302,7 @@ and the requirements of <xref ref="definition-comp-inv-inv" /> become
 	<p>
 	If function <m>f</m> has an inverse function <m>\inv{f}</m>,
 	then also <m>f</m> is the inverse of <m>\inv{f}</m>,
-	so that <me> \inv{(\inv{f})} = f </me>.
+	so that <md> \inv{(\inv{f})} = f </md>.
 	</p>
 </identity>
 
@@ -351,7 +351,7 @@ But in the second calculation,
 we assume that we are using the domain of the square function,
 and in that case negative <m>t</m> are permitted but do not result back at <m>t</m> when composed.
 For example,
-<me> \sqrt{{(-1)}^2} = \sqrt{1} = 1 \neq -1 </me>.
+<md> \sqrt{{(-1)}^2} = \sqrt{1} = 1 \neq -1 </md>.
 We will fix this problem later in this chapter,
 so that the square root function <em>is</em> the inverse of a version of the square function.
 </p>
@@ -418,9 +418,9 @@ just as in <xref ref="example-comp-inv-rain" />.
 	<title>Computing an inverse function formula</title>
 
 	<p>
-	Consider the function <me> f(t) = {(2 t + 3)}^3 </me>.
+	Consider the function <md> f(t) = {(2 t + 3)}^3 </md>.
 	Let's write <m>y</m> as the output variable,
-	so that <m>(t,y)</m> is an input-output pair whenever <me> y = (2 t + 3)^3 </me>.
+	so that <m>(t,y)</m> is an input-output pair whenever <md> y = (2 t + 3)^3 </md>.
 	If <m>f(t)</m> is invertible,
 	then,
 	exactly as in <xref ref="equation-comp-inv-two-cubed-cube-root" />,
@@ -440,7 +440,7 @@ just as in <xref ref="example-comp-inv-rain" />.
 
 	<p>
 	The reversed formula above tells us the formula for the inverse function:
-	<me> \inv{f}(t) = \frac{\sqrt[3]{t} - 3}{2} </me>.
+	<md> \inv{f}(t) = \frac{\sqrt[3]{t} - 3}{2} </md>.
 	If we consider an input-output formula as a sequence of calculation instructions
 	(paying proper mind to BEDMAS),
 	it makes sense that these two formulas are inverse:
@@ -476,10 +476,10 @@ just as in <xref ref="example-comp-inv-rain" />.
 	<title>A function without an inverse</title>
 	<p>
 	If we try to apply the same procedure as in <xref ref="example-comp-inv-compute-inverse-works" />
-	to <me> f(t) = {(2 t + 3)}^2 </me>,
+	to <md> f(t) = {(2 t + 3)}^2 </md>,
 	we run into a problem:
 	there are two different ways we could isolate <m>t</m>.
-	If we set <me> y = {(2 t + 3)}^2 </me>,
+	If we set <md> y = {(2 t + 3)}^2 </md>,
 	then certainly <m>y</m> can't be negative and we can take its square root.
 	But there are two different numbers whose square is the right-hand side above:
 	<md>
@@ -489,7 +489,7 @@ just as in <xref ref="example-comp-inv-rain" />.
 	</md>.
 	Neither function
 	<md><mrow> g_1(t) \amp = \frac{\sqrt{t} - 3}{2} \amp g_2(t) \amp = - \frac{\sqrt{t} + 3}{2} </mrow></md>
-	will universally satisfy <me> g\bbrac{f(t)} = t </me>
+	will universally satisfy <md> g\bbrac{f(t)} = t </md>
 	for <em>all</em> <m>t</m> in the domain of <m>f</m>,
 	so we cannot say that either one is the inverse function of <m>f</m>.
 	</p>
@@ -510,7 +510,7 @@ just as in <xref ref="example-comp-inv-rain" />.
 </example>
 
 <p>
-The equality <me> \inv{q}\bbrac{q(t)} = t </me>
+The equality <md> \inv{q}\bbrac{q(t)} = t </md>
 is actually stating the purpose of an inverse function:
 to answer the question
 <em><q>Given an output <m>q(t)</m>, what input <m>t</m> produced it?</q></em>
@@ -570,8 +570,8 @@ but in the other two examples some output values could correspond to <em>two or 
 	but there are output values in that range which have <em>many</em> corresponding input values.
 	For example,
 	<m>\sin(t) = 1</m>
-	occurs at positive inputs <me> t = \frac{\pi}{2}, \frac{5 \pi}{2}, \frac{9 \pi}{2}, \dotsc </me>
-	and also at negative inputs <me> t = - \frac{3 \pi}{2}, - \frac{7 \pi}{2}, - \frac{11 \pi}{2}, \dotsc </me>.
+	occurs at positive inputs <md> t = \frac{\pi}{2}, \frac{5 \pi}{2}, \frac{9 \pi}{2}, \dotsc </md>
+	and also at negative inputs <md> t = - \frac{3 \pi}{2}, - \frac{7 \pi}{2}, - \frac{11 \pi}{2}, \dotsc </md>.
 	</p>
 
 	<figure xml:id="figure-comp-inv-sin-repeated-output">
@@ -707,9 +707,9 @@ then creating the graph of an inverse function interchanges the horizontal and v
 	This tells us that
 	<md><mrow> \inv{\ln}(t) \amp = \exp(t) \amp \inv{\exp}(t) \amp = \ln(t) </mrow></md>.
 	We already knew that
-	<me> \ln(e^t) = t \ln e = t </me>,
+	<md> \ln(e^t) = t \ln e = t </md>,
 	and this now also confirms that
-	<me> e^{\ln(t)} = t </me>.
+	<md> e^{\ln(t)} = t </md>.
 	</p>
 
 </example>
@@ -785,12 +785,12 @@ it is equivalent to verifying the <xref ref="pattern-funcs-VLT" text="title" /> 
 	</figure>
 
 	<p>
-	We have fixed also fixed the problem where <me> g\bbrac{f(t)} = \sqrt{t^2} = \abs{t} \neq t </me>
+	We have fixed also fixed the problem where <md> g\bbrac{f(t)} = \sqrt{t^2} = \abs{t} \neq t </md>
 	(as in <xref ref="example-comp-inv-square" />).
 	When we now compute <m>g\bbrac{h(t)}</m>,
 	we assume that <m>t</m> is in the domain of <m>h</m>,
 	which has been restricted to <m>t \ge 0</m>.
-	In that case, <me> g\bbrac{h(t)} = \sqrt{t^2} = \abs{t} = t </me>.
+	In that case, <md> g\bbrac{h(t)} = \sqrt{t^2} = \abs{t} = t </md>.
 	</p>
 
 </example>
@@ -818,7 +818,7 @@ then <em>slopes</em> on the graphs should also be related.
 	To compute a <xref ref="definition-avg-rate-derivative-value" text="title" /> like <m>q'(2)</m> from the definition,
 	we should first approximate that instantaneous rate with an average rate calculation over a short time interval containing <m>2</m>.
 	So suppose we choose <m>t_1 \le 2</m> and <m>t_2 \ge 2</m> so that <m>\Delta t = t_2 - t_1</m> is small but not zero.
-	The corresponding average rate value <me> \frac{\text{rise}}{\text{run}} = \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </me>
+	The corresponding average rate value <md> \frac{\text{rise}}{\text{run}} = \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </md>
 	is the slope of the secant line between the points <m>(t_1,q_1)</m> and <m>(t_2,q_2)</m>.
 	</p>
 
@@ -861,7 +861,7 @@ then <em>slopes</em> on the graphs should also be related.
 	This allows us to relate the derivative value <m>q'(2)</m> not to <m>(\inv{q})'(2)</m> but to <m>(\inv{q})'(8)</m>.
 	On the second graph,
 	the slope of the reflected secant line must be calculated as
-	<me> \frac{\text{rise}}{\text{run}} = \slope{t}{q} = \frac{t_2 - t_1}{q_2 - q_1} </me>.
+	<md> \frac{\text{rise}}{\text{run}} = \slope{t}{q} = \frac{t_2 - t_1}{q_2 - q_1} </md>.
 	The result is that <em>an average rate for the inverse function is the reciprocal of a corresponding average rate for the original function</em>.
 	Since this is true about <em>every</em> average rate function calculation,
 	we conclude that there should also be a reciprocal relationship for the derivatives of the two functions.
@@ -874,7 +874,7 @@ then <em>slopes</em> on the graphs should also be related.
 	so <m>q'(2) = 12</m>.
 	On the other hand,
 	we can also use <xref ref="pattern-deriv-power" /> to directly compute that
-	<me> \inv{q}(t) = t^{1/3} \quad\implies\quad (\inv{q})'(t) = \frac{1}{3} \cdot t^{-2/3} = \frac{1}{3 t^{2/3}} </me>,
+	<md> \inv{q}(t) = t^{1/3} \quad\implies\quad (\inv{q})'(t) = \frac{1}{3} \cdot t^{-2/3} = \frac{1}{3 t^{2/3}} </md>,
 	so
 	<md>
 		<mrow> (\inv{q})'(8) \amp = \frac{1}{3 \cdot 8^{2/3}} </mrow>
@@ -895,13 +895,13 @@ then <em>slopes</em> on the graphs should also be related.
 	Let <m>y</m> represent the output value <m>y = f(c)</m>,
 	so that <m>\inv{f}(y) = c</m>.
 	Then <m>\inv{f}(t)</m> is differentiable at <m>t = y</m>,
-	with <me> (\inv{f})'(y) = \frac{1}{f'(c)} = \frac{1}{f'\bbrac{\inv{f}(y)}} </me>.
+	with <md> (\inv{f})'(y) = \frac{1}{f'(c)} = \frac{1}{f'\bbrac{\inv{f}(y)}} </md>.
 	</p>
 </identity>
 
 <remark><p>
 	If we like, we can turn the formula in <xref ref="pattern-comp-inv-derivative" /> into one involving <m>t</m> by just replacing <m>y</m> by <m>t</m>:
-	<me> (\inv{f})'(t) = \frac{1}{f'\bbrac{\inv{f}(t)}} </me>.
+	<md> (\inv{f})'(t) = \frac{1}{f'\bbrac{\inv{f}(t)}} </md>.
 	Kep in mind that the reason there is an <m>\inv{f}(t)</m> inside the <m>f'</m> in the fraction on the right is because an input for <m>f</m> is the same as an output for <m>\inv{f}</m>,
 	and the derivative function <m>f'</m> should have the same inputs as <m>f</m>
 	(except for any points of non-differentiability).
@@ -920,7 +920,7 @@ then <em>slopes</em> on the graphs should also be related.
 	<p>
 	With the knowledge of the <xref ref="theorem-fund-thm" text="title" />,
 	we might interpret our definition of the natural logarithm (<xref ref="definition-log-natural" />)
-	as specifically designed so that <me> \opddt \bbrac{\ln(t)} = \frac{1}{t} </me>.
+	as specifically designed so that <md> \opddt \bbrac{\ln(t)} = \frac{1}{t} </md>.
 	Viewing the natural exponential function as the inverse of the natural logarithm,
 	we take <m>f = \ln</m> in <xref ref="pattern-comp-inv-derivative" />,
 	so that <m>\inv{f} = \exp</m>.

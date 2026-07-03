@@ -41,7 +41,7 @@ respective owners.
 	Let <m>V(t)</m> represent the volume of air accumulated in the balloon at time <m>t</m>,
 	and take the initial volume to be <m>V(0) = 0</m>.
 	The air flow specification on our pump tells us
-	<me> \ddt{V} = 0.75 </me>.
+	<md> \ddt{V} = 0.75 </md>.
 	But as the volume of the balloon varies,
 	so do other aspects of its geometry.
 	For example,
@@ -56,13 +56,13 @@ respective owners.
 	First, in the current scenario, <m>V</m> varies at a constant rate,
 	so <m>V(t)</m> must be linear,
 	with slope equal to its constant rate of variation:
-	<me> V(t) = V_0 + 0.75 t </me>.
+	<md> V(t) = V_0 + 0.75 t </md>.
 	However, we have taken <m>V_0 = V(0) = 0</m>,
 	so we have
-	<me> V(t) = \frac{3 t}{4} </me>.
+	<md> V(t) = \frac{3 t}{4} </md>.
 	On the other hand, using <m>R</m> to represent the radius of the balloon,
 	we can relate <m>V</m> to <m>D</m> using the formula for the volume of a sphere:
-	<me> V = \frac{4 \pi R^3}{3} = \frac{\pi D^3}{6} </me>.
+	<md> V = \frac{4 \pi R^3}{3} = \frac{\pi D^3}{6} </md>.
 	Isolating <m>D</m> gives
 	<md>
 		<mrow> D \amp = \sqrt[3]{\frac{6}{\pi}} \, V^{1/3} </mrow>
@@ -112,9 +112,9 @@ but not with respect to time <mdash />
 it represents how the volume varies (on average) as the diameter varies,
 and would be in units of metres-cubed per metre.
 We can interpret the formula
-<me> V = \frac{\pi D^3}{6} </me>
+<md> V = \frac{\pi D^3}{6} </md>
 as expressing <m>V</m> as a function of the independent variable <m>D</m>:
-<me> V(D) = \frac{\pi D^3}{6} </me>.
+<md> V(D) = \frac{\pi D^3}{6} </md>.
 </p>
 
 <example>
@@ -151,7 +151,7 @@ as expressing <m>V</m> as a function of the independent variable <m>D</m>:
 
 <p>
 Now,
-<me> \slope{V}{t} = \slope{V}{D} \cdot \slope{D}{t} </me>
+<md> \slope{V}{t} = \slope{V}{D} \cdot \slope{D}{t} </md>
 is true for all average rate calculations.
 So if <m>V</m> is differentiable as a function of <m>D</m>,
 and <m>D</m> is differentiable as a function of <m>t</m>,
@@ -175,21 +175,21 @@ giving us
 	</mrow>
 </md>
 The derivative value
-<me> \funceval{\ddt{V}}{t = t^\ast} </me>
+<md> \funceval{\ddt{V}}{t = t^\ast} </md>
 is defined to be a value that <m>\inlineslope{V}{t}</m> values can be made arbitrarily close to by taking <m>\change{t}</m> small enough.
 As the approximations in <xref ref="equation-chain-volume-vs-diameter-slopes" /> become better the smaller we take <m>\change{t}</m>
 (because this also makes <m>\change{D}</m> smaller),
 we can say that the approximation in <xref ref="equation-chain-volume-vs-diameter-derivs" /> becomes better the smaller we take <m>\change{t}</m>,
 and we conclude that
-<me>
+<md>
 	\funceval{\ddt{V}}{t = t^\ast}
 	= \left( \funceval{\dd{V}{D}}{D = D^\ast} \right)
 	  \left( \funceval{\ddt{D}}{t = t^\ast}   \right)
-</me>.
+</md>.
 And since this is true at all points <m>t = t^\ast</m>
 (and corresponding <m>D = D^\ast</m>),
 we can say
-<me> \ddt{V} = \dd{V}{D} \cdot \ddt{D} </me>.
+<md> \ddt{V} = \dd{V}{D} \cdot \ddt{D} </md>.
 </p>
 
 <example xml:id="example-chain-balloon-again">
@@ -234,7 +234,7 @@ we can say
 	Suppose that <m>u</m> is a quantity that varies as <m>t</m> varies
 	and <m>v</m> is a quantity that varies as <m>u</m> varies.
 	Then ultimately <m>v</m> varies when <m>t</m> varies,
-	with <me> \ddt{v} = \ddu{v} \cdot \dudt </me>.
+	with <md> \ddt{v} = \ddu{v} \cdot \dudt </md>.
 	</p>
 </identity>
 
@@ -257,7 +257,7 @@ we can say
 	</md>.
 	If we would rather have a formula for <m>dv/dt</m> that is solely in terms of the ultimate independent variable <m>t</m>,
 	then we can substitute for <m>u</m>:
-	<me> \ddt{v} = 2 (t + t^{-1}) (1 - t^{-2}) </me>.
+	<md> \ddt{v} = 2 (t + t^{-1}) (1 - t^{-2}) </md>.
 	</p>
 
 	<p>
@@ -301,8 +301,8 @@ we can say
 	</quantity>.
 	(Assume it is a large balloon.)
 	In <xref ref="example-chain-balloon-again" />
-	we calculated <me> \dd{V}{D} = \frac{\pi D^2}{2} </me>,
-	and so combining this with our assumption <me> \ddt{D} = 0.5 </me>
+	we calculated <md> \dd{V}{D} = \frac{\pi D^2}{2} </md>,
+	and so combining this with our assumption <md> \ddt{D} = 0.5 </md>
 	we have
 	<md>
 		<mrow> \ddt{V} \amp = \dd{V}{D} \cdot \ddt{D} </mrow>
@@ -312,10 +312,10 @@ we can say
 	We can convert this into a formula in <m>t</m> by first obtaining a formula for <m>D</m>.
 	As we have assumed that <m>D</m> varies at a constant rate,
 	it must be a linear function of <m>t</m> with slope equal to the constant rate:
-	<me> D(t) = D_0 + \frac{t}{2} </me>,
+	<md> D(t) = D_0 + \frac{t}{2} </md>,
 	where <m>D_0</m> represents the initial diameter <m>D_0 = D(0)</m>.
 	So now we have
-	<me> \ddt{V} = \frac{\pi {(D_0 + t/2)}^2}{4} </me>.
+	<md> \ddt{V} = \frac{\pi {(D_0 + t/2)}^2}{4} </md>.
 	</p>
 </example>
 
@@ -327,7 +327,7 @@ by making a substitution.
 <example xml:id="example-chain-power-of-sine">
 	<title>Derivative of a power of the sine function</title>
 	<p>
-	Consider <me> q(t) = \sin^3(t) = {\bbrac{\sin(t)}}^3 </me>.
+	Consider <md> q(t) = \sin^3(t) = {\bbrac{\sin(t)}}^3 </md>.
 	None of the formulas or rules from <xref ref="chapter-deriv" /> directly apply to this situation,
 	and going all the way back to using an algebraic approach starting with a forward/backward difference approximation doesn't sound like fun.
 	Instead,
@@ -375,7 +375,7 @@ by making a substitution.
 <example xml:id="example-chain-reciprocal">
 	<title>Derivative of the reciprocal of a polynomial</title>
 	<p>
-	For <me> q(t) = \frac{1}{t^2 + 3 t - 5} </me>,
+	For <md> q(t) = \frac{1}{t^2 + 3 t - 5} </md>,
 	we have
 	<md> <mrow> q \amp = \frac{1}{u} = u^{-1} \amp \amp\text{for} \amp u \amp = t^2 + 3 t - 5 </mrow></md>.
 	Now we differentiate separately:
@@ -408,7 +408,7 @@ by making a substitution.
 	<proof>
 
 		<p>
-		We have <me> \sec(t) = {\bbrac{\cos(t)}}^{-1} </me>.
+		We have <md> \sec(t) = {\bbrac{\cos(t)}}^{-1} </md>.
 		Set <m>q = u^{-1}</m> for <m>u = \cos(t)</m> and differentiate:
 		<md><mrow> \dqdu \amp = - u^{-2} \amp \dudt \amp = - \sin(t) </mrow></md>.
 		Combining these in the <xref ref="pattern-chain-differential-version" text="title" /> and then substituting back in for <m>u</m> gives us
@@ -450,7 +450,7 @@ similarly to <xref ref="example-chain-reciprocal" />.
 
 		<p>
 		First, let's verify for <m>m = -1</m>.
-		In this case, <me> q(t) = t^{-1} = \frac{1}{t} </me>,
+		In this case, <md> q(t) = t^{-1} = \frac{1}{t} </md>,
 		and so
 		<md>
 			<mrow> q(t + dt) - q(t) \amp = \frac{1}{t + dt} - \frac{1}{t} </mrow>
@@ -478,14 +478,14 @@ similarly to <xref ref="example-chain-reciprocal" />.
 		<p>
 		Now suppose <m>m \lt -1</m> but is still a whole number.
 		Set <m>n = -m</m>, so that <m>n</m> is a <em>positive</em> whole number,
-		and now <me> q(t) = t^m = t^{-n} = \frac{1}{t^n} </me>.
+		and now <md> q(t) = t^m = t^{-n} = \frac{1}{t^n} </md>.
 		Then we can write
 		<md> <mrow> q \amp = \frac{1}{u} = u^{-1} \amp \amp\text{for} \amp u \amp = t^n </mrow></md>.
 		Using the fact that we have previously verified <xref ref="pattern-deriv-power" /> in the case of positive exponents,
 		we have
-		<me> \dudt = n t^{n - 1} </me>.
+		<md> \dudt = n t^{n - 1} </md>.
 		On the other hand,
-		we have already verified above that <me> \dqdu = - u^{-2} </me>.
+		we have already verified above that <md> \dqdu = - u^{-2} </md>.
 		Therefore,
 		combining these in the <xref ref="pattern-chain-differential-version" text="title" /> and then substituting back in for <m>u</m> gives us
 		<md>
@@ -498,7 +498,7 @@ similarly to <xref ref="example-chain-reciprocal" />.
 		</md>.
 		Recall that we substituted <m>n = -m</m>,
 		so now we can substitute <m>m = -n</m> back in to obtain
-		<me> \dqdt = m \cdot t^{m - 1} </me>,
+		<md> \dqdt = m \cdot t^{m - 1} </md>,
 		as desired.
 		</p>
 
@@ -512,7 +512,7 @@ Finally,
 we can also use the chain rule to verify our pattern for the derivative of a horizontal transformation.
 (See <xref ref="pattern-deriv-h-shift" /> and <xref ref="pattern-deriv-h-scale" />.)
 We will verify both patterns at once:
-suppose <me> q(t) = p(k t - c) </me>,
+suppose <md> q(t) = p(k t - c) </md>,
 so that <m>q</m> is both a horizontally scaling and a horizontal shift of function <m>p</m>.
 We may write
 <md><mrow> q \amp = p(u) \amp\amp\text{for}\amp u = k t - c </mrow></md>.
@@ -585,7 +585,7 @@ but we'd like to demonstrate a calculus solution because it suggests a general m
 The idea is that the lower half of the circle has nothing to contribute to solving this problem,
 and it is the fact that this circle has both a lower and an upper half that is causing the Vertical Line Test to fail.
 If we ignore the lower semicircle and <em>implicitly</em> assume that <m>y</m> is a function of <m>x</m>,
-then we may algebraically express it as such: <me> y = \sqrt{1 - x^2} </me>.
+then we may algebraically express it as such: <md> y = \sqrt{1 - x^2} </md>.
 </p>
 
 <figure xml:id="figure-chain-circle-tangent">
@@ -606,7 +606,7 @@ However, there is a way we can proceed with <em>explicitly</em> expressing <m>y<
 <example xml:id="example-chain-implicit-circle">
 	<title>Computing a slope on a circle implicitly</title>
 	<p>
-	Beginning with circle equation <me> x^2 + y^2 = 1 </me>,
+	Beginning with circle equation <md> x^2 + y^2 = 1 </md>,
 	implicitly assume that <m>y</m> is a function of <m>x</m>.
 	Compute
 	<md>
@@ -619,7 +619,7 @@ However, there is a way we can proceed with <em>explicitly</em> expressing <m>y<
 	</md>,
 	where in the middle we have applied the <xref ref="pattern-chain-differential-version" text="title" />.
 	With our assumption that <m>y</m> is a function of <m>x</m>,
-	the equality <me> x^2 + y^2 = 1 </me> is no longer about geometry,
+	the equality <md> x^2 + y^2 = 1 </md> is no longer about geometry,
 	but instead is an equality of functions.
 	Two equal functions must have the same rate of variation,
 	so the derivative of the left-hand side must equal the derivative of the right-hand side:
@@ -639,11 +639,11 @@ However, there is a way we can proceed with <em>explicitly</em> expressing <m>y<
 	</md>.
 	Note that we can confirm this result with geometry:
 	the radius from the origin to our point on the circle has slope
-	<me>
+	<md>
 		\frac{\text{rise}}{\text{run}}
 		= \frac{3/\cancel{\sqrt{10}}}{1/\cancel{\sqrt{10}}}
 		= 3
-	</me>,
+	</md>,
 	and the tangent at that point,
 	being perpendicular to the radius,
 	should have the <em>negative-reciprocal</em> slope <m>-1/3</m>.
@@ -674,7 +674,7 @@ However, there is a way we can proceed with <em>explicitly</em> expressing <m>y<
 		</li>
 		<li> Substitute <m>x = x_0</m> and <m>y = y_0</m> into <m>dF/dx</m>. </li>
 		<li>
-			Solve <me> \funceval{\ddx{F}}{\substack{x = x_0 \\ y = y_0}} = 0 </me>
+			Solve <md> \funceval{\ddx{F}}{\substack{x = x_0 \\ y = y_0}} = 0 </md>
 			for <m>dy/dx</m>.
 		</li>
 	</ol>
@@ -709,10 +709,10 @@ However, there is a way we can proceed with <em>explicitly</em> expressing <m>y<
 
 	<p>
 	We can re-arrange this equation to
-	<me> y^2 - 2 x^3 + x^4 = 0 </me>.
+	<md> y^2 - 2 x^3 + x^4 = 0 </md>.
 	Matching with the pattern of <xref ref="procedure-chain-implicit" />,
 	we have
-	<me> F(x,y) = y^2 - 2 x^3 + x^4</me>.
+	<md> F(x,y) = y^2 - 2 x^3 + x^4</md>.
 	Differentiate implicitly:
 	<md>
 		<mrow> \ddx{F} \amp = \ddx{y^2} - 2 \ddx{x^3} + \ddx{x^4} </mrow>
@@ -739,7 +739,7 @@ Because in more complicated examples it is often not practical (or even possible
 </p>
 
 <example><p>
-	The curve <me> y^7 - 6 y^5 + 5 y^2 + 2 x^2 = 8 </me>
+	The curve <md> y^7 - 6 y^5 + 5 y^2 + 2 x^2 = 8 </md>
 	pass through the point <m>(2,1)</m>,
 	as you can verify.
 	It wouldn't be practical to attempt to isolate <m>y</m> in this equation.
@@ -789,7 +789,7 @@ We can use <xref ref="procedure-chain-implicit" /> to verify that it is valid fo
 			<mrow> y^q  \amp = {(t^{p/q})}^q </mrow>
 			<mrow> \amp = t^p </mrow>
 		</md>.
-		Rearrange to <me> y^q - t^p = 0 </me>.
+		Rearrange to <md> y^q - t^p = 0 </md>.
 		Then we may differentiate implicitly to obtain
 		<md alignment="gather">
 			<mrow> \opddt (y^q - t^p) = 0 </mrow>
@@ -803,7 +803,7 @@ We can use <xref ref="procedure-chain-implicit" /> to verify that it is valid fo
 
 		<p>
 		Solving for <m>dy/dt</m> gives us
-		<me> \dydt = \frac{p t^{p - 1}}{q y^{q - 1}} </me>.
+		<md> \dydt = \frac{p t^{p - 1}}{q y^{q - 1}} </md>.
 		Substituting <m>y = t^m</m> back in,
 		we have
 		<md>
@@ -869,11 +869,11 @@ Here are some more examples of such <term>related rates</term>.
 
 		<p>
 		The trailing worker's rate of travel tells us that
-		<me> \dxdt = - 1 </me>,
+		<md> \dxdt = - 1 </md>,
 		where the rate is taken to be negative because that worker's distance to the turn is decreasing.
 		The two distances <m>x</m> and <m>y</m> are constrained by the right angle of the turn and the straight line of the ladder,
 		so that the two distances must satisfy Pythagoras at each point in time that the two workers are on different legs of the cat walk:
-		<me> x^2 + y^2 = 3^2 </me>.
+		<md> x^2 + y^2 = 3^2 </md>.
 		As both <m>x</m> and <m>y</m> vary with time,
 		they are somehow functions of <m>t</m>.
 		In this scenario we can differentiate with respect to <m>t</m>:
@@ -958,14 +958,14 @@ Here are some more examples of such <term>related rates</term>.
 		</figure>
 
 		<p>
-		We are told that <me> \dxdt = 1.2 </me>,
+		We are told that <md> \dxdt = 1.2 </md>,
 		and we are asked to determine <m>dz/dt</m> and <m>d\theta/dt</m> at the instant that <m>x = 4.5</m>.
 		</p>
 
 		<p>
 		The first part of the problem is essentially the same as <xref ref="example-chain-ladder-around-corner" />.
 		Distances <m>x</m> and <m>z</m> are constrained at every instant by Pythagoras:
-		<me> x^2 + 6^2 = z^2 </me>.
+		<md> x^2 + 6^2 = z^2 </md>.
 		Differentiate implicitly:
 		<md alignment="gather">
 			<mrow> \opddt (x^2 + 6^2) = \ddt{z^2} </mrow>
@@ -998,7 +998,7 @@ Here are some more examples of such <term>related rates</term>.
 		Now, for the rate of rotation of the light.
 		We will use a cosine relationship,
 		since we have not yet encountered the derivative of the tangent function.
-		<me> \cos(\theta) = \frac{20}{z} = 20 z^{-1} </me>.
+		<md> \cos(\theta) = \frac{20}{z} = 20 z^{-1} </md>.
 		Differentiating, we have
 		<md alignment="gather">
 			<mrow> \opddt \bbrac{\cos(\theta)} = 20 \ddt{z^{-1}} </mrow>
@@ -1008,7 +1008,7 @@ Here are some more examples of such <term>related rates</term>.
 		</md>.
 		Note that it is not necessary to know the value of <m>\theta</m> at the instant that <m>x = 4.5</m> in order to use this formula,
 		since we may substitute
-		<me> \sin(\theta) = \frac{x}{z} </me>
+		<md> \sin(\theta) = \frac{x}{z} </md>
 		to obtain
 		<md alignment="gather">
 			<mrow> \frac{x}{z} \cdot \ddt{\theta} = \frac{20}{z^2} \cdot \ddt{z} </mrow>
@@ -1067,9 +1067,9 @@ Here are some more examples of such <term>related rates</term>.
 	Consider the exponential function <m>q(t) = 2^t</m>.
 	One strategy for differentiating this function is to convert it into a horizontal transformation of the exponential function,
 	and use <xref ref="pattern-deriv-h-scale" />.
-	We have <me> q(t) = 2^t = e^{t \ln 2} </me>,
+	We have <md> q(t) = 2^t = e^{t \ln 2} </md>,
 	so since <m>d(e^t)/dt = e^t</m>,
-	we have <me> q(t) = (\ln 2) \cdot e^{t \ln 2} = (\ln 2) 2^t </me>.
+	we have <md> q(t) = (\ln 2) \cdot e^{t \ln 2} = (\ln 2) 2^t </md>.
 	</p>
 
 	<p>
@@ -1078,7 +1078,7 @@ Here are some more examples of such <term>related rates</term>.
 	introducing the natural logarithm allows us to simplify things before differentiating,
 	because of the many convenient properties of the natural logarithm.
 	In particular,
-	if we set <m>y = 2^t</m>, then <me> \ln y = \ln(2^t) = t \ln 2 </me>.
+	if we set <m>y = 2^t</m>, then <md> \ln y = \ln(2^t) = t \ln 2 </md>.
 	Differentiate both sides:
 	<md alignment="gather">
 		<mrow> \opddt(\ln y) = \opddt(t \ln 2) </mrow>
@@ -1087,7 +1087,7 @@ Here are some more examples of such <term>related rates</term>.
 		<mrow> \dydt = y \ln 2 </mrow>
 	</md>.
 	Substituting <m>y = 2^t</m> back in,
-	we have <me> \dydt = 2^t \ln 2 </me>,
+	we have <md> \dydt = 2^t \ln 2 </md>,
 	which agrees with the result of our first method.
 	</p>
 
@@ -1103,13 +1103,13 @@ let's record the pattern of the <em>result</em> of that example.
 
 	<statement><p>
 		For exponential function <m>q(t) = a^t</m> with positive base <m>a</m>,
-		we have <me> q'(t) = a^t \ln a </me>.
+		we have <md> q'(t) = a^t \ln a </md>.
 	</p></statement>
 
 	<proof><p>
-		Set <m>y = a^t</m>, so that <me> \ln y = t \ln a </me>.
+		Set <m>y = a^t</m>, so that <md> \ln y = t \ln a </md>.
 		Then differentiating both sides leads to
-		<me> \dydt = y \ln a = a^t \ln a </me>,
+		<md> \dydt = y \ln a = a^t \ln a </md>,
 		just as in <xref ref="example-chain-log-diff-exp-base-2" />.
 	</p></proof>
 
@@ -1119,7 +1119,7 @@ let's record the pattern of the <em>result</em> of that example.
 	<xref ref="pattern-chain-diff-exp-any-base" /> now justifies
 	<xref ref="pattern-deriv-exp" />,
 	since if we take <m>a = e</m> then we get
-	<me> q'(t) = e^t \ln e = e^t \cdot 1 = e^t </me>,
+	<md> q'(t) = e^t \ln e = e^t \cdot 1 = e^t </md>,
 	as expected.
 </p></remark>
 
@@ -1129,8 +1129,8 @@ let's record the pattern of the <em>result</em> of that example.
 	<statement><p>expression
 		Suppose the expression <m>p(t) = \ln\abs{\bbrac{q(t)}}</m> can be simplified using the properties of the logarithm so that <m>p'(t)</m> can be easily computed.
 		Then it is possible to use this to compute <m>q'(t)</m> by taking the logarithm of both sides of <m>y = q(t)</m>,
-		and differentiating the result <me> \ln\abs{y} = \ln\abs{q(t)} </me>
-		to obtain <me> q'(t) = q(t) p'(t) </me>.
+		and differentiating the result <md> \ln\abs{y} = \ln\abs{q(t)} </md>
+		to obtain <md> q'(t) = q(t) p'(t) </md>.
 	</p></statement>
 
 	<proof><p>
@@ -1142,7 +1142,7 @@ let's record the pattern of the <em>result</em> of that example.
 			<mrow> \frac{1}{y} \cdot \dydt = p'(t) </mrow>
 			<mrow> \dydt = y p'(t) </mrow>
 		</md>.
-		Since <m>y = q(t)</m>, we then have <me> q'(t) = q(t) p'(t) </me>,
+		Since <m>y = q(t)</m>, we then have <md> q'(t) = q(t) p'(t) </md>,
 		as desired.
 	</p></proof>
 
@@ -1173,7 +1173,7 @@ let's record the pattern of the <em>result</em> of that example.
 <example>
 	<title>Using the logarithm to simplify products and quotients</title>
 	<p>
-	Consider <me> y = \frac{\sin(t) \sin(2 t) \sin(3 t)}{\cos(4 t) \cos(5 t) \cos(6 t)} </me>.
+	Consider <md> y = \frac{\sin(t) \sin(2 t) \sin(3 t)}{\cos(4 t) \cos(5 t) \cos(6 t)} </md>.
 	Since the sine and cosine functions have both positive and negative outputs in their ranges,
 	let's introduce the extended logarithm function:
 	<md>
@@ -1301,7 +1301,7 @@ we can use the method of <xref ref="procedure-chain-log-diff" text="title" /> to
 		</md>.
 		Applying the formula for the derivative of the logarithm to both sides
 		(in conjunction with the Chain Rule on the left),
-		we have <me> \frac{1}{y} \cdot \dydt = \frac{m}{t} </me>.
+		we have <md> \frac{1}{y} \cdot \dydt = \frac{m}{t} </md>.
 		Isolating <m>dy/dt</m> and substituting <m>y = t^m</m> gives us
 		<md>
 			<mrow> \dydt \amp = \frac{m y}{t} </mrow>

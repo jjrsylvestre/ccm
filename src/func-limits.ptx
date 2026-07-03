@@ -32,7 +32,7 @@ But we can also use sequences to help us investigate trends in functions and und
 	<title>A removable discontinuity</title>
 
 	<p>
-	The function <me> f(t) = \frac{t^3 + 2 t^2 - t - 2}{t - 1} </me> is undefined at <m>t = 1</m>.
+	The function <md> f(t) = \frac{t^3 + 2 t^2 - t - 2}{t - 1} </md> is undefined at <m>t = 1</m>.
 	But what is the output trend for <m>t \approx 1</m>?
 	If we investigate numerically by evaluating <m>f(t)</m> for inputs that are very close to <m>1</m>,
 	we would find that the closer <m>t</m> is to <m>1</m>,
@@ -238,12 +238,12 @@ Then we can consider domain-value sequences <m>\nseq{t}</m> that converge to <m>
 		For limit point <m>t = c</m> of <m>D</m>,
 		we say that <term><m>f(t)</m> approaches <m>L</m> as <m>t</m> approaches <m>c</m></term>
 		and write
-		<me> f(t) \to L \qquad \text{as} \qquad t \to c </me>
+		<md> f(t) \to L \qquad \text{as} \qquad t \to c </md>
 		when <em>every possible</em> sequence <m>\nseq{t}</m> that satisifies the three conditions of <xref ref="definition-func-limits-limit-point" text="title" /> for <m>c</m> (and <m>D</m>)
 		creates a corresponding output sequence <m>\bbseq{f(t_n)}</m> that converges to <m>L</m>.
 		Alternatively,
 		we may say that <term><m>L</m> is the limit of <m>f(t)</m> as <m>t</m> approaches <m>c</m></term>
-		and write <me> \lim_{t \to c} f(t) = L </me>.
+		and write <md> \lim_{t \to c} f(t) = L </md>.
 		</p>
 
 		<p>
@@ -280,9 +280,9 @@ Then we can consider domain-value sequences <m>\nseq{t}</m> that converge to <m>
 	<p>
 	Let's return to <xref ref="example-func-limits-removable-discont" />,
 	where we investigated output trends for <m>t \approx 1</m> of the function
-	<me> f(t) = \frac{t^3 + 2 t^2 - t - 2}{t - 1} </me>.
+	<md> f(t) = \frac{t^3 + 2 t^2 - t - 2}{t - 1} </md>.
 	In that example we only considered two input sequences that converge to <m>1</m>:
-	<me> t_n = 1 \pm 10^{-2n-2} </me>.
+	<md> t_n = 1 \pm 10^{-2n-2} </md>.
 	But in both cases we observed that the corresponding output sequence <m>\bbseq{f(t_n)}</m> appeared to be converging toward <m>6</m>.
 	Let's attempt to confirm that <m>f(t) \to 6</m> as <m>t \to 1</m>.
 	</p>
@@ -290,22 +290,22 @@ Then we can consider domain-value sequences <m>\nseq{t}</m> that converge to <m>
 	<p>
 	So suppose <m>\nseq{t}</m> is an arbitrary sequence with <m>\nseq{t} \to 1</m> but <m>t_n \neq 1</m> for all <m>n</m>.
 	The corresponding output sequence will have terms
-	<me> f(t_n) = \frac{t_n^3 + 2 t_n^2 - t_n - 2}{t_n - 1} </me>.
+	<md> f(t_n) = \frac{t_n^3 + 2 t_n^2 - t_n - 2}{t_n - 1} </md>.
 	It is possible to factor the numerator:
-	<me> f(t_n) = \frac{(t_n - 1) (t_n^2 + 3 t_n + 2)}{t_n - 1} </me>.
+	<md> f(t_n) = \frac{(t_n - 1) (t_n^2 + 3 t_n + 2)}{t_n - 1} </md>.
 	Since we assume <m>t_n \neq 1</m> we may cancel the common factor in numerator and denominator:
 	<md>
 		<mrow> f(t_n) \amp = \frac{\cancel{(t_n - 1)} (t_n^2 + 3 t_n + 2)}{\cancel{t_n - 1}} </mrow>
 		<mrow> \amp = t_n^2 + 3 t_n + 2 </mrow>
 	</md>.
 	Now we may apply the patterns of <xref ref="pattern-seq-alg-limit-laws" /> to conclude that since <m>\nseq{t} \to 1</m>,
-	we must have <me> \bbseq{f(t_n)} \to 1^2 + 3 \cdot 1 + 2 = 6 </me>.
+	we must have <md> \bbseq{f(t_n)} \to 1^2 + 3 \cdot 1 + 2 = 6 </md>.
 	</p>
 
 	<p>
 	Since our analysis holds for <em>every</em> input sequence that converges to <m>1</m>
 	(but with no terms equal to <m>1</m>),
-	the definition of function limit says that <me> \lim_{t \to 1} \frac{t^3 + 2 t^2 - t - 2}{t - 1} = 6 </me>.
+	the definition of function limit says that <md> \lim_{t \to 1} \frac{t^3 + 2 t^2 - t - 2}{t - 1} = 6 </md>.
 	</p>
 
 </example>
@@ -325,7 +325,7 @@ because it is too easy to be deceived by numerical trends
 	Our analysis in the previous example really only depended on considering input values close to but not equal to <m>1</m>.
 	So if we were not concerned with confirming the limit value rigorously using the formal definition,
 	we could arrive at the actual result
-	<me> \lim_{t \to 1} \frac{t^3 + 2 t^2 - t - 2}{t - 1} = 6 </me>
+	<md> \lim_{t \to 1} \frac{t^3 + 2 t^2 - t - 2}{t - 1} = 6 </md>
 	via the same algebra but without the input sequence:
 	<md>
 		<mrow> f(t) \amp = \frac{t^3 + 2 t^2 - t - 2}{t - 1} </mrow>
@@ -350,11 +350,11 @@ because it is too easy to be deceived by numerical trends
 <example xml:id="example-func-limits-dne">
 	<title>A limit that doesn't exist</title>
 	<p>
-	Consider <me> f(t) = \frac{t + 1}{t - 1} </me>.
+	Consider <md> f(t) = \frac{t + 1}{t - 1} </md>.
 	The domain of <m>f</m> is all values <m>t \neq 1</m>.
 	But we may wish to investigate if there are any trends as <m>t \to 1</m>.
 	An input sequence <m>\nseq{t}</m> in the domain of the function creates an output sequence <m>\nseq{s}</m> where
-	<me> s_n = f(t_n) = \frac{t_n + 1}{t_n - 1} </me>.
+	<md> s_n = f(t_n) = \frac{t_n + 1}{t_n - 1} </md>.
 	We can consider this output sequence as being made up of a numerator sequence <m>\seq{t_n + 1}</m> and a denominator sequence <m>\seq{t_n - 1}</m>.
 	In the case that <m>\nseq{t} \to 1</m>
 	(but with <m>t_n \neq 1</m> for all <m>n</m>),
@@ -466,17 +466,17 @@ allow us to handle limits of power functions, polynomial functions, and most rat
 	A limit of a quotient function <alert>may or may not exist</alert> in the case that both the numerator and denominator limits are <m>0</m>.
 	For example,
 	in <xref ref="example-func-limits-verify-def" /> we verified that
-	<me> \lim_{t \to 1} \frac{t^3 + 2 t^2 - t - 2}{t - 1} = 6 </me>,
+	<md> \lim_{t \to 1} \frac{t^3 + 2 t^2 - t - 2}{t - 1} = 6 </md>,
 	yet separately we have
 	<md><mrow>
 		\lim_{t \to 1} (t^3 + 2 t^2 - t - 2) \amp = 0 \text{,} \amp
 		\lim_{t \to 1} (t - 1) \amp = 0 \text{.}
 	</mrow></md>
 	As another example,
-	the quotient limit <me> \lim_{t \to 1} \frac{t^3 + 2 t^2 - t - 2}{{(t - 1)}^2} </me>
+	the quotient limit <md> \lim_{t \to 1} \frac{t^3 + 2 t^2 - t - 2}{{(t - 1)}^2} </md>
 	also has both numerator and denominator trending toward <m>0</m>.
 	But for <m>t \neq 1</m> we have
-	<me> \frac{t^3 + 2 t^2 - t - 2}{{(t - 1)}^2} = \frac{t^2 + 3 t + 2}{t - 1} </me>,
+	<md> \frac{t^3 + 2 t^2 - t - 2}{{(t - 1)}^2} = \frac{t^2 + 3 t + 2}{t - 1} </md>,
 	and this simplified ratio has numerator trending toward <m>6</m> as <m>t \to 1</m>,
 	while the denominator trends to <m>0</m>,
 	and so the limit as <m>t \to 1</m> does not exist.
@@ -535,7 +535,7 @@ allow us to handle limits of power functions, polynomial functions, and most rat
 
 	<statement><p>
 		Suppose <m>f, g, h</m> are three functions defined at all points in a domain <m>D</m>,
-		and <me> f(t) \le g(t) \le h(t) </me> for all <m>t</m> in <m>D</m>.
+		and <md> f(t) \le g(t) \le h(t) </md> for all <m>t</m> in <m>D</m>.
 		If both <m>f(t) \to L</m> and <m>h(t) \to L</m> as <m>t \to c</m> from within <m>D</m>
 		(where <m>c</m> is some limit point of <m>D</m>),
 		then <m>g(t) \to L</m> as <m>t \to c</m> as well.
@@ -569,7 +569,7 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 
 	<sidebyside valign="middle" widths="40% 40.2%" margins="0% 10%">
 
-		<p><me> f(t) = \begin{cases} 2 t^2 \amp t \lt 1 \\ t - 1 \amp t \gt 1 \end{cases} </me> </p>
+		<p><md> f(t) = \begin{cases} 2 t^2 \amp t \lt 1 \\ t - 1 \amp t \gt 1 \end{cases} </md> </p>
 
 		<image>
 			<shortdescription>Graph of a discontinuous piecewise function.</shortdescription>
@@ -584,14 +584,14 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 	<p>
 	The value <m>t = 1</m> is not in the domain of this function,
 	but it is a limit point of the domain.
-	The sequence <m>\nseq{t}</m> with <me> t_n = 1 + \frac{{(-1)}^n}{10^n} </me> converges to <m>1</m>,
+	The sequence <m>\nseq{t}</m> with <md> t_n = 1 + \frac{{(-1)}^n}{10^n} </md> converges to <m>1</m>,
 	but the corresponding output sequence <m>\bbseq{f(t_n)}</m> oscillates between two subsequences:
-	<me>
+	<md>
 		f(t_n) = \begin{cases}
 			{2 \left( 1 - \frac{1}{10^n} \right)}^2 \amp n \text{ odd} \\
 			\frac{1}{10^n} \amp n \text{ even}
 		\end{cases}
-	</me>.
+	</md>.
 	The odd-index subsequence converges to <m>2</m>,
 	while the even-index subsequence converges to <m>0</m>.
 	Therefore,
@@ -637,7 +637,7 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 			we say <term><m>f(t)</m> approaches <m>L</m> as <m>t</m> approaches <m>c</m> from the left</term>.
 			In limit notation,
 			we write
-			<me> \lim_{t \to c^{-}} f(t) = L </me>,
+			<md> \lim_{t \to c^{-}} f(t) = L </md>,
 			and say that <m>L</m> is the <term>left-hand limit of <m>f</m> at <m>c</m></term>.
 		</p></li>
 
@@ -648,7 +648,7 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 			we say <term><m>f(t)</m> approaches <m>L</m> as <m>t</m> approaches <m>c</m> from the right</term>.
 			In limit notation,
 			we write
-			<me> \lim_{t \to c^+} f(t) = L </me>,
+			<md> \lim_{t \to c^+} f(t) = L </md>,
 			and say that <m>L</m> is the <term>right-hand limit of <m>f</m> at <m>c</m></term>.
 		</p></li>
 
@@ -730,7 +730,7 @@ Sometimes we we wish to analyze output trends on a restricted domain.
 
 	<sidebyside valign="middle" widths="40% 40.2%" margins="0% 10%">
 
-		<p><me> f(t) = \begin{cases} 2 t^2 \amp t \lt 1 \\ t + 1 \amp t \gt 1 \end{cases} </me></p>
+		<p><md> f(t) = \begin{cases} 2 t^2 \amp t \lt 1 \\ t + 1 \amp t \gt 1 \end{cases} </md></p>
 
 		<image>
 			<shortdescription>Graph of a continuous piecewise function.</shortdescription>
@@ -784,7 +784,7 @@ the <xref ref="pattern-func-limits-laws" text="title" /> are equally valid for o
 
 		<p>
 		For a function <m>f(t)</m> and a limit point <m>c</m> of the domain of <m>f</m>,
-		we have <me> \lim_{t \to c} f(t) = L </me>
+		we have <md> \lim_{t \to c} f(t) = L </md>
 		if and only if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small open range around the value <m>L</m> by restricting the input values <m>t</m> to some sufficiently small open subdomain around <m>c</m> (but excluding <m>c</m> itself).
 		</p>
 
@@ -816,7 +816,7 @@ the <xref ref="pattern-func-limits-laws" text="title" /> are equally valid for o
 			For example, the domain <m>(c - 1, c + 1)</m> must contain at least one value <m>t_0 \neq c</m> for which <m>f(t_0)</m> is not within <m>(A,B)</m>.
 			Similarly, the domain <m>(c - 1/2, c + 1/2)</m> must also contain at least one value <m>t_1 \neq c</m> for which <m>f(t_1)</m> is not within <m>(A,B)</m>.
 			Continuing in this fashion,
-			each domain <me> \left( c - \frac{1}{n+1}, c + \frac{1}{n+1} \right) </me> must contain at least one value <m>t_n \neq c</m> for which <m>f(t_n)</m> is not within <m>(A,B)</m>.
+			each domain <md> \left( c - \frac{1}{n+1}, c + \frac{1}{n+1} \right) </md> must contain at least one value <m>t_n \neq c</m> for which <m>f(t_n)</m> is not within <m>(A,B)</m>.
 			</p>
 
 			<p>
@@ -895,17 +895,17 @@ We can use this to help us compute limit values for compositions of functions in
 	<title>Limit of a continuous composition</title>
 	<p>
 	If <m>f(t) \to L</m> as <m>t \to c</m> and <m>g</m> is continuous at <m>L</m>,
-	then <me> \lim_{t \to c} g \bbrac{f(t)} = g(L) </me>.
+	then <md> \lim_{t \to c} g \bbrac{f(t)} = g(L) </md>.
 	</p>
 </identity>
 
 <p>
 Effectively, this pattern says that we may interchange order of computing a limit and evaluating a function:
-<me> \lim_{t \to c} g \bbrac{f(t)} = g \left( \lim_{t \to c} f(t) \right) </me>.
+<md> \lim_{t \to c} g \bbrac{f(t)} = g \left( \lim_{t \to c} f(t) \right) </md>.
 </p>
 
 <example><p>
-	To compute <me> \lim_{t \to 1} \ln \left( \frac{1 - \sqrt{t}}{1 - t} \right) </me>,
+	To compute <md> \lim_{t \to 1} \ln \left( \frac{1 - \sqrt{t}}{1 - t} \right) </md>,
 	we can first compute
 	<md>
 		<mrow> \frac{1 - \sqrt{t}}{1 - t} \amp = \frac{1 - \sqrt{t}}{1 - t} \cdot \frac{1 + \sqrt{t}}{1 + \sqrt{t}} </mrow>
@@ -934,7 +934,7 @@ so we obtain a new limit law by applying <xref ref="pattern-func-limits-limit-co
 	<title>Limit of a power</title>
 	<p>
 	If <m>f(t) \to L</m> as <m>t \to c</m> and <m>L^m</m> is defined,
-	then <me> \lim_{t \to c} {\bigl[ f(t) \bigr]}^m = L^m </me>.
+	then <md> \lim_{t \to c} {\bigl[ f(t) \bigr]}^m = L^m </md>.
 	</p>
 </identity>
 
@@ -997,9 +997,9 @@ we can similarly reduce a question of continuity of a function to determining th
 <example>
 	<title>Analyzing continuity in parts</title>
 	<p>
-	Consider <me> f(t) = e^t \ln(t) + \sqrt{t} </me>.
+	Consider <md> f(t) = e^t \ln(t) + \sqrt{t} </md>.
 	Individually,
-	all three of the functions <me> e^t, \ln(t), \sqrt{t} </me>
+	all three of the functions <md> e^t, \ln(t), \sqrt{t} </md>
 	are continuous at all points <m>t \gt 0</m>.
 	So <m>e^t \ln(t)</m> is a product of continuous functions,
 	and therefore is continuous.
@@ -1019,12 +1019,12 @@ we can similarly reduce a question of continuity of a function to determining th
 
 	<sidebyside valign="middle" widths="40% 27.9%" margins="5% 15%">
 
-		<p><me>
+		<p><md>
 			f(t) = \begin{cases}
 				t^2 \amp t \le 0 \\
 				t + 1 \amp t \gt 0
 			\end{cases}
-		</me></p>
+		</md></p>
 
 		<image>
 			<shortdescription>Graph of a discontinuous piecewise function.</shortdescription>
@@ -1063,7 +1063,7 @@ we can similarly reduce a question of continuity of a function to determining th
 	</sidebyside>
 
 	<p>
-	Note that <m>c = 0</m> is a limit point of the domain <me>\leftdomain = \setdef{t}{t \le 0}</me>.
+	Note that <m>c = 0</m> is a limit point of the domain <md>\leftdomain = \setdef{t}{t \le 0}</md>.
 	So considering the <xref ref="fact-func-limits-cont" text="title" />,
 	as we clearly have <m>g(t) \to g(0) = 0</m> as <m>t \to 0</m> from within domain <m>\leftdomain</m>,
 	we may say that <m>g</m> is continuous at <m>t = 0</m>.
@@ -1075,7 +1075,7 @@ we can similarly reduce a question of continuity of a function to determining th
 	But we must qualify this statement to include the domain <m>\leftdomain</m>,
 	because <m>f</m> is <em>discontinuous</em> at <m>t = 0</m> if we do not include such a qualification.
 	So we will say that <m>f</m> is <term>continuous from the left</term> at <m>t = 0</m> because
-	<me> \lim_{t \to 0^{-}} f(t) = f(0)</me>.
+	<md> \lim_{t \to 0^{-}} f(t) = f(0)</md>.
 	</p>
 
 </example>
@@ -1112,13 +1112,13 @@ we can similarly reduce a question of continuity of a function to determining th
 
 <sidebyside valign="middle" widths="40% 53.5%" margins="0% 0%">
 
-	<p><me>
+	<p><md>
 		f(t) = \begin{cases}
 			t^2 \amp t \le -1 \text{,} \\[6pt]
 			{\displaystyle \frac{1}{t^2 - 1}} \amp -1 \lt t \lt 0 \text{,} \\[6pt]
 			{\displaystyle \frac{t-2}{t^2 + t - 6}} \amp t \ge 0 \text{.}
 		\end{cases}
-	</me></p>
+	</md></p>
 
 	<image width="53.5%">
 		<shortdescription>Graph of a discontinuous piecewise function with continuous pieces.</shortdescription>
@@ -1265,9 +1265,9 @@ and will be omitted this time.
 <title>Definite integrals</title>
 
 <p>
-Recall that a definite integral value <me> \ccmint{a}{b}{f(t)}{t} </me>
+Recall that a definite integral value <md> \ccmint{a}{b}{f(t)}{t} </md>
 represents the unique value (if it exists) that sits between <em>every</em> pair of upper and lower sum estimates:
-<me> L(P) \le \ccmint{a}{b}{f(t)}{t} \le U(P) </me>
+<md> L(P) \le \ccmint{a}{b}{f(t)}{t} \le U(P) </md>
 for every partition <m>P</m> of the integration domain <m>a \le t \le b</m>.
 If <m>f</m> is already known to be integrable
 (for example, if <m>f</m> is continuous on the integration domain),
@@ -1394,13 +1394,13 @@ We may now take a sequence perspective on this idea.
 	Suppose <m>f</m> is integrable on domain <m>a \le t \le b</m>.
 	Let <m>\nseq{U}</m> and <m>\nseq{L}</m> represent the sequences of upper and lower (regular) sums for <m>f</m> on that domain.
 	Then both <m>\nseq{U}</m> and <m>\nseq{L}</m> converge to the same value:
-	the value of <me> \ccmint{a}{b}{f(t)}{t} </me>.
+	the value of <md> \ccmint{a}{b}{f(t)}{t} </md>.
 	</p>
 </fact>
 
 <p>
 Notationally we can take the idea of these sequences <q>squeezing</q> down to the value of the definite integral further:
-if we let <m>A</m> represent the value of <me> \ccmint{a}{b}{f(t)}{t} </me>,
+if we let <m>A</m> represent the value of <md> \ccmint{a}{b}{f(t)}{t} </md>,
 then we might write
 <md>
 	<mrow>
@@ -1617,11 +1617,11 @@ then we might write
 		<m> n = 2 m</m>.
 		Substituting this into our previous expression for <m>L_n</m> in the even case,
 		we have
-		<me>
+		<md>
 			L_n
 			= \sum_{k = 1}^{m} f\left(\frac{k}{2 m}\right) \cdot \frac{1}{2 m}
 			+ \sum_{k = m + 1}^{2 m} f\left(\frac{k - 1}{2 m}\right) \cdot \frac{1}{2 m}
-		</me>.
+		</md>.
 		Let's put this into Sage to simplify.
 		</p>
 
@@ -1636,7 +1636,7 @@ then we might write
 		</sage>
 
 		<p>
-		Analyzing dominant terms of the result <me> L_m =  \frac{20 m^2 - 3 m + 1}{24 m^2} </me> we conclude <m>\seq{L_m} \to 5 / 6</m>,
+		Analyzing dominant terms of the result <md> L_m =  \frac{20 m^2 - 3 m + 1}{24 m^2} </md> we conclude <m>\seq{L_m} \to 5 / 6</m>,
 		which agrees with the result of the definite integral that we could compute by other <q>shortcut</q> methods.
 		</p>
 
@@ -1667,7 +1667,7 @@ where <m>t^\ast</m> is a specific point in the domain of <m>q</m>.
 
 	<statement><p>
 		The function <m>q</m> is differentiable at <m>t = t^\ast</m> if and only if the limit
-		<me> \lim_{\change{t} \to 0} Q_{t^\ast}(\change{t}) </me>
+		<md> \lim_{\change{t} \to 0} Q_{t^\ast}(\change{t}) </md>
 		converges,
 		where <m>Q_{t^\ast}</m> is the difference quotient function based at <m>t = t^\ast</m> associated to <m>q</m>
 		(see <xref ref="equation-func-limits-diff-quotient-func" />).
@@ -1700,7 +1700,7 @@ you may have noticed a similarity between <xref ref="example-func-limits-practic
 	but only for the specific derivative value at <m>t = 2</m>.
 	To maintain consistency with the notation used in this subsection,
 	we'll write <m>q(t)</m> for our position function instead of <m>s(t)</m>:
-	<me> q(t) = -2 t^2 + 6 t </me>.
+	<md> q(t) = -2 t^2 + 6 t </md>.
 	We would like to compute the value of <m>q'(2)</m> using a limit.
 	So form the associated difference quotient function
 	<md>
@@ -1731,7 +1731,7 @@ you may have noticed a similarity between <xref ref="example-func-limits-practic
 
 <p>
 The <xref ref="pattern-func-limits-laws" text="title" /> say that a limit of a quotient
-<me> \lim_{t \to c} \frac{f(t)}{g(t)} </me>
+<md> \lim_{t \to c} \frac{f(t)}{g(t)} </md>
 is <m>0</m> if the numerator function approaches <m>0</m> but the denominator function doesn't,
 and doesn't exist if the denominator function approaches <m>0</m> but the numerator function doesn't.
 What if both <m>f(t) \to 0</m> and <m>g(t) \to 0</m> as <m>t \to c</m>?
@@ -1739,7 +1739,7 @@ What if both <m>f(t) \to 0</m> and <m>g(t) \to 0</m> as <m>t \to c</m>?
 
 <definition>
 	<title>Indeterminate form <m>0/0</m></title>
-	<statement><p> A limit of the form <me> \lim_{t \to c} \frac{f(t)}{g(t)} </me> where both <m>f(t) \to 0</m> and <m>g(t) \to 0</m> as <m>t \to c</m>. </p></statement>
+	<statement><p> A limit of the form <md> \lim_{t \to c} \frac{f(t)}{g(t)} </md> where both <m>f(t) \to 0</m> and <m>g(t) \to 0</m> as <m>t \to c</m>. </p></statement>
 </definition>
 
 <example xml:id="example-func-limits-0-0-indeteminate-possibilities"><p><ol>
@@ -1748,21 +1748,21 @@ What if both <m>f(t) \to 0</m> and <m>g(t) \to 0</m> as <m>t \to c</m>?
 		Consider
 		<md><mrow> f_1(t) \amp = t^2 - 1 \text{,} \amp g_1(t) \amp = {(t - 1)}^2 \text{.} </mrow></md>
 		Both functions approach <m>0</m> as <m>t \to 1</m>,
-		but <me> \lim_{t \to 1} \frac{f_1(t)}{g_1(t)} </me> does not exist.
+		but <md> \lim_{t \to 1} \frac{f_1(t)}{g_1(t)} </md> does not exist.
 	</li>
 
 	<li>
 		Consider
 		<md><mrow> f_2(t) \amp = {(t - 1)}^2 \text{,} \amp g_2(t) \amp = t^2 - 1 \text{.} </mrow></md>
 		Again both functions approach <m>0</m> as <m>t \to 1</m>,
-		but <me> \lim_{t \to 1} \frac{f_2(t)}{g_2(t)} </me> exists and is equal to <m>0</m>.
+		but <md> \lim_{t \to 1} \frac{f_2(t)}{g_2(t)} </md> exists and is equal to <m>0</m>.
 	</li>
 
 	<li>
 		Consider
 		<md><mrow> f_3(t) \amp = t^2 - 1 \text{,} \amp g_3(t) \amp = t - 1 \text{.} </mrow></md>
 		Both functions approach <m>0</m> as <m>t \to 1</m>,
-		but <me> \lim_{t \to 1} \frac{f_3(t)}{g_3(t)} </me> exists and is equal to <m>2</m>.
+		but <md> \lim_{t \to 1} \frac{f_3(t)}{g_3(t)} </md> exists and is equal to <m>2</m>.
 	</li>
 
 </ol></p></example>
@@ -1779,7 +1779,7 @@ known derivative formulas give us an alternative way to compute <m>0/0</m>-form 
 <example>
 
 	<p>
-	Consider <me> \lim_{t \to 0} \frac{e^t - 1}{t} </me>.
+	Consider <md> \lim_{t \to 0} \frac{e^t - 1}{t} </md>.
 	Since the numerator is a continuous function,
 	we have <m>e^t - 1 \to e^0 - 1 = 0</m>.
 	So the limit is a <m>0/0</m> indeterminate form.
@@ -1801,7 +1801,7 @@ known derivative formulas give us an alternative way to compute <m>0/0</m>-form 
 	</md>.
 	Ignoring the difference in variables,
 	this is exactly the limit we would like to compute.
-	Since <me> \ddt{(e^t)} = e^t </me>,
+	Since <md> \ddt{(e^t)} = e^t </md>,
 	we have
 	<md>
 
@@ -1884,7 +1884,7 @@ so we can use the derivatives of the numerator and denominator functions to comp
 
 <paragraphs><title>Notation</title><p>
 	We will use a <q>l'H</q> indicator over an equals sign between two limits when L'Hôpital's Rule has been applied:
-	<me> \lim_{t \to c} \frac{f(t)}{g(t)} \lhopeq \lim_{t \to c} \frac{f'(t)}{g'(t)} </me>.
+	<md> \lim_{t \to c} \frac{f(t)}{g(t)} \lhopeq \lim_{t \to c} \frac{f'(t)}{g'(t)} </md>.
 </p></paragraphs>
 
 <example><p>
@@ -1896,7 +1896,7 @@ so we can use the derivatives of the numerator and denominator functions to comp
 
 	<li>
 		We have
-		<me> \lim_{t \to 1} \frac{t^2 - 1}{{(t - 1)}^2} \lhopeq \lim_{t \to 1} \frac{2 t}{2 (t - 1)} </me>
+		<md> \lim_{t \to 1} \frac{t^2 - 1}{{(t - 1)}^2} \lhopeq \lim_{t \to 1} \frac{2 t}{2 (t - 1)} </md>
 		but this second limit does not exist because the denominator trends to <m>0</m> while the numerator does not.
 	</li>
 
@@ -2012,7 +2012,7 @@ And the reason this form is <q>indeterminate</q> is that we cannot reliably dete
 
 <definition>
 	<title>Indeterminate form <m>\infty/\infty</m></title>
-	<statement><p> A limit of the form <me> \lim_{t \to c} \frac{f(t)}{g(t)} </me> where both <m>f(t) \to \infty</m> and <m>g(t) \to \infty</m> as <m>t \to c</m>. </p></statement>
+	<statement><p> A limit of the form <md> \lim_{t \to c} \frac{f(t)}{g(t)} </md> where both <m>f(t) \to \infty</m> and <m>g(t) \to \infty</m> as <m>t \to c</m>. </p></statement>
 </definition>
 
 <note><p>
@@ -2031,8 +2031,8 @@ we cannot reliably determine the result of <q>large over large</q> because there
 
 <p>
 We could apply <xref ref="pattern-func-limits-l-hopital-0-0" text="title" /> by first performing an algebraic manipulation:
-if <me> \lim_{t \to c} \frac{f(t)}{g(t)} </me> is <m>\infty/\infty</m> form,
-then <me> \lim_{t \to c} \frac{1/g(t)}{1/f(t)} </me> is <m>0/0</m> form,
+if <md> \lim_{t \to c} \frac{f(t)}{g(t)} </md> is <m>\infty/\infty</m> form,
+then <md> \lim_{t \to c} \frac{1/g(t)}{1/f(t)} </md> is <m>0/0</m> form,
 and the two limits are equivalent.
 Luckily, however, L'Hôpital's Rule can be applied directly to an <m>\infty/\infty</m>-form limit.
 </p>
@@ -2089,7 +2089,7 @@ Again this form of limit is indeterminate because we cannot reliably determine t
 <heuristic xml:id="strategy-func-limits-indeterminate-0-inf">
 	<title>For evaluating a <m>0 \cdot \infty</m>-form limit</title>
 	<statement><p>
-		If <me> \lim_{t \to c} f(t) \cdot g(t) </me> is of <m>0 \cdot \infty</m> form,
+		If <md> \lim_{t \to c} f(t) \cdot g(t) </md> is of <m>0 \cdot \infty</m> form,
 		then instead consider the equivalent limits
 		<md>
 			<mrow>
@@ -2103,7 +2103,7 @@ Again this form of limit is indeterminate because we cannot reliably determine t
 </heuristic>
 
 <example><p>
-	The limit <me> \lim_{t \to 0^{+}} \sqrt{t} \ln(t) </me> is <m>0 \cdot (\infty)</m> form.
+	The limit <md> \lim_{t \to 0^{+}} \sqrt{t} \ln(t) </md> is <m>0 \cdot (\infty)</m> form.
 	So instead consider the equivalent limits
 	<md>
 		<mrow>
@@ -2146,13 +2146,13 @@ Consider the possibilities:
 <heuristic xml:id="strategy-func-limits-indeterminate-inf-minus-inf">
 	<title>For evaluating a <m>(\infty - \infty)</m>-form limit</title>
 	<statement><p>
-		If <me> \lim_{t \to c} f(t) \cdot g(t) </me> is of <m>\infty - \infty</m> form,
+		If <md> \lim_{t \to c} f(t) \cdot g(t) </md> is of <m>\infty - \infty</m> form,
 		attempt to collect the two terms into a single ratio and see if that new limit is of <m>0/0</m> or <m>\infty/\infty</m> form.
 	</p></statement>
 </heuristic>
 
 <example><p>
-	The limit <me> \lim_{t \to {\frac{\pi}{2}}^{-}} \tan(t) - \sec(t) </me> is an <m>(\infty - \infty)</m>-form limit.
+	The limit <md> \lim_{t \to {\frac{\pi}{2}}^{-}} \tan(t) - \sec(t) </md> is an <m>(\infty - \infty)</m>-form limit.
 	We should <alert>not</alert> apply L'Hôpital's Rule directly to this limit,
 	because that rule <alert>does not apply</alert>.
 	However, if we convert these trig functions into sines and cosines,
@@ -2209,16 +2209,16 @@ we may exploit the algebraic properties of logarithms to help us deal with expon
 	<title>Logarithmic limits</title>
 
 	<statement><p>
-		If <me> \lim_{t \to c} \ln\bbrac{f(t)} = L </me>,
-		then <me> \lim_{t \to c} f(t) = e^L </me>.
+		If <md> \lim_{t \to c} \ln\bbrac{f(t)} = L </md>,
+		then <md> \lim_{t \to c} f(t) = e^L </md>.
 	</p></statement>
 
 	<proof><p>
 		Because the exponential function is continuous,
 		<xref ref="pattern-func-limits-limit-comp-with-cont" /> tells us that
-		<me> \lim_{t \to c} g(t) = L \qquad \implies \qquad \lim_{t \to c} \exp\bbrac{g(t)} = \exp(L) </me>.
+		<md> \lim_{t \to c} g(t) = L \qquad \implies \qquad \lim_{t \to c} \exp\bbrac{g(t)} = \exp(L) </md>.
 		Apply this pattern with <m>g(t)</m> replaced by <m>\ln\bbrac{f(t)}</m>,
-		noting that <me> \exp\Bbrac{\ln\bbrac{f(t)}} = f(t) </me>.
+		noting that <md> \exp\Bbrac{\ln\bbrac{f(t)}} = f(t) </md>.
 	</p></proof>
 
 </identity>
@@ -2227,7 +2227,7 @@ we may exploit the algebraic properties of logarithms to help us deal with expon
 
 	<p>
 	It seems like we should have
-	<me> \lim_{t \to 1} t^t = 1 </me>,
+	<md> \lim_{t \to 1} t^t = 1 </md>,
 	but can we be sure?
 	We don't have any limit laws that directly address this situation.
 	(Note that <xref ref="pattern-func-limits-limit-of-power" /> does <em>not</em> apply here.)
@@ -2235,13 +2235,13 @@ we may exploit the algebraic properties of logarithms to help us deal with expon
 
 	<p>
 	Instead, let's try to compute
-	<me> \lim_{t \to 1} \ln(t^t) = \lim_{t \to 1} t \ln(t) </me>.
+	<md> \lim_{t \to 1} \ln(t^t) = \lim_{t \to 1} t \ln(t) </md>.
 	Since <m>\ln(t) \to 0</m> as <m>t \to 1</m>,
 	we may apply the multiplicativity rule of <xref ref="pattern-func-limits-laws" /> to determine
-	<me> \lim_{t \to 1} t \ln(t) = 1 \cdot 0 = 0 </me>.
+	<md> \lim_{t \to 1} t \ln(t) = 1 \cdot 0 = 0 </md>.
 	Therefore,
 	<xref ref="pattern-func-limits-logarithmic" /> tells us that
-	<me> \lim_{t \to 1} t^t = e^0 = 1 </me>.
+	<md> \lim_{t \to 1} t^t = e^0 = 1 </md>.
 	</p>
 
 </example>
@@ -2251,21 +2251,21 @@ we may exploit the algebraic properties of logarithms to help us deal with expon
 <heuristic xml:id="strategy-func-limits-indeterminate-exp">
 	<title>For evaluating an indeterminate exponential form</title>
 	<statement><p>
-		If <me> \lim_{t \to c} {\bigl[f(t)\bigr]}^{g(t)} </me> is of an indeterminate form,
+		If <md> \lim_{t \to c} {\bigl[f(t)\bigr]}^{g(t)} </md> is of an indeterminate form,
 		instead attempt to compute
-		<me> \lim_{t \to c} \ln\left({\bigl[f(t)\bigr]}^{g(t)}\right) = \lim_{t \to c} g(t) \cdot \ln\bbrac{f(t)} </me>
+		<md> \lim_{t \to c} \ln\left({\bigl[f(t)\bigr]}^{g(t)}\right) = \lim_{t \to c} g(t) \cdot \ln\bbrac{f(t)} </md>
 		(which is also likely of an indeterminate form).
 		If this new limit has value <m>L</m>,
-		then <me> \lim_{t \to c} {\bigl[f(t)\bigr]}^{g(t)} = e^L </me>.
+		then <md> \lim_{t \to c} {\bigl[f(t)\bigr]}^{g(t)} = e^L </md>.
 	</p></statement>
 </heuristic>
 
 <example><p>
-	Consider <me> \lim_{x \to 0^{+}} t^t </me>,
+	Consider <md> \lim_{x \to 0^{+}} t^t </md>,
 	which is of <m>0^0</m> form.
 	Applying <xref ref="strategy-func-limits-indeterminate-exp" />,
 	instead we compute
-	<me> \lim_{t \to 0^{+}} \ln(t^t) = \lim_{t \to 0^{+}} t \ln(t) </me>.
+	<md> \lim_{t \to 0^{+}} \ln(t^t) = \lim_{t \to 0^{+}} t \ln(t) </md>.
 	This new limit is of <m>0 \cdot (-\infty)</m> form,
 	so we apply <xref ref="strategy-func-limits-indeterminate-0-inf" />:
 	<md>
@@ -2278,31 +2278,31 @@ we may exploit the algebraic properties of logarithms to help us deal with expon
 		<mrow> \amp = 0 </mrow>
 	</md>.
 	Completing strategy <xref ref="strategy-func-limits-indeterminate-exp" />,
-	we have <me> \lim_{t \to 0^{+}} t^t = e^0 = 1 </me>.
+	we have <md> \lim_{t \to 0^{+}} t^t = e^0 = 1 </md>.
 </p></example>
 
 <example xml:id="example-func-limits-infty-to-0"><p>
-	Consider <me> \lim_{t \to \infty} {(1 + t)}^{1/t} </me>,
+	Consider <md> \lim_{t \to \infty} {(1 + t)}^{1/t} </md>,
 	which is of <m>\infty^0</m> form.
 	Applying <xref ref="strategy-func-limits-indeterminate-exp" />,
 	instead we compute
-	<me> \lim_{t \to \infty} \ln\bbrac{{(1 + t)}^{1/t}} = \lim_{t \to \infty} \frac{\ln(1 + t)}{t} </me>.
+	<md> \lim_{t \to \infty} \ln\bbrac{{(1 + t)}^{1/t}} = \lim_{t \to \infty} \frac{\ln(1 + t)}{t} </md>.
 	This new limit is of <m>\infty / \infty</m> form,
 	so apply L'Hôpital's Rule:
-	<me> \lim_{t \to \infty} \frac{\ln(1 + t)}{t} \lhopeq \lim_{t \to \infty} \frac{1 / (1 + t)}{1} = 0 </me>.
+	<md> \lim_{t \to \infty} \frac{\ln(1 + t)}{t} \lhopeq \lim_{t \to \infty} \frac{1 / (1 + t)}{1} = 0 </md>.
 	Completing strategy <xref ref="strategy-func-limits-indeterminate-exp" />,
-	we have <me> \lim_{t \to \infty} {(1 + t)}^{1/t} = e^0 = 1 </me>.
+	we have <md> \lim_{t \to \infty} {(1 + t)}^{1/t} = e^0 = 1 </md>.
 </p></example>
 
 <example xml:id="example-func-limits-e-as-limit">
 	<title>Alternative characterization of Euler's number</title>
 
 	<p>
-	Consider <me> \lim_{t \to 0} {(1 + t)}^{1/t} </me>,
+	Consider <md> \lim_{t \to 0} {(1 + t)}^{1/t} </md>,
 	which is of <m>1^\infty</m> form.
 	Applying <xref ref="strategy-func-limits-indeterminate-exp" />,
 	instead we compute
-	<me> \lim_{t \to 0} \ln\bbrac{{(1 + t)}^{1/t}} = \lim_{t \to 0} \frac{\ln(1 + t)}{t} </me>.
+	<md> \lim_{t \to 0} \ln\bbrac{{(1 + t)}^{1/t}} = \lim_{t \to 0} \frac{\ln(1 + t)}{t} </md>.
 	This limit is now of <m>0/0</m> form,
 	but this time we don't need to apply L'Hôpital's Rule.
 	Instead,
@@ -2325,7 +2325,7 @@ we may exploit the algebraic properties of logarithms to help us deal with expon
 		<mrow> \amp = \funceval{\frac{1}{t}}{t = 1} </mrow>
 		<mrow> \amp = 1 </mrow>
 	</md>.
-	From this we conclude <me> \lim_{t \to 0} {(1 + t)}^{1/t} = e^1 = e </me>.
+	From this we conclude <md> \lim_{t \to 0} {(1 + t)}^{1/t} = e^1 = e </md>.
 	</p>
 
 </example>
@@ -2346,7 +2346,7 @@ we may exploit the algebraic properties of logarithms to help us deal with expon
 As is the case with many concepts in calculus,
 averages are the key.
 Recall that <xref ref="theorem-fund-thm-mean-value" text="title" /> says that a continuous function always achieves its average value at least once on a specific domain:
-<me> f(c) = \avg{f} = \frac{1}{b - a} \ccmint{a}{b}{f(t)}{t} </me>
+<md> f(c) = \avg{f} = \frac{1}{b - a} \ccmint{a}{b}{f(t)}{t} </md>
 for at least one input <m>c</m> in the domain <m>a \le t \le b</m>.
 If we apply this fact to a derivative function,
 then we obtain the following version of the Mean Value Theorem.
@@ -2365,10 +2365,10 @@ then we obtain the following version of the Mean Value Theorem.
 		we will justify this under the extra assumptions that the derivative function <m>f'(t)</m> is defined and continuous on the closed interval <m>a \le t \le b</m>.
 		In that case the integral version of the <xref ref="theorem-fund-thm-mean-value" text="title" /> applies,
 		and we can say that there is at least one input value <m>t = c</m> in the domain where
-		<me> f'(c) = \frac{1}{b - a} \ccmint{a}{b}{f'(t)}{t} </me>.
+		<md> f'(c) = \frac{1}{b - a} \ccmint{a}{b}{f'(t)}{t} </md>.
 		But <m>f</m> is an antiderivative of <m>f'</m>,
 		so we simply apply <xref ref="pattern-fund-thm-def-int-by-antideriv" /> to obtain
-		<me>\ccmint{a}{b}{f'(t)}{t} = f(b) - f(a) </me>.
+		<md>\ccmint{a}{b}{f'(t)}{t} = f(b) - f(a) </md>.
 	</p></proof>
 
 </theorem>
@@ -2376,7 +2376,7 @@ then we obtain the following version of the Mean Value Theorem.
 <remark><p><ul>
 
 	<li>
-		Note that the difference quotient <me> \frac{f(b) - f(a)}{b - a} </me> is the <term>average rate of variation</term> of <m>f</m> over the domain <m>a \le t \le b</m>
+		Note that the difference quotient <md> \frac{f(b) - f(a)}{b - a} </md> is the <term>average rate of variation</term> of <m>f</m> over the domain <m>a \le t \le b</m>
 		(see <xref ref="definition-vars-avg-rate" />),
 		and the derivative value <m>f'(c)</m> represents the <term>instantaneous rate of variation</term>.
 		So <xref ref="theorem-func-limits-mean-value" /> really does represent the same information as the integral version of <xref ref="theorem-fund-thm-mean-value" text="title" />:
@@ -2414,7 +2414,7 @@ But the following fact comes close to saying that we can take them to be the sam
 		Suppose both <m>f</m> and <m>g</m> satisfy the hypotheses of the <xref ref="theorem-func-limits-mean-value" text="title" />,
 		and that <m>g'(t)</m> is never <m>0</m> on domain <m>a \lt t \lt b</m>.
 		Then there is at least one input value <m>t = c</m> in that domain where
-		<me> \frac{f'(c)}{g'(c)} = \frac{f(b) - f(a)}{g(b) - g(a)} </me>.
+		<md> \frac{f'(c)}{g'(c)} = \frac{f(b) - f(a)}{g(b) - g(a)} </md>.
 	</p></statement>
 
 	<proof>
@@ -2422,7 +2422,7 @@ But the following fact comes close to saying that we can take them to be the sam
 		<p>
 		First we note that it is not possible for <m>g(b) - g(a) = 0</m> to be true,
 		which is important because if it were then our conclusion would be impossible.
-		The <xref ref="theorem-func-limits-mean-value" text="title" /> tells us that there is some input value <m>t = d</m> where <me> g'(d) = \frac{g(b) - g(a)}{b - a} </me>.
+		The <xref ref="theorem-func-limits-mean-value" text="title" /> tells us that there is some input value <m>t = d</m> where <md> g'(d) = \frac{g(b) - g(a)}{b - a} </md>.
 		If <m>g(b) - g(a) = 0</m> were true,
 		then the above would say that <m>g'(d) = 0</m>,
 		but we have assumed that <m>g'(t)</m> is never <m>0</m> on the domain in question.
@@ -2430,7 +2430,7 @@ But the following fact comes close to saying that we can take them to be the sam
 
 		<p>
 		We are looking for an input value <m>t = c</m> so that
-		<me> \frac{f'(c)}{g'(c)} = \frac{F}{G} </me>
+		<md> \frac{f'(c)}{g'(c)} = \frac{F}{G} </md>
 		for <md><mrow> F \amp = f(b) - f(a) \text{,} \amp G \amp = g(b) - g(a) \text{.} </mrow></md>
 		(Note that <m>F</m> and <m>G</m> are specific numbers, not functions.)
 		</p>
@@ -2440,7 +2440,7 @@ But the following fact comes close to saying that we can take them to be the sam
 		Since <m>f</m> and <m>g</m> satisfy the hypotheses of the <xref ref="theorem-func-limits-mean-value" text="title" />,
 		so does <m>h</m>,
 		and so there is a input value <m>t = c</m> where
-		<me> h'(c) = \frac{h(b) - h(a)}{b - a} </me>.
+		<md> h'(c) = \frac{h(b) - h(a)}{b - a} </md>.
 		But
 		<md>
 			<mrow> h(b) - h(a) \amp = \bbrac{G \cdot f(b) - F \cdot g(b)} - \bbrac{G \cdot f(a) - F \cdot g(a)} </mrow>
@@ -2471,10 +2471,10 @@ But the following fact comes close to saying that we can take them to be the sam
 	<p>
 	Assume <m>f</m> and <m>g</m> are functions that satisfy the three conditions in <xref ref="pattern-func-limits-l-hopital-0-0" />.
 	As discussed in <xref ref="remark-func-limits" />,
-	the value of <me> \lim_{t \to c} \frac{f(t)}{g(t)} </me>
+	the value of <md> \lim_{t \to c} \frac{f(t)}{g(t)} </md>
 	does not depend on the values of <m>f(c)</m> and <m>g(c)</m>,
 	or even if these values are defined.
-	So without loss of generality we may assume <me> f(c) = g(c) = 0 </me>.
+	So without loss of generality we may assume <md> f(c) = g(c) = 0 </md>.
 	Using <xref ref="fact-func-limits-two-vs-one-sided" />,
 	first let's investigate the limit as <m>t \to c^{+}</m>.
 	So consider an input sequence <m>\nseq{t} \to c</m> with <m>t_n \gt c</m> for all <m>n</m>.
@@ -2482,24 +2482,24 @@ But the following fact comes close to saying that we can take them to be the sam
 	we may assume that it is contained within the domains of continuity and differentiability of <m>f</m> and <m>g</m> in the assumptions in the statement of L'Hôpital's Rule.
 	This means that <xref ref="theorem-func-limits-Cauchy-MVT" text="title" /> applies to every domain <m>c \le t \le t_n</m>,
 	and so for each <m>n</m> there exists an input value <m>t = k_n</m> between <m>c</m> and <m>t_n</m> for which
-	<me> \frac{f'(k_n)}{g'(k_n)} = \frac{f(t_n) - f(c)}{g(t_n) - g(c)} </me>.
+	<md> \frac{f'(k_n)}{g'(k_n)} = \frac{f(t_n) - f(c)}{g(t_n) - g(c)} </md>.
 	But recall that we have assumed <m>f(c) = g(c) = 0</m>,
 	so actually
-	<me> \frac{f'(k_n)}{g'(k_n)} = \frac{f(t_n)}{g(t_n)} </me>.
+	<md> \frac{f'(k_n)}{g'(k_n)} = \frac{f(t_n)}{g(t_n)} </md>.
 	So the sequences
 	<md><mrow> \amp \lrseq{\frac{f'(t_n)}{g'(t_n)}} \amp \amp \lrseq{\frac{f(k_n)}{g(k_n)}} </mrow></md>
 	must both converge to the same limit or must both diverge in the same way.
 	By the <xref ref="pattern-seq-squeeze" text="title" />,
 	since <m>c \le k_n \le t_n</m> and <m>\nseq{t} \to c</m>,
 	we also have <m>\nseq{k} \to c</m>.
-	So if <me> \lim_{t \to c^{+}} \frac{f'(t)}{g'(t)} </me> exists,
+	So if <md> \lim_{t \to c^{+}} \frac{f'(t)}{g'(t)} </md> exists,
 	it must have the same limit value as the sequence <m>\bbseq{f'(k_n)/g'(n)}</m>,
 	which has the same limit value as the sequence <m>\bbseq{f(t_n)/g(t_n)}</m>,
-	which has the same limit value as <me> \lim_{t \to c^{+}} \frac{f(t)}{g(t)} </me>.
+	which has the same limit value as <md> \lim_{t \to c^{+}} \frac{f(t)}{g(t)} </md>.
 	</p>
 
 	<p>
-	Having demonstrated that <me> \lim_{t \to c^{+}} \frac{f(t)}{g(t)} = \lim_{t \to c^{+}} \frac{f'(t)}{g'(t)} </me>,
+	Having demonstrated that <md> \lim_{t \to c^{+}} \frac{f(t)}{g(t)} = \lim_{t \to c^{+}} \frac{f'(t)}{g'(t)} </md>,
 	and recognizing that a similar argument could be used to demonstrate the same for <m>t \to c^{-}</m>,
 	we have our desired conclusion.
 	</p>
