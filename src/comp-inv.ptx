@@ -361,7 +361,7 @@ If we suspect a function is invertible but don't know an inverse function for it
 is there a way we can attempt to compute an inverse?
 Consider again the example of cube and cube root.
 The two equalities
-<md><mrow xml:id="equation-comp-inv-two-cubed-cube-root" tag="star"> 2^3 \amp = 8 \amp \sqrt[3]{8} \amp = 2 </mrow></md>
+<md xml:id="equation-comp-inv-two-cubed-cube-root" tag="star"> 2^3 \amp = 8 \amp \sqrt[3]{8} \amp = 2 </md>
 both state the same relationship between the numbers <m>2</m> and <m>8</m>.
 It's only the point of view that has changed:
 in the first equality we think of <m>2</m> as the input into the cube process with <m>8</m> as the corresponding output,

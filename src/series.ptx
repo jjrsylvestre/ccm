@@ -1109,7 +1109,7 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 	</li>
 
 	<li>
-		For <md><mrow xml:id="equation-series-comparison-1" tag="star"> \sum \frac{5}{2 k^2 + 4 k + 3} </mrow></md>
+		For <md xml:id="equation-series-comparison-1" tag="star"> \sum \frac{5}{2 k^2 + 4 k + 3} </md>
 		we have
 		<md> \frac{5}{2 n^2 + 4 n + 3} \lt \frac{5}{2} \cdot \frac{1}{n^2} </md>
 		for all <m>n</m>,
@@ -1225,7 +1225,7 @@ So we can test convergence/divergence by comparing the rate at which the terms t
 <example>
 	<title>Choosing a comparator series</title>
 	<p>
-	Consider <md><mrow xml:id="equation-series-limit-comparison-1" tag="dstar"> \sum \frac{2 k^2 + 3 k}{\sqrt{5 + k^7}} </mrow></md>.
+	Consider <md xml:id="equation-series-limit-comparison-1" tag="dstar"> \sum \frac{2 k^2 + 3 k}{\sqrt{5 + k^7}} </md>.
 	For large <m>k</m> we have <md> \frac{2 k^2 + 3 k}{\sqrt{5 + k^7}} \approx \frac{2 k^2}{\sqrt{k^7}} = \frac{2}{k^{3/2}} </md>.
 	So we'll attempt to compare with the convergent <m>p</m>-series <m>\sum 1 / k^{3/2}</m>:
 	<md>
@@ -1668,9 +1668,9 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		so that both the tails <m>\absseqtail{s_n - S}</m> and <m>\nseqtail{r}</m> are completely contained in <m>[0,c/2)</m>.
 		In particular,
 		the first terms of these tails are both contained in this range:
-		<md><mrow tag="dagger" xml:id="equation-series-rearrange-half-inequalities">
+		<md tag="dagger" xml:id="equation-series-rearrange-half-inequalities">
 			\abs{s_N - S} \amp \lt c/2 \text{,} \amp r_N \amp \lt c/2 \text{.}
-		</mrow></md>
+		</md>
 		</p>
 
 		<p>
@@ -1697,9 +1697,9 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		for some collection of indices <m>j_1,\dotsc,j_\ell</m> that are all greater than <m>N</m>.
 		Using the extended Triangle Inequality,
 		we can say that
-		<md><mrow tag="ddagger" xml:id="equation-series-rearrange-another-half-inequality">
+		<md tag="ddagger" xml:id="equation-series-rearrange-another-half-inequality">
 			\abs{t_M - s_N} \le \abs{a_{j_1}} + \abs{a_{j_2}} + \dotsb + \abs{a_{j_\ell}}
-		</mrow></md>.
+		</md>.
 		In this form,
 		because the indices are all larger than <m>N</m>,
 		each of these absolute terms appears in the <m>\nth[N]</m> absolute remainder

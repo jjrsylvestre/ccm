@@ -737,7 +737,7 @@ and <xref ref="pattern-integ-definite-props-additive" text="type-local">Property
 of <xref ref="pattern-integ-definite-props" />,
 we only need a pattern for rate functions that are a power of <m>t</m> in order to be able to handle any polynomial rate function,
 and that pattern appears to be
-<md><mrow xml:id="equation-poly-int-pattern" tag="star"> \ccmint{0}{t}{u^m}{u} = \frac{t^{m + 1}}{m + 1} </mrow></md>.
+<md xml:id="equation-poly-int-pattern" tag="star"> \ccmint{0}{t}{u^m}{u} = \frac{t^{m + 1}}{m + 1} </md>.
 </p>
 
 <example xml:id="example-poly-quantity-from-rate">

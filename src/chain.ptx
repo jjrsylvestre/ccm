@@ -157,22 +157,18 @@ So if <m>V</m> is differentiable as a function of <m>D</m>,
 and <m>D</m> is differentiable as a function of <m>t</m>,
 then for small enough <m>\change{t}</m> and small enough <m>\change{D}</m>,
 we have
-<md>
-	<mrow xml:id="equation-chain-volume-vs-diameter-slopes" tag="star">
-		\funceval{\dd{V}{D}}{D = D^\ast} \amp \approx \slope{V}{D}
-		\amp
-		\funceval{\ddt{D}}{t = t^\ast} \amp \approx \slope{D}{t}
-	</mrow>
+<md xml:id="equation-chain-volume-vs-diameter-slopes" tag="star">
+	\funceval{\dd{V}{D}}{D = D^\ast} \amp \approx \slope{V}{D}
+	\amp
+	\funceval{\ddt{D}}{t = t^\ast} \amp \approx \slope{D}{t}
 </md>
 (where <m>D^\ast</m> represents the diameter at time <m>t = t^\ast</m>),
 giving us
-<md>
-	<mrow xml:id="equation-chain-volume-vs-diameter-derivs" tag="dstar">
-		\slope{V}{t}
-		\approx
-		\left( \funceval{\dd{V}{D}}{D = D^\ast} \right)
-		\left( \funceval{\ddt{D}}{t = t^\ast}   \right)
-	</mrow>
+<md xml:id="equation-chain-volume-vs-diameter-derivs" tag="dstar">
+	\slope{V}{t}
+	\approx
+	\left( \funceval{\dd{V}{D}}{D = D^\ast} \right)
+	\left( \funceval{\ddt{D}}{t = t^\ast}   \right)
 </md>
 The derivative value
 <md> \funceval{\ddt{V}}{t = t^\ast} </md>

@@ -264,7 +264,7 @@ Exponential functions come in three varieties:
 In <xref ref="pattern-exp-horiz-scale" />,
 if we choose <m>a</m> so that <m>\ln (a) = 1</m>,
 then the comparison between the two exponential formulas becomes much simpler:
-<md><mrow xml:id="equation-exp-pre-natural-comparison" tag="star"> b^t = a^{t \ln (b)} </mrow></md>.
+<md xml:id="equation-exp-pre-natural-comparison" tag="star"> b^t = a^{t \ln (b)} </md>.
 Just like we use <m>\pi</m> to represent the special number that corresponds to the area of a unit circle,
 the special number so that <m>\ln (a) = 1</m> is given its own symbol.
 </p>

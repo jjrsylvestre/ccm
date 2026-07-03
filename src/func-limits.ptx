@@ -1290,9 +1290,9 @@ the number of steps to use:
 
 	<p>
 	For
-	<md><mrow tag="star" xml:id="equation-func-limits-example-integral-1">
+	<md tag="star" xml:id="equation-func-limits-example-integral-1">
 		\ccmint{0}{1}{t^2 - 2 t + 2}{t}
-	</mrow></md>,
+	</md>,
 	the integrand function <m>f(t) = t^2 - 2 t + 2</m> is decreasing on the domain of integration,
 	and so in this case lower sums will be right Riemann sums and upper sums will be left Riemann sums.
 	</p>
@@ -1439,9 +1439,9 @@ then we might write
 
 	<p>
 	Analyzing
-	<md><mrow tag="dstar" xml:id="equation-func-limits-example-integral-2">
+	<md tag="dstar" xml:id="equation-func-limits-example-integral-2">
 		\ccmint{0}{1}{t^2 - t + 1}{t}
-	</mrow></md>
+	</md>
 	via upper and lower sums seems like it should be just as simple as our previous example,
 	but in this case our integrand function <m>f(t) = t^2 - t + 1</m> is sometimes decreasing and sometimes increasing,
 	which means the sample points will not remain consistently at one endpoint or another,
@@ -1656,9 +1656,9 @@ Reviewing the definition of derivative value <xref ref="definition-avg-rate-deri
 it attempts to describe the pattern of difference quotient values at a specific point <m>t = t^\ast</m> for <m>\change{t} \approx 0</m>.
 So it is not a limit of the function <m>q</m> whose derivative values we are computing,
 but instead a limit of a new function whose independent variable is <m>\change{t}</m>:
-<md><mrow tag="dagger" xml:id="equation-func-limits-diff-quotient-func">
+<md tag="dagger" xml:id="equation-func-limits-diff-quotient-func">
 	Q_{t^\ast}(\change{t}) = \frac{\change{q}}{\change{t}} = \frac{q(t^\ast + \change{t}) - q(t^\ast)}{\change{t}}
-</mrow></md>,
+</md>,
 where <m>t^\ast</m> is a specific point in the domain of <m>q</m>.
 </p>
 

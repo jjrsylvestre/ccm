@@ -1047,7 +1047,7 @@ as in our <xref ref="example-models-radioactive-decay" text="title" /> example.
 	with proportionality constant <m>k</m>.
 	Let's take our proportionality constant to be <m>k = 3</m>,
 	so that
-	<md><mrow xml:id="equation-deriv-proportional-rate-eqn" tag="star"> r(t) = 3 q(t) </mrow></md>.
+	<md xml:id="equation-deriv-proportional-rate-eqn" tag="star"> r(t) = 3 q(t) </md>.
 	We expect <md> r(t) = q'(t) </md>,
 	so we are looking for a function whose derivative is a multiple of that original function.
 	The pattern <md> \ddt{e^t} = e^t </md> is almost correct,

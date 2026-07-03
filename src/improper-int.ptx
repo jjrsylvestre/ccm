@@ -236,7 +236,7 @@ as <md> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </md>?
 
 	<p>
 	It is tempting to say that
-	<md><mrow tag="star" xml:id="equation-improper-int-two-sided-line"> \ccmint{-\infty}{\infty}{t}{t} </mrow></md>
+	<md tag="star" xml:id="equation-improper-int-two-sided-line"> \ccmint{-\infty}{\infty}{t}{t} </md>
 	should be equal to zero because,
 	just like the last example in <xref ref="example-improper-int-first-examples" />,
 	the function being integrated exhibits odd symmetry,
@@ -256,9 +256,9 @@ as <md> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </md>?
 	<md> \lim_{t \to \infty} \ccmint{-t}{t}{u}{u} = \lim_{t \to \infty} 0 = 0 </md>.
 	However, the cancellation of negative area with positive area only works over bounded domains.
 	We have
-	<md><mrow tag="dstar" xml:id="equation-improper-int-one-sided-lines">
+	<md tag="dstar" xml:id="equation-improper-int-one-sided-lines">
 		\ccmint{-\infty}{0}{t}{t} \amp = -\infty \amp \ccmint{0}{\infty}{t}{t} \amp = \infty
-	</mrow></md>,
+	</md>,
 	and we have no conceptual basis we can use to justify cancelling a negatively-oriented area of infinite magnitude with a positively-oriented area of infinite magnitude.
 	Instead,
 	it's best to say that <xref ref="equation-improper-int-two-sided-line" /> <term>diverges</term> because the two integrals in <xref ref="equation-improper-int-one-sided-lines" /> do.

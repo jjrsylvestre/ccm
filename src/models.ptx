@@ -217,7 +217,7 @@ The next step in analyzing the situation would be to try to make this observatio
 	if <m>q(t)</m> models the amount of some sample of radioactive material remaining after a period of time measured by <m>t</m>,
 	and <m>r(t)</m> models the rate of variation of the amount of material,
 	then there is a positive constant <m>k</m> so that
-	<md><mrow xml:id="equation-models-radioactive" tag="star"> \frac{r(t)}{q(t)} = - k </mrow></md>.
+	<md xml:id="equation-models-radioactive" tag="star"> \frac{r(t)}{q(t)} = - k </md>.
 	(The negative is because we expect the rate to be negative because the quantity is decreasing,
 	but the quantity itself will always be a positive amount.)
 	</p>

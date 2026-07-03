@@ -242,7 +242,7 @@ The first involves the logarithm of a product of two numbers.
 		</md>.
 		So we already have the first part of our desired formula, <m>\ln a</m>.
 		What about the second integral
-		<md><mrow xml:id="equation-log-product-second-int" tag="star"> \ccmint{a}{a b}{\frac{1}{u}}{u} </mrow></md>?
+		<md xml:id="equation-log-product-second-int" tag="star"> \ccmint{a}{a b}{\frac{1}{u}}{u} </md>?
 		How does it compare to <md> \ln b = \ccmint{1}{b}{\frac{1}{s}}{s} </md>?
 		(We have changed the integration variable to help keep things separate during our comparison of these two integrals.)
 		It appears that the domain in integral <xref ref="equation-log-product-second-int" /> has been stretched by a factor of <m>a</m>
@@ -350,7 +350,7 @@ What does it do to a reciprocal?
 		By taking reciprocals,
 		we can create a <q>mirror-image</q> rectangular base between <m>u' = 1 / s'</m> and <m>u = 1 / s</m>.
 		To create a rectangle that represents a typical rectangle in an <em>upper</em> sum approximation of the integral
-		<md><mrow xml:id="equation-log-reciprocal-int" tag="dstar"> \ccmint{1 / a}{1}{\frac{1}{u}}{u} </mrow></md>,
+		<md xml:id="equation-log-reciprocal-int" tag="dstar"> \ccmint{1 / a}{1}{\frac{1}{u}}{u} </md>,
 		we'll take the sample point to be at <m>u'</m>.
 		</p>
 

@@ -791,7 +791,7 @@ but for now the next two examples give us hope that term-by-term operations yiel
 
 	<p>
 	From <xref ref="example-power-series-natural-exp-taylor-remainder" /> we know that for all <m>t</m> we have
-	<md><mrow xml:id="equation-power-series-exp-taylor" tag="star"> e^t = 1 + t + \frac{t^2}{2} + \frac{t^3}{3!} + \frac{t^4}{4!} + \dotsb </mrow></md>.
+	<md xml:id="equation-power-series-exp-taylor" tag="star"> e^t = 1 + t + \frac{t^2}{2} + \frac{t^3}{3!} + \frac{t^4}{4!} + \dotsb </md>.
 	</p>
 
 	<p>
@@ -1126,9 +1126,9 @@ an alternative is to use term-by-term integration of a known power series repres
 	so we conclude that <m>C = 0</m>.
 	Shifting indices in the series using the substitution <m>m = k + 1</m>,
 	we arrive at
-	<md><mrow xml:id="equation-power-series-ln-taylor" tag="dagger">
+	<md xml:id="equation-power-series-ln-taylor" tag="dagger">
 		\ln(t) = \sum_{m = 1}^\infty \frac{{(-1)}^{m - 1}}{m} {(t - 1)}^m
-	</mrow></md>.
+	</md>.
 	</p>
 
 	<aside><title>Power versus Taylor/Maclaurin series</title><p>
@@ -1156,11 +1156,11 @@ an alternative is to use term-by-term integration of a known power series repres
 		<mrow> \amp = \sum_{m = 1}^\infty \left( \frac{{(-1)}^{m - 1}}{m} + \frac{{(-1)}^m}{(m + 1)} \right) \; {(t - 1)}^{m + 1} </mrow>
 	</md>.
 	We can then split this into two series:
-	<md><mrow xml:id="equation-power-series-int-ln-taylor" tag="ddagger">
+	<md xml:id="equation-power-series-int-ln-taylor" tag="ddagger">
 		\ccmiint{\ln(t)}{t}
 		= \sum_{m = 1}^\infty \frac{{(-1)}^{m - 1}}{m} \; {(t - 1)}^{m + 1}
 		+ \sum_{m = 1}^\infty \frac{{(-1)}^m}{(m + 1)} \; {(t - 1)}^{m + 1}
-	</mrow></md>.
+	</md>.
 	Now, the <em>first</em> series in
 	<xref ref="equation-power-series-int-ln-taylor" />,
 	resembles the <em>second</em> power series representation for <m>\ln(t)</m> in

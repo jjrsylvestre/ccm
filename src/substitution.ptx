@@ -92,9 +92,9 @@ accumulation is equal to accumulation.
 <p>
 In differential notation,
 we could write
-<md><mrow xml:id="equation-substitution-integral-of-deriv" tag="star">
+<md xml:id="equation-substitution-integral-of-deriv" tag="star">
 	\ccmint{a}{b}{\dqdt}{t} = q(b) - q(a)
-</mrow></md>.
+</md>.
 Recall that this integral is a sum of small
 <md> \text{accumulation} = \text{rate} \times \text{duration} </md>
 calculations over tiny time intervals of duration <m>dt</m>.
@@ -102,9 +102,9 @@ But also, <m>dq/dt</m> is essentially an average rate calculation over a short t
 If we assume that these two calculations are aligned to use the same <m>dt</m> <q>value</q>,
 we could write <md> \dqdt \, dt = dq </md>,
 and so
-<md><mrow xml:id="equation-substitution-convert-integral-of-deriv" tag="dstar">
+<md xml:id="equation-substitution-convert-integral-of-deriv" tag="dstar">
 	\ccmint{a}{b}{\dqdt}{t} = \ccmint{q(a)}{q(b)}{}{q}
-</mrow></md>.
+</md>.
 Notice that we have changed the bounds of integration to reflect the fact that in our second integral,
 <m>q</m> is now being considered as the <em>independent</em> variable instead of the dependent one.
 Finally,

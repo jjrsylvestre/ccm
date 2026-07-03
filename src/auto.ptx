@@ -44,7 +44,7 @@ by applying the concepts we learned in <xref ref="chapter-curves" />.
 
 	<p>
 	Consider the rate equation
-	<md><mrow xml:id="equation-auto-first-example-rate-eqn" tag="star"> \dqdt = (q + 1) (q - 2) </mrow></md>.
+	<md xml:id="equation-auto-first-example-rate-eqn" tag="star"> \dqdt = (q + 1) (q - 2) </md>.
 	The first thing to notice is that at quantity levels <m>q = -1</m> and <m>q = 2</m>,
 	we have <m>dq/dt = 0</m>,
 	which means that the rate of growth is zero,
