@@ -120,6 +120,8 @@ article:has(.case)>*:not(:first-child):has(.heading) {
   --toclevel2-background: var(--primary-color-white-90);
   --toclevel3-background: var(--primary-color-white-90);
   --toclevel2-text-color: black;
+  --toclevel4-text-color: black;
+  --toclevel4-background: var(--primary-color-white-80);
   --summary-link-text-color: var(--primary-color);
   --summary-link-hover-text-color: var(--primary-color);
   --summary-link-hover-background: var(--secondary-color-white-50);
@@ -131,16 +133,21 @@ article:has(.case)>*:not(:first-child):has(.heading) {
   --primary-color: var(--lighter-green);
   --body-title-color: var(--primary-color-white-85);
   --toclevel3-background: var(--background-color-gray-20);
+  --toclevel4-text-color: white;
+  --toclevel4-background: var(--background-color-black-10);
   --block-border-color: var(--primary-color-black-40);
 }
+
+/* NOT NEEDED ANY MORE? */
 /* fillin in math mode */
-:root.dark-mode mjx-mpadded {
+/* :root.dark-mode mjx-mpadded {
   background-color: #808080 !important;
-}
+} */
 
 
+/* COPIED FROM DLA, BUT NO SUCH CONSTRUCT IN CCM... */
 /* "In this section" title links */
-.introduction > .assemblage .emphasis > a.internal { color: var(--body-text-color); }
+/* .introduction > .assemblage .emphasis > a.internal { color: var(--body-text-color); } */
 
 /* knowl link background */
 :root:not(.dark-mode) .knowl__link:is(:hover, :focus, [open]) {
@@ -200,6 +207,11 @@ article:has(.case)>*:not(:first-child):has(.heading) {
 .ptx-toc.focused .toc-item.expanded > .toc-title-box > .toc-expander > .icon:before { content: "arrow_drop_up"; }
 .ptx-toc.focused .toc-item.expanded > .toc-title-box > .toc-expander > .icon { transform: none; }
 
+/* fourth level toc background */
+.ptx-toc .toc-item .toc-item .toc-item .toc-item {
+  color: var(--toclevel4-text-color);
+  background-color: var(--toclevel4-background);
+}
 
 /******************************************************************************/
 /*                                  SPACING                                   */
