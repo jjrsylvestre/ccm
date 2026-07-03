@@ -290,7 +290,7 @@ so that the step function's values can change more often to better keep up with 
 			but this time many more than just three,
 			with heights more closely following the rise-and-fall of the graph.
 			<ul>
-				<li>
+				<li><p>
 					The first
 					<quantity>
 						<mag>0.1</mag>
@@ -310,8 +310,8 @@ so that the step function's values can change more often to better keep up with 
 						<per  base="hour" />
 					</quantity>
 					(so really just a line segment along the horizontal axis instead of a rectangle).
-				</li>
-				<li>
+				</p></li>
+				<li><p>
 					The next
 					<quantity>
 						<mag>0.4</mag>
@@ -371,8 +371,8 @@ so that the step function's values can change more often to better keep up with 
 							</quantity>.
 						</li>
 					</ul>
-				</li>
-				<li>
+				</p></li>
+				<li><p>
 					The last
 					<quantity>
 						<mag>0.15</mag>
@@ -398,7 +398,7 @@ so that the step function's values can change more often to better keep up with 
 						<unit base="metre" prefix="kilo" />
 						<per  base="hour" />
 					</quantity>.
-				</li>
+				</p></li>
 			</ul>
 		</p></description>
 		<latex-image><xi:include href="integ.d/camrose-wetaskiwin-simplified-more-rect.tex" parse="text" /></latex-image>
