@@ -42,6 +42,14 @@ else
 	ask_continue
 fi
 
+echo -n "Transfer images [Y/n] ? "
+read ans
+if [ "${ans}" != "Y" ]
+then
+	options+=("--exclude=generated")
+fi
+echo
+
 for run in "${runs[@]}"
 do
 	echo
