@@ -35,6 +35,10 @@ respective owners.
 <!-- Functions, accumulation, and rate of variation. Graphs of functions. Transformations of functions/graphs. -->
 <xi:include href="./funcs.ptx" />
 
+
+<!-- Informal function limits -->
+<xi:include href="./limits.ptx" />
+
 <!--
   Long-term behaviour: horizontal asymptotes (i.e., informal treatment of limits as x → ∞).
   Singular behaviour: vertical asymptotes (i.e., informal treatment of limits where y →∞).
