@@ -1400,33 +1400,33 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 
 </subsubsection>
 
-<conclusion>
-	<title>Summary of vertical transformations</title>
+<subsubsection>
+<title>Summary of vertical transformations</title>
 
-	<assemblage>
-		<title>The three types of vertical transformations</title>
-		<p><ul>
+<assemblage>
+	<title>The three types of vertical transformations</title>
+	<p><ul>
 
-			<li><title>Shifts</title><p>
-				For a positive constant,
-				adding that constant to a function shifts its graph up by that amount,
-				while subtracting that constant shifts its graph down.
-			</p></li>
+		<li><title>Shifts</title><p>
+			For a positive constant,
+			adding that constant to a function shifts its graph up by that amount,
+			while subtracting that constant shifts its graph down.
+		</p></li>
 
-			<li><title>Scaling</title><p>
-				Multiplying a function by a positive scale factor that is greater than one stretches the graph away from the horizontal axis by that factor,
-				while a positive scale factor that is less than one compresses the graph towards the horizontal axis.
-			</p></li>
+		<li><title>Scaling</title><p>
+			Multiplying a function by a positive scale factor that is greater than one stretches the graph away from the horizontal axis by that factor,
+			while a positive scale factor that is less than one compresses the graph towards the horizontal axis.
+		</p></li>
 
-			<li><title>Reflection</title><p>
-				Multiplying a function by a negative scale factor (or by <m>-1</m>)
-				reflects the graph in the horizontal axis (as well as any scaling effect).
-			</p></li>
+		<li><title>Reflection</title><p>
+			Multiplying a function by a negative scale factor (or by <m>-1</m>)
+			reflects the graph in the horizontal axis (as well as any scaling effect).
+		</p></li>
 
-		</ul></p>
-	</assemblage>
+	</ul></p>
+</assemblage>
 
-</conclusion>
+</subsubsection>
 
 </subsection>
 
@@ -1740,31 +1740,31 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 
 </subsubsection>
 
-<conclusion>
-	<title>Summary of horizontal transformations</title>
+<subsubsection>
+<title>Summary of horizontal transformations</title>
 
-	<assemblage>
-		<title>The three types of horizontal transformations</title>
-		<p><ul>
+<assemblage>
+	<title>The three types of horizontal transformations</title>
+	<p><ul>
 
-		<li><title>Shifts</title><p>
-			Subtracting a positive constant from the independent variable of a function shifts its graph to the right by that amount,
-			while subtracting a negative constant shifts its graph to the left.
-		</p></li>
+	<li><title>Shifts</title><p>
+		Subtracting a positive constant from the independent variable of a function shifts its graph to the right by that amount,
+		while subtracting a negative constant shifts its graph to the left.
+	</p></li>
 
-		<li><title>Scaling</title><p>
-			Dividing the independent variable of a function by a positive scale factor that is greater than one stretches the graph away from the vertical axis by that factor,
-			while dividing by a positive scale factor that is less than one compresses the graph towards the vertical axis.
-		</p></li>
+	<li><title>Scaling</title><p>
+		Dividing the independent variable of a function by a positive scale factor that is greater than one stretches the graph away from the vertical axis by that factor,
+		while dividing by a positive scale factor that is less than one compresses the graph towards the vertical axis.
+	</p></li>
 
-		<li><title>Reflection</title><p>
-			Replacing the independent variable in a function by its negative reflects the graph in the vertical axis.
-		</p></li>
+	<li><title>Reflection</title><p>
+		Replacing the independent variable in a function by its negative reflects the graph in the vertical axis.
+	</p></li>
 
-		</ul></p>
-	</assemblage>
+	</ul></p>
+</assemblage>
 
-</conclusion>
+</subsubsection>
 
 </subsection>
 
