@@ -15,6 +15,7 @@ PRETEXTDIR=./pretext
 ROOT_XMLID=book-calculus-concepts-modelling
 REMOTE_LOCATION=
 STIXFONTS_VERSION := $(shell cat stixfonts_version.txt)
+LATEX_IMAGE_PATH=generated/latex-image
 
 .PHONY: ptx validate-xml validate-ptx \
   html html-images html-image-pdfs html-fonts html-all html-serve \
@@ -67,13 +68,13 @@ html-clean:
 	@-rm -f ${BUILDDIR}/html/lunr-pretext-search-index.js
 	@-rm -f ${BUILDDIR}/html/ccm.css
 html-images-clean:
-	@-rm -f ${BUILDDIR}/html/images/.sentinal
-	@-rm -f ${BUILDDIR}/html/images/*.svg
+	@-rm -f ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal
+	@-rm -f ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/*.svg
 	@-rm -f ${BUILDDIR}/image-pdfs/*.pdf
 
 ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx preprocess.xsl
 html: ${BUILDDIR}/html/.sentinal html-out.xml
-html-images: ${BUILDDIR}/html/images/.sentinal
+html-images: ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal
 html-image-pdfs: ${BUILDDIR}/image-pdfs/.sentinal
 latex: ${BUILDDIR}/latex/${ROOTDOCNAME}.tex
 
@@ -121,22 +122,23 @@ ${BUILDDIR}/html/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "   make html-images  (to build SVG images)"
 	@echo "   make html-serve   (to serve the output locally for previewing)"
 
-${BUILDDIR}/html/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Generating SVG files for HTML output..."
-	@mkdir -p ${BUILDDIR}/html/images
+	@mkdir -p ${BUILDDIR}/html/${LATEX_IMAGE_PATH}
 	@ln -sf --no-dereference ${BUILDDIR} build
-	@-rm -f ${BUILDDIR}/html/images/.sentinal
+	@-rm -f ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal
 	@echo "...calling pretext to generate images"
 	@${PRETEXTDIR}/pretext/pretext \
 	  --verbose \
 	  --component latex-image \
 	  --format svg \
 	  --restrict ${ROOT_XMLID} \
-	  --directory ${BUILDDIR}/html/images \
+	  --directory ${BUILDDIR}/html/${LATEX_IMAGE_PATH} \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...copying institution logo"
-	@-cp images/${BRANDLOGO} ${BUILDDIR}/html/images
-	@touch ${BUILDDIR}/html/images/.sentinal
+	@mkdir -p ${BUILDDIR}/html/external
+	@-cp images/${BRANDLOGO} ${BUILDDIR}/html/external/
+	@touch ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal
 	@echo "...DONE"
 
 ${BUILDDIR}/image-pdfs/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
