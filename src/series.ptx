@@ -21,8 +21,8 @@ respective owners.
 
 <p>
 Recall that our motivation for studying sequences was the sequence of approximation values one could obtain by approximating a specific function value using Taylor polynomials of increasing degree.
-Consider the example of approximating <m>\ln (1.001)</m> from <xref ref="section-seq-motivation" /> once more.
-Using Taylor polynomials based at <m>t = 1</m>,
+Consider the example of approximating <m> \ln (1.001) </m> from <xref ref="section-seq-motivation" /> once more.
+Using Taylor polynomials based at <m> t = 1 </m>,
 we have
 <md>
 	<mrow> \ln(1.001) \amp \approx T_{0,1}(1.001) = 0 </mrow>
@@ -32,27 +32,27 @@ we have
 	<mrow> \amp \quad \vdots </mrow>
 </md>.
 (This time we have included the <q>zero-degree</q> Taylor polynomial approximation value.)
-This creates a sequence <m>\nseq{t}</m> where
+This creates a sequence <m> \nseq{t} </m> where
 <md> t_n = T_{n,1}(1.001) = 0 + 0.001 - \frac{{0.001}^2}{2} + \dotsc + \frac{{(-1)}^{n - 1} {0.001}^n}{n!} </md>.
-If we allow the possibility of an <q>infinite-degree</q> Taylor polynomial <m>T_{\infty,1}</m>,
-computing a value like <m>T_{\infty,1}(1.001)</m> of such a <q>polynomial</q> would involve adding up an infinite number of summands,
-while each term <m>t_n</m> from the sequence above represents a <term>partial summation</term> of only a finite number of summands.
+If we allow the possibility of an <q>infinite-degree</q> Taylor polynomial <m> T_{\infty,1} </m>,
+computing a value like <m> T_{\infty,1}(1.001) </m> of such a <q>polynomial</q> would involve adding up an infinite number of summands,
+while each term <m> t_n </m> from the sequence above represents a <term>partial summation</term> of only a finite number of summands.
 </p>
 
 <definition>
 	<title>Partial sum</title>
 	<statement><p>
-		For an infinite sequence <m>\nseq{a}</m> and a specific index <m>n</m>,
+		For an infinite sequence <m> \nseq{a} </m> and a specific index <m> n </m>,
 		the sum <md> s_n = \sum_{k = 0}^n a_k </md>
-		is called the <term><m>\nth</m> partial sum of <m>\nseq{a}</m></term>.
-		The sequence <m>\nseq{s}</m> that indexes <em>all</em> such sums is called the <term>sequence of partial sums for <m>\nseq{a}</m></term>.
+		is called the <term><m> \nth </m> partial sum of <m> \nseq{a} </m></term>.
+		The sequence <m> \nseq{s} </m> that indexes <em>all</em> such sums is called the <term>sequence of partial sums for <m> \nseq{a} </m></term>.
 	</p></statement>
 </definition>
 
 <example xml:id="example-series-decimals"><p><ol>
 
 	<li xml:id="example-series-decimals-recip-powers-of-10">
-		Consider the sequence with terms <m>a_n = 1 / {10}^n</m>:
+		Consider the sequence with terms <m> a_n = 1 / {10}^n </m>:
 		<md><mrow> a_0 \amp = 1 \text{,} \amp a_1 \amp = 0.1 \text{,} \amp a_2 \amp = 0.01 \text{,} \amp \amp \dots \text{.} </mrow></md>
 		The associated partial sums are:
 		<md>
@@ -63,18 +63,18 @@ while each term <m>t_n</m> from the sequence above represents a <term>partial su
 			<mrow> \amp \vdots \text{.} </mrow>
 		</md>
 		It certainly seems that if we let this process continue indefinitely,
-		these partial sums would trend toward <m>1.\bar{1}</m>.
+		these partial sums would trend toward <m> 1.\bar{1} </m>.
 	</li>
 
 	<li>
-		Consider the sequence <m>\nseq{b}</m> whose terms are the digits of <m>\pi</m>:
+		Consider the sequence <m> \nseq{b} </m> whose terms are the digits of <m> \pi </m>:
 		<md><mrow>
 			b_0 \amp = 3 \text{,} \amp b_1 \amp = 1 \text{,} \amp b_2 \amp = 4 \text{,} \amp
 			b_3 \amp = 1 \text{,} \amp b_4 \amp = 5 \text{,} \amp b_5 \amp = 9 \text{,}
 			\amp \amp \dots \text{.}
 		</mrow></md>
-		Then create a new sequence with terms <m>a_n = b_n / {10}^n</m>.
-		The partial sums for <m>\nseq{a}</m> are:
+		Then create a new sequence with terms <m> a_n = b_n / {10}^n </m>.
+		The partial sums for <m> \nseq{a} </m> are:
 		<md>
 			<mrow> s_0 \amp = 3 \text{,} </mrow>
 			<mrow> s_1 \amp = 3 + 0.1 = 3.1 \text{,} </mrow>
@@ -85,7 +85,7 @@ while each term <m>t_n</m> from the sequence above represents a <term>partial su
 			<mrow> \amp \vdots \text{.} </mrow>
 		</md>
 		It certainly seems that if we let this process continue indefinitely,
-		these partial sums would trend toward <m>\pi</m>.
+		these partial sums would trend toward <m> \pi </m>.
 	</li>
 
 </ol></p></example>
@@ -96,7 +96,7 @@ But sometimes they do not.
 </p>
 
 <example><p>
-	Consider the sequence <m>\nseq{a}</m> with terms <m>a_n = {(-1)}^n n^2</m>:
+	Consider the sequence <m> \nseq{a} </m> with terms <m> a_n = {(-1)}^n n^2 </m>:
 	<md><mrow>
 		a_0 \amp = 0 \text{,} \amp a_1 \amp = -1 \text{,} \amp a_2 \amp = 4 \text{,} \amp
 		a_3 \amp = -9 \text{,} \amp a_4 \amp = 16 \text{,} \amp \amp \dots \text{.} </mrow></md>
@@ -118,7 +118,7 @@ But sometimes they do not.
 	<title>Infinite series</title>
 	<statement><p>
 		Write <md> \sum_{k = 0}^\infty a_k </md>
-		(or sometimes just <m>\sum a_k</m>)
+		(or sometimes just <m> \sum a_k </m>)
 		to represent the limit of the sequence of partial sums for the sequence <m> \nseq{a} </m>,
 		called an <term>infinite series</term>.
 		We say that the series <term>converges/diverges</term> if the sequence of partial sums does.
@@ -133,17 +133,17 @@ But sometimes they do not.
 			\sum_{k = 0}^\infty a_k \amp = \pi \text{,}
 		</mrow>
 	</md>
-	where <m>\nseq{a}</m> is the sequence of digits of <m>\pi</m>.
+	where <m> \nseq{a} </m> is the sequence of digits of <m> \pi </m>.
 </p></example>
 
 <remark>
 
 	<p>
-	<em>Every</em> real number <m>r</m> is equal to the series formed by the digits in its decimal expansion:
+	<em>Every</em> real number <m> r </m> is equal to the series formed by the digits in its decimal expansion:
 	<md> r = \sum_{k = -N}^\infty \frac{r_k}{{10}^k} </md>,
-	where each <m>r_k</m> is an integer between <m>0</m> and <m>9</m> (inclusive) and <m>N</m> is the highest <q>place</q> that a non-zero digit appears.
-	For example, for <m>r = 9876</m> then <m>N = 3</m> because the first digit <m>r_{-3} = 9</m> appears in the thousands (<m>{10}^3</m>) place,
-	but for <m>r = 0.009876</m> then <m>N = -3</m> because the first digit <m>r_3 = 9</m> appears in the thousandths (<m>{10}^{-3}</m>) place.
+	where each <m> r_k </m> is an integer between <m> 0 </m> and <m> 9 </m> (inclusive) and <m> N </m> is the highest <q>place</q> that a non-zero digit appears.
+	For example, for <m> r = 9876 </m> then <m> N = 3 </m> because the first digit <m> r_{-3} = 9 </m> appears in the thousands (<m> {10}^3 </m>) place,
+	but for <m> r = 0.009876 </m> then <m> N = -3 </m> because the first digit <m> r_3 = 9 </m> appears in the thousandths (<m> {10}^{-3} </m>) place.
 	</p>
 
 	<p>
@@ -178,10 +178,10 @@ But sometimes they do not.
 		<mrow> s_3 \amp = 1 + (-1) + 1 + (-1) = 0 </mrow>
 		<mrow> \amp \vdots </mrow>
 	</md>.
-	As you can see, the sequence <m>\nseq{s}</m> oscillates between <m>1</m> and <m>0</m>,
+	As you can see, the sequence <m> \nseq{s} </m> oscillates between <m> 1 </m> and <m> 0 </m>,
 	and so cannot converge to any specific value.
 	In fact,
-	the infinite series <m>\sum {(-1)}^k</m> diverges.
+	the infinite series <m> \sum {(-1)}^k </m> diverges.
 </p></example>
 
 <example xml:id="example-series-reordering-terms-different-results">
@@ -190,10 +190,10 @@ But sometimes they do not.
 	<p>
 	It is possible to demonstrate that the <term>alternating harmonic series</term>
 	<md> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1}}{k} = 1 + \left(- \frac{1}{2}\right) + \frac{1}{3} + \left(-\frac{1}{4}\right) + \dotsb </md>
-	converges to <m>\ln(2)</m>.
+	converges to <m> \ln(2) </m>.
 	(See <xref ref="subsection-power-series-abel" />.)
 	In the Sage cell below you can investigate the behaviour of the partial sums numerically.
-	Try increasing the partial sum upper bound value <m>n</m> to see how the partial sum values appear to approach <m>\ln(2)</m>.
+	Try increasing the partial sum upper bound value <m> n </m> to see how the partial sum values appear to approach <m> \ln(2) </m>.
 	</p>
 
 	<sage>
@@ -253,12 +253,12 @@ But sometimes they do not.
 
 	<p>
 	In fact, it is a theorem of Riemann that the terms of this sequence can be rearranged to add up to any value you like!
-	Suppose you would like the rearranged series to add up to a specific number <m>s</m>.
-	Just add up positive terms until your partial sum is greater than <m>s</m>,
-	then add on negative terms until your partial sum is less than <m>s</m>,
-	then more positive terms until the partial sum is greater than <m>s</m> again,
+	Suppose you would like the rearranged series to add up to a specific number <m> s </m>.
+	Just add up positive terms until your partial sum is greater than <m> s </m>,
+	then add on negative terms until your partial sum is less than <m> s </m>,
+	then more positive terms until the partial sum is greater than <m> s </m> again,
 	and so on.
-	Try it with <m>s</m> equal to your favourite number!
+	Try it with <m> s </m> equal to your favourite number!
 	</p>
 
 </example>
@@ -273,7 +273,7 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 	<p>
 		Consider <md> \sum_{k = 1}^\infty \frac{2}{k (k + 2)} </md>.
 		The terms can be rewritten as <md> \frac{2}{k (k + 2)} = \frac{1}{k} - \frac{1}{k + 2} </md>,
-		and so the <m>\nth</m> partial sum is
+		and so the <m> \nth </m> partial sum is
 		<md> s_n = \sum_{k = 1}^n \left( \frac{1}{k} - \frac{1}{k + 2} \right) = \sum_{k = 1}^n \frac{1}{k} - \sum_{k = 1}^n \frac{1}{k + 2} </md>.
 		More explicitly,
 		<md>
@@ -283,9 +283,9 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 		You can see that most of the terms of in the two finite sums will cancel,
 		leaving only
 		<md> s_n = 1 + \frac{1}{2} + \frac{1}{n + 1} + \frac{1}{n + 2} </md>.
-		But as <m>n \to \infty</m>,
-		the terms with <m>n</m> in the denominator will become negligibly small,
-		and so <m>\nseq{s} \to 1 + \frac{1}{2}</m>.
+		But as <m> n \to \infty </m>,
+		the terms with <m> n </m> in the denominator will become negligibly small,
+		and so <m> \nseq{s} \to 1 + \frac{1}{2} </m>.
 		That is,
 		<md> \sum_{k = 1}^\infty \frac{2}{k (k + 2)} = \frac{3}{2} </md>.
 	</p>
@@ -299,28 +299,28 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 	<statement>
 
 		<p>
-		Consider the <term>geometric series</term> <m>\sum r^k</m> with constant base <m>r</m>.
-		Note that we take the term with index <m>n = 0</m> in the sequence of terms <m>\seq{r^n}</m> to always be <m>1</m>,
-		even in the case <m>r = 0</m>.
+		Consider the <term>geometric series</term> <m> \sum r^k </m> with constant base <m> r </m>.
+		Note that we take the term with index <m> n = 0 </m> in the sequence of terms <m> \seq{r^n} </m> to always be <m> 1 </m>,
+		even in the case <m> r = 0 </m>.
 		<ol>
 
 			<li xml:id="pattern-series-geometric-partial"><p>
-				For <m>r \neq 1</m>,
+				For <m> r \neq 1 </m>,
 				the general partial sum is <md> s_n = \frac{1 - r^{n + 1}}{1 - r} </md>.
 			</p></li>
 
 			<li xml:id="pattern-series-geometric-full">
 				<p>
-					For <m>-1 \lt r \lt 1</m>,
-					the geometric series of base <m>r</m> converges,
+					For <m> -1 \lt r \lt 1 </m>,
+					the geometric series of base <m> r </m> converges,
 					with sum
 					<md> \sum_{k = 0}^\infty r^k = \frac{1}{1 - r} </md>.
 				</p>
 			</li>
 
 			<li xml:id="pattern-series-geometric-diverge"><p>
-				For <m>r \le -1</m> or <m>r \ge 1</m>,
-				the geometric sum with base <m>r</m> diverges.
+				For <m> r \le -1 </m> or <m> r \ge 1 </m>,
+				the geometric sum with base <m> r </m> diverges.
 			</p></li>
 
 		</ol>
@@ -331,10 +331,10 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 	<proof>
 		<title>Justification of <xref ref="pattern-series-geometric-partial" text="type-local">Statement</xref></title>
 		<p>
-			For all values of <m>r</m>,
-			the partial sum <m>s_n</m> is
+			For all values of <m> r </m>,
+			the partial sum <m> s_n </m> is
 			<md> s_n = \sum_{k = 0}^n r^k = 1 + r + r^2 + \dotsb + r^n </md>.
-			Notice what happens if we multiply a partial sum by <m>r</m> and subtract:
+			Notice what happens if we multiply a partial sum by <m> r </m> and subtract:
 			<md>
 				\begin{array}{rcccccccccccc}
 				s_n \amp = \amp 1 \amp + \amp r \amp + \amp r^2 \amp + \amp \dotsb \amp + \amp r^n \\
@@ -342,10 +342,10 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 				s_n - r s_n \amp = \amp 1 \amp - \amp r^{n + 1}
 				\end{array}
 			</md>.
-			Factoring the common <m>s_n</m> on the left,
+			Factoring the common <m> s_n </m> on the left,
 			we have <md> s_n (1 - r) = 1 - r^{n + 1} </md>.
-			If <m>r \neq 1</m>,
-			then <m>1 - r \neq 0</m> and we may divide both sides to obtain <md> s_n = \frac{1 - r^{n + 1}}{1 - r} </md>.
+			If <m> r \neq 1 </m>,
+			then <m> 1 - r \neq 0 </m> and we may divide both sides to obtain <md> s_n = \frac{1 - r^{n + 1}}{1 - r} </md>.
 		</p>
 	</proof>
 
@@ -354,32 +354,32 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 
 		<p>
 		Convergence of an infinite series is defined by the convergence of its sequence of partial sums.
-		We will break the assumption <m>-1 \lt r \lt 1</m> into several cases.
+		We will break the assumption <m> -1 \lt r \lt 1 </m> into several cases.
 		</p>
 
-		<case><title>Case <m>r = 0</m></title><p>
-			Recall that in this case we are taking the first term in the series to be <m>1</m>.
-			But all other terms in the series are <m>0^n = 0</m>,
-			so that <m>s_n = 1</m> for all <m>n</m>.
-			Thus <m>\nseq{s}</m> is a constant sequence that converges to <m>1</m>,
-			which agrees with the value of the conjectured formula <m>1 / (1 - r)</m> when <m>r = 0</m>.
+		<case><title>Case <m> r = 0 </m></title><p>
+			Recall that in this case we are taking the first term in the series to be <m> 1 </m>.
+			But all other terms in the series are <m> 0^n = 0 </m>,
+			so that <m> s_n = 1 </m> for all <m> n </m>.
+			Thus <m> \nseq{s} </m> is a constant sequence that converges to <m> 1 </m>,
+			which agrees with the value of the conjectured formula <m> 1 / (1 - r) </m> when <m> r = 0 </m>.
 		</p></case>
 
-		<case><title>Case <m>0 \lt r \lt 1</m></title><p>
-			In this case the exponential function <m>f(t) = r^t</m> represents exponential decay,
-			and the terms of the sequence <m>\seq{r^{n + 1}}</m> are discrete values along that decay curve.
-			So we conclude that <m>\seq{r^{n + 1}} \to 0</m> and
+		<case><title>Case <m> 0 \lt r \lt 1 </m></title><p>
+			In this case the exponential function <m> f(t) = r^t </m> represents exponential decay,
+			and the terms of the sequence <m> \seq{r^{n + 1}} </m> are discrete values along that decay curve.
+			So we conclude that <m> \seq{r^{n + 1}} \to 0 </m> and
 			<md> s_n = \frac{1 - r^{n + 1}}{1 - r} \to \frac{1}{1 - r} </md>,
 			as conjectured.
 		</p></case>
 
-		<case><title>Case <m>-1 \lt r \lt 0</m></title><p>
-			In this case <m> 0 \lt \abs{r} \lt 1</m>,
-			and both the exponential function <m>f(t) = {\abs{r}}^t</m> and its vertical reflection <m>g(t) = - {\abs{r}}^t</m> have a horizontal asymptote at <m>y = 0</m>.
-			With a negative base <m>r</m>,
-			the terms of the sequence <m>\seq{r^{n + 1}}</m> bounce between the two curves,
-			but still trend to <m>0</m> along with the curves.
-			So again <m>\seq{r^{n + 1}} \to 0</m> and
+		<case><title>Case <m> -1 \lt r \lt 0 </m></title><p>
+			In this case <m> 0 \lt \abs{r} \lt 1 </m>,
+			and both the exponential function <m> f(t) = {\abs{r}}^t </m> and its vertical reflection <m> g(t) = - {\abs{r}}^t </m> have a horizontal asymptote at <m> y = 0 </m>.
+			With a negative base <m> r </m>,
+			the terms of the sequence <m> \seq{r^{n + 1}} </m> bounce between the two curves,
+			but still trend to <m> 0 </m> along with the curves.
+			So again <m> \seq{r^{n + 1}} \to 0 </m> and
 			<md> s_n = \frac{1 - r^{n + 1}}{1 - r} \to \frac{1}{1 - r} </md>,
 			as conjectured.
 		</p></case>
@@ -391,28 +391,28 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 
 		<p> Again we will consider different cases. </p>
 
-		<case><title>Case <m>r = 1</m></title><p>
+		<case><title>Case <m> r = 1 </m></title><p>
 			In this case we have <md> s_n = 1^0 + 1^1 + 1^2 + \dotsb + 1^n = n + 1</md>,
 			and this sequence clearly diverges to infinity.
 		</p></case>
 
-		<case><title>Case <m>r = -1</m></title><p>
-			In this case the partial sums alternate between <m>1</m> and <m>0</m>,
+		<case><title>Case <m> r = -1 </m></title><p>
+			In this case the partial sums alternate between <m> 1 </m> and <m> 0 </m>,
 			and so diverge.
 		</p></case>
 
-		<case><title>Case <m>r \gt 1</m></title><p>
-			In this case the exponential function <m>f(t) = r^t</m> represents exponential growth,
-			and the sequence <m>\seq{r^{n + 1}}</m> diverges to infinity along with that function.
+		<case><title>Case <m> r \gt 1 </m></title><p>
+			In this case the exponential function <m> f(t) = r^t </m> represents exponential growth,
+			and the sequence <m> \seq{r^{n + 1}} </m> diverges to infinity along with that function.
 			Therefore, the formula for the partial sums provided by <xref ref="pattern-series-geometric-partial" text="type-local">Statement</xref> also diverges.
 		</p></case>
 
-		<case><title>Case <m>r \lt -1</m></title><p>
-			As in the case <m>-1 \lt r \lt 0</m> in the justification for <xref ref="pattern-series-geometric-full" text="type-local">Statement</xref>,
-			when <m>r</m> is negative the terms of the sequence <m>\seq{r^{n + 1}}</m> are bouncing between values on the graphs of the exponential function <m>f(t) = {\abs{r}}^t</m> and its vertical reflection.
-			But this time, if <m>r \lt -1</m> then both these exponential functions experience unbounded growth,
+		<case><title>Case <m> r \lt -1 </m></title><p>
+			As in the case <m> -1 \lt r \lt 0 </m> in the justification for <xref ref="pattern-series-geometric-full" text="type-local">Statement</xref>,
+			when <m> r </m> is negative the terms of the sequence <m> \seq{r^{n + 1}} </m> are bouncing between values on the graphs of the exponential function <m> f(t) = {\abs{r}}^t </m> and its vertical reflection.
+			But this time, if <m> r \lt -1 </m> then both these exponential functions experience unbounded growth,
 			one in a positive direction and the other in a negative direction,
-			so <m>\seq{r^{n + 1}}</m> diverges.
+			so <m> \seq{r^{n + 1}} </m> diverges.
 			Therefore, the formula for the partial sums provided by <xref ref="pattern-series-geometric-partial" text="type-local">Statement</xref> also diverges.
 		</p></case>
 
@@ -425,15 +425,15 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 	<p><ol>
 
 		<li xml:id="example-series-two-geometric-recip-powers-of-2">
-			The infinite series of the sequence <m>\seq{1/2^k}</m> is geometric with <m>r = 1/2</m>,
-			which converges since <m>1/2</m> is less than <m>1</m>,
+			The infinite series of the sequence <m> \seq{1/2^k} </m> is geometric with <m> r = 1/2 </m>,
+			which converges since <m> 1/2 </m> is less than <m> 1 </m>,
 			and we have
 			<md> \sum_{k = 0}^\infty \frac{1}{2^k} = \frac{1}{1 - 1/2} = 2 </md>.
 		</li>
 
 		<li xml:id="example-series-two-geometric-recip-powers-of-10">
-			The infinite series of the sequence <m>\seq{1/{10}^k}</m> is geometric with <m>r = 1/10</m>,
-			which converges since <m>1/10</m> is less than <m>1</m>,
+			The infinite series of the sequence <m> \seq{1/{10}^k} </m> is geometric with <m> r = 1/10 </m>,
+			which converges since <m> 1/10 </m> is less than <m> 1 </m>,
 			and we have
 			<md> \sum_{k = 0}^\infty \frac{1}{{10}^k} = \frac{1}{1 - 1/10} = \frac{10}{9} </md>.
 			We already looked at this series in <xref ref="example-series-decimals-recip-powers-of-10" text="type-local">Series</xref> of <xref ref="example-series-decimals" /> <mdash />
@@ -451,8 +451,8 @@ you certainly can rearrange/simplify the partial sums as you investigate the con
 <p>
 An infinite series can be thought of as an improper integral of a step function:
 <md> \sum_{k = 0}^\infty a_k = \ccmint{0}{\infty}{a(t)}{t} </md>,
-where <m>a(t)</m> is the step function that takes on value <m>a(t) = a_k</m> on the subdomain <m>k \le t \lt k + 1</m>.
-Effectively we are viewing the infinite series as a regular Riemann sum with <m>\change{t} = 1</m>,
+where <m> a(t) </m> is the step function that takes on value <m> a(t) = a_k </m> on the subdomain <m> k \le t \lt k + 1 </m>.
+Effectively we are viewing the infinite series as a regular Riemann sum with <m> \change{t} = 1 </m>,
 but with an unbounded domain (hence an infinite number of rectangles).
 From this point of view, <term>partial sum</term> effectively becomes the same thing as <term>partial area</term>.
 Usually Riemann sums are only an <em>approximation</em> of a definite integral,
@@ -472,14 +472,14 @@ the properties of infinite series mirror the properties of improper integrals.
 		<md><mrow> \amp \sum_{k = k_1}^\infty a_k \amp \amp \sum_{k = k_2}^\infty a_k </mrow></md>
 		converges,
 		then they both do
-		(as long as we remain within the domain of the sequence <m>\nseq{a}</m>),
+		(as long as we remain within the domain of the sequence <m> \nseq{a} </m>),
 		with
 		<md> \sum_{k = k_1}^\infty a_k = \sum_{k = k_1}^{k_2 - 1} a_k + \sum_{k = k_2}^\infty a_k </md>
-		if <m>k_1 \lt k_2</m>.
+		if <m> k_1 \lt k_2 </m>.
 	</p></statement>
 
 	<proof><p>
-		Suppose <m>k_1 \lt k_2</m>.
+		Suppose <m> k_1 \lt k_2 </m>.
 		Then
 		<md>
 			<mrow> \sum_{k = k_1}^\infty a_k \amp = \lim_{n \to \infty} \sum_{k = k_1}^n a_k </mrow>
@@ -487,7 +487,7 @@ the properties of infinite series mirror the properties of improper integrals.
 			<mrow> \amp = \sum_{k = k_1}^{k_2 - 1} a_k + \lim_{n \to \infty} \sum_{k = k_2}^n a_k </mrow>
 			<mrow> \amp = \sum_{k = k_1}^{k_2 - 1} a_k + \sum_{k = k_2}^\infty a_k </mrow>
 		</md>.
-		Since the sum over indices <m>k_1 \le k \le k_2 - 1</m> is just a number,
+		Since the sum over indices <m> k_1 \le k \le k_2 - 1 </m> is just a number,
 		the two series must both converge or both diverge.
 	</p></proof>
 
@@ -496,7 +496,7 @@ the properties of infinite series mirror the properties of improper integrals.
 <remark><p> Compare the above fact with <xref ref="fact-improper-int-converge-restart" />. </p></remark>
 
 <example><p>
-	We've previously seen that <m>\sum (1/2^k) = 2</m>,
+	We've previously seen that <m> \sum (1/2^k) = 2 </m>,
 	so
 	<md>
 		<mrow> \sum_{k = 3}^\infty \frac{1}{2^k} \amp = \sum_{k = 0}^\infty \frac{1}{2^k} - \sum_{k = 0}^2 \frac{1}{2^k} </mrow>
@@ -514,14 +514,14 @@ the properties of infinite series mirror the properties of improper integrals.
 		<ol>
 
 			<li xml:id="pattern-series-linearity-homog">
-				If <m>\sum a_k</m> converges,
-				then so does <m>\sum c a_k</m> for constant <m>c</m>,
+				If <m> \sum a_k </m> converges,
+				then so does <m> \sum c a_k </m> for constant <m> c </m>,
 				and <md> \sum c a_k = c \sum a_k </md>.
 			</li>
 
 			<li xml:id="pattern-series-linearity-additive">
-				If both <m>\sum a_k</m> and <m>\sum b_k</m> converge,
-				then so does <m>\sum (a_k + b_k)</m>,
+				If both <m> \sum a_k </m> and <m> \sum b_k </m> converge,
+				then so does <m> \sum (a_k + b_k) </m>,
 				and <md> \sum (a_k + b_k) = \sum a_k + \sum b_k </md>.
 			</li>
 
@@ -565,7 +565,7 @@ using geometric series along with <xref ref="pattern-series-linearity-homog" tex
 <example>
 	<title>Expressing a decimal as a fraction</title>
 	<p>
-	Let's turn <m>2.3\overline{17}</m> back into a fraction.
+	Let's turn <m> 2.3\overline{17} </m> back into a fraction.
 	Because the repeating pattern is two digits long,
 	instead of grouping digit-by-digit we'll group them in pairs:
 	<md>
@@ -573,7 +573,7 @@ using geometric series along with <xref ref="pattern-series-linearity-homog" tex
 		<mrow> \amp = \frac{23}{10} + \frac{17}{10^3} \left(1 + \frac{1}{10^2} + \frac{1}{10^4} + \dotsb \right) </mrow>
 		<mrow> \amp = \frac{23}{10} + \frac{17}{1000} \sum_{k = 0}^\infty \frac{1}{100^k} </mrow>
 	</md>.
-	The series <m>\sum (1/{100}^k)</m> is geometric with <m>r = 100</m>,
+	The series <m> \sum (1/{100}^k) </m> is geometric with <m> r = 100 </m>,
 	so
 	<md>
 		<mrow> 2.3\overline{17} \amp = \frac{23}{10} + \frac{17}{1000} \sum_{k = 0}^\infty \frac{1}{100^k} </mrow>
@@ -589,56 +589,56 @@ using geometric series along with <xref ref="pattern-series-linearity-homog" tex
 
 <p>
 Just as with <xref ref="fact-improper-int-converges-implies-h-asymp-at-0" />,
-to be able to add an infinite number of terms those terms must tend to <m>0</m>.
+to be able to add an infinite number of terms those terms must tend to <m> 0 </m>.
 </p>
 
 <fact xml:id="fact-series-converges-implies-seq-tends-to-zero">
 
 	<statement><p>
-		If <m>\sum a_k</m> converges,
-		then it must be that <m>\nseq{a} \to 0</m>.
+		If <m> \sum a_k </m> converges,
+		then it must be that <m> \nseq{a} \to 0 </m>.
 	</p></statement>
 
 	<proof><p>
-		Let <m>\nseq{s}</m> be the sequence of partial sums.
-		As <m>\sum a_k</m> converges,
-		we have <m>\nseq{s} \to L</m> for some limit value <m>L</m>.
-		Let <m>\nseq{t}</m> be the sequence of <q>delayed</q> partial sums:
-		for <m>n \ge 1</m> set
+		Let <m> \nseq{s} </m> be the sequence of partial sums.
+		As <m> \sum a_k </m> converges,
+		we have <m> \nseq{s} \to L </m> for some limit value <m> L </m>.
+		Let <m> \nseq{t} </m> be the sequence of <q>delayed</q> partial sums:
+		for <m> n \ge 1 </m> set
 		<md> t_n = \sum_{k = 0}^{n - 1} a_n </md>
-		(and we'll set <m>t_0 = 0</m>).
-		Then also <m>\nseq{t} \to L</m>.
+		(and we'll set <m> t_0 = 0 </m>).
+		Then also <m> \nseq{t} \to L </m>.
 		By the <xref ref="pattern-seq-alg-limit-laws" text="title" />,
-		the difference sequence <m>\seq{s_n - t_n}</m> converges to <m>L - L = 0</m>.
-		But the terms of the difference sequence for <m>n \ge 1</m> are
+		the difference sequence <m> \seq{s_n - t_n} </m> converges to <m> L - L = 0 </m>.
+		But the terms of the difference sequence for <m> n \ge 1 </m> are
 		<md>
 			<mrow> s_n - t_n \amp = \sum_{k = 0}^n a_k - \sum_{k = 0}^{n - 1} a_k </mrow>
 			<mrow> \amp = \left[ \cancel{\left( \sum_{k = 0}^{n - 1} a_k \right)} + a_n  \right] - \cancel{\sum_{k = 0}^{n - 1} a_k} </mrow>
 			<mrow> \amp = a_n </mrow>
 		</md>
-		(and also <m>s_0 - t_0 = a_0 - 0 = a_0</m>).
-		So the difference sequence <m>\seq{s_n - t_n}</m> is identical to the sequence <m>\nseq{a}</m>.
-		Since we have determined that <m>\seq{s_n - t_n} \to 0</m>,
-		then also <m>\nseq{a} \to 0</m>.
+		(and also <m> s_0 - t_0 = a_0 - 0 = a_0 </m>).
+		So the difference sequence <m> \seq{s_n - t_n} </m> is identical to the sequence <m> \nseq{a} </m>.
+		Since we have determined that <m> \seq{s_n - t_n} \to 0 </m>,
+		then also <m> \nseq{a} \to 0 </m>.
 	</p></proof>
 
 </fact>
 
 <warning><p>
 	Do not get <xref ref="fact-series-converges-implies-seq-tends-to-zero" /> backwards!
-	The next (important!) example will demonstrate that knowing <m>\nseq{a} \to 0</m> is <alert>not</alert> sufficient for <m>\sum a_k</m> to converge.
+	The next (important!) example will demonstrate that knowing <m> \nseq{a} \to 0 </m> is <alert>not</alert> sufficient for <m> \sum a_k </m> to converge.
 </p></warning>
 
 <example xml:id="example-series-harmonic">
 	<title>Harmonic Series</title>
 
 	<p>
-	The infinite series <m>\sum 1/k</m> (beginning at index <m>k = 1</m>) has <m>\seq{1/n} \to 0</m>,
+	The infinite series <m> \sum 1/k </m> (beginning at index <m> k = 1 </m>) has <m> \seq{1/n} \to 0 </m>,
 	but does not converge.
 	To see this,
 	we'll consider a particular subsequence of the sequence of partial sums.
 	But first, some analysis of some <q>partial</q> partial sums.
-	Because the sequence <m>1/n</m> is decreasing,
+	Because the sequence <m> 1/n </m> is decreasing,
 	in any sum of consecutive terms of that sequence,
 	we can replace all terms by the last term and end up with a smaller result:
 	<md>
@@ -650,16 +650,16 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 
 	<aside><title>Counting indexed objects</title><p>
 		In an indexed collection,
-		counting the number of objects from index <m>m</m> to index <m>n</m> is <m>n - m + 1</m>,
-		not <m>n - m</m>.
-		The reason is that <m>n - m</m> subtracts out objects <m>1</m> through <m>m</m>,
-		but we want to include object <m>m</m> in our count.
-		The <m>+1</m> adds it back in.
+		counting the number of objects from index <m> m </m> to index <m> n </m> is <m> n - m + 1 </m>,
+		not <m> n - m </m>.
+		The reason is that <m> n - m </m> subtracts out objects <m> 1 </m> through <m> m </m>,
+		but we want to include object <m> m </m> in our count.
+		The <m> +1 </m> adds it back in.
 	</p></aside>
 
 	<p>
 	In particular,
-	a <q>partial</q> partial sum between two indices that are consecutive powers of <m>2</m> exhibits the following pattern:
+	a <q>partial</q> partial sum between two indices that are consecutive powers of <m> 2 </m> exhibits the following pattern:
 	<md>
 		<mrow> \sum_{k = 2^{m - 1} + 1}^{2^m} \frac{1}{k} \amp \gt \frac{2^m - (2^{m - 1} + 1) + 1}{2^m} </mrow>
 		<mrow> \amp = \frac{2^m - 2^{m - 1}}{2^m} </mrow>
@@ -667,7 +667,7 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 		<mrow> \amp = \frac{2^{m - 1}}{2^m} </mrow>
 		<mrow> \amp = \frac{1}{2} </mrow>
 	</md>.
-	Now let's use the inequality above to look at the subsequence of partial sums where the index is a power of <m>2</m>:
+	Now let's use the inequality above to look at the subsequence of partial sums where the index is a power of <m> 2 </m>:
 	<md>
 		<mrow> s_1    \amp = 1 </mrow>
 		<mrow> s_2    \amp = 1 + \frac{1}{2} = \frac{3}{2} </mrow>
@@ -677,7 +677,7 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 	</md>.
 	The pattern continues,
 	so that <md> s_{2^n} \ge \frac{n + 2}{2} </md>.
-	(We have used <q>or equal</q> here so that <m>s_1</m> and <m>s_2</m> can be included.)
+	(We have used <q>or equal</q> here so that <m> s_1 </m> and <m> s_2 </m> can be included.)
 	This particular subsequence of the sequence of partNow let's use the ial sums diverges to infinity,
 	hence it is not possible for the full sequence of partial sums to converge
 	(see <xref ref="pattern-seq-conv-subseq" />).
@@ -687,13 +687,13 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 <example xml:id="example-series-change-vars">
 	<title>Changing variables in a series</title>
 	<p>
-	We would expect the series <m>\sum 1/(k+1)</m> to diverge because the terms are so similar to the harmonic series.
+	We would expect the series <m> \sum 1/(k+1) </m> to diverge because the terms are so similar to the harmonic series.
 	In fact, by changing variables we see that this series is exactly the harmonic series.
-	Let <m>m = k + 1</m>.
-	As <m>k</m> increments through the values <m>0,1,2,3,\dotsc</m>,
-	<m>m</m> will increment through the values <m>1,2,3,4,\dotsc</m>.
+	Let <m> m = k + 1 </m>.
+	As <m> k </m> increments through the values <m> 0,1,2,3,\dotsc </m>,
+	<m> m </m> will increment through the values <m> 1,2,3,4,\dotsc </m>.
 	Then we have <md> \sum_{k = 0}^\infty \frac{1}{k + 1} = \sum_{m = 1}^\infty \frac{1}{m} </md>,
-	and so the series <m>\sum 1/(k+1)</m> must diverge,
+	and so the series <m> \sum 1/(k+1) </m> must diverge,
 	being equivalent to the divergent harmonic series.
 	</p>
 </example>
@@ -703,8 +703,8 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 <corollary xml:id="corollary-series-diverges-if-not-seq-tend-to-zero">
 	<title>Test for Divergence</title>
 	<p>
-	If <m>\nseq{a} \not\to 0</m>,
-	then <m>\sum a_k</m> must diverge.
+	If <m> \nseq{a} \not\to 0 </m>,
+	then <m> \sum a_k </m> must diverge.
 	</p>
 </corollary>
 
@@ -714,8 +714,8 @@ to be able to add an infinite number of terms those terms must tend to <m>0</m>.
 </p></example>
 
 <p>
-In the case that the terms of <m>\nseq{a}</m> are non-negative,
-then the partial sums of <m>\sum a_k</m> are increasing
+In the case that the terms of <m> \nseq{a} </m> are non-negative,
+then the partial sums of <m> \sum a_k </m> are increasing
 (or, at least, non-decreasing),
 so their convergence is dependent on being bounded.
 </p>
@@ -723,8 +723,8 @@ so their convergence is dependent on being bounded.
 <fact xml:id="fact-series-nonneg-terms-conv-iff-bdd">
 
 	<statement><p>
-		If <m>a_n \ge 0</m> for all <m>n</m>,
-		then <m>\sum a_k</m> converges if and only if the sequence of partial sums is bounded.
+		If <m> a_n \ge 0 </m> for all <m> n </m>,
+		then <m> \sum a_k </m> converges if and only if the sequence of partial sums is bounded.
 	</p></statement>
 
 	<proof><p>
@@ -737,18 +737,18 @@ so their convergence is dependent on being bounded.
 <example>
 
 	<p>
-	We have seen that the <xref ref="example-series-harmonic" text="title" /> <m>\sum 1/k</m> diverges,
-	not unlike the fact that the improper integral of <m>1/t</m> diverges as <m>t \to \infty</m>.
-	Since the improper integral of <m>1/t^2</m> converges,
-	might we expect the infinite series <m>\sum 1/k^2</m> to converge?
+	We have seen that the <xref ref="example-series-harmonic" text="title" /> <m> \sum 1/k </m> diverges,
+	not unlike the fact that the improper integral of <m> 1/t </m> diverges as <m> t \to \infty </m>.
+	Since the improper integral of <m> 1/t^2 </m> converges,
+	might we expect the infinite series <m> \sum 1/k^2 </m> to converge?
 	</p>
 
 	<p>
-	The terms of the sequence <m>\seq{1/n^2}</m> are all positive,
+	The terms of the sequence <m> \seq{1/n^2} </m> are all positive,
 	so let's try to bound the partial sums.
 	Here we will take the opposite approach as in <xref ref="example-series-harmonic" />:
 	we'll compare <q>partial</q> partial sums to a larger value by replacing each term by the first.
-	Since <m>\seq{1/k^2}</m> is a decreasing sequence,
+	Since <m> \seq{1/k^2} </m> is a decreasing sequence,
 	we have
 	<md>
 		<mrow> \sum_{k = m}^n \frac{1}{k^2} \amp = \frac{1}{m^2} + \frac{1}{{(m+1)}^2} + \dotsb + \frac{1}{n^2} </mrow>
@@ -756,14 +756,14 @@ so their convergence is dependent on being bounded.
 		<mrow> \amp = \frac{n - m + 1}{m^2} </mrow>
 	</md>.
 	Simiarly to <xref ref="example-series-harmonic" />,
-	apply this to <q>partial</q> partial sums between indices that are consecutive two powers of <m>2</m>:
+	apply this to <q>partial</q> partial sums between indices that are consecutive two powers of <m> 2 </m>:
 	<md>
 		<mrow> \sum_{k = 2^m}^{2^{m + 1} - 1} \frac{1}{k^2} \amp \lt \frac{(2^{m + 1} - 1) - 2^m + 1}{{(2^m)}^2} </mrow>
 		<mrow> \amp = \frac{2 \cdot 2^m - 1 \cdot 2^m}{{(2^m)}^2} </mrow>
 		<mrow> \amp = \frac{2^m}{{(2^m)}^2} </mrow>
 		<mrow> \amp = \frac{1}{2^m} </mrow>
 	</md>.
-	Now let's use the inequality above to look at the subsequence of partial sums where the index is <em>one less than</em> a power of <m>2</m>:
+	Now let's use the inequality above to look at the subsequence of partial sums where the index is <em>one less than</em> a power of <m> 2 </m>:
 	<md>
 		<mrow> s_1    \amp = 1 </mrow>
 		<mrow> s_3    \amp = 1   + \sum_{k = 2}^{ 3} \frac{1}{k^2} \lt      1      + \frac{1}{2} = \frac{ 3}{2} </mrow>
@@ -772,9 +772,9 @@ so their convergence is dependent on being bounded.
 	</md>.
 	The pattern continues,
 	so that <md> s_{2^n - 1} \le \frac{2^n - 1}{2^{n - 1}} \lt \frac{2^n}{2^{n - 1}} = 2 </md>.
-	But since the terms of <m>\seq{1/n^2}</m> are positive,
+	But since the terms of <m> \seq{1/n^2} </m> are positive,
 	the sequence of partical sums is increasing.
-	And for all <m>n \ge 1</m>, we have <m>n \le 2^n - 1</m>,
+	And for all <m> n \ge 1 </m>, we have <m> n \le 2^n - 1 </m>,
 	so that <md> s_n \le s_{2^n - 1} \lt 2 </md>.
 	As the sequence of partial sums is monotonic and bounded,
 	it must converge.
@@ -783,8 +783,8 @@ so their convergence is dependent on being bounded.
 </example>
 
 <p>
-We know that for an infinite series <m>\sum a_k</m> to converge,
-it is necessary (but not sufficient) for <m>\nseq{a} \to 0</m>.
+We know that for an infinite series <m> \sum a_k </m> to converge,
+it is necessary (but not sufficient) for <m> \nseq{a} \to 0 </m>.
 But even more,
 when the series does converge,
 the <q>amount left to add</q> must be getting small as well.
@@ -793,25 +793,25 @@ the <q>amount left to add</q> must be getting small as well.
 <fact xml:id="fact-series-conv-remainder">
 
 	<statement><p>
-		If <m>\sum a_k</m> converges,
-		then the sequence of<q>remainders</q> <m>\nseq{r}</m> with
+		If <m> \sum a_k </m> converges,
+		then the sequence of<q>remainders</q> <m> \nseq{r} </m> with
 		<md> r_n = \sum_{k = n + 1}^\infty a_k </md>
-		must converge to <m>0</m>.
+		must converge to <m> 0 </m>.
 	</p></statement>
 
 	<proof><p>
-		Let <m>\nseq{s}</m> be the sequence of partial sums of the full infinite series <m>\sum a_k</m> beginning at index <m>k = 0</m>,
-		and let <m>S</m> represent the sum value of that convergent series.
-		Because <m>\nseq{s} \to S</m>,
-		applying <xref ref="fact-seq-conv-vs-conv-to-zero" /> tells us that <m>\seq{S - s_n} \to 0</m>.
+		Let <m> \nseq{s} </m> be the sequence of partial sums of the full infinite series <m> \sum a_k </m> beginning at index <m> k = 0 </m>,
+		and let <m> S </m> represent the sum value of that convergent series.
+		Because <m> \nseq{s} \to S </m>,
+		applying <xref ref="fact-seq-conv-vs-conv-to-zero" /> tells us that <m> \seq{S - s_n} \to 0 </m>.
 		Now,
-		note that every term of <m>\nseq{r}</m> is actually defined,
-		because if <m>\sum a_k</m> converges beginning at index <m>0</m>,
+		note that every term of <m> \nseq{r} </m> is actually defined,
+		because if <m> \sum a_k </m> converges beginning at index <m> 0 </m>,
 		then it converges beginning at any index,
 		and in fact we have
 		<md> r_n = \sum_{k = 0}^\infty a_k - \sum_{k = 0}^n a_k = S - s_n </md>
 		from <xref ref="fact-series-converge-restart" />.
-		Thus <m>\nseq{r} = \seq{S - s_n} \to 0</m>.
+		Thus <m> \nseq{r} = \seq{S - s_n} \to 0 </m>.
 	</p></proof>
 
 </fact>
@@ -827,9 +827,9 @@ the <q>amount left to add</q> must be getting small as well.
 	Here we repeat the introductory remarks we made for comparison tests for improper integrals
 	(see the beginning of <xref ref="section-improper-int-comparison" />)
 	in the context of series.
-	<xref ref="fact-series-converges-implies-seq-tends-to-zero" /> says that we need <m>\nseq{a} \to 0</m> for <m>\sum a_k</m> to converge,
+	<xref ref="fact-series-converges-implies-seq-tends-to-zero" /> says that we need <m> \nseq{a} \to 0 </m> for <m> \sum a_k </m> to converge,
 	but <xref ref="example-series-harmonic" /> demonstrates that this is not sufficient;
-	if <m>\nseq{a} \to 0</m> too slowly,
+	if <m> \nseq{a} \to 0 </m> too slowly,
 	then the series will diverge.
 	The comparison tests in this section allow us to determine convergence without actually computing the sum value,
 	by comparing the series to one whose convergence is already known.
@@ -847,7 +847,7 @@ the <q>amount left to add</q> must be getting small as well.
 	<title>Integral Comparison Test</title>
 
 	<statement><p>
-		Suppose <m>k_0</m> is an integer and <m>f(t)</m> is continuous and positive on domain <m>t \ge k_0</m> and decreasing on domain <m>t \gt k_0</m>.
+		Suppose <m> k_0 </m> is an integer and <m> f(t) </m> is continuous and positive on domain <m> t \ge k_0 </m> and decreasing on domain <m> t \gt k_0 </m>.
 		Then of the infinite series and improper integral
 		<md><mrow> \amp \sum_{k = k_0}^\infty f(k) \amp \amp \ccmint{k_0}{\infty}{f(t)}{t} </mrow></md>
 		either both converge or both diverge.
@@ -857,31 +857,31 @@ the <q>amount left to add</q> must be getting small as well.
 
 		<p>
 		For simplicity,
-		we will prove this for <m>k_0 = 0</m>;
-		every other starting index/domain boundary then just represents a <q>shift</q> of the <m>k_0 = 0</m> case.
+		we will prove this for <m> k_0 = 0 </m>;
+		every other starting index/domain boundary then just represents a <q>shift</q> of the <m> k_0 = 0 </m> case.
 		</p>
 
 		<p>
 		Define the integral function <md> F(t) = \ccmint{0}{t}{f(u)}{u} </md>,
-		which is continuous on domain <m>t \ge 0</m> by the <xref ref="theorem-fund-thm" text="title" />.
+		which is continuous on domain <m> t \ge 0 </m> by the <xref ref="theorem-fund-thm" text="title" />.
 		By definition, we have <md> \ccmint{0}{\infty}{f(t)}{t} = \lim_{t \to \infty} F(t) </md>.
-		Note that <m>F(t)</m> is an increasing function,
-		as we are accumulating more area as the integration domain endpoint <m>t</m> increases.
-		(And the derivative function <m>F'(t) = f(t)</m> is positive,
-		as we have assumed that <m>f(t)</m> is a positive function.)
+		Note that <m> F(t) </m> is an increasing function,
+		as we are accumulating more area as the integration domain endpoint <m> t </m> increases.
+		(And the derivative function <m> F'(t) = f(t) </m> is positive,
+		as we have assumed that <m> f(t) </m> is a positive function.)
 		</p>
 
 		<p>
-		As usual, let <m>\nseq{s}</m> be the sequence of partial sums for the infinite series <m>\sum f(k)</m>.
-		Let <m>\nseq{\ell}</m> and <m>\nseq{u}</m> be the sequences with terms
+		As usual, let <m> \nseq{s} </m> be the sequence of partial sums for the infinite series <m> \sum f(k) </m>.
+		Let <m> \nseq{\ell} </m> and <m> \nseq{u} </m> be the sequences with terms
 		<md>
 			<mrow> \ell_n \amp = s_n - s_0 \amp u_n \amp = s_{n - 1} </mrow>
 			<mrow> \amp = \sum_{k = 1}^n f(k) \amp \amp = \sum_{k = 0}^{n - 1} f(k) </mrow>
 		</md>.
-		(Take <m>u_0 = 0</m>.)
-		Then for <m>n \ge 1</m>,
-		each <m>\ell_n</m> can be considered as a right Riemann sum and each <m>u_n</m> can be considered as a left Riemann sum for the integral <m>F(n)</m>,
-		with <m>n</m> steps and regular with <m>\change{t} = 1</m> in both cases.
+		(Take <m> u_0 = 0 </m>.)
+		Then for <m> n \ge 1 </m>,
+		each <m> \ell_n </m> can be considered as a right Riemann sum and each <m> u_n </m> can be considered as a left Riemann sum for the integral <m> F(n) </m>,
+		with <m> n </m> steps and regular with <m> \change{t} = 1 </m> in both cases.
 		</p>
 
 		<figure>
@@ -916,48 +916,48 @@ the <q>amount left to add</q> must be getting small as well.
 		</figure>
 
 		<p>
-		As <m>f(t)</m> is decreasing,
-		each right sum <m>\ell_n</m> is a lower sum and each left sum <m>u_n</m> is an upper sum:
+		As <m> f(t) </m> is decreasing,
+		each right sum <m> \ell_n </m> is a lower sum and each left sum <m> u_n </m> is an upper sum:
 		<md> \ell_n \le F(n) \le u_n \qquad \text{for all } n </md>.
 		</p>
 
 		<case><title>Convergent integral</title><p>
-			Suppose the improper integral of <m>f(t)</m> as <m>t \to \infty</m> converges.
-			By definition, this means that the limit of <m>F(t)</m> exists as <m>t \to \infty</m>.
-			But then the sequence <m>\bbseq{F(n)}</m> also must converge
+			Suppose the improper integral of <m> f(t) </m> as <m> t \to \infty </m> converges.
+			By definition, this means that the limit of <m> F(t) </m> exists as <m> t \to \infty </m>.
+			But then the sequence <m> \bbseq{F(n)} </m> also must converge
 			(see <xref ref="fact-func-limits-long-term" />),
 			and so is bounded.
-			But since <m>\ell_n \le F(n)</m> for all <m>n</m>,
-			then also <m>\nseq{\ell}</m> is bounded above.
-			And since <m>\nseq{\ell}</m> is simply a constant shift of <m>\nseq{s}</m>,
+			But since <m> \ell_n \le F(n) </m> for all <m> n </m>,
+			then also <m> \nseq{\ell} </m> is bounded above.
+			And since <m> \nseq{\ell} </m> is simply a constant shift of <m> \nseq{s} </m>,
 			that too must be bounded above
-			(and also bounded below by <m>0</m> because the terms <m>f(n)</m> are all positive.)
-			We are now in the situation of <xref ref="fact-series-nonneg-terms-conv-iff-bdd" /> and may conclude that <m>\sum f(k)</m> converges.
+			(and also bounded below by <m> 0 </m> because the terms <m> f(n) </m> are all positive.)
+			We are now in the situation of <xref ref="fact-series-nonneg-terms-conv-iff-bdd" /> and may conclude that <m> \sum f(k) </m> converges.
 		</p></case>
 
 		<case><title>Divergent integral</title><p>
-			Suppose the improper integral of <m>f(t)</m> as <m>t \to \infty</m> diverges.
-			This means that the limit of <m>F(t)</m> as <m>t \to \infty</m> does not exist.
-			In particular, as <m>F(t)</m> is an increasing function,
-			we must have <m>F(t) \to \infty</m> as <m>t \to \infty</m>,
-			which in turn implies that <m>\bbseq{F(n)}</m> diverges to infinity.
-			But since <m>u_n \ge F(n)</m> for all <m>n</m>,
-			then also <m>\nseq{u} \to \infty</m> as well.
-			And as the terms of <m>\nseq{u}</m> are the same as the terms of <m>\nseq{s}</m> with shifted indexing,
-			we also have <m>\nseq{s} \to \infty</m>,
-			so that <m>\sum f(k)</m> diverges.
+			Suppose the improper integral of <m> f(t) </m> as <m> t \to \infty </m> diverges.
+			This means that the limit of <m> F(t) </m> as <m> t \to \infty </m> does not exist.
+			In particular, as <m> F(t) </m> is an increasing function,
+			we must have <m> F(t) \to \infty </m> as <m> t \to \infty </m>,
+			which in turn implies that <m> \bbseq{F(n)} </m> diverges to infinity.
+			But since <m> u_n \ge F(n) </m> for all <m> n </m>,
+			then also <m> \nseq{u} \to \infty </m> as well.
+			And as the terms of <m> \nseq{u} </m> are the same as the terms of <m> \nseq{s} </m> with shifted indexing,
+			we also have <m> \nseq{s} \to \infty </m>,
+			so that <m> \sum f(k) </m> diverges.
 		</p></case>
 
 		<case><title>Convergent series</title><p>
-			If <m>\sum f(k)</m> converges,
-			then it cannot be that the improper integral of <m>f(t)</m> diverges,
+			If <m> \sum f(k) </m> converges,
+			then it cannot be that the improper integral of <m> f(t) </m> diverges,
 			since if it did the <q>Divergent integral</q> case would imply that the series should diverge as well.
 			Hence the integral converges when the series does.
 		</p></case>
 
 		<case><title>Divergent series</title><p>
-			If <m>\sum f(k)</m> diverges,
-			then it cannot be that the improper integral of <m>f(t)</m> converges,
+			If <m> \sum f(k) </m> diverges,
+			then it cannot be that the improper integral of <m> f(t) </m> converges,
 			since if it did the <q>Convergent integral</q> case would imply that the series should converge as well.
 			Hence the integral diverges when the series does.
 		</p></case>
@@ -969,51 +969,51 @@ the <q>amount left to add</q> must be getting small as well.
 <example>
 
 	<p>
-	Consider the series <m>\sum \ln(k) / k</m>,
-	starting at <m>k = 1</m>.
-	Set <m>f(t) = \ln(t) / t</m>,
-	a function that is continuous for <m>t \gt 0</m> and positive for <m>t \gt 1</m>.
+	Consider the series <m> \sum \ln(k) / k </m>,
+	starting at <m> k = 1 </m>.
+	Set <m> f(t) = \ln(t) / t </m>,
+	a function that is continuous for <m> t \gt 0 </m> and positive for <m> t \gt 1 </m>.
 	Compute <md> f'(t) = \frac{1 - \ln(t)}{t^2} </md>.
-	This derivative is negative as long as <m>\ln(t) \gt 1</m>,
-	which occurs for <m>t \gt e</m>.
-	So we may say that <m>f</m> is decreasing on domain <m>t \gt 3</m>,
-	and we have verified that <m>f</m> satisfies the conditions of the <xref ref="fact-series-integral-comparison" text="title" /> for <m>k_0 = 3</m>.
+	This derivative is negative as long as <m> \ln(t) \gt 1 </m>,
+	which occurs for <m> t \gt e </m>.
+	So we may say that <m> f </m> is decreasing on domain <m> t \gt 3 </m>,
+	and we have verified that <m> f </m> satisfies the conditions of the <xref ref="fact-series-integral-comparison" text="title" /> for <m> k_0 = 3 </m>.
 	Because of this,
 	we can say that the convergence/divergence of the sum and integral below are equivalent:
 	<md><mrow> \amp \sum_{k = 3}^\infty \frac{\ln(k)}{k} \text{,} \amp \amp \ccmint{3}{\infty}{\frac{\ln(t)}{t}}{t} \text{.} </mrow></md>
-	Also note that the convergence of the sum above is equivalent to the convergence of the full sum that begins at index <m>1</m>
+	Also note that the convergence of the sum above is equivalent to the convergence of the full sum that begins at index <m> 1 </m>
 	(<xref ref="fact-series-converge-restart" />),
-	so investigating the integral above is sufficient to determine the convergence/divergence of <m>\sum \ln(k) / k</m>.
+	so investigating the integral above is sufficient to determine the convergence/divergence of <m> \sum \ln(k) / k </m>.
 	</p>
 
 	<p>
 	For the integral,
-	we have already noted that <m>\ln(t) \gt 1</m> for <m>t \gt e</m>
-	and so also for <m>t \ge 3</m>.
+	we have already noted that <m> \ln(t) \gt 1 </m> for <m> t \gt e </m>
+	and so also for <m> t \ge 3 </m>.
 	Hence <md> \frac{\ln(t)}{t} \gt \frac{1}{t} </md>
-	on domain <m>t \ge 3</m>.
-	And we know that an improper integral of <m>1/t</m> diverges
+	on domain <m> t \ge 3 </m>.
+	And we know that an improper integral of <m> 1/t </m> diverges
 	(<xref ref="fact-improper-int-p-funcs" />),
-	hence our improper integral of <m>\ln(t) / t</m> diverges as by the <xref ref="pattern-improper-int-compare" text="title" />.
+	hence our improper integral of <m> \ln(t) / t </m> diverges as by the <xref ref="pattern-improper-int-compare" text="title" />.
 	</p>
 
-	<p> From this we conclude that <m>\sum \ln(k) / k</m> diverges. </p>
+	<p> From this we conclude that <m> \sum \ln(k) / k </m> diverges. </p>
 
 </example>
 
 <p>
-We have seen that <m>\sum 1/k^2</m> converges but <m>\sum 1/k</m> diverges,
+We have seen that <m> \sum 1/k^2 </m> converges but <m> \sum 1/k </m> diverges,
 just as with improper integrals.
 Using the <xref ref="fact-series-integral-comparison" text="title" />,
 we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous facts about infinite series.
 </p>
 
 <fact xml:id="fact-series-p">
-	<title>Convergence of <m>p</m>-series</title>
+	<title>Convergence of <m> p </m>-series</title>
 	<p>
-		The infinite series <m>\sum 1/k^p</m>
-		(beginning at index <m>k = 1</m>)
-		converges for <m>p \gt 1</m> and diverges for <m>p \le 1</m>.
+		The infinite series <m> \sum 1/k^p </m>
+		(beginning at index <m> k = 1 </m>)
+		converges for <m> p \gt 1 </m> and diverges for <m> p \le 1 </m>.
 	</p>
 </fact>
 
@@ -1030,38 +1030,38 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 	<statement>
 
 		<p>
-		Suppose <m>\nseq{a}</m> and <m>\nseq{b}</m> are non-negative sequences,
-		and let <m>\nseq{s}</m> and <m>\nseq{t}</m> represent the sequences of partial sums for the infinite series <m>\sum a_k</m> and <m>\sum b_k</m>,
+		Suppose <m> \nseq{a} </m> and <m> \nseq{b} </m> are non-negative sequences,
+		and let <m> \nseq{s} </m> and <m> \nseq{t} </m> represent the sequences of partial sums for the infinite series <m> \sum a_k </m> and <m> \sum b_k </m>,
 		respectively.
 		</p>
 
 		<p>
-		Assume <m>s_n \le t_n</m> for all <m>n</m>.
+		Assume <m> s_n \le t_n </m> for all <m> n </m>.
 		<ol>
 			<li xml:id="pattern-series-compare-partial-sums-converge">
-				If <m>\sum b_k</m> converges,
-				then <m>\sum a_k</m> also converges.
+				If <m> \sum b_k </m> converges,
+				then <m> \sum a_k </m> also converges.
 			</li>
 			<li xml:id="pattern-series-compare-partial-sums-diverge">
-				If <m>\sum a_k</m> diverges,
-				then <m>\sum b_k</m> also diverges.
+				If <m> \sum a_k </m> diverges,
+				then <m> \sum b_k </m> also diverges.
 			</li>
 		</ol>
 	</p></statement>
 
 	<proof><title>Justification for <xref ref="pattern-series-compare-partial-sums-converge" text="type-local">Statement</xref></title><p>
-		Since <m>\nseq{a}</m> and <m>\nseq{b}</m> are non-negative then <m>\nseq{s}</m> and <m>\nseq{t}</m> are increasing sequences
+		Since <m> \nseq{a} </m> and <m> \nseq{b} </m> are non-negative then <m> \nseq{s} </m> and <m> \nseq{t} </m> are increasing sequences
 		(or, at least, non-decreasing).
-		If <m>\sum b_k</m> converges then <m>\nseq{t}</m> must be bounded,
-		and from <m>s_n \le t_n</m> we conclude that <m>\nseq{s}</m> is bounded as well.
-		The <xref ref="theorem-seq-monotonic-conv" text="title" /> now implies that <m>\nseq{s}</m> converges.
+		If <m> \sum b_k </m> converges then <m> \nseq{t} </m> must be bounded,
+		and from <m> s_n \le t_n </m> we conclude that <m> \nseq{s} </m> is bounded as well.
+		The <xref ref="theorem-seq-monotonic-conv" text="title" /> now implies that <m> \nseq{s} </m> converges.
 	</p></proof>
 
 	<proof><title>Justification for <xref ref="pattern-series-compare-partial-sums-diverge" text="type-local">Statement</xref></title><p>
 		As in the justification of <xref ref="pattern-series-compare-partial-sums-converge" text="type-local">Statement</xref>,
-		<m>\nseq{s}</m> and <m>\nseq{t}</m> must be non-decreasing.
-		But if <m>\sum a_k</m> diverges then <m>\nseq{s}</m> cannot be bounded and must diverge to infinity.
-		Then from <m>s_n \le t_n</m> we conclude that <m>\nseq{t} \to \infty</m> as well.
+		<m> \nseq{s} </m> and <m> \nseq{t} </m> must be non-decreasing.
+		But if <m> \sum a_k </m> diverges then <m> \nseq{s} </m> cannot be bounded and must diverge to infinity.
+		Then from <m> s_n \le t_n </m> we conclude that <m> \nseq{t} \to \infty </m> as well.
 	</p></proof>
 
 </identity>
@@ -1069,33 +1069,33 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 <identity xml:id="pattern-series-compare-terms">
 
 	<statement><p>
-		Suppose <m>\nseq{a}</m> and <m>\nseq{b}</m> are non-negative sequences,
-		and <m>a_n \le b_n</m> for all <m>n</m>.
+		Suppose <m> \nseq{a} </m> and <m> \nseq{b} </m> are non-negative sequences,
+		and <m> a_n \le b_n </m> for all <m> n </m>.
 		<ol>
 			<li xml:id="pattern-series-compare-terms-converge">
-				If <m>\sum b_k</m> converges,
-				then <m>\sum a_k</m> also converges.
+				If <m> \sum b_k </m> converges,
+				then <m> \sum a_k </m> also converges.
 			</li>
 			<li xml:id="pattern-series-compare-terms-diverge">
-				If <m>\sum a_k</m> diverges,
-				then <m>\sum b_k</m> also diverges.
+				If <m> \sum a_k </m> diverges,
+				then <m> \sum b_k </m> also diverges.
 			</li>
 		</ol>
 	</p></statement>
 
 	<proof><p>
-		Let <m>\nseq{s}</m> and <m>\nseq{t}</m> represent the sequences of partial sums for <m>\sum a_k</m> and <m>\sum b_k</m>,
+		Let <m> \nseq{s} </m> and <m> \nseq{t} </m> represent the sequences of partial sums for <m> \sum a_k </m> and <m> \sum b_k </m>,
 		respectively.
-		Since <m>\nseq{a}</m> and <m>\nseq{b}</m> are non-negative,
-		our assumption <m>a_n \le b_n</m> for all <m>n</m> implies that <m>s_n \le t_n</m> for all <m>n</m> as well.
-		So the patterns of convergence/divergence of <m>\sum a_k</m> and <m>\sum b_k</m> follow <xref ref="pattern-series-compare-partial-sums" />.
+		Since <m> \nseq{a} </m> and <m> \nseq{b} </m> are non-negative,
+		our assumption <m> a_n \le b_n </m> for all <m> n </m> implies that <m> s_n \le t_n </m> for all <m> n </m> as well.
+		So the patterns of convergence/divergence of <m> \sum a_k </m> and <m> \sum b_k </m> follow <xref ref="pattern-series-compare-partial-sums" />.
 	</p></proof>
 
 </identity>
 
 <remark><p>
 	With <xref ref="fact-series-converge-restart" /> in mind,
-	we see that the <q>for all <m>n</m></q> conditions in the statements of both <xref ref="pattern-series-compare-partial-sums" /> and <xref ref="pattern-series-compare-terms" /> may be relaxed.
+	we see that the <q>for all <m> n </m></q> conditions in the statements of both <xref ref="pattern-series-compare-partial-sums" /> and <xref ref="pattern-series-compare-terms" /> may be relaxed.
 	As long as the necessary conditions hold for <em>tails</em> of the sequences involved,
 	then the conclusions of these two facts will hold for the <q>tails</q> of the infinite series involved,
 	which is sufficient.
@@ -1104,7 +1104,7 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 <example><p><ol>
 
 	<li>
-		Since <md> \frac{1}{2^n + 1} \lt \frac{1}{2^n} </md> for all <m>n</m>,
+		Since <md> \frac{1}{2^n + 1} \lt \frac{1}{2^n} </md> for all <m> n </m>,
 		<m> \sum 1 / (2^k + 1) </m> converges by comparison with the geometric series <m> \sum 1 / 2^k </m>.
 	</li>
 
@@ -1112,16 +1112,16 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 		For <md xml:id="equation-series-comparison-1" tag="star"> \sum \frac{5}{2 k^2 + 4 k + 3} </md>
 		we have
 		<md> \frac{5}{2 n^2 + 4 n + 3} \lt \frac{5}{2} \cdot \frac{1}{n^2} </md>
-		for all <m>n</m>,
-		and <m>\sum 5 / 2 k^2</m> converges because <m>\sum 1 / k^2</m> does
+		for all <m> n </m>,
+		and <m> \sum 5 / 2 k^2 </m> converges because <m> \sum 1 / k^2 </m> does
 		(see <xref ref="pattern-series-linearity" />).
 		So by comparison <xref ref="equation-series-comparison-1" /> must converge.
 	</li>
 
 	<li>
-		Since <md> \frac{6}{n - 1} \gt \frac{1}{n} </md> for all <m>n \ge 2</m>,
+		Since <md> \frac{6}{n - 1} \gt \frac{1}{n} </md> for all <m> n \ge 2 </m>,
 		the series <md> \sum_{k = 2}^\infty \frac{6}{k - 1} </md>
-		diverges by comparison with the harmonic series <m>\sum 1/k</m>.
+		diverges by comparison with the harmonic series <m> \sum 1/k </m>.
 	</li>
 
 </ol></p></example>
@@ -1133,20 +1133,20 @@ we can transfer all of <xref ref="fact-improper-int-p-funcs" /> to the analgous 
 
 <p>
 Just as with improper integrals,
-for a series <m>\sum a_k</m> to converge we need <m>\nseq{a} \to 0</m>,
+for a series <m> \sum a_k </m> to converge we need <m> \nseq{a} \to 0 </m>,
 but that on its own is not enough
-<mdash /> if <m>\nseq{a}</m> doesn't converge to zero fast enough,
+<mdash /> if <m> \nseq{a} </m> doesn't converge to zero fast enough,
 then it will diverge
 (for example, the harmonic series).
-So we can test convergence/divergence by comparing the rate at which the terms trend to <m>0</m> against the terms of a series whose convergence/divergence is known.
+So we can test convergence/divergence by comparing the rate at which the terms trend to <m> 0 </m> against the terms of a series whose convergence/divergence is known.
 </p>
 
 <identity xml:id="pattern-series-limit-comparison">
 	<title>Limit comparison test for series</title>
 
 	<statement><p>
-		Suppose <m>\nseq{a}</m> and <m>\nseq{b}</m> are positive sequences.
-		If <m>\seq{a_n / b_n}</m> converges to a non-zero limit,
+		Suppose <m> \nseq{a} </m> and <m> \nseq{b} </m> are positive sequences.
+		If <m> \seq{a_n / b_n} </m> converges to a non-zero limit,
 		then of the infinite series
 		<md><mrow> \amp \sum a_k \amp \amp \sum b_k </mrow></md>
 		either both converge or both diverge.
@@ -1155,39 +1155,39 @@ So we can test convergence/divergence by comparing the rate at which the terms t
 	<proof>
 
 		<p>
-		Suppose <m>\seq{a_n / b_n} \to L</m>.
-		Recall that we assume <m>L</m> is positive.
-		Take <m>(c,d)</m> to be some open range around <m>L</m> with <m>c \gt 0</m>.
-		(For example, we could take <m>c = L/2</m> and <m>d = 2 L</m>.)
-		Then there is some tail <m>\seqtail{a_n / b_n}</m> that is completely contained in this range:
+		Suppose <m> \seq{a_n / b_n} \to L </m>.
+		Recall that we assume <m> L </m> is positive.
+		Take <m> (c,d) </m> to be some open range around <m> L </m> with <m> c \gt 0 </m>.
+		(For example, we could take <m> c = L/2 </m> and <m> d = 2 L </m>.)
+		Then there is some tail <m> \seqtail{a_n / b_n} </m> that is completely contained in this range:
 		<md alignment="gather">
 			<mrow> c \lt \frac{a_n}{b_n} \lt d </mrow>
 			<mrow> c b_n \lt a_n \lt d b_n </mrow>
 		</md>.
-		(Recall that all terms <m>b_n</m> are positive,
-		so multiplying by <m>b_n</m> does not affect the inequalities.)
+		(Recall that all terms <m> b_n </m> are positive,
+		so multiplying by <m> b_n </m> does not affect the inequalities.)
 		</p>
 
 		<p> We may now use the above inequalities to analyze converge/divergence. </p>
 
-		<case><title>Case that <m>\sum b_k</m> converges</title><p>
-			Then <m>\sum d b_k</m> also converges,
-			and <m>\sum a_k</m> converges by comparison with that series.
+		<case><title>Case that <m> \sum b_k </m> converges</title><p>
+			Then <m> \sum d b_k </m> also converges,
+			and <m> \sum a_k </m> converges by comparison with that series.
 		</p></case>
 
-		<case><title>Case that <m>\sum b_k</m> diverges</title><p>
-			Then <m>\sum c b_k</m> also diverges,
-			and <m>\sum a_k</m> diverges by comparison with that series.
+		<case><title>Case that <m> \sum b_k </m> diverges</title><p>
+			Then <m> \sum c b_k </m> also diverges,
+			and <m> \sum a_k </m> diverges by comparison with that series.
 		</p></case>
 
-		<case><title>Case that <m>\sum a_k</m> converges</title><p>
-			Then <m>\sum b_k</m> cannot diverge,
-			because if it did we have already demonstrated that <m>\sum a_k</m> would diverge in that case.
+		<case><title>Case that <m> \sum a_k </m> converges</title><p>
+			Then <m> \sum b_k </m> cannot diverge,
+			because if it did we have already demonstrated that <m> \sum a_k </m> would diverge in that case.
 		</p></case>
 
-		<case><title>Case that <m>\sum a_k</m> diverges</title><p>
-			Then <m>\sum b_k</m> cannot converge,
-			because if it did we have already demonstrated that <m>\sum a_k</m> would converge in that case.
+		<case><title>Case that <m> \sum a_k </m> diverges</title><p>
+			Then <m> \sum b_k </m> cannot converge,
+			because if it did we have already demonstrated that <m> \sum a_k </m> would converge in that case.
 		</p></case>
 
 	</proof>
@@ -1197,21 +1197,21 @@ So we can test convergence/divergence by comparing the rate at which the terms t
 <example xml:id="example-series-limit-compare"><p><ol>
 
 	<li>
-		Consider <m>\sum 6 / (k + 1)</m>.
-		We have already verified that <m>\sum 1 / (k + 1)</m> diverges
+		Consider <m> \sum 6 / (k + 1) </m>.
+		We have already verified that <m> \sum 1 / (k + 1) </m> diverges
 		(<xref ref="example-series-change-vars" />),
-		so <m>\sum 6 / (k + 1)</m> must diverge as well.
+		so <m> \sum 6 / (k + 1) </m> must diverge as well.
 		But let's check that the <xref ref="pattern-series-limit-comparison" text="title" /> says the same:
 		<md> \frac{6 / (n + 1)}{1 / n} = \frac{6 n}{n + 1} \to 6 \qquad \text{as } n \to \infty </md>.
-		By comparison with the divergent harmonic series <m>\sum 1/k</m>,
-		the series <m>\sum 6 / (k + 1)</m> diverges.
+		By comparison with the divergent harmonic series <m> \sum 1/k </m>,
+		the series <m> \sum 6 / (k + 1) </m> diverges.
 	</li>
 
 	<li>
-		Consider <m>\sum 1 / (2^k - 1)</m>.
-		Compare with the geometric series <m>\sum 1 / 2^k</m>:
+		Consider <m> \sum 1 / (2^k - 1) </m>.
+		Compare with the geometric series <m> \sum 1 / 2^k </m>:
 		<md> \frac{1 / (2^n - 1)}{ 1 / 2^n} = \frac{2^n}{2^n - 1} \to 1 \qquad \text{as } n \to \infty </md>.
-		So <m>\sum 1 / (2^k - 1)</m> converges.
+		So <m> \sum 1 / (2^k - 1) </m> converges.
 	</li>
 
 </ol></p></example>
@@ -1226,8 +1226,8 @@ So we can test convergence/divergence by comparing the rate at which the terms t
 	<title>Choosing a comparator series</title>
 	<p>
 	Consider <md xml:id="equation-series-limit-comparison-1" tag="dstar"> \sum \frac{2 k^2 + 3 k}{\sqrt{5 + k^7}} </md>.
-	For large <m>k</m> we have <md> \frac{2 k^2 + 3 k}{\sqrt{5 + k^7}} \approx \frac{2 k^2}{\sqrt{k^7}} = \frac{2}{k^{3/2}} </md>.
-	So we'll attempt to compare with the convergent <m>p</m>-series <m>\sum 1 / k^{3/2}</m>:
+	For large <m> k </m> we have <md> \frac{2 k^2 + 3 k}{\sqrt{5 + k^7}} \approx \frac{2 k^2}{\sqrt{k^7}} = \frac{2}{k^{3/2}} </md>.
+	So we'll attempt to compare with the convergent <m> p </m>-series <m> \sum 1 / k^{3/2} </m>:
 	<md>
 		<mrow>
 			\frac{(2 n^2 + 3 n) / \sqrt{5 + n^7}}{1 / n^{3/2}}
@@ -1238,8 +1238,8 @@ So we can test convergence/divergence by comparing the rate at which the terms t
 		<mrow> \amp \to \frac{2 + 0}{\sqrt{0 + 1}} </mrow>
 		<mrow> \amp = 2 </mrow>
 	</md>
-	as <m>n \to \infty</m>.
-	From this limit result we conclude that <xref ref="equation-series-limit-comparison-1" /> converges by comparison with the convergent <m>p</m>-series <m>\sum 1 / k^{3/2}</m>.
+	as <m> n \to \infty </m>.
+	From this limit result we conclude that <xref ref="equation-series-limit-comparison-1" /> converges by comparison with the convergent <m> p </m>-series <m> \sum 1 / k^{3/2} </m>.
 	</p>
 </example>
 
@@ -1254,14 +1254,14 @@ then their convergence is not equivalent but we can still make conclusions based
 <identity xml:id="pattern-series-additional-limit-compare">
 	<title>Additional limit comparisons</title>
 	<p><ol>
-		<li> If <m>\seq{a_n / b_n} \to 0</m> and <m>\sum b_k</m> converges then <m>\sum a_k</m> also converges. </li>
-		<li> If <m>\seq{a_n / b_n} \to \infty</m> and <m>\sum b_k</m> diverges then <m>\sum a_k</m> also diverges. </li>
+		<li> If <m> \seq{a_n / b_n} \to 0 </m> and <m> \sum b_k </m> converges then <m> \sum a_k </m> also converges. </li>
+		<li> If <m> \seq{a_n / b_n} \to \infty </m> and <m> \sum b_k </m> diverges then <m> \sum a_k </m> also diverges. </li>
 	</ol></p>
 </identity>
 
 <remark><p>
 	In light of <xref ref="pattern-series-additional-limit-compare" />,
-	it's best to use the denominator sequence <m>\nseq{b}</m> to represent the one whose convergence/divergence of the associated series is known when attempting a limit comparison.
+	it's best to use the denominator sequence <m> \nseq{b} </m> to represent the one whose convergence/divergence of the associated series is known when attempting a limit comparison.
 </p></remark>
 
 </subsection>
@@ -1283,48 +1283,48 @@ we can determine the convergence of the series by examing the trend of the base 
 	<title>Root test</title>
 
 	<statement><p>
-		Suppose <m>\nseq{a}</m> is a non-negative sequence,
-		and <m>\seq{\sqrt[n]{a_n}}</m> converges to some limit value <m>L</m> or diverges to <m>L = \infty</m>.
+		Suppose <m> \nseq{a} </m> is a non-negative sequence,
+		and <m> \seq{\sqrt[n]{a_n}} </m> converges to some limit value <m> L </m> or diverges to <m> L = \infty </m>.
 		<ol>
-			<li xml:id="pattern-series-root-test-converge"> If <m>L \lt 1</m> then <m>\sum a_k</m> converges. </li>
-			<li xml:id="pattern-series-root-test-diverge">  If <m>L \gt 1</m> then <m>\sum a_k</m> diverges.  </li>
-			<li xml:id="pattern-series-root-test-fail">     If <m>L  =  1</m> then the test is inconclusive.  </li>
+			<li xml:id="pattern-series-root-test-converge"> If <m> L \lt 1 </m> then <m> \sum a_k </m> converges. </li>
+			<li xml:id="pattern-series-root-test-diverge">  If <m> L \gt 1 </m> then <m> \sum a_k </m> diverges.  </li>
+			<li xml:id="pattern-series-root-test-fail">     If <m> L  =  1 </m> then the test is inconclusive.  </li>
 		</ol>
 	</p></statement>
 
 	<proof><title>Justification for <xref ref="pattern-series-root-test-converge" text="type-local">Statement</xref></title><p>
-		We will attempt to compare <m>\sum a_k</m> with a convergent geometric series <m>\sum r^k</m>.
-		We assume <m>L \lt 1</m>,
-		and note that we must also have <m>L \ge 0</m> since the terms of <m>\seq{\sqrt[n]{a_n}}</m> are non-negative.
-		We can create an open range <m>(c,d)</m> around <m>L</m> with <m>d \lt 1</m>.
-		(For example, we could take <m>c = L/2</m> and <m>d = (1 - L)/2</m>.)
-		Then there is some tail <m>\seqtail{\sqrt[n]{a_n}}</m> that is completely contained in this range:
+		We will attempt to compare <m> \sum a_k </m> with a convergent geometric series <m> \sum r^k </m>.
+		We assume <m> L \lt 1 </m>,
+		and note that we must also have <m> L \ge 0 </m> since the terms of <m> \seq{\sqrt[n]{a_n}} </m> are non-negative.
+		We can create an open range <m> (c,d) </m> around <m> L </m> with <m> d \lt 1 </m>.
+		(For example, we could take <m> c = L/2 </m> and <m> d = (1 - L)/2 </m>.)
+		Then there is some tail <m> \seqtail{\sqrt[n]{a_n}} </m> that is completely contained in this range:
 		<md> c \lt \sqrt[n]{a_n} \lt d </md>.
 		Since power functions are always increasing functions on non-negative domains,
-		we may raise each <q>side</q> of the above inequality to the <m>\nth</m> power and the inequalities will be maintained:
+		we may raise each <q>side</q> of the above inequality to the <m> \nth </m> power and the inequalities will be maintained:
 		<md> c^n \lt a_n \lt d^n </md>.
-		We know have our base <m>r = d</m> for a geometric series,
-		and <m>\sum d^k</m> converges because <m>0 \lt d \lt 1</m>.
-		Since <m>a_n \lt d^n</m> for all terms in the tail <m>\nseqtail{a}</m>,
-		the series <m>\sum a_k</m> converges as well by comparison.
+		We know have our base <m> r = d </m> for a geometric series,
+		and <m> \sum d^k </m> converges because <m> 0 \lt d \lt 1 </m>.
+		Since <m> a_n \lt d^n </m> for all terms in the tail <m> \nseqtail{a} </m>,
+		the series <m> \sum a_k </m> converges as well by comparison.
 	</p></proof>
 
 	<proof><title>Justification for <xref ref="pattern-series-root-test-diverge" text="type-local">Statement</xref></title>
 
-		<case><title>Case of infinite <m>L</m></title><p>
-			If the terms of <m>\seq{\sqrt[n]{a_n}}</m> diverge to infinity,
-			then the sequence of <m>\nth</m> powers of those terms
-			(which is just <m>\nseq{a}</m>)
+		<case><title>Case of infinite <m> L </m></title><p>
+			If the terms of <m> \seq{\sqrt[n]{a_n}} </m> diverge to infinity,
+			then the sequence of <m> \nth </m> powers of those terms
+			(which is just <m> \nseq{a} </m>)
 			will also diverge to infinity,
-			and so the series <m>\sum a_k</m> will diverge in this case.
+			and so the series <m> \sum a_k </m> will diverge in this case.
 		</p></case>
 
-		<case><title>Case of finite <m>L</m></title><p>
+		<case><title>Case of finite <m> L </m></title><p>
 			The argument in this case is identical to the one above,
 			except this time we compare to a divergent geometric series.
-			Since <m>L \gt 1</m> we can create an open range <m>(c,d)</m> around <m>L</m> with <m>c \gt 1</m>.
-			Then similarly to the previous argument we can determine some tail <m>\nseqtail{a}</m> with <m>a_n \gt c^n</m> for all terms in that tail,
-			and so <m>\sum a_k</m> diverges by comparison with the divergent geometric series <m>\sum c^k</m>.
+			Since <m> L \gt 1 </m> we can create an open range <m> (c,d) </m> around <m> L </m> with <m> c \gt 1 </m>.
+			Then similarly to the previous argument we can determine some tail <m> \nseqtail{a} </m> with <m> a_n \gt c^n </m> for all terms in that tail,
+			and so <m> \sum a_k </m> diverges by comparison with the divergent geometric series <m> \sum c^k </m>.
 		</p></case>
 
 	</proof>
@@ -1334,13 +1334,13 @@ we can determine the convergence of the series by examing the trend of the base 
 <example><p><ol>
 
 	<li>
-		For series <m>\sum a_k</m> with terms <md> a_n = {\left(\frac{2 n + 3}{3 n + 2}\right)}^n </md> we have
+		For series <m> \sum a_k </m> with terms <md> a_n = {\left(\frac{2 n + 3}{3 n + 2}\right)}^n </md> we have
 		<md> \sqrt[n]{a_n} = \frac{2 n + 3}{3 n + 2} \to \frac{2}{3} \qquad \text{as } n \to \infty </md>
-		so we conclude that <m>\sum a_k</m> converges.
+		so we conclude that <m> \sum a_k </m> converges.
 	</li>
 
 	<li>
-		For series <m>\sum a_k</m> with terms <md> a_n = \frac{2^n}{(n + 1) 3^{n + 1}} </md>,
+		For series <m> \sum a_k </m> with terms <md> a_n = \frac{2^n}{(n + 1) 3^{n + 1}} </md>,
 		we appear to have a mix of geometric behaviour and harmonic behaviour,
 		but likely the geometric behaviour will win (exponentials beat polynomials) and the series should converge.
 		Let's verify with the <xref ref="pattern-series-root-test" text="title" />:
@@ -1349,19 +1349,19 @@ we can determine the convergence of the series by examing the trend of the base 
 			<mrow> \amp = \frac{2}{\sqrt[n]{n + 1} \sqrt[n]{3^n \cdot 3}} </mrow>
 			<mrow> \amp = \frac{2}{\sqrt[n]{n + 1} \cdot 3 \cdot \sqrt[n]{3}} </mrow>
 		</md>.
-		We have already seen that <m>(1 + t)^{1/t} \to 1</m> as <m>t \to \infty</m>
+		We have already seen that <m> (1 + t)^{1/t} \to 1 </m> as <m> t \to \infty </m>
 		(<xref ref="example-func-limits-infty-to-0" />),
-		so also <m>\seq{\sqrt[n]{n + 1}} \to 1</m>.
-		One may also verify with a logarithmic limit that <m>\seq{3^{1/n}} \to 1</m>.
-		So we have <m>\seq{\sqrt[n]{a_n}} \to 2/3</m>,
-		and conclude that <m>\sum a_k</m> converges.
+		so also <m> \seq{\sqrt[n]{n + 1}} \to 1 </m>.
+		One may also verify with a logarithmic limit that <m> \seq{3^{1/n}} \to 1 </m>.
+		So we have <m> \seq{\sqrt[n]{a_n}} \to 2/3 </m>,
+		and conclude that <m> \sum a_k </m> converges.
 	</li>
 
 </ol></p></example>
 
 <exercise><p>
-	Verify that the case of <xref ref="pattern-series-root-test-fail" text="type-local">Statement</xref> of the <xref ref="pattern-series-root-test" text="title" /> really is inconclusive by testing both the <m>p</m>-series <m>\sum 1/k^2</m> and the harmonic series <m>\sum 1/k</m>.
-	You should find that the terms of both series satisfy <m>\seq{\sqrt[n]{a_n}} \to 1</m>,
+	Verify that the case of <xref ref="pattern-series-root-test-fail" text="type-local">Statement</xref> of the <xref ref="pattern-series-root-test" text="title" /> really is inconclusive by testing both the <m> p </m>-series <m> \sum 1/k^2 </m> and the harmonic series <m> \sum 1/k </m>.
+	You should find that the terms of both series satisfy <m> \seq{\sqrt[n]{a_n}} \to 1 </m>,
 	but one series converges and one diverges.
 </p></exercise>
 
@@ -1371,7 +1371,7 @@ we can determine the convergence of the series by examing the trend of the base 
 <title>Ratio test</title>
 
 <p>
-Again, we need <m>\nseq{a} \to 0</m> for <m>\sum a_k</m> to converge,
+Again, we need <m> \nseq{a} \to 0 </m> for <m> \sum a_k </m> to converge,
 but that's not sufficient:
 we need the terms to get small fast enough that the partial sums don't become unbounded.
 Another way to measure whether this is happening is to compare each term to the next in a ratio.
@@ -1381,30 +1381,30 @@ Another way to measure whether this is happening is to compare each term to the 
 	<title>Ratio test</title>
 
 	<statement><p>
-		Suppose <m>\nseq{a}</m> is a positive sequence,
-		and <m>\seq{a_{n + 1} / a_n}</m> converges to some limit value <m>L</m> or diverges to <m>L = \infty</m>.
+		Suppose <m> \nseq{a} </m> is a positive sequence,
+		and <m> \seq{a_{n + 1} / a_n} </m> converges to some limit value <m> L </m> or diverges to <m> L = \infty </m>.
 		<ol>
-			<li xml:id="pattern-series-ratio-test-converge"> If <m>L \lt 1</m> then <m>\sum a_k</m> converges. </li>
-			<li xml:id="pattern-series-ratio-test-diverge">  If <m>L \gt 1</m> then <m>\sum a_k</m> diverges.  </li>
-			<li xml:id="pattern-series-ratio-test-fail">     If <m>L  =  1</m> then the test is inconclusive.  </li>
+			<li xml:id="pattern-series-ratio-test-converge"> If <m> L \lt 1 </m> then <m> \sum a_k </m> converges. </li>
+			<li xml:id="pattern-series-ratio-test-diverge">  If <m> L \gt 1 </m> then <m> \sum a_k </m> diverges.  </li>
+			<li xml:id="pattern-series-ratio-test-fail">     If <m> L  =  1 </m> then the test is inconclusive.  </li>
 		</ol>
 	</p></statement>
 
 	<proof><title>Justification for <xref ref="pattern-series-ratio-test-converge" text="type-local">Statement</xref></title><p>
-		Again we will attempt to compare <m>\sum a_k</m> with a convergent geometric series.
-		And again we can create an open range <m>(c,d)</m> around <m>L</m> with <m>d \lt 1</m>,
-		and there will be some tail <m>\seqtail{a_{n + 1} / a_n}</m> entirely contained in that range.
-		But we also assume that the terms of <m>\nseq{a}</m> to be positive,
+		Again we will attempt to compare <m> \sum a_k </m> with a convergent geometric series.
+		And again we can create an open range <m> (c,d) </m> around <m> L </m> with <m> d \lt 1 </m>,
+		and there will be some tail <m> \seqtail{a_{n + 1} / a_n} </m> entirely contained in that range.
+		But we also assume that the terms of <m> \nseq{a} </m> to be positive,
 		so all the ratios of those terms are positive as well.
-		So for <m>n \ge N</m> we have
+		So for <m> n \ge N </m> we have
 		<md alignment="gather">
 			<mrow> 0 \lt \frac{a_{n + 1}}{a_n} \lt d </mrow>
 			<mrow> 0 \lt a_{n + 1} \lt d a_n </mrow>
 		</md>.
-		(Recall that the terms of <m>\nseq{a}</m> are positive,
-		so multiplying by <m>a_n</m> does not affect the inequalities.)
+		(Recall that the terms of <m> \nseq{a} </m> are positive,
+		so multiplying by <m> a_n </m> does not affect the inequalities.)
 		Now we proceed inductively,
-		starting at <m>n = N</m>:
+		starting at <m> n = N </m>:
 		<md alignment="gather">
 			<mrow> 0 \lt a_{N + 1} \lt d a_N </mrow>
 			<mrow> 0 \lt a_{N + 2} \lt d a_{N + 1} \lt d \cdot d a_N = d^2 a_N </mrow>
@@ -1412,26 +1412,26 @@ Another way to measure whether this is happening is to compare each term to the 
 			<mrow> \vdots </mrow>
 		</md>.
 		The pattern continues,
-		and we can say that <md> 0 \lt a_{N + k} \lt d^k a_N </md> for all <m>k \ge 1</m>.
-		Now, since <m>0 \lt d \lt 1</m>,
-		the geometric series <m>\sum d^k</m> converges,
-		and by linearity so does <m>\sum d^k a_N</m>.
-		(Note that <m>a_N</m> is just one specific term in the sequence <m>\nseq{a}</m>,
+		and we can say that <md> 0 \lt a_{N + k} \lt d^k a_N </md> for all <m> k \ge 1 </m>.
+		Now, since <m> 0 \lt d \lt 1 </m>,
+		the geometric series <m> \sum d^k </m> converges,
+		and by linearity so does <m> \sum d^k a_N </m>.
+		(Note that <m> a_N </m> is just one specific term in the sequence <m> \nseq{a} </m>,
 		and so we may treat it as a constant.)
 		Then by comparison,
-		the <q>shifted</q> series <m>\sum b_k</m> with terms <m>b_n = a_{N + n}</m> converges.
+		the <q>shifted</q> series <m> \sum b_k </m> with terms <m> b_n = a_{N + n} </m> converges.
 		But since
 		<md> \sum_{k = 0}^\infty a_{N + k} = a_N + a_{N + 1} + a_{N + 2} + \dotsb </md>
 		we may rewrite this (convergent) series as
 		<md> \sum_{k = N}^\infty a_k</md>.
-		Applying <xref ref="fact-series-converge-restart" /> now tells us that the full series <m>\sum a_k</m> also converges.
+		Applying <xref ref="fact-series-converge-restart" /> now tells us that the full series <m> \sum a_k </m> also converges.
 	</p></proof>
 
 	<proof><title>Justification for <xref ref="pattern-series-ratio-test-diverge" text="type-local">Statement</xref></title><p>
 		Here we may make a simpler argument.
-		There is some tail <m>\seqtail{a_{n + 1} / a_n}</m> where the terms are all greater than <m>1</m>.
-		But then <m>a_{n + 1} \gt a_n</m> for all <m>n \ge N</m>,
-		so in fact the sequence of terms is <em>increasing</em> and cannot trend to <m>0</m> as it needs to in order for the sum to converge.
+		There is some tail <m> \seqtail{a_{n + 1} / a_n} </m> where the terms are all greater than <m> 1 </m>.
+		But then <m> a_{n + 1} \gt a_n </m> for all <m> n \ge N </m>,
+		so in fact the sequence of terms is <em>increasing</em> and cannot trend to <m> 0 </m> as it needs to in order for the sum to converge.
 		(Remember that we assume the terms are a positive sequence.)
 	</p></proof>
 
@@ -1446,18 +1446,18 @@ Another way to measure whether this is happening is to compare each term to the 
 
 	<li><p>
 		The justifiction for <xref ref="pattern-series-ratio-test-diverge" text="type-local">Statement</xref> of <xref ref="pattern-series-ratio-test" /> implies something interesting:
-		if we have a sequence <m>\nseq{a}</m> where
+		if we have a sequence <m> \nseq{a} </m> where
 		<ul>
-			<li> <m>\nseq{a} \to 0</m> </li>
-			<li> <m>\seq{a_{n + 1} / a_n}</m> converges </li>
-			<li> <m>\sum a_k</m> diverges </li>
+			<li> <m> \nseq{a} \to 0 </m> </li>
+			<li> <m> \seq{a_{n + 1} / a_n} </m> converges </li>
+			<li> <m> \sum a_k </m> diverges </li>
 		</ul>
-		then it <em>must</em> be that <m>\seq{a_{n + 1} / a_n} \to 1</m>.
-		Because if <m>\seq{a_{n + 1} / a_n}</m> converged to a limit value less than <m>1</m> then the series would converge,
-		and if it converged to a limit value greater than <m>1</m> then <m>\nseq{a} \not\to 0</m>.
-		So in this divergent case the terms are trending to <m>0</m> but not very fast,
+		then it <em>must</em> be that <m> \seq{a_{n + 1} / a_n} \to 1 </m>.
+		Because if <m> \seq{a_{n + 1} / a_n} </m> converged to a limit value less than <m> 1 </m> then the series would converge,
+		and if it converged to a limit value greater than <m> 1 </m> then <m> \nseq{a} \not\to 0 </m>.
+		So in this divergent case the terms are trending to <m> 0 </m> but not very fast,
 		because we eventually always have <md> \frac{a_{n + 1}}{a_n} \approx 1 </md>,
-		which implies that we eventually always have <m>a_{n + 1} \approx a_n</m>,
+		which implies that we eventually always have <m> a_{n + 1} \approx a_n </m>,
 		and this approximation becomes better and better as we go further out in the sequence.
 	</p></li>
 
@@ -1466,7 +1466,7 @@ Another way to measure whether this is happening is to compare each term to the 
 <example><p><ol>
 
 	<li>
-		For series <m>\sum k^3 / 3^k</m>,
+		For series <m> \sum k^3 / 3^k </m>,
 		the root test will not play nicely with the numerator,
 		so let's apply the ratio test instead:
 		<md>
@@ -1474,12 +1474,12 @@ Another way to measure whether this is happening is to compare each term to the 
 			<mrow> \amp = \frac{(n + 1)^3}{\cancel{3^n} \cdot 3} \cdot \frac{\cancel{3^n}}{n^3} </mrow>
 			<mrow> \amp = \frac{1}{3} \cdot {\left(\frac{n + 1}{n}\right)}^3 </mrow>
 		</md>.
-		This final expression converges to <m>1/3</m> as <m>n \to \infty</m>,
+		This final expression converges to <m> 1/3 </m> as <m> n \to \infty </m>,
 		so we conclude that the series converges.
 	</li>
 
 	<li>
-		For series <m>\sum k! / {10}^k</m>,
+		For series <m> \sum k! / {10}^k </m>,
 		again the root test will not play nicely with the factorial in the numerator,
 		so let's apply the ratio test:
 		<md>
@@ -1488,15 +1488,15 @@ Another way to measure whether this is happening is to compare each term to the 
 			<mrow> \amp = \frac{(n + 1) \cdot \bcancel{n!}}{\cancel{{10}^n} \cdot 10} \cdot \frac{\cancel{{10}^n}}{\bcancel{n!}} </mrow>
 			<mrow> \amp = \frac{n + 1}{10} </mrow>
 		</md>.
-		This final expression diverges to <m>\infty</m> as <m>n \to \infty</m>,
+		This final expression diverges to <m> \infty </m> as <m> n \to \infty </m>,
 		so we conclude that the series diverges.
-		(Can you verify that the sequence <m>\seq{n! / {10}^n}</m> is eventually increasing?
-		<em>Hint:</em> Consider each of the numerator and denominator as a product of <m>n</m> factors,
+		(Can you verify that the sequence <m> \seq{n! / {10}^n} </m> is eventually increasing?
+		<em>Hint:</em> Consider each of the numerator and denominator as a product of <m> n </m> factors,
 		and compare the factors.)
 	</li>
 
 	<li>
-		For series <m>\sum k^k / k!</m>,
+		For series <m> \sum k^k / k! </m>,
 		again the root test will not play nicely with the factorial,
 		so let's apply the ratio test:
 		<md>
@@ -1506,19 +1506,19 @@ Another way to measure whether this is happening is to compare each term to the 
 			<mrow> \amp = {\left(\frac{n + 1}{n}\right)}^n </mrow>
 			<mrow> \amp = {\left(1 + \frac{1}{n}\right)}^n </mrow>
 		</md>.
-		As <m>n \to \infty</m>,
+		As <m> n \to \infty </m>,
 		this final expression behaves exactly as the limit in <xref ref="example-func-limits-e-as-limit" />,
-		and so we can say <m>\seq{a_{n + 1} / a_n} \to e</m>.
-		As this limit value is greater than <m>1</m>,
+		and so we can say <m> \seq{a_{n + 1} / a_n} \to e </m>.
+		As this limit value is greater than <m> 1 </m>,
 		we conclude that the series diverges.
-		(Again, can you verify that the sequence <m>\seq{n^n / n!}</m> is eventually increasing?)
+		(Again, can you verify that the sequence <m> \seq{n^n / n!} </m> is eventually increasing?)
 	</li>
 
 </ol></p></example>
 
 <exercise><p>
-	Verify that the case of <xref ref="pattern-series-ratio-test-fail" text="type-local">Statement</xref> of the <xref ref="pattern-series-ratio-test" text="title" /> really is inconclusive by testing both the <m>p</m>-series <m>\sum 1/k^2</m> and the harmonic series <m>\sum 1/k</m>.
-	You should find that the terms of both series satisfy <m>\seq{a_{n + 1} / a_n} \to 1</m>,
+	Verify that the case of <xref ref="pattern-series-ratio-test-fail" text="type-local">Statement</xref> of the <xref ref="pattern-series-ratio-test" text="title" /> really is inconclusive by testing both the <m> p </m>-series <m> \sum 1/k^2 </m> and the harmonic series <m> \sum 1/k </m>.
+	You should find that the terms of both series satisfy <m> \seq{a_{n + 1} / a_n} \to 1 </m>,
 	but one series converges and one diverges.
 </p></exercise>
 
@@ -1533,10 +1533,10 @@ Another way to measure whether this is happening is to compare each term to the 
 	<p>
 	So far in this chapter,
 	the convergence tests have all been for infinite series with positive or non-negative terms.
-	If <m>\nseq{a}</m> is a sequence with all non-positive terms,
-	then it should be clear the the convergence of <m>\sum a_k</m> is equivalent to the convergence of <m>\sum \abs{a_k}</m>.
-	But what if <m>\nseq{a}</m> has some positive and some negative terms?
-	Can the convergence/divergence of <m>\sum \abs{a_k}</m> tell us anything about <m>\sum a_k</m> in that case?
+	If <m> \nseq{a} </m> is a sequence with all non-positive terms,
+	then it should be clear the the convergence of <m> \sum a_k </m> is equivalent to the convergence of <m> \sum \abs{a_k} </m>.
+	But what if <m> \nseq{a} </m> has some positive and some negative terms?
+	Can the convergence/divergence of <m> \sum \abs{a_k} </m> tell us anything about <m> \sum a_k </m> in that case?
 	</p>
 </introduction>
 
@@ -1549,23 +1549,23 @@ Another way to measure whether this is happening is to compare each term to the 
 	<title>Absolute convergence</title>
 
 	<statement><p>
-		If <m>\sum \abs{a_k}</m> converges,
-		then so does <m>\sum a_k</m>.
+		If <m> \sum \abs{a_k} </m> converges,
+		then so does <m> \sum a_k </m>.
 	</p></statement>
 
 	<proof><p>
 		The argument is effectively the same as for <xref ref="fact-improper-int-abs-conv" />,
 		just with sums and terms instead of integrals and function values.
-		Assume <m>\sum \abs{a_k}</m> converges.
+		Assume <m> \sum \abs{a_k} </m> converges.
 		Then from <xref ref="pattern-series-linearity" />,
 		so do both of
 		<md><mrow> \amp \sum 2 \abs{a_k} \text{,} \amp \amp \sum \bbrac{-\abs{a_k}} \text{.} </mrow></md>
-		For all <m>n</m> we have
+		For all <m> n </m> we have
 		<md alignment="gather">
 			<mrow> \phantom{\implies} \quad -\abs{a_n} \le a_n \le \abs{a_n} \quad \phantom{\implies} </mrow>
 			<mrow> \implies \quad 0 \le a_n + \abs{a_n} \le 2 \abs{a_n} \text{.} \quad \phantom{\implies} </mrow>
 		</md>
-		So by comparison, <m>\sum \bbrac{a_k + \abs{a_k}}</m> must converge.
+		So by comparison, <m> \sum \bbrac{a_k + \abs{a_k}} </m> must converge.
 		But then adding this convergent series to another will yield a convergent series
 		(<xref ref="pattern-series-linearity" />),
 		so <md> \sum \Bbrac{a_k + \abs{a_k} + \bbrac{-\abs{a_k}}} = \sum a_k </md>
@@ -1577,45 +1577,45 @@ Another way to measure whether this is happening is to compare each term to the 
 <definition xml:id="definition-series-abs-cond-conv">
 	<title>Absolute and conditional convergence</title>
 	<statement><p><ol>
-		<li> If <m>\sum \abs{a_k}</m> converges then we say that the infinite series <m>\sum a_k</m> is <term>absolutely convergent</term>. </li>
-		<li> If <m>\sum a_k</m> converges but <m>\sum \abs{a_k}</m> does not, then we say that the infinite series <m>\sum a_k</m> is <term>conditionally convergent</term>. </li>
+		<li> If <m> \sum \abs{a_k} </m> converges then we say that the infinite series <m> \sum a_k </m> is <term>absolutely convergent</term>. </li>
+		<li> If <m> \sum a_k </m> converges but <m> \sum \abs{a_k} </m> does not, then we say that the infinite series <m> \sum a_k </m> is <term>conditionally convergent</term>. </li>
 	</ol></p></statement>
 </definition>
 
 <remark><p>
-	Note that <m>\sum a_k</m> is convergent in both parts of <xref ref="definition-series-abs-cond-conv" />,
+	Note that <m> \sum a_k </m> is convergent in both parts of <xref ref="definition-series-abs-cond-conv" />,
 	by <xref ref="fact-series-absolute-conv" />,
-	so it is not a misnomer to call <m>\sum a_k</m> absolutely <em>convergent</em> when it is known that <m>\sum \abs{a_k}</m> is convergent.
+	so it is not a misnomer to call <m> \sum a_k </m> absolutely <em>convergent</em> when it is known that <m> \sum \abs{a_k} </m> is convergent.
 </p></remark>
 
 <example xml:id="example-series-abs-conv"><p><ol>
 
 	<li xml:id="example-series-abs-conv-alternating-p-series">
-		For the series <m>\sum {(-1)}^{k - 1} / k^2</m>
-		(beginning at index <m>k = 1</m>),
+		For the series <m> \sum {(-1)}^{k - 1} / k^2 </m>
+		(beginning at index <m> k = 1 </m>),
 		we have <md> \sum_{k = 1}^\infty \abs{\frac{{(-1)}^{k - 1}}{k^2}} = \sum_{k = 1}^\infty \frac{1}{k^2} </md>,
-		which is a convergent <m>p</m>-series.
-		So <m>\sum {(-1)}^{k - 1} / k^2</m> converges absolutely,
+		which is a convergent <m> p </m>-series.
+		So <m> \sum {(-1)}^{k - 1} / k^2 </m> converges absolutely,
 		hence converges.
 	</li>
 
 	<li xml:id="example-series-abs-conv-cosine-p-series">
-		For the series <m>\sum \cos(k) / k^2</m>
-		(beginning at index <m>k = 1</m>),
+		For the series <m> \sum \cos(k) / k^2 </m>
+		(beginning at index <m> k = 1 </m>),
 		we have <md> \sum_{k = 1}^\infty \abs{\frac{\cos(k)}{k^2}} = \sum_{k = 1}^\infty \frac{\abs{\cos(k)}}{k^2} </md>.
-		Since <m>0 \le \abs{\cos(k)} \le 1</m> for all <m>k</m>,
-		we have <m>\abs{\cos(k)} / k^2 \le 1/k^2</m>,
-		and so <m>\sum \cos(k) / k^2</m> converges absolutely by comparison with the convergent <m>p</m>-series <m>\sum 1/k^2</m>.
+		Since <m> 0 \le \abs{\cos(k)} \le 1 </m> for all <m> k </m>,
+		we have <m> \abs{\cos(k)} / k^2 \le 1/k^2 </m>,
+		and so <m> \sum \cos(k) / k^2 </m> converges absolutely by comparison with the convergent <m> p </m>-series <m> \sum 1/k^2 </m>.
 	</li>
 
 	<li xml:id="example-series-abs-conv-alternating-harmonic">
-		For the series <m>\sum {(-1)}^{k - 1} / k</m>
-		(beginning at index <m>k = 1</m>),
+		For the series <m> \sum {(-1)}^{k - 1} / k </m>
+		(beginning at index <m> k = 1 </m>),
 		we have <md> \sum_{k = 1}^\infty \abs{\frac{{(-1)}^{k - 1}}{k}} = \sum_{k = 1}^\infty \frac{1}{k} </md>,
 		which is the divergent harmonic series.
-		So <m>\sum {(-1)}^{k - 1} / k</m> does not converge absolutely.
+		So <m> \sum {(-1)}^{k - 1} / k </m> does not converge absolutely.
 		However,
-		we have investigated the partial sums of <m>\sum {(-1)}^{k - 1} / k</m> numerically in <xref ref="example-series-reordering-terms-different-results" /> and it would appear that it converges to a value of <m>\ln(2)</m>.
+		we have investigated the partial sums of <m> \sum {(-1)}^{k - 1} / k </m> numerically in <xref ref="example-series-reordering-terms-different-results" /> and it would appear that it converges to a value of <m> \ln(2) </m>.
 		In <xref ref="example-series-alt-harmonic-cond-conv" /> we will verify that this series does converge <em>conditionally</em>.
 	</li>
 
@@ -1630,42 +1630,42 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 	<title>Rearrangements of an absolutely convergent series</title>
 
 	<statement><p>
-		Suppose <m>\sum a_k</m> converges absolutely and <m>\varphi</m> is a permutation of the set of non-negative integers.
-		Then the series <m>\sum a_{\varphi(k)}</m> converges to the same sum value as <m>\sum a_k</m>.
+		Suppose <m> \sum a_k </m> converges absolutely and <m> \varphi </m> is a permutation of the set of non-negative integers.
+		Then the series <m> \sum a_{\varphi(k)} </m> converges to the same sum value as <m> \sum a_k </m>.
 	</p></statement>
 
 	<proof>
 
 		<p>
-		Let <m>\nseq{s}</m> and <m>\nseq{t}</m> represent the sequences of partial sums of <m>\sum a_k</m> and <m>\sum a_{\varphi(k)}</m>,
+		Let <m> \nseq{s} </m> and <m> \nseq{t} </m> represent the sequences of partial sums of <m> \sum a_k </m> and <m> \sum a_{\varphi(k)} </m>,
 		respectively,
-		and let <m>S</m> represent the value of <m>\sum a_k</m>,
-		so that <m>\nseq{s} \to S</m>.
-		We would like to verify that <m>\nseq{t} \to S</m> as well.
+		and let <m> S </m> represent the value of <m> \sum a_k </m>,
+		so that <m> \nseq{s} \to S </m>.
+		We would like to verify that <m> \nseq{t} \to S </m> as well.
 		Using <xref ref="fact-seq-conv-vs-conv-to-zero" />,
-		we will instead verify that <m>\seq{t_n - S} \to 0</m>.
+		we will instead verify that <m> \seq{t_n - S} \to 0 </m>.
 		Following <xref ref="fact-seq-abs-conv-to-zero" />,
-		consider an arbitrary half-open range <m>[0,c)</m>.
-		Our goal is to verify that some tail of the absolute sequence <m>\seq{\abs{t_n - S}}</m> is completely contained in this range.
+		consider an arbitrary half-open range <m> [0,c) </m>.
+		Our goal is to verify that some tail of the absolute sequence <m> \seq{\abs{t_n - S}} </m> is completely contained in this range.
 		</p>
 
 		<p>
-		As <m>\nseq{s} \to S</m>,
-		then also <m>\seq{s_n - S} \to 0</m>,
-		and there exists some tail <m>\absseqtail[n \ge N_1]{s_n - S}</m> completely contained in the half-open range <m>[0,c/2)</m>.
-		But we not only assume that <m>\sum a_k</m> converges,
+		As <m> \nseq{s} \to S </m>,
+		then also <m> \seq{s_n - S} \to 0 </m>,
+		and there exists some tail <m> \absseqtail[n \ge N_1]{s_n - S} </m> completely contained in the half-open range <m> [0,c/2) </m>.
+		But we not only assume that <m> \sum a_k </m> converges,
 		we assume it converges <em>absolutely</em>.
-		That is, <m>\sum \abs{a_k}</m> converges.
-		Let <m>\nseq{r}</m> be the sequence of <q>remainders</q> for this convergent sequence:
+		That is, <m> \sum \abs{a_k} </m> converges.
+		Let <m> \nseq{r} </m> be the sequence of <q>remainders</q> for this convergent sequence:
 		<md> r_n = \sum_{k = n + 1}^\infty \abs{a_k} </md>.
-		<xref ref="fact-series-conv-remainder" /> tells us that <m>\nseq{r} \to 0</m>,
-		so there exists some tail <m>\nseqtail[N_2]{r}</m> also completely contained in the half-open range <m>[0,c/2)</m>.
-		(Note that <m>\nseq{r}</m>) is a sequence of non-negative terms because a convergent series of non-negative terms must have a non-negative sum value.)
+		<xref ref="fact-series-conv-remainder" /> tells us that <m> \nseq{r} \to 0 </m>,
+		so there exists some tail <m> \nseqtail[N_2]{r} </m> also completely contained in the half-open range <m> [0,c/2) </m>.
+		(Note that <m> \nseq{r} </m>) is a sequence of non-negative terms because a convergent series of non-negative terms must have a non-negative sum value.)
 		</p>
 
 		<p>
-		Now let <m>N</m> be the greater of <m>N_1</m> and <m>N_2</m>,
-		so that both the tails <m>\absseqtail{s_n - S}</m> and <m>\nseqtail{r}</m> are completely contained in <m>[0,c/2)</m>.
+		Now let <m> N </m> be the greater of <m> N_1 </m> and <m> N_2 </m>,
+		so that both the tails <m> \absseqtail{s_n - S} </m> and <m> \nseqtail{r} </m> are completely contained in <m> [0,c/2) </m>.
 		In particular,
 		the first terms of these tails are both contained in this range:
 		<md tag="dagger" xml:id="equation-series-rearrange-half-inequalities">
@@ -1674,55 +1674,55 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		</p>
 
 		<p>
-		Remember that the series we would like to investigate is <m>\sum a_{\varphi(k)}</m>,
+		Remember that the series we would like to investigate is <m> \sum a_{\varphi(k)} </m>,
 		but the terms of this sequence are all mixed up.
-		However, from the original series <m>\sum a_k</m>,
+		However, from the original series <m> \sum a_k </m>,
 		the specific partial sum of the original series <md> s_N = \sum_{k = 0}^N a_k = a_0 + a_1 + a_2 + \dotsb + a_N </md>
 		involves only a finite number of terms,
-		and all of these terms must appear eventually in the mixed-up sequence <m>\seq{a_{\varphi(n)}}</m>.
-		Choose <m>M</m> large enough that this happens.
-		(For example, we could choose <m>M</m> to be the largest index so that the <q>shuffled</q> index <m>\varphi(M)</m> is between <m>0</m> and <m>N</m>,
+		and all of these terms must appear eventually in the mixed-up sequence <m> \seq{a_{\varphi(n)}} </m>.
+		Choose <m> M </m> large enough that this happens.
+		(For example, we could choose <m> M </m> to be the largest index so that the <q>shuffled</q> index <m> \varphi(M) </m> is between <m> 0 </m> and <m> N </m>,
 		inclusive.)
-		The two partial sums <m>s_N</m> and <m>t_M</m> involve only a finite number of terms each,
+		The two partial sums <m> s_N </m> and <m> t_M </m> involve only a finite number of terms each,
 		and so we can subtract them and manipulate them without worrying about convergence.
-		But we have chosen <m>M</m> so that in the partial sum <md> t_M = \sum_{k = 0}^M a_{\varphi(k)} </md>,
-		all the terms of <m>s_N</m> appear,
+		But we have chosen <m> M </m> so that in the partial sum <md> t_M = \sum_{k = 0}^M a_{\varphi(k)} </md>,
+		all the terms of <m> s_N </m> appear,
 		just in a mix-up order.
-		So if we subtract <m>t_M - s_N</m>,
-		all those common terms will cancel and we will only be left will those terms from <m>t_M</m> that did <em>not</em> appear in <m>s_N</m>.
-		Because <m>s_N</m> involves all terms up to and including <m>a_N</m>,
-		the terms remaining must all have indices that are <em>larger</em> than <m>N</m>
-		(as part of the original sequence of terms <m>\nseq{a}</m>):
+		So if we subtract <m> t_M - s_N </m>,
+		all those common terms will cancel and we will only be left will those terms from <m> t_M </m> that did <em>not</em> appear in <m> s_N </m>.
+		Because <m> s_N </m> involves all terms up to and including <m> a_N </m>,
+		the terms remaining must all have indices that are <em>larger</em> than <m> N </m>
+		(as part of the original sequence of terms <m> \nseq{a} </m>):
 		<md> \abs{t_M - s_N} = \abs{a_{j_1} + a_{j_2} + \dotsb + a_{j_\ell}} </md>
-		for some collection of indices <m>j_1,\dotsc,j_\ell</m> that are all greater than <m>N</m>.
+		for some collection of indices <m> j_1,\dotsc,j_\ell </m> that are all greater than <m> N </m>.
 		Using the extended Triangle Inequality,
 		we can say that
 		<md tag="ddagger" xml:id="equation-series-rearrange-another-half-inequality">
 			\abs{t_M - s_N} \le \abs{a_{j_1}} + \abs{a_{j_2}} + \dotsb + \abs{a_{j_\ell}}
 		</md>.
 		In this form,
-		because the indices are all larger than <m>N</m>,
-		each of these absolute terms appears in the <m>\nth[N]</m> absolute remainder
+		because the indices are all larger than <m> N </m>,
+		each of these absolute terms appears in the <m> \nth[N] </m> absolute remainder
 		<md> r_N = \sum_{k = N + 1}^\infty \abs{a_k} </md>.
-		We know the series defining <m>r_N</m> converges,
+		We know the series defining <m> r_N </m> converges,
 		and since it is an <em>infinite</em> sum of <em>non-negative</em> terms,
 		it  must add up to a larger value than the finite sum in <xref ref="equation-series-rearrange-another-half-inequality" />.
 		So we can say <md> \abs{t_M - s_N} \le r_N </md>.
 		</p>
 
 		<p>
-		Now the partial sum <m>t_M</m> already contains all of the terms from <m>s_N</m> (and likely more),
-		so if we go even further out into the partial sums <m>\nseq{t}</m> that will still be true.
+		Now the partial sum <m> t_M </m> already contains all of the terms from <m> s_N </m> (and likely more),
+		so if we go even further out into the partial sums <m> \nseq{t} </m> that will still be true.
 		In other words,
-		all of the analysis above is actually true for <em>every</em> difference <m>\abs{t_n - s_N}</m> for <m>n \ge M</m>,
-		so that for such <m>n</m> it is always true that <m>\abs{t_n - s_N} \le r_N</m>.
+		all of the analysis above is actually true for <em>every</em> difference <m> \abs{t_n - s_N} </m> for <m> n \ge M </m>,
+		so that for such <m> n </m> it is always true that <m> \abs{t_n - s_N} \le r_N </m>.
 		</p>
 
 		<p>
-		We're now ready to confirm that the tail <m>\absseqtail[n \ge M]{t_n - S}</m> is completely contained in the range <m>[0,c)</m>.
+		We're now ready to confirm that the tail <m> \absseqtail[n \ge M]{t_n - S} </m> is completely contained in the range <m> [0,c) </m>.
 		Because of the absolute values,
 		we know that the terms of this tail will all be greater than or equal to zero;
-		we just need to confirm that they are all less than <m>c</m>.
+		we just need to confirm that they are all less than <m> c </m>.
 		So consider:
 		<md>
 			<mrow> \abs{t_n - S} \amp = \abs{t_n - s_N + s_N - S} </mrow>
@@ -1733,7 +1733,7 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		</md>,
 		as required,
 		where the first inequality above is the Triangle Inequality,
-		the second is from our analysis of the terms of <m>\nseqtail[M]{t}</m> compared to the specific partial sum <m>s_N</m>,
+		the second is from our analysis of the terms of <m> \nseqtail[M]{t} </m> compared to the specific partial sum <m> s_N </m>,
 		and the third is from <xref ref="equation-series-rearrange-half-inequalities" />.
 		</p>
 
@@ -1775,14 +1775,14 @@ alternate between positive and negative:
 <identity><p>
 	Every alternating series can be rewritten as one of
 	<md><mrow> \amp \sum {(-1)}^k a_k \amp \amp\text{or} \amp \amp \sum {(-1)}^{k \pm 1} a_k </mrow></md>
-	where <m>\nseq{a}</m> is a positive sequence.
+	where <m> \nseq{a} </m> is a positive sequence.
 </p></identity>
 
 <note><p>
-	For every sequence <m>\nseq{a}</m>,
-	the convergence/divergence of <m>\sum a_k</m> and <m>\sum (-a_k)</m> are equivalent.
-	And if <m>\sum a_k</m> is alternating beginning with a negative term,
-	then <m>\sum (-a_k)</m> is alternating beginning with a positive term.
+	For every sequence <m> \nseq{a} </m>,
+	the convergence/divergence of <m> \sum a_k </m> and <m> \sum (-a_k) </m> are equivalent.
+	And if <m> \sum a_k </m> is alternating beginning with a negative term,
+	then <m> \sum (-a_k) </m> is alternating beginning with a positive term.
 	So in the remainder of this subsection,
 	we will generally assume that alternating series begin with a positive term
 	(though in examples they might not).
@@ -1792,49 +1792,49 @@ alternate between positive and negative:
 	<title>Alternating Series Test</title>
 
 	<statement><p>
-		Suppose <m>\nseq{a}</m> is positive and decreasing.
-		Then the alternating series <m>\sum {(-1)}^k a_k</m> converges if and only if <m>\nseq{a} \to 0</m>.
+		Suppose <m> \nseq{a} </m> is positive and decreasing.
+		Then the alternating series <m> \sum {(-1)}^k a_k </m> converges if and only if <m> \nseq{a} \to 0 </m>.
 	</p></statement>
 
 	<proof>
 
 		<case direction="forward"><p>
-			If <m>\sum {(-1)}^k a_k</m> converges then we must have <m>\seq{{(-1)}^n a_n} \to 0</m>
+			If <m> \sum {(-1)}^k a_k </m> converges then we must have <m> \seq{{(-1)}^n a_n} \to 0 </m>
 			(<xref ref="fact-series-converges-implies-seq-tends-to-zero" />).
-			But this implies <m>\nseq{a} \to 0</m>.
+			But this implies <m> \nseq{a} \to 0 </m>.
 		</p></case>
 
 		<case direction="backward">
 
 			<p>
-			Assume <m>\nseq{a} \to 0</m>.
-			Let <m>\nseq{s}</m> represent the sequence of partial sums as usual.
+			Assume <m> \nseq{a} \to 0 </m>.
+			Let <m> \nseq{s} </m> represent the sequence of partial sums as usual.
 			Because of the alternating nature of the series,
 			the  partial sums also alternate,
 			but not between positive and negative,
 			but instead between growing and decaying since we will alternately be adding a positive term or a negative onto the previous partial sum.
-			So we will apply <xref ref="fact-seq-converge-by-subseq-union" /> and split <m>\nseq{s}</m> into subsequences <m>\nseq{t}</m> and <m>\nseq{u}</m> with terms
+			So we will apply <xref ref="fact-seq-converge-by-subseq-union" /> and split <m> \nseq{s} </m> into subsequences <m> \nseq{t} </m> and <m> \nseq{u} </m> with terms
 			<md><mrow> t_n \amp = s_{2 n} \text{,} \amp u_n \amp = s_{2 n + 1} </mrow></md>.
-			The subsequence <m>\nseq{t}</m> represents the even-indexed terms in <m>\nseq{s}</m> where the last term from <m>\nseq{a}</m> added on is positive,
-			and the subsequence <m>\nseq{u}</m> represents the odd-indexed terms in <m>\nseq{s}</m> where the last term from <m>\nseq{a}</m> added on is negative.
+			The subsequence <m> \nseq{t} </m> represents the even-indexed terms in <m> \nseq{s} </m> where the last term from <m> \nseq{a} </m> added on is positive,
+			and the subsequence <m> \nseq{u} </m> represents the odd-indexed terms in <m> \nseq{s} </m> where the last term from <m> \nseq{a} </m> added on is negative.
 			Because of this even-odd index split,
-			collectively <m>\nseq{t}</m> and <m>\nseq{u}</m> account for every term from <m>\nseq{s}</m>,
+			collectively <m> \nseq{t} </m> and <m> \nseq{u} </m> account for every term from <m> \nseq{s} </m>,
 			and so if we can demonstrate that these two subsequences converge to the same limit,
-			then <xref ref="fact-seq-converge-by-subseq-union" /> says that <m>\nseq{s}</m> must converge to that limit as well.
+			then <xref ref="fact-seq-converge-by-subseq-union" /> says that <m> \nseq{s} </m> must converge to that limit as well.
 			</p>
 
 			<p>
-			We'll begin with <m>\nseq{t}</m>:
+			We'll begin with <m> \nseq{t} </m>:
 			<md>
 				<mrow> t_n = s_{2 n} \amp = \sum_{k = 0}^{2 n} {(-1)}^k a_k  </mrow>
 				<mrow> \amp = a_0 - a_1 + a_2 - a_3 + \dotsb + a_{2 n - 2} - a_{2 n - 1} + a_{2 n} </mrow>
 				<mrow> \amp = (a_0 - a_1) + (a_2 - a_3) + \dotsb + (a_{2 n - 2} - a_{2 n - 1}) + a_{2 n} </mrow>
 			</md>.
-			Each of the bracketed binomials above is positive because we have assumed that <m>\nseq{a}</m> is positive and decreasing,
-			so that <m>a_k \gt a_{k + 1}</m> for all <m>k</m>.
-			And the final term <m>a_{2 n}</m> is positive as well,
-			so we can say that <m>\nseq{t}</m> is a positive sequence.
-			But <m>\nseq{t}</m> is decreasing as well:
+			Each of the bracketed binomials above is positive because we have assumed that <m> \nseq{a} </m> is positive and decreasing,
+			so that <m> a_k \gt a_{k + 1} </m> for all <m> k </m>.
+			And the final term <m> a_{2 n} </m> is positive as well,
+			so we can say that <m> \nseq{t} </m> is a positive sequence.
+			But <m> \nseq{t} </m> is decreasing as well:
 			<md>
 				<mrow> t_{n + 1} \amp = s_{2(n + 1)} </mrow>
 				<mrow> \amp = s_{2n + 2} </mrow>
@@ -1843,33 +1843,33 @@ alternate between positive and negative:
 				<mrow> \amp = t_n + (a_{2 n + 2} - a_{2 n + 1})  </mrow>
 			</md>.
 			This time the bracketed binomial above is negative,
-			because <m>a_{2 n + 2} \lt a_{2 n + 1}</m>,
-			and so <m>t_{n + 1} \lt t_n</m>.
-			We have now established that <m>\nseq{t}</m> is positive and decreasing,
-			which means that it is bounded above by <m>t_0</m> and below by <m>0</m>.
-			The <xref ref="theorem-seq-monotonic-conv" text="title" /> tells us that <m>t_n</m> converges;
-			let <m>L</m> represent its limit value.
+			because <m> a_{2 n + 2} \lt a_{2 n + 1} </m>,
+			and so <m> t_{n + 1} \lt t_n </m>.
+			We have now established that <m> \nseq{t} </m> is positive and decreasing,
+			which means that it is bounded above by <m> t_0 </m> and below by <m> 0 </m>.
+			The <xref ref="theorem-seq-monotonic-conv" text="title" /> tells us that <m> t_n </m> converges;
+			let <m> L </m> represent its limit value.
 			</p>
 
 			<p>
-			Now consider <m>\nseq{u}</m>.
-			Let <m>\nseq{b}</m> represent the subsequence of <m>\nseq{a}</m> with <m>b_n = a_{2 n + 1}</m>.
-			(That is, <m>\nseq{b}</m> is all the odd-indexed terms of <m>\nseq{a}</m>.)
+			Now consider <m> \nseq{u} </m>.
+			Let <m> \nseq{b} </m> represent the subsequence of <m> \nseq{a} </m> with <m> b_n = a_{2 n + 1} </m>.
+			(That is, <m> \nseq{b} </m> is all the odd-indexed terms of <m> \nseq{a} </m>.)
 			We have
 			<md>
 				<mrow> u_n \amp = s_{2 n + 1} </mrow>
 				<mrow> u_n \amp = s_{2 n} + {(-1)}^{2 n + 1} a_{2 n + 1} </mrow>
 				<mrow> u_n \amp = t_n - b_n </mrow>
 			</md>.
-			This says that <m>\nseq{u}</m> is the difference of two convergent sequences:
-			<m>\nseq{t} \to L</m> and <m>\nseq{b} \to 0</m>
-			(since <m>\nseq{a} \to 0</m>).
+			This says that <m> \nseq{u} </m> is the difference of two convergent sequences:
+			<m> \nseq{t} \to L </m> and <m> \nseq{b} \to 0 </m>
+			(since <m> \nseq{a} \to 0 </m>).
 			The <xref ref="pattern-seq-alg-limit-laws" text="title" /> tell us that <md> \nseq{u} \to L - 0 = L </md>.
 			</p>
 
 			<p>
-			We have now established that both partial sum subsequences <m>\nseq{t}</m> and <m>\nseq{u}</m> converge to the same limit,
-			so <xref ref="fact-seq-converge-by-subseq-union" /> says that <m>\nseq{s}</m> must also converge to that limit.
+			We have now established that both partial sum subsequences <m> \nseq{t} </m> and <m> \nseq{u} </m> converge to the same limit,
+			so <xref ref="fact-seq-converge-by-subseq-union" /> says that <m> \nseq{s} </m> must also converge to that limit.
 			</p>
 
 		</case>
@@ -1885,15 +1885,15 @@ alternate between positive and negative:
 		This series is unlikely to converge absolutely,
 		as <md> \abs{\frac{{(-1)}^{k - 1} k^2}{k^3 + 1}} = \frac{k^2}{k^3 + 1} \approx \frac{1}{k} \quad \text{for large } k </md>,
 		and we know that the harmonic series diverges.
-		Consider <m>\nseq{a}</m> with <m>a_n = n^2 / (n^3 + 1)</m>,
-		beginning at index <m>n = 1</m>,
+		Consider <m> \nseq{a} </m> with <m> a_n = n^2 / (n^3 + 1) </m>,
+		beginning at index <m> n = 1 </m>,
 		like our sum.
 		This is a positive sequence, but is it decreasing?
 		Let <m> f(t) = t^2 / (t^3 + 1) </m>.
 		Then <md> f'(t) = \frac{t (2 - t^3)}{{(t^3 + 1)}^2} </md>,
-		and this derivative is negative on domain <m>t \ge \sqrt[3]{2}</m>.
-		So we can say that <m>\nseq{a}</m> is decreasing for <m>n \ge 3</m>.
-		And from examining dominant terms it is clear that <m>\nseqtail[3]{a} \to 0</m>,
+		and this derivative is negative on domain <m> t \ge \sqrt[3]{2} </m>.
+		So we can say that <m> \nseq{a} </m> is decreasing for <m> n \ge 3 </m>.
+		And from examining dominant terms it is clear that <m> \nseqtail[3]{a} \to 0 </m>,
 		so the <xref ref="fact-series-alternating-series-test" text="title" /> says that
 		<md> \sum_{k = 3}^\infty \frac{{(-1)}^{k + 1} k^2}{k^3 + 1} </md>
 		converges.
@@ -1903,18 +1903,18 @@ alternate between positive and negative:
 
 	<li>
 		Consider the alternating series <md> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1} \cdot k}{4 k - 1} </md>.
-		Let <m>\nseq{a}</m> represent the sequence of absolute terms: <m>a_n = n / (4 n - 1)</m>,
-		beginning at index <m>n = 1</m>,
+		Let <m> \nseq{a} </m> represent the sequence of absolute terms: <m> a_n = n / (4 n - 1) </m>,
+		beginning at index <m> n = 1 </m>,
 		like our sum.
 		This is a positive sequence,
 		and you can verify via a derivative calculation as in the example above that it is a decreasing sequence.
-		However, <m>\nseq{a} \to 1/4 \neq 0</m>,
+		However, <m> \nseq{a} \to 1/4 \neq 0 </m>,
 		so the <xref ref="fact-series-alternating-series-test" text="title" /> says that our series diverges.
 		In fact,
-		the limit value for <m>\nseq{a}</m> tells us in what way it diverges:
-		if <m>n</m> is large enough for <m>a_n \approx 1/4</m> sufficiently closely and <m>S = s_n</m> is that particular partial sum value,
-		then all partial sum sequence terms will bounce back and forth between <m>S</m> and either <m>S \pm 1/4</m>
-		(where the plus-or-minus depends on whether <m>n</m> is even or odd).
+		the limit value for <m> \nseq{a} </m> tells us in what way it diverges:
+		if <m> n </m> is large enough for <m> a_n \approx 1/4 </m> sufficiently closely and <m> S = s_n </m> is that particular partial sum value,
+		then all partial sum sequence terms will bounce back and forth between <m> S </m> and either <m> S \pm 1/4 </m>
+		(where the plus-or-minus depends on whether <m> n </m> is even or odd).
 	</li>
 
 </ol></p></example>
@@ -1923,10 +1923,10 @@ alternate between positive and negative:
 	<title>Conditional convergence of the Alternating Harmonic Series</title>
 	<p>
 	Consider the alternating harmonic series <md> \sum_{k = 1}^\infty \frac{{(-1)}^{k - 1}}{k} </md>.
-	Then the sequence of absolute terms <m>\seq{1/n}</m> is positive, decreasing, and trends to <m>0</m>.
+	Then the sequence of absolute terms <m> \seq{1/n} </m> is positive, decreasing, and trends to <m> 0 </m>.
 	So the <xref ref="fact-series-alternating-series-test" text="title" /> says that the series converges.
 	As we have seen previously that this series does not converge absolutely,
-	we instead say that <m>\sum {(-1)}^{k - 1} / k</m> converges conditionally.
+	we instead say that <m> \sum {(-1)}^{k - 1} / k </m> converges conditionally.
 	</p>
 </example>
 
@@ -1936,16 +1936,16 @@ alternate between positive and negative:
 <title>Estimating alternating sums</title>
 
 <p>
-Suppose <m>\nseq{a}</m> is positive, decreasing, and <m>\nseq{a} \to 0</m>.
-Then the <xref ref="fact-series-alternating-series-test" text="title" /> tells us that <m>\sum a_k</m> converges;
-let <m>S</m> represent its sum.
+Suppose <m> \nseq{a} </m> is positive, decreasing, and <m> \nseq{a} \to 0 </m>.
+Then the <xref ref="fact-series-alternating-series-test" text="title" /> tells us that <m> \sum a_k </m> converges;
+let <m> S </m> represent its sum.
 As in the justification of the <xref ref="fact-series-alternating-series-test" text="title" />,
-let <m>\nseq{t}</m> and <m>\nseq{u}</m> represent the sequences of even-indexed and odd-indexed partial sums:
+let <m> \nseq{t} </m> and <m> \nseq{u} </m> represent the sequences of even-indexed and odd-indexed partial sums:
 <md><mrow> t_n \amp = s_{2 n} \text{,} \amp u_n \amp = s_{2 n + 1} </mrow></md>.
-As <m>\nseq{s} \to S</m>,
-then also <m>\nseq{t} \to S</m> and <m>\nseq{u} \to S</m>.
-We saw that <m>\nseq{t}</m> decreases to <m>S</m>.
-What about <m>\nseq{u}</m>?
+As <m> \nseq{s} \to S </m>,
+then also <m> \nseq{t} \to S </m> and <m> \nseq{u} \to S </m>.
+We saw that <m> \nseq{t} </m> decreases to <m> S </m>.
+What about <m> \nseq{u} </m>?
 We have
 <md>
 	<mrow> u_{n + 1} \amp = s_{2(n + 1) + 1} </mrow>
@@ -1953,40 +1953,40 @@ We have
 	<mrow> \amp = s_{2n + 1} + {(-1)}^{2 n + 2} a_{2 n + 2} + {(-1)}^{2 n + 3} a_{2 n + 3} </mrow>
 	<mrow> \amp = u_n + (a_{2 n + 2} - a_{2 n + 3}) </mrow>
 </md>.
-This time <m>u_{n + 1} \gt u_n</m>,
-as <m>a_{2 n + 2} - a_{2 n + 3} \gt 0</m> because <m>\nseq{a}</m> is decreasing.
-So <m>\nseq{u}</m> increases to <m>S</m>.
+This time <m> u_{n + 1} \gt u_n </m>,
+as <m> a_{2 n + 2} - a_{2 n + 3} \gt 0 </m> because <m> \nseq{a} </m> is decreasing.
+So <m> \nseq{u} </m> increases to <m> S </m>.
 </p>
 
 <p>
 To summarize,
-the terms of the partial sum sequence <m>\nseq{s}</m> alternate between values of <m>\nseq{t}</m>,
-a sequence whose terms are greater than and decreasing down to <m>S</m>,
-and values of <m>\nseq{u}</m>,
-a sequence whose terms are less than and increasing up to <m>S</m>.
-So the sum value <m>S</m> is squeezed between <m>\nseq{t}</m> and <m>\nseq{u}</m>,
-so that <m>S</m> is always between consecutive terms of <m>\nseq{s}</m>:
+the terms of the partial sum sequence <m> \nseq{s} </m> alternate between values of <m> \nseq{t} </m>,
+a sequence whose terms are greater than and decreasing down to <m> S </m>,
+and values of <m> \nseq{u} </m>,
+a sequence whose terms are less than and increasing up to <m> S </m>.
+So the sum value <m> S </m> is squeezed between <m> \nseq{t} </m> and <m> \nseq{u} </m>,
+so that <m> S </m> is always between consecutive terms of <m> \nseq{s} </m>:
 <md>
 	<mrow> n \text{ even:} \amp \qquad s_{n + 1} \lt S \lt s_n \text{,} </mrow>
 	<mrow> n \text{ odd:} \amp \qquad s_n \lt S \lt s_{n + 1} \text{.} </mrow>
 </md>
 And in all cases,
-the distance between consecutive terms in the sequence of partial sums is the term of <m>\nseq{a}</m> to be next added onto the sum.
+the distance between consecutive terms in the sequence of partial sums is the term of <m> \nseq{a} </m> to be next added onto the sum.
 </p>
 
 <fact xml:id="fact-series-estimate-alternating-sum">
 	<title>Alternating sum estimates</title>
 	<p>
-	Suppose <m>\nseq{a}</m> is a positive, decreasing sequence so that the associated alternating sum converges.
+	Suppose <m> \nseq{a} </m> is a positive, decreasing sequence so that the associated alternating sum converges.
 	Let
 	<md> S = \sum_{k = 0}^\infty {(-1)}^k a_k </md>,
-	and let <m>\nseq{s}</m> represent the sequence of partial sums.
+	and let <m> \nseq{s} </m> represent the sequence of partial sums.
 	<ol>
-		<li> For even <m>n</m>, the partial sum <m>s_n</m> is an overestimate of <m>S</m>. </li>
-		<li> For odd <m>n</m>, the partial sum <m>s_n</m> is an underestimate of <m>S</m>. </li>
+		<li> For even <m> n </m>, the partial sum <m> s_n </m> is an overestimate of <m> S </m>. </li>
+		<li> For odd <m> n </m>, the partial sum <m> s_n </m> is an underestimate of <m> S </m>. </li>
 		<li>
-			In all cases, the sum value <m>S</m> lies between consecutive partial sums <m>s_n</m> and <m>s_{n + 1}</m>,
-			so that <m>S \approx s_n</m> to within <m>\pm a_{n + 1}</m>.
+			In all cases, the sum value <m> S </m> lies between consecutive partial sums <m> s_n </m> and <m> s_{n + 1} </m>,
+			so that <m> S \approx s_n </m> to within <m> \pm a_{n + 1} </m>.
 		</li>
 	</ol>
 	</p>
@@ -1994,40 +1994,40 @@ the distance between consecutive terms in the sequence of partial sums is the te
 
 <p>
 Recall that under the conditions in the fact above,
-the alternating sum converges if and only if <m>\nseq{a} \to 0</m>.
+the alternating sum converges if and only if <m> \nseq{a} \to 0 </m>.
 So the fact says that if we would like to estimate the alternating sum to within a specific tolerance,
-we simply need to determine the index at which the terms of <m>\nseq{a}</m> get within that tolerance of <m>0</m>.
+we simply need to determine the index at which the terms of <m> \nseq{a} </m> get within that tolerance of <m> 0 </m>.
 </p>
 
 <example>
 
-	<p> Suppose we would like to estimate the sum <md> \sum_{k = 0}^\infty {(-1)}^k \frac{k + 1}{4^k} </md> to within a tolerance of <m>\pm 5 \times {10}^{-5}</m>. </p>
+	<p> Suppose we would like to estimate the sum <md> \sum_{k = 0}^\infty {(-1)}^k \frac{k + 1}{4^k} </md> to within a tolerance of <m> \pm 5 \times {10}^{-5} </m>. </p>
 
 	<p>
-	First let's verify that the sequence <m>\bbseq{(n + 1) / 4^n}</m> satisfies the conditions of <xref ref="fact-series-alternating-series-test" text="title" />.
+	First let's verify that the sequence <m> \bbseq{(n + 1) / 4^n} </m> satisfies the conditions of <xref ref="fact-series-alternating-series-test" text="title" />.
 	Clearly this sequence is positive.
-	To investigate whether the sequence decreases to <m>0</m>,
-	we will instead consider the corresponding continuous function <m>f(t) = (t + 1) / 4^t</m>.
+	To investigate whether the sequence decreases to <m> 0 </m>,
+	we will instead consider the corresponding continuous function <m> f(t) = (t + 1) / 4^t </m>.
 	We have <md> f'(t) = \frac{1 - (t + 1) \ln(4)}{4^t} </md>,
-	which is negative on domain <m>t \gt 1 - 1/\ln(4)</m>,
-	so we can say that <m>\bbseq{(n + 1) / 4^n}</m> is a decreasing sequence for <m>n \ge 1</m>.
+	which is negative on domain <m> t \gt 1 - 1/\ln(4) </m>,
+	so we can say that <m> \bbseq{(n + 1) / 4^n} </m> is a decreasing sequence for <m> n \ge 1 </m>.
 	Furthermore,
-	<m>f(t)</m> has <m>\infty/\infty</m> form as <m>t \to \infty</m>,
+	<m> f(t) </m> has <m> \infty/\infty </m> form as <m> t \to \infty </m>,
 	so
 	<md> \lim_{t \to \infty} \frac{t + 1}{4^t} \lhopeq \lim_{t \to \infty} \frac{1}{4^t \ln(4)} = 0 </md>,
-	and we conclude that <m>\nseq{a} \to 0</m> as well.
-	All of this confirms that <m>\sum {(-1)}^k a_k</m> converges,
+	and we conclude that <m> \nseq{a} \to 0 </m> as well.
+	All of this confirms that <m> \sum {(-1)}^k a_k </m> converges,
 	and we can use partial sums to estimate its value.
 	</p>
 
 	<p>
 	Per <xref ref="fact-series-estimate-alternating-sum" />,
-	we need to determine the index when <m>a_n \lt 5 \times {10}^{-5}</m>,
+	we need to determine the index when <m> a_n \lt 5 \times {10}^{-5} </m>,
 	and then we can backtrack one index from that.
-	You may calculate that the denominator of the terms of <m>\nseq{a}</m> becomes greater than <m>{10}^5</m> at <m>n = 9</m>.
-	From <m>4^9 \gt 2 \times {10}^5</m> we can compute:
+	You may calculate that the denominator of the terms of <m> \nseq{a} </m> becomes greater than <m> {10}^5 </m> at <m> n = 9 </m>.
+	From <m> 4^9 \gt 2 \times {10}^5 </m> we can compute:
 	<md> a_9 = \frac{9 + 1}{4^9} \lt \frac{10}{2 \times {10}^5} = \frac{5}{10^5} </md>.
-	This means that <m>s_8</m> will estimate the infinite sum to within <m>\pm 5 \times {10}^{-5}</m>:
+	This means that <m> s_8 </m> will estimate the infinite sum to within <m> \pm 5 \times {10}^{-5} </m>:
 	<md>
 		<mrow> \sum_{k = 0}^\infty {(-1)}^k \frac{k + 1}{4^k} \amp \approx \sum_{k = 0}^8 {(-1)}^k \frac{k + 1}{4^k} </mrow>
 		<mrow> \amp = 1 - \frac{2}{4} + \frac{3}{16} - \frac{4}{64} + \frac{5}{256} - \frac{6}{1024} + \frac{7}{4096} - \frac{8}{4^7} + \frac{9}{4^8} </mrow>
@@ -2051,7 +2051,7 @@ we simply need to determine the index at which the terms of <m>\nseq{a}</m> get 
 	you'll see that it is already rounded up from the exact value.
 	So we can be confident that
 	<md> 0.639979 \lt \sum_{k = 0}^\infty {(-1)}^k \frac{k + 1}{4^k} \lt 0.640030 </md>
-	(where we have subtracted off <m>5.1 \times {10}^{-5}</m> to account for the fact that <m>0.640030</m> is a rounded-up value).
+	(where we have subtracted off <m> 5.1 \times {10}^{-5} </m> to account for the fact that <m> 0.640030 </m> is a rounded-up value).
 	</p>
 
 </example>

@@ -80,14 +80,14 @@ respective owners.
 				and the horizontal axis in minutes.
 				The graph is a piecewise function,
 				with each piece a horizontal line segment.
-				The graph begins at rate <m>0</m> for negative time,
+				The graph begins at rate <m> 0 </m> for negative time,
 				and then
 				<ul>
-					<li> a one-minute period at rate <m>0.5</m>, </li>
-					<li> followed by a two-minute period at rate <m>0.75</m>, </li>
-					<li> followed by a one-minute period at rate <m>0.25</m>, </li>
+					<li> a one-minute period at rate <m> 0.5 </m>, </li>
+					<li> followed by a two-minute period at rate <m> 0.75 </m>, </li>
+					<li> followed by a one-minute period at rate <m> 0.25 </m>, </li>
 				</ul>
-				and finally the graph returns to rate <m>0</m> forever more.
+				and finally the graph returns to rate <m> 0 </m> forever more.
 			</p></description>
 			<latex-image><xi:include href="step.d/air-pump-graph.tex" parse="text" /></latex-image>
 		</image>
@@ -108,8 +108,8 @@ is an example of a <term>step function</term>.
 <p>
 A function can only take on one output value at any given input value,
 which is why we have an open circle at the endpoint of each line segment in the graph in <xref ref="figure-step-air-pump" />.
-For example, if we call that inflation rate function <m>r</m>,
-then <m>r(3) = 0.25</m> but <m>r(2.9999) = 0.75</m>.
+For example, if we call that inflation rate function <m> r </m>,
+then <m> r(3) = 0.25 </m> but <m> r(2.9999) = 0.75 </m>.
 Of course, this function is just a <term>model</term> of the behaviour of the air pump described in <xref ref="example-step-air-pump" /> <mdash />
 we could have put open circles at the <em>beginnings</em> of the line segments and closed ones at the ends instead,
 and it wouldn't affect our analysis of the inflation of the raft.
@@ -130,19 +130,19 @@ we use piecewise notation to specify the constant output values on different sub
 		<image xml:id="image-step-piecewise" width="67.6%">
 			<shortdescription>Graph of an example step function.</shortdescription>
 			<description><p>
-				The graph of a step function is drawn on a set of <m>tq</m>-axes.
-				The initial step runs along the negative horizontal axis at height <m>0</m>,
+				The graph of a step function is drawn on a set of <m> tq </m>-axes.
+				The initial step runs along the negative horizontal axis at height <m> 0 </m>,
 				and ends in an open endpoint at the origin.
 				The next four steps are horizontal line segments with a closed endpoint at the left end and an open endpoint at the right end,
-				each beginning at the <m>t</m>-value where the previous ended:
+				each beginning at the <m> t </m>-value where the previous ended:
 				<ul>
-					<li> The first of these steps is at height <m>q = 1</m> and runs for one unit of <m>t</m>. </li>
-					<li> The second is at height <m>q = 2</m> and also runs for one unit of <m>t</m>. </li>
-					<li> The third is at height <m>q = 3</m> and has its endpoint at <m>t = \pi</m>. </li>
-					<li> The fourth is at height <m>q = \sqrt{2}</m> and has its endpoint at <m>t = 4.5</m>. </li>
+					<li> The first of these steps is at height <m> q = 1 </m> and runs for one unit of <m> t </m>. </li>
+					<li> The second is at height <m> q = 2 </m> and also runs for one unit of <m> t </m>. </li>
+					<li> The third is at height <m> q = 3 </m> and has its endpoint at <m> t = \pi </m>. </li>
+					<li> The fourth is at height <m> q = \sqrt{2} </m> and has its endpoint at <m> t = 4.5 </m>. </li>
 				</ul>
 				The final step again runs along the horizontal axis,
-				beginning with a closed endpoint at <m>t = 4.5</m>,
+				beginning with a closed endpoint at <m> t = 4.5 </m>,
 				but with no endpoint.
 			</p></description>
 			<latex-image><xi:include href="step.d/piecewise.tex" parse="text" /></latex-image>
@@ -162,11 +162,11 @@ we use piecewise notation to specify the constant output values on different sub
 			0 \amp t \ge 4.5
 		\end{cases}
 	</md>
-	Suppose we wanted to determine the output value <m>f(\sqrt{3})</m> without the graph in front of us.
+	Suppose we wanted to determine the output value <m> f(\sqrt{3}) </m> without the graph in front of us.
 	We would first scan the subdomains in the right column,
-	and notice that the input <m>t = \sqrt{3}</m> falls into the subdomain <m>1 \le t \lt 2</m>.
+	and notice that the input <m> t = \sqrt{3} </m> falls into the subdomain <m> 1 \le t \lt 2 </m>.
 	Matching up this subdomain with its specified output value,
-	we find that <m>f(\sqrt{3}) = 2</m>.
+	we find that <m> f(\sqrt{3}) = 2 </m>.
 	</p>
 
 </example>
@@ -183,16 +183,16 @@ we use piecewise notation to specify the constant output values on different sub
 
 <p>
 The step function in <xref ref="example-step-piecewise" /> is not regular <mdash />
-the steps in output value from <m>1</m> to <m>2</m> and from <m>2</m> to <m>3</m> both occur after intervals of length <m>1</m>,
-but the next two steps in output value occur after intervals of length greater than <m>1</m>.
-Because the irrational number <m>\pi</m> is involved in these longer two interval lengths,
+the steps in output value from <m> 1 </m> to <m> 2 </m> and from <m> 2 </m> to <m> 3 </m> both occur after intervals of length <m> 1 </m>,
+but the next two steps in output value occur after intervals of length greater than <m> 1 </m>.
+Because the irrational number <m> \pi </m> is involved in these longer two interval lengths,
 there is no way to subdivide all these intervals into equal-length intervals so that output-value changes only occur at interval boundaries.
 </p>
 
 <p>
 On the other hand,
 the air pump model in <xref ref="example-step-air-pump" /> is regular because we can split the middle interval in half,
-and then changes in output-value still only occur at boundaries of these length-<m>1</m> intervals.
+and then changes in output-value still only occur at boundaries of these length-<m> 1 </m> intervals.
 </p>
 
 <figure xml:id="figure-step-air-pump-regular">
@@ -201,9 +201,9 @@ and then changes in output-value still only occur at boundaries of these length-
 		<shortdescription>Graph modelling output of an air pump with three settings.</shortdescription>
 		<description><p>
 			The rate-versus-time graph of <xref ref="figure-step-air-pump" /> is reproduced,
-			except that the step at rate <m>0.75</m> of duration <m>2</m> is split by an extra <q>endpoint</q> in the middle,
+			except that the step at rate <m> 0.75 </m> of duration <m> 2 </m> is split by an extra <q>endpoint</q> in the middle,
 			so that it can instead be regarded as two separate steps,
-			each of duration <m>1</m>.
+			each of duration <m> 1 </m>.
 		</p></description>
 		<latex-image><xi:include href="step.d/air-pump-regular-graph.tex" parse="text" /></latex-image>
 	</image>
@@ -346,11 +346,11 @@ so we can still apply the above formula on each of those subdomains and then tot
 				The function graphed is a step function.
 				The initial step runs along the negative horizontal axis,
 				ending in a closed endpoint at the origin.
-				The next two steps each run for a <q>duration</q> of <m>500</m> grams,
+				The next two steps each run for a <q>duration</q> of <m> 500 </m> grams,
 				each beginning with an open endpoint at the horizontal location where the previous step ended,
 				and ending with a closed endpoint.
-				The first such step runs at height <m>3</m> and the second at height <m>2.75</m>.
-				The final step begins with an open endpoint at the horizontal location where the previous step left off and runs forever more at height <m>2.5</m>.
+				The first such step runs at height <m> 3 </m> and the second at height <m> 2.75 </m>.
+				The final step begins with an open endpoint at the horizontal location where the previous step left off and runs forever more at height <m> 2.5 </m>.
 			</p></description>
 			<latex-image><xi:include href="step.d/saffron-graph.tex" parse="text" /></latex-image>
 		</image>
@@ -417,7 +417,7 @@ The accumulation formula
 	\times
 	(1 \unitsp \mathrm{min})
 </md>
-corresponds to an area calculation for a rectangle of height <m>0.5</m> and length <m>1</m>.
+corresponds to an area calculation for a rectangle of height <m> 0.5 </m> and length <m> 1 </m>.
 </p>
 
 <figure xml:id="figure-step-air-pump-1st-minute">
@@ -432,7 +432,7 @@ corresponds to an area calculation for a rectangle of height <m>0.5</m> and leng
 			but with only three levels.
 			The initial level runs along the negative horizontal axis,
 			ending in an open endpoint at the origin.
-			The next step runs at height <m>0.5</m> for a one-minute duration,
+			The next step runs at height <m> 0.5 </m> for a one-minute duration,
 			beginning with a closed endpoint and ending in an open endpoint.
 			The final step runs from that horizontal location along the positive horizontal axis,
 			beginning with a closed endpoint but with no endpoint.
@@ -453,7 +453,7 @@ The accumulation formula
 	\times
 	(2 \unitsp \mathrm{min})
 </md>
-corresponds to an area calculation for a rectangle of height <m>0.75</m> and length <m>2</m>.
+corresponds to an area calculation for a rectangle of height <m> 0.75 </m> and length <m> 2 </m>.
 </p>
 
 <figure xml:id="figure-step-air-pump-middle-minutes">
@@ -470,8 +470,8 @@ corresponds to an area calculation for a rectangle of height <m>0.75</m> and len
 			ending in an open endpoint at the origin.
 			The next two steps each begin with a closed endpoint at the horizontal location where the previous step ended,
 			and end in an open endpoint,
-			with the first such step running at height <m>0.5</m> for a one-minute duration,
-			and the second running at height <m>0.75</m> for a two-minute duration.
+			with the first such step running at height <m> 0.5 </m> for a one-minute duration,
+			and the second running at height <m> 0.75 </m> for a two-minute duration.
 			The final step runs along the positive horizontal axis,
 			beginning with a closed endpoint at the horizontal location where the previous step ended,
 			but with no endpoint.
@@ -494,7 +494,7 @@ Finally, the accumulation formula
 	\times
 	(1 \unitsp \mathrm{min})
 </md>
-for the final minute running on low corresponds to an area calculation for a rectangle of height <m>0.25</m> and length <m>1</m>.
+for the final minute running on low corresponds to an area calculation for a rectangle of height <m> 0.25 </m> and length <m> 1 </m>.
 </p>
 
 <figure xml:id="figure-step-air-pump-last-minute">
@@ -512,9 +512,9 @@ for the final minute running on low corresponds to an area calculation for a rec
 			and end in an open endpoint,
 			where:
 			<ol>
-				<li> The first such step runs at height <m>0.5</m> for a one-minute duration. </li>
-				<li> The second runs at height <m>0.75</m> for a two-minute duration. </li>
-				<li> The third runs at height <m>0.25</m> for a one-minute duration. </li>
+				<li> The first such step runs at height <m> 0.5 </m> for a one-minute duration. </li>
+				<li> The second runs at height <m> 0.75 </m> for a two-minute duration. </li>
+				<li> The third runs at height <m> 0.25 </m> for a one-minute duration. </li>
 			</ol>
 			The final step runs along the positive horizontal axis,
 			beginning with a closed endpoint at the horizontal location where the previous step ended,
@@ -552,7 +552,7 @@ Graphically,
 	<p>
 	We talk above about accumulation corresponding to <em>area</em>,
 	but the results of each of our accumulation calculations in <xref ref="example-step-accumulation-air-pump" />
-	are in units of <m>\mathrm{m}^3</m>, not <m>\mathrm{m}^2</m> <mdash />
+	are in units of <m> \mathrm{m}^3 </m>, not <m> \mathrm{m}^2 </m> <mdash />
 	why is that?
 	</p>
 
@@ -561,7 +561,7 @@ Graphically,
 	<ul>
 		<li>
 			the actual <em>physical quantity</em> whose accumulation we are determining
-			(in <xref ref="example-step-accumulation-air-pump" />, this is a <em>volume</em> of air in units of <m>\mathrm{m}^3</m>)
+			(in <xref ref="example-step-accumulation-air-pump" />, this is a <em>volume</em> of air in units of <m> \mathrm{m}^3 </m>)
 		</li>
 		<li>
 			the <em>graphical area</em> formed by creating rectangles under the different levels of the step function.
@@ -640,9 +640,9 @@ Graphically,
 				and end in an open endpoint,
 				where:
 				<ol>
-					<li> The first such step runs at height <m>50</m> for a duration of <m>0.1</m>. </li>
-					<li> The second runs at height <m>100</m> for a duration of <m>0.4</m>. </li>
-					<li> The third runs at height <m>50</m> for duration of <m>0.15</m>. </li>
+					<li> The first such step runs at height <m> 50 </m> for a duration of <m> 0.1 </m>. </li>
+					<li> The second runs at height <m> 100 </m> for a duration of <m> 0.4 </m>. </li>
+					<li> The third runs at height <m> 50 </m> for duration of <m> 0.15 </m>. </li>
 				</ol>
 				The final step runs along the positive horizontal axis,
 				beginning with a closed endpoint at the horizontal location where the previous step ended,
@@ -852,7 +852,7 @@ The static period between the initial inflation and the start of the leakage cou
 	<mrow> \amp = \bigl( 0.5 + 1.5 + 0.25 + 0 + (-0.6) + 1 \bigr) \unitsp \mathrm{m}^3 </mrow>
 	<mrow> \amp = 2.65 \unitsp \mathrm{m}^3 </mrow>
 </md>.
-If we allow rectangles to be assigned <em>negative</em> area and also consider a line segment along the horizontal axis as a rectangle with height <m>0</m>,
+If we allow rectangles to be assigned <em>negative</em> area and also consider a line segment along the horizontal axis as a rectangle with height <m> 0 </m>,
 then the above calculation is still a sum of rectangle areas.
 </p>
 
@@ -874,12 +874,12 @@ then the above calculation is still a sum of rectangle areas.
 			and end in an open endpoint,
 			where:
 			<ol>
-				<li> The first such step runs at height <m>0.5</m> for a one-minute duration. </li>
-				<li> The second runs at height <m>0.75</m> for a two-minute duration. </li>
-				<li> The third runs at height <m>0.25</m> for a one-minute duration. </li>
+				<li> The first such step runs at height <m> 0.5 </m> for a one-minute duration. </li>
+				<li> The second runs at height <m> 0.75 </m> for a two-minute duration. </li>
+				<li> The third runs at height <m> 0.25 </m> for a one-minute duration. </li>
 				<li> The fourth runs along the horizontal axis for a one-minute duration. </li>
-				<li> The fifth runs at height <m>-0.2</m> for a three-minute duration. </li>
-				<li> The sixth runs at height <m>0.5</m> for a two-minute duration. </li>
+				<li> The fifth runs at height <m> -0.2 </m> for a three-minute duration. </li>
+				<li> The sixth runs at height <m> 0.5 </m> for a two-minute duration. </li>
 			</ol>
 			The final step runs along the positive horizontal axis,
 			beginning with a closed endpoint at the horizontal location where the previous step ended,
@@ -916,7 +916,7 @@ then the above calculation is still a sum of rectangle areas.
 		<description>
 
 			<p>
-			A graph is drawn on a set of <m>xy</m>-axes.
+			A graph is drawn on a set of <m> xy </m>-axes.
 			The graph begins in the fourth quadrant and rises to a peak in the first quadrant,
 			crossing the horizontal axis as is does so.
 			The graph then descends to a trough in the fourth quadrant,
@@ -952,7 +952,7 @@ then the above calculation is still a sum of rectangle areas.
 		<description>
 
 			<p>
-			A graph is drawn on a set of <m>xy</m>-axes.
+			A graph is drawn on a set of <m> xy </m>-axes.
 			The graph begins in the fourth quadrant and rises to a peak in the first quadrant,
 			crossing the horizontal axis as is does so.
 			The graph then descends to a trough in the fourth quadrant,
@@ -994,14 +994,14 @@ so mathematicians have developed a special notation for it.
 <title>Sigma notation</title>
 
 <p>
-If we write <m>P(k)</m> to mean a calculation formula or pattern in the variable <m>k</m>,
+If we write <m> P(k) </m> to mean a calculation formula or pattern in the variable <m> k </m>,
 then we can write
 <md> \sum_{k = 1}^n P(k) </md>
 to represent the sum
 <md> P(1) + P(2) + P(3) + \dotsb + P(n) </md>.
-The <term>Greek letter <m>\Sigma</m></term> stands for <q>Sum</q>,
-the variable <m>k</m> is called the <term>index variable</term> for the sum,
-and the <q>start</q> and <q>end</q> values <m>1</m> and <m>n</m> are called the <term>lower bound</term> and <term>upper bound</term>,
+The <term>Greek letter <m> \Sigma </m></term> stands for <q>Sum</q>,
+the variable <m> k </m> is called the <term>index variable</term> for the sum,
+and the <q>start</q> and <q>end</q> values <m> 1 </m> and <m> n </m> are called the <term>lower bound</term> and <term>upper bound</term>,
 respectively,
 for the summation.
 </p>
@@ -1010,8 +1010,8 @@ for the summation.
 
 <note>
 	<p>
-	The Greek letter <m>\Sigma, \sigma</m> is called <q>sigma</q>,
-	where <m>\Sigma</m> is the uppercase version and <m>\sigma</m> is the lower case version.
+	The Greek letter <m> \Sigma, \sigma </m> is called <q>sigma</q>,
+	where <m> \Sigma </m> is the uppercase version and <m> \sigma </m> is the lower case version.
 	This letter corresponds to the letter <em>S</em> in the English alphabet,
 	hence its use to represent a <em>S</em>um.
 	</p>
@@ -1025,7 +1025,7 @@ for the summation.
 	Recognizing each term in the sum as a square number,
 	we can express each term as the result of the pattern
 	<md> P(k) = k^2 </md>
-	for increasing integer values of the variable <m>k</m>:
+	for increasing integer values of the variable <m> k </m>:
 	<md> 1^2 + 2^2 + 3^2 + 4^2 + 5^2 + 6^2 + 7^2 + 8^2 + 9^2 + {10}^2 </md>.
 	Based on this pattern, we can compactly express the above sum of squares using Sigma notation:
 	<md> \sum_{k = 1}^{10} k^2 </md>.
@@ -1033,7 +1033,7 @@ for the summation.
 </example>
 
 <p>
-While we used the value <m>k = 1</m> as sort of a <q>default</q> start value in the definition of Sigma notation above,
+While we used the value <m> k = 1 </m> as sort of a <q>default</q> start value in the definition of Sigma notation above,
 we can use any start value we like, according to the summation pattern we are trying to describe.
 </p>
 
@@ -1042,7 +1042,7 @@ we can use any start value we like, according to the summation pattern we are tr
 	<p>
 	Here is another <term>sum-of-squares</term> formula:
 	<md> 16 + 25 + 36 + 49 + 64 + 81 + 100 </md>.
-	Since this summation pattern begins at the square of <m>4</m>,
+	Since this summation pattern begins at the square of <m> 4 </m>,
 	our Sigma-notation version of this sum is
 	<md> \sum_{k = 4}^{10} k^2 </md>.
 	</p>
@@ -1065,16 +1065,16 @@ we can use any start value we like, according to the summation pattern we are tr
 Take care when counting an indexed collection:
 the number of objects is
 <md> (\text{ending index value}) - (\text{starting index value}) + 1 </md>.
-The <q><m>+ 1</m></q> is required because in the subtraction we have <q>taken away</q> every object up to and including the one indexed by the <q>starting index value,</q>
+The <q><m> + 1 </m></q> is required because in the subtraction we have <q>taken away</q> every object up to and including the one indexed by the <q>starting index value,</q>
 but we actually want to include that <q>starting</q> object in the collection being counted.
-For example, if we have a sum indexed from <m>k = 1</m> to <m>k = n</m>,
-then we are adding up <m>n</m> terms, not <m>n - 1</m> terms.
+For example, if we have a sum indexed from <m> k = 1 </m> to <m> k = n </m>,
+then we are adding up <m> n </m> terms, not <m> n - 1 </m> terms.
 </p>
 
 <identity xml:id="identity-step-sigma-constant">
 	<title>Summing a constant value</title>
 	<p>
-	For a constant value <m>c</m> and integers <m>m</m> and <m>n</m> with <m>n \gt m</m>:
+	For a constant value <m> c </m> and integers <m> m </m> and <m> n </m> with <m> n \gt m </m>:
 	<md> \sum_{k = m}^{n} c = (n - m + 1) \times c </md>.
 	</p>
 </identity>
@@ -1094,15 +1094,15 @@ so every algebra rule for addition can be applied to Sigma notation.
 	<p>
 	Suppose we want to sum a collection of even numbers:
 	<md> 2 + 4 + 6 + 8 + 10 </md>.
-	While there are variations of Sigma notation where the index variable may <q>step</q> by more than <m>1</m>,
-	we can avoid that by expressing each of our even numbers as <m>2</m> times a number that increases by only <m>1</m> from term to term:
+	While there are variations of Sigma notation where the index variable may <q>step</q> by more than <m> 1 </m>,
+	we can avoid that by expressing each of our even numbers as <m> 2 </m> times a number that increases by only <m> 1 </m> from term to term:
 	<md> 2 \cdot 1 + 2 \cdot 2 + 2 \cdot 3 + 2 \cdot 4 + 2 \cdot 5 </md>.
 	In Sigma notation, this sum can be expressed as
 	<md> \sum_{k = 1}^{5} 2 k </md>.
 	However, we also know that a common factor can be factored out of a sum:
 	<md> 2 (1 + 2 + 3 + 4 + 5) </md>.
-	This formula is <m>2</m> times a sum,
-	so we can express it as <m>2</m> times a Sigma expression:
+	This formula is <m> 2 </m> times a sum,
+	so we can express it as <m> 2 </m> times a Sigma expression:
 	<md> 2 \sum_{k = 1}^{5} k </md>.
 	</p>
 </example>
@@ -1110,14 +1110,14 @@ so every algebra rule for addition can be applied to Sigma notation.
 <identity xml:id="pattern-step-factoring-sigma">
 	<title>Factoring in a Sigma expression</title>
 	<p>
-	For pattern <m>P(k)</m> and constant value <m>c</m>,
+	For pattern <m> P(k) </m> and constant value <m> c </m>,
 	<md> \sum_{k = 1}^n c P(k) = c \sum_{k = 1}^n P(k) </md>.
 	</p>
 </identity>
 
 <warning><p>
 	Only a <em>constant</em> may be factored out of Sigma notation <mdash />
-	any expression involving the index variable <m>k</m> cannot be factored out,
+	any expression involving the index variable <m> k </m> cannot be factored out,
 	because if the sum were written out that variable part would be different from term to term and so would not actually be a <em>common</em> factor.
 </p></warning>
 
@@ -1146,7 +1146,7 @@ As well as factoring out of sums, we also know that we may perform a series of a
 <identity xml:id="pattern-step-summing-sum">
 	<title>Summing separate patterns in a Sigma expression</title>
 	<p>
-	For patterns <m>P_1(k)</m> and <m>P_2(k)</m>,
+	For patterns <m> P_1(k) </m> and <m> P_2(k) </m>,
 	<md> \sum_{k = 1}^n \bigl( P_1(k) + P_2(k) \bigr) = \sum_{k = 1}^n P_1(k) + \sum_{k = 1}^n P_2(k) </md>.
 	</p>
 </identity>
@@ -1177,7 +1177,7 @@ As well as factoring out of sums, we also know that we may perform a series of a
 <identity xml:id="pattern-step-splitting-sigma">
 	<title>Splitting up a Sigma sum</title>
 	<p>
-	If <m>q</m> is an index value between the starting index <m>m</m> and the ending index <m>n</m>,
+	If <m> q </m> is an index value between the starting index <m> m </m> and the ending index <m> n </m>,
 	then
 	<md> \sum_{k = m}^{n} P(k) = \sum_{k = m}^{q} P(k) + \sum_{k = q + 1}^{n} P(k) </md>.
 	</p>
@@ -1254,7 +1254,7 @@ the sum is called a <term>Riemann sum</term>.
 <definition xml:id="definition-step-riemann">
 	<title>Riemann sum</title>
 	<statement><p>
-		Suppose <m>s(t)</m> is a step function that takes on values
+		Suppose <m> s(t) </m> is a step function that takes on values
 		<md>
 			s(t) = \begin{cases}
 				h_1 \amp t_0 \le t \lt t_1 \\
@@ -1264,11 +1264,11 @@ the sum is called a <term>Riemann sum</term>.
 				h_n \amp t_{n - 1} \le t \lt t_n
 			\end{cases}
 		</md>.
-		If we write <m>\change{t_k}</m> to represent the length of the subdomain <m>t_{k - 1} \le t \lt t_k</m> so that
+		If we write <m> \change{t_k} </m> to represent the length of the subdomain <m> t_{k - 1} \le t \lt t_k </m> so that
 		<md> \change{t_k} = t_k - t_{k - 1} </md>,
 		then the sum
 		<md> \sum_{k = 1}^{n} h_k \change{t_k} </md>
-		of (oriented) rectangle areas is called the <term>Riemann sum</term> for <m>s(t)</m> over the domain <m>t_0 \le t \le t_n</m>.
+		of (oriented) rectangle areas is called the <term>Riemann sum</term> for <m> s(t) </m> over the domain <m> t_0 \le t \le t_n </m>.
 	</p></statement>
 </definition>
 
@@ -1297,14 +1297,14 @@ the sum is called a <term>Riemann sum</term>.
 			<description><p>
 				The steps from the rate-versus-time graph of <xref ref="figure-step-air-pump-leakage" /> are redrawn,
 				this time without shading any rectangles.
-				The horizontal positions where one step ends and the next begins have been labelled as <m>t_0</m> through <m>t_6</m>,
-				with <m>t_0</m> at the origin and <m>t_6</m> at the closed endpoint on the horizontal axis as the beginning of the final step.
-				The span along the horizontal axis between <m>t_0</m> and <m>t_1</m> has been labelled as <m>{\change{t}}_1</m>,
-				the span along the horizontal axis between <m>t_1</m> and <m>t_2</m> has been labelled as <m>{\change{t}}_2</m>,
+				The horizontal positions where one step ends and the next begins have been labelled as <m> t_0 </m> through <m> t_6 </m>,
+				with <m> t_0 </m> at the origin and <m> t_6 </m> at the closed endpoint on the horizontal axis as the beginning of the final step.
+				The span along the horizontal axis between <m> t_0 </m> and <m> t_1 </m> has been labelled as <m> {\change{t}}_1 </m>,
+				the span along the horizontal axis between <m> t_1 </m> and <m> t_2 </m> has been labelled as <m> {\change{t}}_2 </m>,
 				and so on,
-				until the final finite span along the horizontal axis between <m>t_5</m> and <m>t_6</m> has been labelled as <m>{\change{t}}_6</m>.
+				until the final finite span along the horizontal axis between <m> t_5 </m> and <m> t_6 </m> has been labelled as <m> {\change{t}}_6 </m>.
 				Finally,
-				the heights of the six middle steps have been labelled <m>h_1</m> through <m>h_6</m>.
+				the heights of the six middle steps have been labelled <m> h_1 </m> through <m> h_6 </m>.
 			</p></description>
 			<latex-image><xi:include href="step.d/air-pump-graph-leakage-riemann.tex" parse="text" /></latex-image>
 		</image>
@@ -1333,7 +1333,7 @@ the sum is called a <term>Riemann sum</term>.
 	just as in our previous calculation,
 	and each term in the sum represents an oriented rectangle area,
 	as pictured in <xref ref="figure-step-air-pump-leakage" />
-	(though one of the rectangles has height <m>0</m> and can't be seen in that diagram).
+	(though one of the rectangles has height <m> 0 </m> and can't be seen in that diagram).
 	</p>
 
 </example>
@@ -1343,15 +1343,15 @@ the sum is called a <term>Riemann sum</term>.
 
 	<p>
 	For a regular step function, we can split the domain into subdomains of equal length,
-	so that <m>\change{t_k}</m> is the same value for each subdomain.
+	so that <m> \change{t_k} </m> is the same value for each subdomain.
 	</p>
 
 	<p>
-	Writing <m>\change{t}</m> for this common subdomain length,
-	if the original domain is <m>a \le t \le b</m>
+	Writing <m> \change{t} </m> for this common subdomain length,
+	if the original domain is <m> a \le t \le b </m>
 	then the length of each subdomain should be
 	<md> \change{t} = \frac{b - a}{n} </md>,
-	where <m>n</m> is the number of subdomains.
+	where <m> n </m> is the number of subdomains.
 	</p>
 
 	<p>
@@ -1384,16 +1384,16 @@ the sum is called a <term>Riemann sum</term>.
 						by additional closed endpoints along the step.
 					</li>
 					<li>
-						The horizontal locations of the segment endpoints (new and old) have been relabelled <m>t_0</m> through <m>t_{10}</m>,
+						The horizontal locations of the segment endpoints (new and old) have been relabelled <m> t_0 </m> through <m> t_{10} </m>,
 						so that now they are placed at one-minute intervals,
-						with <m>t_0</m> at the origin and <m>t_{10}</m> at the closed endpoint on the horizontal axis as the beginning of the final step.
+						with <m> t_0 </m> at the origin and <m> t_{10} </m> at the closed endpoint on the horizontal axis as the beginning of the final step.
 					</li>
 					<li>
-						The spans between those labelled horizontal locations are all labelled simply as <m>\change{t}</m>,
+						The spans between those labelled horizontal locations are all labelled simply as <m> \change{t} </m>,
 						as they are all now of equal width.
 					</li>
 					<li>
-						The heights of the segments have been relabelled with <m>h_1</m> through <m>h_{10}</m>,
+						The heights of the segments have been relabelled with <m> h_1 </m> through <m> h_{10} </m>,
 						so that each one-minute segment is assigned a separate label even if it is at the same height as the previous segment.
 					</li>
 				</ul>
@@ -1423,7 +1423,7 @@ the sum is called a <term>Riemann sum</term>.
 		</mrow>
 	</md>.
 	This Riemann sum corresponds to the net (oriented) area of ten rectangles
-	(though again one of the rectangles has height <m>0</m> and can't be seen).
+	(though again one of the rectangles has height <m> 0 </m> and can't be seen).
 	</p>
 
 	<figure xml:id="figure-step-air-pump-regular-leakage">
@@ -1436,14 +1436,14 @@ the sum is called a <term>Riemann sum</term>.
 				<ul>
 					<li>
 						Each of the first four steps of the graph creates a rectangle with top side along the step and bottom side along the corresponding one-minute domain on horizontal axis.
-						These rectangles have been shaded in blue and labelled <m>R_1</m> through <m>R_4</m>.
+						These rectangles have been shaded in blue and labelled <m> R_1 </m> through <m> R_4 </m>.
 					</li>
 					<li>
-						The rectangles similarly formed by the last two steps of the graph have also been shaded blue and are labelled <m>R_9</m> and <m>R_{10}</m>.
+						The rectangles similarly formed by the last two steps of the graph have also been shaded blue and are labelled <m> R_9 </m> and <m> R_{10} </m>.
 					</li>
 					<li>
 						Each of the sixth through eighth steps of the graph creates a rectangle with bottom side along the step and top side along the corresponding one-minute domain on horizontal axis.
-						These rectangles have been shaded in red and labelled <m>R_6</m> through <m>R_8</m>.
+						These rectangles have been shaded in red and labelled <m> R_6 </m> through <m> R_8 </m>.
 					</li>
 					<li>
 						The fifth step of the graph lies along the horizontal axis,

@@ -39,36 +39,36 @@ for us a function will always be <em>one number in, one number out</em>.
 	<image xml:id="image-funcs-in-out" width="60.2%">
 		<shortdescription>Schematic of a function as an input-output process.</shortdescription>
 		<description><p>
-			A rectangle labelled by the function <m>f</m> appears in the centre,
-			with an input arrow labelled <m>t</m> pointing into the left side of the rectangle,
-			and an output arrow labelled <m>q</m> point out of the right side of the rectangle.
+			A rectangle labelled by the function <m> f </m> appears in the centre,
+			with an input arrow labelled <m> t </m> pointing into the left side of the rectangle,
+			and an output arrow labelled <m> q </m> point out of the right side of the rectangle.
 		</p></description>
 		<latex-image><xi:include href="funcs.d/in-out.tex" parse="text" /></latex-image>
 	</image>
 </figure>
 
 <p>
-There are three components to function notation <m>f(t)</m>:
+There are three components to function notation <m> f(t) </m>:
 <dl>
 
 	<li>
 		<title>input</title>
 		<p>
-		The input value is represented by the independent variable <m>t</m> and is placed inside parentheses.
+		The input value is represented by the independent variable <m> t </m> and is placed inside parentheses.
 		</p>
 	</li>
 
 	<li>
 		<title>output</title>
 		<p>
-		The full expression <m>f(t)</m> represents the output value that corresponds to the particular input value <m>t</m>.
+		The full expression <m> f(t) </m> represents the output value that corresponds to the particular input value <m> t </m>.
 		</p>
 	</li>
 
 	<li>
 		<title>name</title>
 		<p>
-		The name of a function is often represented by the letter <m>f</m>
+		The name of a function is often represented by the letter <m> f </m>
 		(for <em>f</em>unction),
 		but other letters can be used.
 		</p>
@@ -79,10 +79,10 @@ Some functions have special names;
 for example:
 <ul>
 	<li>
-		<m>\sin</m>, <m>\cos</m>, and <m>\tan</m> for the trigonometric sine, cosine, and tangent functions
+		<m> \sin </m>, <m> \cos </m>, and <m> \tan </m> for the trigonometric sine, cosine, and tangent functions
 	</li>
 	<li>
-		<m>\ln</m> and <m>\exp</m> for the natural logarithm and exponential functions.
+		<m> \ln </m> and <m> \exp </m> for the natural logarithm and exponential functions.
 	</li>
 </ul>
 </p>
@@ -101,30 +101,30 @@ for example:
 <example xml:id="example-funcs-by-table">
 	<title>A function defined by a table of values</title>
 	<p>
-	Let <m>f</m> represent the function produces outputs <m>f(t)</m> from inputs <m>t</m> according to the following table.
+	Let <m> f </m> represent the function produces outputs <m> f(t) </m> from inputs <m> t </m> according to the following table.
 	</p>
 	<tabular top="medium" bottom="medium" halign="center">
 		<col right="minor" /><col /><col /><col /><col /><col />
 		<row bottom="minor">
-				<cell><m>t</m></cell>
-				<cell><m>0</m></cell>
-				<cell><m>1</m></cell>
-				<cell><m>2</m></cell>
-				<cell><m>3</m></cell>
-				<cell><m>\pi</m></cell>
+				<cell><m> t </m></cell>
+				<cell><m> 0 </m></cell>
+				<cell><m> 1 </m></cell>
+				<cell><m> 2 </m></cell>
+				<cell><m> 3 </m></cell>
+				<cell><m> \pi </m></cell>
 		</row>
 		<row>
-				<cell><m>f(t)</m></cell>
-				<cell><m>0</m></cell>
-				<cell><m>1/3</m></cell>
-				<cell><m>-2</m></cell>
-				<cell><m>2</m></cell>
-				<cell><m>\sqrt{5}</m></cell>
+				<cell><m> f(t) </m></cell>
+				<cell><m> 0 </m></cell>
+				<cell><m> 1/3 </m></cell>
+				<cell><m> -2 </m></cell>
+				<cell><m> 2 </m></cell>
+				<cell><m> \sqrt{5} </m></cell>
 		</row>
 	</tabular>
 	<p>
 	For example,
-	the table says that <m>f(1) = 1/3</m>.
+	the table says that <m> f(1) = 1/3 </m>.
 	</p>
 </example>
 
@@ -133,14 +133,14 @@ for example:
 	<p>
 	A device that measures wind speed is called an <term>anemometer</term>.
 	Suppose an anemometer is set up in the quad of the Augustana Campus.
-	For <m>t</m> representing time measured in seconds from the instant the anemometer is fully set up and operational,
-	let <m>w(t)</m> represent the wind speed measured by the device at time <m>t</m>,
+	For <m> t </m> representing time measured in seconds from the instant the anemometer is fully set up and operational,
+	let <m> w(t) </m> represent the wind speed measured by the device at time <m> t </m>,
 	in kilometres per hour.
 	</p>
 </example>
 
 <p>
-It would be pretty difficult to come up with a formula in <m>t</m> that describes the function in <xref ref="example-funcs-by-desc" />.
+It would be pretty difficult to come up with a formula in <m> t </m> that describes the function in <xref ref="example-funcs-by-desc" />.
 However, as we'll see in <xref ref="example-funcs-piecewise-table" />,
 it's possible (but tedious) to create a <q>formula</q> for a function that has initially been defined by a table of values,
 as in <xref ref="example-funcs-by-table" />.
@@ -148,18 +148,18 @@ as in <xref ref="example-funcs-by-table" />.
 
 <p>
 The information in <xref ref="example-funcs-by-table" /> seems incomplete <mdash />
-how can we determine <m>f(-1)</m> or <m>f(1/2)</m> from the table?
+how can we determine <m> f(-1) </m> or <m> f(1/2) </m> from the table?
 Since the function description does not specify how to determine output values for these inputs,
-we must accept that there are no such output values <m>f(-1)</m> and <m>f(1/2)</m>.
+we must accept that there are no such output values <m> f(-1) </m> and <m> f(1/2) </m>.
 </p>
 
 <definition xml:id="definition-funcs-domain">
 	<title>Domain of a function</title>
 	<statement><p>
-		The set of all values of the independent variable <m>t</m> that can be used as an input value for the function,
+		The set of all values of the independent variable <m> t </m> that can be used as an input value for the function,
 		in the sense that there is an associated output value.
-		For values of <m>t</m> that are not in the domain,
-		we say that the output value <m>f(t)</m> is <term>undefined</term>.
+		For values of <m> t </m> that are not in the domain,
+		we say that the output value <m> f(t) </m> is <term>undefined</term>.
 	</p></statement>
 </definition>
 
@@ -167,13 +167,13 @@ we must accept that there are no such output values <m>f(-1)</m> and <m>f(1/2)</
 
 	<p>
 	If we assume that the anemometer in <xref ref="example-funcs-by-desc" /> could continuously record wind speed measurements,
-	then the domain of the <m>w</m> function in that example is <m>t \ge 0</m>,
-	and the function is undefined for <m>t \lt 0</m>.
+	then the domain of the <m> w </m> function in that example is <m> t \ge 0 </m>,
+	and the function is undefined for <m> t \lt 0 </m>.
 	</p>
 
 	<p>
-	The domain of the function <m>f</m> from <xref ref="example-funcs-by-table" /> is merely the set of values <m> t = 0, 1, 2, 3, \pi </m>,
-	and <m>f(t)</m> is undefined for all other values of <m>t</m>.
+	The domain of the function <m> f </m> from <xref ref="example-funcs-by-table" /> is merely the set of values <m> t = 0, 1, 2, 3, \pi </m>,
+	and <m> f(t) </m> is undefined for all other values of <m> t </m>.
 	</p>
 
 </example>
@@ -190,11 +190,11 @@ and includes all possible input values that <q>make sense</q> in the function de
 <example>
 	<title>An implicit domain</title>
 	<p>
-	Let <m>f</m> represent the function described by the input-output formula
+	Let <m> f </m> represent the function described by the input-output formula
 	<md> f(t) = \frac{1}{t} </md>.
-	The domain of this function is <m>t \neq 0</m>,
-	meaning the set of all input values <em>except</em> <m>t = 0</m>,
-	since at <m>t = 0</m> the output formula would involve division by zero.
+	The domain of this function is <m> t \neq 0 </m>,
+	meaning the set of all input values <em>except</em> <m> t = 0 </m>,
+	since at <m> t = 0 </m> the output formula would involve division by zero.
 	</p>
 </example>
 
@@ -207,11 +207,11 @@ even if the description of the function's input-output process could allow other
 <example>
 	<title>A restricted domain</title>
 	<p>
-	Let <m>f</m> represent the function
+	Let <m> f </m> represent the function
 	<md><mrow> f(t) \amp = t^2 \amp t \amp \ge 0 </mrow></md>.
-	Here the domain is explicitly specified as being <m>t \ge 0</m>.
-	So even though the formula <m>(-1)^2</m> is defined,
-	technically the output value <m>f(-1)</m> is <em>undefined</em> because we have specified in the function definition that the input-output formula <m>t \mapsto t^2</m> only applies for <m>t \ge 0</m>.
+	Here the domain is explicitly specified as being <m> t \ge 0 </m>.
+	So even though the formula <m> (-1)^2 </m> is defined,
+	technically the output value <m> f(-1) </m> is <em>undefined</em> because we have specified in the function definition that the input-output formula <m> t \mapsto t^2 </m> only applies for <m> t \ge 0 </m>.
 	</p>
 </example>
 
@@ -225,8 +225,8 @@ even if the description of the function's input-output process could allow other
 <example><p>
 	The function <md> f(t) = \frac{1}{t^2} </md> only outputs positive values.
 	But is every positive value an <em>actual</em> output of the function?
-	Yes, because if <m>q</m> is a positive number,
-	there is at least one example of an input value so that <m>f(t) = q</m>;
+	Yes, because if <m> q </m> is a positive number,
+	there is at least one example of an input value so that <m> f(t) = q </m>;
 	in particular,
 	<md><mrow>
 		t \amp = \frac{1}{\sqrt{q}}
@@ -239,7 +239,7 @@ even if the description of the function's input-output process could allow other
 <example>
 	<title>A restricted domain could restrict the range</title>
 	<p>
-	The function <m>f(t) = t^3</m> has the entire set of real numbers <m>\R</m> for its range,
+	The function <m> f(t) = t^3 </m> has the entire set of real numbers <m> \R </m> for its range,
 	as every real number is the cube of another number.
 	However,
 	the function
@@ -256,33 +256,33 @@ even if the description of the function's input-output process could allow other
 
 <definition xml:id="definition-funcs-graph">
 	<title>Graph of a function</title>
-	<statement><p> The collection of all input-output pairs <m>\bbrac{t, f(t)}</m> in the Cartesian plane. </p></statement>
+	<statement><p> The collection of all input-output pairs <m> \bbrac{t, f(t)} </m> in the Cartesian plane. </p></statement>
 </definition>
 
 <p>
-For a point <m>(t,y)</m> in the Cartesian plane,
-the property of being on the graph or not on the graph of a function <m>f</m> is precisely determined by whether or not <m>f(t) = y</m> is true.
+For a point <m> (t,y) </m> in the Cartesian plane,
+the property of being on the graph or not on the graph of a function <m> f </m> is precisely determined by whether or not <m> f(t) = y </m> is true.
 </p>
 
 <example>
 	<title>Parabola</title>
 
-	<p> The graph of the function <m>f(t) = t^2</m> creates a curve in a shape called a <term>parabola</term>. </p>
+	<p> The graph of the function <m> f(t) = t^2 </m> creates a curve in a shape called a <term>parabola</term>. </p>
 
 	<figure xml:id="figure-funcs-parabola">
 		<caption>
-			The parabolic graph of the function <m>f(t) = t^2</m>,
+			The parabolic graph of the function <m> f(t) = t^2 </m>,
 			including two representative points:
 			one on the graph and one not on the graph.
 		</caption>
 		<image xml:id="image-funcs-parabola" width="67.9%">
 			<shortdescription> Parabolic graph of the basic quadratic function. </shortdescription>
 			<description><p>
-				The graph of the function <m>f(t) = t^2</m>,
+				The graph of the function <m> f(t) = t^2 </m>,
 				taking the shape of a parabola,
-				is drawn on a set of <m>tq</m>-axes.
-				The point <m>(2,4)</m> is plotted as a point on the graph,
-				and the point <m>(-1,6)</m> is plotted as a point not on the graph.
+				is drawn on a set of <m> tq </m>-axes.
+				The point <m> (2,4) </m> is plotted as a point on the graph,
+				and the point <m> (-1,6) </m> is plotted as a point not on the graph.
 			</p></description>
 			<latex-image><xi:include href="funcs.d/parabola.tex" parse="text" /></latex-image>
 		</image>
@@ -290,10 +290,10 @@ the property of being on the graph or not on the graph of a function <m>f</m> is
 
 	<p>
 	In <xref ref="figure-funcs-parabola" />,
-	the point <m>(2,4)</m> appears on the graph because for <m>t = 2</m> and <m>y = 4</m>,
-	the equality <m>f(t) = y</m> is true,
-	whereas the point <m>(-1,6)</m> appears displaced from the graph because for <m>t = -1</m> and <m>y = 6</m>,
-	the equality <m>f(t) = y</m> is not true.
+	the point <m> (2,4) </m> appears on the graph because for <m> t = 2 </m> and <m> y = 4 </m>,
+	the equality <m> f(t) = y </m> is true,
+	whereas the point <m> (-1,6) </m> appears displaced from the graph because for <m> t = -1 </m> and <m> y = 6 </m>,
+	the equality <m> f(t) = y </m> is not true.
 	</p>
 
 </example>
@@ -315,7 +315,7 @@ the property of being on the graph or not on the graph of a function <m>f</m> is
 		<image xml:id="image-funcs-discrete" width="34.7%">
 			<shortdescription> An example graph that consists of only five points. </shortdescription>
 			<description><p>
-				Five points are plotted on a set of <m>tq</m>-axes.
+				Five points are plotted on a set of <m> tq </m>-axes.
 				One point appears at the origin,
 				one point appears in the fourth quadrant of the plane,
 				and the other three points appear at various positions in the first quadrant of the plane.
@@ -343,8 +343,8 @@ The <q>only once</q> part of <xref ref="pattern-funcs-VLT" /> represents the fac
 If some vertical line intersects the curve more than once,
 then those intersection points associate different output values to the same input value,
 which a function cannot do.
-The <q>or not at all</q> part of <xref ref="pattern-funcs-VLT" /> covers the situation of a vertical line at a <m>t</m>-position that is not in the domain of the function,
-in which case there is no corresponding point on the graph for a vertical line at that <m>t</m>-position to intersect.
+The <q>or not at all</q> part of <xref ref="pattern-funcs-VLT" /> covers the situation of a vertical line at a <m> t </m>-position that is not in the domain of the function,
+in which case there is no corresponding point on the graph for a vertical line at that <m> t </m>-position to intersect.
 </p>
 
 <figure xml:id="figure-funcs-VLT">
@@ -359,7 +359,7 @@ in which case there is no corresponding point on the graph for a vertical line a
 				<description>
 
 					<p>
-					A set of <m>tq</m>-axes is drawn,
+					A set of <m> tq </m>-axes is drawn,
 					and a curve is drawn in the first quadrant of the plane only.
 					The curve begins at the origin,
 					rises steeply into the first quadrant,
@@ -388,7 +388,7 @@ in which case there is no corresponding point on the graph for a vertical line a
 				<description>
 
 					<p>
-					A set of <m>tq</m>-axes is drawn,
+					A set of <m> tq </m>-axes is drawn,
 					and on them a curve is drawn.
 					The curve can be described in two parts,
 					with one part in the first quadrant of the plane, one part in the fourth quadrant,
@@ -424,18 +424,18 @@ If a curve passes the Vertical Line Test,
 of what function will it be the graph?
 Remember that a function can be described as an input-output process in several different ways.
 To describe a function via a graph,
-assign an output value <m>f(t)</m> to each input value <m>t</m> as follows:
+assign an output value <m> f(t) </m> to each input value <m> t </m> as follows:
 <ul>
 
 	<li>
-		if the vertical line at position <m>t</m> does not intersect the graph,
-		leave <m>f(t)</m> undefined
+		if the vertical line at position <m> t </m> does not intersect the graph,
+		leave <m> f(t) </m> undefined
 	</li>
 
 	<li>
-		if the vertical line at position <m>t</m> does intersect the graph and the graph passes the Vertical Line Test,
+		if the vertical line at position <m> t </m> does intersect the graph and the graph passes the Vertical Line Test,
 		then we can assume that there is only one such point of intersection,
-		so set <m>f(t)</m> to be the second coordinate of that point.
+		so set <m> f(t) </m> to be the second coordinate of that point.
 	</li>
 
 </ul>
@@ -465,8 +465,8 @@ and so on.
 	</p>
 
 	<p>
-	Let <m>q</m> represent the number of units sold in a month by any one salesperson,
-	and let <m>s(q)</m> represent the salary to be paid to that employee.
+	Let <m> q </m> represent the number of units sold in a month by any one salesperson,
+	and let <m> s(q) </m> represent the salary to be paid to that employee.
 	In the domain <m> 0 \le q \le 100 </m> we have <md> s(q) = 4000 + 10 q </md>.
 	But on the domain <m> q \gt 100 </m> we have <md> s(q) = 4000 + 10 q + 5 (q - 100) </md>.
 	</p>
@@ -521,12 +521,12 @@ As you can imagine, a piecewise function will also have a graph that appears to 
 		<image xml:id="image-funcs-piecewise" width="47%">
 			<shortdescription> Graph of a piecewise-defined function. </shortdescription>
 			<description><p>
-				The graph of a piecewise function is drawn on a set of <m>tq</m>-axes.
-				Between <m>t = 0</m> and <m>t = 2</m> the graph is a portion of a concave-up parabola,
+				The graph of a piecewise function is drawn on a set of <m> tq </m>-axes.
+				Between <m> t = 0 </m> and <m> t = 2 </m> the graph is a portion of a concave-up parabola,
 				with vertex at the origin.
-				From <m>t = 2</m> onward,
+				From <m> t = 2 </m> onward,
 				the graph is a downwards-sloping line.
-				These two pieces of the graph meet at the point <m>(2,4)</m>,
+				These two pieces of the graph meet at the point <m> (2,4) </m>,
 				so that the linear piece begins precisely where the parabolic piece ends.
 			</p></description>
 			<latex-image><xi:include href="funcs.d/piecewise.tex" parse="text" /></latex-image>
@@ -552,13 +552,13 @@ there is no requirement that the pieces of the graph meet at the transition poin
 		\end{cases}
 	</md>,
 	the graph of which appears in <xref ref="figure-funcs-piecewise-2" />.
-	At <m>t = 2</m>,
-	the parabola portion on the left ends at height <m>4</m> but the line begins at height <m>2</m>,
+	At <m> t = 2 </m>,
+	the parabola portion on the left ends at height <m> 4 </m> but the line begins at height <m> 2 </m>,
 	so the two <q>pieces</q> of graph do not meet at the transition point.
-	Also notice that we have drawn a closed point at <m>(2,4)</m> at the <q>end</q> of the parabola portion of the graph,
-	but have drawn an open point at <m>(2,2)</m> at the <q>beginning</q> of the line portion.
-	This represents the fact that the parabola subdomain <m>0 \le t \le 2</m> contains the input value <m>t = 2</m> while the line subdomain <m>t \gt 2</m> does not,
-	so the piecewise definition dictates that the formula <m>g(t) = t^2</m> applies when <m>t = 2</m>.
+	Also notice that we have drawn a closed point at <m> (2,4) </m> at the <q>end</q> of the parabola portion of the graph,
+	but have drawn an open point at <m> (2,2) </m> at the <q>beginning</q> of the line portion.
+	This represents the fact that the parabola subdomain <m> 0 \le t \le 2 </m> contains the input value <m> t = 2 </m> while the line subdomain <m> t \gt 2 </m> does not,
+	so the piecewise definition dictates that the formula <m> g(t) = t^2 </m> applies when <m> t = 2 </m>.
 	</p>
 
 	<figure xml:id="figure-funcs-piecewise-2">
@@ -566,14 +566,14 @@ there is no requirement that the pieces of the graph meet at the transition poin
 		<image xml:id="image-funcs-piecewise-2" width="47%">
 			<shortdescription> Graph of a piecewise-defined function with a "jump" in values. </shortdescription>
 			<description><p>
-				The graph of a piecewise function is drawn on a set of <m>tq</m>-axes.
-				Between <m>t = 0</m> and <m>t = 2</m> the graph is a portion of a concave-up parabola,
+				The graph of a piecewise function is drawn on a set of <m> tq </m>-axes.
+				Between <m> t = 0 </m> and <m> t = 2 </m> the graph is a portion of a concave-up parabola,
 				with vertex at the origin.
-				The point <m>(2,4)</m> is plotted,
+				The point <m> (2,4) </m> is plotted,
 				representing the endpoint of the parabolic portion of the graph.
-				From <m>t = 2</m> onward,
+				From <m> t = 2 </m> onward,
 				the graph is a downwards-sloping line,
-				beginning at point <m>(2,2)</m>.
+				beginning at point <m> (2,2) </m>.
 				(This point is plotted as an open circle,
 				indicating that the point itself is not part of the graph.)
 				A vertical dashed line (not part of the graph) bridges the gap between the endpoint of the parabolic piece and the starting point of the linear piece.
@@ -608,30 +608,30 @@ there is no requirement that the pieces of the graph meet at the transition poin
 		<image xml:id="image-funcs-piecewise-many" width="67.9%">
 			<shortdescription> Graph of a piecewise-defined function with many pieces. </shortdescription>
 			<description><p>
-				The graph of a piecewise function is drawn on a set of <m>tq</m>-axes.
+				The graph of a piecewise function is drawn on a set of <m> tq </m>-axes.
 				<ul>
-					<li> On domain <m>t \lt 0</m> the graph is a horizontal line at height <m>q = 1</m>. </li>
+					<li> On domain <m> t \lt 0 </m> the graph is a horizontal line at height <m> q = 1 </m>. </li>
 					<li>
-						On domain <m>0 \le t \le 2</m> the graph is a concave-up parabola,
-						with vertex at point <m>(0,1)</m>,
+						On domain <m> 0 \le t \le 2 </m> the graph is a concave-up parabola,
+						with vertex at point <m> (0,1) </m>,
 						where it the previous linear piece of the graph meets this new piece.
-						The other endpoint of this piece of the graph at <m>(2,5)</m> is plotted as a closed circle,
+						The other endpoint of this piece of the graph at <m> (2,5) </m> is plotted as a closed circle,
 						indicating that it is part of the graph.
 					</li>
 					<li>
-						On domain <m> 2 \lt t \lt 3</m> the graph is a horizontal line at height <m>q = 6</m>.
-						The endpoints of this piece of the graph at <m>(2,6)</m> and <m>(3,6)</m> are plotted as open circles,
+						On domain <m> 2 \lt t \lt 3 </m> the graph is a horizontal line at height <m> q = 6 </m>.
+						The endpoints of this piece of the graph at <m> (2,6) </m> and <m> (3,6) </m> are plotted as open circles,
 						indicating that they are <em>not</em> part of the graph.
 					</li>
 					<li>
-						On domain <m>3 \le t \le 5</m> the graph is a downward-sloping line,
-						running between points <m>(3,5)</m> and <m>(5,1)</m>.
-						The point <m>(3,5)</m> is plotted as a closed circle,
+						On domain <m> 3 \le t \le 5 </m> the graph is a downward-sloping line,
+						running between points <m> (3,5) </m> and <m> (5,1) </m>.
+						The point <m> (3,5) </m> is plotted as a closed circle,
 						indicating that it is part of the graph.
 					</li>
 					<li>
-						On domain <m>t \gt 5</m> the graph is a horizontal line at height <m>q = 1</m>.
-						This piece of the graph meets the previous piece at the point <m>(5,1)</m>.
+						On domain <m> t \gt 5 </m> the graph is a horizontal line at height <m> q = 1 </m>.
+						This piece of the graph meets the previous piece at the point <m> (5,1) </m>.
 					</li>
 				</ul>
 				A vertical dashed line (not part of the graph) bridges the gap between the endpoint of the parabolic piece and the starting point of the <q>middle</q> horizontal piece,
@@ -662,7 +662,7 @@ but it is not really any different than writing down a table of values.
 		\end{cases}
 	</md>.
 	This function is still only defined at a handful of points <mdash />
-	for example, <m>f(1/2)</m> is undefined because there is no listed formula whose associated subdomain is or contains <m>t = 1/2</m>.
+	for example, <m> f(1/2) </m> is undefined because there is no listed formula whose associated subdomain is or contains <m> t = 1/2 </m>.
 	</p>
 </example>
 
@@ -686,14 +686,14 @@ but it is not really any different than writing down a table of values.
 <definition xml:id="definition-funcs-point-continuous">
 	<title>Continuous at a point</title>
 	<statement><p>
-		A function <m>f(t)</m> is said to be <term>continuous at a specific input value</term> <m>t = t_0</m> if the values of <m>f(t)</m> can always be restricted to being within some arbitrarily small open range around the value <m>f(t_0)</m> by restricting the inputs <m>t</m> to some sufficiently small open subdomain around <m>t_0</m>.
+		A function <m> f(t) </m> is said to be <term>continuous at a specific input value</term> <m> t = t_0 </m> if the values of <m> f(t) </m> can always be restricted to being within some arbitrarily small open range around the value <m> f(t_0) </m> by restricting the inputs <m> t </m> to some sufficiently small open subdomain around <m> t_0 </m>.
 		Otherwise, the function is said to be <term>discontinuous</term> at that point.
 	</p></statement>
 </definition>
 
 <p>
 In other words,
-a function is continuous at a point if <m>f(t) \approx f(t_0)</m> whenever <m>t \approx t_0</m>,
+a function is continuous at a point if <m> f(t) \approx f(t_0) </m> whenever <m> t \approx t_0 </m>,
 and we can always make the first approximation better by tightening the second approximation.
 </p>
 
@@ -701,23 +701,23 @@ and we can always make the first approximation better by tightening the second a
 	<title>Testing the definition of continuity</title>
 
 	<p>
-	The function <m>f(t)</m> in <xref ref="example-funcs-piecewise-graph-2" /> is discontinuous at <m>t = 2</m>.
-	It has value <m>f(2) = 4</m> there,
-	but if <m>t</m> is slightly bigger than <m>2</m> then <m>f(t) \approx 2</m>, not <m>4</m>.
+	The function <m> f(t) </m> in <xref ref="example-funcs-piecewise-graph-2" /> is discontinuous at <m> t = 2 </m>.
+	It has value <m> f(2) = 4 </m> there,
+	but if <m> t </m> is slightly bigger than <m> 2 </m> then <m> f(t) \approx 2 </m>, not <m> 4 </m>.
 	So it's not possible to restrict output values to the open range
 	<md> 3 \lt f(t) \lt 5 </md>
-	around the actual output value <m>f(2) = 4</m>.
-	That is, when we take <m>f(t) \approx 4</m> to mean <q> no lower than <m>3</m> and no higher than <m>5</m></q>,
-	there is no way to make this true for all <m>t \approx 2</m>,
-	no matter how small a subdomain around <m>t = 2</m> that we take for the meaning of <m>t \approx 2</m>
-	because there will always be some <m>t \approx 2</m> with <m>f(t) \approx 2</m>, outside of that restricted range.
+	around the actual output value <m> f(2) = 4 </m>.
+	That is, when we take <m> f(t) \approx 4 </m> to mean <q> no lower than <m> 3 </m> and no higher than <m> 5 </m></q>,
+	there is no way to make this true for all <m> t \approx 2 </m>,
+	no matter how small a subdomain around <m> t = 2 </m> that we take for the meaning of <m> t \approx 2 </m>
+	because there will always be some <m> t \approx 2 </m> with <m> f(t) \approx 2 </m>, outside of that restricted range.
 	</p>
 
 	<p>
 	On the other hand,
-	that same function <em>is</em> continuous at <m>t = 1</m>.
-	No matter how small a range around <m>f(1) = 1</m> we take <m>f(t) \approx 1</m> to mean,
-	it is always possible to restrict <m>t</m> to some small open subdomain around <m>t = 1</m> so that <m>f(t) \approx f(1)</m> is true for all <m>t</m> within that subdomain.
+	that same function <em>is</em> continuous at <m> t = 1 </m>.
+	No matter how small a range around <m> f(1) = 1 </m> we take <m> f(t) \approx 1 </m> to mean,
+	it is always possible to restrict <m> t </m> to some small open subdomain around <m> t = 1 </m> so that <m> f(t) \approx f(1) </m> is true for all <m> t </m> within that subdomain.
 	</p>
 
 	<figure xml:id="figure-funcs-discont-cont">
@@ -727,35 +727,35 @@ and we can always make the first approximation better by tightening the second a
 
 			<figure>
 				<caption>
-					There will always be values of <m>f(t)</m> for <m>t \approx 2</m>
+					There will always be values of <m> f(t) </m> for <m> t \approx 2 </m>
 					(represented by the part of the graph highlighted red),
-					that are outside of the range <m>3 \lt f(t) \lt 5</m>,
-					no matter how small of a subdomain around <m>t = 2</m> we take <m>t \approx 2</m> to mean.
+					that are outside of the range <m> 3 \lt f(t) \lt 5 </m>,
+					no matter how small of a subdomain around <m> t = 2 </m> we take <m> t \approx 2 </m> to mean.
 				</caption>
 				<image xml:id="image-funcs-piecewise-2-discont">
 					<shortdescription> The graph of a function near a point of discontinuity cannot be restricted to particular output range. </shortdescription>
 					<description>
 
 						<p>
-						The graph of a piecewise function is plotted on a set of <m>tq</m>-axes.
+						The graph of a piecewise function is plotted on a set of <m> tq </m>-axes.
 						Over the domain <m> 0 \le t \le 2 </m>,
 						the graph is a concave-up parabolic curve,
 						beginning with its vertex at the origin and rising to an endpoint in the first quadrant of the plane,
-						at <m>t = 2</m>.
-						The height of this point is labelled on the vertical axis as <m>f(2)</m>.
-						Over the domain <m> t \gt 2</m> the graph is a downwards-sloping line,
+						at <m> t = 2 </m>.
+						The height of this point is labelled on the vertical axis as <m> f(2) </m>.
+						Over the domain <m> t \gt 2 </m> the graph is a downwards-sloping line,
 						beginning at a height roughly half that of the endpoint of the parabolic piece.
 						This beginning endpoint of the linear piece of the graph is drawn as an open circle.
 						</p>
 
 						<p>
-						The range <m>f(2) - 1 \lt q \lt f(2) + 1</m> is indicated by dashed, horizontal lines at those two boundary heights,
-						symmetrically one unit below and above the height <m>q = f(2)</m>.
+						The range <m> f(2) - 1 \lt q \lt f(2) + 1 </m> is indicated by dashed, horizontal lines at those two boundary heights,
+						symmetrically one unit below and above the height <m> q = f(2) </m>.
 						The portion of the parabolic piece of the graph that lies within this range,
-						from left of <m>t = 2</m> where the curve meets the lower boundary <m>q = f(2) - 1</m> up to the point <m> \bbrac{2, f(2)} </m>,
+						from left of <m> t = 2 </m> where the curve meets the lower boundary <m> q = f(2) - 1 </m> up to the point <m> \bbrac{2, f(2)} </m>,
 						is highlighted green.
 						A portion of the linear piece of the graph that lies outside this range,
-						for a short stretch extending rightwards and downwards from the open circle at <m>t = 2</m>,
+						for a short stretch extending rightwards and downwards from the open circle at <m> t = 2 </m>,
 						is highlighted red.
 						</p>
 
@@ -766,9 +766,9 @@ and we can always make the first approximation better by tightening the second a
 
 			<figure>
 				<caption>
-					Using <em>any</em> small range around <m>f(1) = 1</m>,
-					we can always restrict the domain around <m>t = 1</m> so that <m>f(t) \approx f(1)</m> is true for all <m>t \approx 1</m>.
-					(The Greek letter <m>\epsilon</m> in the figure represents a small amount above or below <m>f(1) = 1</m> to create a small range.)
+					Using <em>any</em> small range around <m> f(1) = 1 </m>,
+					we can always restrict the domain around <m> t = 1 </m> so that <m> f(t) \approx f(1) </m> is true for all <m> t \approx 1 </m>.
+					(The Greek letter <m> \epsilon </m> in the figure represents a small amount above or below <m> f(1) = 1 </m> to create a small range.)
 				</caption>
 				<image xml:id="image-funcs-piecewise-2-cont">
 					<shortdescription>
@@ -778,27 +778,27 @@ and we can always make the first approximation better by tightening the second a
 					<description>
 
 						<p>
-						The graph of a piecewise function is plotted on a set of <m>tq</m>-axes.
+						The graph of a piecewise function is plotted on a set of <m> tq </m>-axes.
 						Over the domain <m> 0 \le t \le 2 </m>,
 						the graph is a concave-up parabolic curve,
 						beginning with its vertex at the origin and rising to an endpoint in the first quadrant of the plane,
-						at <m>t = 2</m>.
-						The height of this point is labelled on the vertical axis as <m>f(2)</m>.
-						Over the domain <m> t \gt 2</m> the graph is a downwards-sloping line,
+						at <m> t = 2 </m>.
+						The height of this point is labelled on the vertical axis as <m> f(2) </m>.
+						Over the domain <m> t \gt 2 </m> the graph is a downwards-sloping line,
 						beginning at a height roughly half that of the endpoint of the parabolic piece.
 						This beginning endpoint of the linear piece of the graph is drawn as an open circle.
 						</p>
 
 						<p>
-						The point on the parabolic piece of the graph at <m>t = 1</m> is plotted,
-						and its height <m>f(1)</m> is marked on the vertical axis.
-						The range <m>f(1) - \epsilon \lt q \lt f(2) + \epsilon</m>,
-						where <m>\epsilon</m> represents a small value,
+						The point on the parabolic piece of the graph at <m> t = 1 </m> is plotted,
+						and its height <m> f(1) </m> is marked on the vertical axis.
+						The range <m> f(1) - \epsilon \lt q \lt f(2) + \epsilon </m>,
+						where <m> \epsilon </m> represents a small value,
 						is indicated by dashed, horizontal lines at those two boundary heights,
-						symmetrically below and above the height <m>q = f(1)</m>.
+						symmetrically below and above the height <m> q = f(1) </m>.
 						Dashed vertical lines run from the points of intersection of the parabolic piece of the graph with the two range boundary lines down to the horizontal axis,
 						and the portion of the graph between those two points of intersection is highlighted green.
-						These two vertical lines appear on either side of <m>t = 1</m>,
+						These two vertical lines appear on either side of <m> t = 1 </m>,
 						but not symmetrically so.
 						</p>
 
@@ -815,11 +815,11 @@ and we can always make the first approximation better by tightening the second a
 
 <p>
 Graphically,
-we think of a function as being continuous at an input value <m>t = t_0</m> if its graph <q>flows through</q> the point <m>\bbrac{t_0, f(t_0)}</m>,
+we think of a function as being continuous at an input value <m> t = t_0 </m> if its graph <q>flows through</q> the point <m> \bbrac{t_0, f(t_0)} </m>,
 while the graph near a point of discontinuity features some sort of gap or jump.
 In particular,
 a function will always be discontinuous at a point that is not in its domain,
-since then there is no value <m>f(t_0)</m> with which to compare its <q>nearby</q> values.
+since then there is no value <m> f(t_0) </m> with which to compare its <q>nearby</q> values.
 </p>
 
 <p>
@@ -834,7 +834,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 
 	<statement>
 
-		<p> A function <m>f(t)</m> is said to be <term>continuous on a specific subdomain</term> if it is continuous at every point in that subdomain. </p>
+		<p> A function <m> f(t) </m> is said to be <term>continuous on a specific subdomain</term> if it is continuous at every point in that subdomain. </p>
 
 		<p>
 		If a function is continuous on its entire domain we will say exactly that:
@@ -872,7 +872,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 				<image xml:id="image-funcs-jump-discont-1">
 					<shortdescription> A piecewise function with a jump discontinuity. </shortdescription>
 					<description><p>
-						The graph of a piecewise function is drawn on a set of <m>tq</m>-axes.
+						The graph of a piecewise function is drawn on a set of <m> tq </m>-axes.
 						The initial piece of the graph is a vaguely sinusoidal curve that increases from the left edge of the view up to a peak,
 						smoothly falls away to a trough,
 						and then increases up to a closed endpoint.
@@ -896,7 +896,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 					<description>
 
 						<p>
-						The graph of a function with a displaced point is drawn on a set of <m>tq</m>-axes.
+						The graph of a function with a displaced point is drawn on a set of <m> tq </m>-axes.
 						From the bottom-left corner of the view the graph rises steeply up to a peak,
 						from which it smoothly and gently descends to a trough.
 						From the trough,
@@ -928,14 +928,14 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	<p>
 	You might think of this kind of discontinuity as a <q>hole in the graph</q>.
 	For example, for the function <md> f(t) = \frac{t^2 - 1}{t - 1} </md>,
-	for <em>most</em> values of <m>t</m> we can simplify the input-output formula to
+	for <em>most</em> values of <m> t </m> we can simplify the input-output formula to
 	<md>
 		<mrow> f(t) \amp = \frac{t^2 - 1}{t - 1} </mrow>
 		<mrow> \amp = \frac{(t + 1) \bcancel{(t - 1)}}{\bcancel{t - 1}} </mrow>
 		<mrow> \amp = t + 1</mrow>
 	</md>,
 	so that the function's graph is essentially a line.
-	But the algebra above is <em>not</em> valid for <m>t = 1</m>,
+	But the algebra above is <em>not</em> valid for <m> t = 1 </m>,
 	because in that case our algebra is
 	<md>
 		<mrow> \frac{t^2 - 1}{t - 1} \amp = \frac{(t + 1) (t - 1)}{t - 1} </mrow>
@@ -943,7 +943,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 		<mrow> \amp = 2</mrow>
 	</md>,
 	which is incorrect because you cannot <q>cancel</q> division by zero.
-	So our function is actually undefined at <m>t = 1</m>,
+	So our function is actually undefined at <m> t = 1 </m>,
 	and its graph just has a hole there.
 	</p>
 
@@ -952,8 +952,8 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 		<image xml:id="image-funcs-hole" width="38.8%">
 			<shortdescription> A graph with a discontinuity caused by an undefined value. </shortdescription>
 			<description><p>
-				The graph of a linear function with a positive slope is drawn on a set of <m>tq</m>-axes,
-				but a single point has been removed from the graph above the input value <m>t = 1</m>.
+				The graph of a linear function with a positive slope is drawn on a set of <m> tq </m>-axes,
+				but a single point has been removed from the graph above the input value <m> t = 1 </m>.
 				To indicate this removal,
 				small open circle appears at that position on the graph,
 				so that the line of the graph appears to <q>skip over</q> that point.
@@ -963,7 +963,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	</figure>
 
 	<p>
-	Why not just define <m>f(t) = t + 1</m> in the first place?
+	Why not just define <m> f(t) = t + 1 </m> in the first place?
 	Our function might be created as the ratio of two other quantities,
 	where the numerator is a model for some quantity,
 	the denominator is a model for a separate quantity,
@@ -973,11 +973,11 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	</p>
 
 	<p>
-	However, the fact that <m>f(t) = t + 1</m> is true for <q>almost all</q> input values justifies the terminology <term>removable discontinuity</term> <mdash/>
-	we could <q>remove</q> the discontinuity by replacing <m>f(t)</m> by the continuous function <m>g(t) = t + 1</m>,
-	so that <m>g(t) = f(t)</m> is true for <q>almost all</q> input values.
-	Thus <m>g</m> <q>fixes</q> the discontinuity in <m>f</m>,
-	and so is called a <term>continuous extension</term> of <m>f</m>.
+	However, the fact that <m> f(t) = t + 1 </m> is true for <q>almost all</q> input values justifies the terminology <term>removable discontinuity</term> <mdash/>
+	we could <q>remove</q> the discontinuity by replacing <m> f(t) </m> by the continuous function <m> g(t) = t + 1 </m>,
+	so that <m> g(t) = f(t) </m> is true for <q>almost all</q> input values.
+	Thus <m> g </m> <q>fixes</q> the discontinuity in <m> f </m>,
+	and so is called a <term>continuous extension</term> of <m> f </m>.
 	</p>
 
 </paragraphs>
@@ -992,19 +992,19 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 
 	<figure xml:id="figure-funcs-singularity">
 		<caption>
-			The graph of <m>f(t) = 1/(t - 2)^2</m>,
-			with a singularity at <m>t = 2</m>.
+			The graph of <m> f(t) = 1/(t - 2)^2 </m>,
+			with a singularity at <m> t = 2 </m>.
 		</caption>
 		<image xml:id="image-funcs-singular" width="51.1%">
 			<shortdescription> A graph of a function with a discontinuity caused by a singularity. </shortdescription>
 			<description><p>
-				The graph of a function with a vertical asymptote at <m>t = 2</m> is drawn on a set of <m>tq</m>-axes.
+				The graph of a function with a vertical asymptote at <m> t = 2 </m> is drawn on a set of <m> tq </m>-axes.
 				The graph begins to the left of the vertical axis,
 				just slightly above the horizontal axis.
 				It rises very slowly at first,
 				but over a short domain it begins to rise more and more steeply,
-				until finally becomes almost vertical just to the left of <m>t = 2</m>.
-				The vertical asymptote at <m>t = 2</m> is represented as a dashed vertical line at that position.
+				until finally becomes almost vertical just to the left of <m> t = 2 </m>.
+				The vertical asymptote at <m> t = 2 </m> is represented as a dashed vertical line at that position.
 				The graph continues just to the right of that vertical asymptote,
 				beginning at the top of the view and descending steeply (almost vertically at first) towards the horizontal axis.
 				As it nears the horizontal axis it quickly flattens out,
@@ -1035,9 +1035,9 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 <theorem xml:id="theorem-funcs-intermediate-value">
 	<title>Intermediate Value Theorem</title>
 	<statement><p>
-		Suppose <m>f</m> is a continuous function.
-		If <m>f(t_1) \lt K</m> and <m>f(t_2) \gt K</m> (or vice versa),
-		then <m>f(t) = K</m> must have at least one solution in the domain <m>t_1 \lt t \lt t_2</m>.
+		Suppose <m> f </m> is a continuous function.
+		If <m> f(t_1) \lt K </m> and <m> f(t_2) \gt K </m> (or vice versa),
+		then <m> f(t) = K </m> must have at least one solution in the domain <m> t_1 \lt t \lt t_2 </m>.
 	</p></statement>
 </theorem>
 
@@ -1054,18 +1054,18 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 				<description>
 
 					<p>
-					The graph of a function over a closed, bounded domain <m>t_1 \lt t \lt t_2</m> is drawn on a set of <m>tq</m>-axes.
-					The graph begins at a closed endpoint at position <m>\bbrac{t_1, f(t_1)}</m>.
+					The graph of a function over a closed, bounded domain <m> t_1 \lt t \lt t_2 </m> is drawn on a set of <m> tq </m>-axes.
+					The graph begins at a closed endpoint at position <m> \bbrac{t_1, f(t_1)} </m>.
 					From there is dips slightly down to a trough before rising significantly up to a peak,
-					before dipping slightly again down to a closed endpoint at position <m>\bbrac{t_2, f(t_2)}</m>.
-					In this configuration, <m>f(t_1) \lt f(t_2)</m>.
-					The values <m>q = f(t_1)</m> and <m>q = f(t_2)</m> are marked on the vertical axis,
+					before dipping slightly again down to a closed endpoint at position <m> \bbrac{t_2, f(t_2)} </m>.
+					In this configuration, <m> f(t_1) \lt f(t_2) </m>.
+					The values <m> q = f(t_1) </m> and <m> q = f(t_2) </m> are marked on the vertical axis,
 					and a dashed horizontal line runs from each of those positions on the vertical axis to the corresponding endpoint of the graph.
 					</p>
 
 					<p>
-					A value <m>q = K</m> is marked on the vertical axis,
-					approximately three-quarters of the way from <m>q = f(t_1)</m> up to <m>q = f(t_2)</m>,
+					A value <m> q = K </m> is marked on the vertical axis,
+					approximately three-quarters of the way from <m> q = f(t_1) </m> up to <m> q = f(t_2) </m>,
 					and a third dashed horizontal line runs from this position on the vertical axis to the right edge of the view.
 					This horizontal line necessarily intersects the graph,
 					and the point of intersection is marked on the graph to illustrate the conclusion of the <xref ref="theorem-funcs-intermediate-value" /> in this case.
@@ -1082,18 +1082,18 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 				<description>
 
 					<p>
-					The graph of a function over a closed, bounded domain <m>t_1 \lt t \lt t_2</m> is drawn on a set of <m>tq</m>-axes.
-					The graph begins at a closed endpoint at position <m>\bbrac{t_1, f(t_1)}</m>.
+					The graph of a function over a closed, bounded domain <m> t_1 \lt t \lt t_2 </m> is drawn on a set of <m> tq </m>-axes.
+					The graph begins at a closed endpoint at position <m> \bbrac{t_1, f(t_1)} </m>.
 					From there is rises slightly up to a peak before descending significantly down to a trough,
-					before rising slightly again up to a closed endpoint at position <m>\bbrac{t_2, f(t_2)}</m>.
-					In this configuration, <m>f(t_1) \gt f(t_2)</m>.
-					The values <m>q = f(t_1)</m> and <m>q = f(t_2)</m> are marked on the vertical axis,
+					before rising slightly again up to a closed endpoint at position <m> \bbrac{t_2, f(t_2)} </m>.
+					In this configuration, <m> f(t_1) \gt f(t_2) </m>.
+					The values <m> q = f(t_1) </m> and <m> q = f(t_2) </m> are marked on the vertical axis,
 					and a dashed horizontal line runs from each of those positions on the vertical axis to the corresponding endpoint of the graph.
 					</p>
 
 					<p>
-					A value <m>q = K</m> is marked on the vertical axis,
-					approximately three-quarters of the way from <m>q = f(t_1)</m> down to <m>q = f(t_2)</m>,
+					A value <m> q = K </m> is marked on the vertical axis,
+					approximately three-quarters of the way from <m> q = f(t_1) </m> down to <m> q = f(t_2) </m>,
 					and a third dashed horizontal line runs from this position on the vertical axis to the right edge of the view.
 					This horizontal line necessarily intersects the graph,
 					and the point of intersection is marked on the graph to illustrate the conclusion of the <xref ref="theorem-funcs-intermediate-value" /> in this case.
@@ -1119,16 +1119,16 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 			p(2) \amp = -1
 		</mrow>
 	</md>
-	we may conclude that the graph must descend through every possible output value between <m>4</m> and <m>-1</m> over the domain <m>1 \le t \le 2</m>.
+	we may conclude that the graph must descend through every possible output value between <m> 4 </m> and <m> -1 </m> over the domain <m> 1 \le t \le 2 </m>.
 	(Note, however, that this doesn't mean the graph cannot ascend on some portion of this domain.)
 	</p>
 
 	<p>
 	In particular,
-	since <m>p(1) \gt 0</m> and <m>p(2) \lt 0</m>,
-	we may apply the <xref ref="theorem-funcs-intermediate-value" text="title" /> with <m>K = 0</m> to conclude that there must be at least one solution to
+	since <m> p(1) \gt 0 </m> and <m> p(2) \lt 0 </m>,
+	we may apply the <xref ref="theorem-funcs-intermediate-value" text="title" /> with <m> K = 0 </m> to conclude that there must be at least one solution to
 	<md> 5 - t + t^2 - t^3 = 0 </md>
-	somewhere between <m>t = 1</m> and <m>t = 2</m>.
+	somewhere between <m> t = 1 </m> and <m> t = 2 </m>.
 	</p>
 
 </example>
@@ -1153,9 +1153,9 @@ The issue is that you may overlook important features that occur between the poi
 <p>
 For example, consider function <md> f(t) = \frac{2}{2 t - 1} </md>.
 On a set of axes,
-plot points at integer values of <m>t</m>: <md> t = -2, -1, 0, 1, 2</md>.
-Then join your points together smoothly to make a <q>graph</q> for <m>f(t)</m>.
-Finally, get an online graphing app to graph <m>f(t)</m> for you and compare with your <q>graph</q> <mdash />
+plot points at integer values of <m> t </m>: <md> t = -2, -1, 0, 1, 2</md>.
+Then join your points together smoothly to make a <q>graph</q> for <m> f(t) </m>.
+Finally, get an online graphing app to graph <m> f(t) </m> for you and compare with your <q>graph</q> <mdash />
 you will find that they are very different.
 </p>
 
@@ -1182,7 +1182,7 @@ or down
 (if the added fixed value is negative).
 Accordingly, for
 <md> g(t) = f(t) + C </md>,
-we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
+we call <m> g </m> a <term>vertical shift</term> of <m> f </m>.
 </p>
 
 <example xml:id="example-funcs-vshift">
@@ -1191,9 +1191,9 @@ we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
 	<p>
 	To graph either of
 	<md><mrow> g(t) \amp = \sqrt{t} + 2 \amp h(t) \amp = \sqrt{t} - 2 </mrow></md>,
-	we relate each of them to the function <m>f(t) = \sqrt{t} </m>,
+	we relate each of them to the function <m> f(t) = \sqrt{t} </m>,
 	whose graph we should know as one-half of a sideways parabola.
-	Some anchor points we might focus on to help us draw the shifted graph are at <m>t = 0</m> and <m>t = 1</m>.
+	Some anchor points we might focus on to help us draw the shifted graph are at <m> t = 0 </m> and <m> t = 1 </m>.
 	<md>
 		<mrow> f(0) \amp = 0             \amp f(1) \amp = 1             </mrow>
 		<mrow> g(0) \amp = f(0) + 2 = 2  \amp g(1) \amp = f(1) + 2 = 3  </mrow>
@@ -1203,7 +1203,7 @@ we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
 
 	<figure xml:id="figure-funcs-vshifts">
 		<caption>
-			Two vertical shifts of the graph of <m>f(t) = \sqrt{t}</m>,
+			Two vertical shifts of the graph of <m> f(t) = \sqrt{t} </m>,
 			one up and one down.
 		</caption>
 		<image xml:id="image-funcs-vshifts" width="62.3%">
@@ -1214,32 +1214,32 @@ we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
 			<description>
 
 				<p>
-				Three graphs with identical shapes are drawn on the same set of <m>tq</m>-axes.
+				Three graphs with identical shapes are drawn on the same set of <m> tq </m>-axes.
 				The identical shape of the three graphs is the top half of a sideways parabola that opens to the right.
 				</p>
 
 				<p>
 				The first such graph begins with its vertex at the origin,
-				rises steeply up to a marked point at <m>(1,1)</m>,
+				rises steeply up to a marked point at <m> (1,1) </m>,
 				and then continues to rise (but less steeply) to the right edge of the view.
 				</p>
 
 				<p>
-				The second identical copy begins with its vertex at height <m>q = 2</m> on the vertical axis,
-				rises steeply up to a marked point at <m>(1,3)</m>,
+				The second identical copy begins with its vertex at height <m> q = 2 </m> on the vertical axis,
+				rises steeply up to a marked point at <m> (1,3) </m>,
 				and then continues to rise (but less steeply) to the right edge of the view.
 				This graph lies entirely above the first graph,
 				and an arrow points upwards from the first graph to it,
-				indicating that this second graph is a vertical translation of the first graph upwards by <m>2</m> units.
+				indicating that this second graph is a vertical translation of the first graph upwards by <m> 2 </m> units.
 				</p>
 
 				<p>
-				The third identical copy begins with its vertex at height <m>q = -2</m> on the vertical axis,
-				rises steeply up to a marked point at <m>(1,-1)</m>,
+				The third identical copy begins with its vertex at height <m> q = -2 </m> on the vertical axis,
+				rises steeply up to a marked point at <m> (1,-1) </m>,
 				and then continues to rise (but less steeply) to the right edge of the view.
 				This graph lies entirely below the first graph,
 				and an arrow points downwards from the first graph to it,
-				indicating that this third graph is a vertical translation of the first graph downwards by <m>2</m> units.
+				indicating that this third graph is a vertical translation of the first graph downwards by <m> 2 </m> units.
 				</p>
 
 			</description>
@@ -1257,12 +1257,12 @@ we call <m>g</m> a <term>vertical shift</term> of <m>f</m>.
 <p>
 If we take an <q>old</q> function and multiply every output by some fixed, positive scale factor,
 we create a <q>new</q> function whose graph has been stretched away from the horizontal axis
-(if the scale factor is greater than <m>1</m>)
+(if the scale factor is greater than <m> 1 </m>)
 or compressed towards the horizontal axis
-(if the scale factor is less than <m>1</m>).
+(if the scale factor is less than <m> 1 </m>).
 Accordingly, for
 <md> g(t) = k f(t) </md>,
-we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
+we call <m> g </m> a <term>vertical scaling</term> of <m> f </m>.
 </p>
 
 <example xml:id="example-funcs-vscale">
@@ -1271,8 +1271,8 @@ we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
 	<p>
 	To graph either of
 	<md><mrow> g(t) \amp = 2 \sqrt{t} \amp h(t) \amp = \frac{\sqrt{t}}{2} </mrow></md>,
-	again we relate each of them to the graph of the function <m>f(t) = \sqrt{t} </m>,
-	and again focus on anchor points at <m>t = 0</m> and <m>t = 1</m>.
+	again we relate each of them to the graph of the function <m> f(t) = \sqrt{t} </m>,
+	and again focus on anchor points at <m> t = 0 </m> and <m> t = 1 </m>.
 	<md>
 		<mrow> f(0) \amp = 0                  \amp f(1) \amp = 1                            </mrow>
 		<mrow> g(0) \amp = 2 f(0) = 0         \amp g(1) \amp = 2 f(1) = 2                   </mrow>
@@ -1282,7 +1282,7 @@ we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
 
 	<figure xml:id="figure-funcs-vscales">
 		<caption>
-			Two vertical scales of the graph of <m>f(t) = \sqrt{t}</m>,
+			Two vertical scales of the graph of <m> f(t) = \sqrt{t} </m>,
 			one stretched and one compressed.
 		</caption>
 		<image xml:id="image-funcs-vscales" width="60%">
@@ -1293,34 +1293,34 @@ we call <m>g</m> a <term>vertical scaling</term> of <m>f</m>.
 			<description>
 
 				<p>
-				Three graphs with similar shapes are drawn on the same set of <m>tq</m>-axes.
+				Three graphs with similar shapes are drawn on the same set of <m> tq </m>-axes.
 				The shape of each of the graphs is that of the top half of a sideways parabola that opens to the right.
 				</p>
 
 				<p>
 				The first such graph begins with its vertex at the origin,
-				rises steeply up to a marked point at <m>(1,1)</m>,
+				rises steeply up to a marked point at <m> (1,1) </m>,
 				and then continues to rise (but less steeply) to the right edge of the view.
 				</p>
 
 				<p>
 				The second graph also begins with its vertex at the origin,
-				but rises even more steeply up to a marked point at <m>(1,2)</m>,
+				but rises even more steeply up to a marked point at <m> (1,2) </m>,
 				and then continues to rise (less steeply than before but more steeply than the first graph) to the right edge of the view.
 				Except for the shared vertex at the origin,
 				this graph lies entirely above the first graph,
 				and an arrow points upwards from the first graph to it,
-				indicating that this second graph is a vertical stretch of the first graph away from the horizontal axis by a factor of <m>2</m>.
+				indicating that this second graph is a vertical stretch of the first graph away from the horizontal axis by a factor of <m> 2 </m>.
 				</p>
 
 				<p>
 				The third graph also begins with its vertex at the origin,
-				but rises less steeply up to a marked point at <m>(1,1/2)</m>,
+				but rises less steeply up to a marked point at <m> (1,1/2) </m>,
 				and then continues to rise (both less steeply than before and less steeply than the first graph) to the right edge of the view.
 				Except for the shared vertex at the origin,
 				this graph lies entirely below the first graph,
 				and an arrow points downwards from the first graph to it,
-				indicating that this third graph is a vertical compression of the first graph towards the horizontal axis by a factor of <m>2</m>.
+				indicating that this third graph is a vertical compression of the first graph towards the horizontal axis by a factor of <m> 2 </m>.
 				</p>
 
 			</description>
@@ -1340,12 +1340,12 @@ If we take an <q>old</q> function and change the sign of every output,
 we create a <q>new</q> function whose graph has been reflected in the horizontal axis.
 Accordingly, for
 <md> g(t) = - f(t) </md>,
-we call <m>g</m> a <term>vertical reflection</term> of <m>f</m>.
+we call <m> g </m> a <term>vertical reflection</term> of <m> f </m>.
 Similarly,
 if we have
 <md> g(t) = k f(t) </md>
-with <m>k</m> negative,
-then <m>g</m> will be both a scaling and reflection of <m>f</m>.
+with <m> k </m> negative,
+then <m> g </m> will be both a scaling and reflection of <m> f </m>.
 </p>
 
 <example xml:id="example-funcs-vrefl">
@@ -1354,8 +1354,8 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 	<p>
 	To graph
 	<md> g(t) = - \sqrt{t} </md>
-	again we relate it to the graph of the function <m>f(t) = \sqrt{t} </m>,
-	and again focus on anchor points at <m>t = 0</m> and <m>t = 1</m>.
+	again we relate it to the graph of the function <m> f(t) = \sqrt{t} </m>,
+	and again focus on anchor points at <m> t = 0 </m> and <m> t = 1 </m>.
 	<md>
 		<mrow> f(0) \amp = 0                  \amp f(1) \amp = 1           </mrow>
 		<mrow> g(0) \amp = - f(0) = 0         \amp g(1) \amp = - f(1) = -1 </mrow>
@@ -1363,13 +1363,13 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 	</p>
 
 	<figure xml:id="figure-funcs-vrefl">
-		<caption> Vertical reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
+		<caption> Vertical reflection of the graph of <m> f(t) = \sqrt{t} </m>. </caption>
 		<image xml:id="image-funcs-vrefl" width="60%">
 			<shortdescription> Vertical reflection of the graph of the square root function. </shortdescription>
 			<description>
 
 				<p>
-				Two graphs with identical shapes are drawn on the same set of <m>tq</m>-axes,
+				Two graphs with identical shapes are drawn on the same set of <m> tq </m>-axes,
 				with one a vertical reflection of the other.
 				The identical shape of the two graphs is that of half of a sideways parabola that opens to the right,
 				with one graph being the top half and the other being the bottom half.
@@ -1377,13 +1377,13 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 
 				<p>
 				The first such graph begins with its vertex at the origin,
-				rises steeply up to a marked point at <m>(1,1)</m>,
+				rises steeply up to a marked point at <m> (1,1) </m>,
 				and then continues to rise (but less steeply) to the right edge of the view.
 				</p>
 
 				<p>
 				The second identical but reflected graph begins with its vertex at the origin,
-				descends steeply down to a marked point at <m>(1,-1)</m>,
+				descends steeply down to a marked point at <m> (1,-1) </m>,
 				and then continues to descend (but less steeply) to the right edge of the view.
 				</p>
 
@@ -1419,7 +1419,7 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 		</p></li>
 
 		<li><title>Reflection</title><p>
-			Multiplying a function by a negative scale factor (or by <m>-1</m>)
+			Multiplying a function by a negative scale factor (or by <m> -1 </m>)
 			reflects the graph in the horizontal axis (as well as any scaling effect).
 		</p></li>
 
@@ -1454,8 +1454,8 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 If we subtract a positive constant from the independent variable <em>before</em> using it as the input for a function,
 we are essentially causing output values to occur <q>later.</q>
 For example,
-for <m>g(t) = f(t - 2)</m>,
-the <q>old</q> function's initial output value <m>f(0)</m> occurs at <m>t = 2</m> for the <q>new</q> function:
+for <m> g(t) = f(t - 2) </m>,
+the <q>old</q> function's initial output value <m> f(0) </m> occurs at <m> t = 2 </m> for the <q>new</q> function:
 <md> g(2) = f(2 - 2) = f(0) </md>.
 So subtracting a positive constant from the independent variable shifts the graph to the right by that amount.
 </p>
@@ -1466,8 +1466,8 @@ if we subtract a negative constant from the independent variable
 (so, in effect, <em>adding</em> a positive constant),
 we cause output values to occur <q>earlier</q>.
 For example,
-for <m>g(t) = f\bbrac{t - (-2)}</m>,
-the initial value of the <q>new</q> function is the same as the <q>old</q> function's value at <m>t = 2</m>:
+for <m> g(t) = f\bbrac{t - (-2)} </m>,
+the initial value of the <q>new</q> function is the same as the <q>old</q> function's value at <m> t = 2 </m>:
 <md> g(0) = f\bbrac{0 - (-2)} = f(2) </md>.
 So subtracting a negative constant from the independent variable shifts the graph to the left by that amount.
 </p>
@@ -1487,9 +1487,9 @@ we call the <q>new</q> function a <term>horizontal shift</term> of the <q>old</q
 		\amp
 		h(t) \amp = \sqrt{t + 2} = \sqrt{t - (-2)}
 	</mrow></md>,
-	we relate each of them to the function <m>f(t) = \sqrt{t} </m>.
+	we relate each of them to the function <m> f(t) = \sqrt{t} </m>.
 	Now when we choose and track anchor points
-	(again at <m>t = 0</m> and <m>t = 1</m> for <m>f</m>),
+	(again at <m> t = 0 </m> and <m> t = 1 </m> for <m> f </m>),
 	we want to determine what new independent variable value will produce the same output.
 	<md>
 		<mrow> f(0)  \amp = 0                          \amp f(1)  \amp = 1                         </mrow>
@@ -1500,7 +1500,7 @@ we call the <q>new</q> function a <term>horizontal shift</term> of the <q>old</q
 
 	<figure xml:id="figure-funcs-hshifts">
 		<caption>
-			Two horizontal shifts of the graph of <m>f(t) = \sqrt{t}</m>,
+			Two horizontal shifts of the graph of <m> f(t) = \sqrt{t} </m>,
 			one right and one left.
 		</caption>
 		<image xml:id="image-funcs-hshifts" width="77%">
@@ -1511,32 +1511,32 @@ we call the <q>new</q> function a <term>horizontal shift</term> of the <q>old</q
 			<description>
 
 				<p>
-				Three graphs with identical shapes are drawn on the same set of <m>tq</m>-axes.
+				Three graphs with identical shapes are drawn on the same set of <m> tq </m>-axes.
 				The identical shape of the three graphs is the top half of a sideways parabola that opens to the right.
 				</p>
 
 				<p>
 				The first such graph begins with its vertex at the origin,
-				rises steeply up to a marked point at <m>(1,1)</m>,
+				rises steeply up to a marked point at <m> (1,1) </m>,
 				and then continues to rise (but less steeply) to the right edge of the view.
 				</p>
 
 				<p>
-				The second identical copy begins with its vertex at position <m>t = 2</m> on the horizontal axis,
-				rises steeply up to a marked point at <m>(3,1)</m>,
+				The second identical copy begins with its vertex at position <m> t = 2 </m> on the horizontal axis,
+				rises steeply up to a marked point at <m> (3,1) </m>,
 				and then continues to rise (but less steeply) to the right edge of the view.
 				This graph lies entirely to the right of and below the first graph,
 				and an arrow points from the first graph rightwards to it,
-				indicating that this second graph is a horizontal translation of the first graph to the right by <m>2</m> units.
+				indicating that this second graph is a horizontal translation of the first graph to the right by <m> 2 </m> units.
 				</p>
 
 				<p>
-				The third identical copy begins with its vertex at position <m>t = -2</m> on the horizontal axis,
-				rises steeply up to a marked point at <m>(-1,1)</m>,
+				The third identical copy begins with its vertex at position <m> t = -2 </m> on the horizontal axis,
+				rises steeply up to a marked point at <m> (-1,1) </m>,
 				and then continues to rise (but less steeply) to the right edge of the view.
 				This graph lies entirely to the left of and, once it passes the vertical axis, above the first graph,
 				and an arrow points from the first graph leftwards to it,
-				indicating that this third graph is a horizontal translation of the first graph to the left by <m>2</m> units.
+				indicating that this third graph is a horizontal translation of the first graph to the left by <m> 2 </m> units.
 				</p>
 
 			</description>
@@ -1556,12 +1556,12 @@ If we divide the independent variable by a positive constant that is greater tha
 we again are causing output values to occur <q>later,</q>
 at least for positive inputs.
 For example,
-for <m>g(t) = f(t/2)</m>,
-the value <m>f(1)</m> achieved by the <q>old</q> function at <m>t = 1</m> won't be achieved by the <q>new</q> function until <m>t = 2</m>:
+for <m> g(t) = f(t/2) </m>,
+the value <m> f(1) </m> achieved by the <q>old</q> function at <m> t = 1 </m> won't be achieved by the <q>new</q> function until <m> t = 2 </m>:
 <md> g(2) = f(2 / 2) = f(1) </md>.
 However, this effect is symmetric about the vertical axis <mdash />
-using our same example <m>g(t) = f(t/2)</m>
-the value <m>f(-1)</m> achieved by the <q>old</q> function at <m>t = -1</m> is achieved by the <q>new</q> function until <m>t = -2</m>:
+using our same example <m> g(t) = f(t/2) </m>
+the value <m> f(-1) </m> achieved by the <q>old</q> function at <m> t = -1 </m> is achieved by the <q>new</q> function until <m> t = -2 </m>:
 <md> g(-2) = f(-2 / 2) = f(-1) </md>.
 Overall, the effect is to stretch the graph of the <q>old</q> function away from the vertical axis.
 </p>
@@ -1570,8 +1570,8 @@ Overall, the effect is to stretch the graph of the <q>old</q> function away from
 Dividing the independent variable by a positive constant that is less than 1 has the opposite effect,
 so that outputs of the old function are <q>pulled in</q> towards the vertical axis.
 For example,
-for <m>g(t) = f\bbrac{t / 0.5}</m>,
-the output value of the <q>old</q> function at <m>t = 2</m> becomes the output value of the <q>new</q> function at <m>t = 1</m>:
+for <m> g(t) = f\bbrac{t / 0.5} </m>,
+the output value of the <q>old</q> function at <m> t = 2 </m> becomes the output value of the <q>new</q> function at <m> t = 1 </m>:
 <md> g(1) = f(1 / 0.5) = f(2) </md>.
 Again, the effect is symmetric about the vertical axis,
 so that the overall effect is to compress the graph of the <q>old</q> function towards the vertical axis.
@@ -1588,12 +1588,12 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 	<p>
 	To graph either of
 	<md><mrow> g(t) \amp = \sqrt{t / 2} \amp h(t) \amp = \sqrt{2 t} = \sqrt{t / 0.5} </mrow></md>,
-	again we relate each of them to the graph of the function <m>f(t) = \sqrt{t} </m>.
+	again we relate each of them to the graph of the function <m> f(t) = \sqrt{t} </m>.
 	And again when we track anchor points
-	(again at <m>t = 0</m> and <m>t = 1</m> for <m>f</m>),
+	(again at <m> t = 0 </m> and <m> t = 1 </m> for <m> f </m>),
 	we want to determine what new independent variable value will produce the same output.
-	But we can immediately say that the anchor point at <m>t = 0</m> won't move,
-	so we'll focus on the one at <m>t = 1</m>.
+	But we can immediately say that the anchor point at <m> t = 0 </m> won't move,
+	so we'll focus on the one at <m> t = 1 </m>.
 	<md>
 		<mrow> f(1)   \amp = 1                               </mrow>
 		<mrow> g(2)   \amp = f(2 / 2) = f(1)                 </mrow>
@@ -1603,7 +1603,7 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 
 	<figure xml:id="figure-funcs-hscales">
 		<caption>
-			Two horizontal scales of the graph of <m>f(t) = \sqrt{t}</m>,
+			Two horizontal scales of the graph of <m> f(t) = \sqrt{t} </m>,
 			one stretched and one compressed.
 		</caption>
 		<image xml:id="image-funcs-hscales" width="89.7%">
@@ -1614,34 +1614,34 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 			<description>
 
 				<p>
-				Three graphs with similar shapes are drawn on the same set of <m>tq</m>-axes.
+				Three graphs with similar shapes are drawn on the same set of <m> tq </m>-axes.
 				The shape of each of the graphs is that of the top half of a sideways parabola that opens to the right.
 				</p>
 
 				<p>
 				The first such graph begins with its vertex at the origin,
-				rises steeply up to a marked point at <m>(1,1)</m>,
+				rises steeply up to a marked point at <m> (1,1) </m>,
 				and then continues to rise (but less steeply) to the right edge of the view.
 				</p>
 
 				<p>
 				The second graph also begins with its vertex at the origin,
-				but rises less steeply up to a marked point at <m>(2,1)</m>,
+				but rises less steeply up to a marked point at <m> (2,1) </m>,
 				and then continues to rise (both less steeply than before and less steeply than the first graph) to the right edge of the view.
 				Except for the shared vertex at the origin,
 				this graph lies entirely below and to the right of the first graph,
 				and an arrow points rightwards from the first graph to it,
-				indicating that this second graph is a horizontal stretch of the first graph away from the vertical axis by a factor of <m>2</m>.
+				indicating that this second graph is a horizontal stretch of the first graph away from the vertical axis by a factor of <m> 2 </m>.
 				</p>
 
 				<p>
 				The third graph also begins with its vertex at the origin,
-				but rises even more steeply up to a marked point at <m>(1/2,1)</m>,
+				but rises even more steeply up to a marked point at <m> (1/2,1) </m>,
 				and then continues to rise (less steeply than before but more steeply than the first graph) to the right edge of the view.
 				Except for the shared vertex at the origin,
 				this graph lies entirely above and to the left the first graph,
 				and an arrow points leftwards from the first graph to it,
-				indicating that this third graph is a horizontal compression of the first graph towards the horizontal axis by a factor of <m>2</m>.
+				indicating that this third graph is a horizontal compression of the first graph towards the horizontal axis by a factor of <m> 2 </m>.
 				</p>
 
 			</description>
@@ -1657,7 +1657,7 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 	For example, for
 	<md> g(t) = \sqrt{\frac{t}{2}} = \frac{\sqrt{t}}{\sqrt{2}} </md>
 	from <xref ref="example-funcs-hscale" />,
-	we could interpret the <q>new</q> function as either a horizontal stretch by a factor of <m>2</m> or as a vertical compression by a factor of <m>\sqrt{2}</m>.
+	we could interpret the <q>new</q> function as either a horizontal stretch by a factor of <m> 2 </m> or as a vertical compression by a factor of <m> \sqrt{2} </m>.
 </p></remark>
 
 </subsubsection>
@@ -1670,12 +1670,12 @@ If we take an <q>old</q> function and change the sign of inputs before they are 
 we create a <q>new</q> function whose graph has been reflected in the vertical axis.
 Accordingly, for
 <md> g(t) = f(- t) </md>,
-we call <m>g</m> a <term>horizontal reflection</term> of <m>f</m>.
+we call <m> g </m> a <term>horizontal reflection</term> of <m> f </m>.
 Similarly,
 if we have
 <md> g(t) = f(t / c) </md>
-with <m>c</m> negative,
-then <m>g</m> will be both a scaling and reflection of <m>f</m>.
+with <m> c </m> negative,
+then <m> g </m> will be both a scaling and reflection of <m> f </m>.
 </p>
 
 <example xml:id="example-funcs-hrefl">
@@ -1684,17 +1684,17 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 	<p>
 	To graph
 	<md> g(t) = \sqrt{- t} </md>
-	again we relate it to the graph of the function <m>f(t) = \sqrt{t} </m>.
-	It may seem like the formula for <m>g(t)</m> makes no sense,
+	again we relate it to the graph of the function <m> f(t) = \sqrt{t} </m>.
+	It may seem like the formula for <m> g(t) </m> makes no sense,
 	since the square root of a negative number is undefined.
 	However,
-	we are implicitly also reflecting the domain of <m>f</m> to create the domain of <m>g</m>:
-	if <m>t \le 0</m>, then <m>- t \ge 0</m>,
-	and in this case <m>\sqrt{- t}</m> will make sense.
+	we are implicitly also reflecting the domain of <m> f </m> to create the domain of <m> g </m>:
+	if <m> t \le 0 </m>, then <m> - t \ge 0 </m>,
+	and in this case <m> \sqrt{- t} </m> will make sense.
 	</p>
 
 	<p>
-	Again we'll focus on anchor points at <m>t = 0</m> and <m>t = 1</m>,
+	Again we'll focus on anchor points at <m> t = 0 </m> and <m> t = 1 </m>,
 	and again for each anchor point we need to determine what new independent variable value will produce the same output.
 	<md>
 		<mrow> f(0) \amp = 0      \amp f(1)   \amp = 1                     </mrow>
@@ -1703,27 +1703,27 @@ then <m>g</m> will be both a scaling and reflection of <m>f</m>.
 	</p>
 
 	<figure xml:id="figure-funcs-hrefl">
-		<caption> Horizontal reflection of the graph of <m>f(t) = \sqrt{t}</m>. </caption>
+		<caption> Horizontal reflection of the graph of <m> f(t) = \sqrt{t} </m>. </caption>
 		<image xml:id="image-funcs-hrefl" width="85.0%">
 			<shortdescription> Horizontal reflection of the graph of the square root function. </shortdescription>
 			<description>
 
 				<p>
-				Two graphs with identical shapes are drawn on the same set of <m>tq</m>-axes,
+				Two graphs with identical shapes are drawn on the same set of <m> tq </m>-axes,
 				with one a horizontal reflection of the other.
 				</p>
 
 				<p>
 				The first graph has the shape of the top half of a sideways parabola that opens to the right.
 				It begins with its vertex at the origin,
-				rises steeply up to a marked point at <m>(1,1)</m>,
+				rises steeply up to a marked point at <m> (1,1) </m>,
 				and then continues to rise (but less steeply) to the right edge of the view.
 				</p>
 
 				<p>
 				The second identical but reflected graph has the shape of the top half of a sideways parabola that opens to the left.
 				It begins with its vertex at the origin,
-				rises steeply (moving to the left) to a marked point at <m>(-1,1)</m>,
+				rises steeply (moving to the left) to a marked point at <m> (-1,1) </m>,
 				and then continues to rise (but less steeply, and still moving to the left) to the left edge of the view.
 				</p>
 

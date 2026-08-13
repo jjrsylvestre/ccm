@@ -26,8 +26,8 @@ respective owners.
 	Consider a spring with a mass attached to one end and the other end attached to a wall.
 	For simplicity,
 	we will assume that the mass rests on a frictionless surface.
-	Let <m>s(t)</m> represent the position of the spring relative to the wall at time <m>t</m>,
-	and let <m>\rmsubscript{s}{eq}</m> represent the <q>equilibrium</q> position.
+	Let <m> s(t) </m> represent the position of the spring relative to the wall at time <m> t </m>,
+	and let <m> \rmsubscript{s}{eq} </m> represent the <q>equilibrium</q> position.
 	</p>
 
 	<figure>
@@ -78,7 +78,7 @@ respective owners.
 	<p>
 	Imagine what will happen if the mass is held at a position that compresses the spring,
 	and then is released.
-	The initial velocity of the mass is <m>0</m>,
+	The initial velocity of the mass is <m> 0 </m>,
 	as it is starting from rest,
 	but the force of the spring causes it to accelerate.
 	The mass reaches its highest velocity as it passes the equilibrium position,
@@ -103,17 +103,17 @@ respective owners.
 	</figure>
 
 	<p>
-	Now consider the position function <m>s(t)</m>.
+	Now consider the position function <m> s(t) </m>.
 	For simplicity,
-	let's label the equilibrium position as <m>s = 0</m>,
+	let's label the equilibrium position as <m> s = 0 </m>,
 	so that positions closer to the wall than equilibrium and negative,
 	and positions farther from the wall are positive.
-	If the mass begins at position <m>s(0) = -A</m>
-	(with <m>A</m> positive),
-	it will reach the equilibrium position <m>s(t) = 0</m> at the same time that the velocity is at its peak,
-	and will by symmetry will the position <m>s(t) = A</m> will be the furthest from the wall it reaches,
-	at the same time that velocity is a gain <m>0</m>.
-	Then its position will return back to <m>s(t) = -A</m> following the same pattern in reverse.
+	If the mass begins at position <m> s(0) = -A </m>
+	(with <m> A </m> positive),
+	it will reach the equilibrium position <m> s(t) = 0 </m> at the same time that the velocity is at its peak,
+	and will by symmetry will the position <m> s(t) = A </m> will be the furthest from the wall it reaches,
+	at the same time that velocity is a gain <m> 0 </m>.
+	Then its position will return back to <m> s(t) = -A </m> following the same pattern in reverse.
 	</p>
 
 	<figure xml:id="figure-periodic-position-spring-mass">
@@ -146,13 +146,13 @@ the sine and cosine functions. -->
 <title>Radian measure</title>
 
 <p>
-A circle with radius <m>R = 1</m> has circumference <m>C = 2 \pi</m>.
+A circle with radius <m> R = 1 </m> has circumference <m> C = 2 \pi </m>.
 This means that if we cut the circle and <q>unrolled</q> it into a straight line segment,
-its length would be <m>2 \pi</m>.
+its length would be <m> 2 \pi </m>.
 </p>
 
 <figure xml:id="figure-periodic-full-circumference">
-	<caption> An unrolled circle of radius <m>1</m>. </caption>
+	<caption> An unrolled circle of radius <m> 1 </m>. </caption>
 	<image xml:id="image-periodic-circumference" width="92.9%">
 		<shortdescription> An unrolled unit circle. </shortdescription>
 		<!-- TODO description -->
@@ -185,9 +185,9 @@ an angle is created.
 	<title>Radian measure of an angle</title>
 	<statement><p>
 		Given an angle formed by two line segments that meet at a vertex,
-		extend the segments in the direction away from the vertex until each has length at least <m>1</m> unit,
+		extend the segments in the direction away from the vertex until each has length at least <m> 1 </m> unit,
 		if necessary.
-		Then the circle of radius <m>R = 1</m> centred at the vertex will cut the two segments.
+		Then the circle of radius <m> R = 1 </m> centred at the vertex will cut the two segments.
 		Define the <term>radian measure</term> of this angle to be the arc length between the points where the circle cuts the segments.
 	</p></statement>
 </definition>
@@ -205,8 +205,8 @@ an angle is created.
 For example,
 a right angle creates an arc that is one quarter of a circle,
 and so has radian measure <md> \frac{2 \pi}{4} = \frac{\pi}{2} </md>.
-A <m>45 \degree</m> angle will create an arc half the length of that for a right angle,
-and so has radian measure <m>\pi / 4</m>.
+A <m> 45 \degree </m> angle will create an arc half the length of that for a right angle,
+and so has radian measure <m> \pi / 4 </m>.
 </p>
 
 <figure xml:id="figure-periodic-radian-two-examples">
@@ -224,7 +224,7 @@ and so has radian measure <m>\pi / 4</m>.
 		</figure>
 
 		<figure xml:id="figure-periodic-radian-two-examples-45">
-			<caption> Radian measure of a <m>45 \degree</m> angle. </caption>
+			<caption> Radian measure of a <m> 45 \degree </m> angle. </caption>
 			<image xml:id="image-periodic-radian-45">
 				<shortdescription> Radian measure of a 45-degree angle. </shortdescription>
 				<!-- TODO description -->
@@ -247,21 +247,21 @@ with the corresponding angle measure in degrees.
 		<tabular halign="center">
 			<col right="minor" /><col />
 			<row header="yes" bottom="minor"> <cell>Degrees</cell> <cell>Radians</cell> </row>
-			<row> <cell><m>0 \degree</m></cell> <cell><m>0</m></cell> </row>
-			<row> <cell><m>30 \degree</m></cell> <cell><m>\pi / 6</m></cell> </row>
-			<row> <cell><m>45 \degree</m></cell> <cell><m>\pi / 4</m></cell> </row>
-			<row> <cell><m>60 \degree</m></cell> <cell><m>\pi / 3</m></cell> </row>
-			<row> <cell><m>90 \degree</m></cell> <cell><m>\pi / 2</m></cell> </row>
+			<row> <cell><m> 0 \degree </m></cell> <cell><m> 0 </m></cell> </row>
+			<row> <cell><m> 30 \degree </m></cell> <cell><m> \pi / 6 </m></cell> </row>
+			<row> <cell><m> 45 \degree </m></cell> <cell><m> \pi / 4 </m></cell> </row>
+			<row> <cell><m> 60 \degree </m></cell> <cell><m> \pi / 3 </m></cell> </row>
+			<row> <cell><m> 90 \degree </m></cell> <cell><m> \pi / 2 </m></cell> </row>
 		</tabular>
 		<tabular halign="center">
 			<col right="minor" /><col />
 			<row header="yes" bottom="minor"> <cell>Degrees</cell> <cell>Radians</cell> </row>
-			<row> <cell><m>120 \degree</m></cell> <cell><m>2 \pi / 3</m></cell> </row>
-			<row> <cell><m>135 \degree</m></cell> <cell><m>3 \pi / 4</m></cell> </row>
-			<row> <cell><m>150 \degree</m></cell> <cell><m>5 \pi / 6</m></cell> </row>
-			<row> <cell><m>180 \degree</m></cell> <cell><m>\pi</m></cell> </row>
-			<row> <cell><m>270 \degree</m></cell> <cell><m>3 \pi / 2</m></cell> </row>
-			<row> <cell><m>360 \degree</m></cell> <cell><m>2 \pi</m></cell> </row>
+			<row> <cell><m> 120 \degree </m></cell> <cell><m> 2 \pi / 3 </m></cell> </row>
+			<row> <cell><m> 135 \degree </m></cell> <cell><m> 3 \pi / 4 </m></cell> </row>
+			<row> <cell><m> 150 \degree </m></cell> <cell><m> 5 \pi / 6 </m></cell> </row>
+			<row> <cell><m> 180 \degree </m></cell> <cell><m> \pi </m></cell> </row>
+			<row> <cell><m> 270 \degree </m></cell> <cell><m> 3 \pi / 2 </m></cell> </row>
+			<row> <cell><m> 360 \degree </m></cell> <cell><m> 2 \pi </m></cell> </row>
 		</tabular>
 	</sidebyside>
 </figure>
@@ -285,7 +285,7 @@ while an angle that opens <em>clockwise</em> from first point to second point is
 
 <p>
 When working with the unit circle centred at the origin in the Cartesian plane,
-we generally take the point <m>(1,0)</m> as the <q>first</q> point to act as a reference point.
+we generally take the point <m> (1,0) </m> as the <q>first</q> point to act as a reference point.
 </p>
 
 <!-- TODO figure ? -->
@@ -310,49 +310,49 @@ so that every period is one traversal of the circle.
 </figure>
 
 <p>
-Consider how the <m>x</m>-coordinate varies as we traverse the unit circle,
-starting at the point <m>(1,0)</m> on the <m>x</m>-axis and moving counter-clockwise.
+Consider how the <m> x </m>-coordinate varies as we traverse the unit circle,
+starting at the point <m> (1,0) </m> on the <m> x </m>-axis and moving counter-clockwise.
 In particular,
-let's match <m>x</m>-coordinates of positions along the circle to angles,
-with variable <m>t</m> representing the angle between the radius to the reference point <m>(1,0)</m> and the radius to the position point,
+let's match <m> x </m>-coordinates of positions along the circle to angles,
+with variable <m> t </m> representing the angle between the radius to the reference point <m> (1,0) </m> and the radius to the position point,
 as in <xref ref="figure-periodic-traverse-circle" />.
-Starting at the reference point <m>(1,0)</m> on the positive <m>x</m>-axis,
+Starting at the reference point <m> (1,0) </m> on the positive <m> x </m>-axis,
 we observe the following.
 <ul>
 
 	<li>
-		The <m>x</m>-coordinate decreases from <m>x = 1</m> at <m>t = 0</m> to <m>x = 0</m> at the point <m>(0,1)</m> on the positive <m>y</m>-axis,
-		where <m>t = \pi/2</m>.
+		The <m> x </m>-coordinate decreases from <m> x = 1 </m> at <m> t = 0 </m> to <m> x = 0 </m> at the point <m> (0,1) </m> on the positive <m> y </m>-axis,
+		where <m> t = \pi/2 </m>.
 	</li>
 
 	<li>
 		From there,
-		the <m>x</m>-coordinate continues to decrease to <m>x = -1</m> when it reaches the point <m>(-1,0)</m> on the negative <m>x</m>-axis,
-		where <m>t = \pi</m>.
+		the <m> x </m>-coordinate continues to decrease to <m> x = -1 </m> when it reaches the point <m> (-1,0) </m> on the negative <m> x </m>-axis,
+		where <m> t = \pi </m>.
 	</li>
 
 	<li>
 		From there,
-		the <m>x</m>-coordinate increases through <m>x = 0</m> at the point <m>(0,-1)</m> on the negative <m>y</m>-axis
-		(where <m>t = 3\pi / 2</m>)
-		back to <m>x = 1</m> when it returns to the reference point <m>(1,0)</m>.
-		Even though this is at <m>t = 0</m>,
-		we consider it to be <m>t = 2 \pi</m>,
+		the <m> x </m>-coordinate increases through <m> x = 0 </m> at the point <m> (0,-1) </m> on the negative <m> y </m>-axis
+		(where <m> t = 3\pi / 2 </m>)
+		back to <m> x = 1 </m> when it returns to the reference point <m> (1,0) </m>.
+		Even though this is at <m> t = 0 </m>,
+		we consider it to be <m> t = 2 \pi </m>,
 		since we have now made one full traversal of the circumference of the circle.
 	</li>
 
 </ul>
 Traversing the circle a second (or third, or fourth) time just repeats this behaviour.
 And if we traverse the circle in reverse
-(so that now <m>t</m> is considered negative),
+(so that now <m> t </m> is considered negative),
 we observe the above behaviour in reverse.
-Here is the graph of <em>angle-versus-<m>x</m>-coordinate</em> formed by this behaviour.
+Here is the graph of <em>angle-versus-<m> x </m>-coordinate</em> formed by this behaviour.
 </p>
 
 <figure xml:id="figure-periodic-cos-graph">
 	<caption>
 		Graph of the cosine function,
-		which tracks the <m>x</m>-coordinate of positions on the unit circle.
+		which tracks the <m> x </m>-coordinate of positions on the unit circle.
 	</caption>
 	<image xml:id="image-periodic-cos" width="100%">
 		<shortdescription> Graph of the cosine function. </shortdescription>
@@ -364,22 +364,22 @@ Here is the graph of <em>angle-versus-<m>x</m>-coordinate</em> formed by this be
 <definition>
 	<title>The cosine function</title>
 	<statement><p>
-		Given input value <m>t</m>,
-		the output value <m>\cos(t)</m> is taken to be the <m>x</m>-coordinate of the point <m>(x,y)</m> on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
+		Given input value <m> t </m>,
+		the output value <m> \cos(t) </m> is taken to be the <m> x </m>-coordinate of the point <m> (x,y) </m> on the unit circle that forms an angle of <m> t </m> with the positive <m> x </m>-axis.
 	</p></statement>
 </definition>
 
 <p>
-Also consider how the <m>y</m>-coordinate varies as we traverse the unit circle,
-and how that variation tracks the variation in the angle <m>t</m>.
-With an analysis similar to the one above for the variation in the <m>x</m>-coordinate of the position,
-we arrive at the following graph of <em>angle-versus-<m>y</m>-coordinate</em>.
+Also consider how the <m> y </m>-coordinate varies as we traverse the unit circle,
+and how that variation tracks the variation in the angle <m> t </m>.
+With an analysis similar to the one above for the variation in the <m> x </m>-coordinate of the position,
+we arrive at the following graph of <em>angle-versus-<m> y </m>-coordinate</em>.
 </p>
 
 <figure xml:id="figure-periodic-sin-graph">
 	<caption>
 		Graph of the cosine function,
-		which tracks the <m>x</m>-coordinate of positions on the unit circle.
+		which tracks the <m> x </m>-coordinate of positions on the unit circle.
 	</caption>
 	<image xml:id="image-periodic-sin" width="100%">
 		<shortdescription> Graph of the sine function. </shortdescription>
@@ -392,8 +392,8 @@ we arrive at the following graph of <em>angle-versus-<m>y</m>-coordinate</em>.
 <definition>
 	<title>The sine function</title>
 	<statement><p>
-		Given input value <m>t</m>,
-		the output value <m>\sin(t)</m> is taken to be the <m>y</m>-coordinate of the point <m>(x,y)</m> on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
+		Given input value <m> t </m>,
+		the output value <m> \sin(t) </m> is taken to be the <m> y </m>-coordinate of the point <m> (x,y) </m> on the unit circle that forms an angle of <m> t </m> with the positive <m> x </m>-axis.
 	</p></statement>
 </definition>
 
@@ -440,8 +440,8 @@ we make the following definitions of four more trigonometric functions as ratios
 <definition xml:id="definition-periodic-tan-cot-sec-csc">
 	<title>The tangent function and reciprocal trigonometric functions</title>
 	<statement><p>
-		Given input value <m>t</m>,
-		let <m>(x,y)</m> represent the point on the unit circle that forms an angle of <m>t</m> with the positive <m>x</m>-axis.
+		Given input value <m> t </m>,
+		let <m> (x,y) </m> represent the point on the unit circle that forms an angle of <m> t </m> with the positive <m> x </m>-axis.
 		Then we define the <term>tangent</term>, <term>cotangent</term>, <term>secant</term>, and <term>cosecant</term> functions by
 		<md>
 			<mrow> \tan t \amp = \frac{y}{x} \amp \sec t \amp = \frac{1}{x} </mrow>
@@ -472,7 +472,7 @@ we make the following definitions of four more trigonometric functions as ratios
 	</p></statement>
 
 	<proof><p>
-		With angle <m>t</m> and point <m>(x,y)</m> on the unit circle as in <xref ref="definition-periodic-tan-cot-sec-csc" />,
+		With angle <m> t </m> and point <m> (x,y) </m> on the unit circle as in <xref ref="definition-periodic-tan-cot-sec-csc" />,
 		we have
 		<md>
 			<mrow>
@@ -504,7 +504,7 @@ we make the following definitions of four more trigonometric functions as ratios
 Given a right triangle,
 we can draw a unit circle centred at the vertex opposite the hypotenuse.
 This circle will either cut the hypotenuse or we may extend the hypotenuse until it reaches the circle.
-Treating one of the triangle's legs as representing the positive <m>x</m>-axis,
+Treating one of the triangle's legs as representing the positive <m> x </m>-axis,
 we may use the angle formed by the hypotenuse and that leg as the input to the trigonometric functions.
 </p>
 
@@ -577,38 +577,38 @@ leading to the familiar acronyms SOH CAH TOA:
 
 <p>
 <xref ref="example-periodic-spring" /> has already provided us with an example of a rate/position function pair involving trigonometric functions.
-Suppose we take the motion in that example to have an amplitude of <m>1</m>,
+Suppose we take the motion in that example to have an amplitude of <m> 1 </m>,
 so that when the object is stopped at maximum compression of the spring and at maximum stretch of the spring,
-it is <m>1</m> unit away from the central equilibrium position.
+it is <m> 1 </m> unit away from the central equilibrium position.
 And suppose we assume that the time units are normalized so that one full period of the motion,
 from compressed spring to stretched back to compressed,
-represents the time domain <m>0 \le t \le 2 \pi</m>.
+represents the time domain <m> 0 \le t \le 2 \pi </m>.
 Then the velocity can be modelled by the sine function and the position can be modelled by the negative of the cosine function:
 <md><mrow> v(t) \amp = \sin t \amp s(t) = - \cos t </mrow></md>.
-The reason that we have the <em>negative</em> of the cosine function as the position function is because we took the central equilibrium position to be <m>s = 0</m>,
-with <m>s \lt 0</m> representing a position closer to the wall and <m>s \gt 0</m> representing a position further from the wall compared to the centre position.
+The reason that we have the <em>negative</em> of the cosine function as the position function is because we took the central equilibrium position to be <m> s = 0 </m>,
+with <m> s \lt 0 </m> representing a position closer to the wall and <m> s \gt 0 </m> representing a position further from the wall compared to the centre position.
 So when the object is released from a stop at a compressed position,
-we are taking <m>s(0) = -1</m>.
+we are taking <m> s(0) = -1 </m>.
 And from the there the object moves forward,
 so that the position values increase and the velocity values becomes positive.
 </p>
 
 <p>
 As the object begins to move,
-it accumulates displacement from the initial position <m>s(0) = -1</m>:
+it accumulates displacement from the initial position <m> s(0) = -1 </m>:
 <md>
 	<mrow> s(t) \amp = s(0) + \ccmint{0}{t}{v(u)}{u} </mrow>
 	<mrow> \amp = -1 + \ccmint{0}{t}{\sin(u)}{u} </mrow>
 </md>.
 On the other hand,
-we have already modelled position as <m>s(t) = - \cos(t)</m>:
+we have already modelled position as <m> s(t) = - \cos(t) </m>:
 <md> - \cos(t) = -1 + \ccmint{0}{t}{\sin(u)}{u} </md>.
 </p>
 
 <identity xml:id="pattern-periodic-int-sin">
 	<title>Accumulation when rate function is sine</title>
 	<p>
-	For all values of <m>t</m>,
+	For all values of <m> t </m>,
 	<md> \ccmint{0}{t}{\sin(u)}{u} = 1 - \cos(t) </md>.
 	</p>
 </identity>
@@ -618,7 +618,7 @@ For a cosine rate function,
 we can use the fact that cosine is just a horizontal shift of the sine function:
 <md> \cos(t) = \sin(t + \pi/2) </md>.
 (See <xref ref="pattern-periodic-sin-cos-identities" />.)
-Accordingly, if we shift time so that we consider the velocity of the object in <xref ref="example-periodic-spring" /> as being modelled by <m>v(t) = \cos(t)</m>,
+Accordingly, if we shift time so that we consider the velocity of the object in <xref ref="example-periodic-spring" /> as being modelled by <m> v(t) = \cos(t) </m>,
 then we can just shift our position function by the same amount:
 <md>
 	<mrow>
@@ -636,14 +636,14 @@ then we can just shift our position function by the same amount:
 	</mrow>
 </md>.
 Essentially,
-we have shifted time so that <m>t = 0</m> means the moment that the object first moves through the equilibrium position at <m>s = 0</m> with its maximum positive velocity.
+we have shifted time so that <m> t = 0 </m> means the moment that the object first moves through the equilibrium position at <m> s = 0 </m> with its maximum positive velocity.
 Again,
 we think of the object as accumulating displacement from its initial position:
 <md>
 	<mrow> s(t) \amp = s(0) + \ccmint{0}{t}{v(u)}{u} </mrow>
 	<mrow> \amp = 0 + \ccmint{0}{t}{\cos(u)}{u} </mrow>
 </md>.
-As we have decided that position in this shifted scenario should be modelled as <m>s(t) = \sin(t)</m>,
+As we have decided that position in this shifted scenario should be modelled as <m> s(t) = \sin(t) </m>,
 we have
 <md> \sin(t) = 0 + \ccmint{0}{t}{\cos(u)}{u} </md>.
 </p>
@@ -651,7 +651,7 @@ we have
 <identity xml:id="pattern-periodic-int-cos">
 	<title>Accumulation when rate function is cosine</title>
 	<p>
-	For all values of <m>t</m>,
+	For all values of <m> t </m>,
 	<md> \ccmint{0}{t}{\cos(u)}{u} = \sin(t) </md>.
 	</p>
 </identity>
@@ -674,7 +674,7 @@ we have
 	of <xref ref="pattern-integ-definite-props" />
 	to manipulate the bounds of integration so that we can use our formulas from
 	<xref ref="pattern-periodic-int-sin" /> and <xref ref="pattern-periodic-int-cos" />,
-	which both involve a lower bound of <m>0</m>.
+	which both involve a lower bound of <m> 0 </m>.
 	<md>
 		<mrow>
 			\amp \ccmint{\frac{\pi}{2}}{\frac{3 \pi}{2}}{\sin(t)}{t}
@@ -706,11 +706,11 @@ we have
 			\amp \qquad = -2
 		</mrow>
 	</md>
-	We should have expected that the integral on the left would evaluate to <m>0</m>,
-	by the symmetry of the rate function <m>\sin(t)</m> <mdash />
-	the positively-oriented area over the domain <m>\pi / 2 \le t \le \pi</m>
-	is the same magnitude as the negatively-oriented area over the domain <m>\pi \le t \le 3 \pi / 2</m>,
-	and so cancel out when combined over the domain <m>\pi / 2 \le t \le 3 \pi / 2</m>.
+	We should have expected that the integral on the left would evaluate to <m> 0 </m>,
+	by the symmetry of the rate function <m> \sin(t) </m> <mdash />
+	the positively-oriented area over the domain <m> \pi / 2 \le t \le \pi </m>
+	is the same magnitude as the negatively-oriented area over the domain <m> \pi \le t \le 3 \pi / 2 </m>,
+	and so cancel out when combined over the domain <m> \pi / 2 \le t \le 3 \pi / 2 </m>.
 	</p>
 
 	<p>
