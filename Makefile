@@ -78,7 +78,7 @@ html-images: ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal
 html-image-pdfs: ${BUILDDIR}/image-pdfs/.sentinal
 latex: ${BUILDDIR}/latex/${ROOTDOCNAME}.tex
 
-deploy: html-all
+deploy: html
 	@[ "$(REMOTE_LOCATION)" ] || $(call log_error, "REMOTE_LOCATION not set!")
 	@echo "Transferring ${BUILDDIR}/html/ to ${REMOTE_LOCATION} ..."
 	@./scripts/deploy.sh ${BUILDDIR}/html deploy.exclude ${REMOTE_LOCATION}
