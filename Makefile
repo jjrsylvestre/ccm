@@ -1,19 +1,20 @@
-SOURCES = \
-  $(wildcard src/*.ptx) $(wildcard src/*.tex) \
-  $(wildcard src/*/*.ptx) $(wildcard src/*/*.tex) \
-  $(wildcard src/*/*/*.ptx) $(wildcard src/*/*/*.tex) \
-  $(wildcard src/*/*/*/*.ptx) $(wildcard src/*/*/*/*.tex)
-# I think that's as deep as things go...
+# recursive wildcard, from answers to
+# https://stackoverflow.com/questions/2483182/recursive-wildcards-in-gnu-make
+#
+rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
-BRANDLOGO=AUG-Colour.png
+SOURCES = $(call rwildcard,src,*.ptx *.tex)
+
+BRANDLOGO=UA_Logo_Stk_Green_RGB.png
 ROOTDOCNAME=book
 SERVEPORT=8082
-BUILDDIR=${XDG_RUNTIME_DIR}/pretext/ccm
+BUILDDIR=${XDG_RUNTIME_DIR}/pretext/CCM
 #PRETEXT=/opt/pretext/pretext/pretext
 #PRETEXT=./pretext/pretext/pretext
 PRETEXTDIR=./pretext
 ROOT_XMLID=book-calculus-concepts-modelling
 REMOTE_LOCATION=
+STIXFONTS_VERSION := $(shell cat stixfonts_version.txt)
 
 .PHONY: ptx validate-xml validate-ptx \
   html html-images html-image-pdfs html-fonts html-all html-serve \
@@ -108,10 +109,10 @@ ${BUILDDIR}/html/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	    html.css.extra ccm.css \
 	  --directory ${BUILDDIR}/html \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
-	@sed -i \
-	  -e 's/scale: 0\.[0-9]*,//' \
-	  -e 's/mtextInheritFont: true/mtextInheritFont: true, matchFontHeight: true/' \
-	  ${BUILDDIR}/html/*.html
+# 	@sed -i \
+# 	  -e 's/scale: 0\.[0-9]*,//' \
+# 	  -e 's/mtextInheritFont: true/mtextInheritFont: true, matchFontHeight: true/' \
+# 	  ${BUILDDIR}/html/*.html
 	@echo "...copying css style customizations"
 	@cp css/ccm.css ${BUILDDIR}/html/
 	@touch ${BUILDDIR}/html/.sentinal
@@ -156,20 +157,13 @@ ${BUILDDIR}/image-pdfs/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Now call:"
 	@echo "   ./scripts/image-widths.sh build/image-pdfs/*.pdf   (to calculate width attributes for ptx source)"
 
-html-fonts: \
-  ${BUILDDIR}/html/fonts/STIXTwoText-Bold.woff2 \
-  ${BUILDDIR}/html/fonts/STIXTwoText-BoldItalic.woff2 \
-  ${BUILDDIR}/html/fonts/STIXTwoText-Italic.woff2 \
-  ${BUILDDIR}/html/fonts/STIXTwoText-Medium.woff2 \
-  ${BUILDDIR}/html/fonts/STIXTwoText-MediumItalic.woff2 \
-  ${BUILDDIR}/html/fonts/STIXTwoText-Regular.woff2 \
-  ${BUILDDIR}/html/fonts/STIXTwoText-SemiBold.woff2 \
-  ${BUILDDIR}/html/fonts/STIXTwoText-SemiBoldItalic.woff2
-#   ${BUILDDIR}/html/fonts/STIXTwoMath-Regular.woff2
+html-fonts: ${BUILDDIR}/html/fonts/.sentinel
 
-${BUILDDIR}/html/fonts/%.woff2: stixfonts/fonts/static_otf_woff2/%.woff2
+${BUILDDIR}/html/fonts/.sentinel:
+	@echo "Copying STIX2 fonts..."
 	@mkdir -p ${BUILDDIR}/html/fonts
-	-cp $< ${BUILDDIR}/html/fonts/
+	@./scripts/unpack-fonts.sh ${BUILDDIR}/html/fonts ${STIXFONTS_VERSION}
+	@touch ${BUILDDIR}/html/fonts/.sentinel
 
 ${BUILDDIR}/latex/${ROOTDOCNAME}.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Converting PTX to LATEX for version: ${*}..."
