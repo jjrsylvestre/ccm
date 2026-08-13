@@ -21,22 +21,22 @@ respective owners.
 
 <p>
 Let's begin by revisiting <xref ref="pattern-deriv-vertical-shift" />.
-If function <m>q(t)</m> is a vertical scaling of another function <m>p(t)</m>,
-with <m>q(t) = k p(t)</m>,
-then when computing <m>dq/dt</m> at a particular point <m>t = t^\ast</m> we have
+If function <m> q(t) </m> is a vertical scaling of another function <m> p(t) </m>,
+with <m> q(t) = k p(t) </m>,
+then when computing <m> dq/dt </m> at a particular point <m> t = t^\ast </m> we have
 <md>
 	<mrow> \dqdt \amp = \frac{q(t^\ast + dt) - q(t^\ast)}{dt} </mrow>
 	<mrow> \amp = \frac{k p(t^\ast + dt) - k p(t^\ast)}{dt} </mrow>
 	<mrow> \amp = k \frac{p(t^\ast + dt) - p(t^\ast)}{dt} </mrow>
 	<mrow> \amp = k \ddt{p} </mrow>
 </md>.
-What if the scale factor <m>k</m> isn't actually constant,
+What if the scale factor <m> k </m> isn't actually constant,
 but itself is varying?
 <md> q(t) = k(t) p(t) </md>
-Over the very short time interval <m>t^\ast \le t \le t^\ast + dt</m>
-(or <m>t^\ast + dt \le t \le t^\ast</m>,
-if <m>dt</m> is negative),
-we might assume that <m>k(t)</m> is approximately constant:
+Over the very short time interval <m> t^\ast \le t \le t^\ast + dt </m>
+(or <m> t^\ast + dt \le t \le t^\ast </m>,
+if <m> dt </m> is negative),
+we might assume that <m> k(t) </m> is approximately constant:
 <md><mrow>
 	k(t) \amp \approx k^\ast = k(t^\ast)
 	\amp
@@ -44,17 +44,17 @@ we might assume that <m>k(t)</m> is approximately constant:
 	\amp
 	t^\ast \amp \le t \le t^\ast + dt
 </mrow></md>.
-Then a small variation in <m>t</m> causes a small variation in <m>p(t)</m>,
+Then a small variation in <m> t </m> causes a small variation in <m> p(t) </m>,
 which causes a variation of approximately
 <md> k^\ast \, \ddt{p} </md>
-in <m>q(t)</m>.
-But <m>k(t)</m> isn't actually constant <mdash />
-a small variation in <m>k(t)</m> also causes a small variation in <m>q(t)</m>.
+in <m> q(t) </m>.
+But <m> k(t) </m> isn't actually constant <mdash />
+a small variation in <m> k(t) </m> also causes a small variation in <m> q(t) </m>.
 So what if we turn this around,
 and consider <md> q(t) = p(t) k(t) </md>
-as a vertical scaling of <m>k(t)</m> with varying scale factor <m>p(t)</m>?
+as a vertical scaling of <m> k(t) </m> with varying scale factor <m> p(t) </m>?
 Then just as before,
-we might now assume that <m>p(t)</m> is approximately constant:
+we might now assume that <m> p(t) </m> is approximately constant:
 <md><mrow>
 	p(t) \amp \approx p^\ast = p(t^\ast)
 	\amp
@@ -62,14 +62,14 @@ we might now assume that <m>p(t)</m> is approximately constant:
 	\amp
 	t^\ast \amp \le t \le t^\ast + dt
 </mrow></md>.
-And then a small variation in <m>t</m> causes a small variation in <m>k(t)</m>,
+And then a small variation in <m> t </m> causes a small variation in <m> k(t) </m>,
 which causes a variation of approximately
 <md> p^\ast \, \ddt{k} </md>
-in <m>q(t)</m>.
-To get the total variation in <m>q(t)</m>,
+in <m> q(t) </m>.
+To get the total variation in <m> q(t) </m>,
 we should add these variations together:
 <md> \dqdt = k^\ast \, \ddt{p} + p^\ast \, \ddt{k} </md>.
-Since this is true at all points <m>t = t^\ast</m>,
+Since this is true at all points <m> t = t^\ast </m>,
 we may as well just write
 <md> \dqdt = k(t) \, \ddt{p} + p(t) \, \ddt{k} </md>.
 </p>
@@ -78,8 +78,8 @@ we may as well just write
 	<title>Product Rule</title>
 
 	<statement><p>
-		If functions <m>f</m> and <m>g</m> are both differentiable,
-		then so is the product function <m>q(t) = f(t) g(t)</m>,
+		If functions <m> f </m> and <m> g </m> are both differentiable,
+		then so is the product function <m> q(t) = f(t) g(t) </m>,
 		with <md> q'(t) = f(t) g'(t) + f'(t) g(t) </md>.
 		If differential notation,
 		<md> \dqdt = f \cdot \ddt{g} + \ddt{f} \cdot g </md>.
@@ -87,9 +87,9 @@ we may as well just write
 
 	<proof><p>
 		First, we have <md> q(t + dt) = f(t + dt) g(t + dt) </md>.
-		To compute <m>dq/dt</m>,
-		we compute the difference of <m>q(t + dt)</m> and <m>q(t)</m>,
-		and divide by <m>dt</m>.
+		To compute <m> dq/dt </m>,
+		we compute the difference of <m> q(t + dt) </m> and <m> q(t) </m>,
+		and divide by <m> dt </m>.
 		But in that difference calculation,
 		the result won't change if we <q>vertically shift</q> both terms by the same amount:
 		<md>
@@ -97,7 +97,7 @@ we may as well just write
 			- \bigl[ q(t) - C \bigr]
 			= q(t + dt) - q(t)
 		</md>.
-		Using <m>C = f(t + dt) g(t)</m>,
+		Using <m> C = f(t + dt) g(t) </m>,
 		we have
 		<md>
 			<mrow>
@@ -115,7 +115,7 @@ we may as well just write
 			</mrow>
 		</md>.
 		By the algebra rules of fractions,
-		we may divide each of these by <m>dt</m> before subtracting:
+		we may divide each of these by <m> dt </m> before subtracting:
 		<md>
 			<mrow> \frac{q(t + dt) - C}{dt} \amp = f(t + dt) \cdot \frac{g(t + dt) - g(t)}{dt} </mrow>
 			<mrow> \amp = f(t + dt) \cdot \ddt{g} </mrow>
@@ -129,7 +129,7 @@ we may as well just write
 			<mrow> \amp = f(t + dt) \cdot \ddt{g} - \left( - \ddt{f} \cdot g(t) \right) </mrow>
 			<mrow> \amp = f(t + dt) \cdot \ddt{g} + \ddt{f} \cdot g(t) </mrow>
 		</md>
-		Finally, since <m>f</m> is assumed to be differentiable,
+		Finally, since <m> f </m> is assumed to be differentiable,
 		it must be continuous,
 		and so
 		<md> dt \approx 0 \qquad\implies\qquad f(t + dt) \approx f(t) </md>.
@@ -183,7 +183,7 @@ we may as well just write
 		</p></li>
 		<li><p>
 			For <md> \opddt \bbrac{ t \sin(t^2) } </md>,
-			set <m>u = t^2</m>.
+			set <m> u = t^2 </m>.
 			Then
 			<md>
 				<mrow>
@@ -224,8 +224,8 @@ actually tells us something about the antiderivatives of the logarithm.
 			<mrow> \ln\abs{t} = \opddt \bbrac{ t \ln\abs{t} } - \ddt{t} </mrow>
 			<mrow> \ln\abs{t} = \opddt \bbrac{ t \ln\abs{t} - t } </mrow>
 		</md>.
-		Since <m>\ln\abs{t}</m> is the derivative of <m>t \ln\abs{t} - t</m>,
-		then also <m>t \ln\abs{t} - t</m> is an antiderivative of <m>\ln\abs{t}</m>,
+		Since <m> \ln\abs{t} </m> is the derivative of <m> t \ln\abs{t} - t </m>,
+		then also <m> t \ln\abs{t} - t </m> is an antiderivative of <m> \ln\abs{t} </m>,
 		and every other antiderivative must be a vertical shift of that particular one:
 		<md> \ccmiint{\ln\abs{t}}{t} = t \ln\abs{t} - t + C </md>,
 		as required.
@@ -257,7 +257,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 		<mrow> \ln(q) = t \ln\bigl[\cos(t)\bigr] </mrow>
 	</md>
 	(We haven't bothered with the absolute value brackets this time,
-	since we have already restricted the domain so that <m>q</m> is always positive.)
+	since we have already restricted the domain so that <m> q </m> is always positive.)
 	</p>
 
 	<p>
@@ -281,7 +281,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 		</mrow>
 		<mrow> \frac{1}{q} \cdot \dqdt = \ln\bbrac{\cos(t)} - t \tan(t) </mrow>
 	</md>.
-	Isolating <m>dq/dt</m> and subsituting back in for <m>q</m>,
+	Isolating <m> dq/dt </m> and subsituting back in for <m> q </m>,
 	we have
 	<md> \dqdt = \bigl[\cos(t)\bigr]^t \cdot \Bigl[\ln\bbrac{\cos(t)} - t \tan(t)\Bigr] </md>.
 	</p>
@@ -289,7 +289,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 </example>
 
 <remark><p>
-	Another approach to <xref ref="example-product-with-log" /> would be to express <m>q(t)</m> as
+	Another approach to <xref ref="example-product-with-log" /> would be to express <m> q(t) </m> as
 	<md> q(t) = \exp\Bbrac{t \ln\bbrac{\cos(t)}} </md>
 	and then combining the <xref ref="pattern-chain-differential-version" text="title" />
 	with the <xref ref="pattern-product-rule" text="title" />.
@@ -300,14 +300,14 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 <exercise>
 	<title>A Quotient Rule</title>
 	<p>
-	Suppose <m>q(t)</m> is a rational function <md> q(t) = \frac{f(t)}{g(t)} </md>.
+	Suppose <m> q(t) </m> is a rational function <md> q(t) = \frac{f(t)}{g(t)} </md>.
 	Rewriting this as <md> q(t) = f(t) \inv{\bigl[g(t)\bigr]} </md>,
 	combine the <xref ref="pattern-product-rule" text="title" />
 	with one of our two versions of the Chain Rule
 	(<xref ref="pattern-chain-differential-version" /> or <xref ref="pattern-comp-inv-chain-function-version" />)
 	to produce a <q>Quotient Rule.</q>
 	You should be able to simplify your final result into a rational expression involving
-	<m>f</m>, <m>g</m>, and their derivatives.
+	<m> f </m>, <m> g </m>, and their derivatives.
 	</p>
 </exercise>
 
@@ -360,7 +360,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	</figure>
 
 	<p>
-	We might model the incoming concentration <m>k(t)</m> with a function that begins at <m>k(0) = 0</m>,
+	We might model the incoming concentration <m> k(t) </m> with a function that begins at <m> k(0) = 0 </m>,
 	but then quickly ramps up to approach a horizontal asymptote at the desired concentration of
 	<quantity><mag>15</mag><unit base="gram" /><per base="liter" /></quantity>.
 	Maybe something like <md> k(t) = 15 (1 - e^{-t}) </md>.
@@ -382,7 +382,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	but now our <em>rate in</em> is varying instead of constant.
 	Remember that our analysis in that example was based on <em>amount</em> of salt in grams,
 	not concentration.
-	So letting <m>q(t)</m> represent the amount of salt in the tank at time <m>t</m>,
+	So letting <m> q(t) </m> represent the amount of salt in the tank at time <m> t </m>,
 	we have
 	<md>
 		<mrow> \text{rate in} \amp = \bbrac{k(t) \; \mathrm{g}/\mathrm{L}} (2 \; \mathrm{L}/\mathrm{s}) </mrow>
@@ -397,7 +397,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	</p>
 
 	<p>
-	Writing <m>r(t) = \dqdt</m> as usual,
+	Writing <m> r(t) = \dqdt </m> as usual,
 	let's rearrange this equation to
 	<md> \dqdt + \frac{q}{500} = 30 (1 - e^{-t}) </md>.
 	Just as when we solved separable rate equations (<xref ref="section-substitution-separable-DE" />),
@@ -406,10 +406,10 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	it could be the result of a <xref ref="pattern-product-rule" text="title" /> computation.
 	It would look <em>even more</em> like that if the first term was
 	<md> u \cdot \dqdt </md>
-	instead of just <m>dq/dt</m>,
-	for some function <m>u(t)</m>.
+	instead of just <m> dq/dt </m>,
+	for some function <m> u(t) </m>.
 	To introduce this new factor,
-	let's multiply the whole rate equation by this (currently unknown) function <m>u(t)</m>:
+	let's multiply the whole rate equation by this (currently unknown) function <m> u(t) </m>:
 	<md> u \cdot \dqdt + \frac{u}{500} \cdot q = 30 u (1 - e^{-t}) </md>.
 	But the Product Rule pattern is
 	<md> \opddt \, ( u q ) = u \cdot \dqdt + \dudt \cdot q </md>.
@@ -418,13 +418,13 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	Luckily, we already know from <xref ref="pattern-substitution-proportional-rate" /> that the function
 	<md> u(t) = e^{t / 500} </md>
 	satisfies this new rate equation.
-	(Note that we have chosen <m>u_0 = u(0) = 1</m>,
-	since we only need <em>one</em> appropriate function <m>u</m> to use,
+	(Note that we have chosen <m> u_0 = u(0) = 1 </m>,
+	since we only need <em>one</em> appropriate function <m> u </m> to use,
 	not <em>every possible</em> such function.)
 	</p>
 
 	<p>
-	So with <m>u</m> as above,
+	So with <m> u </m> as above,
 	our rate equation becomes
 	<md alignment="gather">
 		<mrow> e^{t / 500} \cdot \dqdt + \frac{e^{t / 500}}{500} \cdot q = 30 e^{t / 500} (1 - e^{-t}) </mrow>
@@ -471,7 +471,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 		</mrow>
 		<mrow> \amp = \frac{15000}{499} ( 499 + e^{- t} ) + C e^{- t / 500} </mrow>
 	</md>,
-	where <m>C</m> is an arbitrary constant.
+	where <m> C </m> is an arbitrary constant.
 	</p>
 </example>
 
@@ -482,23 +482,23 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	<statement><p>
 		A rate equation that can be expressed in the form
 		<md> \dqdt + p(t) \cdot q = f(t) </md>
-		for some functions <m>p</m> and <m>f</m>
+		for some functions <m> p </m> and <m> f </m>
 		is called a <term>first-order, linear rate equation</term>.
-		The function <m>p(t)</m> is called the <term>coefficient function</term>,
-		and the function <m>f(t)</m> is called the <term>forcing function</term> for the system.
+		The function <m> p(t) </m> is called the <term>coefficient function</term>,
+		and the function <m> f(t) </m> is called the <term>forcing function</term> for the system.
 	</p></statement>
 </definition>
 
 <p>
 We can use the same method as in <xref ref="example-product-mixing" /> to solve such a rate equation.
-We would like to determine a function <m>u(t)</m> so that
+We would like to determine a function <m> u(t) </m> so that
 <md> u \cdot \dqdt + u p q </md>
 is the same as the result of a <xref ref="pattern-product-rule" text="title" /> computation
 <md> \opddt \, (u q) = u \cdot \dqdt + \dudt \cdot q </md>.
 For this to be true,
-we need <m>u</m> to satisfy
+we need <m> u </m> to satisfy
 <md> \dudt = u \cdot p(t) </md>,
-which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <m>u</m> and <m>t</m>.
+which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <m> u </m> and <m> t </m>.
 </p>
 
 <algorithm xml:id="procedure-product-solve-1st-order-linear">
@@ -512,7 +512,7 @@ which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <
 			<md> \frac{1}{u} \cdot \dudt = p(t) </md>.
 		 </li>
 		 <li>
-			 Choose one particular solution function <m>u(t)</m> and multiply the original rate equation through by it:
+			 Choose one particular solution function <m> u(t) </m> and multiply the original rate equation through by it:
 			 <md> u(t) \dqdt + u(t) p(t) q(t) = u(t) f(t) </md>.
 		 </li>
 		 <li>
@@ -524,13 +524,13 @@ which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <
 			 </md>,
 			 introducing an arbitrary constant of integration on the right side only.
 		</li>
-		<li> Finally, isolate <m>q(t)</m>. </li>
+		<li> Finally, isolate <m> q(t) </m>. </li>
 	</ol>
 	</p>
 </algorithm>
 
 <remark><p>
-	The chosen function <m>u(t)</m> is called an <term>integrating factor</term> for the rate equation,
+	The chosen function <m> u(t) </m> is called an <term>integrating factor</term> for the rate equation,
 	as introducing it as an extra factor in each term allows us to undo the differentiation on the left-hand side <mdash />
 	that is, it allows us to solve the equation by integrating.
 </p></remark>
@@ -561,8 +561,8 @@ which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <
 		<mrow> \ccmiint{\frac{1}{u}}{u} = \ccmiint{\frac{2 t}{1 + t^2}}{t} </mrow>
 		<mrow> \ln\abs{u} = \ccmiint{\frac{2 t}{1 + t^2}}{t} </mrow>
 	</md>.
-	On the left, use the substitution <m>v = 1 + t^2</m>,
-	so that <m>dv/dt = 2 t</m>:
+	On the left, use the substitution <m> v = 1 + t^2 </m>,
+	so that <m> dv/dt = 2 t </m>:
 	<md alignment="gather">
 		<mrow> \ln\abs{u} = \ccmiint{\frac{1}{1 + t^2} (2 t)}{t} </mrow>
 		<mrow> \ln\abs{u} = \ccmiint{\frac{1}{1 + t^2} \ddt{v}}{t} </mrow>
@@ -570,16 +570,16 @@ which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <
 		<mrow> \ln\abs{u} = \ln\abs{v} + C </mrow>
 		<mrow> \ln\abs{u} = \ln\abs{1 + t^2} + C </mrow>
 	</md>.
-	Recall that we only need <em>one</em> integrating factor <m>u</m>,
+	Recall that we only need <em>one</em> integrating factor <m> u </m>,
 	not all possible ones,
-	so we will take <m>C = 0</m>.
+	so we will take <m> C = 0 </m>.
 	Then we can apply the exponential function to both sides to get
 	<md alignment="gather">
 		<mrow> \abs{u} = \abs{1 + t^2} </mrow>
 		<mrow> u = \pm (1 + t^2) </mrow>
 	</md>.
-	Again, we only need one <m>u</m> that works,
-	so we discard the negative solution and proceed with <m>u = 1 + t^2</m>:
+	Again, we only need one <m> u </m> that works,
+	so we discard the negative solution and proceed with <m> u = 1 + t^2 </m>:
 	<md>
 		<mrow> \dqdt + \frac{2 t}{1 + t^2} \cdot q = \frac{1}{1 + t^2} </mrow>
 		<mrow> (1 + t^2) \dqdt + 2 t q = 1 </mrow>
@@ -588,16 +588,16 @@ which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <
 		<mrow> (1 + t^2) q = t + K </mrow>
 		<mrow> q(t) = \frac{t + K}{1 + t^2} </mrow>
 	</md>,
-	where <m>K</m> is an arbitrary constant.
-	(We have chosen the letter <m>K</m> for the constant of integration here
-	to avoid confusion with our previous constant of integration from solving for <m>u</m>.)
+	where <m> K </m> is an arbitrary constant.
+	(We have chosen the letter <m> K </m> for the constant of integration here
+	to avoid confusion with our previous constant of integration from solving for <m> u </m>.)
 	</p>
 
 </example>
 
 <remark><p>
 	You may have noticed that <xref ref="example-product-solving-1st-order-linear" /> is a bit contrived,
-	since without all the hassle of solving for the integrating factor <m>u = 1 + t^2</m>,
+	since without all the hassle of solving for the integrating factor <m> u = 1 + t^2 </m>,
 	we might have chosen to multiply through by that factor just for algebraic reasons,
 	to clear fractions:
 	<md>

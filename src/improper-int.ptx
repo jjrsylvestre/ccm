@@ -20,12 +20,12 @@ respective owners.
 <title>Integrals on unbounded domains</title>
 
 <p>
-Is it possible to attach a number to the <q>area</q> of the region bounded between the graph of <m>f(t) = 1/t^2</m> and the horizontal axis from <m>t = 1</m> onwards?
+Is it possible to attach a number to the <q>area</q> of the region bounded between the graph of <m> f(t) = 1/t^2 </m> and the horizontal axis from <m> t = 1 </m> onwards?
 Or is the area simply infinite because the domain being considered is unbounded?
 </p>
 
 <figure>
-	<caption>An unbounded area under the graph of <m>f(t) = 1/t^2</m>.</caption>
+	<caption>An unbounded area under the graph of <m> f(t) = 1/t^2 </m>.</caption>
 	<image width="56.1%">
 		<shortdescription>A graph illustrating an unbounded area under the graph of the reciprocal square function.</shortdescription>
 		<!-- TODO description -->
@@ -41,15 +41,15 @@ our strategy is to approximate in a systematic way and then look for a trend in 
 Here we do not want to approximate with a Riemann sum because that would require adding up the areas of an infinite number of rectangles.
 Such a strategy might be feasible after we study <term>infinite series</term> in <xref ref="chapter-series" />,
 but there is a simpler approach:
-we simply compute <em>some</em> of the area over a <em>bounded</em> domain <m>1 \le t \le b</m>,
+we simply compute <em>some</em> of the area over a <em>bounded</em> domain <m> 1 \le t \le b </m>,
 then compute <em>some more</em> of the area over a <em>larger</em> bounded domain
-(that is, over <m>1 \le t \le b</m> for a larger value of <m>b</m>),
+(that is, over <m> 1 \le t \le b </m> for a larger value of <m> b </m>),
 and so on,
 and look for a trend in these partial areas.
 </p>
 
 <figure>
-	<caption>An bounded partial area under the graph of <m>f(t) = 1/t^2</m>.</caption>
+	<caption>An bounded partial area under the graph of <m> f(t) = 1/t^2 </m>.</caption>
 	<image width="56.1%">
 		<shortdescription>A graph illustrating a bounded partial area under the graph of the reciprocal square function.</shortdescription>
 		<!-- TODO description -->
@@ -65,16 +65,16 @@ we will take a more <term>continuous</term> approach compared to the step-by-ste
 As usual, we can consider the domain endpoint as a variable,
 and then the partial area values can all be collected together as an <em>integral function</em>:
 <md> \text{Total area } \approx A(t) = \ccmint{1}{t}{\frac{1}{u^2}}{u} </md>.
-A larger value of <m>t</m> will account for more of the area over the full, unbounded domain <m>t \ge 1</m>,
+A larger value of <m> t </m> will account for more of the area over the full, unbounded domain <m> t \ge 1 </m>,
 and so should be a better approximation.
 Is there any trend to these increasingly better approximations?
 That is,
-what is the long-term behaviour of the function <m>A(t)</m> as <m>t \to \infty</m>?
+what is the long-term behaviour of the function <m> A(t) </m> as <m> t \to \infty </m>?
 </p>
 
 <p>
 To investigate further,
-it would be nice to have a different expression for <m>A(t)</m>,
+it would be nice to have a different expression for <m> A(t) </m>,
 one that better fits our previous strategies for investigating long-term behaviour.
 Using <xref ref="pattern-poly-int-power-all-exp" text="type-local">Formula</xref> from <xref ref="pattern-poly-int-power" />,
 we have
@@ -83,9 +83,9 @@ we have
 	<mrow> \amp = \frac{t^{-1} - 1}{-1} </mrow>
 	<mrow> \amp = 1 - \frac{1}{t} </mrow>
 </md>
-But <m>1/t \to 0</m> as <m>t \to \infty</m>,
+But <m> 1/t \to 0 </m> as <m> t \to \infty </m>,
 so <md> \lim_{t \to \infty} A(t) = 1 </md>,
-and it seems reasonable to say that the area of the region bounded between the graph of <m>f(t) = 1/t^2</m> and the horizontal axis from <m>t = 1</m> onwards is equal to <m>1</m>.
+and it seems reasonable to say that the area of the region bounded between the graph of <m> f(t) = 1/t^2 </m> and the horizontal axis from <m> t = 1 </m> onwards is equal to <m> 1 </m>.
 </p>
 
 <definition>
@@ -93,8 +93,8 @@ and it seems reasonable to say that the area of the region bounded between the g
 	<statement><p><ol>
 
 		<li>
-			For a given boundary value <m>a</m>,
-			if <m>f</m> is integrable on every domain <m>a \le t \le b</m>,
+			For a given boundary value <m> a </m>,
+			if <m> f </m> is integrable on every domain <m> a \le t \le b </m>,
 			then write
 			<md> \ccmint{a}{\infty}{f(t)}{t} </md>
 			to represent the value of
@@ -103,8 +103,8 @@ and it seems reasonable to say that the area of the region bounded between the g
 		</li>
 
 		<li>
-			For a given boundary value <m>b</m>,
-			if <m>f</m> is integrable on every domain <m>a \le t \le b</m>,
+			For a given boundary value <m> b </m>,
+			if <m> f </m> is integrable on every domain <m> a \le t \le b </m>,
 			then write
 			<md> \ccmint{-\infty}{b}{f(t)}{t} </md>
 			to represent the value of
@@ -123,23 +123,23 @@ and it seems reasonable to say that the area of the region bounded between the g
 
 <remark><p>
 	In the definition of the <q>two-sided</q> improper integral over the whole real number line,
-	any <q>break</q> value can be used in place of <m>0</m>.
+	any <q>break</q> value can be used in place of <m> 0 </m>.
 	If both <md><mrow> \amp \ccmint{-\infty}{0}{f(t)}{t} \amp \amp \ccmint{0}{\infty}{f(t)}{t} </mrow></md>
 	can be computed,
 	then it should be possible to compute both <md><mrow> \amp \ccmint{-\infty}{a}{f(t)}{t} \amp \amp \ccmint{a}{\infty}{f(t)}{t} </mrow></md>
-	for every value of <m>a</m>,
+	for every value of <m> a </m>,
 	and it should always be the case that the sum of each of these pairs of integrals will be the same value as the sum of any other such pair of integrals.
 </p></remark>
 
 <example xml:id="example-improper-int-first-examples"><p><ol>
 
 	<li xml:id="example-improper-int-first-examples-one-over-squared">
-		<m>\displaystyle \ccmint{1}{\infty}{\frac{1}{t^2}}{t} = 1</m>,
+		<m> \displaystyle \ccmint{1}{\infty}{\frac{1}{t^2}}{t} = 1 </m>,
 		as already computed above.
 	</li>
 
 	<li xml:id="example-improper-int-first-examples-backward-exp-decay">
-		For <m>\displaystyle \ccmint{-\infty}{0}{e^t}{t}</m> we compute
+		For <m> \displaystyle \ccmint{-\infty}{0}{e^t}{t} </m> we compute
 		<md>
 			<mrow> \ccmint{-\infty}{0}{e^t}{t} \amp = \lim_{t \to -\infty} \ccmint{t}{0}{e^u}{u} </mrow>
 			<mrow> \amp = - \lim_{t \to -\infty} \ccmint{0}{t}{e^u}{u} </mrow>
@@ -151,7 +151,7 @@ and it seems reasonable to say that the area of the region bounded between the g
 
 	<li xml:id="example-improper-int-first-examples-two-sided">
 
-		<p> Consider <m>\displaystyle \ccmint{-\infty}{\infty}{t e^{-t^2}}{t} </m>. </p>
+		<p> Consider <m> \displaystyle \ccmint{-\infty}{\infty}{t e^{-t^2}}{t} </m>. </p>
 
 		<image width="43.5%">
 			<shortdescription>A graph illustrating unbounded area under a graph in both directions.</shortdescription>
@@ -161,7 +161,7 @@ and it seems reasonable to say that the area of the region bounded between the g
 			</latex-image>
 		</image>
 
-		<p> The graph of this function displays odd symmetry, so we expect the <q>two-sided</q> improper integral to compute to <m>0</m>. </p>
+		<p> The graph of this function displays odd symmetry, so we expect the <q>two-sided</q> improper integral to compute to <m> 0 </m>. </p>
 
 		<p>
 		We'll first use substitution to compute an antiderivative that we can use to compute both <q>halves</q> of this improper integral.
@@ -176,7 +176,7 @@ and it seems reasonable to say that the area of the region bounded between the g
 			<mrow> \amp = -\frac{1}{2} \cdot e^{-t^2} + C  </mrow>
 			<mrow> \amp = -\frac{1}{2 e^{t^2}} + C  </mrow>
 		</md>.
-		Now we'll use the specific antiderivative where <m>C = 0</m> in <xref ref="pattern-fund-thm-def-int-by-antideriv" /> when computing the two <q>halves</q>:
+		Now we'll use the specific antiderivative where <m> C = 0 </m> in <xref ref="pattern-fund-thm-def-int-by-antideriv" /> when computing the two <q>halves</q>:
 		<md>
 			<mrow>
 				\amp \ccmint{-\infty}{0}{t e^{-t^2}}{t}
@@ -240,7 +240,7 @@ as <md> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </md>?
 	should be equal to zero because,
 	just like the last example in <xref ref="example-improper-int-first-examples" />,
 	the function being integrated exhibits odd symmetry,
-	and the negative area over domain <m>t \le 0</m> should <q>cancel</q> with the positive area over domain <m>t \ge 0</m>.
+	and the negative area over domain <m> t \le 0 </m> should <q>cancel</q> with the positive area over domain <m> t \ge 0 </m>.
 	</p>
 
 	<image width="35.0%">
@@ -276,8 +276,8 @@ as <md> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </md>?
 </definition>
 
 <example xml:id="example-improper-int-one-over"><p>
-	While the integral of <m>f(t) = 1/t^2</m> as <m>t \to \infty</m> converges,
-	the integral of <m>g(t) = 1/t</m> does not:
+	While the integral of <m> f(t) = 1/t^2 </m> as <m> t \to \infty </m> converges,
+	the integral of <m> g(t) = 1/t </m> does not:
 	<md>
 		<mrow>
 			\ccmint{1}{\infty}{\frac{1}{t}}{t}
@@ -288,29 +288,29 @@ as <md> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </md>?
 	</md>.
 </p></example>
 
-<p> It turns out that <m>t^{-1}</m> is the <q>cusp</q> between convergence and divergence for power functions. </p>
+<p> It turns out that <m> t^{-1} </m> is the <q>cusp</q> between convergence and divergence for power functions. </p>
 
 <fact xml:id="fact-improper-int-p-funcs">
 	<title>Convergence of improper integrals for (reciprocal) power functions</title>
 
 	<statement><p>
-		The improper integral <md> \ccmint{1}{\infty}{\frac{1}{t^p}}{t} </md> converges for <m>p \gt 1</m> and diverges for <m>p \le 1</m>.
+		The improper integral <md> \ccmint{1}{\infty}{\frac{1}{t^p}}{t} </md> converges for <m> p \gt 1 </m> and diverges for <m> p \le 1 </m>.
 	</p></statement>
 
 	<proof><p>
-		The case of <m>p = 1</m> produces a divergent integral,
+		The case of <m> p = 1 </m> produces a divergent integral,
 		as already verified in <xref ref="example-improper-int-one-over" />.
-		For <m>p \neq 1</m>,
+		For <m> p \neq 1 </m>,
 		we have
 		<md>
 			<mrow> \ccmint{1}{\infty}{\frac{1}{t^p}}{t} \amp = \lim_{t \to \infty} \ccmint{1}{t}{\frac{1}{u^p}}{u} </mrow>
 			<mrow> \amp = \lim_{t \to \infty} \frac{t^{-p + 1} - 1}{-p + 1} </mrow>
 			<mrow> \amp = \frac{1}{1 - p} \left( \lim_{t \to \infty} t^{1 - p} - 1 \right) </mrow>
 		</md>.
-		Whether this limit exists depends on whether the exponent on <m>t</m> is negative or positive.
-		If <m>p \gt 1</m> then the exponent is negative and <m>t^{1 - p} \to 0</m> as <m>t \to \infty</m>,
+		Whether this limit exists depends on whether the exponent on <m> t </m> is negative or positive.
+		If <m> p \gt 1 </m> then the exponent is negative and <m> t^{1 - p} \to 0 </m> as <m> t \to \infty </m>,
 		so that <md> \ccmint{1}{\infty}{\frac{1}{t^p}}{t} = \frac{1}{p - 1} </md>.
-		If <m>p \lt 1</m> then the exponent is positive and <m>t^{1 - p} \to \infty</m> as <m>t \to \infty</m>,
+		If <m> p \lt 1 </m> then the exponent is positive and <m> t^{1 - p} \to \infty </m> as <m> t \to \infty </m>,
 		and the limit doesn't exist.
 	</p></proof>
 
@@ -322,7 +322,7 @@ as <md> \lim_{t \to \infty} \ccmint{-t}{t}{f(u)}{u} </md>?
 <title>Properties</title>
 
 <p>
-The following records the fact that if we are able to integrate as <m>t \to \infty</m> (or as <m>t \to -\infty</m>),
+The following records the fact that if we are able to integrate as <m> t \to \infty </m> (or as <m> t \to -\infty </m>),
 then we should be able to do so from any starting point.
 </p>
 
@@ -333,15 +333,15 @@ then we should be able to do so from any starting point.
 		<md><mrow> \amp \ccmint{a_1}{\infty}{f(t)}{t} \amp \amp \ccmint{a_2}{\infty}{f(t)}{t} </mrow></md>
 		converges,
 		then they both do
-		(as long as we remain within the domain of integrability of <m>f(t)</m>),
+		(as long as we remain within the domain of integrability of <m> f(t) </m>),
 		with
 		<md> \ccmint{a_1}{\infty}{f(t)}{t} = \ccmint{a_1}{a_2}{f(t)}{t} + \ccmint{a_2}{\infty}{f(t)}{t} </md>.
-		And similarly for improper integrals on domains <m>-\infty \lt t \le b_1</m> and <m>-\infty \lt t \le b_2</m>,
+		And similarly for improper integrals on domains <m> -\infty \lt t \le b_1 </m> and <m> -\infty \lt t \le b_2 </m>,
 		with <md> \ccmint{-\infty}{b_2}{f(t)}{t} = \ccmint{-\infty}{b_1}{f(t)}{t} + \ccmint{b_1}{b_2}{f(t)}{t} </md>.
 	</p></statement>
 
 	<proof><p>
-		Suppose <m>a_1 \lt a_2</m>.
+		Suppose <m> a_1 \lt a_2 </m>.
 		Then
 		<md>
 			<mrow> \ccmint{a_1}{\infty}{f(t)}{t} \amp = \lim_{t \to \infty} \ccmint{a_1}{t}{f(u)}{u} </mrow>
@@ -349,7 +349,7 @@ then we should be able to do so from any starting point.
 			<mrow> \amp = \ccmint{a_1}{a_2}{f(u)}{u} + \lim_{t \to \infty} \ccmint{a_2}{t}{f(u)}{u} </mrow>
 			<mrow> \amp = \ccmint{a_1}{a_2}{f(t)}{t} + \ccmint{a_2}{\infty}{f(t)}{t} </mrow>
 		</md>.
-		Since the integral over domain <m>a_1 \le t \le a_2</m> is just a number,
+		Since the integral over domain <m> a_1 \le t \le a_2 </m> is just a number,
 		the two integrals must both converge or both diverge.
 	</p></proof>
 
@@ -367,14 +367,14 @@ Here are some other familiar patterns from <xref ref="pattern-integ-definite-pro
 		<ol>
 
 			<li>
-				If <m>\displaystyle \ccmint{a}{\infty}{f(t)}{t}</m> converges,
-				then so does <m>\displaystyle \ccmint{a}{\infty}{k f(t)}{t}</m>,
+				If <m> \displaystyle \ccmint{a}{\infty}{f(t)}{t} </m> converges,
+				then so does <m> \displaystyle \ccmint{a}{\infty}{k f(t)}{t} </m>,
 				and <md> \ccmint{a}{\infty}{k f(t)} = k \ccmint{a}{\infty}{f(t)} </md>.
 			</li>
 
 			<li>
 				If both <md><mrow> \amp \ccmint{a}{\infty}{f(t)}{t} \amp \amp \ccmint{a}{\infty}{g(t)}{t} </mrow></md> converge,
-				then so does <m>\displaystyle \ccmint{a}{\infty}{f(t) + g(t)}{t}</m>,
+				then so does <m> \displaystyle \ccmint{a}{\infty}{f(t) + g(t)}{t} </m>,
 				and <md> \ccmint{a}{\infty}{f(t) + g(t)}{t} = \ccmint{a}{\infty}{f(t)}{t} + \ccmint{a}{\infty}{g(t)}{t} </md>.
 			</li>
 
@@ -396,30 +396,30 @@ it should be clear that the only way that an improper integral can converge is i
 
 <fact xml:id="fact-improper-int-converges-implies-h-asymp-at-0"><p><ol>
 	<li>
-		If an improper integral of <m>f(t)</m> converges as <m>t \to \infty</m>,
-		then it must be that <m>f(t) \to 0</m> as <m>t \to \infty</m>.
+		If an improper integral of <m> f(t) </m> converges as <m> t \to \infty </m>,
+		then it must be that <m> f(t) \to 0 </m> as <m> t \to \infty </m>.
 	</li>
 	<li>
-		If an improper integral of <m>f(t)</m> converges as <m>t \to -\infty</m>,
-		then it must be that <m>f(t) \to 0</m> as <m>t \to -\infty</m>.
+		If an improper integral of <m> f(t) </m> converges as <m> t \to -\infty </m>,
+		then it must be that <m> f(t) \to 0 </m> as <m> t \to -\infty </m>.
 	</li>
 </ol></p></fact>
 
 <warning><p>
 	Do not get <xref ref="fact-improper-int-converges-implies-h-asymp-at-0" /> backwards!
-	<xref ref="example-improper-int-one-over" /> demonstrates that knowing <m>f(t) \to 0</m> as <m>t \to \infty</m> is <alert>not</alert> sufficient for an improper integral to converge as <m>t \to \infty</m>.
+	<xref ref="example-improper-int-one-over" /> demonstrates that knowing <m> f(t) \to 0 </m> as <m> t \to \infty </m> is <alert>not</alert> sufficient for an improper integral to converge as <m> t \to \infty </m>.
 </p></warning>
 
 <p> The contrapositive of <xref ref="fact-improper-int-converges-implies-h-asymp-at-0" /> is often useful to avoid unnecessary work. </p>
 
 <corollary xml:id="corollary-improper-int-diverges-if-not-h-asymp-at-0"><p><ol>
 	<li>
-		If <m>f(t) \not\to 0</m> as <m>t \to \infty</m>,
-		then the improper integral of <m>f(t)</m> must diverge as <m>t \to \infty</m>.
+		If <m> f(t) \not\to 0 </m> as <m> t \to \infty </m>,
+		then the improper integral of <m> f(t) </m> must diverge as <m> t \to \infty </m>.
 	</li>
 	<li>
-		If <m>f(t) \not\to 0</m> as <m>t \to -\infty</m>,
-		then the improper integral of <m>f(t)</m> must diverge as <m>t \to -\infty</m>.
+		If <m> f(t) \not\to 0 </m> as <m> t \to -\infty </m>,
+		then the improper integral of <m> f(t) </m> must diverge as <m> t \to -\infty </m>.
 	</li>
 </ol></p></corollary>
 
@@ -436,27 +436,27 @@ it should be clear that the only way that an improper integral can converge is i
 <introduction>
 
 	<p>
-	While <xref ref="fact-improper-int-converges-implies-h-asymp-at-0" /> says that we need <m>f(t) \to 0</m>as <m>t \to \infty</m> for an improper integral to converge as <m>t \to \infty</m>,
-	if <m>f(t)</m> is too <em>slow</em> to converge to <m>0</m>,
+	While <xref ref="fact-improper-int-converges-implies-h-asymp-at-0" /> says that we need <m> f(t) \to 0 </m>as <m> t \to \infty </m> for an improper integral to converge as <m> t \to \infty </m>,
+	if <m> f(t) </m> is too <em>slow</em> to converge to <m> 0 </m>,
 	then the integral will not converge.
 	This is precisely what is happening with the two integrals
 	<md><mrow> \amp \ccmint{1}{\infty}{\frac{1}{t}}{t} \text{,} \amp \amp \ccmint{1}{\infty}{\frac{1}{t^2}}{t} \text{.} </mrow></md>
-	The function <m>f(t) = 1/t</m> converges to zero as <m>t \to \infty</m>,
+	The function <m> f(t) = 1/t </m> converges to zero as <m> t \to \infty </m>,
 	but it does so too slowly and so the accumulating area grows too quickly for it to converge to a specific value.
-	But the square in <m>g(t) = 1/t^2</m> allows this function to converge to zero more quickly,
-	limiting the growth of the area as <m>t \to \infty</m> and allowing trend of partial areas to stay bounded.
+	But the square in <m> g(t) = 1/t^2 </m> allows this function to converge to zero more quickly,
+	limiting the growth of the area as <m> t \to \infty </m> and allowing trend of partial areas to stay bounded.
 	</p>
 
 	<p>
 	Now consider <md> \ccmint{0}{\infty}{e^{-t^2}}{t} </md>.
 	We saw that an improper integral of exponential decay converges in <xref ref="example-improper-int-first-examples-backward-exp-decay" text="type-local">Integral</xref> of <xref ref="example-improper-int-first-examples" />,
 	which is not surprising because exponential decay decays very quickly.
-	And this integral squares <m>t</m> before inputting it into exponential decay,
+	And this integral squares <m> t </m> before inputting it into exponential decay,
 	so it decays even faster.
 	Because of this,
 	we should expect this integral to converge.
 	But how could we be sure?
-	The function <m>f(t) = e^{-t^2}</m> is (famously) an example of a function where is it impossible to write down an antiderivative without using an integral
+	The function <m> f(t) = e^{-t^2} </m> is (famously) an example of a function where is it impossible to write down an antiderivative without using an integral
 	(that is, using the <xref ref="theorem-fund-thm" text="title" />).
 	</p>
 
@@ -467,8 +467,8 @@ it should be clear that the only way that an improper integral can converge is i
 
 	<note><p>
 		In this section,
-		we will only concern ourselves with integrals where <m>t \to \infty</m>,
-		but similar facts/patterns hold for integrals where <m>t \to -\infty</m>.
+		we will only concern ourselves with integrals where <m> t \to \infty </m>,
+		but similar facts/patterns hold for integrals where <m> t \to -\infty </m>.
 	</p></note>
 
 </introduction>
@@ -486,10 +486,10 @@ than it stands to reason that the second improper integral should converge as we
 	<title>Comparison test for integrals</title>
 
 	<statement><p>
-		Assume <m> 0 \le f(t) \le g(t)</m> for <m>t \ge a</m>.
+		Assume <m> 0 \le f(t) \le g(t) </m> for <m> t \ge a </m>.
 		<ol>
-			<li> If <m>\displaystyle \ccmint{a}{\infty}{g(t)}{t}</m> converges then so does <m>\displaystyle \ccmint{a}{\infty}{f(t)}{t}</m>. </li>
-			<li> If <m>\displaystyle \ccmint{a}{\infty}{f(t)}{t}</m> diverges then so does <m>\displaystyle \ccmint{a}{\infty}{g(t)}{t}</m>. </li>
+			<li> If <m> \displaystyle \ccmint{a}{\infty}{g(t)}{t} </m> converges then so does <m> \displaystyle \ccmint{a}{\infty}{f(t)}{t} </m>. </li>
+			<li> If <m> \displaystyle \ccmint{a}{\infty}{f(t)}{t} </m> diverges then so does <m> \displaystyle \ccmint{a}{\infty}{g(t)}{t} </m>. </li>
 		</ol>
 	</p></statement>
 
@@ -510,33 +510,33 @@ than it stands to reason that the second improper integral should converge as we
 	<title>Idea of justification</title>
 
 	<p>
-	Since <m> 0 \le f(t) \le g(t)</m>,
+	Since <m> 0 \le f(t) \le g(t) </m>,
 	the partial area functions
 	<md><mrow>
 		F(t) \amp = \ccmint{a}{t}{f(u)}{u} \amp
 		G(t) \amp = \ccmint{a}{t}{g(u)}{u}
 	</mrow></md>
-	are non-decreasing and also satisfy <m> 0 \le F(t) \le G(t)</m> for <m>t \ge a</m>.
+	are non-decreasing and also satisfy <m> 0 \le F(t) \le G(t) </m> for <m> t \ge a </m>.
 	</p>
 
 	<p>
-	If the improper integral of <m>g</m> converges,
-	then <m>G(t)</m> must be bounded,
-	hence <m>F(t)</m> must be bounded as well.
-	Since <m>F(t)</m> is non-decreasing,
-	it must converge as <m>t \to \infty</m>
+	If the improper integral of <m> g </m> converges,
+	then <m> G(t) </m> must be bounded,
+	hence <m> F(t) </m> must be bounded as well.
+	Since <m> F(t) </m> is non-decreasing,
+	it must converge as <m> t \to \infty </m>
 	(<xref ref="theorem-seq-monotonic-conv" text="title" />).
-	Hence the improper integral of <m>f</m> converges as well.
+	Hence the improper integral of <m> f </m> converges as well.
 	</p>
 
 	<p>
 	On the other hand,
-	suppose we start with the assumption that the improper integral of <m>f</m> diverges.
-	As the partial area function <m>F(t)</m> is non-decreasing,
+	suppose we start with the assumption that the improper integral of <m> f </m> diverges.
+	As the partial area function <m> F(t) </m> is non-decreasing,
 	we can conclude that it is unbounded.
-	Since <m>G(t) \ge F(t)</m> for <m>t \ge a</m>,
-	<m>G(t)</m> must be unbounded as well,
-	in which case the improper integral of <m>g</m> diverges as well.
+	Since <m> G(t) \ge F(t) </m> for <m> t \ge a </m>,
+	<m> G(t) </m> must be unbounded as well,
+	in which case the improper integral of <m> g </m> diverges as well.
 	</p>
 
 </proof>
@@ -545,13 +545,13 @@ than it stands to reason that the second improper integral should converge as we
 <proof>
 
 	<p>
-	Let <m>F(t)</m> and <m>G(t)</m> be the partial area functions for <m>f(t)</m> and <m>g(t)</m>,
+	Let <m> F(t) </m> and <m> G(t) </m> be the partial area functions for <m> f(t) </m> and <m> g(t) </m>,
 	respectively:
 	<md><mrow>
 		F(t) \amp = \ccmint{a}{t}{f(u)}{u} \text{,} \amp
 		G(t) \amp = \ccmint{a}{t}{g(u)}{u} \text{.}
 	</mrow></md>
-	Since we assume both of <m>f</m> and <m>g</m> are non-negative,
+	Since we assume both of <m> f </m> and <m> g </m> are non-negative,
 	these functions are both non-decreasing.
 	</p>
 
@@ -563,40 +563,40 @@ than it stands to reason that the second improper integral should converge as we
 		\ccmint{a}{\infty}{g(t)}{t} \amp = \lim_{t \to \infty} G(t) \text{.}
 	</mrow></md>
 	To investigate those limits,
-	consider <m>\nseq{t} \to \infty</m> with <m>t_n \ge a</m> for all <m>n</m>,
-	and let <m>\nseq{F}</m> and <m>\nseq{G}</m> be the corresponding output sequences:
-	<m>F_n = F(t_n)</m>, <m>G_n = G(t_n)</m>.
+	consider <m> \nseq{t} \to \infty </m> with <m> t_n \ge a </m> for all <m> n </m>,
+	and let <m> \nseq{F} </m> and <m> \nseq{G} </m> be the corresponding output sequences:
+	<m> F_n = F(t_n) </m>, <m> G_n = G(t_n) </m>.
 	These sequences are both non-decreasing,
-	and from the assumption <m>0 \le f(t) \le g(t)</m>,
-	we also have <m>0 \le F_n \le G_n</m> for all <m>n</m>.
+	and from the assumption <m> 0 \le f(t) \le g(t) </m>,
+	we also have <m> 0 \le F_n \le G_n </m> for all <m> n </m>.
 	</p>
 
 	<p>
-	If the improper integral of <m>g</m> converges,
-	then by definition so must the sequence <m>\nseq{G}</m>,
+	If the improper integral of <m> g </m> converges,
+	then by definition so must the sequence <m> \nseq{G} </m>,
 	and so that sequence must be bounded.
-	From <m>0 \le F_n \le G_n</m>,
-	the sequence <m>\nseq{F}</m> must also be bounded,
+	From <m> 0 \le F_n \le G_n </m>,
+	the sequence <m> \nseq{F} </m> must also be bounded,
 	and so must converge (<xref ref="theorem-seq-monotonic-conv" text="title" />).
-	Since we see this trend for every possible sequence <m>\nseq{t} \to \infty</m>,
-	the function limit of <m>F(t)</m> also converges,
-	hence so does the improper integral of <m>f</m>.
+	Since we see this trend for every possible sequence <m> \nseq{t} \to \infty </m>,
+	the function limit of <m> F(t) </m> also converges,
+	hence so does the improper integral of <m> f </m>.
 	</p>
 
 	<p>
 	On the other hand,
-	suppose the improper integral of <m>f</m> diverges.
+	suppose the improper integral of <m> f </m> diverges.
 	TODO CONTINUE
 
-	From our assumption on <m>f</m> and <m>g</m>,
+	From our assumption on <m> f </m> and <m> g </m>,
 	we have
 	<md> 0 \le \ccmint{a}{t}{f(u)}{u} \le \ccmint{a}{t}{g(u)}{u} </md>
-	Since <m> 0 \le f(t) \le g(t)</m> for <m>t \ge a</m>.
+	Since <m> 0 \le f(t) \le g(t) </m> for <m> t \ge a </m>.
 
-	If the area under the graph of <m>g</m> is finite,
-	and the graph of <m>f</m> is below the graph of <m>f</m>,
-	making the area under the graph of <m>f</m> smaller,
-	then the area under <m>f</m> must be finite as well.
+	If the area under the graph of <m> g </m> is finite,
+	and the graph of <m> f </m> is below the graph of <m> f </m>,
+	making the area under the graph of <m> f </m> smaller,
+	then the area under <m> f </m> must be finite as well.
 	And the second statement is just the contrapositive of the first.
 </p></proof>
  -->
@@ -613,8 +613,8 @@ than it stands to reason that the second improper integral should converge as we
 	For the comparison,
 	first consider that exponential values are always positive.
 	Further more,
-	for <m>t \ge 1</m> we have <m>t^2 \ge t</m>,
-	and so <m>e^{t^2}</m> will be further out on the exponential growth graph than <m>e^t</m>.
+	for <m> t \ge 1 </m> we have <m> t^2 \ge t </m>,
+	and so <m> e^{t^2} </m> will be further out on the exponential growth graph than <m> e^t </m>.
 	Thus,
 	<md alignment="gather">
 		<mrow> e^{t^2} \ge e^t </mrow>
@@ -625,26 +625,26 @@ than it stands to reason that the second improper integral should converge as we
 	From this we conclude
 	<ul>
 		<li>
-			Because <m>\displaystyle \ccmint{0}{\infty}{e^{-t}}{t}</m> converges,
-			so does <m>\displaystyle \ccmint{1}{\infty}{e^{-t}}{t}</m>.
+			Because <m> \displaystyle \ccmint{0}{\infty}{e^{-t}}{t} </m> converges,
+			so does <m> \displaystyle \ccmint{1}{\infty}{e^{-t}}{t} </m>.
 			(<xref ref="fact-improper-int-converge-restart" />)
 		</li>
 		<li>
-			By comparison with <m>\displaystyle \ccmint{1}{\infty}{e^{-t}}{t}</m>,
-			<m>\displaystyle \ccmint{1}{\infty}{e^{-t^2}}{t}</m> converges
+			By comparison with <m> \displaystyle \ccmint{1}{\infty}{e^{-t}}{t} </m>,
+			<m> \displaystyle \ccmint{1}{\infty}{e^{-t^2}}{t} </m> converges
 			(<xref ref="pattern-improper-int-compare" />)
 		</li>
 		<li>
-			Because <m>\displaystyle \ccmint{1}{\infty}{e^{-t^2}}{t}</m> converges,
-			so does <m>\displaystyle \ccmint{0}{\infty}{e^{-t^2}}{t}</m>.
+			Because <m> \displaystyle \ccmint{1}{\infty}{e^{-t^2}}{t} </m> converges,
+			so does <m> \displaystyle \ccmint{0}{\infty}{e^{-t^2}}{t} </m>.
 			(<xref ref="fact-improper-int-converge-restart" />)
 		</li>
 	</ul>
-	If we wanted some idea of the value of the improper integral of <m>e^{-t^2}</m>,
+	If we wanted some idea of the value of the improper integral of <m> e^{-t^2} </m>,
 	we could approximate it numerically with partial integrals.
 	The Sage cell below will allow you to do that by increasing the upper bound of integration.
-	What do you notice as you increase the upper bound <m>t</m>?
-	What does this say about the graph of <m>f(t) = e^{-t^2}</m>?
+	What do you notice as you increase the upper bound <m> t </m>?
+	What does this say about the graph of <m> f(t) = e^{-t^2} </m>?
 	</p>
 
 	<sage>
@@ -663,8 +663,8 @@ than it stands to reason that the second improper integral should converge as we
 	Since exponential values are always positive,
 	we have
 	<md> \frac{e^t + 1}{t e^t} = \frac{1}{t} + \frac{1}{t e^t} \gt \frac{1}{t} </md>
-	for positive <m>t</m>.
-	Therefore the integral above diverges by comparison with the improper integral of <m>1/t</m>
+	for positive <m> t </m>.
+	Therefore the integral above diverges by comparison with the improper integral of <m> 1/t </m>
 	(<xref ref="example-improper-int-one-over" />).
 </p></example>
 
@@ -677,8 +677,8 @@ the following fact sometimes allows us to convert the question of convergence to
 	<title>Absolute convergence of improper integrals</title>
 
 	<statement><p>
-		If an improper integral of <m>\abs{f(t)}</m> converges,
-		then so will an improper integral of <m>f(t)</m>.
+		If an improper integral of <m> \abs{f(t)} </m> converges,
+		then so will an improper integral of <m> f(t) </m>.
 	</p></statement>
 
 	<proof><p>
@@ -686,7 +686,7 @@ the following fact sometimes allows us to convert the question of convergence to
 		Then from <xref ref="pattern-improper-int-linearity" />,
 		so do both of
 		<md><mrow> \amp \ccmint{a}{\infty}{2 \abs{f(t)}}{t} \text{,} \amp \amp \ccmint{a}{\infty}{- \abs{f(t)}}{t} \text{.} </mrow></md>
-		For all <m>t</m> in the domain of <m>f</m> we have
+		For all <m> t </m> in the domain of <m> f </m> we have
 		<md alignment="gather">
 			<mrow> \phantom{\implies} \quad -\abs{f(t)} \le f(t) \le \abs{f(t)} \quad \phantom{\implies} </mrow>
 			<mrow> \implies \quad 0 \le f(t) + \abs{f(t)} \le 2 \abs{f(t)} \text{.} \quad \phantom{\implies} </mrow>
@@ -705,8 +705,8 @@ the following fact sometimes allows us to convert the question of convergence to
 	The amplitude of the sine function in the integrand is decaying exponentially,
 	so it seems like this integral should converge.
 	We have <md> 0 \le \abs{\sin(t)} \le 1 \qquad \implies \qquad 0 \le \abs{e^{-t} \sin(t)} \le e^{-t}  </md>,
-	and so the improper integral of <m>\abs{e^{-t} \sin(t)}</m> converges by comparison with the improper integral of <m>e^{-t}</m>.
-	And then the improper integral of <m>e^{-t} \sin(t)</m> converges by <xref ref="fact-improper-int-abs-conv" />.
+	and so the improper integral of <m> \abs{e^{-t} \sin(t)} </m> converges by comparison with the improper integral of <m> e^{-t} </m>.
+	And then the improper integral of <m> e^{-t} \sin(t) </m> converges by <xref ref="fact-improper-int-abs-conv" />.
 </p></example>
 
 </subsection>
@@ -716,15 +716,15 @@ the following fact sometimes allows us to convert the question of convergence to
 
 <p>
 An improper integral converges if it accumulates area slowly enough that the area doesn't become unbounded.
-But this is directly related to how quickly the height of the graph tends to <m>0</m>.
-So we should be able to compare improper integrals based on how quickly the functions being integrated tend to <m>0</m>.
+But this is directly related to how quickly the height of the graph tends to <m> 0 </m>.
+So we should be able to compare improper integrals based on how quickly the functions being integrated tend to <m> 0 </m>.
 </p>
 
 <identity xml:id="pattern-improper-int-limit-compare">
 	<title>Limit comparison test for integrals</title>
 	<p>
 	If <md>\lim_{t \to \infty} \frac{f(t)}{g(t)}</md> exists and is positive
-	(that is, <m>f(t)</m> and <m>g(t)</m> grow/decay at the same rate as <m>t \to \infty</m>),
+	(that is, <m> f(t) </m> and <m> g(t) </m> grow/decay at the same rate as <m> t \to \infty </m>),
 	then the two improper integrals
 	<md><mrow> \amp \ccmint{a}{\infty}{f(t)}{t} \amp \amp \ccmint{a}{\infty}{g(t)}{t} </mrow></md>
 	either <em>both</em> converge or <em>both</em> diverge.
@@ -733,7 +733,7 @@ So we should be able to compare improper integrals based on how quickly the func
 
 <example><p>
 	Consider <md> \ccmint{2}{\infty}{\frac{2 t^2 - 3 t + 1}{t^3 + t^2 - 5}}{t} </md>.
-	For large <m>t</m>,
+	For large <m> t </m>,
 	considering dominant terms we have <md> \frac{2 t^2 - 3 t + 1}{t^3 + t^2 - 5} \approx \frac{2}{t} </md>,
 	But comparing the two using the <xref ref="pattern-improper-int-compare" text="title" /> might be difficult.
 	Instead,
@@ -765,7 +765,7 @@ So we should be able to compare improper integrals based on how quickly the func
 
 <p>
 We can think of vertical asymptotes as <q>inverses</q> of horizontal asymptotes.
-If we can sometimes attach a number to the area squeezed between a graph and a horizontal asymptote at <m>y = 0</m>,
+If we can sometimes attach a number to the area squeezed between a graph and a horizontal asymptote at <m> y = 0 </m>,
 we should be able to sometimes attach a number to the area squeezed between a graph and a vertical asymptote.
 To compute such an improper integral,
 we take a limit as one of the boundaries approaches the location of the vertical asymptote.
@@ -774,8 +774,8 @@ we take a limit as one of the boundaries approaches the location of the vertical
 <definition>
 	<title>Improper integrals near a vertical asymptote</title>
 	<statement><p>
-		Suppose the graph of <m>f(t)</m> has a vertical asymptote at <m>t = c</m>,
-		and that <m>a \lt c \lt b</m>.
+		Suppose the graph of <m> f(t) </m> has a vertical asymptote at <m> t = c </m>,
+		and that <m> a \lt c \lt b </m>.
 		Then we define
 		<ol>
 			<li><m> \ccmint{a}{c}{f(t)}{t} = \lim_{t \to c^{-}} \ccmint{a}{t}{f(u)}{u} </m></li>
@@ -796,7 +796,7 @@ we take a limit as one of the boundaries approaches the location of the vertical
 		<figure>
 			<caption>
 				A left-handed improper integral at a vertical asymptote.
-				The partial area <m>\ccmint{a}{t}{f(u)}{u}</m> approximates the total area <m>\ccmint{a}{c}{f(t)}{t}</m>.
+				The partial area <m> \ccmint{a}{t}{f(u)}{u} </m> approximates the total area <m> \ccmint{a}{c}{f(t)}{t} </m>.
 			</caption>
 			<image>
 				<shortdescription>A graph depicting a left-handed improper integral at a vertical asymptote.</shortdescription>
@@ -810,7 +810,7 @@ we take a limit as one of the boundaries approaches the location of the vertical
 		<figure>
 			<caption>
 				A right-handed improper integral at a vertical asymptote.
-				The partial area <m>\ccmint{t}{b}{f(u)}{u}</m> approximates the total area <m>\ccmint{c}{b}{f(t)}{t}</m>.
+				The partial area <m> \ccmint{t}{b}{f(u)}{u} </m> approximates the total area <m> \ccmint{c}{b}{f(t)}{t} </m>.
 			</caption>
 			<image>
 				<shortdescription>A graph depicting a right-handed improper integral at a vertical asymptote.</shortdescription>
@@ -826,10 +826,10 @@ we take a limit as one of the boundaries approaches the location of the vertical
 </figure>
 
 <example><p>
-	Let's try various (reciprocal) power functions near the asymptote at <m>t = 0</m>.
+	Let's try various (reciprocal) power functions near the asymptote at <m> t = 0 </m>.
 	<ol>
 		<li>
-			First we'll try <m>f(t) = 1/t</m>.
+			First we'll try <m> f(t) = 1/t </m>.
 			<md>
 				<mrow> \ccmint{0}{1}{\frac{1}{t}}{t} \amp = \lim_{t \to 0^{+}} \ccmint{t}{1}{\frac{1}{u}}{u} </mrow>
 				<mrow> \amp = \lim_{t \to 0^{+}} - \ccmint{1}{t}{\frac{1}{u}}{u} </mrow>
@@ -838,13 +838,13 @@ we take a limit as one of the boundaries approaches the location of the vertical
 			</md>
 			The divergence of this integral should not be a surprise:
 			the function is self-inverse
-			(that is, <m>\inv{f}(t) = f(t)</m>)
-			and so its graph is symmetric about the line <m>y = t</m>.
-			Thus the accumulation of area as <m>t \to 0^{+}</m> should mirror the accumulation of area as <m>t \to \infty</m>.
+			(that is, <m> \inv{f}(t) = f(t) </m>)
+			and so its graph is symmetric about the line <m> y = t </m>.
+			Thus the accumulation of area as <m> t \to 0^{+} </m> should mirror the accumulation of area as <m> t \to \infty </m>.
 		</li>
 
 		<li>
-			Now let's try <m>g(t) = 1/t^2</m>.
+			Now let's try <m> g(t) = 1/t^2 </m>.
 			<md>
 				<mrow> \ccmint{0}{1}{\frac{1}{t^2}}{t} \amp = \lim_{t \to 0^{+}} \ccmint{t}{1}{\frac{1}{u^2}}{u} </mrow>
 				<mrow> \amp = \lim_{t \to 0^{+}} - \ccmint{1}{t}{u^{-2}}{u} </mrow>
@@ -853,20 +853,20 @@ we take a limit as one of the boundaries approaches the location of the vertical
 				<mrow> \amp = \infty </mrow>
 			</md>
 			It might be a surprise that this integral also diverges,
-			since the integral of <m>g</m> <em>converges</em> as <m>t \to \infty</m>.
-			But this function's graph is <em>not</em> symmetric about the line <m>y = t</m>,
-			so the two improper integrals (as <m>t \to 0^{+}</m> versus as <m>t \to \infty</m>)
+			since the integral of <m> g </m> <em>converges</em> as <m> t \to \infty </m>.
+			But this function's graph is <em>not</em> symmetric about the line <m> y = t </m>,
+			so the two improper integrals (as <m> t \to 0^{+} </m> versus as <m> t \to \infty </m>)
 			are not related.
 			In fact,
-			<m>\inv{g}(t) = 1/\sqrt{t}</m>,
-			the integral of which diverges as <m>t \to \infty</m>
+			<m> \inv{g}(t) = 1/\sqrt{t} </m>,
+			the integral of which diverges as <m> t \to \infty </m>
 			(see <xref ref="fact-improper-int-p-funcs" />),
-			which coincides with the divergence of the integral of <m>g</m> as <m>t \to 0^{+}</m>.
+			which coincides with the divergence of the integral of <m> g </m> as <m> t \to 0^{+} </m>.
 		</li>
 
 		<li>
 			Based on the previous example,
-			we might have better luck with <m>h(t) = 1/sqrt{t}</m>.
+			we might have better luck with <m> h(t) = 1/sqrt{t} </m>.
 			<md>
 				<mrow> \ccmint{0}{1}{\frac{1}{\sqrt{t}}}{t} \amp = \lim_{t \to 0^{+}} \ccmint{t}{1}{\frac{1}{\sqrt{u}}}{u} </mrow>
 				<mrow> \amp = \lim_{t \to 0^{+}} - \ccmint{1}{t}{u^{-1/2}}{u} </mrow>
@@ -880,31 +880,31 @@ we take a limit as one of the boundaries approaches the location of the vertical
 </p></example>
 
 <p>
-A function with a non-zero horizontal asymptote will not have a convergent integral as <m>t \to \infty</m>,
+A function with a non-zero horizontal asymptote will not have a convergent integral as <m> t \to \infty </m>,
 because the area bounded between the asymptote and the horizontal axis will be infinite.
 That is,
-if we take a function whose integral converges as <m>t \to \infty</m>,
-(which necessarily means the function has a horizontal asymptote at <m>y = 0</m>,
+if we take a function whose integral converges as <m> t \to \infty </m>,
+(which necessarily means the function has a horizontal asymptote at <m> y = 0 </m>,
 see <xref ref="fact-improper-int-converges-implies-h-asymp-at-0" />),
-we cannot shift that function up or down without causing the integral of the shifted function to diverge as <m>t \to \infty</m>
+we cannot shift that function up or down without causing the integral of the shifted function to diverge as <m> t \to \infty </m>
 (see <xref ref="corollary-improper-int-diverges-if-not-h-asymp-at-0" />).
 In contrast,
 we <em>can</em> shift vertical asymptotes around without affecting convergence of improper integrals near that asymptote.
 </p>
 
 <example><p>
-	The function <m>f(t) = 1/\sqrt{t - 2}</m> is a shift to the right of a previous example we have computed,
-	and has a vertical asymptote at <m>t = 2</m>.
+	The function <m> f(t) = 1/\sqrt{t - 2} </m> is a shift to the right of a previous example we have computed,
+	and has a vertical asymptote at <m> t = 2 </m>.
 	Let's verify that the shifted integral converges as well:
 	<md> \ccmint{2}{3}{\frac{1}{\sqrt{t - 2}}}{t} </md>.
 	First,
 	we'll compute <md> \ccmint{t}{3}{\frac{1}{\sqrt{u - 2}}}{u} </md>,
-	assuming <m>t \gt 2</m>.
-	For integrand <m>f(u) = 1/\sqrt{u - 2}</m> we can simply guess an antiderivative <m>F(u) = 2 \sqrt{u - 2}</m> and apply
+	assuming <m> t \gt 2 </m>.
+	For integrand <m> f(u) = 1/\sqrt{u - 2} </m> we can simply guess an antiderivative <m> F(u) = 2 \sqrt{u - 2} </m> and apply
 	<xref ref="pattern-fund-thm-def-int-by-antideriv" />:
 	<md> \ccmint{t}{3}{\frac{1}{\sqrt{u - 2}}}{u} = 2 \sqrt{3 - 2} - 2 \sqrt{t - 2} = 2 (1 - \sqrt{t - 2}) </md>.
-	But as <m>t \to 2^{+}</m>,
-	we have <m>\sqrt{t - 2} \to 0</m>,
+	But as <m> t \to 2^{+} </m>,
+	we have <m> \sqrt{t - 2} \to 0 </m>,
 	so we conclude that <md> \ccmint{2}{3}{\frac{1}{\sqrt{t - 2}}}{t} = 2 (1 - 0) = 2 </md>,
 	as expected.
 </p></example>
