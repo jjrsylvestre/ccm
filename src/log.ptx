@@ -17,7 +17,7 @@ respective owners.
 
 <!-- TODO -->
 <!-- <example>
-	<title>Derivative of <m>\ln t</m></title>
+	<title>Derivative of <m> \ln t </m></title>
 	<p>
 	We can now verify <xref ref="pattern-deriv-log" />:
 	we have
@@ -37,8 +37,8 @@ respective owners.
 
 <p>
 TODO-FIX <!-- <xref ref="pattern-poly-int-power" /> -->
-tells us how to calculate a quantity's accumulation for any rate model that is a power of <m>t</m>,
-<em>except</em> for the special case of <m>r(t) = t^{-1}</m>.
+tells us how to calculate a quantity's accumulation for any rate model that is a power of <m> t </m>,
+<em>except</em> for the special case of <m> r(t) = t^{-1} </m>.
 It turns out there is no simple formula for the accumulation for this special rate function,
 so we will have to resort to using integral notation to represent it.
 For convenience, we will also give this special accumulation function a name.
@@ -47,26 +47,26 @@ For convenience, we will also give this special accumulation function a name.
 <definition xml:id="definition-log-natural">
 	<title>Natural logarithm</title>
 	<p>
-	The function that returns the accumulation for a quantity that is varying according to rate function <m>r(t) = 1/t</m>,
-	relative to <q>initial</q> time <m>t = 1</m>:
+	The function that returns the accumulation for a quantity that is varying according to rate function <m> r(t) = 1/t </m>,
+	relative to <q>initial</q> time <m> t = 1 </m>:
 	<me> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </me>.
 	</p>
 </definition>
 
 <figure xml:id="figure-log-positive-values">
-	<caption>The natural logarithm as accumulation under <m>r(t) = 1/t</m>.</caption>
+	<caption>The natural logarithm as accumulation under <m> r(t) = 1/t </m>.</caption>
 	<sidebyside valign="middle"> <!-- widths="" margins=""  -->
 		<figure>
-			<caption>An accumulation under <m>r(t) = 1/t</m>.</caption>
+			<caption>An accumulation under <m> r(t) = 1/t </m>.</caption>
 			<image width="45%">
-				<description>An area under <m>r(t) = 1/t</m>.</description>
+				<description>An area under <m> r(t) = 1/t </m>.</description>
 				<latex-image><xi:include href="log.d/log-accumulation-positive.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
 		<figure xml:id="figure-log-positive-values-height">
 			<caption>The corresponding accumulation value.</caption>
 			<image width="45%">
-				<description>The corresponding value on the graph of <m>\ln t</m>.</description>
+				<description>The corresponding value on the graph of <m> \ln t </m>.</description>
 				<latex-image><xi:include href="log.d/log-value-positive.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -75,32 +75,32 @@ For convenience, we will also give this special accumulation function a name.
 
 <p>
 In <xref ref="figure-log-positive-values" />,
-the height of the logarithm function's graph on the right at the input <m>t</m> corresponds to the magnitude of the shaded blue area under the graph of the rate function <m>r(t) = 1/t</m> on the left.
+the height of the logarithm function's graph on the right at the input <m> t </m> corresponds to the magnitude of the shaded blue area under the graph of the rate function <m> r(t) = 1/t </m> on the left.
 </p>
 
 <p>
-Notice that the graph of the logarithm function in <xref ref="figure-log-positive-values-height" /> shows negative accumulation values for <m>0 \lt t \lt 1</m>.
+Notice that the graph of the logarithm function in <xref ref="figure-log-positive-values-height" /> shows negative accumulation values for <m> 0 \lt t \lt 1 </m>.
 This is because of <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref> in <xref ref="convention-integ-definite-props" /> <mdash />
 if we allow time to <q>run backwards</q>,
 then we consider the quantity to be dissipating instead of accumulating,
 so that <me> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </me>
-for <m>0 \lt t \lt 1</m> is the <em>negative</em> of the accumulation that occurs over time interval <m> t \le u \le 1 </m>.
+for <m> 0 \lt t \lt 1 </m> is the <em>negative</em> of the accumulation that occurs over time interval <m> t \le u \le 1 </m>.
 </p>
 
 <figure xml:id="figure-log-negative-values">
-	<caption>The natural logarithm as accumulation under <m>r(t) = 1/t</m>.</caption>
+	<caption>The natural logarithm as accumulation under <m> r(t) = 1/t </m>.</caption>
 	<sidebyside valign="middle"> <!-- widths="" margins=""  -->
 		<figure>
-			<caption>A <q>reverse</q> accumulation under <m>r(t) = 1/t</m>.</caption>
+			<caption>A <q>reverse</q> accumulation under <m> r(t) = 1/t </m>.</caption>
 			<image width="45%">
-				<description>An area under <m>r(t) = 1/t</m>.</description>
+				<description>An area under <m> r(t) = 1/t </m>.</description>
 				<latex-image><xi:include href="log.d/log-accumulation-negative.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
 		<figure xml:id="figure-log-negative-values-height">
 			<caption>The corresponding negative accumulation value.</caption>
 			<image width="45%">
-				<description>The corresponding value on the graph of <m>\ln t</m>.</description>
+				<description>The corresponding value on the graph of <m> \ln t </m>.</description>
 				<latex-image><xi:include href="log.d/log-value-negative.tex" parse="text" /></latex-image>
 			</image>
 		</figure>
@@ -113,12 +113,12 @@ for <m>0 \lt t \lt 1</m> is the <em>negative</em> of the accumulation that occur
 <title>Properties of the natural logarithm</title>
 
 <p>
-First, our convention about integrating over a time interval of length <m>0</m>
+First, our convention about integrating over a time interval of length <m> 0 </m>
 leads immediately to a special value of the natural logarithm.
 </p>
 
 <identity xml:id="pattern-log-value-at-1">
-	<title>Logarithm at <m>t = 1</m></title>
+	<title>Logarithm at <m> t = 1 </m></title>
 
 	<statement><p> We have <me> \ln 1 = 0 </me>. </p> </statement>
 
@@ -137,14 +137,14 @@ leads immediately to a special value of the natural logarithm.
 	<title>Domain of the natural logarithm</title>
 
 	<statement><p>
-		The value of <m>\ln t</m> is defined for all <m>t \gt 0</m> and undefined for all <m>t \le 0</m>.
+		The value of <m> \ln t </m> is defined for all <m> t \gt 0 </m> and undefined for all <m> t \le 0 </m>.
 	</p></statement>
 
 	<proof><p>
-		Since the graph of our rate function <m>r(t) = 1/t</m> used to define the natural logarithm is continuous on <m>t \gt 0</m>,
-		that rate function is integrable on any (finite) subdomain of <m>t \gt 0</m>.
-		However, given our <q>initial</q> point at <m>t = 1</m> in the integration defining the logarithm,
-		any second domain endpoint that lies in <m>t \le 0</m> will cause the singularity of <m>r(t)</m> at <m>t = 0</m> to be included,
+		Since the graph of our rate function <m> r(t) = 1/t </m> used to define the natural logarithm is continuous on <m> t \gt 0 </m>,
+		that rate function is integrable on any (finite) subdomain of <m> t \gt 0 </m>.
+		However, given our <q>initial</q> point at <m> t = 1 </m> in the integration defining the logarithm,
+		any second domain endpoint that lies in <m> t \le 0 </m> will cause the singularity of <m> r(t) </m> at <m> t = 0 </m> to be included,
 		resulting in an integral that cannot be computed.
 	</p></proof>
 
@@ -162,11 +162,11 @@ we can see obvious long-term and singular behaviour.
 	<statement><p><ol>
 
 		<li><title>Long-term behaviour</title><p>
-			As <m>t \to \infty</m>, also <m>\ln t \to \infty</m>.
+			As <m> t \to \infty </m>, also <m> \ln t \to \infty </m>.
 		</p></li>
 
 		<li><title>Singular behaviour</title><p>
-			As <m>t \to 0^+</m>, <m>\ln t \to -\infty</m>.
+			As <m> t \to 0^+ </m>, <m> \ln t \to -\infty </m>.
 		</p></li>
 
 	</ol></p></statement>
@@ -182,7 +182,7 @@ The first involves the logarithm of a product of two numbers.
 	<title>Logarithm of a product</title>
 
 	<statement><p>
-		For all positive <m>a</m> and <m>b</m>,
+		For all positive <m> a </m> and <m> b </m>,
 		we have <me> \ln (a b) = \ln a + \ln b </me>.
 		In other words, <em>the logarithm of a product is the sum of the logarithms</em>.
 	</p></statement>
@@ -198,26 +198,26 @@ The first involves the logarithm of a product of two numbers.
 			<mrow> \ccmint{1}{a b}{\frac{1}{u}}{u} \amp = \ccmint{1}{a}{\frac{1}{u}}{u} + \ccmint{a}{a b}{\frac{1}{u}}{u} </mrow>
 			<mrow> \amp = \ln a + \ccmint{a}{a b}{\frac{1}{u}}{u} </mrow>
 		</md>.
-		So we already have the first part of our desired formula, <m>\ln a</m>.
+		So we already have the first part of our desired formula, <m> \ln a </m>.
 		What about the second integral
 		<md><mrow xml:id="equation-log-product-second-int" tag="star"> \ccmint{a}{a b}{\frac{1}{u}}{u} </mrow></md>?
 		How does it compare to <me> \ln b = \ccmint{1}{b}{\frac{1}{s}}{s} </me>?
 		(We have changed the integration variable to help keep things separate during our comparison of these two integrals.)
-		It appears that the domain in integral <xref ref="equation-log-product-second-int" /> has been stretched by a factor of <m>a</m>
-		compared to the domain in the integral defining <m>\ln b</m>.
+		It appears that the domain in integral <xref ref="equation-log-product-second-int" /> has been stretched by a factor of <m> a </m>
+		compared to the domain in the integral defining <m> \ln b </m>.
 		Remember that an integral is a calculation of (oriented) area under a graph,
 		added up <q>slice by slice</q>
 		(see <xref ref="figure-integ-representative-rect-slice" />).
-		For each <q>slice</q> at position <m>s</m> in the integral for <m>\ln b</m>,
-		we can create a corresponding <q>stretched slice</q> at position <m>u = a s</m>,
-		where if <m>1 \le s \le b</m> then also <m>a \le a s \le a b</m>.
+		For each <q>slice</q> at position <m> s </m> in the integral for <m> \ln b </m>,
+		we can create a corresponding <q>stretched slice</q> at position <m> u = a s </m>,
+		where if <m> 1 \le s \le b </m> then also <m> a \le a s \le a b </m>.
 		</p>
 
 		<figure xml:id="figure-log-slice-product">
-			<caption>A slice of the area defining <m>\ln b</m> transforms into a slice of the area corresponding to integral <xref ref="equation-log-product-second-int" />.</caption>
+			<caption>A slice of the area defining <m> \ln b </m> transforms into a slice of the area corresponding to integral <xref ref="equation-log-product-second-int" />.</caption>
 			<sbsgroup>
 				<sidebyside width="40%"><figure xml:id="figure-log-slice-product-ln-value">
-					<caption>A representative slice of area in the integral defining <m>\ln b</m>.</caption>
+					<caption>A representative slice of area in the integral defining <m> \ln b </m>.</caption>
 					<image>
 						<description>A representative slice of area in the integral defining a natural logarithm value.</description>
 						<latex-image><xi:include href="log.d/slice-log-product.tex" parse="text" /></latex-image>
@@ -234,18 +234,18 @@ The first involves the logarithm of a product of two numbers.
 		</figure>
 
 		<p>
-		Because we are stretching horizontally by a factor of <m>a</m>,
-		the slice at position <m>u</m> on the second graph will also be wider by a factor of <m>a</m>:
+		Because we are stretching horizontally by a factor of <m> a </m>,
+		the slice at position <m> u </m> on the second graph will also be wider by a factor of <m> a </m>:
 		<me> du = a ds </me>.
 		But we are only transforming our <em>domain</em> values,
 		we are not actually stretching our rate graph.
-		So the slice at <m>u</m> has both a different width and a different height compared to the original slice at position <m>s</m>,
+		So the slice at <m> u </m> has both a different width and a different height compared to the original slice at position <m> s </m>,
 		since we have moved to a different place on the rate graph:
 		<me> r(u) = \frac{1}{u} = \frac{1}{a s} = \frac{r(s)}{a} </me>.
 		However, when calculate the <q>area</q> of this <q>stretched slice</q>,
-		we find it's the same area as the slice at position <m>s</m> for the <m>\ln b</m> integral:
+		we find it's the same area as the slice at position <m> s </m> for the <m> \ln b </m> integral:
 		<me> r(u) \intspace du = \left( \frac{r(s)}{a} \right) \left( a \intspace ds \right) = r(s) \intspace ds </me>.
-		So as we add up <q>slices</q> of area to compute the integral for <m>\ln b</m>,
+		So as we add up <q>slices</q> of area to compute the integral for <m> \ln b </m>,
 		or we add up <q>slices</q> of area to compute integral <xref ref="equation-log-product-second-int" />,
 		we will be adding up the <em>same values</em> for those slices of area at corresponding positions,
 		and so we will come out to the same total area:
@@ -259,10 +259,10 @@ The first involves the logarithm of a product of two numbers.
 </identity>
 
 <remark><p>
-	We can be a little more precise in our justification above by considering actual Riemann sums of rectangular areas when we compare integral <xref ref="equation-log-product-second-int" /> with the integral for <m>\ln b</m>.
-	What our <q>corresponding slices</q> argument essentially shows is that for each Riemann sum approximating the integral for <m>\ln b</m>,
+	We can be a little more precise in our justification above by considering actual Riemann sums of rectangular areas when we compare integral <xref ref="equation-log-product-second-int" /> with the integral for <m> \ln b </m>.
+	What our <q>corresponding slices</q> argument essentially shows is that for each Riemann sum approximating the integral for <m> \ln b </m>,
 	we can create a Riemann sum approximating integral <xref ref="equation-log-product-second-int" /> that computes to the same value.
-	So the pattern of upper and lower sums squeezing down to the value for the integral for <m>\ln b</m> must be the same as the pattern of upper and lower sums squeezing down to the value of integral <xref ref="equation-log-product-second-int" />.
+	So the pattern of upper and lower sums squeezing down to the value for the integral for <m> \ln b </m> must be the same as the pattern of upper and lower sums squeezing down to the value of integral <xref ref="equation-log-product-second-int" />.
 </p></remark>
 
 <p>
@@ -274,7 +274,7 @@ What does it do to a reciprocal?
 	<title>Logarithm of a reciprocal</title>
 
 	<statement><p>
-		For all positive <m>a</m>,
+		For all positive <m> a </m>,
 		we have <me> \ln (1 / a) = - \ln a </me>.
 		In other words, <em>the logarithm of a reciprocal is the negative of the logarithm</em>.
 	</p></statement>
@@ -286,15 +286,15 @@ What does it do to a reciprocal?
 		instead of just working with <q>slices</q>.
 		For the integral
 		<me> \ln a = \ccmint{1}{a}{\frac{1}{s}}{s} </me>,
-		consider a typical rectangle at sample point <m>s</m> in an <em>upper sum</em> approximation.
+		consider a typical rectangle at sample point <m> s </m> in an <em>upper sum</em> approximation.
 		Because of the shape of the graph of the rate function,
 		this sample point will appear at the left endpoint of the base of the rectangular area.
-		Mark the right endpoint as <m>s'</m>,
+		Mark the right endpoint as <m> s' </m>,
 		so that <me> \change{s} = s' - s </me>
 		</p>
 
 		<figure xml:id="figure-log-slice-recip-before">
-			<caption>A representative rectangular area in a Riemann sum approximating <m>\ln a</m>.</caption>
+			<caption>A representative rectangular area in a Riemann sum approximating <m> \ln a </m>.</caption>
 			<image width="60%">
 				<description>A representative rectangular area in a Riemann sum approximating the integral defining a natural logarithm value.</description>
 				<latex-image><xi:include href="log.d/rect-log.tex" parse="text" /></latex-image>
@@ -303,10 +303,10 @@ What does it do to a reciprocal?
 
 		<p>
 		By taking reciprocals,
-		we can create a <q>mirror-image</q> rectangular base between <m>u' = 1 / s'</m> and <m>u = 1 / s</m>.
+		we can create a <q>mirror-image</q> rectangular base between <m> u' = 1 / s' </m> and <m> u = 1 / s </m>.
 		To create a rectangle that represents a typical rectangle in an <em>upper</em> sum approximation of the integral
 		<md><mrow xml:id="equation-log-reciprocal-int" tag="dstar"> \ccmint{1 / a}{1}{\frac{1}{u}}{u} </mrow></md>,
-		we'll take the sample point to be at <m>u'</m>.
+		we'll take the sample point to be at <m> u' </m>.
 		</p>
 
 		<figure xml:id="figure-log-slice-recip-after">
@@ -339,9 +339,9 @@ What does it do to a reciprocal?
 		By matching up areas of rectangles in this way,
 		we see that the two upper sum approximations would compute to the same total approximate area.
 		That is,
-		every upper sum approximation for the integral defining <m>\ln a</m> corresponds to an upper sum approximation for integral <xref ref="equation-log-reciprocal-int" /> with the same value.
+		every upper sum approximation for the integral defining <m> \ln a </m> corresponds to an upper sum approximation for integral <xref ref="equation-log-reciprocal-int" /> with the same value.
 		This would also work the other way <mdash />
-		every upper sum approximation for integral <xref ref="equation-log-reciprocal-int" /> could be <q>flipped</q> over by taking reciprocals of the rectangle base boundary points to create an upper sum approximation for the integral defining <m>\ln a</m>.
+		every upper sum approximation for integral <xref ref="equation-log-reciprocal-int" /> could be <q>flipped</q> over by taking reciprocals of the rectangle base boundary points to create an upper sum approximation for the integral defining <m> \ln a </m>.
 		And by changing sample points,
 		we would see the same correspondence for <em>lower</em> sum approximations of these two integrals.
 		</p>
@@ -349,8 +349,8 @@ What does it do to a reciprocal?
 		<p>
 		Therefore, the patterns of upper and lower sum approximations for each integral would <q>squeeze</q> down to the same values.
 		That is, <me> \ccmint{1}{a}{\frac{1}{s}}{s} = \ccmint{1 / a}{1}{\frac{1}{u}}{u} </me>.
-		The first integral is the value of <m>\ln a</m>,
-		while the second integral is the value of <m>- \ln (1 / a)</m>,
+		The first integral is the value of <m> \ln a </m>,
+		while the second integral is the value of <m> - \ln (1 / a) </m>,
 		using <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref> of <xref ref="convention-integ-definite-props" />.
 		Flipping the negative sign to the other side of the equality of integrals above,
 		we obtain <me> \ln (1 / a) = - \ln a </me>, as desired.
@@ -377,7 +377,7 @@ in fact this pattern holds for all exponents.
 <identity xml:id="pattern-log-power">
 	<title>Logarithm of a power</title>
 	<p>
-	For all exponents <m>r</m> and all positive bases <m>a</m>,
+	For all exponents <m> r </m> and all positive bases <m> a </m>,
 	we have <me> \ln (a ^ r) = r \ln a </me>.
 	In other words, <em>the logarithm of a power is a multiple of the logarithm</em>.
 	</p>
@@ -391,7 +391,7 @@ we can combine <xref ref="pattern-log-product" /> and <xref ref="pattern-log-rec
 <identity xml:id="pattern-log-quotient">
 	<title>Logarithm of a quotient</title>
 	<p>
-	For all positive <m>a</m> and <m>b</m>,
+	For all positive <m> a </m> and <m> b </m>,
 	we have <me> \ln (a / b) = \ln a - \ln b </me>.
 	In other words, <em>the logarithm of a quotient is the difference of the logarithms</em>.
 	</p>

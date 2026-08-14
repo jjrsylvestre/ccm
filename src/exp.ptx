@@ -76,7 +76,7 @@ we find the fitted curve matches other values of this quantity function.
 
 <figure xml:id="figure-exp-base2-more-points">
 	<caption>
-		Plotting function values <m>q(-1) = 2^{-1}</m> and <m>q(1/2) = 2^{1/2}</m>
+		Plotting function values <m> q(-1) = 2^{-1} </m> and <m> q(1/2) = 2^{1/2} </m>
 		on our <q>doubling</q> model curve.
 	</caption>
 	<image width="66%">
@@ -86,7 +86,7 @@ we find the fitted curve matches other values of this quantity function.
 </figure>
 
 <p>
-It appears that the model curve matches the values of the function <m>q(t) = 2^t</m> not only at whole, positive exponents but also at
+It appears that the model curve matches the values of the function <m> q(t) = 2^t </m> not only at whole, positive exponents but also at
 <ul>
 	<li>
 		negative exponents, which are used to mean <term>reciprocal</term>:
@@ -99,30 +99,30 @@ It appears that the model curve matches the values of the function <m>q(t) = 2^t
 </ul>
 We are not yet ready to attach a meaning to <em>irrational</em> exponents,
 such as <me> 2^{\pi} </me>,
-but for the moment we will assume that our formula <m> r(t) = 2^t </m> matches our model curve at <em>all</em> values of <m>t</m>.
+but for the moment we will assume that our formula <m> r(t) = 2^t </m> matches our model curve at <em>all</em> values of <m> t </m>.
 </p>
 
 <definition xml:id="definition-exp-func">
-	<title>Exponential function with base <m>a</m></title>
+	<title>Exponential function with base <m> a </m></title>
 	<p>
-	For positive constant <m>a</m>,
-	the <term>exponential function with base <m>a</m></term> is the function <m>f(t) = c a^t</m>,
-	where the constant <m>c</m> represents the initial value <m>c = f(0)</m>.
+	For positive constant <m> a </m>,
+	the <term>exponential function with base <m> a </m></term> is the function <m> f(t) = c a^t </m>,
+	where the constant <m> c </m> represents the initial value <m> c = f(0) </m>.
 	</p>
 </definition>
 
 <p>
-As the constant <m>c</m> merely represents a vertical scaling and/or reflection
-(if <m>c</m> is negative),
-we will focus our further investigation of exponential functions on the case <m>c = 1</m>.
+As the constant <m> c </m> merely represents a vertical scaling and/or reflection
+(if <m> c </m> is negative),
+we will focus our further investigation of exponential functions on the case <m> c = 1 </m>.
 </p>
 
 <p>
 Exponential functions come in three varieties:
 <ul>
 	<li> exponential growth when <m> a \gt 1 </m> </li>
-	<li> constant when <m>a = 1</m> </li>
-	<li> exponential decay when <m>0 \lt a \lt 1</m>. </li>
+	<li> constant when <m> a = 1 </m> </li>
+	<li> exponential decay when <m> 0 \lt a \lt 1 </m>. </li>
 </ul>
 </p>
 
@@ -167,13 +167,13 @@ Exponential functions come in three varieties:
 	<title>Long-term behaviour</title>
 	<p><ul>
 		<li> <title> Growth </title> <p>
-			When <m>a \gt 1</m>, we have
+			When <m> a \gt 1 </m>, we have
 			<me> a^t \to \infty \quad \text{ as } \quad t \to \infty </me>
 			and
 			<me> a^t \to 0 \quad \text{ as } \quad t \to -\infty </me>.
 		</p> </li>
 		<li> <title> Decay </title> <p>
-			When <m>0 \lt a \lt 1</m>, we have
+			When <m> 0 \lt a \lt 1 </m>, we have
 			<me> a^t \to 0 \quad \text{ as } \quad t \to \infty </me>
 			and
 			<me> a^t \to \infty \quad \text{ as } \quad t \to -\infty </me>.
@@ -189,17 +189,17 @@ Exponential functions come in three varieties:
 	<statement>
 
 		<p>
-		Given two positive bases <m>a</m> and <m>b</m>,
-		the exponential function <m>b^t</m> is a horizontal transformation of the exponential function <m>a^t</m>.
+		Given two positive bases <m> a </m> and <m> b </m>,
+		the exponential function <m> b^t </m> is a horizontal transformation of the exponential function <m> a^t </m>.
 		In particular,
-		there exists a number <m>c</m> so that
+		there exists a number <m> c </m> so that
 		<me> b^t = a^{c t} </me>.
-		Note that if <m>c</m> is negative,
+		Note that if <m> c </m> is negative,
 		this transformation involves not only a horizontal scale but also a reflection.
 		</p>
 
 		<aside><title>A look ahead</title><p>
-			The horizontal scale factor <m>c</m> in <xref ref="pattern-exp-horiz-scale" /> can be expressed in terms of logarithms,
+			The horizontal scale factor <m> c </m> in <xref ref="pattern-exp-horiz-scale" /> can be expressed in terms of logarithms,
 			as we will see in
 			<xref ref="chapter-log" />.
 			<!-- a later chapter. -->
@@ -211,8 +211,8 @@ Exponential functions come in three varieties:
 	<proof>
 
 		<p>
-		Since the <q>new</q> base <m>b</m> is a positive number,
-		it is in the range of the exponential function <m>a^t</m>.
+		Since the <q>new</q> base <m> b </m> is a positive number,
+		it is in the range of the exponential function <m> a^t </m>.
 		</p>
 
 		<figure xml:id="figure-exp-new-base-on-generic-graph">
@@ -224,8 +224,8 @@ Exponential functions come in three varieties:
 		</figure>
 
 		<p>
-		So there is some number <m>c</m> so that <m>a^c = b</m>.
-		Substituting this value of <m>b</m> in terms of <m>a</m> and <m>c</m> into the exponential function formula <m>b^t</m>,
+		So there is some number <m> c </m> so that <m> a^c = b </m>.
+		Substituting this value of <m> b </m> in terms of <m> a </m> and <m> c </m> into the exponential function formula <m> b^t </m>,
 		we obtain
 		<me> b^t = {(a^c)}^t = a^{c t} </me>.
 		</p>
@@ -267,14 +267,14 @@ Exponential functions come in three varieties:
 
 	<p>
 	The real number,
-	denoted by the letter <m>e</m>,
-	so that the area bounded under the graph of <m>f(t) = 1/t</m> over the domain <m>1 \le t \le e</m> is exactly <m>1</m>.
+	denoted by the letter <m> e </m>,
+	so that the area bounded under the graph of <m> f(t) = 1/t </m> over the domain <m> 1 \le t \le e </m> is exactly <m> 1 </m>.
 	</p>
 
 </definition>
 
 <figure xml:id="figure-exp-euler">
-	<caption> Euler's number defined as an area under <m>f(t) = 1/t</m>. </caption>
+	<caption> Euler's number defined as an area under <m> f(t) = 1/t </m>. </caption>
 	<image width="33%">
 		<description> Euler's number defined as creating a specific area under the graph of the reciprocal function. </description>
 		<latex-image><xi:include href="exp.d/euler.tex" parse="text" /></latex-image>
@@ -292,15 +292,15 @@ We can express it as a decimal number using the <c>n()</c> method.
 </sage>
 
 <p>
-The exponential function with base <m>e</m> has a special relationship to the <term>natural logarithm function</term> that we will learn about in
+The exponential function with base <m> e </m> has a special relationship to the <term>natural logarithm function</term> that we will learn about in
 <xref ref="chapter-log" />,
 <!-- a later chapter, -->
-so it becomes <q>natural</q> to compare every exponential function to the exponential function with base <m>e</m>.
+so it becomes <q>natural</q> to compare every exponential function to the exponential function with base <m> e </m>.
 </p>
 
 <definition xml:id="definition-exp-natural">
 	<title>Natural exponential function</title>
-	<p> The function <m>\exp(t) = e^t</m>, where the constant base <m>e</m> is Euler's number. </p>
+	<p> The function <m> \exp(t) = e^t </m>, where the constant base <m> e </m> is Euler's number. </p>
 </definition>
 
 </subsection>
@@ -321,7 +321,7 @@ in <xref ref="chapter-log" />.
 <identity xml:id="pattern-exp-sum">
 	<title>Exponential of a sum</title>
 	<p>
-	For positive base <m>a</m>,
+	For positive base <m> a </m>,
 	we have <me> a^{u + v} = a^u a^v </me>.
 	In other words, <em>the exponential of a sum is the product of the exponentials</em>.
 	</p>
@@ -330,7 +330,7 @@ in <xref ref="chapter-log" />.
 <identity xml:id="pattern-exp-negative">
 	<title>Exponential of a negative</title>
 	<p>
-	For positive base <m>a</m>,
+	For positive base <m> a </m>,
 	we have <me> a^{- u} = \frac{1}{a^u} </me>.
 	In other words, <em>the exponential of a negative is the reciprocal of the exponential</em>.
 	</p>
@@ -339,7 +339,7 @@ in <xref ref="chapter-log" />.
 <identity xml:id="pattern-exp-diff">
 	<title>Exponential of a difference</title>
 	<p>
-	For positive base <m>a</m>,
+	For positive base <m> a </m>,
 	we have <me> a^{u - v} = \frac{a^u}{a^v} </me>.
 	In other words, <em>the exponential of a difference is the quotient of the exponentials</em>.
 	</p>
@@ -348,7 +348,7 @@ in <xref ref="chapter-log" />.
 <identity xml:id="pattern-exp-exp">
 	<title>Composing exponentials</title>
 	<p>
-		For positive base <m>a</m>,
+		For positive base <m> a </m>,
 		we have <me> {(a^u)}^v = a^{u v} </me>.
 	</p>
 </identity>
@@ -360,8 +360,8 @@ in <xref ref="chapter-log" />.
 
 <p>
 Suppose we have a quantity experiencing exponential growth with the natural base,
-so that <m>q(t) = e^t</m>
-This means that that quantity at any moment is <m>e</m> times the quantity there was one time unit before,
+so that <m> q(t) = e^t </m>
+This means that that quantity at any moment is <m> e </m> times the quantity there was one time unit before,
 similar to the <em>doubles every year</em> pattern in <xref ref="example-exp-doubling" />.
 Consider forward and backward approximations of the rate of change for this function.
 <md>
@@ -374,7 +374,7 @@ So it appears we will have <me> \ddt{e^t} = a e^t </me>
 where <me> a = \lim_{\change{t} \to 0} \frac{e^{\change{t}} - 1}{\change{t}} </me>.
 Use the Sage cell below to investigate this limit by trying different small values,
 both positive and negative,
-for the time duration <m>\change{t}</m>
+for the time duration <m> \change{t} </m>
 (represented by <c>dt</c> in the Sage cell).
 </p>
 
@@ -405,9 +405,9 @@ so that <me> \ddt{e^t} = a e^{c t} </me>
 where this time <me> a = \lim_{\change{t} \to 0} \frac{e^{c \change{t}} - 1}{\change{t}} </me>.
 Again use the Sage cell below to investigate this limit by trying different small values,
 both positive and negative,
-for the time duration <m>\change{t}</m>
+for the time duration <m> \change{t} </m>
 (represented by <c>dt</c> in the Sage cell).
-Try it for different values of <m>c</m> as well
+Try it for different values of <m> c </m> as well
 (we have entered <c>c = 5</c> for an initial investigation).
 </p>
 
@@ -421,7 +421,7 @@ Try it for different values of <m>c</m> as well
 	<output>a is approximately 6.48721270700128</output>
 </sage>
 
-<p> Your Sage investigations above for different values for <m>c</m> hopefully led to the following universal pattern. </p>
+<p> Your Sage investigations above for different values for <m> c </m> hopefully led to the following universal pattern. </p>
 
 <identity xml:id="pattern-exp-deriv">
 	<title>Derivative of exponential functions</title>
@@ -447,7 +447,7 @@ For that reason, this property will be crucial in helping us solve differential 
 	Let's return to the differential equation
 	<me> \ddt{q} = - k q(t) </me>
 	from <xref ref="example-models-radioactive-decay" />.
-	<xref ref="pattern-exp-deriv" /> tells us that <m>q(t) = e^{-k t}</m> is a solution:
+	<xref ref="pattern-exp-deriv" /> tells us that <m> q(t) = e^{-k t} </m> is a solution:
 	<md>
 		<mrow>
 			\mathrm{LHS} \amp = \ddt{q}
@@ -462,7 +462,7 @@ For that reason, this property will be crucial in helping us solve differential 
 		<mrow> \amp = -k e^{-k t} </mrow>
 	</md>.
 	But using <xref ref="pattern-deriv-scale" />,
-	we can verify that <m>q(t) = A e^{-k t}</m> is also a solution for every constant value <m>A</m>.
+	we can verify that <m> q(t) = A e^{-k t} </m> is also a solution for every constant value <m> A </m>.
 	<md>
 		<mrow>
 			\mathrm{LHS} \amp = \ddt{q}
@@ -484,15 +484,15 @@ For that reason, this property will be crucial in helping us solve differential 
 	In fact,
 	the expression <me> q(t) = A e^{-k t} </me>
 	represents the general solution to this differential equation,
-	where the parameter <m>A</m> represents the <em>initial amount</em>:
+	where the parameter <m> A </m> represents the <em>initial amount</em>:
 	<me> q(0) = A e^{-k \cdot 0} = A \cdot 1 = A </me>.
 	</p>
 </example>
 
 <p>
-In the scaled exponential function <m>q(t) = e^{c t}</m>,
-the constant <m>c</m> is called the <term>rate constant</term>,
-While <m>c</m> represents a horizontal scale factor of the quantity function <m>q(t)</m>,
+In the scaled exponential function <m> q(t) = e^{c t} </m>,
+the constant <m> c </m> is called the <term>rate constant</term>,
+While <m> c </m> represents a horizontal scale factor of the quantity function <m> q(t) </m>,
 we see from <xref ref="pattern-exp-deriv" /> it ends up also vertically scaling the rate-of-change function <me> \ddt{q} = c e^{c t}</me>.
 It also represents the proportionality constant for a differential equation
 <me> \frac{dq/dt}{q(t)} = \frac{c \cancel{e^{c t}}}{\cancel{e^{c t}}} = c </me>.

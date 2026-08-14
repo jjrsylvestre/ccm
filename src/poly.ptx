@@ -25,23 +25,23 @@ respective owners.
 <p>
 A polynomial is the result of performing algebra in one variable when you restrict yourself to the operations of addition, subtraction, and multiplication.
 (Keep in mind that a power with a positive integer exponent just represents repeated multiplication.)
-The generic form of a polynomial in the variable <m>t</m> is
+The generic form of a polynomial in the variable <m> t </m> is
 <me> p(t) = a_0 + a_1 t + a_2 t^2 + a_3 t^3 + \dotsb + a_{n-1} t^{n-1} + a_n t^n </me>
-where we assume <m>a_n \neq 0</m>
-(since otherwise we would have omitted that term and terminated the polynomial at a lower power of <m>t</m>).
-The constants <m>a_0, a_1, \dotsc, a_n</m> are called the <term>coefficients</term> of the polynomial,
-and the highest exponent <m>n</m> is called the <term>degree</term>.
+where we assume <m> a_n \neq 0 </m>
+(since otherwise we would have omitted that term and terminated the polynomial at a lower power of <m> t </m>).
+The constants <m> a_0, a_1, \dotsc, a_n </m> are called the <term>coefficients</term> of the polynomial,
+and the highest exponent <m> n </m> is called the <term>degree</term>.
 </p>
 
 <p>
 A polynomial that consists of just a single term,
 <me> p(t) = a_n t^n </me>,
 is called a <term>power function</term>.
-For <m>n \ge 2</m> and even,
+For <m> n \ge 2 </m> and even,
 the graph of a power function is essentially a parabola,
-while for <m>n \ge 3</m> and odd,
+while for <m> n \ge 3 </m> and odd,
 the graph of a power function is essentially a parabola with one arm flipped vertically.
-In both cases, higher values of <m>n</m> flatten out the bottom and steepen the sides.
+In both cases, higher values of <m> n </m> flatten out the bottom and steepen the sides.
 </p>
 
 <figure xml:id="figure-poly-powers">
@@ -70,12 +70,12 @@ In both cases, higher values of <m>n</m> flatten out the bottom and steepen the 
 </figure>
 
 <p>
-Solving <m>p(t) = 0</m> for <m>p</m> a polynomial is of fundamental importance in algebra.
-A solution to <m>p(t) = 0</m> is called a <term>root</term> of <m>p</m>,
+Solving <m> p(t) = 0 </m> for <m> p </m> a polynomial is of fundamental importance in algebra.
+A solution to <m> p(t) = 0 </m> is called a <term>root</term> of <m> p </m>,
 and graphically these solutions coincide with horizontal intercepts of the polynomial's graph.
-The meaning of the term <term><m>\nth</m> root</term> of a number is tied to the roots of polynomials,
-as a square root <m>\sqrt{a}</m> means the (positive) root of the equation <me>t^2 - a = 0</me>,
-a cube root <m>\sqrt[3]{a}</m> means the unique real root of the equation <me>t^3 - a = 0</me>,
+The meaning of the term <term><m> \nth </m> root</term> of a number is tied to the roots of polynomials,
+as a square root <m> \sqrt{a} </m> means the (positive) root of the equation <me>t^2 - a = 0</me>,
+a cube root <m> \sqrt[3]{a} </m> means the unique real root of the equation <me>t^3 - a = 0</me>,
 and so on.
 </p>
 
@@ -90,19 +90,19 @@ and so on.
 </p></introduction>
 
 <subsubsection><title>Constant polynomials</title><p>
-	A polynomial of degree <m>0</m> is just a a constant function,
+	A polynomial of degree <m> 0 </m> is just a a constant function,
 	and its graph is a horizontal line.
-	The zero function <m>p(t) = 0</m> can be considered a polynomial,
+	The zero function <m> p(t) = 0 </m> can be considered a polynomial,
 	though, depending on the context,
 	it may be appropriate to say that the zero polynomial has <em>no</em> degree to distinguish it from non-zero constant polynomials.
 	However, we will just lump the zero polynomial in with the constant polynomials.
 </p></subsubsection>
 
 <subsubsection><title>Linear polynomials</title><p>
-	A polynomial of degree <m>1</m>,
+	A polynomial of degree <m> 1 </m>,
 	<me> p(t) = a_0 + a_1 t </me>,
 	is called a <term>linear polynomial</term> because its graph is a line,
-	with vertical intercept <m>a_0</m> and slope <m>a_1</m>,
+	with vertical intercept <m> a_0 </m> and slope <m> a_1 </m>,
 	as usual.
 	The root of a linear polynomial is easy to determine:
 	<md><mrow> a_0 + a_1 t \amp = 0 \amp \amp\implies \amp t \amp = - \frac{a_0}{a_1} </mrow></md>.
@@ -112,22 +112,22 @@ and so on.
 <title>Quadratic polynomials</title>
 
 <p>
-A polynomial of degree <m>2</m>,
+A polynomial of degree <m> 2 </m>,
 <me> p(t) = a_0 + a_1 t + a_2 t^2 </me>,
 is called a <term>quadratic polynomial</term>.
 Its graph is always a parabola, though it may be shifted and/or reflected.
 If the parabola opens upward we say that it is <term>concave up</term>,
 and if it opens downward we say that it is <term>concave down</term>.
-Which of these two shapes the parabola exhibits is determined by <m>a_2 \gt 0</m> or <m>a_2 \lt 0</m>,
+Which of these two shapes the parabola exhibits is determined by <m> a_2 \gt 0 </m> or <m> a_2 \lt 0 </m>,
 respectively.
 The <term>vertex</term> of a parabola is the point where a concave up parabola reaches its minimum height,
 or where a concave down parabola reaches its maximum height.
 </p>
 
 <p>
-A power function of degree <m>2</m>, <m> p(t) = a_2 t^2 </m>,
+A power function of degree <m> 2 </m>, <m> p(t) = a_2 t^2 </m>,
 has its vertex at the origin.
-For other degree-<m>2</m> polynomials,
+For other degree-<m> 2 </m> polynomials,
 we can determine the location of the vertex of its graph by <term>completing the square</term>.
 </p>
 
@@ -136,7 +136,7 @@ we can determine the location of the vertex of its graph by <term>completing the
 
 	<p>
 	Consider polynomial <me> p(t) = 6 + 10 t - 2 t^2 </me>.
-	First, we note that this parabola is concave down because of the negative coefficient on the <m>t^2</m> term.
+	First, we note that this parabola is concave down because of the negative coefficient on the <m> t^2 </m> term.
 	After factoring out that coefficient,
 	we complete the square by manipulating the constant term to create a <term>perfect square</term>.
 	<!-- the color command messes up the spacing in front of the plus, and \: = \medmuskip, the spacing around binary operators -->
@@ -149,15 +149,15 @@ we can determine the location of the vertex of its graph by <term>completing the
 		<mrow> \amp = - 2 {\left(t - \frac{5}{2}\right)}^2 + \frac{13}{2}</mrow>
 	</md>
 	Using our knowledge of transformations of graphs from <xref ref="section-funcs-transformations" />,
-	we interpret the last formula above as a combination of transformations of the standard parabola <m>f(t) = t^2</m>,
+	we interpret the last formula above as a combination of transformations of the standard parabola <m> f(t) = t^2 </m>,
 	in the order listed:
 	<ul>
-		<li> horizontal shift by <m>5/2</m> to the right </li>
-		<li> vertical stretch by a factor of <m>2</m> </li>
+		<li> horizontal shift by <m> 5/2 </m> to the right </li>
+		<li> vertical stretch by a factor of <m> 2 </m> </li>
 		<li> vertical reflection </li>
-		<li> vertical shift by <m>13/2</m> up. </li>
+		<li> vertical shift by <m> 13/2 </m> up. </li>
 	</ul>
-	The two shifts put the vertex at the point <m>(5/2,13/2)</m>,
+	The two shifts put the vertex at the point <m> (5/2,13/2) </m>,
 	and the vertical reflection reminds us that the parabola is concave down.
 	</p>
 
@@ -183,7 +183,7 @@ then whether this polynomial has none, one, or two roots is determined by the <t
 	<li>
 		<title>no roots</title>
 		<p>
-		when <m>b^2 - 4 a c \lt 0</m>;
+		when <m> b^2 - 4 a c \lt 0 </m>;
 		a concave up parabola with vertex above the horizontal axis or a concave down parabola with vertex below the horizontal axis
 		</p>
 	</li>
@@ -191,7 +191,7 @@ then whether this polynomial has none, one, or two roots is determined by the <t
 	<li>
 		<title>one unique root</title>
 		<p>
-		when <m>b^2 - 4 a c = 0</m>;
+		when <m> b^2 - 4 a c = 0 </m>;
 		a parabola with vertex on the horizontal axis
 		</p>
 	</li>
@@ -199,7 +199,7 @@ then whether this polynomial has none, one, or two roots is determined by the <t
 	<li>
 		<title>two distinct roots</title>
 		<p>
-		when <m>b^2 - 4 a c \gt 0</m>;
+		when <m> b^2 - 4 a c \gt 0 </m>;
 		a concave up parabola with vertex below the horizontal axis or a concave down parabola with vertex above the horizontal axis
 		</p>
 	</li>
@@ -212,10 +212,10 @@ there exists a formula for the roots of quadratic polynomial.
 <identity xml:id="pattern-poly-quadratic-formula">
 	<title>Quadratic formula</title>
 	<p>
-	If the discriminant satisfies <m>b^2 - 4 a c \ge 0</m>,
+	If the discriminant satisfies <m> b^2 - 4 a c \ge 0 </m>,
 	then the roots of <me> a t^2 + b t + c = 0 </me>
 	are <md><mrow> t \amp = \frac{-b - \sqrt{b^2 - 4 a c}}{2 a} \amp t \amp = \frac{-b + \sqrt{b^2 - 4 a c}}{2 a} </mrow></md>,
-	where these two roots are one and the same in the case that <m>b^2 - 4 a c = 0</m>.
+	where these two roots are one and the same in the case that <m> b^2 - 4 a c = 0 </m>.
 	</p>
 </identity>
 
@@ -270,14 +270,14 @@ demonstrating the possibility for one, two, or three roots for a cubic polynomia
 
 <p>
 The shape of graphs and roots of higher degree polynomials is obviously more complicated.
-There exist formulas for the roots of cubic and quartic (degree-<m>4</m>) polynomials similar to the <xref ref="pattern-poly-quadratic-formula" />,
-but already there is (famously) no such general formula possible for quintic (degree-<m>5</m>) polynomials.
+There exist formulas for the roots of cubic and quartic (degree-<m> 4 </m>) polynomials similar to the <xref ref="pattern-poly-quadratic-formula" />,
+but already there is (famously) no such general formula possible for quintic (degree-<m> 5 </m>) polynomials.
 However, we can say something about the <em>number</em> of roots of a polynomial.
 </p>
 
 <theorem xml:id="theorem-poly-fundamental">
 	<title>Fundamental Theorem of Algebra</title>
-	<p> A polynomial of degree <m>n</m> can have no more than <m>n</m> roots. </p>
+	<p> A polynomial of degree <m> n </m> can have no more than <m> n </m> roots. </p>
 </theorem>
 
 <p> The reason for this is that solving for roots and factoring are equivalent tasks. </p>
@@ -285,8 +285,8 @@ However, we can say something about the <em>number</em> of roots of a polynomial
 <identity xml:id="pattern-poly-factor-root">
 	<title>Root implies linear factor</title>
 	<p>
-	If <m>p(t)</m> is a polynomial of degree <m>n</m>,
-	then <m>t = a</m> is a root of <m>p(t) = 0</m> if and only if there exists a polynomial <m>q(t)</m> of degree <m>n - 1</m> so that
+	If <m> p(t) </m> is a polynomial of degree <m> n </m>,
+	then <m> t = a </m> is a root of <m> p(t) = 0 </m> if and only if there exists a polynomial <m> q(t) </m> of degree <m> n - 1 </m> so that
 	<me> p(t) = (t - a) q(t) </me>.
 	</p>
 </identity>
@@ -294,7 +294,7 @@ However, we can say something about the <em>number</em> of roots of a polynomial
 <p>
 <xref ref="pattern-poly-factor-root" /> is the reason the <xref ref="theorem-poly-fundamental" text="title" /> is true:
 if every root means we can factor out a linear factor,
-then <m>n</m> roots means <m>n</m> linear factors,
+then <m> n </m> roots means <m> n </m> linear factors,
 at which point we will have reached the degree of the polynomial and can factor no further.
 </p>
 
@@ -302,84 +302,64 @@ at which point we will have reached the degree of the polynomial and can factor 
 	<title>Factoring out a root</title>
 
 	<p>
-	Clearly <m>t = -1</m> is a root of <m>p(t) = t^4 - 1</m>.
+	Clearly <m> t = -1 </m> is a root of <m> p(t) = t^4 - 1 </m>.
 	This means that we can factor
 	<me> \bbrac{t - (-1)} = (t + 1) </me>
-	out of <m>p</m>.
+	out of <m> p </m>.
 	</p>
 
 	<tabular halign="center">
 		<row>
 			<cell />
-			<cell bottom="minor"><m>\color{red} t^3</m></cell>
-			<cell bottom="minor"><m>\color{blue} -</m></cell>
-			<cell bottom="minor"><m>\color{blue} t^2</m></cell>
-			<cell bottom="minor"><m>\color{green} +</m></cell>
-			<cell bottom="minor"><m>\color{green} t</m></cell>
-			<cell bottom="minor"><m>\color{purple} -</m></cell>
-			<cell bottom="minor"><m>\color{purple} 1</m></cell>
+			<cell bottom="minor"><m> \color{red} t^3 </m></cell>
+			<cell bottom="minor"><m> \color{blue} - </m></cell>
+			<cell bottom="minor"><m> \color{blue} t^2 </m></cell>
+			<cell bottom="minor"><m> \color{green} + </m></cell>
+			<cell bottom="minor"><m> \color{green} t </m></cell>
+			<cell bottom="minor"><m> \color{purple} - </m></cell>
+			<cell bottom="minor"><m> \color{purple} 1 </m></cell>
 			<cell bottom="minor" />
 			<cell bottom="minor" />
 		</row>
 		<row>
-			<cell right="minor"><m>t + 1</m></cell>
-			<cell><m>t^4</m></cell>
-			<cell><m>+</m></cell>
-			<cell><m>0 t^3</m></cell>
-			<cell><m>+</m></cell>
-			<cell><m>0 t^2</m></cell>
-			<cell><m>+</m></cell>
-			<cell><m>0 t</m></cell>
-			<cell><m>-</m></cell>
-			<cell><m>1</m></cell>
+			<cell right="minor"><m> t + 1 </m></cell>
+			<cell><m> t^4 </m></cell>
+			<cell><m> + </m></cell>
+			<cell><m> 0 t^3 </m></cell>
+			<cell><m> + </m></cell>
+			<cell><m> 0 t^2 </m></cell>
+			<cell><m> + </m></cell>
+			<cell><m> 0 t </m></cell>
+			<cell><m> - </m></cell>
+			<cell><m> 1 </m></cell>
 		</row>
 		<row>
-			<cell><m>-</m></cell>
-			<cell bottom="minor"><m>\color{red} t^4</m></cell>
-			<cell bottom="minor"><m>\color{red} +</m></cell>
-			<cell bottom="minor"><m>\color{red} t^3</m></cell>
+			<cell><m> - </m></cell>
+			<cell bottom="minor"><m> \color{red} t^4 </m></cell>
+			<cell bottom="minor"><m> \color{red} + </m></cell>
+			<cell bottom="minor"><m> \color{red} t^3 </m></cell>
 			<cell />
-			<cell><m>\downarrow</m></cell>
+			<cell><m> \downarrow </m></cell>
 			<cell />
-			<cell><m>\downarrow</m></cell>
+			<cell><m> \downarrow </m></cell>
 			<cell />
-			<cell><m>\downarrow</m></cell>
-		</row>
-		<row>
-			<cell />
-			<cell />
-			<cell />
-			<cell><m>- t^3</m></cell>
-			<cell><m>+</m></cell>
-			<cell><m>0 t^2</m></cell>
-		</row>
-		<row>
-			<cell />
-			<cell />
-			<cell><m>-</m></cell>
-			<cell bottom="minor"><m>\color{blue} - t^3</m></cell>
-			<cell bottom="minor"><m>\color{blue} -</m></cell>
-			<cell bottom="minor"><m>\color{blue} t^2</m></cell>
+			<cell><m> \downarrow </m></cell>
 		</row>
 		<row>
 			<cell />
 			<cell />
 			<cell />
-			<cell />
-			<cell />
-			<cell><m>t^2</m></cell>
-			<cell><m>+</m></cell>
-			<cell><m>0 t</m></cell>
+			<cell><m> - t^3 </m></cell>
+			<cell><m> + </m></cell>
+			<cell><m> 0 t^2 </m></cell>
 		</row>
 		<row>
 			<cell />
 			<cell />
-			<cell />
-			<cell />
-			<cell><m>-</m></cell>
-			<cell bottom="minor"><m>\color{green} t^2</m></cell>
-			<cell bottom="minor"><m>\color{green} +</m></cell>
-			<cell bottom="minor"><m>\color{green} t</m></cell>
+			<cell><m> - </m></cell>
+			<cell bottom="minor"><m> \color{blue} - t^3 </m></cell>
+			<cell bottom="minor"><m> \color{blue} - </m></cell>
+			<cell bottom="minor"><m> \color{blue} t^2 </m></cell>
 		</row>
 		<row>
 			<cell />
@@ -387,11 +367,19 @@ at which point we will have reached the degree of the polynomial and can factor 
 			<cell />
 			<cell />
 			<cell />
+			<cell><m> t^2 </m></cell>
+			<cell><m> + </m></cell>
+			<cell><m> 0 t </m></cell>
+		</row>
+		<row>
 			<cell />
 			<cell />
-			<cell><m>- t</m></cell>
-			<cell><m>-</m></cell>
-			<cell><m>1</m></cell>
+			<cell />
+			<cell />
+			<cell><m> - </m></cell>
+			<cell bottom="minor"><m> \color{green} t^2 </m></cell>
+			<cell bottom="minor"><m> \color{green} + </m></cell>
+			<cell bottom="minor"><m> \color{green} t </m></cell>
 		</row>
 		<row>
 			<cell />
@@ -401,9 +389,21 @@ at which point we will have reached the degree of the polynomial and can factor 
 			<cell />
 			<cell />
 			<cell />
-			<cell bottom="minor"><m>\color{purple} - t</m></cell>
-			<cell bottom="minor"><m>\color{purple} -</m></cell>
-			<cell bottom="minor"><m>\color{purple} 1</m></cell>
+			<cell><m> - t </m></cell>
+			<cell><m> - </m></cell>
+			<cell><m> 1 </m></cell>
+		</row>
+		<row>
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell />
+			<cell bottom="minor"><m> \color{purple} - t </m></cell>
+			<cell bottom="minor"><m> \color{purple} - </m></cell>
+			<cell bottom="minor"><m> \color{purple} 1 </m></cell>
 		</row>
 		<row>
 			<cell />
@@ -415,12 +415,12 @@ at which point we will have reached the degree of the polynomial and can factor 
 			<cell />
 			<cell />
 			<cell />
-			<cell><m>0</m></cell>
+			<cell><m> 0 </m></cell>
 		</row>
 	</tabular>
 
 	<p>
-	The remainder of <m>0</m> tells us that <m>t + 1</m> does indeed divide evenly into <m>t^4 - 1</m>,
+	The remainder of <m> 0 </m> tells us that <m> t + 1 </m> does indeed divide evenly into <m> t^4 - 1 </m>,
 	and the quotient result at the top says
 	<me> t^4 - 1 = (t + 1) (t^3 - t^2 + t - 1) </me>.
 	</p>
@@ -434,15 +434,15 @@ at which point we will have reached the degree of the polynomial and can factor 
 	<ul>
 		<li>
 			a constant,
-			by factoring out the <q>leading</q> coefficient <m>a_n</m>
+			by factoring out the <q>leading</q> coefficient <m> a_n </m>
 		</li>
 		<li>
-			some number of linear factors <m>(t - r)</m>,
-			where each such <m>r</m> is a root of the polynomial
+			some number of linear factors <m> (t - r) </m>,
+			where each such <m> r </m> is a root of the polynomial
 		</li>
 		<li>
-			some number of <term>irreducible</term> quadratic factors <m>(t^2 + b t + c)</m>,
-			where <m>b^2 - 4 c \lt 0 </m>, so that the quadratic has no roots and cannot be factored further.
+			some number of <term>irreducible</term> quadratic factors <m> (t^2 + b t + c) </m>,
+			where <m> b^2 - 4 c \lt 0 </m>, so that the quadratic has no roots and cannot be factored further.
 		</li>
 	</ul>
 	</p>
@@ -458,12 +458,12 @@ at which point we will have reached the degree of the polynomial and can factor 
 <p>
 The simplest type of polynomial is a constant function,
 which can be considered a degree-0 polynomial.
-We have already established that the derivative of a constant is uniformly <m>0</m>
+We have already established that the derivative of a constant is uniformly <m> 0 </m>
 in <xref ref="pattern-deriv-constant" />.
 </p>
 
 <p>
-A degree-<m>1</m> polynomial is a linear function,
+A degree-<m> 1 </m> polynomial is a linear function,
 and we have already established that the derivative of a linear function is its slope
 in <xref ref="example-deriv-linear" />.
 </p>
@@ -477,7 +477,7 @@ We'll start with some examples of low degree.
 <example xml:id="example-poly-deriv-quadratic">
 	<title>Derivative of the square function</title>
 	<p>
-	For <m>q(t) = t^2</m>,
+	For <m> q(t) = t^2 </m>,
 	we have
 	<md>
 		<mrow> q(t + \change{t}) \amp = (t + \change{t})^2 </mrow>
@@ -505,7 +505,7 @@ We'll start with some examples of low degree.
 <example xml:id="example-poly-deriv-cubic">
 	<title>Derivative of the cube function</title>
 	<p>
-	For <m>q(t) = t^3</m>,
+	For <m> q(t) = t^3 </m>,
 	we have <me> q(t + \change{t}) = (t + \change{t})^3 </me>.
 	This <em>sum-inside-a-power</em> formula is an example of a <term>binomial expression</term>,
 	and there is a formula for expanding it:
@@ -533,7 +533,7 @@ We'll start with some examples of low degree.
 We have the beginnings of a pattern here:
 <md><mrow> \ddt{t^2} \amp = 2 t^1 \amp \ddt{t^3} \amp = 3 t^2 </mrow></md>.
 So far the pattern appears to be:
-<em>to obtain the derivative function for a power of <m>t</m>, multiply by the exponent and then decrease the exponent</em>.
+<em>to obtain the derivative function for a power of <m> t </m>, multiply by the exponent and then decrease the exponent</em>.
 And this pattern does in fact hold for higher-degree power functions.
 </p>
 
@@ -541,12 +541,12 @@ And this pattern does in fact hold for higher-degree power functions.
 	<title>Derivative of a power</title>
 
 	<statement><p>
-		The quantity function <m>q(t) = t^n</m> is differentiable everywhere that it is defined,
+		The quantity function <m> q(t) = t^n </m> is differentiable everywhere that it is defined,
 		with <me>\ddt{(t^n)} = n t^{n - 1} </me>.
 	</p></statement>
 
 	<proof>
-		<title>Justification for positive, integer <m>n</m></title>
+		<title>Justification for positive, integer <m> n </m></title>
 
 		<p>
 		We follow the template of <xref ref="example-poly-deriv-cubic" />.
@@ -556,7 +556,7 @@ And this pattern does in fact hold for higher-degree power functions.
 			<mrow> q(t + \change{t}) \amp = (t + \change{t})^n </mrow>
 			<mrow> \amp = t^n + b_1 t^{n - 1} \change{t} + b_2 t^{n - 2} {(\change{t})}^2 + \dotsb + b_{n - 1} t {(\change{t})}^{n - 1} + {(\change{t})}^n </mrow>
 		</md>,
-		where <m>b_1,b_2,\dotsc,b_{n-1}</m> are the so-called <term>binomial coefficients</term> for the expansion of a binomial expression of the form <m>(x+y)^n</m>.
+		where <m> b_1,b_2,\dotsc,b_{n-1} </m> are the so-called <term>binomial coefficients</term> for the expansion of a binomial expression of the form <m> (x+y)^n </m>.
 		Therefore,
 		<md>
 			<mrow> q(t + \change{t}) - q(t) \amp = \bbrac{ \bcancel{t^n} + b_1 t^{n - 1} \change{t} + b_2 t^{n - 2} {(\change{t})}^2 + \dotsb + b_{n - 1} t {(\change{t})}^{n - 1} + {(\change{t})}^n } - \bcancel{t^n} </mrow>
@@ -568,12 +568,12 @@ And this pattern does in fact hold for higher-degree power functions.
 			<mrow> \amp = \frac{ \bbrac{ b_1 t^{n - 1} + b_2 t^{n - 2} \change{t} + \dotsb + b_{n - 1} t {(\change{t})}^{n - 2} + {(\change{t})}^{n - 1} } \bcancel{\change{t}} }{ \bcancel{\change{t}} } </mrow>
 			<mrow> \amp = b_1 t^{n - 1} + b_2 t^{n - 2} \change{t} + \dotsb + b_{n - 1} t {(\change{t})}^{n - 2} + {(\change{t})}^{n - 1} </mrow>
 		</md>.
-		All terms above that contain a factor of <m>\change{t}</m> tend to <m>0</m> as <m>\change{t} \to 0</m>,
+		All terms above that contain a factor of <m> \change{t} </m> tend to <m> 0 </m> as <m> \change{t} \to 0 </m>,
 		so we have
 		<me> \slope{q}{t} \to b_1 t^{n - 1} \qquad \text{as} \qquad \change{t} \to 0 </me>,
 		and therefore <me> \ddt{q} = b_1 t^{n - 1} </me>.
 		Finally,
-		it turns out that the first binomial coefficient <m>b_1</m> for the expansion of a binomial expression of the form <m>(x+y)^n</m> is <m>b_1 = n</m>
+		it turns out that the first binomial coefficient <m> b_1 </m> for the expansion of a binomial expression of the form <m> (x+y)^n </m> is <m> b_1 = n </m>
 		(refer to the <term>Binomial Theorem</term>), <!-- TODO give a reference? -->
 		so that <me> \ddt{(t^n)} = n t^{n - 1} </me>, as claimed.
 		</p>
@@ -585,21 +585,21 @@ And this pattern does in fact hold for higher-degree power functions.
 <remark>
 	<title>Non-positive and/or non-integer exponents</title>
 	<p>
-	While our justification is only valid for positive, integer exponents <m>n</m>,
+	While our justification is only valid for positive, integer exponents <m> n </m>,
 	<xref ref="pattern-poly-deriv-power" /> itself is valid for <em>all</em> exponents,
 	and we will justify this in later chapters after we have a few more techniques and patterns available to us.
 	In the meantime,
-	recall that for negative exponents we cannot attach a derivative value to the quantity function at the singularity at <m>t = 0</m>
+	recall that for negative exponents we cannot attach a derivative value to the quantity function at the singularity at <m> t = 0 </m>
 	(see <xref ref="subsection-avg-rate-non-diff-singular" />),
 	which is the reason for including the phrase <q>everywhere that it is defined</q> in the statement of the pattern.
-	We could also consider the pattern to be true for <m>n = 0</m>,
+	We could also consider the pattern to be true for <m> n = 0 </m>,
 	since in that case the quantity function satisfies
 	<md> <mrow> q(t) \amp = t^0 = 1 \amp \text{for } t \amp \gt 0 </mrow> </md>,
 	while <xref ref="pattern-poly-deriv-power" /> gives
 	<me> \ddt{(t^0)} = 0 t^{-1} = 0 </me>
-	(again assuming <m>t \gt 0</m>).
+	(again assuming <m> t \gt 0 </m>).
 	So in some sense <xref ref="pattern-poly-deriv-power" /> <q>contains</q> <xref ref="pattern-deriv-constant" />.
-	(And, for that matter, it also <q>contains</q> <xref ref="pattern-deriv-var" /> when we take <m>n = 1</m>.)
+	(And, for that matter, it also <q>contains</q> <xref ref="pattern-deriv-var" /> when we take <m> n = 1 </m>.)
 	</p>
 </remark>
 
@@ -614,8 +614,8 @@ And this pattern does in fact hold for higher-degree power functions.
 	While we might describe part of <xref ref="pattern-poly-deriv-power" /> as <em>decrease the exponent</em>,
 	this does not mean decrease the <em>magnitude</em> of the exponent.
 	For example,
-	a common mistake in applying <xref ref="pattern-poly-deriv-power" /> is to use <m>t^{-2}</m> in the derivative formula for <m>t^{-3}</m>,
-	instead of <m>t^{-4}</m> as in <xref ref="example-poly-deriv-neg-exponent" />.
+	a common mistake in applying <xref ref="pattern-poly-deriv-power" /> is to use <m> t^{-2} </m> in the derivative formula for <m> t^{-3} </m>,
+	instead of <m> t^{-4} </m> as in <xref ref="example-poly-deriv-neg-exponent" />.
 </p></note>
 
 <example xml:id="example-poly-deriv-irrational-exponent">
@@ -656,7 +656,7 @@ We will leave the justification up to you, the reader.
 	</p>
 
 	<p>
-	We can now use <xref ref="pattern-poly-deriv-poly" /> to obtain a general formula for the velocity of this object at arbitrary time <m>t</m>:
+	We can now use <xref ref="pattern-poly-deriv-poly" /> to obtain a general formula for the velocity of this object at arbitrary time <m> t </m>:
 	<md>
 		<mrow> v(t) = h'(t) \amp = -5 \cdot 2 t + 30 </mrow>
 		<mrow> \amp = -10 t + 30 </mrow>
@@ -683,7 +683,7 @@ We will leave the justification up to you, the reader.
 			<title>When does the object return to the surface?</title>
 			<p>
 			To answer this,
-			we want to solve for <m>t</m> in the instances where <m>h(t) = 0</m>.
+			we want to solve for <m> t </m> in the instances where <m> h(t) = 0 </m>.
 			We can do this by factoring.
 			<md alignment="gather">
 				<mrow> h(t) = 0 </mrow>
@@ -691,7 +691,7 @@ We will leave the justification up to you, the reader.
 				<mrow> -5 t (t - 6) = 0 </mrow>
 			</md>.
 			From the factored form on the left,
-			we can see that the object will be at the position of the surface when <m>t = 0</m>
+			we can see that the object will be at the position of the surface when <m> t = 0 </m>
 			(as we assumed, since the object was initially launched from the surface)
 			and when
 			<md>
@@ -733,7 +733,7 @@ We will leave the justification up to you, the reader.
 				<mrow> \text{max height} = h(3) = -5 \cdot 3^2 + 30 \cdot 3 = 45 </mrow>
 				<mrow> v(3) = -10 \cdot 3 + 30 = 0 </mrow>
 			</md>.
-			The fact that the velocity is <m>0</m> at the maximum height should not be a surprise <mdash />
+			The fact that the velocity is <m> 0 </m> at the maximum height should not be a surprise <mdash />
 			when the object is thrown upwards,
 			it immediately begins to slow down because of gravity pulling back down,
 			until it momentarily stops at its maximum height before beginning to descend.

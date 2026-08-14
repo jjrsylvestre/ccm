@@ -26,23 +26,23 @@ respective owners.
 
 <p>
 Recall that a function is an input-output process.
-We think of a quantity function <m>q(t)</m> as taking a time as an input and returning the amount of some quantity at that particular time as its output.
+We think of a quantity function <m> q(t) </m> as taking a time as an input and returning the amount of some quantity at that particular time as its output.
 But the process of computing derivative values for a specific quantity function is itself also a function <mdash />
 again a specific time is the input,
 and then <xref ref="definition-avg-rate-derivative-value" /> can be used to return the instantaneous rate of change at that time (if the limit exists there).
 Essentially,
 to turn the process of computing derivatives into a function,
-we take <xref ref="definition-avg-rate-derivative-value" text="title" /> and replace the specific time <m>t^\ast</m> with a variable time <m>t</m>.
+we take <xref ref="definition-avg-rate-derivative-value" text="title" /> and replace the specific time <m> t^\ast </m> with a variable time <m> t </m>.
 </p>
 
 <definition xml:id="definition-deriv">
 	<title>Derivative function</title>
 	<p>
-	Given quantity function <m>q(t)</m>,
+	Given quantity function <m> q(t) </m>,
 	the associated <term>derivative function</term> is the function
 	<me> q'(t) = \lim_{\change{t} \to 0} \frac{ q(t + \change{t}) - q(t) }{ \change{t} } </me>.
-	The domain of <m>q'</m> is the collection of all times where <m>q</m> is differentiable,
-	and <m>q'</m> remains undefined at those times where <m>q</m> is not differentiable.
+	The domain of <m> q' </m> is the collection of all times where <m> q </m> is differentiable,
+	and <m> q' </m> remains undefined at those times where <m> q </m> is not differentiable.
 	</p>
 </definition>
 
@@ -50,18 +50,18 @@ we take <xref ref="definition-avg-rate-derivative-value" text="title" /> and rep
 	<title>Notation</title>
 
 	<p>
-	We use <m>q'(t)</m> when we want to refer to the derivative function for <m>q</m> in function notation,
-	while we use <me>\ddt{q}</me> to represent an input-output formula in <m>t</m> for <m>q'</m>.
-	Of course, both of these forms are relative to the initial choice of letter <m>q</m> <mdash />
-	if we were dealing with a position function <m>s(t)</m> as our quantity function,
-	then we would use <m>s'(t)</m> and <me>\ddt{s}</me> to refer to the derivative.
+	We use <m> q'(t) </m> when we want to refer to the derivative function for <m> q </m> in function notation,
+	while we use <me>\ddt{q}</me> to represent an input-output formula in <m> t </m> for <m> q' </m>.
+	Of course, both of these forms are relative to the initial choice of letter <m> q </m> <mdash />
+	if we were dealing with a position function <m> s(t) </m> as our quantity function,
+	then we would use <m> s'(t) </m> and <me>\ddt{s}</me> to refer to the derivative.
 	In some contexts,
 	particularly physics,
-	you might see <m>\dot{q}</m> used to representative the derivative function for <m>q(t)</m>.
+	you might see <m> \dot{q} </m> used to representative the derivative function for <m> q(t) </m>.
 	</p>
 
 	<p>
-	It is also common practice in mathematics and other science disciplines to use a <q>bare</q> <m>\opddt</m> as an <term>operator</term> that applies the differentiation process to a function or formula.
+	It is also common practice in mathematics and other science disciplines to use a <q>bare</q> <m> \opddt </m> as an <term>operator</term> that applies the differentiation process to a function or formula.
 	For example,
 	notation in the form
 	<me> \ddt{t^2} = \text{(some formula)} </me>
@@ -70,7 +70,7 @@ we take <xref ref="definition-avg-rate-derivative-value" text="title" /> and rep
 	is meant to be read as <q><em>a formula for the derivative function associated to the square function is</em> (some formula).</q>
 	Or, more simply,
 	<q><em>the derivative of the square function is</em> (some formula)</q> <mdash />
-	that is, the symbol <m>\opddt</m> represents the phrase <q><em>the derivative of</em>.</q>
+	that is, the symbol <m> \opddt </m> represents the phrase <q><em>the derivative of</em>.</q>
 	</p>
 
 </paragraphs>
@@ -82,16 +82,16 @@ we take <xref ref="definition-avg-rate-derivative-value" text="title" /> and rep
 
 <p>
 In <xref ref="chapter-avg-rate" />,
-we calculated individual derivative values by looking for patterns in average-rate approximations to instantaneous rate at a specific time as <m>\change{t} \to 0</m>.
+we calculated individual derivative values by looking for patterns in average-rate approximations to instantaneous rate at a specific time as <m> \change{t} \to 0 </m>.
 Now we attempt to calculate <em>all</em> derivative values at once,
-using the limit definition with a variable time <m>t</m>.
+using the limit definition with a variable time <m> t </m>.
 In this process,
 there will be two variables involved:
-the input time <m>t</m>,
-and the limit variable <m>\change{t}</m>.
-<alert>As you compute the limit, regard <m>t</m> as an unknown constant</alert>.
-We take <m>\change{t} \to 0</m> for one specific <m>t</m>,
-but as we leave <m>t</m> unspecified this will do the work of computing the derivative value <m>q'(t)</m> as a formula in <m>t</m>.
+the input time <m> t </m>,
+and the limit variable <m> \change{t} </m>.
+<alert>As you compute the limit, regard <m> t </m> as an unknown constant</alert>.
+We take <m> \change{t} \to 0 </m> for one specific <m> t </m>,
+but as we leave <m> t </m> unspecified this will do the work of computing the derivative value <m> q'(t) </m> as a formula in <m> t </m>.
 </p>
 
 <p> Here is a basic example of the process. </p>
@@ -104,10 +104,10 @@ but as we leave <m>t</m> unspecified this will do the work of computing the deri
 	where we considered parabolic motion due to gravity:
 	<me> h(t) = -5 t^2 + 30 t </me>.
 	In that example,
-	we computed an average velocity over the time domain <m>1 \le t \le 3</m>.
-	We could view that computation as computing a forward difference approximation to the instantaneous velocity at <m>t = 1</m>.
+	we computed an average velocity over the time domain <m> 1 \le t \le 3 </m>.
+	We could view that computation as computing a forward difference approximation to the instantaneous velocity at <m> t = 1 </m>.
 	Now let's compute the instantaneous velocity <em>function</em> for this motion,
-	and then evaluate at <m>t = 2</m> to compare.
+	and then evaluate at <m> t = 2 </m> to compare.
 	</p>
 
 	<p>
@@ -131,7 +131,7 @@ but as we leave <m>t</m> unspecified this will do the work of computing the deri
 		<mrow> \amp = \frac{ (- 10 t + 30 - 5 \change{t}) \bcancel{\change{t}} }{ \bcancel{\change{t}} } </mrow>
 		<mrow> \amp = - 10 t + 30 - 5 \change{t} </mrow>
 	</md>.
-	Taking <m>\change{t} \to 0</m>,
+	Taking <m> \change{t} \to 0 </m>,
 	<me> \slope{h}{t} \to -10 t + 30 \qquad \text{as} \qquad \change{t} \to 0 </me>.
 	Therefore, in differential notation we can write
 	<me> \ddt{h} = -10 t + 30 </me>,
@@ -145,7 +145,7 @@ but as we leave <m>t</m> unspecified this will do the work of computing the deri
 	<me> q'(1) = 20 </me>.
 	Comparing that with our average rate computation in <xref ref="example-avg-rate-from-quantity-model" />,
 	it's no surprise that our previous average velocity calculation is not a good estimate of the instantaneous velocity,
-	as <m>2</m> seconds is too long of a time interval to give a good estimate for this model.
+	as <m> 2 </m> seconds is too long of a time interval to give a good estimate for this model.
 	</p>
 
 </example>
@@ -167,17 +167,17 @@ So we'll start by analysing the two simplest possible quantity models built on t
 	<title>Derivative of a constant</title>
 
 	<statement><p>
-		For any constant <m>c</m>, we have <me> \ddt{c} = 0 </me>.
+		For any constant <m> c </m>, we have <me> \ddt{c} = 0 </me>.
 		That is, <alert>the derivative of a constant is zero</alert>.
 	</p></statement>
 
 	<proof><p>
-		Consider quantity function <m>q(t) = c</m>.
-		Then also <m>q(t + \change{t}) = c</m>,
+		Consider quantity function <m> q(t) = c </m>.
+		Then also <m> q(t + \change{t}) = c </m>,
 		so <me> q(t + \change{t}) - q(t) = c - c = 0 </me>.
 		Therefore, <me> \slope{q}{t} = \frac{ q(t + \change{t}) - q(t) }{ \change{t} } = \frac{0}{\change{t}} </me>.
-		Considering <m>\change{t} \approx 0</m> but <m>\change{t} \neq 0</m>,
-		this always computes to <m>0</m>.
+		Considering <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>,
+		this always computes to <m> 0 </m>.
 		So, in fact, these average-rate approximations are not approximations but instead they are already the exact value,
 		and we have <me>\slope{q}{t} \to 0 \qquad \text{as} \qquad \change{t} \to 0</me>.
 		Therefore, for a constant function we have
@@ -192,8 +192,8 @@ So we'll start by analysing the two simplest possible quantity models built on t
 	<statement><p> We have <me> \ddt{t} = 1 </me>. </p></statement>
 
 	<proof><p>
-		Consider quantity function <m>q(t) = t</m>.
-		Then <m>q(t + \change{t}) = t + \change{t}</m>,
+		Consider quantity function <m> q(t) = t </m>.
+		Then <m> q(t + \change{t}) = t + \change{t} </m>,
 		so <me> q(t + \change{t}) - q(t) = (t + \change{t}) - t = \change{t} </me>.
 		Therefore,
 		<md>
@@ -210,8 +210,8 @@ So we'll start by analysing the two simplest possible quantity models built on t
 
 <note><p>
 	In the justifications for <xref ref="pattern-deriv-constant" /> and <xref ref="pattern-deriv-var" />
-	we are not making the mistake of taking <m>0/0 = 0</m> to be true,
-	because in the limit defining <m>q'(t)</m> we think of <m>\change{t} \approx 0</m> but <m>\change{t} \neq 0</m>.
+	we are not making the mistake of taking <m> 0/0 = 0 </m> to be true,
+	because in the limit defining <m> q'(t) </m> we think of <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>.
 </p></note>
 
 
@@ -226,13 +226,13 @@ So we'll start by analysing the two simplest possible quantity models built on t
 	<title>Derivative of a scaled quantity</title>
 
 	<statement><p>
-		If <m>q(t)</m> is a differentiable quantity function,
-		then for any constant <m>c</m> we have <me> \opddt (c q) = c \, \ddt{q} </me>.
+		If <m> q(t) </m> is a differentiable quantity function,
+		then for any constant <m> c </m> we have <me> \opddt (c q) = c \, \ddt{q} </me>.
 		That is, <alert>the derivative of a constant multiple is the constant multiple of the derivative</alert>.
 	</p></statement>
 
 	<proof><p>
-		Consider quantity function <m>p(t) = c q(t)</m>.
+		Consider quantity function <m> p(t) = c q(t) </m>.
 		Then <me> p(t + \change{t}) = c q(t + \change{t}) </me>,
 		so
 		<md>
@@ -246,7 +246,7 @@ So we'll start by analysing the two simplest possible quantity models built on t
 			<mrow> \amp = c \, \frac{\bbrac{ q(t + \change{t}) - q(t) } }{ \change{t} } </mrow>
 			<mrow> \amp = c \, \slope{q}{t} </mrow>
 		</md>.
-		Since this holds for all <m>\change{t} \approx 0</m> but <m>\change{t} \neq 0</m>,
+		Since this holds for all <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>,
 		and we have <me>\slope{q}{t} \to \ddt{q} \qquad \text{as} \qquad \change{t} \to 0</me>,
 		then we must have <me>\slope{p}{t} \to c \, \ddt{q} \qquad \text{as} \qquad \change{t} \to 0</me>.
 		Therefore,
@@ -302,7 +302,7 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 	<title>Derivative of a sum of quantities</title>
 
 	<statement><p>
-		If <m>q_1(t)</m> and <m>q_2(t)</m> are differentiable quantity functions,
+		If <m> q_1(t) </m> and <m> q_2(t) </m> are differentiable quantity functions,
 		then <me>\opddt (q_1 + q_2) = \ddt{q_1} + \ddt{q_2} </me>.
 		That is, <alert>the derivative of a sum is the sum of the derivatives</alert>.
 	</p></statement>
@@ -322,7 +322,7 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 			<mrow> \amp = \frac{ \bbrac{ q_1(t + \change{t}) - q_1(t) } }{ \change{t} } + \frac{ \bbrac{ q_2(t + \change{t}) - q_2(t)} }{ \change{t} } </mrow>
 			<mrow> \amp = \slope{q_1}{t} + \slope{q_2}{t} </mrow>
 		</md>.
-		Since this holds for all <m>\change{t} \approx 0</m> but <m>\change{t} \neq 0</m>,
+		Since this holds for all <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>,
 		and we have <me>\slope{q_1}{t} \to \ddt{q_1}, \quad \slope{q_2}{t} \to \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0</me>,
 		then we must have <me>\slope{p}{t} \to \ddt{q_1} + \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0</me>.
 		Therefore,
@@ -401,8 +401,8 @@ then
 <identity xml:id="pattern-deriv-vertical-shift">
 	<title>Derivative of a vertical shift</title>
 	<p>
-	Suppose quantity functions <m>q_1</m> and <m>q_2</m> are vertical shifts of each other,
-	so that there exists a constant <m>c</m> with
+	Suppose quantity functions <m> q_1 </m> and <m> q_2 </m> are vertical shifts of each other,
+	so that there exists a constant <m> c </m> with
 	<me> q_2(t) = q_1(t) + c </me>.
 	Then the two functions are differentiable at the same input values,
 	with <me> \ddt{q_2} = \ddt{q_1} </me>.
@@ -426,18 +426,18 @@ let's consider the effect of horizontal transformations on derivative.
 	<title>Derivative of a horizontally-shifted quantity function</title>
 
 	<statement><p>
-		If we shift a differentiable quantity function <m>p(t)</m> to create a new function <me> q(t) = p(t - c) </me>,
+		If we shift a differentiable quantity function <m> p(t) </m> to create a new function <me> q(t) = p(t - c) </me>,
 		then the new function is also differentiable,
 		and the associated derivative function is also a shift: <me> q'(t) = p'(t - c) </me>.
 	</p></statement>
 
 	<proof><title>Justification idea</title>
 		<p>
-		Instead of carrying out a detailed calculation of <m>dq / dt</m>,
+		Instead of carrying out a detailed calculation of <m> dq / dt </m>,
 		let's just argue in terms of the concept of the derivative.
-		If the value of <m>dq / dt</m> at a particular time <m>t = t_0</m> represents the rate of variation of <m>q</m> at that time,
+		If the value of <m> dq / dt </m> at a particular time <m> t = t_0 </m> represents the rate of variation of <m> q </m> at that time,
 		but <me> q(t) = p(t - c) </me>,
-		then we are really just measuring the rate of variation of <m>p</m> at the <q>earlier</q> time <m>t = t_0 -c</m>.
+		then we are really just measuring the rate of variation of <m> p </m> at the <q>earlier</q> time <m> t = t_0 -c </m>.
 		</p>
 	</proof>
 
@@ -455,7 +455,7 @@ let's consider the effect of horizontal transformations on derivative.
 	<title>Derivative of a horizontally-scaled quantity function</title>
 
 	<statement><p>
-		If we horizontally scale a differentiable quantity function <m>p(t)</m> to create a new function <me> q(t) = p(a t) </me>,
+		If we horizontally scale a differentiable quantity function <m> p(t) </m> to create a new function <me> q(t) = p(a t) </me>,
 		then the new function is also differentiable,
 		and the associated derivative function is also a scaling,
 		but both vertically and horizontally by the same factor: <me> q'(t) = a p'(a t) </me>.
@@ -472,7 +472,7 @@ let's consider the effect of horizontal transformations on derivative.
 			<mrow> \amp = \frac{p(a t_2) - p(a t_1)}{t_2 - t_1} </mrow>
 
 		</md>.
-		This almost looks like an average rate calculation for <m>p</m>,
+		This almost looks like an average rate calculation for <m> p </m>,
 		but the two times in the denominator don't match the times used in the numerator.
 		Let's fix that:
 		<md>
@@ -482,16 +482,16 @@ let's consider the effect of horizontal transformations on derivative.
 			<mrow> \amp = a \cdot \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1} </mrow>
 
 		</md>.
-		So an average rate calculation for <m>q</m> over domain <m>t_1 \le t \le t_2</m> is a scaling of an average rate calculation for <m>p</m> over domain <m>a t_1 \le t \le a t_2</m>.
+		So an average rate calculation for <m> q </m> over domain <m> t_1 \le t \le t_2 </m> is a scaling of an average rate calculation for <m> p </m> over domain <m> a t_1 \le t \le a t_2 </m>.
 		</p>
 
 		<figure xml:id="figure-deriv-h-scaled-avg-rate">
 			<caption>
 				An average rate calculation on one graph stretched into an average rate calculation on another.
-				Note that in the case that <m>a \gt 1</m>
+				Note that in the case that <m> a \gt 1 </m>
 				(which is what is pictured here),
-				then the graph of <m>q</m> is a <em>compression</em> of the graph of <m>p</m>.
-				And notice how this makes the slope of the secant line on the graph of <m>q</m> <em>steeper</em> than the slope of the secant line on the graph of <m>p</m>.
+				then the graph of <m> q </m> is a <em>compression</em> of the graph of <m> p </m>.
+				And notice how this makes the slope of the secant line on the graph of <m> q </m> <em>steeper</em> than the slope of the secant line on the graph of <m> p </m>.
 			</caption>
 
 			<sidebyside widths="25% 50%">
@@ -525,21 +525,21 @@ let's consider the effect of horizontal transformations on derivative.
 		</figure>
 
 		<p>
-		If we are considering a specific time <m>t = t^\ast</m>,
-		our calculations above say that <em>every</em> average rate calculation for <m>q</m> on a domain containing <m>t^\ast</m> can be converted into a scaled average rate calculation for <m>p</m> on a domain containing <m>a t^\ast</m>,
+		If we are considering a specific time <m> t = t^\ast </m>,
+		our calculations above say that <em>every</em> average rate calculation for <m> q </m> on a domain containing <m> t^\ast </m> can be converted into a scaled average rate calculation for <m> p </m> on a domain containing <m> a t^\ast </m>,
 		since <me> t_1 \le t^\ast \le t_2 \qquad \implies a t_1 \le a t^\ast \le a t_2 </me>.
 		Referring back to <xref ref="definition-avg-rate-derivative-value" />,
-		since <m>p</m> is assumed to be differentiable,
+		since <m> p </m> is assumed to be differentiable,
 		<me> p'(a t^\ast) \approx \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1} </me>,
 		where the approximation can be made arbitrarily close by taking <me> a \change{t} = a t_2 - a t_1 </me> sufficiently small.
-		If we take <m>\change{t}</m> small enough so that <m>a \change{t}</m> can be described as <q>sufficiently small</q> in this sense,
+		If we take <m> \change{t} </m> small enough so that <m> a \change{t} </m> can be described as <q>sufficiently small</q> in this sense,
 		then
 		<md>
 			<mrow> p'(a t^\ast) \amp \approx \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1}  </mrow>
 			<mrow> a p'(a t^\ast) \amp \approx a \cdot \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1}  </mrow>
 			<mrow> a p'(a t^\ast) \amp \approx \slope{q}{t} </mrow>
 		</md>,
-		satisfying <xref ref="definition-avg-rate-derivative-value" /> for <m>q</m> at <m>t = t^\ast</m>.
+		satisfying <xref ref="definition-avg-rate-derivative-value" /> for <m> q </m> at <m> t = t^\ast </m>.
 		That is,
 		<me> q'(t^\ast) = a p'(a t^\ast) </me>,
 		as desired.
