@@ -53,10 +53,10 @@ The result of this prediction process is called a <term>limit</term>.
 	To answer, we compute average rates of change over shorter and shorter time intervals around <m> t = 1 </m>,
 	and look for a pattern.
 	<md>
-		<mrow> 0 \amp \le t \le 2 \amp \slope{q}{t} \amp = \frac{2^3 - 0^3}{2 - 0} = 4 </mrow>
-		<mrow> 0.9 \amp \le t \le 1.1 \amp \slope{q}{t} \amp = \frac{1.1^3 - 0.9^3}{1.1 - 0.9} = 3.01 </mrow>
-		<mrow> 0.99 \amp \le t \le 1.01 \amp \slope{q}{t} \amp = \frac{1.01^3 - 0.99^3}{1.01 - 0.99} = 3.0001 </mrow>
-		<mrow> 0.999 \amp \le t \le 1.001 \amp \slope{q}{t} \amp = \frac{1.001^3 - 0.999^3}{1.001 - 0.999} = 3.000001 </mrow>
+		<mrow> 0     \amp \le t \le 2     \amp \slope{q}{t} \amp = \frac{2^3       - 0^3      }{2     - 0    } = 4        </mrow>
+		<mrow> 0.9   \amp \le t \le 1.1   \amp \slope{q}{t} \amp = \frac{{1.1}^3   - {0.9}^3  }{1.1   - 0.9  } = 3.01     </mrow>
+		<mrow> 0.99  \amp \le t \le 1.01  \amp \slope{q}{t} \amp = \frac{{1.01}^3  - {0.99}^3 }{1.01  - 0.99 } = 3.0001   </mrow>
+		<mrow> 0.999 \amp \le t \le 1.001 \amp \slope{q}{t} \amp = \frac{{1.001}^3 - {0.999}^3}{1.001 - 0.999} = 3.000001 </mrow>
 	</md>
 	If we imagine continuing this process forever,
 	it seems like the average rate of change results will continually get closer to <m> 3 </m>.
@@ -71,11 +71,11 @@ we considered a limiting process for successive average rate calculations.
 Each average rate calculation had the same form:
 we compared a data point a little after <m> t = 1 </m> with a data point a little before <m> t = 1 </m>.
 That is,
-we computed
-<md> \text{average rate } = \frac{(1 + h)^3 - (1 - h)^3}{(1 + h) - (1 - h)} </md>
+we computed the average rate <m> \inlineslope{q}{t} </m> over the time domain <m> 1 - h \le t \le 1 + h </m>,
 where first <m> h </m> was <m> 1 </m>, then <m> 0.1 </m>, then <m> 0.01 </m>, and so on.
+<!-- <md> \text{average rate } = \frac{(1 + h)^3 - (1 - h)^3}{(1 + h) - (1 - h)} </md> -->
 So really the limiting process was carried out on the function
-<md> AV(h) = \frac{(1 + h)^3 - (1 - h)^3}{(1 + h) - (1 - h)} </md>
+<md> AV(h) = \slope{q}{t} = \frac{(1 + h)^3 - (1 - h)^3}{(1 + h) - (1 - h)} </md>
 for smaller and smaller values of <m> h </m>,
 where we have named this function <m> AV </m> to stand for <alert>AV</alert>erage rate of change.
 Our conclusion could be expressed as saying
@@ -395,6 +395,9 @@ we leave further examples to the further development of the limiting process app
 <section>
 <title>Continuous functions</title>
 
+<subsection>
+<title>Basics</title>
+
 <p>
 The graphs in <xref ref="figure-funcs-piecewise-2" />
 and <xref ref="figure-funcs-piecewise-many" />
@@ -478,6 +481,11 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	</p>
 
 </definition>
+
+</subsection>
+
+<subsection>
+<title>Types of discontinuities</title>
 
 <p> We will encounter three basic types of discontinuities. </p>
 
@@ -592,6 +600,116 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	<p> We will study singularities and vertical asymptotes more in <xref ref="chapter-inf-behaviour" />. </p>
 
 </paragraphs>
+
+</subsection>
+
+<subsection>
+<title>The Intermediate Value Theorem</title>
+
+<p> An important feature of continuous graphs is that they cannot <q>skip over</q> any particular output level. </p>
+
+<theorem xml:id="theorem-funcs-intermediate-value">
+	<title>Intermediate Value Theorem</title>
+	<statement><p>
+		Suppose <m> f </m> is a continuous function.
+		If <m> f(t_1) \lt K </m> and <m> f(t_2) \gt K </m> (or vice versa),
+		then <m> f(t) = K </m> must have at least one solution in the domain <m> t_1 \lt t \lt t_2 </m>.
+	</p></statement>
+</theorem>
+
+<figure xml:id="figure-funcs-IVT">
+	<caption>
+		As a continuous function ascends/descends,
+		it must take on all possible output values between initial and final output values.
+	</caption>
+	<sidebyside>
+		<figure xml:id="figure-funcs-IVT-low-to-high">
+			<caption>Ascending through each possible output value.</caption>
+			<image xml:id="image-funcs-IVT-low-to-high">
+				<shortdescription>A continuous function ascending through all possible output values from low to high.</shortdescription>
+				<description>
+
+					<p>
+					The graph of a function over a closed, bounded domain <m> t_1 \lt t \lt t_2 </m> is drawn on a set of <m> tq </m>-axes.
+					The graph begins at a closed endpoint at position <m> \bbrac{t_1, f(t_1)} </m>.
+					From there is dips slightly down to a trough before rising significantly up to a peak,
+					before dipping slightly again down to a closed endpoint at position <m> \bbrac{t_2, f(t_2)} </m>.
+					In this configuration, <m> f(t_1) \lt f(t_2) </m>.
+					The values <m> q = f(t_1) </m> and <m> q = f(t_2) </m> are marked on the vertical axis,
+					and a dashed horizontal line runs from each of those positions on the vertical axis to the corresponding endpoint of the graph.
+					</p>
+
+					<p>
+					A value <m> q = K </m> is marked on the vertical axis,
+					approximately three-quarters of the way from <m> q = f(t_1) </m> up to <m> q = f(t_2) </m>,
+					and a third dashed horizontal line runs from this position on the vertical axis to the right edge of the view.
+					This horizontal line necessarily intersects the graph,
+					and the point of intersection is marked on the graph to illustrate the conclusion of the <xref ref="theorem-funcs-intermediate-value" /> in this case.
+					</p>
+
+				</description>
+				<latex-image><xi:include href="funcs.d/IVT-low-to-high.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+		<figure xml:id="figure-funcs-IVT-high-to-low">
+			<caption>Descending through each possible output value.</caption>
+			<image xml:id="image-funcs-IVT-high-to-low">
+				<shortdescription>A continuous function descending through all possible output values from high to low.</shortdescription>
+				<description>
+
+					<p>
+					The graph of a function over a closed, bounded domain <m> t_1 \lt t \lt t_2 </m> is drawn on a set of <m> tq </m>-axes.
+					The graph begins at a closed endpoint at position <m> \bbrac{t_1, f(t_1)} </m>.
+					From there is rises slightly up to a peak before descending significantly down to a trough,
+					before rising slightly again up to a closed endpoint at position <m> \bbrac{t_2, f(t_2)} </m>.
+					In this configuration, <m> f(t_1) \gt f(t_2) </m>.
+					The values <m> q = f(t_1) </m> and <m> q = f(t_2) </m> are marked on the vertical axis,
+					and a dashed horizontal line runs from each of those positions on the vertical axis to the corresponding endpoint of the graph.
+					</p>
+
+					<p>
+					A value <m> q = K </m> is marked on the vertical axis,
+					approximately three-quarters of the way from <m> q = f(t_1) </m> down to <m> q = f(t_2) </m>,
+					and a third dashed horizontal line runs from this position on the vertical axis to the right edge of the view.
+					This horizontal line necessarily intersects the graph,
+					and the point of intersection is marked on the graph to illustrate the conclusion of the <xref ref="theorem-funcs-intermediate-value" /> in this case.
+					</p>
+
+				</description>
+				<latex-image><xi:include href="funcs.d/IVT-high-to-low.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+	</sidebyside>
+</figure>
+
+<example>
+	<title>Searching for horizontal intercepts</title>
+
+	<p>
+	The graph of the cubic function <md> p(t) = 5 - t + t^2 - t^3 </md> is continuous,
+	so from the information
+	<md>
+		<mrow>
+			p(1) \amp = 4 \text{,}
+			\amp
+			p(2) \amp = -1
+		</mrow>
+	</md>
+	we may conclude that the graph must descend through every possible output value between <m> 4 </m> and <m> -1 </m> over the domain <m> 1 \le t \le 2 </m>.
+	(Note, however, that this doesn't mean the graph cannot ascend on some portion of this domain.)
+	</p>
+
+	<p>
+	In particular,
+	since <m> p(1) \gt 0 </m> and <m> p(2) \lt 0 </m>,
+	we may apply the <xref ref="theorem-funcs-intermediate-value" text="title" /> with <m> K = 0 </m> to conclude that there must be at least one solution to
+	<md> 5 - t + t^2 - t^3 = 0 </md>
+	somewhere between <m> t = 1 </m> and <m> t = 2 </m>.
+	</p>
+
+</example>
+
+</subsection>
 
 </section>
 
