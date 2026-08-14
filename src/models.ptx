@@ -22,7 +22,7 @@ respective owners.
 <title>Functions modelling quantity and rate</title>
 
 <p>
-We saw in <xref ref="section-vars-constant-variation" />
+We saw in <xref ref="section-vars-constant-accumulation" />
 that when two quantities are varying in tandem so that the average rate of accumulation of one relative to the other is always constant,
 then we can express one of the quantities as a linear function of the other.
 What if the rate of accumulation is also varying?

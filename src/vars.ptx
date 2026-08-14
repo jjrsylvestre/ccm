@@ -15,12 +15,12 @@ respective owners.
 
 <!--
   Variables, constants, and parameters.
-  Change and variation.
+  Accumulation.
   Linear relationships and constant rate.
 -->
 
 <chapter xml:id="chapter-vars" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Variables and variation</title>
+<title>Variables and accumulation</title>
 
 <section xml:id="section-vars-intro">
 <title>Variables, constants, and parameters</title>
@@ -139,16 +139,16 @@ and a negative accumulation indicates that the quantity has decreased.
 </section>
 
 
-<section xml:id="section-vars-rate-variation">
-<title>Rate of variation</title>
+<section xml:id="section-vars-rate-accumulation">
+<title>Rate of accumulation</title>
 
 <p>
-It is often the case that two quantities are varying in tandem,
-and we wish to compare the amounts by which they vary.
+It is often the case that two quantities accumulate in tandem,
+and we wish to compare the relative amount of accumulation between data points.
 </p>
 
 <example>
-	<title>Volume varies by depth</title>
+	<title>Volume versus depth</title>
 
 	<p>
 	A graduated cylinder is a vessel for measuring a volume of liquid using a ruled scale printed vertically on its side.
@@ -162,8 +162,8 @@ and we wish to compare the amounts by which they vary.
 	When designing a graduated cylinder for manufacture,
 	what diameter should be chosen so that the ruled markings can be printed as millimetres,
 	with each centimetre of depth corresponding to <m> 10 </m> cubic centimetres of volume?
-	A variation in height corresponds to a variation in volume,
-	so that two different depths <m> h_1 </m> and <m> h_2 </m> with corresponding volumes <m> V_1 </m> and <m> V_2 </m>,
+	A variation in depth corresponds to a variation in volume,
+	so that for two different depths <m> h_1 </m> and <m> h_2 </m> with corresponding volumes <m> V_1 </m> and <m> V_2 </m>,
 	we have
 	<md>
 		<mrow> \change{V} \amp = V_2 - V_1 </mrow>
@@ -177,11 +177,12 @@ and we wish to compare the amounts by which they vary.
 	We can think of this ratio as describing <em>variation in volume per unit variation in depth</em>.
 	This is because if <m> \change{h} = 1 </m>,
 	then <md> \slope{V}{h} = \frac{\change{V}}{1} = \change{V} </md>.
-	So whenever the depth changes by <m> 1 </m> centimetre, the volume will change by
+	So whenever the depth varies by <m> 1 </m> centimetre,
+	the volume will vary by
 	<md> \frac{\pi d^2}{4} </md>
 	cubic centimetres.
-	But if the depth changes by <m> 20 </m> centimetres,
-	then the volume will change by
+	But if the depth varies by <m> 20 </m> centimetres,
+	then the volume will vary by
 	<md> 20 \cdot \frac{\pi d^2}{4} = 5 \pi d^2 </md>
 	cubic centimetres.
 	</p>
@@ -205,7 +206,8 @@ and we wish to compare the amounts by which they vary.
 
 	<p>
 	We can now answer the original question:
-	the requirement that each centimetre of change in depth correspond to <m> 10 </m> cubic centimetres change in volume can be stated as
+	each centimetre variation in depth corresponds to <m> 10 </m> cubic centimetres variation in volume,
+	which can be represented in mathematical notation as
 	<md> \slope{V}{h} = 10 </md>
 	if was assume that both the diameter <m> d </m> and the depth <m> h </m> are measured in centimetres.
 	Solving,
@@ -223,36 +225,40 @@ and we wish to compare the amounts by which they vary.
 </example>
 
 <definition xml:id="definition-vars-avg-rate">
-	<title>Average rate of variation</title>
+	<title>Average rate of accumulation</title>
 	<statement><p>
-		If <m> q </m> and <m> t </m> are two quantities that are varying in tandem,
+		If <m> q </m> and <m> t </m> are two quantities that are accumulating in tandem,
 		so that a variation in one of the quantities is always accompanied by a corresponding variation in the other,
 		then a ratio
 		<md> \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </md>
-		is called an <term>(average) rate of variation</term> between data points <m> (t_1,q_1) </m> and <m> (t_2,q_2) </m>.
+		is called an
+		<term>(average) rate of accumulation</term>
+		or <term>(average) rate of variation</term>
+		between data points <m> (t_1,q_1) </m> and <m> (t_2,q_2) </m>.
 	</p></statement>
 </definition>
 
 <p>
 As suggested by the choice of placing <m> t_1 </m> and <m> t_2 </m> as the first coordinate in the data points,
-the quantity whose variation is used as the denominator in a rate ratio is usually considered to the be <term>independent variable</term>,
+the quantity whose accumulation is used as the denominator in a rate ratio is usually considered to the be <term>independent variable</term>,
 while the other quantity is thought of as the <term>dependent variable</term>.
 That is,
 using the variables <m> q </m> and <m> t </m>,
-we think of variation in <m> t </m> as causing or <q>driving</q> the variation in <m> q </m>.
+we think of variation in <m> t </m> as causing or <q>driving</q> the accumulation of <m> q </m>.
 We have chosen the variable <m> t </m> to represent the <q>general</q> independent variable instead of the more traditional variable <m> x </m> because we will usually consider <em>time</em> as the ultimate <q>independent variable,</q>
 and we want to invoke the intuition of a quantity varying over some period of time when we make general statements.
 However, in many situations the independent variable will represent something other than time.
 For example, in economics you might model variations in cost of production as the number of units being produced varies.
 </p>
 
-<p>
-The following example from physics with time as the independent variable should be familiar to you.
-</p>
+<p> The following example from physics with time as the independent variable should be familiar to you. </p>
 
 <example xml:id="example-vars-average-speed">
 	<title>Average speed</title>
 	<p>
+	As you drive a vehicle,
+	you are <term>accumulating</term> distance from your starting position.
+	You may also think of this as <term>varying</term> your position over time.
 	Suppose you drive
 	<quantity><mag>100</mag><unit base="meter" prefix="kilo" /></quantity>
 	in about an hour.
@@ -263,19 +269,16 @@ The following example from physics with time as the independent variable should 
 	</p>
 </example>
 
-<p>
-We will study average rate of variation further in later chapters.
-<!-- TODO in chapter-avg-rate -->
-</p>
+<p> We will study average rate of accumulation further in <xref ref="chapter-avg-rate" />. </p>
 
 </section>
 
 
-<section xml:id="section-vars-constant-variation">
-<title>Constant variation</title>
+<section xml:id="section-vars-constant-accumulation">
+<title>Constant accumulation</title>
 
 <p>
-Normally we think of rate of variation as itself being a quantity that varies.
+Normally we think of rate of accumulation as itself being a quantity that varies.
 For example,
 in <xref ref="example-vars-average-speed" />,
 you likely didn't leave your parking spot at
@@ -284,14 +287,14 @@ and you likely didn't crash into your destination at
 <quantity><mag>100</mag><unit base="meter" prefix="kilo" /><per base="hour" /></quantity>.
 Along the way, you would have sped up and slowed down at various points of the trip,
 perhaps even stopped completely at traffic lights.
-If we calculated an average rate of variation over the first five minutes of the trip,
+If we calculated an average rate of variation in position over the first five minutes of the trip,
 while you were travelling on city streets to get out onto the highway,
 the result would likely have been much lower than
 <quantity><mag>100</mag><unit base="meter" prefix="kilo" /><per base="hour" /></quantity>.
 </p>
 
 <p>
-So a pair of quantities that vary in tandem so that the average rate of variation between them is always the same is a special situation.
+A pair of quantities that accumulate in tandem so that the average rate of accumulation between them is always the same is a special situation.
 </p>
 
 <example xml:id="example-vars-constant-rate">
@@ -321,9 +324,9 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 	</p>
 
 	<figure xml:id="figure-vars-constant-rate-data-points">
-		<caption> Data points and trend line for a quantity varying at a constant rate. </caption>
+		<caption> Data points and trend line for a quantity accumulating at a constant rate. </caption>
 		<image xml:id="image-vars-constant-rate-data-points" width="50.8%">
-			<shortdescription> Data points and trend line for a quantity varying at a constant rate. </shortdescription>
+			<shortdescription> Data points and trend line for a quantity accumulating at a constant rate. </shortdescription>
 			<description><p>
 				Data points are plotted on a set of <m> tq </m>-axes,
 				at coordinates
@@ -340,7 +343,7 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 <identity xml:id="pattern-vars-constant-rate">
 	<title>Constant rate means linear relationship</title>
 	<p>
-	If <m> q </m> and <m> t </m> are two quantities that are varying in tandem so that
+	If <m> q </m> and <m> t </m> are two quantities that are accumulating in tandem so that
 	<md> \slope{q}{t} </md>
 	is constant,
 	then <m> q </m> and <m> t </m> are linearly related by
@@ -351,7 +354,7 @@ So a pair of quantities that vary in tandem so that the average rate of variatio
 
 <p>
 Graphically,
-when two quantities exhibit a constant rate of variation,
+when a quantity exhibits a constant rate of accumulation relative to another,
 we can plot the relationship between <m> q </m> and <m> t </m> on a set of <m> tq </m>-axes and obtain a line with equation as in <xref ref="pattern-vars-constant-rate" />,
 where the slope of the line is
 <md> \slope{q}{t} </md>
@@ -359,9 +362,9 @@ and the <q><m> q </m>-intercept</q> is at the data point <m> (0,q_0) </m>.
 </p>
 
 <example xml:id="example-vars-linear-no-intercept">
-	<title>Determining linear relation for a quantity with constant rate of variation</title>
+	<title>Determining linear relation for a quantity with constant rate of accumulation</title>
 	<p>
-	Suppose <m> q </m> and <m> t </m> are quantities so that <m> q </m> exhibits a constant rate of variation relative to <m> t </m>,
+	Suppose <m> q </m> and <m> t </m> are quantities so that <m> q </m> exhibits a constant rate of accumulation relative to <m> t </m>,
 	with <md> \slope{q}{t} = -2 </md>
 	for all pairs of data points.
 	Then using <xref ref="pattern-vars-constant-rate" />,
@@ -381,9 +384,9 @@ and the <q><m> q </m>-intercept</q> is at the data point <m> (0,q_0) </m>.
 	</p>
 
 	<figure xml:id="figure-vars-constant-rate-neg-slope">
-		<caption> Linear relationship for a quantity varying at a constant, negative rate. </caption>
+		<caption> Linear relationship for a quantity accumulating at a constant, negative rate. </caption>
 		<image xml:id="image-vars-constant-rate-neg-slope" width="50.8%">
-			<shortdescription> Graph and linear relationship for a quantity varying at a constant, negative rate. </shortdescription>
+			<shortdescription> Graph and linear relationship for a quantity accumulating at a constant, negative rate. </shortdescription>
 			<description><p>
 				The line with equation <m> q = -2 t + 7 </m> is drawn on a set of <m> tq </m>-axes.
 				The line slopes downwards,
@@ -396,7 +399,7 @@ and the <q><m> q </m>-intercept</q> is at the data point <m> (0,q_0) </m>.
 	<p>
 	In <xref ref="figure-vars-constant-rate-neg-slope" />,
 	we see that the plotted line crosses the <m> q </m>-axis at <m> q_0 = 7 </m>.
-	Interpreting <md> \slope{q}{t} = -2 </md> as the <em>variation in <m> q </m> per unit variation in <m> t </m></em>,
+	Interpreting <md> \slope{q}{t} = -2 </md> as the <term>variation in <m> q </m> per unit variation in <m> t </m></term>,
 	we also see that the plotted line descends two units for each unit increase in <m> t </m>.
 	</p>
 
@@ -416,7 +419,7 @@ as we expect from its negative slope.
 <identity xml:id="pattern-vars-inc-dec">
 	<title>Increasing/decreasing at a constant rate</title>
 	<p>
-	Suppose quantity <m> q </m> varies at a constant rate relative to quantity <m> t </m>.
+	Suppose quantity <m> q </m> accumulates at a constant rate relative to quantity <m> t </m>.
 	If that constant rate is positive,
 	then <alert>values of <m> q </m> increase as <m> t </m> increases</alert>.
 	If that constant rate is negative,
