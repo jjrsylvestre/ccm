@@ -42,30 +42,36 @@ respective owners.
 		Suppose <m> f(t) </m> is a function whose domain contains an infinite subdomain <m> t \gt t_0 </m>.
 		<ol>
 
-			<li>
-				<title>Unbounded growth</title>
-				<p>
-				We write <md> f(t) \to \infty \qquad \text{as} \qquad t \to \infty </md>
+			<li><title>Unbounded growth</title><p>
+				We write
+				<md><mrow>
+					f(t) \to \infty \quad \amp \text{as} \quad t \to \infty
+					\amp \amp \text{or} \amp
+					\lim_{t \to \infty} f(t) \amp = \infty
+				</mrow></md>
 				to mean that output values of <m> f(t) </m> eventually become and stay positive and arbitrarily large in magnitude.
-				</p>
-			</li>
+			</p></li>
 
-			<li>
-				<title>Unbounded decay</title>
-				<p>
-				We write <md> f(t) \to - \infty \qquad \text{as} \qquad t \to \infty </md>
+			<li><title>Unbounded decay</title><p>
+				We write
+				<md><mrow>
+					f(t) \to - \infty \quad \amp \text{as} \quad t \to \infty
+					\amp \amp \text{or} \amp
+					\lim_{t \to \infty} f(t) \amp = - \infty
+				</mrow></md>
 				to mean that output values of <m> f(t) </m> eventually become and stay negative and arbitrarily large in magnitude.
-				</p>
-			</li>
+			</p></li>
 
-			<li>
-				<title>Approaching steady-state</title>
-				<p>
+			<li><title>Approaching steady-state</title><p>
 				For some steady-state output value <m> L </m>,
-				we write <md> f(t) \to L \qquad \text{as} \qquad t \to \infty </md>
+				we write
+				<md><mrow>
+					f(t) \to L \quad \amp \text{as} \quad t \to \infty
+					\amp \amp \text{or} \amp
+					\lim_{t \to \infty} f(t) \amp = L
+				</mrow></md>
 				to mean that output values of <m> f(t) </m> eventually become and stay arbitrarily close to <m> L </m>.
-				</p>
-			</li>
+			</p></li>
 
 		</ol>
 	</p></statement>
@@ -105,22 +111,23 @@ and stay below that level forever more.
 </p>
 
 <p>
-<term>Arbitrarily close</term> has a similar meaning as in the definition of <term><xref ref="definition-funcs-point-continuous" text="title"/></term>
-<mdash />
-it means that we are always able to restrict the function's output values to within a small range around <m> L </m>,
-no matter how small,
-so that the function's output values move and then stay within that small range forever more.
+<term>Arbitrarily close</term> means that we are always able to restrict the function's output values to within a small range containing <m> L </m>,
+no matter how small that proposed range,
+so that the function's output values move and then stay within that range forever more.
 Here,
 <term>eventually</term> has a similar meaning as before,
-where we may need to go very far out into the domain to achieve outputs that move and stay within the proposed restricted range,
+where we may need to go very far out into the domain to achieve outputs that move and stay within the proposed restricted range containing <m> L </m>,
 and how far out we need to go to observe this behaviour will vary depending on the size of the range.
 </p>
 
 <warning><p>
-	You should not take <md> f(t) \to L \qquad \text{as} \qquad t \to \infty </md>
-	to mean <q>eventually <m> f(t) = L </m>,</q>
-	nor should you take it to mean <q><m> f(t) </m> becomes close to <m> L </m> but never actually equals <m> L </m>.</q>
-	Either situation <em>could</em> happen (though obviously not both simultaneously for a particular function),
+	When <md> \lim_{t \to \infty} f(t) = L </md> is true,
+	it does <alert>not</alert> mean either of the following:
+	<ul>
+		<li> Eventually <m> f(t) = L </m>. </li>
+		<li> Values of <m> f(t) </m> become close to <m> L </m> but never actually equal <m> L </m>. </li>
+	</ul>
+	Either situation <em>could</em> happen,
 	but neither <em>needs</em> to happen.
 	For example,
 	<!-- in a later chapter -->
@@ -178,12 +185,12 @@ and how far out we need to go to observe this behaviour will vary depending on t
 	Large values of <m> t </m> make the fraction part of the formula very small,
 	and the larger <m> t </m> gets,
 	the smaller that fraction gets.
-	So we might guess that <md> f(t) \to 2 \qquad \text{as} \qquad t \to \infty</md>.
+	So we might guess that <md> f(t) \to 2 \quad \text{as} \quad t \to \infty</md>.
 	</p>
 
 	<p>
 	To verify this,
-	we should consider different ranges around that proposed <q>steady-state</q> output level.
+	we should consider different ranges containing that proposed <q>steady-state</q> output level.
 	<ul>
 
 		<li>
@@ -212,10 +219,10 @@ and how far out we need to go to observe this behaviour will vary depending on t
 	</p>
 
 	<figure xml:id="figure-inf-behaviour-error-bounds">
-		<caption> The function <m> f(t) = 2 + 1/t^2 </m> eventually moves within every arbitrarily small range around a proposed approximate long-term value. </caption>
+		<caption> The function <m> f(t) = 2 + 1/t^2 </m> eventually moves within every arbitrarily small range containing a proposed limit value. </caption>
 		<image xml:id="image-inf-behaviour-error-bounds" width="47.9%">
 			<shortdescription>
-				Graph demonstrating that a shifted reciprocal power function eventually moves within every arbitrarily small range around a proposed approximate long-term value.
+				Graph demonstrating that a shifted reciprocal power function eventually moves within every arbitrarily small range containg a proposed limit value.
 			</shortdescription>
 			<description><p>
 				The portion of the graph of the function <m> f(t) = 2 + 1 / t^2 </m> that lies in the first quadrant is drawn on a set of <m> tq </m>-axes.
@@ -359,7 +366,7 @@ by recognizing these patterns as <q>pieces</q> of the more complex ones.
 	<p>
 	For linear function <m> q(t) = m t + q_0 </m>,
 	we have
-	<md> q(t) \to \pm \infty \qquad \text{as} \qquad t \to \infty </md>,
+	<md> q(t) \to \pm \infty \quad \text{as} \quad t \to \infty </md>,
 	where the <em>plus-or-minus</em> depends on whether the constant rate factor <m> m </m> is positive or negative.
 	</p>
 </identity>
@@ -369,7 +376,7 @@ by recognizing these patterns as <q>pieces</q> of the more complex ones.
 	<p>
 	For power function <m> p(t) = t^m </m> with a positive exponent <m> m </m>,
 	we have
-	<md> p(t) \to \infty \qquad \text{as} \qquad t \to \infty </md>.
+	<md> p(t) \to \infty \quad \text{as} \quad t \to \infty </md>.
 	</p>
 </identity>
 
@@ -378,7 +385,7 @@ by recognizing these patterns as <q>pieces</q> of the more complex ones.
 	<p>
 	For every positive exponent <m> m </m>,
 	the function <md> f(t) = \frac{1}{t^m} </md> will exhibit long-term behaviour
-	<md> f(t) \to 0 \qquad \text{as} \qquad t \to \infty </md>.
+	<md> f(t) \to 0 \quad \text{as} \quad t \to \infty </md>.
 	</p>
 </identity>
 
@@ -388,11 +395,11 @@ by recognizing these patterns as <q>pieces</q> of the more complex ones.
 	<title>Long-term behaviour of reciprocals</title>
 	<p>
 	If <m> f(t) </m> is a function for which we know that
-	<md> f(t) \to \pm \infty \qquad \text{as} \qquad t \to \infty </md>
+	<md> f(t) \to \pm \infty \quad \text{as} \quad t \to \infty </md>
 	(where the <em>plus-or-minus</em> means that we know that one or the other is true),
 	then the reciprocal function <md> g(t) = \frac{1}{f(t)} </md>
 	will satisfy
-	<md> g(t) \to 0 \qquad \text{as} \qquad t \to \infty </md>.
+	<md> g(t) \to 0 \quad \text{as} \quad t \to \infty </md>.
 	</p>
 </identity>
 
@@ -401,9 +408,9 @@ by recognizing these patterns as <q>pieces</q> of the more complex ones.
 	<p>
 	We have to be careful with attempting to reverse <xref ref="pattern-inf-behaviour-reciprocal-of-inf" />.
 	If we have a function <m> f(t) </m> for which we know that
-	<md> f(t) \to 0 \qquad \text{as} \qquad t \to \infty </md>,
+	<md> f(t) \to 0 \quad \text{as} \quad t \to \infty </md>,
 	it <em>may</em> be the case that the reciprocal function <md> g(t) = \frac{1}{f(t)}</md> satisfies one of
-	<md> g(t) \to \pm \infty \qquad \text{as} \qquad t \to \infty </md>,
+	<md> g(t) \to \pm \infty \quad \text{as} \quad t \to \infty </md>,
 	but it may not.
 	For example, it could be that <m> f(t) \to 0 </m> occurs by oscillating between positive and negative values but with ever-decreasing <q>peaks,</q>
 	making the reciprocal function <m> g(t) </m> oscillate between large positive and large negative output values.
@@ -441,7 +448,7 @@ we analyze more complex examples by breaking them into pieces.
 	the outputs of <m> f(t) </m> will get large in the long-term.
 	However, noticing the minus sign in front of the <m> t^2 </m> term in the formula for <m> f(t) </m>,
 	we conclude
-	<md> f(t) \to -\infty \qquad \text{as} \qquad t \to \infty </md>.
+	<md> f(t) \to -\infty \quad \text{as} \quad t \to \infty </md>.
 	</p>
 </example>
 
@@ -486,7 +493,7 @@ we analyze more complex examples by breaking them into pieces.
 	The larger <m> t </m> gets,
 	the more negligible the non-dominant terms become, and the more accurate the approximation above becomes,
 	so we conclude that
-	<md> f(t) \to \frac{2}{3} \qquad \text{as} \qquad t \to \infty </md>.
+	<md> f(t) \to \frac{2}{3} \quad \text{as} \quad t \to \infty </md>.
 	</p>
 
 </example>
@@ -496,7 +503,11 @@ we analyze more complex examples by breaking them into pieces.
 	<p>
 	Do <alert>not</alert> perform arithmetic with infinities.
 	In particular,
-	<md><mrow> \infty - \infty \amp \neq 0 \amp \frac{\infty}{\infty} \neq 1 </mrow></md>.
+	<md><mrow>
+		\infty - \infty \amp \neq 0 \text{,}
+		\amp
+		\frac{\infty}{\infty} \amp \neq 1 \text{.}
+	</mrow></md>
 	</p>
 </warning>
 
@@ -542,7 +553,7 @@ We can do this by forming ratios inside the overall ratio to more directly compa
 		<mrow> \amp = \frac{2}{3} </mrow>
 	</md>,
 	and we come to the same conclusion
-	<md> f(t) \to \frac{2}{3} \qquad \text{as} \qquad t \to \infty </md>
+	<md> f(t) \to \frac{2}{3} \quad \text{as} \quad t \to \infty </md>
 	as in <xref ref="example-inf-behaviour-rational-infinities" />.
 </p>
 </example>
@@ -575,15 +586,23 @@ we might want to extrapolate backwards and ask
 <q>What happened a long time ago?</q>
 Similar to the patterns in <xref ref="definition-inf-behaviour-horiz" />,
 we write
-<md> f(t) \to \pm \infty \qquad \text{as} \qquad t \to -\infty </md>
-or
-<md> f(t) \to L \qquad \text{as} \qquad t \to -\infty </md>
+<md><mrow>
+	f(t) \to \pm \infty \quad \amp \text{as} \quad t \to -\infty
+	\amp \amp \text{or} \amp
+	\lim_{t \to -\infty} f(t) \amp = \pm \infty
+</mrow></md>
+and
+<md><mrow>
+	f(t) \to L \quad \amp\text{as} \quad t \to -\infty
+	\amp \amp \text{or} \amp
+	\lim_{t \to -\infty} f(t) \amp = L
+</mrow></md>
 when the function <m> f(t) </m> exhibits the appropriate behaviour for large but negative values of <m> t </m>.
 When verifying these behaviours in examples from the definitions for <m> t \to -\infty </m>,
 the process is essentially the same as that used in
 <xref ref="example-inf-behaviour-parabola" /> and <xref ref="example-inf-behaviour-steady-state-one-over-sq" />,
 except that we now take <term>eventually</term> to mean that the behaviour
-(above/below a certain proposed boundary level or within certain a proposed range around an approximate long-term value)
+(above/below a certain proposed boundary level or within certain a range around a proposed limiting value)
 must hold on a subdomain <m> t \lt t_1 </m> for some large, negative <m> t_1 </m>.
 </p>
 
@@ -595,7 +614,7 @@ with the following alterations.
 	<li>
 		The <em>plus-or-minus</em> in <xref ref="pattern-inf-behaviour-lines" /> is flipped,
 		so that a linear expression satisfies
-		<md> m t + q_0 \to \mp \infty \qquad \text{as} \qquad t \to -\infty </md>,
+		<md> m t + q_0 \to \mp \infty \quad \text{as} \quad t \to -\infty </md>,
 		where the <em>minus-or-plus</em> depends on whether the constant rate factor <m> m </m> is positive or negative.
 	</li>
 
@@ -604,7 +623,7 @@ with the following alterations.
 		<p>
 		For (positive) integer exponents in <xref ref="pattern-inf-behaviour-powers" />,
 		the pattern becomes
-		<md> t^m \to \pm \infty \qquad \text{as} \qquad t \to - \infty </md>,
+		<md> t^m \to \pm \infty \quad \text{as} \quad t \to - \infty </md>,
 		where the <em>plus-or-minus</em> depends on whether the exponent is even or odd.
 		</p>
 
@@ -642,7 +661,7 @@ with the following alterations.
 	as <m> t \to -\infty </m>
 	(depending on whether the exponent <m> m </m> is even or odd),
 	in both cases it will be true that
-	<md> \frac{1}{t^m} \to 0 \qquad \text{as} \qquad t \to -\infty </md>.
+	<md> \frac{1}{t^m} \to 0 \quad \text{as} \quad t \to -\infty </md>.
 	So we can still use <term>dominant terms</term> to analyze the ancient behaviour of a rational function like this,
 	and in this case we see that the ancient behaviour and the long-term behaviour are identical.
 	</p>
@@ -691,7 +710,7 @@ with the following alterations.
 		<mrow> \amp = \frac{t \sqrt{2}}{3 t} </mrow>
 		<mrow> \amp = \frac{\sqrt{2}}{3} </mrow>
 	</md>.
-	So we conclude that <md> f(t) \to \frac{\sqrt{2}}{3} \qquad \text{as} \qquad t \to \infty </md>.
+	So we conclude that <md> f(t) \to \frac{\sqrt{2}}{3} \quad \text{as} \quad t \to \infty </md>.
 	</p>
 
 	<p>
@@ -720,7 +739,7 @@ with the following alterations.
 	Now, <md> \frac{\abs{t}}{t} = - 1 </md>,
 	when <m> t </m> is negative since the numerator and denominator have the same magnitude but one is positive and the other is negative.
 	So we have <md> f(t) \approx - \frac{\sqrt{2}}{3}</md> for large, negative values of <m> t </m>
-	and we conclude that <md> f(t) \to - \frac{\sqrt{2}}{3} \qquad \text{as} \qquad t \to -\infty </md>.
+	and we conclude that <md> f(t) \to - \frac{\sqrt{2}}{3} \quad \text{as} \quad t \to -\infty </md>.
 	</p>
 
 	<figure xml:id="figure-inf-behaviour-separate-two-sided-horiz-asymp">
@@ -762,9 +781,9 @@ with the following alterations.
 	for large values of <m> t </m>,
 	whether positive or negative.
 	From this we can conclude that
-	<md> g(t) \to \infty \qquad \text{as} \qquad t \to \infty </md>
+	<md> g(t) \to \infty \quad \text{as} \quad t \to \infty </md>
 	and
-	<md> g(t) \to -\infty \qquad \text{as} \qquad t \to -\infty </md>.
+	<md> g(t) \to -\infty \quad \text{as} \quad t \to -\infty </md>.
 	However, the expression
 	<md> g(t) \approx \frac{2}{3} t </md>
 	is actually more informative about exactly <em>how</em> <m> g(t) \to \pm \infty </m>;
@@ -877,7 +896,11 @@ we can more easily perform algebraic manipulations in a ratio without changing t
 
 <p>
 In the case of two functions <m> f(t) </m> and <m> g(t) </m> which both satisfy
-<md><mrow> f(t) \amp \to \infty \amp g(t) \amp \to \infty </mrow></md>
+<md><mrow>
+	f(t) \amp \to \infty \text{,}
+	\amp
+	g(t) \amp \to \infty
+</mrow></md>
 as <m> t \to \infty </m>,
 we can compare how fast each grows to <m> \infty </m> by forming a ratio of their output values and re-analyzing as <m> t \to \infty </m>.
 Effectively,
@@ -888,14 +911,14 @@ this pits them against each other in a race to <m> \infty </m>.
 	<title>Relative rates of growth</title>
 	<statement><p>
 		Assume functions <m> f(t) </m> and <m> g(t) </m> both satisfy
-		<md><mrow> f(t) \amp \to \infty \amp g(t) \amp \to \infty </mrow></md>
+		<md><mrow> f(t) \amp \to \infty \text{,} \amp g(t) \amp \to \infty </mrow></md>
 		as <m> t \to \infty </m>.
 		<ol>
 
 			<li>
 				<title>Faster growth</title>
 				<p>
-				If <md> \frac{f(t)}{g(t)} \to \infty \text{ as } t \to \infty </md>
+				If <md> \frac{f(t)}{g(t)} \to \infty \quad \text{ as } \quad t \to \infty </md>
 				then we say that <m> f(t) </m> <term>grows faster than</term> <m> g(t) </m>.
 				</p>
 			</li>
@@ -903,7 +926,7 @@ this pits them against each other in a race to <m> \infty </m>.
 			<li>
 				<title>Slower growth</title>
 				<p>
-				If <md> \frac{f(t)}{g(t)} \to 0 \text{ as } t \to \infty </md>
+				If <md> \frac{f(t)}{g(t)} \to 0 \quad \text{ as } \quad t \to \infty </md>
 				then we say that <m> f(t) </m> <term>grows more slowly than</term> <m> g(t) </m>.
 				</p>
 			</li>
@@ -911,7 +934,7 @@ this pits them against each other in a race to <m> \infty </m>.
 			<li>
 				<title>Comparable growth</title>
 				<p>
-				If <md> \frac{f(t)}{g(t)} \to L \text{ as } t \to \infty </md>
+				If <md> \frac{f(t)}{g(t)} \to L \quad \text{ as } \quad t \to \infty </md>
 				where <m> L </m> is a positive, finite number,
 				then we say that <m> f(t) </m> and <m> g(t) </m> <term>grow at comparable rates</term>.
 				</p>
@@ -948,7 +971,7 @@ here are some simple examples based on computations we have already performed.
 	as <m> t \to \infty </m>.
 	In that previous example,
 	we analyzed the long-term behaviour of the ratio of these two functions and found that
-	<md> \frac{f(t)}{g(t)} \to \infty \qquad \text{as} \qquad t \to \infty </md>,
+	<md> \frac{f(t)}{g(t)} \to \infty \quad \text{as} \quad t \to \infty </md>,
 	which tells us that <m> f(t) </m> grows faster than <m> g(t) </m>.
 	</p>
 </example>
@@ -968,7 +991,7 @@ here are some simple examples based on computations we have already performed.
 	as <m> t \to \infty </m>.
 	In that previous example,
 	we analyzed the long-term behaviour of the ratio of these two functions and found that
-	<md> \frac{f(t)}{g(t)} \to \frac{\sqrt{2}}{3} \qquad \text{as} \qquad t \to \infty </md>,
+	<md> \frac{f(t)}{g(t)} \to \frac{\sqrt{2}}{3} \quad \text{as} \quad t \to \infty </md>,
 	which tells us that <m> f(t) </m> and <m> g(t) </m> grow at comparable rates,
 	though eventually <md> f(t) \approx \frac{\sqrt{2}}{3} \, g(t) </md>.
 	</p>
@@ -1000,7 +1023,12 @@ you might want to know if there are any particular operating states that cause i
 			<li>
 				<title>Growth singularity</title>
 				<p>
-					We write <md> f(t) \to \infty \qquad \text{as} \qquad t \to c </md>
+					We write
+					<md><mrow>
+						f(t) \to \infty \quad \amp \text{as} \quad t \to c
+						\amp \amp \text{or} \amp
+						\lim_{t \to c} f(t) \amp = \infty
+					</mrow></md>
 					to mean that output values of <m> f(t) </m> become arbitrarily large and positive for all inputs <m> t </m> sufficiently close to (but not equal to) <m> c </m>.
 				</p>
 			</li>
@@ -1008,7 +1036,12 @@ you might want to know if there are any particular operating states that cause i
 			<li>
 				<title>Decay singularity</title>
 				<p>
-					We write <md> f(t) \to -\infty \qquad \text{as} \qquad t \to c </md>
+					We write
+					<md><mrow>
+						f(t) \to -\infty \quad \amp \text{as} \quad t \to c
+						\amp \amp \text{or} \amp
+						\lim_{t \to c} f(t) \amp = - \infty
+					</mrow></md>
 					to mean that output values of <m> f(t) </m> become arbitrarily large and negative for all inputs <m> t </m> sufficiently close to (but not equal to) <m> c </m>.
 				</p>
 			</li>
@@ -1023,22 +1056,24 @@ you might want to know if there are any particular operating states that cause i
 In <xref ref="definition-inf-behaviour-singular" />,
 <term>arbitrarily large</term> means just the same as it did when we defined long-term behaviour.
 And <term>sufficiently close</term> means essentially the same as <term>arbitrarily close</term>,
-except
+except:
 <ol>
 
 	<li>
-		the change from <term>arbitrarily</term> to <term>sufficiently</term> reflects the fact that we are in control of how close to <m> c </m> we need to restrict <m> t </m> to be in order to achieve the arbitrarily large outputs
+		The change from <term>arbitrarily</term> to <term>sufficiently</term> reflects the fact that we are in control of how close to <m> c </m> we need to restrict <m> t </m> to be in order to achieve the arbitrarily large outputs.
 	</li>
 
-	<li> we don't necessarily require a symmetric subdomain around <m> t = c </m>. </li>
-
+	<li>
+		Just like when testing limits,
+		we are a bit looser in that we don't necessarily require a symmetric subdomain containing <m> t = c </m>.
+	</li>
 </ol>
 </p>
 
 <example xml:id="example-inf-behaviour-1-over-square-singularity">
 	<title>The prototypical growth singularity</title>
 	<p>
-	Consider values of the function <md>f(t) = \frac{1}{t^2}</md> near <m> t = 0 </m>.
+	Consider values of the function <md> f(t) = \frac{1}{t^2} </md> near <m> t = 0 </m>.
 	We can't actually evaluate <m> f(0) </m> because that involves division by zero.
 	But if <m> t \approx 0 </m> then <m> f(t) </m> is very large and positive.
 	<ul>
@@ -1056,10 +1091,10 @@ except
 	</ul>
 	In fact,
 	you can answer the above question for every proposed upper limit value <m> M </m>
-	by restricting <m> t </m> to be within the subdomain <md>0 \pm \frac{1}{\sqrt{M}} </md>
+	by restricting <m> t </m> to be within the subdomain <md> 0 \pm \frac{1}{\sqrt{M}} </md>
 	(excluding <m> t = 0 </m>, as always).
 	From this we conclude
-	<md> f(t) \to \infty \qquad \text{as} \qquad t \to 0 </md>,
+	<md> f(t) \to \infty \quad \text{as} \quad t \to 0 </md>,
 	and so <m> f(t) </m> has a singularity at <m> t = 0 </m>.
 	</p>
 </example>
@@ -1075,8 +1110,8 @@ except
 <example><p>
 	Consider <md> f(t) = \frac{1}{t^4} - \frac{1}{t^2} </md>.
 	In <xref ref="example-inf-behaviour-1-over-square-singularity" />,
-	we have already demonstrated that <md> \frac{1}{t^2} \to \infty \qquad \text{as} \qquad t \to 0 </md>.
-	A similar analysis would show that <md> \frac{1}{t^4} \to \infty \qquad \text{as} \qquad t \to 0 </md>.
+	we have already demonstrated that <md> \frac{1}{t^2} \to \infty \quad \text{as} \quad t \to 0 </md>.
+	A similar analysis would show that <md> \frac{1}{t^4} \to \infty \quad \text{as} \quad t \to 0 </md>.
 	So it would seem that in the difference in the formula for <m> f(t) </m>,
 	the two infinities would cancel, and we should have <m> f(t) \approx 0 </m> for <m> t \approx 0 </m>.
 	But this is not the case,
@@ -1089,7 +1124,7 @@ except
 	but the denominator is very small and positive,
 	so the ratio is very large.
 	That is, <m> f(t) </m> has a singularity at <m> t = 0 </m> with
-	<md> f(t) \to \infty \qquad \text{as} \qquad t \to 0 </md>.
+	<md> f(t) \to \infty \quad \text{as} \quad t \to 0 </md>.
 	Looking back at the original difference formula for <m> f(t) </m>,
 	we can interpret this as saying that for <m> t \approx 0 </m>,
 	the size of <m> 1/t^4 </m> is so large as to make the subtraction of <m> 1/t^2 </m> negligible.
@@ -1115,7 +1150,12 @@ we make the following definition.
 			<li>
 				<title>Right-hand singularity</title>
 				<p>
-					We write <md> f(t) \to \infty \qquad \text{as} \qquad t \to c^+ </md>
+					We write
+					<md><mrow>
+						f(t) \to \infty \quad \amp \text{as} \quad t \to c^+
+						\amp \amp \text{or} \amp
+						\lim_{t \to c^+} f(t) \amp = \infty
+					</mrow></md>
 					to mean that output values of <m> f(t) </m> become arbitrarily large and positive for all inputs <m> t </m> sufficiently close to but strictly greater than <m> c </m>.
 				</p>
 			</li>
@@ -1123,7 +1163,12 @@ we make the following definition.
 			<li>
 				<title>Left-hand singularity</title>
 				<p>
-					We write <md> f(t) \to \infty \qquad \text{as} \qquad t \to c^- </md>
+					We write
+					<md><mrow>
+						f(t) \to \infty \quad \amp \text{as} \quad t \to c^-
+						\amp \amp \text{or} \amp
+						\lim_{t \to c^-} f(t) \amp = \infty
+					</mrow></md>
 					to mean that output values of <m> f(t) </m> become arbitrarily large and positive for all inputs <m> t </m> sufficiently close to but strictly less than <m> c </m>.
 				</p>
 			</li>
@@ -1140,11 +1185,11 @@ we make the following definition.
 	For <m> t \approx 1 </m> but greater than <m> 1 </m>,
 	the numerator is approximately <m> -1 </m> but the denominator is small and positive,
 	making the ratio very large and negative.
-	Hence <md> f(t) \to -\infty \qquad \text{as} \qquad t \to 1^+ </md>.
+	Hence <md> f(t) \to -\infty \quad \text{as} \quad t \to 1^+ </md>.
 	For <m> t \approx 1 </m> but less than <m> 1 </m>,
 	the numerator is still approximately <m> -1 </m> but the denominator is now small and negative,
 	making the ratio very large and positive.
-	Hence <md> f(t) \to \infty \qquad \text{as} \qquad t \to 1^- </md>.
+	Hence <md> f(t) \to \infty \quad \text{as} \quad t \to 1^- </md>.
 	</p>
 </example>
 
@@ -1157,11 +1202,11 @@ we make the following definition.
 Recall that,
 graphically,
 long-term behaviour
-<md> f(t) \to \mathrm{constant} \qquad \text{as} \qquad t \to \infty </md>
+<md> f(t) \to \mathrm{constant} \quad \text{as} \quad t \to \infty </md>
 means the function's graph is approaching a <xref ref="definition-inf-behaviour-hasymp" text="title" />
 at the height of the constant that the output levels are approaching.
 For singular behaviour
-<md> f(t) \to \infty \qquad \text{as} \qquad t \to \mathrm{constant} </md>
+<md> f(t) \to \infty \quad \text{as} \quad t \to \mathrm{constant} </md>
 this is reversed,
 so that the function's graph is approaching a <em>vertical</em> line at a specific value of <m> t </m>.
 </p>
