@@ -608,6 +608,7 @@ of <xref ref="pattern-integ-definite-props" /> says that
 	</p>
 </identity>
 
+<!-- TODO reconcile with fact that example-avg-rate-from-quantity-model now comes first -->
 <example xml:id="example-poly-parabolic-motion">
 	<title>Parabolic motion</title>
 

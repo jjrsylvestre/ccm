@@ -46,6 +46,12 @@ respective owners.
 -->
 <xi:include href="./inf-behaviour.ptx" />
 
+<!--
+  Average rate of accumulation.
+  Derivative values, differentiability, and tangent lines.
+-->
+<xi:include href="./avg-rate.ptx" />
+
 <!-- Modelling accumulation and rate of variation. Differential equation examples (but no solving). -->
 <xi:include href="./models.ptx" />
 
@@ -86,9 +92,6 @@ respective owners.
 <!-- Models & differential equations where solution is periodic, with examples from the sciences. -->
 <!-- OMIT -->
 <!-- <xi:include href="./pmodels.ptx" /> -->
-
-<!-- Average rate of accumulation. Differentials and approximate rate of accumulation. -->
-<xi:include href="./avg-rate.ptx" />
 
 <!--
   Exact rate of variation from approximate rate of variation.

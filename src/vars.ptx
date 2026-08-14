@@ -102,6 +102,8 @@ using positive and negative to distinguish between the two.
 		For variable quantity <m> q </m>,
 		the <term>accumulation</term> between data points <m> q_1 </m> and <m> q_2 </m> is
 		<md> \change{q} = q_2 - q_1 </md>.
+		We can interpret this formula in words as
+		<md> \text{accumulation} = (\text{final quantity}) - (\text{initial quantity}) </md>.
 	</p></statement>
 </definition>
 
@@ -226,17 +228,32 @@ and we wish to compare the relative amount of accumulation between data points.
 
 <definition xml:id="definition-vars-avg-rate">
 	<title>Average rate of accumulation</title>
-	<statement><p>
+	<statement>
+
+		<p>
 		If <m> q </m> and <m> t </m> are two quantities that are accumulating in tandem,
 		so that a variation in one of the quantities is always accompanied by a corresponding variation in the other,
 		then a ratio
-		<md> \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </md>
+		<md> \avg{r} = \slope{q}{t} = \frac{q_2 - q_1}{t_2 - t_1} </md>
 		is called an
 		<term>(average) rate of accumulation</term>
 		or <term>(average) rate of variation</term>
 		between data points <m> (t_1,q_1) </m> and <m> (t_2,q_2) </m>.
-	</p></statement>
+		</p>
+
+		<p>
+		If variable <m> t </m> represents <em> time </em>,
+		then we can interpret this formula in words as
+		<md> \text{avg rate} = \frac{\text{accumulation}}{\text{duration}} </md>.
+		</p>
+
+	</statement>
 </definition>
+
+<remark><p>
+	The formula in <xref ref="definition-vars-avg-rate" /> is an example of what is called a <term>difference quotient</term>,
+	as it is literally a <q> quotient of two differences. </q>
+</p></remark>
 
 <p>
 As suggested by the choice of placing <m> t_1 </m> and <m> t_2 </m> as the first coordinate in the data points,
@@ -266,6 +283,20 @@ For example, in economics you might model variations in cost of production as th
 	then
 	<md> \slope{d}{t} = \frac{100}{1} = 100 </md>
 	represents your average speed in kilometres per hour.
+	</p>
+</example>
+
+<example>
+	<title>Average rate of return of an investment</title>
+	<p>
+	You check your investment account and find a balance of <m> \$10,385.92 </m>.
+	Four weeks later, you check again and find a balance of <m> \$10,593.64 </m>.
+	So over that time period, your account has accumulated
+	<md> 10,593.64 - 10,385.92 = 207.72 </md>
+	dollars,
+	at an average rate of
+	<md> \frac{207.72}{4} = 51.93 </md>
+	dollars per week.
 	</p>
 </example>
 
