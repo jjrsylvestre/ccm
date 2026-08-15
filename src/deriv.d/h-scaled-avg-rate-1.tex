@@ -31,7 +31,7 @@
 	\draw[thick, domain=1.25:4.5, smooth, thick] plot (\x,{\func});
 
 	% axes
-	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[above left] {$t$};
+	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below] {$t$};
 	\draw[->,thick] (1.5,\ymin) -- (1.5,\ymax) node[below right] {$q(t)$};
 
 	\node[closedpt,blue] at (2.5,2.766) (qlefthalf) {};
@@ -40,7 +40,7 @@
 
 	\draw[blue, thick] (qlefthalf) -- (qrighthalf);
 
-	\node[below] at (3,0) (tcentre) {$t^\ast$};
+	\node[below] at (3,0.025) (tcentre) {$t^\ast$};
 
 	\draw[dashed] (qcentre) -- (3,0);
 
