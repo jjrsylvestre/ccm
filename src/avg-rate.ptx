@@ -1039,7 +1039,7 @@ a secant line over a subdomain containing <m> t^\ast </m> of length so small tha
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-avg-rate-local-linearity">
 <title>Local linearity</title>
 
 <p>
