@@ -464,10 +464,10 @@ and so on.
 	</p>
 
 	<p>
-	Let <m> q </m> represent the number of units sold in a month by any one salesperson,
-	and let <m> s(q) </m> represent the salary to be paid to that employee.
-	In the domain <m> 0 \le q \le 100 </m> we have <md> s(q) = 4000 + 10 q </md>.
-	But on the domain <m> q \gt 100 </m> we have <md> s(q) = 4000 + 10 q + 5 (q - 100) </md>.
+	Let <m> u </m> represent the number of units sold in a month by any one salesperson,
+	and let <m> s(u) </m> represent the salary to be paid to that employee.
+	In the domain <m> 0 \le u \le 100 </m> we have <md> s(u) = 4000 + 10 u </md>.
+	But on the domain <m> u \gt 100 </m> we have <md> s(u) = 4000 + 10 u + 5 (u - 100) </md>.
 	</p>
 
 </example>
@@ -477,9 +477,9 @@ We can collect together several formulas into one function definition with some 
 For example,
 the salary function from <xref ref="example-funcs-commissions" /> can be expressed as
 <md>
-	s(q) = \begin{cases}
-		4000 + 10 q \amp 0 \le q \le 100 \\
-		4000 + 10 q + 5 (q - 100) \amp q \gt 100
+	s(u) = \begin{cases}
+		4000 + 10 u \amp 0 \le u \le 100 \\
+		4000 + 10 u + 5 (u - 100) \amp u \gt 100
 	\end{cases}
 </md>.
 The format of this notation begins with a large left brace,
