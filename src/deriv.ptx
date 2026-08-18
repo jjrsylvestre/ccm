@@ -48,8 +48,11 @@ we take <xref ref="definition-avg-rate-derivative-value" text="title" /> and rep
 		Given quantity function <m> q(t) </m>,
 		the associated <term>derivative function</term> is the function
 		<md> q'(t) = \lim_{\change{t} \to 0} \frac{ q(t + \change{t}) - q(t) }{ \change{t} } </md>.
-		The domain of <m> q' </m> is the collection of all times where <m> q </m> is differentiable,
-		and <m> q' </m> remains undefined at those times where <m> q </m> is not differentiable.
+		The domain of <m> q' </m> is the collection of all time values where <m> q </m> is differentiable
+		(see <xref ref="definition-avg-rate-derivative-value" />),
+		and <m> q' </m> remains undefined at those time values where <m> q </m> is not differentiable.
+		The process of computing a formula for the derivative function <m> q'(t) </m> from a formula for <m> q(t) </m> is called <term>differentiation</term>,
+		and we often say that we <term>differentiate</term> <m> q(t) </m> to produce <m> q'(t) </m>.
 	</p></statement>
 </definition>
 
