@@ -773,7 +773,7 @@ Graphically, this tells us the slope of the <term>local linearity</term> of the 
 </identity>
 
 <p>
-<xref ref="pattern-models-dir-field-points" /> summarizes the graphical interpretation of the information provided by a differential equation at one specific data point.
+<xref ref="pattern-models-dir-field-points" /> summarizes the graphical interpretation of the information provided by a differential equation at <em>one</em> specific data point.
 We can <q>stitch</q> together many such <q>local</q> pieces of information to create a holistic picture of solution graphs by making a grid of data points in the <m> tq </m>-plane,
 and at each point drawing a small line segment with the corresponding slope predicted by the differential equation for that data point.
 Such a diagram is called a <term>direction field</term> (or <term>slope field</term>),
