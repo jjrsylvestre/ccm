@@ -105,6 +105,19 @@ using positive and negative to distinguish between the two.
 	</p></statement>
 </definition>
 
+<example xml:id="example-vars-snow-acc">
+	<title>Accumulation of snow</title>
+	<p>
+	Here is a situation familiar to residents of the Canadian Prairies:
+	a weather forecast predicting <quantity><mag>20</mag><unit base="meter" prefix="centi" /></quantity> of snow overnight.
+	But this measurement <em>does not take into account the existing snow pack on the ground</em> <mdash />
+	it only represents the <em>additional</em> height of snow that will be present in the morning,
+	<em>on top</em> of the existing snow pack already on the ground the previous evening.
+	And we would say that <quantity><mag>20</mag><unit base="meter" prefix="centi" /></quantity> of snow <term>accumulated</term> overnight,
+	again not including any existing snow pack measurement in that statement.
+	</p>
+</example>
+
 <p>
 Notice the following.
 <md>
@@ -115,7 +128,7 @@ So a positive accumulation indicates that the quantity has increased from the fi
 and a negative accumulation indicates that the quantity has decreased.
 </p>
 
-<example xml:id="example-vars-rain">
+<example xml:id="example-vars-rain-acc">
 	<title>Accumulation of rain</title>
 	<p>
 	You leave a one litre container out in the rain,
@@ -134,6 +147,51 @@ and a negative accumulation indicates that the quantity has decreased.
 		<mrow> \amp = - 125 </mrow>
 	</md>.
 	</p>
+</example>
+
+<p>
+In this course we will develop a method (called <term>integration</term>) that allows us to measure accumulation <em>without knowing the initial or final amounts</em>,
+but instead from the knowledge of how <q>fast</q> the accumulation is occurring.
+We would then like to use this information to recover the final amount,
+but in that case we will need to at least know the initial amount.
+</p>
+
+<identity xml:id="pattern-vars-quantity-from-accumulation">
+	<title>Quantity from accumulation</title>
+	<p>
+	For variable quantity <m> q </m>,
+	we may reverse the formula in <xref ref="definition-vars-accumulation" /> to
+	<md> \text{final quantity} = \text{initial quantity} + \text{accumulation} </md>.
+	That is,
+	<md> q_2 = q_1 + \change{q} </md>.
+	</p>
+</identity>
+
+<example xml:id="example-vars-snow-final-from-acc">
+	<title>Final amount of snow</title>
+
+	<p>
+	Let's return to the situation of <xref ref="example-vars-snow-acc" />,
+	where <quantity><mag>20</mag><unit base="meter" prefix="centi" /></quantity> is expected to fall overnight.
+	You still haven't cleared your driveway from the previous snow fall.
+	In the evening,
+	before the new snow has begun to fall,
+	you go out to measure the depth of snow in your driveway and find that it is <quantity><mag>17</mag><unit base="meter" prefix="centi" /></quantity>.
+	</p>
+
+	<p>
+	If <m> h </m> represents the (variable) height of the snow in your driveway in centimetres,
+	then we now have two pieces of information:
+	a data point <m> h_1 = 17 </m> measured in the evening,
+	and the accumulation of height <m> \change{h} = 20 </m> expected overnight.
+	From these two pieces of information we can extrapolate a second data point to be verified in the morning:
+	<md>
+		<mrow> h_2 \amp = h_1 + \change{h} </mrow>
+		<mrow> \amp = 17 + 20 </mrow>
+		<mrow> \amp = 37 \text{.} </mrow>
+	</md>
+	</p>
+
 </example>
 
 </section>
