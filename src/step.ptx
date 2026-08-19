@@ -16,108 +16,102 @@ respective owners.
 <chapter xml:id="chapter-step" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Step functions</title>
 
+<introduction>
+
+	<p>
+	One of our main goals is to develop the tools to solve simple differential equations.
+	A differential equation provides indirect information of the rate of accumulation of a varying quantity.
+	And <xref ref="pattern-vars-quantity-from-accumulation" /> tells us how to predict future quantity values from an initial quantity data point and accumulation information.
+	To begin the process of connecting these,
+	in this chapter and the next we will study how to compute accumulation from a
+	<xref ref="definition-models-rate-function" text="custom">rate function</xref>
+	(<xref ref="definition-models-rate-function" />).
+	</p>
+
+	<p>
+	In the case of a <em>constant</em> rate function,
+	we already know how to do this:
+	<md> \text{accumulation} = \text{rate} \times \text{duration} </md>
+	(<xref ref="pattern-vars-accumulation-for-constant-rate" />).
+	As a next step (pun intended),
+	in this chapter we will consider rate functions that <q>step</q> between different constant rate values.
+	</p>
+
+</introduction>
+
 <section xml:id="section-step-func">
 <title>Concept</title>
+
+<definition xml:id="definition-step-function">
+	<title>Step function</title>
+	<statement><p> A function that <q>steps</q> between constant values on consecutive, non-overlapping intervals. </p></statement>
+</definition>
 
 <example xml:id="example-step-air-pump">
 	<title>Inflating a raft</title>
 
 	<p>
-	You bring an inflatable raft on a trip to the lake,
-	along with a portable air pump to inflate it.
-	The air pump has three settings:
-
-	<ul>
-
-		<li>
-			low
-			(<quantity>
-				<mag>0.25</mag>
-				<unit base="metre" exp="3"/>
-				<per  base="minute" />
-			</quantity>)
-		</li>
-
-		<li>
-			medium
-			(<quantity>
-				<mag>0.5</mag>
-				<unit base="metre" exp="3"/>
-				<per  base="minute" />
-			</quantity>)
-		</li>
-
-		<li>
-			high
-			(<quantity>
-				<mag>0.75</mag>
-				<unit base="metre" exp="3"/>
-				<per  base="minute" />
-			</quantity>).
-		</li>
-
-	</ul>
-
-	Notice that the specification for each of the three settings is given in <em>volume-per-unit-time</em>,
-	so these are inflation <em>rates</em>.
-	</p>
-
-	<p>
-	You run the pump at medium for one minute,
-	but it's taking too long so you bump it up to high.
-	After two minutes on high,
-	the raft is nearly inflated but the pump seems like it's getting a bit hot as it works to counter-act the tendency of the raft to want to <em>deflate</em>,
-	so you switch it to low for one more minute before turning it off.
+	The rate function for our inflatable raft scenario in <xref ref="example-models-air-pump" /> is a step function,
+	stepping from medium, to high, then to low setting of the air pump for specific periods of time.
+	Each setting produced a specific <term>rate of airflow</term>.
+	In <xref ref="example-models-air-pump" /> we modelled the described usage of the air pump with rate function <m> r(t) </m>,
+	expressed as a piecewise function with constant <q>pieces</q> and graphed in <xref ref="figure-step-air-pump" />.
 	</p>
 
 	<figure xml:id="figure-step-air-pump">
-		<caption>Graph modelling output of an air pump with three settings.</caption>
-		<image xml:id="image-step-air-pump-graph" width="49.1%">
-			<shortdescription>Graph modelling output of an air pump with three settings.</shortdescription>
-			<description><p>
-				A rate-versus-time graph,
-				with the vertical axis in metres-cubed-per-minute,
-				and the horizontal axis in minutes.
-				The graph is a piecewise function,
-				with each piece a horizontal line segment.
-				The graph begins at rate <m> 0 </m> for negative time,
-				and then
-				<ul>
-					<li> a one-minute period at rate <m> 0.5 </m>, </li>
-					<li> followed by a two-minute period at rate <m> 0.75 </m>, </li>
-					<li> followed by a one-minute period at rate <m> 0.25 </m>, </li>
-				</ul>
-				and finally the graph returns to rate <m> 0 </m> forever more.
-			</p></description>
-			<latex-image><xi:include href="step.d/air-pump-graph.tex" parse="text" /></latex-image>
-		</image>
+		<caption>Piecewise function modelling output of an air pump with three settings, and its graph.</caption>
+
+		<sidebyside widths="30% 49.1%" margins="5%" valigns="middle middle">
+
+			<p><md>
+				r(t) = \begin{cases}
+					0.5  \amp 0 \le t \lt 1 \\
+					0.75 \amp 1 \le t \lt 3 \\
+					0.25 \amp 3 \le t \lt 4
+				\end{cases}
+			</md></p>
+
+			<image xml:id="image-step-air-pump-graph"> <!-- width="49.1%" -->
+				<shortdescription>Graph modelling output of an air pump with three settings.</shortdescription>
+				<description><p>
+					A rate-versus-time graph,
+					with the vertical axis in metres-cubed-per-minute,
+					and the horizontal axis in minutes.
+					The graph is a piecewise function,
+					with each piece a horizontal line segment.
+					The graph begins at rate <m> 0 </m> for negative time,
+					and then
+					<ul>
+						<li> a one-minute period at rate <m> 0.5 </m>, </li>
+						<li> followed by a two-minute period at rate <m> 0.75 </m>, </li>
+						<li> followed by a one-minute period at rate <m> 0.25 </m>, </li>
+					</ul>
+					and finally the graph returns to rate <m> 0 </m> forever more.
+				</p></description>
+				<latex-image><xi:include href="step.d/air-pump-graph.tex" parse="text" /></latex-image>
+			</image>
+
+		</sidebyside>
+
 	</figure>
+
+	<p>
+	A function can only take on one output value at any given input value,
+	which is why we have an open circle at the endpoint of each line segment in the graph in <xref ref="figure-step-air-pump" />.
+	For example, <m> r(3) = 0.25 </m> but <m> r(2.9999) = 0.75 </m>.
+	Of course, this function is just a <term>model</term> of the behaviour of the air pump usage described in <xref ref="example-models-air-pump" /> <mdash />
+	we could have put open circles at the <em>beginnings</em> of the line segments and closed ones at the ends instead,
+	and it wouldn't affect our analysis of the inflation of the raft.
+	Furthermore, in reality the graph would be continuous,
+	with short, steep segments joining the horizontal ones to represent the <q>ramping up/down</q> of the air pump as it transitions between settings.
+	But in creating models we often ignore complexity to simplify the analysis when we are confident that our simplifying assumptions do not create significant error.
+	</p>
 
 </example>
 
 <p>
-The model rate function graphed in <xref ref="figure-step-air-pump" />
-is an example of a <term>step function</term>.
-</p>
-
-<definition xml:id="definition-step-function">
-	<title>Step function</title>
-	<statement><p> A function that <q>steps</q> between constant values on non-overlapping intervals. </p></statement>
-</definition>
-
-<p>
-A function can only take on one output value at any given input value,
-which is why we have an open circle at the endpoint of each line segment in the graph in <xref ref="figure-step-air-pump" />.
-For example, if we call that inflation rate function <m> r </m>,
-then <m> r(3) = 0.25 </m> but <m> r(2.9999) = 0.75 </m>.
-Of course, this function is just a <term>model</term> of the behaviour of the air pump described in <xref ref="example-step-air-pump" /> <mdash />
-we could have put open circles at the <em>beginnings</em> of the line segments and closed ones at the ends instead,
-and it wouldn't affect our analysis of the inflation of the raft.
-</p>
-
-<p>
-To describe a step function,
-we use piecewise notation to specify the constant output values on different subdomains.
+As in <xref ref="example-step-air-pump" />,
+to describe a step function we use piecewise notation to specify the constant output values on different subdomains.
 </p>
 
 <example xml:id="example-step-piecewise">
@@ -191,7 +185,7 @@ there is no way to subdivide all these intervals into equal-length intervals so 
 
 <p>
 On the other hand,
-the air pump model in <xref ref="example-step-air-pump" /> is regular because we can split the middle interval in half,
+the air pump model in <xref ref="example-step-air-pump" /> can be considered to be regular because we can split the middle interval in half,
 and then changes in output-value still only occur at boundaries of these length-<m> 1 </m> intervals.
 </p>
 
@@ -218,20 +212,17 @@ and then changes in output-value still only occur at boundaries of these length-
 <title>Calculation pattern</title>
 
 <p>
-When a rate function is known to be constant,
-computing accumulation is easy:
-<md> \text{amount} = \text{rate} \times \text{duration} </md>.
-When a quantity changes with a rate function that can be modelled by a step function,
-then the rate function is not constant over its entire domain because it is not always the same rate value for all time.
-However, a stepped rate function is constant over specific subdomains,
-so we can still apply the above formula on each of those subdomains and then total up all of those partial accumulations.
+<xref ref="pattern-vars-accumulation-for-constant-rate" /> tells us how to compute accumulation for a constant rate function:
+<md> \text{accumulation} = \text{rate} \times \text{duration} </md>.
+Given that a step function is constant on the subdomains between stepping points,
+we can extend this accumulation pattern to stepped rate functions by applying it to those subdomains and then totalling up all of those partial accumulations.
 </p>
 
 <example xml:id="example-step-accumulation-air-pump">
 	<title>Inflated raft</title>
 
 	<p>
-	For the situation described in <xref ref="example-step-air-pump" />,
+	For the scenario of <xref ref="example-models-air-pump" /> and <xref ref="example-step-air-pump" />,
 	how much air has been pumped into the raft?
 	To answer this question, we will split the inflation time period up.
 	</p>
@@ -900,78 +891,93 @@ then the above calculation is still a sum of rectangle areas.
 	</image>
 </figure>
 
-<definition xml:id="definition-step-positively-oriented-area">
-	<title>Positively-oriented area</title>
-	<statement><p>
-		If a function is positive on a domain,
-		then the area bounded between the graph of the function and the horizontal axis over that domain is <term>positively-oriented</term>
-		and we assign positive number to that area.
-	</p></statement>
+<definition xml:id="definition-step-oriented-area">
+	<title>Oriented area</title>
+	<statement><p><ol>
+
+		<li xml:id="definition-step-oriented-area-positive">
+			<title>Positively-oriented area</title>
+			<p>
+			If a function is positive on a domain,
+			then the area bounded between the graph of the function and the horizontal axis over that domain is <term>positively-oriented</term>
+			and we assign positive number to that area.
+			</p>
+		</li>
+
+		<li xml:id="definition-step-oriented-area-negatively">
+			<title>Negatively-oriented area</title>
+			<p>
+			If a function is negative on a domain,
+			then the area bounded between the graph of the function and the horizontal axis over that domain is <term>negatively-oriented</term>
+			and we assign a negative number to that area.
+			</p>
+		</li>
+	</ol></p></statement>
+
 </definition>
 
-<figure xml:id="figure-step-positively-oriented">
-	<caption>A positively-oriented area.</caption>
-	<image xml:id="image-step-positively-oriented" width="45.5%">
-		<shortdescription>A diagram of a positively-oriented area under the graph of a function.</shortdescription>
-		<description>
+<figure xml:id="figure-step-oriented-area">
+	<caption>Examples of oriented areas.</caption>
 
-			<p>
-			A graph is drawn on a set of <m> xy </m>-axes.
-			The graph begins in the fourth quadrant and rises to a peak in the first quadrant,
-			crossing the horizontal axis as is does so.
-			The graph then descends to a trough in the fourth quadrant,
-			again crossing the horizontal axis between the peak and the trough.
-			Finally, the graph rises from that trough until it reaches the top edge of the diagram,
-			once more crossing the horizontal axis between the trough and the apparent end of the graph.
-			</p>
+	<sidebyside widths="45.5% 45.5%">
 
-			<p>
-			The first two of the three points of intersection of the graph with the horizontal axis are plotted,
-			and over the domain between those two points the graph is entirely above the horizontal axis.
-			The region in the first quadrant that is bounded above by the graph and below by the horizontal axis is shaded in blue.
-			</p>
+		<figure xml:id="figure-step-oriented-area-positive">
+			<caption>A positively-oriented area.</caption>
+			<image xml:id="image-step-positively-oriented"> <!-- width="45.5%" -->
+				<shortdescription>A diagram of a positively-oriented area under the graph of a function.</shortdescription>
+				<description>
 
-		</description>
-		<latex-image><xi:include href="step.d/positively-oriented.tex" parse="text" /></latex-image>
-	</image>
+					<p>
+					A graph is drawn on a set of <m> xy </m>-axes.
+					The graph begins in the fourth quadrant and rises to a peak in the first quadrant,
+					crossing the horizontal axis as is does so.
+					The graph then descends to a trough in the fourth quadrant,
+					again crossing the horizontal axis between the peak and the trough.
+					Finally, the graph rises from that trough until it reaches the top edge of the diagram,
+					once more crossing the horizontal axis between the trough and the apparent end of the graph.
+					</p>
+
+					<p>
+					The first two of the three points of intersection of the graph with the horizontal axis are plotted,
+					and over the domain between those two points the graph is entirely above the horizontal axis.
+					The region in the first quadrant that is bounded above by the graph and below by the horizontal axis is shaded in blue.
+					</p>
+
+				</description>
+				<latex-image><xi:include href="step.d/positively-oriented.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-step-oriented-area-negative">
+			<caption>A negatively-oriented area.</caption>
+			<image xml:id="image-step-negatively-oriented"> <!-- width="45.5%" -->
+				<shortdescription>A diagram of a negatively-oriented area under the graph of a function.</shortdescription>
+				<description>
+
+					<p>
+					A graph is drawn on a set of <m> xy </m>-axes.
+					The graph begins in the fourth quadrant and rises to a peak in the first quadrant,
+					crossing the horizontal axis as is does so.
+					The graph then descends to a trough in the fourth quadrant,
+					again crossing the horizontal axis between the peak and the trough.
+					Finally, the graph rises from that trough until it reaches the top edge of the diagram,
+					once more crossing the horizontal axis between the trough and the apparent end of the graph.
+					</p>
+
+					<p>
+					The last two of the three points of intersection of the graph with the horizontal axis are plotted,
+					and over the domain between those two points the graph is entirely below the horizontal axis.
+					The region in the fourth quadrant that is bounded below by the graph and above by the horizontal axis is shaded in red.
+					</p>
+
+				</description>
+				<latex-image><xi:include href="step.d/negatively-oriented.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+
+	</sidebyside>
+
 </figure>
-
-<definition xml:id="definition-step-negatively-oriented-area">
-	<title>Negatively-oriented area</title>
-	<statement><p>
-		If a function is negative on a domain,
-		then the area bounded between the graph of the function and the horizontal axis over that domain is <term>negatively-oriented</term>
-		and we assign a negative number to that area.
-	</p></statement>
-</definition>
-
-<figure xml:id="figure-step-negatively-oriented">
-	<caption>A negatively-oriented area.</caption>
-	<image xml:id="image-step-negatively-oriented" width="45.5%">
-		<shortdescription>A diagram of a negatively-oriented area under the graph of a function.</shortdescription>
-		<description>
-
-			<p>
-			A graph is drawn on a set of <m> xy </m>-axes.
-			The graph begins in the fourth quadrant and rises to a peak in the first quadrant,
-			crossing the horizontal axis as is does so.
-			The graph then descends to a trough in the fourth quadrant,
-			again crossing the horizontal axis between the peak and the trough.
-			Finally, the graph rises from that trough until it reaches the top edge of the diagram,
-			once more crossing the horizontal axis between the trough and the apparent end of the graph.
-			</p>
-
-			<p>
-			The last two of the three points of intersection of the graph with the horizontal axis are plotted,
-			and over the domain between those two points the graph is entirely below the horizontal axis.
-			The region in the fourth quadrant that is bounded below by the graph and above by the horizontal axis is shaded in red.
-			</p>
-
-		</description>
-		<latex-image><xi:include href="step.d/negatively-oriented.tex" parse="text" /></latex-image>
-	</image>
-</figure>
-
 
 </subsection>
 
@@ -984,10 +990,10 @@ then the above calculation is still a sum of rectangle areas.
 <title>Summing patterns</title>
 
 <p>
-In the examples in this section,
-total accumulation was calculated as a sum of products.
+In the examples in this chapter,
+total accumulation for a quantity varying according to a stepped rate function was calculated as a sum of products.
 The situation of calculating a sum where each term in the sum follows a pattern comes up a lot in mathematics,
-so mathematicians have developed a special notation for it.
+so mathematicians have developed special notation for it.
 </p>
 
 <assemblage>
