@@ -516,6 +516,48 @@ as we expect from its negative slope.
 	</p>
 </identity>
 
+<p>
+The average of a constant value is just that constant value,
+so in the case of a constant rate <m> r </m> off accumulation,
+<m> \avg{r} = r </m> over every time period.
+So if the constant rate is known and we would like to compute an accumulation value <m> \change{q} </m>,
+we don't actually need to know the initial and final quantity values <m> q_1, q_2 </m>,
+and instead can just reverse the formula in <xref ref="definition-vars-avg-rate" />.
+</p>
+
+<identity xml:id="pattern-vars-accumulation-for-constant-rate">
+	<title>Accumulation for constant rate</title>
+	<p>
+	For quantity <m> q </m> varying at constant rate <m> r </m>,
+	we may reverse the formula in <xref ref="definition-vars-avg-rate" /> to
+	<md> \text{accumulation} = \text{rate} \times \text{duration} </md>.
+	That is,
+	over <em>any</em> time period <m> t_1 \le t \le t_2 </m>,
+	<md> \change{q} = r \cdot \change{t} </md>.
+	</p>
+</identity>
+
+<example>
+	<title>Accumulation of salary for constant rate of pay</title>
+	<p>
+	In 2026,
+	the minimum wage in Alberta, Canada is $15 per hour.
+	This is a constant <term>rate of pay</term> <m> r = 15 </m>.
+	If the worker is paid daily for each eight-hour shift with no deductions,
+	and <m> q(t) </m> represents the amount in the worker's bank account at time <m> t </m>,
+	then we may calculate the daily accumulation of money in the account by
+	<md>
+		<mrow> \change{q} \amp = r \cdot \change{t} </mrow>
+		<mrow> \amp = 15 \times 8 </mrow>
+		<mrow> \amp = 120 \text{.} </mrow>
+	</md>
+	Note that this does <em>not</em> represent the amount of money in the worker's account at the end of any working day,
+	as that also depends on the initial amount at the <em>beginning</em> of the day.
+	If that initial amount is known,
+	then <xref ref="pattern-vars-quantity-from-accumulation" /> could be applied to determine the final account balance at the end of the day.
+	</p>
+</example>
+
 </section>
 
 
