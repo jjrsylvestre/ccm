@@ -143,7 +143,9 @@ we have to take care with what <q>approximately equal to <m> L </m></q> and <q>a
 		<caption> For the square function, output values remain near <m> 4 </m> when input values are taken near <m> 2 </m>. </caption>
 		<image width="33%">
 			<description> A graph demonstrating that for the square function, output values remain near 4 when input values are taken near 2. </description>
-			<latex-image><xi:include href="limits.d/parabola.tex" parse="text" /></latex-image>
+			<latex-image label="image-limits-parabola">
+				<xi:include href="limits.d/parabola.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -164,7 +166,9 @@ we have to take care with what <q>approximately equal to <m> L </m></q> and <q>a
 		<caption> For a modified square function, output values remain near <m> 4 </m> when input values are taken near <m> 2 </m>. </caption>
 		<image width="40%">
 			<description> A graph demonstrating that for a modified square function, output values remain near 4 when input values are taken near 2. </description>
-			<latex-image><xi:include href="limits.d/parabola-2.tex" parse="text" /></latex-image>
+			<latex-image label="image-limits-parabola-2">
+				<xi:include href="limits.d/parabola-2.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -193,7 +197,9 @@ we have to take care with what <q>approximately equal to <m> L </m></q> and <q>a
 		<caption> Output values for this piecewise function do not stay close to one particular value for <m> t \approx 2 </m>. </caption>
 		<image width="66%">
 			<description> A graph of a piecewise function where not all output values remain near a particular value for inputs near 2. </description>
-			<latex-image><xi:include href="limits.d/piecewise-limit.tex" parse="text" /></latex-image>
+			<latex-image label="image-limits-dne">
+				<xi:include href="limits.d/piecewise-limit.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -247,7 +253,9 @@ so that it will indeed be the case that <md> f(t) \approx L </md> is true for al
 		<caption> When the limit exists, outputs can be restricted to remain arbitrarily close to the limiting value as long as inputs are restricted to being sufficiently close around the input point of interest. </caption>
 		<image width="66%">
 			<description> A graph demonstrating that when the limit exists, outputs can be restricted to remain arbitrarily close to the limiting value as long as inputs are restricted to being sufficiently close around the input point of interest. </description>
-			<latex-image><xi:include href="limits.d/parabola-with-bounds.tex" parse="text" /></latex-image>
+			<latex-image label="image-limits-parabola-with-bounds">
+				<xi:include href="limits.d/parabola-with-bounds.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -287,7 +295,9 @@ so that it will indeed be the case that <md> f(t) \approx L </md> is true for al
 				</caption>
 				<image>
 					<description> A generous definition of close can be achieved. </description>
-					<latex-image><xi:include href="limits.d/testing-dne-1.tex" parse="text" /></latex-image>
+					<latex-image label="image-limits-testing-dne-1">
+						<xi:include href="limits.d/testing-dne-1.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -298,7 +308,9 @@ so that it will indeed be the case that <md> f(t) \approx L </md> is true for al
 				</caption>
 				<image>
 					<description> A tighter definition of close cannot be achieved. </description>
-					<latex-image><xi:include href="limits.d/testing-dne-2.tex" parse="text" /></latex-image>
+					<latex-image label="image-limits-testing-dne-2">
+						<xi:include href="limits.d/testing-dne-2.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -506,7 +518,9 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 				<caption> A piecewise function can often (but not always!) jump values at transition points. </caption>
 				<image>
 					<description> A piecewise function with a jump discontinuity. </description>
-					<latex-image><xi:include href="limits.d/jump-discont-1.tex" parse="text" /></latex-image>
+					<latex-image label="image-limits-jump-discont-1">
+						<xi:include href="limits.d/jump-discont-1.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -517,7 +531,9 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 				</caption>
 				<image>
 					<description> A function with a redefined point creating a jump discontinuity. </description>
-					<latex-image><xi:include href="limits.d/jump-discont-2.tex" parse="text" /></latex-image>
+					<latex-image label="image-limits-jump-discont-2">
+						<xi:include href="limits.d/jump-discont-2.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -547,7 +563,9 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 		<caption> A graph with a discontinuity caused by an undefined value. </caption>
 		<image width="33%">
 			<description> A graph with a discontinuity caused by an undefined value. </description>
-			<latex-image><xi:include href="limits.d/hole.tex" parse="text" /></latex-image>
+			<latex-image label="image-limits-hole">
+				<xi:include href="limits.d/hole.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -586,7 +604,9 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 		</caption>
 		<image width="50%">
 			<description> A graph of a function with a discontinuity caused by a singularity. </description>
-			<latex-image><xi:include href="limits.d/singular.tex" parse="text" /></latex-image>
+			<latex-image label="image-limits-singular">
+				<xi:include href="limits.d/singular.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -625,7 +645,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	<sidebyside>
 		<figure xml:id="figure-funcs-IVT-low-to-high">
 			<caption>Ascending through each possible output value.</caption>
-			<image xml:id="image-funcs-IVT-low-to-high">
+			<image>
 				<shortdescription>A continuous function ascending through all possible output values from low to high.</shortdescription>
 				<description>
 
@@ -648,12 +668,14 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 					</p>
 
 				</description>
-				<latex-image><xi:include href="funcs.d/IVT-low-to-high.tex" parse="text" /></latex-image>
+				<latex-image label="image-funcs-IVT-low-to-high">
+					<xi:include href="funcs.d/IVT-low-to-high.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 		<figure xml:id="figure-funcs-IVT-high-to-low">
 			<caption>Descending through each possible output value.</caption>
-			<image xml:id="image-funcs-IVT-high-to-low">
+			<image>
 				<shortdescription>A continuous function descending through all possible output values from high to low.</shortdescription>
 				<description>
 
@@ -676,7 +698,9 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 					</p>
 
 				</description>
-				<latex-image><xi:include href="funcs.d/IVT-high-to-low.tex" parse="text" /></latex-image>
+				<latex-image label="image-funcs-IVT-high-to-low">
+					<xi:include href="funcs.d/IVT-high-to-low.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 	</sidebyside>

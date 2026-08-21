@@ -249,7 +249,7 @@ and we wish to compare the relative amount of accumulation between data points.
 
 	<figure xml:id="figure-vars-cylinder-delta-volume">
 		<caption> Variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </caption>
-		<image xml:id="image-vars-cylinder" width="27.3%">
+		<image width="27.3%">
 			<shortdescription> A diagram illustrating a variation in liquid depth in a cylinder accompanied by corresponding variation in volume. </shortdescription>
 			<description><p>
 				A tall cylinder of diameter <m> d </m> is pictured,
@@ -260,7 +260,9 @@ and we wish to compare the relative amount of accumulation between data points.
 				(from the top of the blue liquid to the top of the red liquid)
 				is labelled as <m> \change{h} </m>.
 			</p></description>
-			<latex-image><xi:include href="vars.d/cylinder.tex" parse="text" /></latex-image>
+			<latex-image label="image-vars-cylinder">
+				<xi:include href="vars.d/cylinder.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -414,7 +416,7 @@ A pair of quantities that accumulate in tandem so that the average rate of accum
 
 	<figure xml:id="figure-vars-constant-rate-data-points">
 		<caption> Data points and trend line for a quantity accumulating at a constant rate. </caption>
-		<image xml:id="image-vars-constant-rate-data-points" width="50.8%">
+		<image width="50.8%">
 			<shortdescription> Data points and trend line for a quantity accumulating at a constant rate. </shortdescription>
 			<description><p>
 				Data points are plotted on a set of <m> tq </m>-axes,
@@ -423,7 +425,9 @@ A pair of quantities that accumulate in tandem so that the average rate of accum
 				These points appear in a linear pattern,
 				and a line is drawn through them.
 			</p></description>
-			<latex-image><xi:include href="vars.d/constant-rate-data-points.tex" parse="text" /></latex-image>
+			<latex-image label="image-vars-constant-rate-data-points">
+				<xi:include href="vars.d/constant-rate-data-points.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -474,14 +478,16 @@ and the <q><m> q </m>-intercept</q> is at the data point <m> (0,q_0) </m>.
 
 	<figure xml:id="figure-vars-constant-rate-neg-slope">
 		<caption> Linear relationship for a quantity accumulating at a constant, negative rate. </caption>
-		<image xml:id="image-vars-constant-rate-neg-slope" width="50.8%">
+		<image width="50.8%">
 			<shortdescription> Graph and linear relationship for a quantity accumulating at a constant, negative rate. </shortdescription>
 			<description><p>
 				The line with equation <m> q = -2 t + 7 </m> is drawn on a set of <m> tq </m>-axes.
 				The line slopes downwards,
 				crossing the vertical axis at <m> q = 7 </m> and then crossing the horizontal axis at <m> t = 3.5 </m>.
 			</p></description>
-			<latex-image><xi:include href="vars.d/constant-rate-neg-slope.tex" parse="text" /></latex-image>
+			<latex-image label="image-vars-constant-rate-neg-slope">
+				<xi:include href="vars.d/constant-rate-neg-slope.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 

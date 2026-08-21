@@ -34,10 +34,12 @@ It is just a matter of changing perspective on the function from a single input-
 
 <figure xml:id="figure-comp-inv-input-output-schematic">
 	<caption> Schematic of a function as a chained multi-step input-output process. </caption>
-	<image xml:id="image-comp-inv-inner-outer" width="52.0%">
+	<image width="52.0%">
 		<shortdescription>Schematic of a function as a chained multi-step input-output process.</shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="comp-inv.d/inner-outer.tex" parse="text" /></latex-image>
+		<latex-image label="image-comp-inv-inner-outer">
+			<xi:include href="comp-inv.d/inner-outer.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -382,23 +384,27 @@ This reveals why composing the two processes together returns us back to where w
 
 		<figure xml:id="figure-comp-inv-cube-root-back-and-forth-cube">
 			<caption> Forward and and reverse on the cube graph. </caption>
-			<image xml:id="image-comp-inv-cube-back-and-forth">
+			<image>
 				<shortdescription>
 					Diagram illustrating the input-output and corresponding output-input processes on the cube function's graph.
 				</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="comp-inv.d/cube-back-and-forth.tex" parse="text" /></latex-image>
+				<latex-image label="image-comp-inv-cube-back-and-forth">
+					<xi:include href="comp-inv.d/cube-back-and-forth.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
 		<figure xml:id="figure-comp-inv-cube-root-back-and-forth-root">
 			<caption> Forward and and reverse on the cube-root graph. </caption>
-			<image xml:id="image-comp-inv-cube-root-back-and-forth">
+			<image>
 				<shortdescription>
 					Diagram illustrating the input-output and corresponding output-input processes on the cube-root-graph.
 				</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="comp-inv.d/cube-root-back-and-forth.tex" parse="text" /></latex-image>
+				<latex-image label="image-comp-inv-cube-root-back-and-forth">
+					<xi:include href="comp-inv.d/cube-root-back-and-forth.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
@@ -551,12 +557,14 @@ but in the other two examples some output values could correspond to <em>two or 
 
 	<figure xml:id="figure-comp-inv-shifted-cube-in-reverse">
 		<caption> Tracing an output back to the input for a vertically shifted cube function. </caption>
-		<image xml:id="image-comp-inv-shifted-cube" width="55.8%">
+		<image width="55.8%">
 			<shortdescription>
 				Diagram illustrating the result of tracing an output back to the input for a vertically shifted cube function.
 			</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="comp-inv.d/shifted-cube.tex" parse="text" /></latex-image>
+			<latex-image label="image-comp-inv-shifted-cube">
+				<xi:include href="comp-inv.d/shifted-cube.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -576,12 +584,14 @@ but in the other two examples some output values could correspond to <em>two or 
 
 	<figure xml:id="figure-comp-inv-sin-repeated-output">
 		<caption> Many different input values produce the same output value <m> 1 </m> for the sine function. </caption>
-		<image xml:id="image-comp-inv-sin" width="100%">
+		<image width="100%">
 			<shortdescription>
 				Diagram illustrating that many different input values produce the same output value 1 for the sine function the input-output and corresponding output-input processes.
 			</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="comp-inv.d/sin.tex" parse="text" /></latex-image>
+			<latex-image label="image-comp-inv-sin">
+				<xi:include href="comp-inv.d/sin.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -602,10 +612,12 @@ suggest a graphical test for the property of <term>one-to-one</term>. </p>
 
 <figure xml:id="figure-comp-inv-fail-HLT">
 	<caption> The graph of a function that fails the Horizontal Line Test. </caption>
-	<image xml:id="image-comp-inv-fail-HLT" width="64.1%">
+	<image width="64.1%">
 		<shortdescription> The graph of a function that fails the Horizontal Line Test. </shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="comp-inv.d/fail-HLT.tex" parse="text" /></latex-image>
+		<latex-image label="image-comp-inv-fail-HLT">
+			<xi:include href="comp-inv.d/fail-HLT.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -631,10 +643,12 @@ suggest a graphical test for the property of <term>one-to-one</term>. </p>
 			For all <m> y \gt 0 </m>,
 			there are two inputs that produce that output level.
 		</caption>
-		<image xml:id="image-comp-inv-fail-parabola" width="45.2%">
+		<image width="45.2%">
 			<shortdescription> A graph demonstrating that the square function fails the Horizontal Line Test. </shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="comp-inv.d/fail-parabola.tex" parse="text" /></latex-image>
+			<latex-image label="image-comp-inv-fail-parabola">
+				<xi:include href="comp-inv.d/fail-parabola.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -696,10 +710,12 @@ then creating the graph of an inverse function interchanges the horizontal and v
 
 	<figure xml:id="figure-comp-inv-reflect-ln">
 		<caption> The natural exponential graph is a reflection of the natural logarithm graph. </caption>
-		<image xml:id="image-comp-inv-reflect-ln" width="88.8%">
+		<image width="88.8%">
 			<shortdescription> A diagram illustrating that the natural exponential graph is a reflection of the natural logarithm graph. </shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="comp-inv.d/reflect-ln.tex" parse="text" /></latex-image>
+			<latex-image label="image-comp-inv-reflect-ln">
+				<xi:include href="comp-inv.d/reflect-ln.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -738,21 +754,25 @@ it is equivalent to verifying the <xref ref="pattern-funcs-VLT" text="title" /> 
 
 			<figure xml:id="figure-comp-inv-square-HLT-vs-sqrt-VLT-square">
 				<caption> The square function. </caption>
-				<image xml:id="image-comp-inv-fail-parabola-2">
+				<image>
 					<shortdescription> Graph of the square function with a typical horizontal line. </shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="comp-inv.d/fail-parabola-2.tex" parse="text" /></latex-image>
+					<latex-image label="image-comp-inv-fail-parabola-2">
+						<xi:include href="comp-inv.d/fail-parabola-2.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
 			<figure xml:id="figure-comp-inv-square-HLT-vs-sqrt-VLT-root">
 				<caption> The graph of the square root function is a reflection of only <q>half</q> of the graph of the square function. </caption>
-				<image xml:id="image-comp-inv-sqrt-pass-VLT">
+				<image>
 					<shortdescription>
 						Diagram illustrating that the graph of the square root function is a reflection of only "half" of the graph of the square function.
 					</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="comp-inv.d/sqrt-pass-VLT.tex" parse="text" /></latex-image>
+					<latex-image label="image-comp-inv-sqrt-pass-VLT">
+						<xi:include href="comp-inv.d/sqrt-pass-VLT.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -777,10 +797,12 @@ it is equivalent to verifying the <xref ref="pattern-funcs-VLT" text="title" /> 
 			Restricting the domain of the square function creates a one-to-one graph,
 			and if we reflect this half-a-parabola in the line <m> y = t </m> the result is the graph of the square root function.
 		</caption>
-		<image xml:id="image-comp-inv-reflect-parabola-sqrt" width="40.2%">
+		<image width="40.2%">
 			<shortdescription>Diagram illustrating that the graph of the square root function is a reflection of one-half of the graph of the square function.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="comp-inv.d/reflect-parabola-sqrt.tex" parse="text" /></latex-image>
+			<latex-image label="image-comp-inv-reflect-parabola-sqrt">
+				<xi:include href="comp-inv.d/reflect-parabola-sqrt.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -831,19 +853,22 @@ then <em>slopes</em> on the graphs should also be related.
 
 			<figure xml:id="figure-comp-inv-cube-root-secants-cube">
 				<caption> A secant line around <m> t = 2 </m> on the cube graph. </caption>
-				<image xml:id="image-comp-inv-cube-secant">
+				<image>
 					<shortdescription> Diagram illustrating a secant line on the cube graph. </shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="comp-inv.d/cube-secant.tex" parse="text" /></latex-image>
+					<latex-image label="image-comp-inv-cube-secant">
+						<xi:include href="comp-inv.d/cube-secant.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
 			<figure xml:id="figure-comp-inv-cube-root-secants-root">
 				<caption> A secant line around <m> q = 8 </m> on the cube-root graph. </caption>
-				<image xml:id="image-comp-inv-cube-root-secant">
+				<image>
 					<shortdescription> Diagram illustrating a secant line on the cube-root graph. </shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="comp-inv.d/cube-root-secant.tex" parse="text" /></latex-image>
+					<latex-image label="image-comp-inv-cube-root-secant"><xi:include href="comp-inv.d/cube-root-secant.tex" parse="text" />
+				</latex-image>
 				</image>
 			</figure>
 
