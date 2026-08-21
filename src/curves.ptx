@@ -467,10 +467,12 @@ Here is an example of the other variety of critical point.
 
 	<figure xml:id="figure-curves-cusp">
 		<caption>The cusp at <m> t = 0 </m> is a critical point.</caption>
-		<image xml:id="image-curves-t-power-two-thirds-cusp" width="42.9%">
+		<image width="42.9%">
 			<shortdescription>Graph with a cusp as a critical point.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="curves.d/t-power-two-thirds-cusp.tex" parse="text" /></latex-image>
+			<latex-image label="image-curves-t-power-two-thirds-cusp">
+				<xi:include href="curves.d/t-power-two-thirds-cusp.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -527,18 +529,22 @@ That critical point occurs at the moment of maximum height.
 
 		<sidebyside widths="62.6%"><figure>
 			<caption>A function with a local minimum.</caption>
-			<image xml:id="image-curves-local-min">
+			<image>
 				<shortdescription>Graph of a function with a local minimum.</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="curves.d/local-min.tex" parse="text" /></latex-image>
+				<latex-image label="image-curves-local-min">
+					<xi:include href="curves.d/local-min.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure></sidebyside>
 
 		<sidebyside widths="62.3%"><figure>
 			<caption>A function with a local maximum.</caption>
-			<image xml:id="image-curves-local-max">
+			<image>
 				<shortdescription>Graph of a function with a local maximum.</shortdescription>
-				<latex-image><xi:include href="curves.d/local-max.tex" parse="text" /></latex-image>
+				<latex-image label="image-curves-local-max">
+					<xi:include href="curves.d/local-max.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure></sidebyside>
 
@@ -638,19 +644,23 @@ and what kind if it does.
 
 			<figure>
 				<caption>Change from increasing to decreasing at a local maximum.</caption>
-				<image xml:id="image-curves-1st-deriv-test-1">
+				<image>
 					<shortdescription>Graph of a function that changes from increasing to decreasing at a local maximum.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="curves.d/1st-deriv-test-1.tex" parse="text" /></latex-image>
+					<latex-image label="image-curves-1st-deriv-test-1">
+						<xi:include href="curves.d/1st-deriv-test-1.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
 			<figure>
 				<caption>Change from decreasing to increasing at a local minimum.</caption>
-				<image xml:id="image-curves-1st-deriv-test-2">
+				<image>
 					<shortdescription>Graph of a function that changes from decreasing to increasing at a local minimum.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="curves.d/1st-deriv-test-2.tex" parse="text" /></latex-image>
+					<latex-image label="image-curves-1st-deriv-test-2">
+						<xi:include href="curves.d/1st-deriv-test-2.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -660,19 +670,23 @@ and what kind if it does.
 
 			<figure>
 				<caption>A saddle point as a momentary <q>stop</q> while increasing.</caption>
-				<image xml:id="image-curves-1st-deriv-test-3">
+				<image>
 					<shortdescription>Graph of a function that illustrates a saddle point as a momentary stop while increasing.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="curves.d/1st-deriv-test-3.tex" parse="text" /></latex-image>
+					<latex-image label="image-curves-1st-deriv-test-3">
+						<xi:include href="curves.d/1st-deriv-test-3.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
 			<figure>
 				<caption>A saddle point as a momentary <q>stop</q> while decreasing.</caption>
-				<image xml:id="image-curves-1st-deriv-test-4">
+				<image>
 					<shortdescription>Graph of a function that illustrates a saddle point as a momentary stop while decreasing.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="curves.d/1st-deriv-test-4.tex" parse="text" /></latex-image>
+					<latex-image label="image-curves-1st-deriv-test-4">
+						<xi:include href="curves.d/1st-deriv-test-4.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -831,10 +845,12 @@ we've got to be careful to take <q>direction</q> into account.
 
 			<figure>
 				<caption> Quantity and rate both increasing. </caption>
-				<image xml:id="image-curves-quantity-vs-rate-1">
+				<image>
 					<shortdescription>Typical graph shape when quantity and rate are both increasing.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="curves.d/quantity-vs-rate-1.tex" parse="text" /></latex-image>
+					<latex-image label="image-curves-quantity-vs-rate-1">
+						<xi:include href="curves.d/quantity-vs-rate-1.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -842,22 +858,26 @@ we've got to be careful to take <q>direction</q> into account.
 				<caption>
 					Quantity decreasing then increasing,
 					but rate always increasing. </caption>
-				<image xml:id="image-curves-quantity-vs-rate-2">
+				<image>
 					<shortdescription>
 						Typical graph shape when quantity decreases then increases,
 						but rate is always increasing.
 					</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="curves.d/quantity-vs-rate-2.tex" parse="text" /></latex-image>
+					<latex-image label="image-curves-quantity-vs-rate-2">
+						<xi:include href="curves.d/quantity-vs-rate-2.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
 			<figure>
 				<caption> Quantity decreasing but rate increasing. </caption>
-				<image xml:id="image-curves-quantity-vs-rate-3">
+				<image>
 					<shortdescription>Typical graph shape when quantity is decreasing but rate is increasing.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="curves.d/quantity-vs-rate-3.tex" parse="text" /></latex-image>
+					<latex-image label="image-curves-quantity-vs-rate-3">
+						<xi:include href="curves.d/quantity-vs-rate-3.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -867,10 +887,12 @@ we've got to be careful to take <q>direction</q> into account.
 
 			<figure>
 				<caption> Quantity and rate both decreasing. </caption>
-				<image xml:id="image-curves-quantity-vs-rate-4">
+				<image>
 					<shortdescription>Typical graph shape when quantity and rate are both decreasing.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="curves.d/quantity-vs-rate-4.tex" parse="text" /></latex-image>
+					<latex-image label="image-curves-quantity-vs-rate-4">
+						<xi:include href="curves.d/quantity-vs-rate-4.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -878,22 +900,26 @@ we've got to be careful to take <q>direction</q> into account.
 				<caption>
 					Quantity increasing then decreasing,
 					but rate always decreasing. </caption>
-				<image xml:id="image-curves-quantity-vs-rate-5">
+				<image>
 					<shortdescription>
 						Typical graph shape when quantity increases then decreases,
 						but rate is always decreasing.
 					</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="curves.d/quantity-vs-rate-5.tex" parse="text" /></latex-image>
+					<latex-image label="image-curves-quantity-vs-rate-5">
+						<xi:include href="curves.d/quantity-vs-rate-5.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
 			<figure>
 				<caption> Quantity increasing but rate decreasing. </caption>
-				<image xml:id="image-curves-quantity-vs-rate-6">
+				<image>
 					<shortdescription>Typical graph shape when quantity is increasing but rate is decreasing.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="curves.d/quantity-vs-rate-6.tex" parse="text" /></latex-image>
+					<latex-image label="image-curves-quantity-vs-rate-6">
+						<xi:include href="curves.d/quantity-vs-rate-6.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -1134,10 +1160,12 @@ and then connect these using our knowledge of the graph's behaviour between them
 
 	<figure xml:id="figure-curves-sketch-1">
 		<caption>Graph of <m> q(t) = 2 t^2 / (t^2 - 1) </m>.</caption>
-		<image xml:id="image-curves-sketch-1" width="100%">
+		<image width="100%">
 			<shortdescription>Graph of an analyzed function.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="curves.d/sketch-1.tex" parse="text" /></latex-image>
+			<latex-image label="image-curves-sketch-1">
+				<xi:include href="curves.d/sketch-1.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -1294,10 +1322,12 @@ the reader.
 
 	<figure xml:id="figure-curves-sketch-2">
 		<caption>Graph of <m> q(t) = t^3 / (t^2 + 1) </m>.</caption>
-		<image xml:id="image-curves-sketch-2" width="42.6%">
+		<image width="42.6%">
 			<shortdescription>Graph of an analyzed function.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="curves.d/sketch-2.tex" parse="text" /></latex-image>
+			<latex-image label="image-curves-sketch-2">
+				<xi:include href="curves.d/sketch-2.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 

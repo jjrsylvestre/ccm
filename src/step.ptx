@@ -72,7 +72,7 @@ respective owners.
 
 	<figure xml:id="figure-step-air-pump">
 		<caption>Graph modelling output of an air pump with three settings.</caption>
-		<image xml:id="image-step-air-pump-graph" width="49.1%">
+		<image width="49.1%">
 			<shortdescription>Graph modelling output of an air pump with three settings.</shortdescription>
 			<description><p>
 				A rate-versus-time graph,
@@ -89,7 +89,9 @@ respective owners.
 				</ul>
 				and finally the graph returns to rate <m> 0 </m> forever more.
 			</p></description>
-			<latex-image><xi:include href="step.d/air-pump-graph.tex" parse="text" /></latex-image>
+			<latex-image label="image-step-air-pump-graph">
+				<xi:include href="step.d/air-pump-graph.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -127,7 +129,7 @@ we use piecewise notation to specify the constant output values on different sub
 
 	<figure xml:id="figure-step-piecewise">
 		<caption>An example step function.</caption>
-		<image xml:id="image-step-piecewise" width="67.6%">
+		<image width="67.6%">
 			<shortdescription>Graph of an example step function.</shortdescription>
 			<description><p>
 				The graph of a step function is drawn on a set of <m> tq </m>-axes.
@@ -145,7 +147,9 @@ we use piecewise notation to specify the constant output values on different sub
 				beginning with a closed endpoint at <m> t = 4.5 </m>,
 				but with no endpoint.
 			</p></description>
-			<latex-image><xi:include href="step.d/piecewise.tex" parse="text" /></latex-image>
+			<latex-image label="image-step-piecewise">
+				<xi:include href="step.d/piecewise.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -197,7 +201,7 @@ and then changes in output-value still only occur at boundaries of these length-
 
 <figure xml:id="figure-step-air-pump-regular">
 	<caption>Graph modelling output of an air pump with three settings.</caption>
-	<image xml:id="image-step-air-pump-regular-graph" width="49.1%">
+	<image width="49.1%">
 		<shortdescription>Graph modelling output of an air pump with three settings.</shortdescription>
 		<description><p>
 			The rate-versus-time graph of <xref ref="figure-step-air-pump" /> is reproduced,
@@ -205,7 +209,9 @@ and then changes in output-value still only occur at boundaries of these length-
 			so that it can instead be regarded as two separate steps,
 			each of duration <m> 1 </m>.
 		</p></description>
-		<latex-image><xi:include href="step.d/air-pump-regular-graph.tex" parse="text" /></latex-image>
+		<latex-image label="image-step-air-pump-regular-graph">
+			<xi:include href="step.d/air-pump-regular-graph.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -338,7 +344,7 @@ so we can still apply the above formula on each of those subdomains and then tot
 
 	<figure xml:id="figure-step-saffron">
 		<caption>Graph for a saffron pricing model.</caption>
-		<image xml:id="image-step-saffron-graph" width="56.7%">
+		<image width="56.7%">
 			<shortdescription>Graph for a saffron pricing model.</shortdescription>
 			<description><p>
 				A rate-versus-mass graph,
@@ -352,7 +358,9 @@ so we can still apply the above formula on each of those subdomains and then tot
 				The first such step runs at height <m> 3 </m> and the second at height <m> 2.75 </m>.
 				The final step begins with an open endpoint at the horizontal location where the previous step left off and runs forever more at height <m> 2.5 </m>.
 			</p></description>
-			<latex-image><xi:include href="step.d/saffron-graph.tex" parse="text" /></latex-image>
+			<latex-image label="image-step-saffron-graph">
+				<xi:include href="step.d/saffron-graph.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -422,7 +430,7 @@ corresponds to an area calculation for a rectangle of height <m> 0.5 </m> and le
 
 <figure xml:id="figure-step-air-pump-1st-minute">
 	<caption>Running the air pump on medium for one minute.</caption>
-	<image xml:id="image-step-air-pump-graph-1st-min" width="49.1%">
+	<image width="49.1%">
 		<shortdescription>Graph modelling output of an air pump for one minute.</shortdescription>
 		<description><p>
 			A rate-versus-time graph,
@@ -439,7 +447,9 @@ corresponds to an area calculation for a rectangle of height <m> 0.5 </m> and le
 			Finally,
 			the rectangle formed by the middle step as top side and the corresponding width along the horizontal axis as bottom side is shaded in.
 		</p></description>
-		<latex-image><xi:include href="step.d/air-pump-graph-1st-min.tex" parse="text" /></latex-image>
+		<latex-image label="image-step-air-pump-graph-1st-min">
+			<xi:include href="step.d/air-pump-graph-1st-min.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -458,7 +468,7 @@ corresponds to an area calculation for a rectangle of height <m> 0.75 </m> and l
 
 <figure xml:id="figure-step-air-pump-middle-minutes">
 	<caption>Running the air pump on high for another two minutes.</caption>
-	<image xml:id="image-step-air-pump-graph-middle-mins" width="49.1%">
+	<image width="49.1%">
 		<shortdescription>Graph modelling output of an air pump for another two minutes.</shortdescription>
 		<description><p>
 			A rate-versus-time graph,
@@ -481,7 +491,9 @@ corresponds to an area calculation for a rectangle of height <m> 0.75 </m> and l
 			with the second rectangle a different color to highlight it as <q>new</q>
 			(relative to the shaded rectangular area in <xref ref="figure-step-air-pump-1st-minute" />).
 		</p></description>
-		<latex-image><xi:include href="step.d/air-pump-graph-middle-mins.tex" parse="text" /></latex-image>
+		<latex-image label="image-step-air-pump-graph-middle-mins">
+			<xi:include href="step.d/air-pump-graph-middle-mins.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -499,7 +511,7 @@ for the final minute running on low corresponds to an area calculation for a rec
 
 <figure xml:id="figure-step-air-pump-last-minute">
 	<caption>Running the air pump on high for the final minute.</caption>
-	<image xml:id="image-step-air-pump-graph-last-min" width="49.1%">
+	<image width="49.1%">
 		<shortdescription>Graph modelling output of an air pump for another one minute.</shortdescription>
 		<description><p>
 			A rate-versus-time graph,
@@ -525,7 +537,9 @@ for the final minute running on low corresponds to an area calculation for a rec
 			with the third rectangle a different color to highlight it as <q>new</q>
 			(relative to the shaded rectangular areas in <xref ref="figure-step-air-pump-middle-minutes" />).
 		</p></description>
-		<latex-image><xi:include href="step.d/air-pump-graph-last-min.tex" parse="text" /></latex-image>
+		<latex-image label="image-step-air-pump-graph-last-min">
+			<xi:include href="step.d/air-pump-graph-last-min.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -537,13 +551,15 @@ Graphically,
 
 <figure xml:id="figure-step-air-pump-all">
 	<caption>Total accumulation over the time period.</caption>
-	<image xml:id="image-step-air-pump-graph-all" width="49.1%">
+	<image width="49.1%">
 		<shortdescription>Graph modelling total accumulation pumped air.</shortdescription>
 		<description><p>
 			The graph of <xref ref="figure-step-air-pump-last-minute" /> is reproduced,
 			but now all three rectangular areas are shaded the same colour to identify them as one combined area.
 		</p></description>
-		<latex-image><xi:include href="step.d/air-pump-graph-all.tex" parse="text" /></latex-image>
+		<latex-image label="image-step-air-pump-graph-all">
+			<xi:include href="step.d/air-pump-graph-all.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -626,7 +642,7 @@ Graphically,
 
 	<figure xml:id="figure-step-camrose-wetaskiwin">
 		<caption>Graph of a rate-of-travel model.</caption>
-		<image xml:id="image-step-camrose-wetaskiwin" width="84.7%">
+		<image width="84.7%">
 			<shortdescription>Graph of a rate-of-travel model.</shortdescription>
 			<description><p>
 				A rate-versus-time graph,
@@ -651,7 +667,9 @@ Graphically,
 				each of the middle three steps forms a rectangle where the step is the top side and the corresponding width along the horizontal axis is the bottom side,
 				and these three rectangles are shaded in,
 			</p></description>
-			<latex-image><xi:include href="step.d/camrose-wetaskiwin.tex" parse="text" /></latex-image>
+			<latex-image label="image-step-camrose-wetaskiwin">
+				<xi:include href="step.d/camrose-wetaskiwin.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -858,7 +876,7 @@ then the above calculation is still a sum of rectangle areas.
 
 <figure xml:id="figure-step-air-pump-leakage">
 	<caption>Inflating and re-inflating an air raft.</caption>
-	<image xml:id="image-step-air-pump-graph-leakage" width="81.7%">
+	<image width="81.7%">
 		<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
 		<description>
 
@@ -896,7 +914,9 @@ then the above calculation is still a sum of rectangle areas.
 			</p>
 
 		</description>
-		<latex-image><xi:include href="step.d/air-pump-graph-leakage.tex" parse="text" /></latex-image>
+		<latex-image label="image-step-air-pump-graph-leakage">
+			<xi:include href="step.d/air-pump-graph-leakage.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -911,7 +931,7 @@ then the above calculation is still a sum of rectangle areas.
 
 <figure xml:id="figure-step-positively-oriented">
 	<caption>A positively-oriented area.</caption>
-	<image xml:id="image-step-positively-oriented" width="45.5%">
+	<image width="45.5%">
 		<shortdescription>A diagram of a positively-oriented area under the graph of a function.</shortdescription>
 		<description>
 
@@ -932,7 +952,9 @@ then the above calculation is still a sum of rectangle areas.
 			</p>
 
 		</description>
-		<latex-image><xi:include href="step.d/positively-oriented.tex" parse="text" /></latex-image>
+		<latex-image label="image-step-positively-oriented">
+			<xi:include href="step.d/positively-oriented.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -947,7 +969,7 @@ then the above calculation is still a sum of rectangle areas.
 
 <figure xml:id="figure-step-negatively-oriented">
 	<caption>A negatively-oriented area.</caption>
-	<image xml:id="image-step-negatively-oriented" width="45.5%">
+	<image width="45.5%">
 		<shortdescription>A diagram of a negatively-oriented area under the graph of a function.</shortdescription>
 		<description>
 
@@ -968,7 +990,9 @@ then the above calculation is still a sum of rectangle areas.
 			</p>
 
 		</description>
-		<latex-image><xi:include href="step.d/negatively-oriented.tex" parse="text" /></latex-image>
+		<latex-image label="image-step-negatively-oriented">
+			<xi:include href="step.d/negatively-oriented.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -1292,7 +1316,7 @@ the sum is called a <term>Riemann sum</term>.
 
 	<figure xml:id="figure-step-air-pump-leakage-riemann">
 		<caption>Riemann sum parameters for inflating and re-inflating an air raft.</caption>
-		<image xml:id="image-step-air-pump-graph-leakage-riemann" width="100%">
+		<image width="100%">
 			<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
 			<description><p>
 				The steps from the rate-versus-time graph of <xref ref="figure-step-air-pump-leakage" /> are redrawn,
@@ -1306,7 +1330,9 @@ the sum is called a <term>Riemann sum</term>.
 				Finally,
 				the heights of the six middle steps have been labelled <m> h_1 </m> through <m> h_6 </m>.
 			</p></description>
-			<latex-image><xi:include href="step.d/air-pump-graph-leakage-riemann.tex" parse="text" /></latex-image>
+			<latex-image label="image-step-air-pump-graph-leakage-riemann">
+				<xi:include href="step.d/air-pump-graph-leakage-riemann.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -1373,7 +1399,7 @@ the sum is called a <term>Riemann sum</term>.
 
 	<figure xml:id="figure-step-air-pump-leakage-regular-riemann">
 		<caption>Regular Riemann sum parameters for inflating and re-inflating an air raft.</caption>
-		<image xml:id="image-step-air-pump-graph-leakage-regular-riemann" width="100%">
+		<image width="100%">
 			<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
 			<description><p>
 				The graph of <xref ref="figure-step-air-pump-leakage-riemann" /> has been reproduced with some changes:
@@ -1398,7 +1424,9 @@ the sum is called a <term>Riemann sum</term>.
 					</li>
 				</ul>
 			</p></description>
-			<latex-image><xi:include href="step.d/air-pump-graph-leakage-regular-riemann.tex" parse="text" /></latex-image>
+			<latex-image label="image-step-air-pump-graph-leakage-regular-riemann">
+				<xi:include href="step.d/air-pump-graph-leakage-regular-riemann.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -1428,7 +1456,7 @@ the sum is called a <term>Riemann sum</term>.
 
 	<figure xml:id="figure-step-air-pump-regular-leakage">
 		<caption>Inflating and re-inflating an air raft.</caption>
-		<image xml:id="image-step-air-pump-graph-regular-leakage" width="81.7%">
+		<image width="81.7%">
 			<shortdescription>Graph modelling inflating, partially deflating, and re-inflating an air raft.</shortdescription>
 			<description><p>
 				The graph of <xref ref="figure-step-air-pump-leakage-regular-riemann" /> is reproduced,
@@ -1451,7 +1479,9 @@ the sum is called a <term>Riemann sum</term>.
 					</li>
 				</ul>
 			</p></description>
-			<latex-image><xi:include href="step.d/air-pump-graph-regular-leakage.tex" parse="text" /></latex-image>
+			<latex-image label="image-step-air-pump-graph-regular-leakage">
+				<xi:include href="step.d/air-pump-graph-regular-leakage.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 

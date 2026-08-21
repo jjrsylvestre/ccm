@@ -53,19 +53,23 @@ In both cases, higher values of <m> n </m> flatten out the bottom and steepen th
 
 		<figure xml:id="figure-poly-powers-even">
 			<caption>Graphs of power functions of even degree.</caption>
-			<image xml:id="image-poly-even">
+			<image>
 				<shortdescription>Graphs of power functions of even degree.</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="poly.d/even.tex" parse="text" /></latex-image>
+				<latex-image label="image-poly-even">
+					<xi:include href="poly.d/even.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
 		<figure xml:id="figure-poly-powers-odd">
 			<caption>Graphs of power functions of odd degree.</caption>
-			<image xml:id="image-poly-odd">
+			<image>
 				<shortdescription>Graphs of power functions of odd degree.</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="poly.d/odd.tex" parse="text" /></latex-image>
+				<latex-image label="image-poly-odd">
+					<xi:include href="poly.d/odd.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
@@ -167,10 +171,12 @@ we can determine the location of the vertex of its graph by <term>completing the
 
 	<figure xml:id="figure-poly-complete-the-square">
 		<caption> Graph of a parabola whose shape and location were determined by completing the square. </caption>
-		<image xml:id="image-poly-complete-sq" width="57%">
+		<image width="57%">
 			<shortdescription>Graph of a parabola whose shape and location were determined by completing the square.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="poly.d/complete-sq.tex" parse="text" /></latex-image>
+			<latex-image label="image-poly-complete-sq">
+				<xi:include href="poly.d/complete-sq.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -241,19 +247,23 @@ as in <xref ref="figure-poly-two-cubics" />.
 
 		<sidebyside widths="63.5%"><figure xml:id="figure-poly-two-cubics-1">
 			<caption>Graph of a cubic that follows an <q>up-down-up</q> pattern.</caption>
-			<image xml:id="image-poly-cubic-1">
+			<image>
 				<shortdescription>Graph of a cubic that follows an "up-down-up" pattern.</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="poly.d/cubic-1.tex" parse="text" /></latex-image>
+				<latex-image label="image-poly-cubic-1">
+					<xi:include href="poly.d/cubic-1.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure></sidebyside>
 
 		<sidebyside widths="63.5%"><figure xml:id="figure-poly-two-cubics-2">
 			<caption>Graph of a cubic that follows an <q>down-up-down</q> pattern.</caption>
-			<image xml:id="image-poly-cubic-2">
+			<image>
 				<shortdescription>Graph of a cubic that follows an "down-up-down" pattern.</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="poly.d/cubic-2.tex" parse="text" /></latex-image>
+				<latex-image label="image-poly-cubic-2">
+					<xi:include href="poly.d/cubic-2.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure></sidebyside>
 
@@ -561,10 +571,12 @@ in <xref ref="chapter-deriv" />.
 
 	<figure xml:id="figure-poly-linear-accumulation-from-area">
 		<caption> Accumulation of displacement as net oriented area under a velocity graph. </caption>
-		<image xml:id="image-poly-linear-accumulation-from-graph" width="46.7%">
+		<image width="46.7%">
 			<shortdescription>Graph of a velocity function with bounded oriented area as accumulation of displacement.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="poly.d/linear-accumulation-from-graph.tex" parse="text" /></latex-image>
+			<latex-image label="image-poly-linear-accumulation-from-graph">
+				<xi:include href="poly.d/linear-accumulation-from-graph.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -696,10 +708,12 @@ of <xref ref="pattern-integ-definite-props" /> says that
 
 	<figure xml:id="figure-poly-parabolic-motion">
 		<caption> A position and velocity graph for parabolic motion due to gravity. </caption>
-		<image xml:id="image-poly-parabolic-motion" width="61.1%">
+		<image width="61.1%">
 			<shortdescription>A position and velocity graph for parabolic motion due to gravity.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="poly.d/parabolic-motion.tex" parse="text" /></latex-image>
+			<latex-image label="image-poly-parabolic-motion">
+				<xi:include href="poly.d/parabolic-motion.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 

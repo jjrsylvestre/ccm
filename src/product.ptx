@@ -328,10 +328,12 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 
 	<figure xml:id="figure-product-brine-tank-1">
 		<caption>Brine entering and being drained from a tank so that volume is held constant.</caption>
-		<image xml:id="image-product-models-mixing" width="63.8%">
+		<image width="63.8%">
 			<shortdescription>Diagram of brine entering and being drained from a tank so that volume is held constant.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="models.d/mixing.tex" parse="text" /></latex-image>
+			<latex-image label="image-product-models-mixing">
+				<xi:include href="models.d/mixing.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -349,13 +351,15 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 			Brine entering and being drained from a tank so that volume is held constant,
 			where the incoming brine is assumed to be of varying concentration.
 		</caption>
-		<image xml:id="image-product-mixing" width="88.8%">
+		<image width="88.8%">
 			<shortdescription>
 				Diagram of brine entering and being drained from a tank so that volume is held constant,
 				where the incoming brine is assumed to be of varying concentration.
 			</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="product.d/mixing.tex" parse="text" /></latex-image>
+			<latex-image label="image-product-mixing">
+				<xi:include href="product.d/mixing.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -368,10 +372,12 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 
 	<figure xml:id="figure-product-brine-forcing-function">
 		<caption>A model function for the ramping up of salt concentration in the incoming brine supply.</caption>
-		<image xml:id="image-product-forcing" width="59.4%">
+		<image width="59.4%">
 			<shortdescription>Graph of a model function for the ramping up of salt concentration in the incoming brine supply.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="product.d/forcing.tex" parse="text" /></latex-image>
+			<latex-image label="image-product-forcing">
+				<xi:include href="product.d/forcing.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 

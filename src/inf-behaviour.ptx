@@ -148,7 +148,7 @@ and how far out we need to go to observe this behaviour will vary depending on t
 
 	<figure xml:id="figure-inf-behaviour-parabola">
 		<caption> The function <m> f(t) = t^2 </m> grows beyond any potential ceiling. </caption>
-		<image xml:id="image-inf-behaviour-unbdd-growth-parabola" width="40.2%">
+		<image width="40.2%">
 			<shortdescription> Graph demonstrating that a parabola grows beyond any potential ceiling. </shortdescription>
 			<description><p>
 				The graph of the function <m> f(t) = t^2 </m> is drawn on a set of <m> tq </m>-axes over the domain <m> t \ge 0 </m>.
@@ -164,7 +164,9 @@ and how far out we need to go to observe this behaviour will vary depending on t
 				(and, for this graph, therefore also to the right of the position <m> t = \sqrt{M} </m>),
 				is drawn in red to highlight the fact that it is evidence that <m> q = M </m> is <em>not</em> an upper bound for the graph.
 			</p></description>
-			<latex-image><xi:include href="inf-behaviour.d/unbdd-growth-parabola.tex" parse="text" /></latex-image>
+			<latex-image label="image-inf-behaviour-unbdd-growth-parabola">
+				<xi:include href="inf-behaviour.d/unbdd-growth-parabola.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -213,7 +215,7 @@ and how far out we need to go to observe this behaviour will vary depending on t
 
 	<figure xml:id="figure-inf-behaviour-error-bounds">
 		<caption> The function <m> f(t) = 2 + 1/t^2 </m> eventually moves within every arbitrarily small range around a proposed approximate long-term value. </caption>
-		<image xml:id="image-inf-behaviour-error-bounds" width="47.9%">
+		<image width="47.9%">
 			<shortdescription>
 				Graph demonstrating that a shifted reciprocal power function eventually moves within every arbitrarily small range around a proposed approximate long-term value.
 			</shortdescription>
@@ -233,7 +235,9 @@ and how far out we need to go to observe this behaviour will vary depending on t
 				is drawn in red to highlight that it remains within the range
 				<m> 2 - \epsilon \lt q \lt 2 + \epsilon </m>.
 			</p></description>
-			<latex-image><xi:include href="inf-behaviour.d/error-bounds.tex" parse="text" /></latex-image>
+			<latex-image label="image-inf-behaviour-error-bounds">
+				<xi:include href="inf-behaviour.d/error-bounds.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -255,13 +259,15 @@ we often place a dashed horizontal line at that level when drawing the function'
 
 <figure xml:id="figure-inf-behaviour-horiz-asymp">
 	<caption> The graph of <m> f(t) = 2 + 1 / t^2 </m> approaches a horizontal asymptote at height <m> 2 </m>. </caption>
-	<image xml:id="image-inf-behaviour-horiz-asymp" width="45.5%">
+	<image width="45.5%">
 		<shortdescription> A function's graph approaching a horizontal asymptote. </shortdescription>
 		<description><p>
 			The graph of the function <m> f(t) = 2 + 1 / t^2 </m> is drawn as approaching the horizontal asymptote <m> q = 2 </m> from above on a set of <m> tq </m>-axes.
 			The horizontal asymptote <m> q = 2 </m> is drawn as a dashed line.
 		</p></description>
-		<latex-image><xi:include href="inf-behaviour.d/horiz-asymp.tex" parse="text" /></latex-image>
+		<latex-image label="image-inf-behaviour-horiz-asymp">
+			<xi:include href="inf-behaviour.d/horiz-asymp.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -286,7 +292,7 @@ Finally, here is an example where the long-term behaviour does not fall into any
 
 	<figure xml:id="figure-inf-behaviour-pulsar">
 		<caption> A model of the observed on/off pattern of a pulsar. </caption>
-		<image xml:id="image-inf-behaviour-pulsar" width="88.8%">
+		<image width="88.8%">
 			<shortdescription> A graphical model of the observed on/off pattern of a pulsar. </shortdescription>
 			<description><p>
 				The graph of a piecewise function is drawn on a set of <m> tq </m>-axes.
@@ -304,7 +310,9 @@ Finally, here is an example where the long-term behaviour does not fall into any
 				ending in an open endpoint at the origin,
 				to indicate that this repeating pattern also extends into the domain <m> t \lt 0 </m>.
 			</p></description>
-			<latex-image><xi:include href="inf-behaviour.d/pulsar.tex" parse="text" /></latex-image>
+			<latex-image label="image-inf-behaviour-pulsar">
+				<xi:include href="inf-behaviour.d/pulsar.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -649,7 +657,7 @@ with the following alterations.
 
 	<figure xml:id="figure-inf-behaviour-two-sided-horiz-asymp">
 		<caption> A function with a symmetric horizontal asymptote. </caption>
-		<image xml:id="image-inf-behaviour-two-sided-horiz-asymp" width="99.7%">
+		<image width="99.7%">
 			<shortdescription> The graph of a function with a symmetric horizontal asymptote. </shortdescription>
 			<description><p>
 				The graph of a function is drawn on a set of <m> tq </m>-axes,
@@ -664,7 +672,9 @@ with the following alterations.
 				it slowly rises again,
 				approaching the horizontal axis from below as it nears the right edge of the view.
 			</p></description>
-			<latex-image><xi:include href="inf-behaviour.d/two-sided-horiz-asymp.tex" parse="text" /></latex-image>
+			<latex-image label="image-inf-behaviour-two-sided-horiz-asymp">
+				<xi:include href="inf-behaviour.d/two-sided-horiz-asymp.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -725,7 +735,7 @@ with the following alterations.
 
 	<figure xml:id="figure-inf-behaviour-separate-two-sided-horiz-asymp">
 		<caption> A graph with two different horizontal asymptotes. </caption>
-		<image xml:id="image-inf-behaviour-separate-two-sided-horiz-asymp" width="92%">
+		<image width="92%">
 			<shortdescription> The graph of a function with two different horizontal asymptotes. </shortdescription>
 			<description><p>
 				The graph of a function with two horizontal asymptotes,
@@ -738,7 +748,9 @@ with the following alterations.
 				On the right side of this vertical asymptote,
 				the graph descends steeply from the top edge of the view and but quickly flattens out as it slowly approaches the horizontal asymptote at <m> q = \sqrt{2} / 3 </m> from above.
 			</p></description>
-			<latex-image><xi:include href="inf-behaviour.d/separate-two-sided-horiz-asymp.tex" parse="text" /></latex-image>
+			<latex-image label="image-inf-behaviour-separate-two-sided-horiz-asymp">
+				<xi:include href="inf-behaviour.d/separate-two-sided-horiz-asymp.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -826,7 +838,7 @@ with the following alterations.
 			A graph with a slant asymptote.
 			The graph will slowly approach the dashed line both to the upper right and the lower left.
 		</caption>
-		<image xml:id="image-inf-behaviour-slant-asymp" width="100%">
+		<image width="100%">
 			<shortdescription> The graph of a function with a slant asymptote. </shortdescription>
 			<description><p>
 				The graph of a function with a slant asymptote is drawn on a set of <m> tq </m>-axes.
@@ -843,7 +855,9 @@ with the following alterations.
 				The graph then dips to a trough in the first quadrant just above the asymptote line's horizontal intercept,
 				before rising to follow the asymptote line very closely from above to the top-right corner of the view.
 			</p></description>
-			<latex-image><xi:include href="inf-behaviour.d/slant-asymp.tex" parse="text" /></latex-image>
+			<latex-image label="image-inf-behaviour-slant-asymp">
+				<xi:include href="inf-behaviour.d/slant-asymp.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -1184,7 +1198,7 @@ so that the function's graph is approaching a <em>vertical</em> line at a specif
 				A function that displays the same behaviour on either side of a vertical asymptote.
 				(From <xref ref="example-inf-behaviour-1-over-square-singularity" />.)
 			</caption>
-			<image xml:id="image-inf-behaviour-vert-asymp-1">
+			<image>
 				<shortdescription> The graph of a function that displays the same behaviour on either side of a vertical asymptote. </shortdescription>
 				<description><p>
 					The graph of a function with a vertical asymptote at <m> t = 0 </m> is drawn on a set of <m> tq </m>-axes.
@@ -1192,7 +1206,9 @@ so that the function's graph is approaching a <em>vertical</em> line at a specif
 					the graph is unbounded in the positive direction,
 					so that the graph appears to <q>rise to infinity</q> on both sides.
 				</p></description>
-				<latex-image><xi:include href="inf-behaviour.d/vert-asymp-1.tex" parse="text" /></latex-image>
+				<latex-image label="image-inf-behaviour-vert-asymp-1">
+					<xi:include href="inf-behaviour.d/vert-asymp-1.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
@@ -1201,7 +1217,7 @@ so that the function's graph is approaching a <em>vertical</em> line at a specif
 				A function that displays different behaviours on either side of a vertical asymptote.
 				(From <xref ref="example-inf-behaviour-two-sided-singularity" />.)
 			</caption>
-			<image xml:id="image-inf-behaviour-vert-asymp-2">
+			<image>
 				<shortdescription> The graph of a function that displays different behaviours on either side of a vertical asymptote. </shortdescription>
 				<description><p>
 					The graph of a function with a vertical asymptote at an unspecified position on the positive horizontal axis is drawn on a set of <m> tq </m>-axes.
@@ -1213,7 +1229,9 @@ so that the function's graph is approaching a <em>vertical</em> line at a specif
 					the graph is unbounded in the negative direction,
 					so that the graph appears to <q>descend to negative infinity</q> on this side.
 				</p></description>
-				<latex-image><xi:include href="inf-behaviour.d/vert-asymp-2.tex" parse="text" /></latex-image>
+				<latex-image label="image-inf-behaviour-vert-asymp-2">
+					<xi:include href="inf-behaviour.d/vert-asymp-2.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 

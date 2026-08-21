@@ -40,10 +40,12 @@ respective owners.
 					At the equilibrium position,
 					where the spring is neither compressed nor stretched.
 				</caption>
-				<image xml:id="image-periodic-mass-equil">
+				<image>
 					<shortdescription>A mass attached to a spring, at equilibrium position.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="periodic.d/mass-equil.tex" parse="text" /></latex-image>
+					<latex-image label="image-periodic-mass-equil">
+						<xi:include href="periodic.d/mass-equil.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure></sidebyside>
 
@@ -52,10 +54,12 @@ respective owners.
 					At a negative position,
 					where the spring is compressed.
 				</caption>
-				<image xml:id="image-periodic-mass-compressed">
+				<image>
 					<shortdescription>A mass attached to a spring, at a negative position with the spring compressed.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="periodic.d/mass-compressed.tex" parse="text" /></latex-image>
+					<latex-image label="image-periodic-mass-compressed">
+						<xi:include href="periodic.d/mass-compressed.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure></sidebyside>
 
@@ -64,10 +68,12 @@ respective owners.
 					At a positive position,
 					where the spring is stretched.
 				</caption>
-				<image xml:id="image-periodic-mass-stretched">
+				<image>
 					<shortdescription>A mass attached to a spring, at a positive position with the spring stretched.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="periodic.d/mass-stretched.tex" parse="text" /></latex-image>
+					<latex-image label="image-periodic-mass-stretched">
+						<xi:include href="periodic.d/mass-stretched.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure></sidebyside>
 
@@ -95,10 +101,12 @@ respective owners.
 
 	<figure xml:id="figure-periodic-velocity-spring-mass">
 		<caption> A velocity graph for a mass attached to a spring. </caption>
-		<image xml:id="image-periodic-sine-for-spring" width="69.4%">
+		<image width="69.4%">
 			<shortdescription> A velocity graph for a mass attached to a spring. </shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="periodic.d/sine-for-spring.tex" parse="text" /></latex-image>
+			<latex-image label="image-periodic-sine-for-spring">
+				<xi:include href="periodic.d/sine-for-spring.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -118,10 +126,12 @@ respective owners.
 
 	<figure xml:id="figure-periodic-position-spring-mass">
 		<caption> A position graph for a mass attached to a spring. </caption>
-		<image xml:id="image-periodic-cos-for-spring" width="67%">
+		<image width="67%">
 			<shortdescription> A position graph for a mass attached to a spring. </shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="periodic.d/cos-for-spring.tex" parse="text" /></latex-image>
+			<latex-image label="image-periodic-cos-for-spring">
+				<xi:include href="periodic.d/cos-for-spring.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -153,10 +163,12 @@ its length would be <m> 2 \pi </m>.
 
 <figure xml:id="figure-periodic-full-circumference">
 	<caption> An unrolled circle of radius <m> 1 </m>. </caption>
-	<image xml:id="image-periodic-circumference" width="92.9%">
+	<image width="92.9%">
 		<shortdescription> An unrolled unit circle. </shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="periodic.d/circumference.tex" parse="text" /></latex-image>
+		<latex-image label="image-periodic-circumference">
+			<xi:include href="periodic.d/circumference.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -167,10 +179,12 @@ Given two points on the circle, we may ask the question:
 
 <figure xml:id="figure-periodic-partial-circumference">
 	<caption> A straightened arc of a unit circle. </caption>
-	<image xml:id="image-periodic-arc" width="92.9%">
+	<image width="92.9%">
 		<shortdescription> A straightened arc of a unit circle. </shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="periodic.d/arc.tex" parse="text" /></latex-image>
+		<latex-image label="image-periodic-arc">
+			<xi:include href="periodic.d/arc.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -194,10 +208,12 @@ an angle is created.
 
 <figure xml:id="figure-periodic-radian">
 	<caption> Radian measure of an angle equals arc length along a unit circle. </caption>
-	<image xml:id="image-periodic-radian" width="42.9%">
+	<image width="42.9%">
 		<shortdescription> Radian measure of an angle equals arc length along a unit circle. </shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="periodic.d/radian.tex" parse="text" /></latex-image>
+		<latex-image label="image-periodic-radian">
+			<xi:include href="periodic.d/radian.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -216,19 +232,23 @@ and so has radian measure <m> \pi / 4 </m>.
 
 		<figure xml:id="figure-periodic-radian-two-examples-right">
 			<caption> Radian measure of a right angle. </caption>
-			<image xml:id="image-periodic-radian-right">
+			<image>
 				<shortdescription> Radian measure of a right angle. </shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="periodic.d/radian-right.tex" parse="text" /></latex-image>
+				<latex-image label="image-periodic-radian-right">
+					<xi:include href="periodic.d/radian-right.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
 		<figure xml:id="figure-periodic-radian-two-examples-45">
 			<caption> Radian measure of a <m> 45 \degree </m> angle. </caption>
-			<image xml:id="image-periodic-radian-45">
+			<image>
 				<shortdescription> Radian measure of a 45-degree angle. </shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="periodic.d/radian-45.tex" parse="text" /></latex-image>
+				<latex-image label="image-periodic-radian-45">
+					<xi:include href="periodic.d/radian-45.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
@@ -302,10 +322,12 @@ so that every period is one traversal of the circle.
 
 <figure xml:id="figure-periodic-traverse-circle">
 	<caption> Traversing the unit circle. </caption>
-	<image xml:id="image-periodic-traverse-circle" width="53.5%">
+	<image width="53.5%">
 		<shortdescription> Traversing the unit circle. </shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="periodic.d/traverse-circle.tex" parse="text" /></latex-image>
+		<latex-image label="image-periodic-traverse-circle">
+			<xi:include href="periodic.d/traverse-circle.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -354,10 +376,12 @@ Here is the graph of <em>angle-versus-<m> x </m>-coordinate</em> formed by this 
 		Graph of the cosine function,
 		which tracks the <m> x </m>-coordinate of positions on the unit circle.
 	</caption>
-	<image xml:id="image-periodic-cos" width="100%">
+	<image width="100%">
 		<shortdescription> Graph of the cosine function. </shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="periodic.d/cos.tex" parse="text" /></latex-image>
+		<latex-image label="image-periodic-cos">
+			<xi:include href="periodic.d/cos.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -381,10 +405,12 @@ we arrive at the following graph of <em>angle-versus-<m> y </m>-coordinate</em>.
 		Graph of the cosine function,
 		which tracks the <m> x </m>-coordinate of positions on the unit circle.
 	</caption>
-	<image xml:id="image-periodic-sin" width="100%">
+	<image width="100%">
 		<shortdescription> Graph of the sine function. </shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="periodic.d/sin.tex" parse="text" /></latex-image>
+		<latex-image label="image-periodic-sin">
+			<xi:include href="periodic.d/sin.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -515,19 +541,23 @@ we may use the angle formed by the hypotenuse and that leg as the input to the t
 
 		<figure>
 			<caption> Cutting a right triangle with a unit circle. </caption>
-			<image xml:id="image-periodic-cut-right-1">
+			<image>
 				<shortdescription> Cutting a right triangle with a unit circle. </shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="periodic.d/cut-right-1.tex" parse="text" /></latex-image>
+				<latex-image label="image-periodic-cut-right-1">
+					<xi:include href="periodic.d/cut-right-1.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
 		<figure>
 			<caption> Extending a right triangle within a unit circle. </caption>
-			<image xml:id="image-periodic-cut-right-2">
+			<image>
 				<shortdescription> Extending a right triangle within a unit circle. </shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="periodic.d/cut-right-2.tex" parse="text" /></latex-image>
+				<latex-image label="image-periodic-cut-right-2">
+					<xi:include href="periodic.d/cut-right-2.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
@@ -563,10 +593,12 @@ leading to the familiar acronyms SOH CAH TOA:
 
 <figure>
 	<caption>SOH CAH TOA.</caption>
-	<image xml:id="image-periodic-soh-cah-toa" width="35.2%">
+	<image width="35.2%">
 		<shortdescription>SOH CAH TOA.</shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="periodic.d/soh-cah-toa.tex" parse="text" /></latex-image>
+		<latex-image label="image-periodic-soh-cah-toa">
+			<xi:include href="periodic.d/soh-cah-toa.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
