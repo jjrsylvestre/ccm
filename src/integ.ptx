@@ -17,6 +17,11 @@ respective owners.
 <chapter xml:id="chapter-integ" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Accumulation from rate data</title>
 
+<introduction><p>
+	Riemann sums provide a method for calculating accumulation for a quantity that varies according to a stepped rate function.
+	Our goal in this chapter is to reduce situations involving more complex rate functions to the simpler case of a stepped rate function.
+</p></introduction>
+
 <section xml:id="section-integ-approx">
 <title>Approximating accumulation using step functions</title>
 
@@ -496,7 +501,21 @@ So it is desirable to have systematic methods of choosing subdomains and sample 
 </p>
 
 <p>
-First, we will prefer to use <xref ref="definition-step-regular-function" text="title" />,
+When using average rates to approximate instantaneous rates (that is, derivative values) as in <xref ref="chapter-avg-rate" />,
+in principle we could compute the average rate over <em>any</em> short time interval that contains the time of interest <m> t^\ast </m>.
+To make things more systematic,
+we standardized on three specific types of average rate approximations:
+<term>forward difference</term>, <term>backward difference</term>, and <term>central difference</term>
+(<xref ref="definition-avg-rate-three-standard-approximations" />).
+Ultimately,
+in defining <term>derivative value</term>
+(<xref ref="definition-avg-rate-derivative-value" />),
+we standardized further by focussing on the combined form of forward/backward difference approximations.
+</p>
+
+<p>
+Here we will similarly standardize on five systematic ways to create a Riemann sum that approximates total accumulation that varies according to some rate function.
+First, in all five methods we will prefer to use <xref ref="definition-step-regular-function" text="title" />,
 so we will always begin by splitting our time period into subdomains of equal length.
 Next, we have to decide how to choose sample points that will determine our step-function heights on those subdomains;
 this can be done systematically in a number of different ways.
@@ -1590,7 +1609,7 @@ Luckily Sage can also handle this for us.
 	that day.
 	<em>But that doesn't tell us where in the country they were at the end of the day.</em>
 	For that information, we need to know <em>where they started</em>
-	(and, in this example, what direction and on which highway they travelled).
+	(and, in this example, what direction and on which highways they travelled).
 	</p>
 </warning>
 
@@ -1697,8 +1716,8 @@ though in practice we will not often return to <q>first principles</q> to carry 
 
 <p>
 However, accumulation is not the whole story.
-To know the total quantity at a given time,
-we need to know the <q>initial amount</q> as well:
+From <xref ref="pattern-vars-quantity-from-accumulation" /> we know that in order to determine the total quantity at a given time,
+we need to know both the accumulation up to the time and the <q>initial amount</q> at the start of the accumulation period:
 <md> \text{final amount} = \text{initial amount} + \text{accumulated amount} </md>.
 </p>
 
