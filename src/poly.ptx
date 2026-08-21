@@ -14,9 +14,7 @@ respective owners.
 *********************************************************************-->
 
 <chapter xml:id="chapter-poly" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Polynomial growth</title>
-
-<!-- TODO put note about changes to integ chapter in traditional version -->
+<title>Polynomials</title>
 
 <section xml:id="section-poly-intro">
 <title>Power and polynomial functions</title>
@@ -459,9 +457,335 @@ at which point we will have reached the degree of the polynomial and can factor 
 
 </section>
 
+<section xml:id="section-poly-deriv">
+<title>Derivatives of polynomial functions</title>
 
-<section xml:id="section-poly-constant-var">
-<title>Constant rate of variation</title>
+<p>
+The simplest type of polynomial is a constant function,
+which can be considered a degree-0 polynomial.
+We have already established that the derivative of a constant is uniformly <m> 0 </m>
+in <xref ref="pattern-deriv-constant" />.
+</p>
+
+<p>
+A degree-<m> 1 </m> polynomial is a linear function,
+and we have already established that the derivative of a linear function is its slope
+in <xref ref="pattern-deriv-linear" />.
+</p>
+
+<p>
+For higher-degree polynomials,
+we should first establish the derivatives of power functions.
+We'll start with some examples of low degree.
+</p>
+
+<example xml:id="example-poly-deriv-quadratic">
+	<title>Derivative of the square function</title>
+
+	<p>
+	Consider <m> q(t) = t^2 </m>.
+	From <xref ref="definition-deriv" />,
+	we have <md> \dqdt = \lim_{\change{t} \to 0} \slope{q}{t} </md>.
+	</p>
+
+	<p>
+	Let's work in steps to simplify the difference quotient in the limit.
+	<md>
+		<mrow> q(t + \change{t}) \amp = (t + \change{t})^2 </mrow>
+		<mrow> \amp = t^2 + 2 t \change{t} + {(\change{t})}^2 </mrow>
+	</md>
+	<md>
+		<mrow> \implies \qquad \change{q} \amp = q(t + \change{t}) - q(t) </mrow>
+		<mrow> \amp = \bbrac{\bcancel{t^2} + 2 t \change{t} + {(\change{t})}^2} - \bcancel{t^2} </mrow>
+		<mrow> \amp =  2 t \change{t} + {(\change{t})}^2 </mrow>
+		<mrow> \amp =  (2 t + \change{t}) \change{t} </mrow>
+	</md>
+	<md>
+		<mrow> \implies \qquad \slope{q}{t} \amp = \frac{ q(t + \change{t}) - q(t) }{ \change{t} } </mrow>
+		<mrow> \amp = \frac{ (2 t + \change{t}) \bcancel{\change{t}} }{ \bcancel{\change{t}} } </mrow>
+		<mrow> \amp = 2 t + \change{t} </mrow>
+	</md>
+	Note that when we take the limit as <m> \change{t} \to 0 </m>,
+	we assume <m> \change{t} \neq 0 </m>,
+	so the cancellation of <m> \change{t} </m> through division above is valid.
+	</p>
+
+	<p>
+	Now consider the limit of the expression that resulted from simplifying the original difference quotient.
+	Clearly
+	<md> \slope{q}{t} \to 2 t \qquad \text{as} \qquad \change{t} \to 0 </md>,
+	and so
+	<md> \ddt{q} = 2 t </md>.
+	</p>
+
+</example>
+
+<example xml:id="example-poly-deriv-cubic">
+	<title>Derivative of the cube function</title>
+	<p>
+	For <m> q(t) = t^3 </m>,
+	we will again work to simplify the difference quotient <m> \inlineslope{q}{t} </m>,
+	just as we did in <xref ref="example-poly-deriv-quadratic" />.
+	This time,
+	we will have to deal with <md> q(t + \change{t}) = (t + \change{t})^3 </md>.
+	This <em>sum-inside-a-power</em> formula is an example of a <term>binomial expression</term>,
+	and there is a formula for expanding it:
+	<md> (t + \change{t})^3 = t^3 + 3 t^2 \change{t} + 3 t {(\change{t})}^2 + {(\change{t})}^3 </md>.
+	So we have
+	<md>
+		<mrow> \change{q} \amp = q(t + \change{t}) - q(t) </mrow>
+		<mrow> \amp = \bbrac{ \bcancel{t^3} + 3 t^2 \change{t} + 3 t {(\change{t})}^2 + {(\change{t})}^3 } - \bcancel{t^3} </mrow>
+		<mrow> \amp = 3 t^2 \change{t} + 3 t {(\change{t})}^2 + {(\change{t})}^3 </mrow>
+		<mrow> \amp = \bbrac{ 3 t^2 + 3 t \change{t} + {(\change{t})}^2 } \change{t} </mrow>
+	</md>,
+	leading to
+	<md>
+		<mrow> \slope{q}{t} \amp = \frac{ q(t + \change{t}) - q(t) }{ \change{t} } </mrow>
+		<mrow> \amp = \frac{ \bbrac{ 3 t^2 + 3 t \change{t} + {(\change{t})}^2 } \bcancel{\change{t}} }{ \bcancel{\change{t}} } </mrow>
+		<mrow> \amp = 3 t^2 + 3 t \change{t} + {(\change{t})}^2 </mrow>
+	</md>.
+	Clearly
+	<md> \slope{q}{t} \to 3 t^2 \qquad \text{as} \qquad \change{t} \to 0 </md>,
+	and therefore
+	<md> \ddt{q} = 3 t^2 </md>.
+	</p>
+</example>
+
+<p>
+We have the beginnings of a pattern here:
+<md><mrow> \ddt{t^2} \amp = 2 t^1 \amp \ddt{t^3} \amp = 3 t^2 </mrow></md>.
+So far the pattern appears to be:
+<em>to obtain the derivative function for a power of <m> t </m>, multiply by the exponent and then decrease the exponent</em>.
+And this pattern does in fact hold for higher-degree power functions.
+</p>
+
+<identity xml:id="pattern-poly-deriv-power">
+	<title>Derivative of a power</title>
+
+	<statement><p>
+		The quantity function <m> q(t) = t^n </m> is differentiable everywhere that it is defined,
+		with <md> \ddt{(t^n)} = n t^{n - 1} </md>.
+	</p></statement>
+
+	<proof>
+		<title>Justification for positive, integer <m> n </m></title>
+
+		<p>
+		We follow the template of <xref ref="example-poly-deriv-cubic" />.
+		For quantity function <md> q(t) = t^n </md>,
+		we have
+		<md>
+			<mrow> q(t + \change{t}) \amp = (t + \change{t})^n </mrow>
+			<mrow> \amp = t^n + b_1 t^{n - 1} \change{t} + b_2 t^{n - 2} {(\change{t})}^2 + \dotsb + b_{n - 1} t {(\change{t})}^{n - 1} + {(\change{t})}^n </mrow>
+		</md>,
+		where <m> b_1,b_2,\dotsc,b_{n-1} </m> are the so-called <term>binomial coefficients</term> for the expansion of a binomial expression of the form <m> (x+y)^n </m>.
+		To compute <m> \change{q} </m>,
+		we need to subtract <m> q(t) = t^n </m> from <m> q(t + \change{t}) </m>.
+		But there is a <m> t^n </m> term at the beginning of our expanded expression for <m> q(t + \change{t}) </m> above that will cancel in this subtraction,
+		leaving
+		<md>
+			<mrow> \change{q} \amp = b_1 t^{n - 1} \change{t} + b_2 t^{n - 2} {(\change{t})}^2 + \dotsb + b_{n - 1} t {(\change{t})}^{n - 1} + {(\change{t})}^n </mrow>
+			<mrow> \amp = \bbrac{ b_1 t^{n - 1} + b_2 t^{n - 2} \change{t} + \dotsb + b_{n - 1} t {(\change{t})}^{n - 2} + {(\change{t})}^{n - 1} } \change{t} </mrow>
+		</md>.
+		Therefore,
+		<md>
+			<mrow> \slope{q}{t} \amp = \frac{ q(t + \change{t}) - q(t) }{ \change{t} } </mrow>
+			<mrow> \amp = \frac{ \bbrac{ b_1 t^{n - 1} + b_2 t^{n - 2} \change{t} + \dotsb + b_{n - 1} t {(\change{t})}^{n - 2} + {(\change{t})}^{n - 1} } \bcancel{\change{t}} }{ \bcancel{\change{t}} } </mrow>
+			<mrow> \amp = b_1 t^{n - 1} + b_2 t^{n - 2} \change{t} + \dotsb + b_{n - 1} t {(\change{t})}^{n - 2} + {(\change{t})}^{n - 1} </mrow>
+		</md>.
+		All terms above that contain a factor of <m> \change{t} </m> tend to <m> 0 </m> as <m> \change{t} \to 0 </m>,
+		so we have
+		<md> \slope{q}{t} \to b_1 t^{n - 1} \qquad \text{as} \qquad \change{t} \to 0 </md>,
+		and therefore <md> \ddt{q} = b_1 t^{n - 1} </md>.
+		Finally,
+		it turns out that the first binomial coefficient <m> b_1 </m> for the expansion of a binomial expression of the form <m> (x+y)^n </m> is <m> b_1 = n </m>
+		(refer to the <term>Binomial Theorem</term>), <!-- TODO give a reference? -->
+		so that <md> \ddt{(t^n)} = n t^{n - 1} </md>, as claimed.
+		</p>
+
+	</proof>
+
+</identity>
+
+<remark>
+	<title>Non-positive and/or non-integer exponents</title>
+	<p>
+	While our justification is only valid for positive, integer exponents <m> n </m>,
+	<xref ref="pattern-poly-deriv-power" /> itself is valid for <em>all</em> exponents,
+	and we will justify this in later chapters after we have a few more techniques and patterns available to us.
+	In the meantime,
+	recall that for negative exponents we cannot attach a derivative value to the quantity function at the singularity at <m> t = 0 </m>
+	(see <xref ref="subsection-avg-rate-non-diff-singular" />),
+	which is the reason for including the phrase <q>everywhere that it is defined</q> in the statement of the pattern.
+	We could also consider the pattern to be true for <m> n = 0 </m>,
+	since in that case the quantity function satisfies
+	<md> <mrow> q(t) \amp = t^0 = 1 \amp \text{for } t \amp \gt 0 </mrow> </md>,
+	while <xref ref="pattern-poly-deriv-power" /> gives
+	<md> \ddt{(t^0)} = 0 t^{-1} = 0 </md>
+	(again assuming <m> t \gt 0 </m>).
+	So in some sense <xref ref="pattern-poly-deriv-power" /> <q>contains</q> <xref ref="pattern-deriv-constant" />.
+	(And, for that matter, it also <q>contains</q> <xref ref="pattern-deriv-var" /> when we take <m> n = 1 </m>.)
+	</p>
+</remark>
+
+<p> Here are a couple examples of using <xref ref="pattern-poly-deriv-power" />. </p>
+
+<example xml:id="example-poly-deriv-neg-exponent">
+	<title>Derivative of a power with a negative exponent</title>
+	<p><md><mrow> q(t) \amp = t^{-3} \amp \amp\implies \amp \ddt{q} \amp = -3 t^{-4} </mrow></md></p>
+</example>
+
+<note><p>
+	While we might describe part of <xref ref="pattern-poly-deriv-power" /> as <em>decrease the exponent</em>,
+	this does not mean decrease the <em>magnitude</em> of the exponent.
+	For example,
+	a common mistake in applying <xref ref="pattern-poly-deriv-power" /> is to use <m> t^{-2} </m> in the derivative formula for <m> t^{-3} </m>,
+	instead of <m> t^{-4} </m> as in <xref ref="example-poly-deriv-neg-exponent" />.
+</p></note>
+
+<example xml:id="example-poly-deriv-irrational-exponent">
+	<title>Derivative of a power with an irrational exponent</title>
+	<p><md><mrow> q(t) \amp = t^\pi \amp \amp\implies \amp \ddt{q} \amp = \pi t^{\pi - 1} </mrow></md></p>
+</example>
+
+<p>
+Finally,
+we can combine <xref ref="pattern-poly-deriv-power" /> with <xref ref="pattern-deriv-scale" /> and <xref ref="pattern-deriv-sum" />
+to obtain a general formula for the derivative function of any polynomial.
+We will leave the justification up to you, the reader.
+</p>
+
+<identity xml:id="pattern-poly-deriv-poly">
+	<title>Derivative of a polynomial</title>
+	<p>
+	A polynomial quantity function <md> q(t) = a_0 + a_1 t + a_2 t^2 + \dotsb + a_n t^n </md> is differentiable at all input values,
+	with <md>\ddt{q} = a_1 + 2 a_2 t + 3 a_3 t^2 + \dotsb + n a_n t^{n - 1} </md>.
+	</p>
+</identity>
+
+<example>
+	<title>Derivative of a polynomial</title>
+	<p><md>
+		<mrow> q(t) \amp = 3 t^5 - 4 t^3 + t^2 + 7 t + 6 </mrow>
+		<mrow> \implies \quad q'(t) \amp = 15 t^4 - 12 t^2 + 2 t + 7 </mrow>
+	</md></p>
+</example>
+
+<example xml:id="example-poly-parabolic-motion-starting-with-height">
+	<title>Parabolic motion</title>
+
+	<p>
+	Let's return again to situation of <xref ref="example-deriv-parabolic-motion" />,
+	where we considered parabolic motion due to gravity:
+	<md> h(t) = -5 t^2 + 30 t </md>.
+	</p>
+
+	<p>
+	We can now use <xref ref="pattern-poly-deriv-poly" /> to obtain a general formula for the velocity of this object at arbitrary time <m> t </m>:
+	<md>
+		<mrow> v(t) = h'(t) \amp = -5 \cdot 2 t + 30 </mrow>
+		<mrow> \amp = -10 t + 30 </mrow>
+	</md>.
+	Keep in mind that with height measured as a distance <em>above</em> the surface of the fictional planet,
+	a positive velocity means upward motion and a negative velocity means downward motion.
+	</p>
+
+	<p>
+	There are some natural questions about the object's motion that arise.
+	<ul>
+
+		<li>
+			<title>With what velocity was the object launched from the surface?</title>
+			<p>
+			We can answer this by simply computing the initial velocity
+			<md> v(0) = -10 \cdot 0 + 30 = 30 </md>,
+			which agrees with the initial velocity we used to construct the height model in the first place
+			in <xref ref="example-avg-rate-from-quantity-model" />.
+			</p>
+		</li>
+
+		<li>
+			<title>When does the object return to the surface?</title>
+			<p>
+			To answer this,
+			we want to solve for <m> t </m> in the instances where <m> h(t) = 0 </m>.
+			We can do this by factoring.
+			<md alignment="gather">
+				<mrow> h(t) = 0 </mrow>
+				<mrow> -5 t^2 + 30 t = 0 </mrow>
+				<mrow> -5 t (t - 6) = 0 </mrow>
+			</md>.
+			From the factored form on the left,
+			we can see that the object will be at the position of the surface when <m> t = 0 </m>
+			(as we assumed, since the object was initially launched from the surface)
+			and when
+			<md>
+				<mrow> t - 6 = 0 </mrow>
+				<mrow> t = 6 </mrow>
+			</md>.
+			</p>
+		</li>
+
+		<li>
+			<title>With what velocity does it strike the surface?</title>
+			<p>
+			We just need to substitute the time of return into the velocity model:
+			<md> v(6) = -10 \cdot 6 + 30 = - 30 </md>.
+			Considering the symmetry of the parabolic position function (see <xref ref="figure-poly-parabolic-motion" /> below)
+			it makes sense that the object returns to the surface at the same speed that it left the surface,
+			but oppositely directed.
+			</p>
+		</li>
+
+		<li>
+			<title> When does the object reach its maximum height? </title>
+			<p>
+			From the symmetry of the parabolic position function (again see <xref ref="figure-poly-parabolic-motion" /> below),
+			we expect that the object will reach its maximum height halfway between its departure from and return to the surface,
+			at <m> t = 3 </m>.
+			</p>
+		</li>
+
+		<li>
+			<title>
+				What is the maximum height achieved?
+				What is the velocity at the instant the maximum height is reached?
+			</title>
+			<p>
+			Substituting the <q>halfway</q> time into the position and velocity functions,
+			we have
+			<md>
+				<mrow> \text{max height} = h(3) = -5 \cdot 3^2 + 30 \cdot 3 = 45 </mrow>
+				<mrow> v(3) = -10 \cdot 3 + 30 = 0 </mrow>
+			</md>.
+			The fact that the velocity is <m> 0 </m> at the maximum height should not be a surprise <mdash />
+			when the object is thrown upwards,
+			it immediately begins to slow down because of gravity pulling back down,
+			until it momentarily stops at its maximum height before beginning to descend.
+			</p>
+		</li>
+
+	</ul>
+	</p>
+
+	<figure xml:id="figure-poly-parabolic-motion">
+		<caption> A position and velocity graph for parabolic motion due to gravity. </caption>
+		<image width="60%">
+			<description>A position and velocity graph for parabolic motion due to gravity.</description>
+			<latex-image><xi:include href="poly.d/parabolic-motion.tex" parse="text" /></latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</section>
+
+
+<section xml:id="section-poly-integ">
+<title>Integrals of polynomials</title>
+
+<subsection xml:id="subsection-poly-constant-var">
+<title>Constant rate function</title>
 
 <p>
 The simplest type of polynomial is a constant function,
@@ -474,9 +798,15 @@ We have already seen in <xref ref="pattern-vars-constant-rate" /> that a constan
 
 	<p>
 	Variation in the velocity of an objection in motion is called <term>acceleration</term>.
+	If <m> v(t) </m> is a function that represents the velocity of the object at time <m> t </m>,
+	then the associated acceleration function <m> a(t) </m> is a <term>rate function</term> for <m> v </m>.
+	</p>
+
+	<p>
 	A small object dropped over the surface of an airless planet will experience constant acceleration toward the planet's surface.
 	We usually denote this constant acceleration as <m> g </m>,
-	since its cause is gravity.
+	since its cause is gravity,
+	and then the constant acceleration function is <m> a(t) = g </m>.
 	If we measure velocity in metres per second,
 	then variation of velocity measures how many metres per second change we have per second,
 	so that <m> g </m> is measured in metres per second per second
@@ -495,50 +825,36 @@ We have already seen in <xref ref="pattern-vars-constant-rate" /> that a constan
 	or <xref ref="pattern-vars-constant-rate" />
 	to compute its velocity at any point in time after that,
 	up until the time that the object hits the surface of the planet:
-	<md> v(t) = 0 + \ccmint{0}{t}{g}{u} = g t </md>.
+	<md>
+		<mrow> v(t) \amp = v(0) + \ccmint{0}{t}{a(t)}{u} </mrow>
+		<mrow> \amp = 0 + \ccmint{0}{t}{g}{u} </mrow>
+		<mrow> \amp = g t \text{.} </mrow>
+	</md>
 	</p>
 
 </example>
 
 <identity xml:id="pattern-poly-constant-rate">
-	<title>Constant rate of variation</title>
+	<title>Constant rate of accumulation</title>
 	<p>
-	If a quantity experiences a constant rate of variation <m> r(t) = c </m>
+	If a quantity experiences a constant rate of accumulation <m> r(t) = c </m>
 	then the quantity itself can be modelled by a linear function
 	<md> q(t) = c t + q_0 </md>
 	where <m> q_0 = q(0) </m> is the initial amount.
 	</p>
 </identity>
 
-<p> <xref ref="pattern-poly-constant-rate" /> can be interpreted in reverse as well. </p>
+<remark><p>
+	<xref ref="pattern-poly-constant-rate" /> has turned out to be the reverse of <xref ref="pattern-deriv-linear" />,
+	which is a good sign that our constructions of <term>derivatives</term> and <term>integrals</term> work as expected.
+</p></remark>
 
-<identity xml:id="pattern-poly-linear-quantity">
-	<title>Linear quantity model</title>
-	<p>
-	If a quantity is modelled by a linear function
-	<md> q(t) = m t + b </md>,
-	then the rate of variation is constant,
-	equal to the slope of the linear function's graph:
-	<md> r(t) = m </md>.
-	</p>
-</identity>
+</subsection>
 
-<p>
-While <xref ref="pattern-poly-constant-rate" /> is just a restatement of
-<xref ref="pattern-vars-constant-rate" />,
-<xref ref="pattern-poly-linear-quantity" /> is new,
-though it should have been expected.
-We will verify this new statement mathematically
-in <xref ref="chapter-deriv" />.
-<!-- in a later chapter. -->
-</p>
+<subsection xml:id="subsection-poly-linear-var">
+<title>Linear rate functions</title>
 
-</section>
-
-<section xml:id="section-poly-linear-var">
-<title>Linear rate of variation</title>
-
-<p> Next we consider a linear rate of variation. </p>
+<p> Next we consider a linear rate of accumulation. </p>
 
 <example xml:id="example-poly-linear-velo">
 	<title>Linear velocity</title>
@@ -546,7 +862,7 @@ in <xref ref="chapter-deriv" />.
 	<p>
 	In <xref ref="example-poly-constant-accel" />,
 	we saw that a constant acceleration model led to a linear velocity model.
-	But velocity itself is the rate of variation of position.
+	But velocity itself is the rate of variation of position
 	So we can integrate velocity to obtain a model of the accumulation of distance from the starting position,
 	otherwise known as <term>displacement</term>.
 	</p>
@@ -608,9 +924,14 @@ of <xref ref="pattern-integ-definite-props" /> says that
 	</p>
 </identity>
 
-<!-- TODO reconcile with fact that example-avg-rate-from-quantity-model now comes first -->
-<example xml:id="example-poly-parabolic-motion">
+<example xml:id="example-poly-parabolic-motion-starting-with-accel">
 	<title>Parabolic motion</title>
+
+	<p>
+	In <xref ref="example-avg-rate-from-quantity-model" /> and <xref ref="example-poly-parabolic-motion-starting-with-height" />,
+	we justified the height-versus-time formula we used for an object thrown upwards against gravity simply by appealing to knowledge <q>from physics.</q>
+	We are know in a position to justify this formula ourselves.
+	</p>
 
 	<p>
 	An object is thrown upwards from the surface of an airless planet with an initial velocity of <m> v_0 </m> metres per second.
@@ -631,7 +952,15 @@ of <xref ref="pattern-integ-definite-props" /> says that
 	</p>
 
 	<p>
-	There are some natural questions about the object's motion that arise.
+	If we apply this formula to the situation of <xref ref="example-avg-rate-from-quantity-model" /> and <xref ref="example-poly-parabolic-motion-starting-with-height" />,
+	where we had <m> g = 10 </m> and <m> v_0 = 30 </m>,
+	we obtain
+	<md> s(t) = -5 t^2 + 30 t </md>,
+	which agrees with the <m> h(t) </m> function used in those examples.
+	</p>
+
+	<p>
+	Now let's answer the same questions as in <xref ref="example-poly-parabolic-motion-starting-with-height" /> in a more general setting.
 	<ul>
 
 		<li>
@@ -695,9 +1024,9 @@ of <xref ref="pattern-integ-definite-props" /> says that
 	</ul>
 	</p>
 
-	<figure xml:id="figure-poly-parabolic-motion">
+	<figure xml:id="figure-poly-parabolic-motion-TODO">
 		<caption> A position and velocity graph for parabolic motion due to gravity. </caption>
-		<image xml:id="image-poly-parabolic-motion" width="61.1%">
+		<image xml:id="image-poly-parabolic-motion-TODO" width="61.1%">
 			<shortdescription>A position and velocity graph for parabolic motion due to gravity.</shortdescription>
 			<!-- TODO description -->
 			<latex-image><xi:include href="poly.d/parabolic-motion.tex" parse="text" /></latex-image>
@@ -706,10 +1035,10 @@ of <xref ref="pattern-integ-definite-props" /> says that
 
 </example>
 
-</section>
+</subsection>
 
-<section xml:id="section-poly-higher-degree-var">
-<title>Polynomial rate of variation</title>
+<subsection xml:id="subsection-poly-higher-degree-var">
+<title>Polynomial rate functions</title>
 
 <p>
 A pattern is beginning to emerge:
@@ -752,9 +1081,11 @@ and that pattern appears to be
 
 <p>
 In fact,
-the pattern of <xref ref="equation-poly-int-pattern" /> is valid for <em>all</em> constant exponents <m> m </m>,
-with one important exception that we state below.
-But because negative powers of <m> t </m> exhibit singular behaviour at <m> t = 0 </m>,
+the pattern of <xref ref="equation-poly-int-pattern" /> is valid for <em>all</em> constant exponents <m> m </m> <em>except</em> <m> m = -1 </m> (see below).
+For powers of <m> t </m> with a positive exponent,
+the formula in <xref ref="equation-poly-int-pattern" /> can be applied directly.
+However,
+because negative powers of <m> t </m> exhibit singular behaviour at <m> t = 0 </m>,
 we'll have to choose another time to act as the <q>initial</q> time.
 The next logical choice for a <q>standard</q> initial time is <m> t = 1 </m> for domains of positive time.
 Let's ask Sage about accumulation for rate function <m> r(t) = t^{-2} </m> on a domain starting at <m> t = 1 </m> and ending at a variable time.
@@ -938,6 +1269,108 @@ is a special one that we will explore in the next chapter.
 	</p>
 
 </example>
+
+</subsection>
+
+</section>
+
+<section xml:id="section-poly-deriv-vs-integ">
+<title>Differentiation versus integration for power functions</title>
+
+<p>
+Let's compare our differentiation and integration formulas for power functions
+side-by-side
+(for positive exponents, at least).
+<md><mrow>
+	\ddt{(t^m)} \amp = m t^{m - 1}
+	\amp
+	\ccmint{0}{t}{u^m}{u} \amp = \frac{t^{m + 1}}{m + 1}
+</mrow></md>
+We might describe these formulas in words as follows.
+<dl>
+
+	<li><title>derivative of a power function</title><p>
+		reduce the exponent by one,
+		then multiply by the old exponent
+	</p></li>
+
+	<li><title>integral of a power function</title><p>
+		increase the exponent by one,
+		then divide by the new exponent
+	</p></li>
+
+</dl>
+These certainly seem to be reverse of each other;
+let's see what happens if we integrate a derivative
+(on the left below)
+or if we differentiate an integral
+(on the right below),
+in both cases starting with function <m> t^m </m>.
+<md>
+
+	<mrow>
+		\amp \ccmint{0}{t}{ \dd{u^m}{u} }{u}
+		\amp \amp \qquad \amp
+		\amp \opddt \, \ccmint{0}{t}{u^m}{u}
+	</mrow>
+
+	<mrow>
+		\amp = \ccmint{0}{t}{ m u^{m - 1} }{u}
+		\amp \amp \amp
+		\amp = \opddt \left( \frac{t^{m + 1}}{m + 1} \right)
+	</mrow>
+
+	<mrow>
+		\amp = m \ccmint{0}{t}{ u^{m - 1} }{u}
+		\amp \amp \amp
+		\amp = \frac{1}{m + 1} \cdot \ddt{t^{m + 1}}
+	</mrow>
+
+	<mrow>
+		\amp = m \frac{t^{(m - 1) + 1}}{(m - 1) + 1}
+		\amp \amp \amp
+		\amp = \frac{1}{\bcancel{m + 1}} \cdot \bcancel{(m + 1)} t^{(m + 1) - 1}
+	</mrow>
+
+	<mrow>
+		\amp = \bcancel{m} \frac{t^m}{\bcancel{m}}
+		\amp \amp \amp
+		\amp = t^m
+	</mrow>
+
+	<mrow> \amp = t^m </mrow>
+
+</md>
+Both cases returned us to the starting point of <m> t^m </m>.
+Is this a coincidence?
+We will return to this question after studying some other fundamental types of functions.
+</p>
+
+<exercise xml:id="checkpoint-poly-diff-vs-int-for-neg-exp-power-func">
+	<title>Differentiation versus integration for power functions with negative exponent</title>
+
+	<task xml:id="checkpoint-poly-diff-vs-int-for-neg-exp-power-func-compute"><p>
+		Compute both of the following using <xref ref="pattern-poly-int-power-all-exp" text="type-local">Formula</xref> from
+		<xref ref="pattern-poly-int-power" />.
+		<md>
+			\ccmint{1}{t}{ \dd{u^m}{u} }{u}
+			\qquad\qquad
+			\opddt \, \ccmint{1}{t}{u^m}{u}
+		</md>
+	</p></task>
+
+	<task>
+
+		<statement>	<p>
+			Did both calculations in <xref ref="checkpoint-poly-diff-vs-int-for-neg-exp-power-func-compute" text="type-local" /> return to the original power function <m> t^m </m>?
+			If not, why not?
+		</p></statement>
+
+		<hint><p> See <xref ref="warning-integ-accumulation-ignores-initial" />. </p></hint>
+
+	</task>
+
+</exercise>
 
 </section>
 
