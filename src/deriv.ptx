@@ -267,10 +267,12 @@ So we'll start by analysing the two simplest possible quantity models built on t
 
 <figure xml:id="figure-deriv-tangent-v-scale">
 	<caption> Scaling a tangent line scales its slope. </caption>
-	<image xml:id="image-deriv-scaled-tangent" width="47.3%">
+	<image width="47.3%">
 		<shortdescription>A tangent to a graph and a scaled tangent to a scaled graph.</shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="deriv.d/v-scaled-tangent.tex" parse="text" /></latex-image>
+		<latex-image label="image-deriv-scaled-tangent">
+			<xi:include href="deriv.d/v-scaled-tangent.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -284,10 +286,12 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 
 <figure xml:id="figure-deriv-tangent-v-reflect">
 	<caption> Reflecting a tangent line makes its slope negative. </caption>
-	<image xml:id="image-deriv-v-reflect-tangent" width="47.3%">
+	<image width="47.3%">
 		<shortdescription>A tangent to a graph and a reflected tangent to a reflected graph.</shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="deriv.d/v-reflect-tangent.tex" parse="text" /></latex-image>
+		<latex-image label="image-deriv-v-reflect-tangent">
+			<xi:include href="deriv.d/v-reflect-tangent.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -424,10 +428,12 @@ then
 
 <figure xml:id="figure-deriv-tangent-v-shift">
 	<caption> Shifting a tangent line does not change its slope. </caption>
-	<image xml:id="image-deriv-v-shifted-tangent" width="60.8%">
+	<image width="60.8%">
 		<shortdescription>A tangent to a graph and a shifted tangent to a shifted graph.</shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="deriv.d/v-shifted-tangent.tex" parse="text" /></latex-image>
+		<latex-image label="image-deriv-v-shifted-tangent">
+			<xi:include href="deriv.d/v-shifted-tangent.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -459,10 +465,12 @@ let's consider the effect of horizontal transformations on derivative.
 
 <figure xml:id="figure-deriv-tangent-h-shift">
 	<caption> Shifting a tangent line does not change its slope. </caption>
-	<image xml:id="image-deriv-h-shifted-tangent" width="58.5%">
+	<image width="58.5%">
 		<shortdescription>A tangent to a graph and a shifted tangent to a shifted graph.</shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="deriv.d/h-shifted-tangent.tex" parse="text" /></latex-image>
+		<latex-image label="image-deriv-h-shifted-tangent">
+			<xi:include href="deriv.d/h-shifted-tangent.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -534,10 +542,12 @@ let's consider the effect of horizontal transformations on derivative.
 					<caption>
 						A secant line representing an average rate on a compressed graph.
 					</caption>
-					<image xml:id="image-deriv-h-scaled-avg-rate-1">
+					<image>
 						<shortdescription> A secant line representing an average rate on a compressed graph. </shortdescription>
 						<!-- TODO description -->
-						<latex-image><xi:include href="deriv.d/h-scaled-avg-rate-1.tex" parse="text" /></latex-image>
+						<latex-image label="image-deriv-h-scaled-avg-rate-1">
+							<xi:include href="deriv.d/h-scaled-avg-rate-1.tex" parse="text" />
+						</latex-image>
 					</image>
 				</figure>
 
@@ -545,10 +555,12 @@ let's consider the effect of horizontal transformations on derivative.
 					<caption>
 						A stretched secant line representing an average rate on the original graph.
 					</caption>
-					<image xml:id="image-deriv-h-scaled-avg-rate-2">
+					<image>
 						<shortdescription> A stretched secant line representing an average rate on the original graph. </shortdescription>
 						<!-- TODO description -->
-						<latex-image><xi:include href="deriv.d/h-scaled-avg-rate-2.tex" parse="text" /></latex-image>
+						<latex-image label="image-deriv-h-scaled-avg-rate-2">
+							<xi:include href="deriv.d/h-scaled-avg-rate-2.tex" parse="text" />
+						</latex-image>
 					</image>
 				</figure>
 
@@ -612,10 +624,12 @@ Meanwhile, the <em>amount</em> of run stays the same.
 
 <figure xml:id="figure-deriv-tangent-h-reflect">
 	<caption> Reflecting a tangent line makes its slope negative. </caption>
-	<image xml:id="image-deriv-h-reflect-tangent" width="74.7%">
+	<image width="74.7%">
 		<shortdescription>A tangent to a graph and a reflected tangent to a reflected graph.</shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="deriv.d/h-reflect-tangent.tex" parse="text" /></latex-image>
+		<latex-image label="image-deriv-h-reflect-tangent">
+			<xi:include href="deriv.d/h-reflect-tangent.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
