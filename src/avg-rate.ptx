@@ -149,6 +149,11 @@ let's do another here involving a quantity <em>function</em>.
 	an average rate of change represents an average <em>velocity</em> rather than an average speed as in previous motion examples.
 	</p>
 
+	<aside><title>A look ahead</title><p>
+		We will derive the general height formula used in this example in <xref ref="chapter-poly" />.
+		See <xref ref="example-poly-parabolic-motion-starting-with-accel" />.
+	</p></aside>
+
 	<p>
 	Suppose we would like to calculate the average velocity over the time domain <m> 1 \le t \le 3 </m>.
 	The endpoint heights are
