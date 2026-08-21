@@ -75,19 +75,23 @@ so in this section we will develop a more efficient process based on local extre
 
 			<figure>
 				<caption>A parabola on a restricted domain with both an absolute minimum and maximum.</caption>
-				<image xml:id="image-opt-parabola-min-max-changing-domains-1">
+				<image>
 					<shortdescription>Graph of a parabola on a restricted domain with both an absolute minimum and maximum.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="opt.d/parabola-min-max-changing-domains-1.tex" parse="text" /></latex-image>
+					<latex-image label="image-opt-parabola-min-max-changing-domains-1">
+						<xi:include href="opt.d/parabola-min-max-changing-domains-1.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
 			<figure>
 				<caption>A parabola on a less restricted domain with an absolute minimum and but no absolute maximum.</caption>
-				<image xml:id="image-opt-parabola-min-max-changing-domains-2">
+				<image>
 					<shortdescription>Graph of a parabola on a less restricted domain with an absolute minimum but no absolute maximum.</shortdescription>
 					<!-- TODO description -->
-					<latex-image><xi:include href="opt.d/parabola-min-max-changing-domains-2.tex" parse="text" /></latex-image>
+					<latex-image label="image-opt-parabola-min-max-changing-domains-2">
+						<xi:include href="opt.d/parabola-min-max-changing-domains-2.tex" parse="text" />
+					</latex-image>
 				</image>
 			</figure>
 
@@ -109,10 +113,12 @@ so in this section we will develop a more efficient process based on local extre
 
 	<figure xml:id="figure-opt-multiple-maxes">
 		<caption>The sine graph can have multiple absolute extremes.</caption>
-		<image xml:id="image-opt-sin-mins-and-maxes" width="49.7%">
+		<image width="49.7%">
 			<shortdescription>Demonstrating multiple absolute extremes on the sine graph.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="opt.d/sin-mins-and-maxes.tex" parse="text" /></latex-image>
+			<latex-image label="image-opt-sin-mins-and-maxes">
+				<xi:include href="opt.d/sin-mins-and-maxes.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -139,10 +145,12 @@ so in this section we will develop a more efficient process based on local extre
 
 	<figure xml:id="figure-opt-reciprocal-singularity">
 		<caption>Singular behaviour can sometimes preclude absolute extremes.</caption>
-		<image xml:id="image-opt-reciprocal-singularity-no-min-max" width="55.5%">
+		<image width="55.5%">
 			<shortdescription>Graph of the reciprocal function demonstrating that singular behaviour sometimes precludes absolute extremes.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="opt.d/reciprocal-singularity-no-min-max.tex" parse="text" /></latex-image>
+			<latex-image label="image-opt-reciprocal-singularity-no-min-max">
+				<xi:include href="opt.d/reciprocal-singularity-no-min-max.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -170,10 +178,12 @@ so in this section we will develop a more efficient process based on local extre
 
 	<figure xml:id="figure-opt-sqrt">
 		<caption>Excluded domain endpoints sometimes preclude absolute extremes.</caption>
-		<image xml:id="image-opt-sqrt-no-min-max" width="40.2%">
+		<image width="40.2%">
 			<shortdescription>Graph demonstrating that excluded domain endpoints sometimes preclude absolute extremes.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="opt.d/sqrt-no-min-max.tex" parse="text" /></latex-image>
+			<latex-image label="image-opt-sqrt-no-min-max">
+				<xi:include href="opt.d/sqrt-no-min-max.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -302,10 +312,12 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 
 	<figure xml:id="figure-opt-reciprocal-long-term">
 		<caption>Long-term behaviour on an unbounded domain can sometimes preclude absolute extremes.</caption>
-		<image xml:id="image-opt-reciprocal-long-term-no-min-max" width="53.8%">
+		<image width="53.8%">
 			<shortdescription>Graph of the reciprocal function demonstrating that long-term behaviour sometimes precludes absolute extremes.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="opt.d/reciprocal-long-term-no-min-max.tex" parse="text" /></latex-image>
+			<latex-image label="image-opt-reciprocal-long-term-no-min-max">
+				<xi:include href="opt.d/reciprocal-long-term-no-min-max.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -323,10 +335,12 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 
 	<figure xml:id="figure-opt-discontinuous-no-min-max">
 		<caption>Discontinuities sometimes preclude absolute extremes.</caption>
-		<image xml:id="image-opt-discontinuous-no-min-max" width="50.8%">
+		<image width="50.8%">
 			<shortdescription>Graph of a discontinuous function demonstrating that discontinuities sometimes preclude absolute extremes.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="opt.d/discontinuous-no-min-max.tex" parse="text" /></latex-image>
+			<latex-image label="image-opt-discontinuous-no-min-max">
+				<xi:include href="opt.d/discontinuous-no-min-max.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -347,10 +361,12 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 
 	<figure xml:id="figure-opt-discontinuous-shifted-parabola">
 		<caption>A discontinuous function can still have absolute extremes.</caption>
-		<image xml:id="image-opt-discontinuous-shifted-parabola" width="59.7%">
+		<image width="59.7%">
 			<shortdescription>Graph of a broken parabola demonstrating that a discontinuous function can still have absolute extremes.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="opt.d/discontinuous-shifted-parabola.tex" parse="text" /></latex-image>
+			<latex-image label="image-opt-discontinuous-shifted-parabola">
+				<xi:include href="opt.d/discontinuous-shifted-parabola.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -446,10 +462,12 @@ or not occur at all because of endpoint behaviour.
 
 	<figure xml:id="figure-opt-poly-min-max">
 		<caption>Graph of <m> q(t) </m> and its extreme values.</caption>
-		<image xml:id="image-opt-w" width="51.1%">
+		<image width="51.1%">
 			<shortdescription>Graph of the polynomial function analyzed in this example, with its absolute extremes marked.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="opt.d/w.tex" parse="text" /></latex-image>
+			<latex-image label="image-opt-w">
+				<xi:include href="opt.d/w.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -533,10 +551,12 @@ or not occur at all because of endpoint behaviour.
 
 	<figure xml:id="figure-opt-procedure">
 		<caption>Results of analyzing absolute extremes of a discontinuous function.</caption>
-		<image xml:id="image-opt-abs-extreme-procedure-discont" width="85.5%">
+		<image width="85.5%">
 			<shortdescription>Graph illustrating results of analyzing absolute extremes of a discontinuous function.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="opt.d/abs-extreme-procedure-discont.tex" parse="text" /></latex-image>
+			<latex-image label="image-opt-abs-extreme-procedure-discont">
+				<xi:include href="opt.d/abs-extreme-procedure-discont.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -594,19 +614,23 @@ the concavity can tell us whether we are at a local maximum or a local minimum.
 
 		<figure>
 			<caption>A local minimum at the valley of a concave-up portion of the graph.</caption>
-			<image xml:id="image-opt-2nd-deriv-test-2">
+			<image>
 				<shortdescription>A graph illustrating a local minimum at the valley of a concave-up portion of the graph.</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="opt.d/2nd-deriv-test-2.tex" parse="text" /></latex-image>
+				<latex-image label="image-opt-2nd-deriv-test-2">
+					<xi:include href="opt.d/2nd-deriv-test-2.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
 		<figure>
 			<caption>A local maximum at the peak of a concave-down portion of the graph.</caption>
-			<image xml:id="image-opt-2nd-deriv-test-1">
+			<image>
 				<shortdescription>A graph illustrating a local maximum at the peak of a concave-down portion of the graph.</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="opt.d/2nd-deriv-test-1.tex" parse="text" /></latex-image>
+				<latex-image label="image-opt-2nd-deriv-test-1">
+					<xi:include href="opt.d/2nd-deriv-test-1.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
@@ -701,10 +725,12 @@ and provide an overall strategy.
 
 		<figure>
 			<caption>A rectangular region, fenced on three sides and bordered by a river on the fourth side.</caption>
-			<image xml:id="image-opt-fence" width="59.1%">
+			<image width="59.1%">
 				<shortdescription>Diagram of a rectangular region, fenced on three sides and bordered by a river on the fourth side.</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="opt.d/fence.tex" parse="text" /></latex-image>
+				<latex-image label="image-opt-fence">
+					<xi:include href="opt.d/fence.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
@@ -804,10 +830,12 @@ and provide an overall strategy.
 
 				<figure>
 					<caption>Surface area of a cylindrical can, in pieces.</caption>
-					<image xml:id="image-opt-can" width="83.5%">
+					<image width="83.5%">
 						<shortdescription>A diagram illustrating the surface area of a cylindrical can, in pieces.</shortdescription>
 						<!-- TODO description -->
-						<latex-image><xi:include href="opt.d/can.tex" parse="text" /></latex-image>
+						<latex-image label="image-opt-can">
+							<xi:include href="opt.d/can.tex" parse="text" />
+						</latex-image>
 					</image>
 				</figure>
 

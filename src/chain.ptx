@@ -549,10 +549,12 @@ the points in the <m> xy </m>-plane that make up the unit circle centred at the 
 
 <figure xml:id="figure-chain-circle-pythag">
 	<caption> The coordinates of points on the unit circle satisfy a Pythagorean condition. </caption>
-	<image xml:id="image-chain-circle" width="33.2%">
+	<image width="33.2%">
 		<shortdescription>Diagram illustrating that the coordinates of points on the unit circle satisfy a Pythagorean condition.</shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="chain.d/circle.tex" parse="text" /></latex-image>
+		<latex-image label="image-chain-circle">
+			<xi:include href="chain.d/circle.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -586,10 +588,12 @@ then we may algebraically express it as such: <md> y = \sqrt{1 - x^2} </md>.
 
 <figure xml:id="figure-chain-circle-tangent">
 	<caption> A tangent line to the upper unit semicircle. </caption>
-	<image xml:id="image-chain-circle-tangent" width="32.3%">
+	<image width="32.3%">
 		<shortdescription>Diagram of a tangent line to the upper unit semicircle.</shortdescription>
 		<!-- TODO description -->
-		<latex-image><xi:include href="chain.d/circle-tangent.tex" parse="text" /></latex-image>
+		<latex-image label="image-chain-circle-tangent">
+			<xi:include href="chain.d/circle-tangent.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 
@@ -696,10 +700,12 @@ However, there is a way we can proceed with <em>explicitly</em> expressing <m> y
 
 	<figure xml:id="figure-chain-teardrop-tangent-1">
 		<caption> A tangent to the curve <m> y^2 = x^3 (2-x) </m>. </caption>
-		<image xml:id="image-chain-teardrop-tangent" width="32.9%">
+		<image width="32.9%">
 			<shortdescription>A tangent to a curve in the plane.</shortdescription>
 			<!-- TODO description -->
-			<latex-image><xi:include href="chain.d/teardrop-tangent.tex" parse="text" /></latex-image>
+			<latex-image label="image-chain-teardrop-tangent">
+				<xi:include href="chain.d/teardrop-tangent.tex" parse="text" />
+			</latex-image>
 		</image>
 	</figure>
 
@@ -856,10 +862,12 @@ Here are some more examples of such <term>related rates</term>.
 
 		<figure xml:id="figure-chain-ladder">
 			<caption> Two workers on a walkway carrying a ladder around a corner. </caption>
-			<image xml:id="image-chain-ladder" width="27.9%">
+			<image width="27.9%">
 				<shortdescription>A diagram depicting two workers on a walkway carrying a ladder around a corner.</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="chain.d/ladder.tex" parse="text" /></latex-image>
+				<latex-image label="image-chain-ladder">
+					<xi:include href="chain.d/ladder.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
@@ -946,10 +954,12 @@ Here are some more examples of such <term>related rates</term>.
 
 		<figure xml:id="figure-chain-light">
 			<caption> A light shining on a person walking on a path. </caption>
-			<image xml:id="image-chain-light" width="33.8%">
+			<image width="33.8%">
 				<shortdescription>A diagram depicting a light shining on a person walking on a path.</shortdescription>
 				<!-- TODO description -->
-				<latex-image><xi:include href="chain.d/light.tex" parse="text" /></latex-image>
+				<latex-image label="image-chain-light">
+					<xi:include href="chain.d/light.tex" parse="text" />
+				</latex-image>
 			</image>
 		</figure>
 
