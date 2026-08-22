@@ -196,6 +196,10 @@ validate-ptx: ptx
 	@echo "Validating ptx..."
 	@jing ${PRETEXTDIR}/schema/pretext.rng ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx |\
 	  grep -v \
-	    -e "element \"worksheet\" not allowed anywhere"
+	    -e "element \"worksheet\" not allowed anywhere" \
+	    -e "attribute \"xml:base\" not allowed here" >\
+	  ${BUILDDIR}/ptx/${ROOTDOCNAME}-schema-errors.txt
+	@echo "...DONE"
+	@echo "(See ${BUILDDIR}/ptx/${ROOTDOCNAME}-schema-errors.txt)"
 	@mkdir -p ${BUILDDIR}
 	@echo "...DONE"
