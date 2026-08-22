@@ -47,7 +47,7 @@ we take <xref ref="definition-avg-rate-derivative-value" text="title" /> and rep
 	<statement><p>
 		Given quantity function <m> q(t) </m>,
 		the associated <term>derivative function</term> is the function
-		<md> q'(t) = \lim_{\change{t} \to 0} \frac{ q(t + \change{t}) - q(t) }{ \change{t} } </md>.
+		<md> q'(t) = \lim_{\change{t} \to 0} \slope{q}{t} \qquad \text{for} \qquad \change{q} = q(t + \change{t}) - q(t) </md>.
 		The domain of <m> q' </m> is the collection of all time values where <m> q </m> is differentiable
 		(see <xref ref="definition-avg-rate-derivative-value" />),
 		and <m> q' </m> remains undefined at those time values where <m> q </m> is not differentiable.
@@ -123,15 +123,17 @@ but as we leave <m> t </m> unspecified this will do the work of computing the de
 	<p>
 	First,
 	let's set up the forward/backward difference approximation formula.
-	We have
 	<md>
 		<mrow> h(t + \change{t}) \amp = -5 (t + \change{t})^2 + 30 (t + \change{t}) </mrow>
 		<mrow> \amp = -5 \bbrac{t^2 + 2 t \change{t} + {(\change{t})}^2} + 30 (t + \change{t}) </mrow>
-		<mrow> \amp = -5 t^2 - 10 t \change{t} - 5 {(\change{t})}^2 + 30 t + 30 \change{t} </mrow>
-	</md>,
+		<mrow> \amp = {\color{red} -5 t^2} - 10 t \change{t} - 5 {(\change{t})}^2 + {\color{red} 30 t} + 30 \change{t} </mrow>
+		<mrow> h(t) \amp = -5 t^2 + 30 t </mrow>
+	</md>
+	Observe that both terms in <m> h(t) </m> also appear in our expanded expression for <m> h(t + \change{t}) </m>,
+	and these common terms will cancel in the subtraction of <m> \change{h} </m>,
 	so that
 	<md>
-		<mrow> h(t + \change{t}) - h(t) \amp = (\bcancel{-5 t^2} - 10 t \change{t} - 5 {(\change{t})}^2 + \bcancel{30 t} + 30 \change{t}) - (\bcancel{-5 t^2} + \bcancel{30 t}) </mrow>
+		<mrow> \change{h} \amp = h(t + \change{t}) - h(t) </mrow>
 		<mrow> \amp = - 10 t \change{t} - 5 {(\change{t})}^2 + 30 \change{t} </mrow>
 		<mrow> \amp = (- 10 t + 30 - 5 \change{t}) \change{t} </mrow>
 	</md>.
@@ -141,9 +143,9 @@ but as we leave <m> t </m> unspecified this will do the work of computing the de
 		<mrow> \amp = \frac{ (- 10 t + 30 - 5 \change{t}) \bcancel{\change{t}} }{ \bcancel{\change{t}} } </mrow>
 		<mrow> \amp = - 10 t + 30 - 5 \change{t} </mrow>
 	</md>.
-	Taking <m> \change{t} \to 0 </m>,
-	<md> \slope{h}{t} \to -10 t + 30 \qquad \text{as} \qquad \change{t} \to 0 </md>.
-	Therefore, in differential notation we can write
+	We now see that
+	<md> \slope{h}{t} \to -10 t + 30 \qquad \text{as} \qquad \change{t} \to 0 </md>,
+	and so in differential notation we can write
 	<md> \ddt{h} = -10 t + 30 </md>,
 	or in function notation we can write
 	<md> q'(t) = -10 t + 30 </md>.
@@ -182,16 +184,16 @@ So we'll start by analysing the two simplest possible quantity models built on t
 	</p></statement>
 
 	<proof><p>
-		Consider quantity function <m> q(t) = c </m>.
-		Then also <m> q(t + \change{t}) = c </m>,
-		so <md> q(t + \change{t}) - q(t) = c - c = 0 </md>.
-		Therefore, <md> \slope{q}{t} = \frac{ q(t + \change{t}) - q(t) }{ \change{t} } = \frac{0}{\change{t}} </md>.
+		For constant quantity function <m> q(t) = c </m>,
+		we also have <m> q(t + \change{t}) = c </m>,
+		so in this case <m> \change{q} = 0 </m>.
+		Therefore, <md> \slope{q}{t} = \frac{0}{\change{t}} </md>.
 		Considering <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>,
-		this always computes to <m> 0 </m>.
+		the difference quotient <m> \change{q} / \change{t} </m> above computes to <m> 0 </m> for all values of <m> \change{t} </m>.
 		So, in fact, these average-rate approximations are not approximations but instead they are already the exact value,
 		and we have <md>\slope{q}{t} \to 0 \qquad \text{as} \qquad \change{t} \to 0</md>.
 		Therefore, for a constant function we have
-		<md> \ddt{q} = 0 </md>.
+		<md> \dqdt = 0 </md>.
 	</p></proof>
 
 </identity>
@@ -202,18 +204,12 @@ So we'll start by analysing the two simplest possible quantity models built on t
 	<statement><p> We have <md> \ddt{t} = 1 </md>. </p></statement>
 
 	<proof><p>
-		Consider quantity function <m> q(t) = t </m>.
-		Then <m> q(t + \change{t}) = t + \change{t} </m>,
-		so <md> q(t + \change{t}) - q(t) = \change{t} </md>.
-		Therefore,
-		<md>
-			<mrow> \slope{q}{t} \amp = \frac{ q(t + \change{t}) - q(t) }{ \change{t} } </mrow>
-			<mrow> \amp = \frac{ \change{t} }{ \change{t} } </mrow>
-			<mrow> \amp = 1 </mrow>
-		</md>.
+		For quantity function <m> q(t) = t </m> we have <m> q(t + \change{t}) = t + \change{t} </m>,
+		so <md> \change{q} = (t + \change{t}) - t = \change{t} </md>.
+		Therefore, <md> \slope{q}{t} = \frac{ \change{t} }{ \change{t} } = 1 </md>.
 		Again, as this average rate ends up being constant,
 		we have <md>\slope{q}{t} \to 1 \qquad \text{as} \qquad \change{t} \to 0</md>,
-		and so <md> \ddt{q} = 1 </md>.
+		and so <md> \dqdt = 1 </md>.
 	</p></proof>
 
 </identity>
@@ -245,21 +241,22 @@ So we'll start by analysing the two simplest possible quantity models built on t
 		Then <md> p(t + \change{t}) = c q(t + \change{t}) </md>,
 		so
 		<md>
-			<mrow> p(t + \change{t}) - p(t) \amp = c q(t + \change{t}) - c q(t) </mrow>
+			<mrow> \change{p} \amp = p(t + \change{t}) - p(t) </mrow>
+			<mrow> \amp = c q(t + \change{t}) - c q(t) </mrow>
 			<mrow> \amp = c \bbrac{ q(t + \change{t}) - q(t) } </mrow>
-		</md>.
+			<mrow> \amp = c \change{q} \text{.} </mrow>
+		</md>
 		Therefore,
 		<md>
-			<mrow> \slope{p}{t} \amp = \frac{ p(t + \change{t}) - p(t) }{ \change{t} } </mrow>
-			<mrow> \amp = \frac{c \bbrac{ q(t + \change{t}) - q(t) } }{ \change{t} } </mrow>
-			<mrow> \amp = c \, \frac{\bbrac{ q(t + \change{t}) - q(t) } }{ \change{t} } </mrow>
-			<mrow> \amp = c \, \slope{q}{t} </mrow>
+			\slope{p}{t}
+			= \frac{c \change{q} }{ \change{t} }
+			= c \, \slope{q}{t}
 		</md>.
 		Since this holds for all <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>,
-		and we have <md> \slope{q}{t} \to \ddt{q} \qquad \text{as} \qquad \change{t} \to 0 </md>,
-		then we must have <md> \slope{p}{t} \to c \, \ddt{q} \qquad \text{as} \qquad \change{t} \to 0 </md>.
+		and we have <md> \slope{q}{t} \to \dqdt \qquad \text{as} \qquad \change{t} \to 0 </md>,
+		then we must have <md> \slope{p}{t} \to c \, \dqdt \qquad \text{as} \qquad \change{t} \to 0 </md>.
 		Therefore,
-		<md> \ddt{p} = c \, \ddt{q} </md>,
+		<md> \ddt{p} = c \, \dqdt </md>,
 		as claimed.
 	</p></proof>
 
@@ -325,15 +322,16 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 		Then <md> p(t + \change{t}) = q_1(t + \change{t}) + q_2(t + \change{t}) </md>,
 		so
 		<md>
-			<mrow> p(t + \change{t}) - p(t) \amp = \bbrac{ q_1(t + \change{t}) + q_2(t + \change{t}) } - \bbrac{ q_1(t) + q_2(t) } </mrow>
+			<mrow> \change{p} \amp = p(t + \change{t}) - p(t) </mrow>
+			<mrow> \amp = \bbrac{ q_1(t + \change{t}) + q_2(t + \change{t}) } - \bbrac{ q_1(t) + q_2(t) } </mrow>
 			<mrow> \amp = \bbrac{ q_1(t + \change{t}) - q_1(t) } + \bbrac{ q_2(t + \change{t}) - q_2(t)} </mrow>
+			<mrow> \amp = \change{q_1} + \change{q_2} </mrow>
 		</md>.
 		Therefore,
 		<md>
-			<mrow> \slope{p}{t} \amp = \frac{ p(t + \change{t}) - p(t) }{ \change{t} } </mrow>
-			<mrow> \amp = \frac{ \bbrac{ q_1(t + \change{t}) - q_1(t) } + \bbrac{ q_2(t + \change{t}) - q_2(t)} }{ \change{t} } </mrow>
-			<mrow> \amp = \frac{ \bbrac{ q_1(t + \change{t}) - q_1(t) } }{ \change{t} } + \frac{ \bbrac{ q_2(t + \change{t}) - q_2(t)} }{ \change{t} } </mrow>
-			<mrow> \amp = \slope{q_1}{t} + \slope{q_2}{t} </mrow>
+			\slope{p}{t}
+			= \frac{ \change{q_1} + \change{q_2} }{ \change{t} }
+			= \slope{q_1}{t} + \slope{q_2}{t}
 		</md>.
 		Since this holds for all <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>,
 		and we have <md>\slope{q_1}{t} \to \ddt{q_1}, \quad \slope{q_2}{t} \to \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0</md>,
@@ -490,10 +488,16 @@ let's consider the effect of horizontal transformations on derivative.
 		</md>.
 		This almost looks like an average rate calculation for <m> p </m>,
 		but the time values in the denominator don't match the time values used as inputs to <m> p </m> in the numerator.
-		Let's fix that:
+		Let's fix that;
+		assuming <m> a \neq 0 </m>
+		(since using <m> a = 0 </m> would not constitute a horizontal scaling of <m> p </m>),
+		we have <m> a / a = 1 </m>.
+		This means we may multiply our difference quotient by <m> a / a </m> without changing it:
 		<md>
 
-			<mrow> \slope{q}{t} \amp = \frac{p(a t_2) - p(a t_1)}{t_2 - t_1} \cdot \frac{a}{a} </mrow>
+			<mrow> \slope{q}{t} \amp = \slope{q}{t} \cdot \frac{a}{a} </mrow>
+
+			<mrow> \amp = \frac{p(a t_2) - p(a t_1)}{t_2 - t_1} \cdot \frac{a}{a} </mrow>
 
 			<mrow> \amp = a \cdot \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1} </mrow>
 
@@ -593,7 +597,7 @@ let's consider the effect of horizontal transformations on derivative.
 
 		</md>
 		The pattern of our change of variables was <m> u = a t </m>,
-		so that <md> \dd{p}{u} = p'(a t) </md>.
+		so that <md> \dd{p}{u} = p'(u) = p'(a t) </md>.
 		Combining with the calculations above we have
 		<md> q'(t) = \lim_{\change{t} \to 0} \slope{q}{t} = a \dd{p}{u} = a p'(a t) </md>,
 		as desired.
