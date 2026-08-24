@@ -516,7 +516,7 @@ our goal is to recover a formula for the quantity function so that we can make p
 	Here we are using variable <m> r </m> to represent the <em>constant</em> rate of accumulation of the linear function <m> q(t) </m> rather than the rate function for the differential equation.
 	However,
 	they must actually be one and the same,
-	since <xref ref="example-deriv-linear" /> demonstrated that
+	since <xref ref="pattern-deriv-linear" /> asserts that
 	<md> q(t) = r t + q_0 \quad \implies \qquad \dqdt = r </md>.
 	So under our assumption that <m> q(t) </m> is linear,
 	the differential equation says that can set the constant <m> r </m> equal to the rate function for the differential equation:
