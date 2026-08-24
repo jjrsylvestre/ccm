@@ -343,34 +343,43 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 
 </identity>
 
-<example xml:id="example-deriv-linear">
+<p>
+We may apply a combination of our rules and basic formulas so far to establish the pattern of a derivative function for a linear function.
+</p>
+
+
+<identity xml:id="pattern-deriv-linear">
 	<title>Derivative of a linear quantity function</title>
 
-	<p>
-	For <md> q(t) = r t + q_0 </md>,
-	we may apply a combination of our rules and basic formulas so far:
-	<md>
-		<mrow> \dqdt \amp = \opddt (r t + q_0) </mrow>
-		<mrow> \amp = \opddt (r t) + \ddt{q_0} \amp \amp\text{(i)} </mrow>
-		<mrow> \amp = \opddt (r t) + 0 \amp \amp\text{(ii)} </mrow>
-		<mrow> \amp = r \ddt{t} \amp \amp\text{(iii)} </mrow>
-		<mrow> \amp = r \cdot 1 \amp \amp\text{(iv)} </mrow>
-		<mrow> \amp = r </mrow>
-	</md>,
-	with step justifications
-	<ol marker="(i)">
-		<li> <xref ref="pattern-deriv-sum" /> </li>
-		<li> <xref ref="pattern-deriv-constant" /> </li>
-		<li> <xref ref="pattern-deriv-scale" /> </li>
-		<li> <xref ref="pattern-deriv-var" />. </li>
-	</ol>
-	</p>
+	<statement><p>
+		For <md> q(t) = r t + q_0 </md>,
+		<m> q'(t) = r </m>.
+	</p></statement>
 
-</example>
+	<proof><p>
+		Calculate
+		<md>
+			<mrow> \dqdt \amp = \opddt (r t + q_0) </mrow>
+			<mrow> \amp = \opddt (r t) + \ddt{q_0} \amp \amp\text{(i)} </mrow>
+			<mrow> \amp = \opddt (r t) + 0 \amp \amp\text{(ii)} </mrow>
+			<mrow> \amp = r \ddt{t} \amp \amp\text{(iii)} </mrow>
+			<mrow> \amp = r \cdot 1 \amp \amp\text{(iv)} </mrow>
+			<mrow> \amp = r \text{,} </mrow>
+		</md>
+		with step justifications
+		<ol marker="(i)">
+			<li> <xref ref="pattern-deriv-sum" /> </li>
+			<li> <xref ref="pattern-deriv-constant" /> </li>
+			<li> <xref ref="pattern-deriv-scale" /> </li>
+			<li> <xref ref="pattern-deriv-var" />. </li>
+		</ol>
+	</p></proof>
+
+</identity>
 
 <p>
 Recall that a function that exhibits a uniformly constant rate is must be linear.
-<xref ref="example-deriv-linear" /> says the opposite:
+<xref ref="pattern-deriv-linear" /> says the opposite:
 a linear function exhibits a uniformly constant rate.
 Graphically, this corresponds to exhibiting a constant slope,
 so that an average rate calculation
@@ -383,7 +392,7 @@ and <xref ref="figure-avg-rate-secant-on-linear" /> in particular.)
 <p>
 By definition,
 a tangent line to a quantity's graph meets that graph at a particular point with slope equal to the quantity's derivative value there.
-<xref ref="example-deriv-linear" /> shows that the slope of that tangent line will be the same as the slope of the quantity's graph,
+<xref ref="pattern-deriv-linear" /> asserts that the slope of that tangent line will be the same as the slope of the quantity's graph,
 so in fact they will be the same line.
 </p>
 
