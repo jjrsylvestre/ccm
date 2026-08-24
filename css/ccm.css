@@ -226,6 +226,12 @@ li > .para:first-of-type:not(:first-child) {
   margin-top: 0px;
 }
 
+/* mimic hrule from section .heading for chapter conclusions */
+section.conclusion {
+  padding-top: 24px;
+  border-top: 2px solid var(--primary-color-white-30);
+}
+
 
 /******************************************************************************/
 /*                              ASIDE HEADINGS                                */
