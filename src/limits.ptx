@@ -121,7 +121,7 @@ we have to take care with what <q>approximately equal to <m> L </m></q> and <q>a
 	</p>
 </definition>
 
-<remark>
+<remark xml:id="remark-limits-nearby-behaviour">
 	<title>Limits measure <q>nearby</q> behaviour</title>
 	<p>
 	If <m> t = c </m> is in the domain of <m> f(t) </m>,
@@ -325,6 +325,167 @@ so that it will indeed be the case that <md> f(t) \approx L </md> is true for al
 </section>
 
 
+<section xml:id="section-limits-laws">
+<title>Limit laws</title>
+
+<p>
+Limits adhere to the following useful <q>laws</q>.
+We will delay justifying them until <xref ref="chapter-func-limits" />,
+where we will approach <term>function limits</term> more rigorously from the perspective of <term>sequence limits</term>.
+</p>
+
+<identity xml:id="pattern-limits-laws">
+	<title>Limit laws</title>
+	<p>
+	In the following,
+	assume that <m> c </m> and <m> k </m> are constants
+	and that <m> f </m> and <m> g </m> are functions with
+	<md><mrow>
+		\lim_{t \to c} f(t) \amp = L \text{,}
+		\amp
+		\lim_{t \to c} g(t) \amp = M \text{.}
+	</mrow></md>
+	<ol>
+
+		<li xml:id="pattern-limits-laws-constant">
+			<title>Limit of a constant function</title>
+			<p><m> \displaystyle \lim_{t \to c} k = k </m></p>
+		</li>
+
+		<li xml:id="pattern-limits-laws-indep-var">
+			<title>Limit of the independent variable</title>
+			<p><m> \displaystyle \lim_{t \to c} t = c </m></p>
+		</li>
+
+		<li xml:id="pattern-limits-laws-homog">
+			<title>Constant multiple law</title>
+			<p><m> \displaystyle \lim_{t \to c} k f(t) = k \lim_{t \to c} f(t) </m></p>
+		</li>
+
+		<li xml:id="pattern-limits-laws-add">
+			<title>Sum and difference laws</title>
+			<p><m> \displaystyle \lim_{t \to c} \bigl[ f(t) \pm g(t) \bigr] = L \pm M </m></p>
+		</li>
+
+		<li xml:id="pattern-limits-laws-mult">
+			<title>Product law</title>
+			<p><m> \displaystyle \lim_{t \to c} \bigl[ f(t) g(t) \bigr] = L M </m></p>
+		</li>
+
+		<li xml:id="pattern-limits-laws-div">
+			<title>Quotient law</title>
+			<p><m> \displaystyle \lim_{t \to c} \frac{f(t)}{g(t)} = \frac{L}{M} </m> if <m> M \neq 0 </m></p>
+		</li>
+
+		<li xml:id="pattern-limits-laws-non-div">
+			<title>Zero denominator, nonzero numerator</title>
+			<p><m> \displaystyle \lim_{t \to c} \frac{f(t)}{g(t)} </m> does not exist if <m> M = 0 </m> but <m> L \neq 0 </m></p>
+		</li>
+
+	</ol>
+	</p>
+</identity>
+
+<warning><p>
+	A limit of a quotient function were both the numerator and denominator limits are <m> 0 </m> is called <term><m>0 / 0</m>-form</term>.
+	<alert>Neither of the last two laws in <xref ref="pattern-limits-laws" /> applies to such a situation.</alert>
+	In fact,
+	a <m>0 / 0</m>-form quotient limit <alert>may or may not exist</alert>.
+	See <xref ref="example-limits-pre-cancelling-00" /> for an example of a <m>0 / 0</m>-form quotient limit that does exist,
+	and <xref ref="example-limits-00-dne" /> for one that does not exist.
+</p></warning>
+
+<example xml:id="example-limits-laws-applied-to-quadratic">
+	<title>Limit of a quadratic function</title>
+	<p>
+	Consider <md> \lim_{t \to 2} 3 t^2 - 4 t + 6 </md>.
+	From <xref ref="example-limits-square-func" /> we have <md> \lim_{t \to 2} t^2 = 4 </md>,
+	so we may apply the <xref ref="pattern-limits-laws-homog" text="title" /> to obtain
+	<md> \lim_{t \to 2} 3 t^2 = 3 \lim_{t \to 2} t^2 = 3 \cdot 4 = 12 </md>.
+	We may also combine the <xref ref="pattern-limits-laws-homog" text="title" /> with the <xref ref="pattern-limits-laws-indep-var" text="title" /> to obtain
+	<md> \lim_{t \to 2} 4 t = 4 \lim_{t \to 2} t = 4 \cdot 2 = 8 </md>.
+	Finally,
+	we may combine these preliminary results with the <xref ref="pattern-limits-laws-add" text="title" /> and the <xref ref="pattern-limits-laws-constant" text="title" /> to obtain
+	<md>
+
+		<mrow>
+			\lim_{t \to 2} 3 t^2 - 4 t + 6
+			\amp = \lim_{t \to 2} 3 t^2 - \lim_{t \to 2} 4 t + \lim_{t \to 2} 6
+		</mrow>
+
+		<mrow> \amp = 12 - 8 + 6 </mrow>
+
+		<mrow> \amp = 10 \text{.} </mrow>
+
+	</md>
+	</p>
+</example>
+
+<example xml:id="example-limits-laws-applied-to-rational">
+	<title>Limit of a rational function</title>
+	<p>
+	Consider <md> \lim_{t \to 2} \frac{(3 t^2 - 4 t + 6) (2 t + 5)}{t^2 - 6} </md>.
+	We have already computed the limit of one of the numerator factors in <xref ref="example-limits-laws-applied-to-quadratic" />.
+	The limits of the other numerator factor and of the denominator can be calculated similarly:
+	<md>
+
+		<mrow>
+			\lim_{t \to 2} 2 t + 5
+			\amp = \lim_{t \to 2} 2 t + \lim_{t \to 2} 5
+			\amp
+			\lim_{t \to 2} t^2 - 6
+			\amp = \lim_{t \to 2} t^2 - \lim_{t \to 2} 6
+		</mrow>
+
+		<mrow>
+			\amp = \left(2 \lim_{t \to 2} t\right) + 5
+			\amp
+			\amp = 4 - 6
+		</mrow>
+
+		<mrow>
+			\amp = 2 \cdot 2 + 5
+			\amp
+			\amp = -2 \text{.}
+		</mrow>
+
+		<mrow> \amp = 9 \text{,} </mrow>
+
+	</md>
+	We can combine the results of the limits of the two numerator factors using the
+	<xref ref="pattern-limits-laws-mult" text="title" />:
+	<md> \lim_{t \to 2} (3 t^2 - 4 t + 6) (2 t + 5) = 10 \cdot 9 = 90 </md>.
+	Finally,
+	since the denominator limit is nonzero,
+	the <xref ref="pattern-limits-laws-mult" text="title" /> applies to yield
+	<md>
+		\lim_{t \to 2} \frac{(3 t^2 - 4 t + 6) (2 t + 5)}{t^2 - 6}
+		= \frac{90}{-2}
+		= -45
+	</md>.
+	</p>
+</example>
+
+<warning>
+	<title>Evaluation of a limit is <em>not</em> just evaluation of the function</title>
+
+	<p>
+	In both <xref ref="example-limits-laws-applied-to-quadratic" /> and <xref ref="example-limits-laws-applied-to-rational" />,
+	it would appear that the limit results can be obtained simply by evaluating the functions.
+	However,
+	we emphasize again that in general <alert>the value of <m> f(c) </m> is irrelevant to the limit of <m> f(t) </m> as <m> t \to c </m></alert>.
+	</p>
+
+	<p>
+	The situation where the function value <m> f(c) </m> and the limit value of <m> f(t) </m> as <m> t \to c </m> turn out to be the same is a special one that we will give a name to later in this chapter
+	(<xref ref="section-limits-continuous-funcs" />).
+	</p>
+
+</warning>
+
+</section>
+
+
 <section>
 <title>Computing limits algebraically</title>
 
@@ -368,6 +529,33 @@ as that is the result if we just try to evaluate with <m> t = c </m> instead of 
 
 </example>
 
+<example xml:id="example-limits-00-dne">
+	<title>Not enough zeros to cancel</title>
+
+	<p>
+	Consider <md> \lim_{t \to 1} \frac{t^2 - 1}{{(t - 1)}^2} </md>.
+	Similar to <xref ref="example-limits-pre-cancelling-00" />,
+	both the numerator and denominator functions are approaching <m> 0 </m> as <m> t \to 1 </m>.
+	Again,
+	we'll first attempt some algebraical manipulation:
+	<md>
+		<mrow> \frac{t^2 - 1}{{(t - 1)}^2} \amp = \frac{(t - 1) (t + 1)}{(t - 1) (t - 1)} </mrow>
+		<mrow> \amp = \frac{\bcancel{(t - 1)} (t + 1)}{\bcancel{(t - 1)} (t - 1)} </mrow>
+		<mrow> \amp = \frac{t + 1}{t - 1} </mrow>
+	</md>.
+	Now we can say that
+	<md> \frac{t^2 - 1}{{(t - 1)}^2} = \frac{t + 1}{t - 1} </md>
+	for all <m> t \approx 1 </m> but <m> t \neq 1 </m>.
+	But now our simplified numerator and denominator functions satisfy
+	<md><mrow> t + 1 \amp \to 2 \text{,} \amp t - 1 \amp \to 0 </mrow></md>
+	as <m> t \to 1 </m>.
+	This puts us in the situation of <xref ref="pattern-limits-laws-non-div" text="type-local">Law</xref> of <xref ref="pattern-limits-laws" />,
+	which says that the limit does not exist.
+	</p>
+
+</example>
+
+
 <example>
 	<title>Rationalizing</title>
 	<p>
@@ -404,7 +592,7 @@ we leave further examples to the further development of the limiting process app
 
 </section>
 
-<section>
+<section xml:id="section-limits-continuous-funcs">
 <title>Continuous functions</title>
 
 <subsection>
