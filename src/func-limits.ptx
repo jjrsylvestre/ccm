@@ -379,6 +379,8 @@ because it is too easy to be deceived by numerical trends
 <section>
 <title>Function limit laws</title>
 
+<!-- REWRITE-TODO coordinate with new limits.ptx and any new limit material in poly.ptx, log.ptx, exp.ptx -->
+
 <p> First we establish two fundamental limits for the foundations on which every function is built. </p>
 
 <identity xml:id="pattern-func-limits-basic">
