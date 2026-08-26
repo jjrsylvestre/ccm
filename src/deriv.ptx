@@ -235,7 +235,7 @@ So we'll start by analysing the two simplest possible quantity models built on t
 <p> Now we'll work a little more generally to develop some algebraic rules for derivatives. </p>
 
 <identity xml:id="pattern-deriv-scale">
-	<title>Derivative of a scaled quantity</title>
+	<title>Derivative of a scaled quantity (Constant Multiple Rule)</title>
 
 	<statement><p>
 		If <m> q(t) </m> is a differentiable quantity function,
@@ -323,7 +323,7 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 </p></example>
 
 <identity xml:id="pattern-deriv-sum">
-	<title>Derivative of a sum of quantities</title>
+	<title>Derivative of a sum of quantities (Sum Rule)</title>
 
 	<statement><p>
 		If <m> q_1(t) </m> and <m> q_2(t) </m> are differentiable quantity functions,
@@ -362,6 +362,23 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 </identity>
 
 <p>
+We may combine the <xref ref="pattern-deriv-scale" text="custom">Constant Multiple Rule</xref>
+(<xref ref="pattern-deriv-scale" />)
+using <m> -1 </m> as the scale factor with the <xref ref="pattern-deriv-sum" text="custom">Sum Rule</xref>
+(<xref ref="pattern-deriv-sum" />)
+to create a <term>Difference Rule</term>.
+</p>
+
+<identity xml:id="pattern-deriv-diff">
+	<title>Derivative of a difference of quantities (Difference Rule)</title>
+	<statement><p>
+		If <m> q_1(t) </m> and <m> q_2(t) </m> are differentiable quantity functions,
+		then <md> \opddt (q_1 - q_2) = \ddt{q_1} - \ddt{q_2} </md>.
+		That is, <alert>the derivative of a difference is the difference of the derivatives</alert>.
+	</p></statement>
+</identity>
+
+<p>
 We may apply a combination of our rules and basic formulas so far to establish the pattern of a derivative function for a linear function.
 </p>
 
@@ -384,12 +401,12 @@ We may apply a combination of our rules and basic formulas so far to establish t
 			<mrow> \amp = r \cdot 1 \amp \amp\text{(iv)} </mrow>
 			<mrow> \amp = r \text{,} </mrow>
 		</md>
-		with step justifications
+		with step justifications:
 		<ol marker="(i)">
-			<li> <xref ref="pattern-deriv-sum" /> </li>
-			<li> <xref ref="pattern-deriv-constant" /> </li>
-			<li> <xref ref="pattern-deriv-scale" /> </li>
-			<li> <xref ref="pattern-deriv-var" />. </li>
+			<li> <xref ref="pattern-deriv-sum" text="custom">Sum Rule</xref>. </li>
+			<li> Rule for derivative of a constant (<xref ref="pattern-deriv-constant" />). </li>
+			<li> <xref ref="pattern-deriv-scale" text="custom">Constant Multiple Rule</xref>. </li>
+			<li> Rule for derivative of the independent variable (<xref ref="pattern-deriv-var" />). </li>
 		</ol>
 	</p></proof>
 
@@ -424,7 +441,7 @@ so in fact they will be the same line.
 
 <p>
 Finally,
-consider the special case of <xref ref="pattern-deriv-sum" />
+consider the special case of the <xref ref="pattern-deriv-sum" text="custom">Sum Rule</xref>
 where the second function is a constant function:
 if <md> q(t) = q_1(t) + c </md>,
 then
