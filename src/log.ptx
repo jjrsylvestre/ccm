@@ -14,10 +14,10 @@ respective owners.
 *********************************************************************-->
 
 <chapter xml:id="chapter-log" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Logarithmic growth</title>
+<title>The natural logarithm</title>
 
 <section xml:id="section-log-definition">
-<title>The natural logarithm</title>
+<title>Definition</title>
 
 <p>
 <xref ref="pattern-poly-int-power" /> tells us how to calculate a quantity's accumulation for any rate model that is a power of <m> t </m>,
@@ -74,7 +74,7 @@ the height of the logarithm function's graph on the right at the input <m> t </m
 
 <p>
 Notice that the graph of the logarithm function in <xref ref="figure-log-positive-values-height" /> shows negative accumulation values for <m> 0 \lt t \lt 1 </m>.
-This is because of <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref> in <xref ref="convention-integ-definite-props" /> <mdash />
+This is because of <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref> in <xref ref="convention-integ-definite-props" />:
 if we allow time to <q>run backwards</q>,
 then we consider the quantity to be dissipating instead of accumulating,
 so that <md> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </md>
@@ -140,7 +140,8 @@ for <m> 0 \lt t \lt 1 </m> is the <em>negative</em> of the accumulation that occ
 			+ ( \ln 4 - \ln 3 )
 		</mrow>
 
-		<mrow> \amp = \frac{7}{2} + \ln \left(\frac{4}{3}\right) </mrow>
+		<!-- can't do this, haven't stated properties of ln yet -->
+		<!-- <mrow> \amp = \frac{7}{2} + \ln \left(\frac{4}{3}\right) </mrow> -->
 
 	</md>
 	</p>
@@ -458,6 +459,273 @@ we can combine <xref ref="pattern-log-product" /> and <xref ref="pattern-log-rec
 	In other words, <em>the logarithm of a quotient is the difference of the logarithms</em>.
 	</p>
 </identity>
+
+<example xml:id="example-log-continue-definite-integral"><p>
+	Part of <xref ref="example-log-definite-integral" /> involved computing the definite integral
+	<md>
+		\ccmint{3}{4}{\frac{1}{t}}{t}
+		= \ccmint{1}{4}{\frac{1}{t}}{t}
+		- \ccmint{1}{3}{\frac{1}{t}}{t}
+		= \ln 4 - \ln 3
+	</md>.
+	We can now use <xref ref="pattern-log-quotient" /> to <q>simplify</q> this result to a single logarithm:
+	<md> \ccmint{3}{4}{ \frac{1}{t} }{t} = \ln(4 / 3) </md>.
+</p></example>
+
+<p>
+In light of <xref ref="example-log-continue-definite-integral" />,
+we record the following version of <xref ref="pattern-log-quotient" />.
+</p>
+
+<identity xml:id="pattern-log-def-int-to-quotient">
+	<title>Logarithmic definite integral</title>
+	<p>
+	For all positive <m> a </m> and <m> b </m>,
+	we have <md> \ccmint{a}{b}{ \frac{1}{t} }{t} = \ccmint{1}{b / a}{ \frac{1}{t} }{t} = \ln(b / a) </md>.
+	</p>
+</identity>
+
+</section>
+
+<section xml:id="section-log-deriv">
+<title>Derivative of the natural logarithm</title>
+
+<subsection>
+<title>Initial formula</title>
+
+<p>
+In <xref ref="section-poly-deriv-vs-integ" />,
+we found that <md> \opddt \, \ccmint{0}{t}{u^m}{u} = t^m </md>
+is true for all positive exponents <m> m </m>.
+In <xref ref="checkpoint-poly-diff-vs-int-for-neg-exp-power-func" />,
+you should have also found that
+<md xml:id="equation-log-int-then-diff-power" tag="dagger"> \opddt \, \ccmint{1}{t}{u^m}{u} = t^m </md>
+is true for all negative exponents <m> m \neq -1 </m>.
+We will explore this <em>integration-then-differentiation</em> pattern more generally in <xref ref="chapter-fund-thm" />,
+but for now we will take it on faith that pattern <xref ref="equation-log-int-then-diff-power" /> holds even in the case of exponent <m> m = -1 </m>:
+<md> \opddt \, \ccmint{1}{t}{u^{-1}}{u} = t^{-1} </md>.
+Since the integral function being differentiated here is precisely the <term>natural logarithm</term>,
+we have a new differentiation pattern.
+</p>
+
+<identity xml:id="pattern-log-deriv">
+	<title>Derivative of the natural logarithm</title>
+	<p>
+	The natural logarithm function is differentiable for all <m> t \gt 0 </m>,
+	with <md> \ddt{\bbrac{\ln (t)}} = \frac{1}{t} </md>.
+	In function notation, this says that <md> \ln'(t) = 1 / t </md>.
+	</p>
+</identity>
+
+<example>
+	<title>Derivative involving a logarithm</title>
+	<p>
+	For <md> q(t) = t^2 + \ln(t) + 6 </md>,
+	we have
+	<md>
+
+		<mrow> q'(t) \amp = \opddt \bbrac{t^2 + \ln(t) + 6} </mrow>
+
+		<mrow> \amp = \ddt{t^2} + \ddt{\bbrac{\ln(t)}} + \ddt{6} </mrow>
+
+		<mrow> \amp = 2 t + \frac{1}{t} + 0 </mrow>
+
+	</md>
+	where in the first step we have applied the
+	<xref ref="pattern-deriv-sum" text="custom">Sum Rule</xref>
+	and in the second step we have applied the
+	<xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref>,
+	our new derivative formula for the natural logarithm,
+	and the rule for the <xref ref="pattern-deriv-constant" text="custom">derivative of a constant</xref>.
+	</p>
+</example>
+
+<example>
+	<title>Derivative of a scaled logarithm</title>
+
+	<p>
+	Let <m> a,b </m> represent constants and consider <m> q(t) = a \ln(b t) </m>.
+	As this function is both vertically and horizontally scaled,
+	we compute its derivative by applying the <xref ref="pattern-deriv-scale" text="custom">Constant Multiple Rule</xref>
+	and also <xref ref="pattern-deriv-h-scale" />.
+	<md>
+		<mrow> q'(t) \amp = \opddt \bbrac{ a \ln(b t) } </mrow>
+		<mrow> \amp = a \ddt{\bbrac{ \ln(b t) }} </mrow>
+		<mrow> \amp = a b \ln'(b t) </mrow>
+		<mrow> \amp = \frac{a \bcancel{b}}{\bcancel{b} t} </mrow>
+		<mrow> \amp = \frac{a}{t} </mrow>
+	</md>
+	</p>
+
+	<p>
+	Alternatively,
+	we could apply properties of the logarithm <em>before</em> differentiating:
+	<md> q(t) = a \ln(b t) = a \bbrac{ \ln(b) + \ln(t) } = a \ln(b) + a \ln(t) </md>.
+	By the <xref ref="pattern-deriv-sum" text="custom">Sum Rule</xref>,
+	we can now differentiate the two terms separately and add the results.
+	As <m> a </m> and <m> b </m> are constants,
+	the expression <m> a \ln(b) </m> is also constant,
+	so the derivative of the first term is <m> 0 </m> by our rule for the <xref ref="pattern-deriv-constant" text="custom">derivative of a constant</xref>.
+	Then in the second term we need only apply the <xref ref="pattern-deriv-scale" text="custom">Constant Multiple Rule</xref>.
+	<md>
+		<mrow> q'(t) \amp = \opddt \bbrac{ a \ln(b) + a \ln(t) } </mrow>
+		<mrow> \amp = \opddt \bbrac{ a \ln(b) } + \opddt \bbrac{ a \ln(t) } </mrow>
+		<mrow> \amp = 0 + a \ddt{\bbrac{ \ln(t) }} </mrow>
+		<mrow> \amp = a \cdot \frac{1}{t} </mrow>
+		<mrow> \amp = \frac{a}{t} </mrow>
+	</md>
+	</p>
+
+</example>
+
+</subsection>
+
+<subsection>
+<title>Extended formula</title>
+
+<p>
+It is common to extend the domain of the natural logarithm by composing with the absolute value function:
+whereas <m> \ln (t) </m> is defined only for <m> t \gt 0 </m>,
+<m> \ln \abs{t} </m> is defined for all <m> t </m> except at the singularity at <m> t = 0 </m>.
+For this function,
+a negative input produces the same output value as the corresponding positive input of the same magnitude,
+so the graph is symmetric about the vertical axis.
+</p>
+
+<figure xml:id="figure-log-natural-abs">
+	<caption> Graph of the quantity function <m> q(t) = \ln \abs{t} </m>. </caption>
+	<image width="100%">
+		<shortdescription>Graph of the natural logarithm composed with the absolute value.</shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-log-natural-abs">
+			<xi:include href="log.d/ln-abs.tex" parse="text" />
+		</latex-image>
+	</image>
+</figure>
+
+<p>
+Consider a point on the graph in <xref ref="figure-log-natural-abs" /> at <m> t = t^\ast </m> with <m> t^\ast \lt 0 </m>.
+There is a corresponding point on the other side of the vertical axis,
+at input value <m> t = \abs{t^\ast} </m> but at the same output height.
+Since <m> \abs{t^\ast} \gt 0 </m>,
+this second point is on the graph of <m> y = \ln (t) </m>,
+and so we know its derivative value is the reciprocal of the input value for that point:
+<md> \funceval{\ddt{\bbrac{\ln (t)}}}{t = \abs{t^\ast}} = \frac{1}{\abs{t^\ast}} </md>.
+This derivative value describes the slope of the tangent line at this point.
+</p>
+
+<p>
+On the other hand,
+the derivative value
+<md> \funceval{\ddt{(\ln \abs{t})}}{t = t^\ast} </md>
+describes the slope of the tangent line at the original input value <m> t = t^\ast </m>.
+But since these two points are reflections of each other in the vertical axis,
+we can see that the two slopes will be equal in magnitude but have opposite signs.
+</p>
+
+<figure xml:id="figure-log-abs-reflected-tangents">
+	<caption>
+		Two tangent lines at symmetric points on the graph of the quantity function <m> q(t) = \ln \abs{t} </m>.
+	</caption>
+	<image width="100%">
+		<shortdescription>
+			Two tangent lines at symmetric points on the graph of the natural logarithm composed with the absolute value.
+		</shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-log-abs-reflect">
+			<xi:include href="log.d/ln-abs-reflect.tex" parse="text" />
+		</latex-image>
+	</image>
+</figure>
+
+<p>
+So by symmetry we have
+<md>
+	\funceval{\ddt{(\ln \abs{t})}}{t = t^\ast}
+	= - \frac{1}{\abs{t^\ast}}
+	= \frac{1}{- \abs{t^\ast}}
+</md>.
+However, since <m> t^\ast </m> was negative to begin with,
+<md> - \abs{t^\ast} = t^\ast </md>,
+and we end up with
+<md>
+	\funceval{\ddt{(\ln \abs{t})}}{t = t^\ast}
+	= - \frac{1}{\abs{t^\ast}}
+	= \frac{1}{t^\ast}
+</md>,
+which is the same <em>reciprocal-of-input-value</em> formula as for the derivative of the natural logarithm.
+</p>
+
+<identity xml:id="pattern-log-abs-deriv">
+	<title>Derivative of the natural logarithm composed with the absolute value</title>
+	<p>
+	The quantity function <m> q(t) = \ln\abs{t} </m> is differentiable for all <m> t \neq 0 </m>,
+	with <md> \ddt{(\ln\abs{t})} = \frac{1}{t} </md>.
+	</p>
+</identity>
+
+<example xml:id="example-log-h-transform-deriv">
+	<title>Derivative of a horizontally transformed logarithm</title>
+	<p>
+	To calculate <md> \opddt \ln\abs{3 t - 5} </md>,
+	start with <m> p_1(t) = \ln \abs{t} </m>.
+	Then <xref ref="pattern-log-abs-deriv" /> says that <md> p_1'(t) = \frac{1}{t} </md>.
+	Now consider <md> p_2(t) = p_1(t - 5) = \ln \abs{t - 5} </md>.
+	<xref ref="pattern-deriv-h-shift" /> says that <md> p_2'(t) = p_1'(t - 5) = \frac{1}{t - 5} </md>.
+	Finally, consider <md> q(t) = p_2(3 t) = \ln \abs{3 t - 5} </md>,
+	the function whose derivative we would like to calculate.
+	<xref ref="pattern-deriv-h-scale" /> tells us <md> q'(t) = 3 p_2'(3 t) = \frac{3}{3 t - 5} </md>.
+	So we have determined that <md> \opddt \ln\abs{3 t - 5} = q'(t) = \frac{3}{3 t - 5} </md>.
+	</p>
+</example>
+
+<p>
+Recall that the natural logarithm is defined to be the accumulation function <m> A_1(t) </m> for rate function <m> r(t) = 1/t </m>.
+That is, values of <m> \ln(t) </m> are defined to be results of definite integral calculations.
+Using symmetry, we can interpret values of <m> \ln\abs{t} </m> the same way.
+</p>
+
+<figure xml:id="figure-log-abs-as-integral">
+	<caption>
+		Two corresponding areas under the graph of <m> r(u) = 1/u </m>.
+	</caption>
+	<image width="92.6%">
+		<shortdescription>
+			Two corresponding areas under the graph of the reciprocal function.
+		</shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-log-natural-abs-as-integral">
+			<xi:include href="log.d/ln-abs-corresponding-areas.tex" parse="text" />
+		</latex-image>
+	</image>
+</figure>
+
+<p>
+By symmetry,
+the areas in <xref ref="figure-log-abs-as-integral" /> have the same magnitude,
+but are oppositely oriented:
+<md>
+	\ccmint{t}{-1}{\frac{1}{u}}{u}
+	= - \ccmint{1}{\abs{t}}{\frac{1}{u}}{u}
+</md>.
+Using <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref>
+of <xref ref="convention-integ-definite-props" />,
+we can counteract the negative orientation by integrating backwards in time:
+<md>
+	\ccmint{-1}{t}{\frac{1}{u}}{u}
+	= - \ccmint{t}{-1}{\frac{1}{u}}{u}
+	= \ccmint{1}{\abs{t}}{\frac{1}{u}}{u}
+</md>.
+This leads to the following piecewise interpretation of the function <m> \ln\abs{t} </m>.
+<md>
+	\ln\abs{t} = \begin{cases}
+		\displaystyle \ccmint{1}{t}{\frac{1}{u}}{u} \amp t \gt 0 \\[3pt]
+		\displaystyle \ccmint{-1}{t}{\frac{1}{u}}{u} \amp t \lt 0
+	\end{cases}
+</md>
+</p>
+
+</subsection>
 
 </section>
 
