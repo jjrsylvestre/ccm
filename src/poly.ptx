@@ -635,7 +635,7 @@ And this pattern does in fact hold for higher-degree power functions.
 </p>
 
 <identity xml:id="pattern-poly-deriv-power">
-	<title>Derivative of a power</title>
+	<title>Derivative of a power function (Power Rule)</title>
 
 	<statement><p>
 		The quantity function <m> q(t) = t^n </m> is differentiable everywhere that it is defined,
@@ -686,7 +686,7 @@ And this pattern does in fact hold for higher-degree power functions.
 	<title>Non-positive and/or non-integer exponents</title>
 	<p>
 	While our justification is only valid for positive, integer exponents <m> n </m>,
-	<xref ref="pattern-poly-deriv-power" /> itself is valid for <em>all</em> exponents,
+	the Power Rule (<xref ref="pattern-poly-deriv-power" />) itself is valid for <em>all</em> exponents,
 	and we will justify this in later chapters after we have a few more techniques and patterns available to us.
 	In the meantime,
 	recall that for negative exponents we cannot attach a derivative value to the quantity function at the singularity at <m> t = 0 </m>
@@ -695,15 +695,15 @@ And this pattern does in fact hold for higher-degree power functions.
 	We could also consider the pattern to be true for <m> n = 0 </m>,
 	since in that case the quantity function satisfies
 	<md> <mrow> q(t) \amp = t^0 = 1 \amp \text{for } t \amp \gt 0 </mrow> </md>,
-	while <xref ref="pattern-poly-deriv-power" /> gives
+	while the Power Rule gives
 	<md> \ddt{(t^0)} = 0 t^{-1} = 0 </md>
 	(again assuming <m> t \gt 0 </m>).
-	So in some sense <xref ref="pattern-poly-deriv-power" /> <q>contains</q> <xref ref="pattern-deriv-constant" />.
-	(And, for that matter, it also <q>contains</q> <xref ref="pattern-deriv-var" /> when we take <m> n = 1 </m>.)
+	So in some sense the Power Rule <q>contains</q> our rule for the derivative of a constant (<xref ref="pattern-deriv-constant" />).
+	And, for that matter, it also <q>contains</q> our rule for the derivative of the independent variable (<xref ref="pattern-deriv-var" />) when we take <m> n = 1 </m>.
 	</p>
 </remark>
 
-<p> Here are a couple examples of using <xref ref="pattern-poly-deriv-power" />. </p>
+<p> Here are a couple examples of using the Power Rule. </p>
 
 <example xml:id="example-poly-deriv-neg-exponent">
 	<title>Derivative of a power with a negative exponent</title>
@@ -711,10 +711,10 @@ And this pattern does in fact hold for higher-degree power functions.
 </example>
 
 <note><p>
-	While we might describe part of <xref ref="pattern-poly-deriv-power" /> as <em>decrease the exponent</em>,
+	While we might describe part of the Power Rule as <em>decrease the exponent</em>,
 	this does not mean decrease the <em>magnitude</em> of the exponent.
 	For example,
-	a common mistake in applying <xref ref="pattern-poly-deriv-power" /> is to use <m> t^{-2} </m> in the derivative formula for <m> t^{-3} </m>,
+	a common mistake in applying the Power Rule is to use <m> t^{-2} </m> in the derivative formula for <m> t^{-3} </m>,
 	instead of <m> t^{-4} </m> as in <xref ref="example-poly-deriv-neg-exponent" />.
 </p></note>
 
@@ -725,7 +725,7 @@ And this pattern does in fact hold for higher-degree power functions.
 
 <p>
 Finally,
-we can combine <xref ref="pattern-poly-deriv-power" /> with <xref ref="pattern-deriv-scale" /> and <xref ref="pattern-deriv-sum" />
+we can combine <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> with the <xref ref="pattern-deriv-scale" text="custom">Constant Multiple Rule</xref> and the <xref ref="pattern-deriv-sum" text="sum">Sum Rule</xref>
 to obtain a general formula for the derivative function of any polynomial.
 We will leave the justification up to you, the reader.
 </p>
