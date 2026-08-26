@@ -584,7 +584,7 @@ our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation
 <example>
 	<title>Derivative of <m> \ln(t) </m> and <m> \ln\abs{t} </m></title>
 	<p>
-	We can now use <xref ref="theorem-fund-thm" text="title" /> to verify <xref ref="pattern-deriv-log" />:
+	We can now use <xref ref="theorem-fund-thm" text="title" /> to verify <xref ref="pattern-log-deriv" />:
 	<md>
 		<mrow> \ddt{\bbrac{\ln (t)}} \amp = \opddt \ccmint{1}{t}{\frac{1}{u}}{u} </mrow>
 		<mrow>\amp = \frac{1}{t} </mrow>
