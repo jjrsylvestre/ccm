@@ -467,8 +467,73 @@ at which point we will have reached the degree of the polynomial and can factor 
 
 </section>
 
+<section xml:id="section-poly-cont">
+<title>Limits and continuity of polynomial functions</title>
+
+<p>
+Repeated application of the <xref ref="pattern-limits-laws" text="title" /> (<xref ref="pattern-limits-laws" />)
+allows us to handle limits of power functions, polynomial functions, and most rational functions of polynomials.
+</p>
+
+<identity xml:id="pattern-limits-power-poly">
+	<title>Limits of power and polynomial functions</title>
+	<p>
+	Suppose <m> n </m> is a positive integer and <m> p </m> and <m> q </m> are polynomial functions.
+	<ol>
+
+		<li xml:id="pattern-limits-power-poly-power">
+			<title>Limit of a power function</title>
+			<p><m> \displaystyle \lim_{t \to c} t^n = c^n </m></p>
+		</li>
+
+		<li xml:id="pattern-limits-power-poly-poly">
+			<title>Limit of a polynomial function</title>
+			<p><m> \displaystyle \lim_{t \to c} p(t) = p(c) </m></p>
+		</li>
+
+		<li xml:id="pattern-limits-power-poly-rat">
+			<title>Limit of a rational function of polynomials</title>
+			<p><m> \displaystyle \lim_{t \to c} \frac{p(t)}{q(t)} = \frac{p(c)}{q(c)} </m> if <m> q(c) \neq 0 </m></p>
+		</li>
+
+	</ol></p>
+</identity>
+
+<p>
+The patterns above can be summarized simply as:
+<alert>a limit of a power function, a polynomial function, or a rational function of polynomials can be evaluated by evaluating the function</alert>
+(with the caveat that one cannot divide by zero).
+In other words,
+these types of functions are <term>continuous</term>
+(<xref ref="definition-limits-point-continuous" />).
+</p>
+
+<identity xml:id="pattern-limits-continuity-power-poly">
+	<title>Continuity of power and polynomial functions</title>
+	<p><ol>
+
+		<li xml:id="pattern-limits-continuity-power-poly-power">
+			<title>Continuity of a power function</title>
+			<p> A power function is continuous at all points. </p>
+		</li>
+
+		<li xml:id="pattern-limits-continuity-power-poly-poly">
+			<title>Continuity of a polynomial function</title>
+			<p> A polynomial function is continuous at all points. </p>
+		</li>
+
+		<li xml:id="pattern-limits-continuity-power-poly-rat">
+			<title>Continuity of a rational function of polynomials</title>
+			<p> A rational function of polynomials is continuous at all points that the denominator function is nonzero. </p>
+		</li>
+
+	</ol></p>
+</identity>
+
+</section>
+
 <section xml:id="section-poly-deriv">
-<title>Derivatives of polynomial functions</title>
+<title>Derivatives of polynomial quantity functions</title>
 
 <p>
 The simplest type of polynomial is a constant function,
@@ -794,7 +859,7 @@ We will leave the justification up to you, the reader.
 
 
 <section xml:id="section-poly-integ">
-<title>Integrals of polynomials</title>
+<title>Integrals of polynomial rate functions</title>
 
 <subsection xml:id="subsection-poly-constant-var">
 <title>Constant rate function</title>
