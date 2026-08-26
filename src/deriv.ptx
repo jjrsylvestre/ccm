@@ -183,18 +183,25 @@ So we'll start by analysing the two simplest possible quantity models built on t
 		That is, <alert>the derivative of a constant is zero</alert>.
 	</p></statement>
 
-	<proof><p>
+	<proof>
+
+		<p>
 		For constant quantity function <m> q(t) = c </m>,
 		we also have <m> q(t + \change{t}) = c </m>,
 		so in this case <m> \change{q} = 0 </m>.
-		Therefore, <md> \slope{q}{t} = \frac{0}{\change{t}} </md>.
-		Considering <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>,
-		the difference quotient <m> \change{q} / \change{t} </m> above computes to <m> 0 </m> for all values of <m> \change{t} </m>.
-		So, in fact, these average-rate approximations are not approximations but instead they are already the exact value,
-		and we have <md>\slope{q}{t} \to 0 \qquad \text{as} \qquad \change{t} \to 0</md>.
+		Therefore, <md> \slope{q}{t} = \frac{0}{\change{t}} = 0 </md>.
+		(Remember that <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>.)
+		</p>
+
+		<p>
+		So our average rate approximations <m> \inlineslope{q}{t} </m> have constant value <m> 0 </m>,
+		and to take their limit we simply apply the <xref ref="pattern-limits-laws-constant" text="title" /> law to conclude that
+		<md>\slope{q}{t} \to 0 \qquad \text{as} \qquad \change{t} \to 0</md>.
 		Therefore, for a constant function we have
 		<md> \dqdt = 0 </md>.
-	</p></proof>
+		</p>
+
+	</proof>
 
 </identity>
 
@@ -217,7 +224,7 @@ So we'll start by analysing the two simplest possible quantity models built on t
 <note><p>
 	In the justifications for <xref ref="pattern-deriv-constant" /> and <xref ref="pattern-deriv-var" />
 	we are not making the mistake of taking <m> 0/0 = 1 </m> to be true,
-	because in the limit defining <m> q'(t) </m> we think of <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>.
+	because in the limit defining <m> dq/dt </m> we think of <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>.
 </p></note>
 
 </subsection>
@@ -252,10 +259,13 @@ So we'll start by analysing the two simplest possible quantity models built on t
 			= \frac{c \change{q} }{ \change{t} }
 			= c \, \slope{q}{t}
 		</md>.
-		Since this holds for all <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>,
-		and we have <md> \slope{q}{t} \to \dqdt \qquad \text{as} \qquad \change{t} \to 0 </md>,
-		then we must have <md> \slope{p}{t} \to c \, \dqdt \qquad \text{as} \qquad \change{t} \to 0 </md>.
-		Therefore,
+		We have assumed that <m> q </m> is differentiable,
+		so <md> \slope{q}{t} \to \dqdt \qquad \text{as} \qquad \change{t} \to 0 </md>.
+		By the <xref ref="pattern-limits-laws-homog" text="title" /> we then have
+		<md> c \,  \slope{q}{t} \to c \, \dqdt \qquad \text{as} \qquad \change{t} \to 0 </md>.
+		That is,
+		<md> \slope{p}{t} \to c \, \dqdt \qquad \text{as} \qquad \change{t} \to 0 </md>,
+		and so
 		<md> \ddt{p} = c \, \dqdt </md>,
 		as claimed.
 	</p></proof>
@@ -337,10 +347,14 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 			= \frac{ \change{q_1} + \change{q_2} }{ \change{t} }
 			= \slope{q_1}{t} + \slope{q_2}{t}
 		</md>.
-		Since this holds for all <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>,
-		and we have <md>\slope{q_1}{t} \to \ddt{q_1}, \quad \slope{q_2}{t} \to \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0</md>,
-		then we must have <md>\slope{p}{t} \to \ddt{q_1} + \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0</md>.
-		Therefore,
+		We have assumed that <m> q_1 </m> and <m> q_2 </m> are both differentiable,
+		so <md>\slope{q_1}{t} \to \ddt{q_1}, \quad \slope{q_2}{t} \to \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0</md>.
+		Using the <xref ref="pattern-limits-laws-add" text="title" />,
+		we can combine these to get
+		<md> \slope{q_1}{t} + \slope{q_2}{t} \to \ddt{q_1} + \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0 </md>.
+		That is,
+		<md> \slope{p}{t} \to \ddt{q_1} + \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0 </md>,
+		and so
 		<md> \ddt{p} = \ddt{q_1} + \ddt{q_2} </md>,
 		as claimed.
 	</p></proof>
@@ -462,9 +476,9 @@ let's consider the effect of horizontal transformations on derivative.
 		<p>
 		Instead of carrying out a detailed calculation of <m> dq / dt </m>,
 		let's just argue in terms of the concept of the derivative.
-		If the value of <m> dq / dt </m> at a particular time <m> t = t_0 </m> represents the rate of variation of <m> q </m> at that time,
+		If the value of <m> dq / dt </m> at a particular time <m> t = t_0 </m> represents the instantaneous rate of accumulation of <m> q </m> at that time,
 		but <md> q(t) = p(t - c) </md>,
-		then we are really just measuring the rate of variation of <m> p </m> at the <q>earlier</q> time <m> t = t_0 -c </m>.
+		then we are really just measuring the instantaneous rate of accumulation of <m> p </m> at the <q>earlier</q> time <m> t = t_0 - c </m>.
 		</p>
 	</proof>
 
