@@ -848,7 +848,7 @@ we should set
 
 </example>
 
-<exercise xml:id="exercise-poly-approx-maclaurin-sin">
+<exercise xml:id="checkpoint-poly-approx-maclaurin-sin">
 	<title>Maclaurin approximation of <m> \sin(t) </m></title>
 	<p>
 	Perform a similar analysis as in <xref ref="example-poly-approx-maclaurin-cos" />
@@ -857,7 +857,7 @@ we should set
 	</p>
 </exercise>
 
-<exercise xml:id="exercise-poly-approx-maclaurin-exp">
+<exercise xml:id="checkpoint-poly-approx-maclaurin-exp">
 	<title>Maclaurin approximation of the natural exponential function</title>
 	<p> Use the fact that <md> \ddt{(e^t)} = e^t </md> to create the Maclaurin polynomial <m> \nthmaclaurin (t) </m> for the exponential function <m> \exp(t) </m>. </p>
 </exercise>

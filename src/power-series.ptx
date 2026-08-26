@@ -67,7 +67,7 @@ In this chapter we will study infinite series that involve such an <q>input vari
 
 <example><p>
 	The power series <m> \sum t^k / k! </m> has partial sum functions <md> s_n(t) = \sum_{k = 0}^n \frac{t^k}{k!} </md>.
-	If you completed <xref ref="exercise-poly-approx-maclaurin-exp" />,
+	If you completed <xref ref="checkpoint-poly-approx-maclaurin-exp" />,
 	then you should recognize these partial sums as precisely the Maclaurin polynomials for <m> \exp(t) </m>.
 </p></example>
 
@@ -567,10 +567,10 @@ we can in some sense think of the sequence of Taylor polynomials <q>converging</
 	</p>
 </example>
 
-<exercise xml:id="exercise-power-series-taylor-for-sine">
+<exercise xml:id="checkpoint-power-series-taylor-for-sine">
 	<title>Taylor series for sine</title>
 	<p>
-	Use the Maclaurin polynomial pattern you developed in <xref ref="exercise-poly-approx-maclaurin-sin" /> to create the Taylor series at <m> t = 0 </m> for the sine function,
+	Use the Maclaurin polynomial pattern you developed in <xref ref="checkpoint-poly-approx-maclaurin-sin" /> to create the Taylor series at <m> t = 0 </m> for the sine function,
 	and investigate its convergence.
 	</p>
 </exercise>
@@ -683,7 +683,7 @@ inclusive.
 	</p>
 </example>
 
-<exercise xml:id="exercise-power-series-cosine-taylor-remainder">
+<exercise xml:id="checkpoint-power-series-cosine-taylor-remainder">
 	<title>Evaluating Taylor series for sine and cosine</title>
 	<p> Demonstrate that the Taylor series for sine and cosine at <m> t = 0 </m> both converge to the value of their respective originating function for all values of <m> t </m>. </p>
 </exercise>
@@ -817,7 +817,7 @@ but for now the next two examples give us hope that term-by-term operations yiel
 	<title>Integrating/differentiating the Taylor series for cosine</title>
 
 	<p>
-	From <xref ref="exercise-power-series-cosine-taylor-remainder" /> we know that for all <m> t </m> we have
+	From <xref ref="checkpoint-power-series-cosine-taylor-remainder" /> we know that for all <m> t </m> we have
 	<md> \cos(t) = \sum_{m = 0}^{\infty} \frac{{(-1)}^m}{(2m)!} \; t^{2 m} </md>.
 	</p>
 
@@ -832,7 +832,7 @@ but for now the next two examples give us hope that term-by-term operations yiel
 		<mrow> \amp = \sum_{m = 0}^{\infty} \frac{{(-1)}^m}{(2m)! \cdot (2 m + 1)} \; t^{2 m + 1} </mrow>
 		<mrow> \amp = \sum_{m = 0}^{\infty} \frac{{(-1)}^m}{(2 m + 1)!} \; t^{2 m + 1} </mrow>
 	</md>.
-	If you completed <xref ref="exercise-power-series-taylor-for-sine" />,
+	If you completed <xref ref="checkpoint-power-series-taylor-for-sine" />,
 	you will recognized this result as precisely the Taylor series at <m> t = 0 </m> for the sine function,
 	conveniently agreeing with <xref ref="pattern-periodic-int-cos" />.
 	</p>
