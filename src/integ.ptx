@@ -1617,7 +1617,7 @@ Luckily Sage can also handle this for us.
 
 </example>
 
-<warning>
+<warning xml:id="warning-integ-accumulation-ignores-initial">
 	<title>Accumulation ignores initial value</title>
 	<p>
 	If someone on a cross-country road trip averages
