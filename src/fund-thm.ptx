@@ -621,7 +621,7 @@ our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation
 	<title>Derivative of a trigonometric accumulation function</title>
 
 	<p>
-	In <xref ref="section-periodic-trig-accumulation" />,
+	In <xref ref="section-periodic-sine-cosine-integ" />,
 	we used the example of a spring attached to a mass as inspiration for the formulas
 	<md>
 		<mrow>
