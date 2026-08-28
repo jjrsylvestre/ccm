@@ -12,31 +12,25 @@
 %
 % *********************************************************************
 
-\newcommand*{\xmin}{-2.25}
-\newcommand*{\xmax}{2.25}
+\newcommand*{\xmin}{-0.25}
+\newcommand*{\xmax}{8.5}
 \newcommand*{\ymin}{-1.25}
 \newcommand*{\ymax}{1.25}
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
-	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	xscale=1.570796327
+	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt}
 ]
 
 	% axes
-	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below] {$t$};
-	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[left] {$y$};
+	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[right] {$t$};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax); % node[right] {$v(t)$};
 
-	\draw[blue,thick]
-	  (-2,0)
-	  sin (-1,-1)
-	  cos (0,0)
-	  sin (1,1)
-	  cos (2,0)
-	  node[above right,xshift=-0.5cm,yshift=0.5cm] {$\sin(t)$}
-	;
+	\draw[red,thick,domain=0:\xmax,smooth] plot (\x,{sin(deg(\x))})
+		node[right] {$s(t)$};
 
-	\draw[thick] (-1,-1.571) -- (1,1.571) node[right] {$y = t$};
+	\draw[blue,thick,domain=0:\xmax,smooth] plot (\x,{cos(deg(\x))})
+		node[right] {$v(t)$};
 
 \end{tikzpicture}

@@ -125,9 +125,9 @@ respective owners.
 	</p>
 
 	<figure xml:id="figure-periodic-position-spring-mass">
-		<caption> A position graph for a mass attached to a spring. </caption>
+		<caption> Position and velocity graphs for a mass attached to a spring. </caption>
 		<image width="67%">
-			<shortdescription> A position graph for a mass attached to a spring. </shortdescription>
+			<shortdescription> Position and velocity graphs for a mass attached to a spring. </shortdescription>
 			<!-- TODO description -->
 			<latex-image label="image-periodic-cos-for-spring">
 				<xi:include href="periodic.d/cos-for-spring.tex" parse="text" />
@@ -481,21 +481,18 @@ we make the following definitions of four more trigonometric functions as ratios
 <identity>
 	<title>Rational/reciprocal relationships between trigonometric functions</title>
 
-	<statement><p>
-		We have
-		<md>
-			<mrow>
-				\tan t \amp = \frac{\sin t}{\cos t}
-				\amp
-				\sec t \amp = \frac{1}{\cos t}
-			</mrow>
-			<mrow>
-				\cot t \amp = \frac{1}{\tan t} = \frac{\cos t}{\sin t}
-				\amp
-				\csc t \amp = \frac{1}{\sin t}
-			</mrow>
-		</md>
-	</p></statement>
+	<statement><p><md>
+		<mrow>
+			\tan t \amp = \frac{\sin t}{\cos t}
+			\amp
+			\sec t \amp = \frac{1}{\cos t}
+		</mrow>
+		<mrow>
+			\cot t \amp = \frac{1}{\tan t} = \frac{\cos t}{\sin t}
+			\amp
+			\csc t \amp = \frac{1}{\sin t}
+		</mrow>
+	</md></p></statement>
 
 	<proof><p>
 		With angle <m> t </m> and point <m> (x,y) </m> on the unit circle as in <xref ref="definition-periodic-tan-cot-sec-csc" />,
@@ -519,6 +516,24 @@ we make the following definitions of four more trigonometric functions as ratios
 		and the relationships in the pattern statement follow immediately.
 	</p></proof>
 
+</identity>
+
+<p> Finally, we will need the addition identities for sine and cosine. </p>
+
+<identity xml:id="pattern-periodic-addition-identities">
+	<title>Addition of angles in sine and cosine</title>
+
+	<statement><p><md>
+		<mrow>
+			\sin(A + B) \amp = \sin(A) \cos(B) + \sin(B) \cos(A)
+		</mrow><mrow>
+			\sin(A - B) \amp = \sin(A) \cos(B) - \sin(B) \cos(A)
+		</mrow><mrow>
+			\cos(A + B) \amp = \cos(A) \cos(B) - \sin(B) \sin(A)
+		</mrow><mrow>
+			\cos(A - B) \amp = \cos(A) \cos(B) + \sin(B) \sin(A)
+		</mrow>
+	</md></p></statement>
 </identity>
 
 </section>
@@ -604,19 +619,24 @@ leading to the familiar acronyms SOH CAH TOA:
 
 </section>
 
-<section xml:id="section-periodic-trig-accumulation">
-<title>Trigonometric rate functions</title>
+
+<section xml:id="section-periodic-sine-cosine-deriv">
+<title>Derivatives of the sine and cosine functions</title>
 
 <p>
-<xref ref="example-periodic-spring" /> has already provided us with an example of a rate/position function pair involving trigonometric functions.
-Suppose we take the motion in that example to have an amplitude of <m> 1 </m>,
+Velocity is the rate of variation in position.
+(Or, really, it's the rate of <em>accumulation of distance</em> from an initial position,
+and to accumulate distance you must vary your position.)
+So <md> v(t) = \ddt{s} </md>.
+Suppose we take the motion of the <em>mass-on-spring</em> in <xref ref="example-periodic-spring" /> to have an amplitude of <m> 1 </m>,
 so that when the object is stopped at maximum compression of the spring and at maximum stretch of the spring,
 it is <m> 1 </m> unit away from the central equilibrium position.
 And suppose we assume that the time units are normalized so that one full period of the motion,
 from compressed spring to stretched back to compressed,
 represents the time domain <m> 0 \le t \le 2 \pi </m>.
 Then the velocity can be modelled by the sine function and the position can be modelled by the negative of the cosine function:
-<md><mrow> v(t) \amp = \sin t \amp s(t) = - \cos t </mrow></md>.
+<md><mrow> v(t) \amp = \sin t \text{,} \amp s(t) = - \cos t \text{.} </mrow></md>
+<xref ref="figure-periodic-position-spring-mass" /> certainly seems to support these assignments.
 The reason that we have the <em>negative</em> of the cosine function as the position function is because we took the central equilibrium position to be <m> s = 0 </m>,
 with <m> s \lt 0 </m> representing a position closer to the wall and <m> s \gt 0 </m> representing a position further from the wall compared to the centre position.
 So when the object is released from a stop at a compressed position,
@@ -626,14 +646,384 @@ so that the position values increase and the velocity values becomes positive.
 </p>
 
 <p>
-As the object begins to move,
-it accumulates displacement from the initial position <m> s(0) = -1 </m>:
+So from <m> v(t) = ds/dt </m>,
+we might guess
+<md>
+	\ddt{\bbrac{- \cos(t)}} = \sin(t)
+	\qquad \implies \qquad
+	\ddt{\bbrac{\cos(t)}} = - \sin(t)
+</md>.
+If we choose a different time in the periodic motion of the <em>mass-on-spring</em> to act as the <q>initial time</q>,
+so that the spring was already in motion when recording of the experiment began,
+but the mass was passing through the equilibrium position at <m> t = 0 </m>,
+then we obtain a shifted version of <xref ref="figure-periodic-position-spring-mass" />,
+pictured in <xref ref="figure-periodic-shifted-position-spring-mass" />.
+</p>
+
+<figure xml:id="figure-periodic-shifted-position-spring-mass">
+	<caption> Shifted position and velocity graphs for a mass attached to a spring. </caption>
+	<image width="79.4%">
+		<shortdescription> Shifted position and velocity graphs for a mass attached to a spring. </shortdescription>
+		<!-- TODO description -->
+		<latex-image label="image-periodic-shifted-pos-vel-for-spring">
+			<xi:include href="periodic.d/shifted-pos-vel-for-spring.tex" parse="text" />
+		</latex-image>
+	</image>
+</figure>
+
+<p>
+In this diagram,
+it appears that <m> s(t) = \sin(t) </m> and <m> v(t) = \cos(t) </m>,
+so that <md> \ddt{\bbrac{\sin(t)}} = \cos(t) </md>.
+</p>
+
+<p>
+Let's attempt to verify the derivative formula for the sine function above.
+First we need to compute <md> \sin(t + \change{t}) </md>,
+which we can do using <xref ref="pattern-periodic-addition-identities" />:
+<md> \sin(t + \change{t}) = \sin(t) \cos(\change{t}) + \sin(\change{t}) \cos(t) </md>.
+So for quantity function <m> q(t) = \sin(t) </m>,
+we have
+<md>
+	<mrow> \change{q} \amp = \sin(t + \change{t}) - \sin(t) </mrow>
+	<mrow> \amp = \sin(t) \cos(\change{t}) + \sin(\change{t}) \cos(t) - \sin(t) </mrow>
+	<mrow> \amp = \bbrac{\sin(t) \cos(\change{t}) - \sin(t)} + \sin(\change{t}) \cos(t) </mrow>
+	<mrow> \amp = \sin(t) \bbrac{\cos(\change{t}) - 1} + \sin(\change{t}) \cos(t) </mrow>
+</md>
+<md>
+
+	<mrow>
+		\implies \quad
+		\slope{q}{t}
+		\amp = \frac{
+			\sin(t) \bbrac{\cos(\change{t}) - 1} + \sin(\change{t}) \cos(t)
+		}{ \change{t} }
+	</mrow>
+
+	<mrow>
+		\amp
+		= \frac{ \sin(t) \bbrac{\cos(\change{t}) - 1} }{ \change{t} }
+		+ \frac{ \sin(\change{t}) \cos(t) }{ \change{t} }
+	</mrow>
+
+	<mrow>
+		\amp
+		= \sin(t) \cdot \frac{ \bbrac{\cos(\change{t}) - 1} }{ \change{t} }
+		+ \frac{ \sin(\change{t}) }{ \change{t} } \cdot \cos(t)
+		\text{.}
+	</mrow>
+
+</md>
+We would now like to compute
+<md>
+	\lim_{ \change{t} \to 0 } \slope{q}{t}
+	= \lim_{ \change{t} \to 0 } \left(
+		\sin(t) \cdot \frac{ \bbrac{\cos(\change{t}) - 1} }{ \change{t} }
+		+ \frac{ \sin(\change{t}) }{ \change{t} } \cdot \cos(t)
+	\right)
+</md>.
+In this limit,
+keep in mind that <em>we regard <m> t </m> as <em>constant</em></em>.
+The best way to think of this is that we are attempting to compute a <em>single</em> derivative value at some specific input value <m> t </m>.
+And if <m> t </m> is regarded as constant,
+then so should <m> \sin(t) </m> and <m> \cos(t) </m> be.
+With this in mind,
+the <xref ref="pattern-limits-laws-add" text="custom">Sum Law</xref>
+and the <xref ref="pattern-limits-laws-homog" text="custom">Constant Multiple Law</xref>
+from <xref ref="pattern-limits-laws" />
+imply that should focus on determining
+<md><mrow>
+	\frac{ \bbrac{\cos(\change{t}) - 1} }{ \change{t} } \amp \to \text{?}
+	\amp
+	\frac{ \sin(\change{t}) }{ \change{t} } \amp \to \text{?}
+</mrow></md>
+as <m> \change{t} \to 0 </m>.
+In <xref ref="figure-periodic-cos-vs-1-and-sin-vs-t" />,
+we graphically compare <m> \cos(\change{t}) </m> to the constant function <m> 1 </m>
+(the two terms in the numerator of the first limit above)
+and compare <m> \sin(\change{t}) </m> to its input <m> \change{t} </m>
+(the numerator and denominator of the second limit above).
+</p>
+
+<figure xml:id="figure-periodic-cos-vs-1-and-sin-vs-t">
+	<caption> Comparisons related to the computation of the derivative of sine. </caption>
+
+	<sbsgroup>
+
+		<sidebyside widths="67%"><figure xml:id="figure-periodic-cos-vs-1-and-sin-vs-t-cos">
+			<caption> Comparing cosine to <m> 1 </m>. </caption>
+			<image>
+				<shortdescription> Comparing the graph of the cosine function to the horizontal line at 1. </shortdescription>
+				<!-- TODO description -->
+				<latex-image label="image-periodic-cos-vs-1">
+					<xi:include href="periodic.d/cos-vs-1.tex" parse="text" />
+				</latex-image>
+			</image>
+		</figure></sidebyside>
+
+		<sidebyside widths="62.6%"><figure xml:id="figure-periodic-cos-vs-1-and-sin-vs-t-sin">
+			<caption> Comparing sine to the input variable. </caption>
+			<image>
+				<shortdescription> Comparing the graph of the sine function to the line with slope 1. </shortdescription>
+				<!-- TODO description -->
+				<latex-image label="image-periodic-sin-vs-t">
+					<xi:include href="periodic.d/sin-vs-t.tex" parse="text" />
+				</latex-image>
+			</image>
+		</figure></sidebyside>
+
+	</sbsgroup>
+
+</figure>
+
+<p>
+Examining the graphs of these trigonometric functions,
+we clearly see that for <m> \change{t} \approx 0 </m> we have <m> \cos(\change{t}) \approx 1 </m>,
+and it also appears that <m> \sin(\change{t}) </m> values become very close to values of <m> \change{t} </m>.
+But in each of these cases we can say something much stronger about how close these approximations are relative to the size of <m> \change{t} </m>.
+</p>
+
+<identity xml:id="pattern-periodic-sin-over-theta">
+	<title>Sine at small inputs</title>
+
+	<statement><p>
+		For small values of <m> \theta </m>
+		(that is, for <m> \theta \approx 0 </m>),
+		we have <m> \sin(\theta) \approx \theta </m>.
+		In fact,
+		we can say that values of <md> \frac{\sin(\theta)}{\theta} </md> become arbitrarily close to <m> 1 </m> for non-zero values of <m> \theta </m> sufficiently close to <m> 0 </m>.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		We will verify the statement for <em>positive</em> values of <m> \theta \approx 0 </m>;
+		the justification for negative values of <m> \theta </m> is similar.
+		</p>
+
+		<p>
+		Recall that values of <m> \sin(\theta) </m> represent the <m> y </m>-coordinate of a position on the unit circle.
+		That is,
+		in <xref ref="figure-periodic-trig-ineq" />,
+		the value of <m> \sin(\theta) </m> is the equal to the triangle side length marked <m> y </m>.
+		</p>
+
+		<figure xml:id="figure-periodic-trig-ineq">
+			<caption>
+				Diagram comparing the values of <m> \sin(\theta) </m>,
+				<m> \cos(\theta) </m>,
+				and <m> \theta </m>.
+			</caption>
+			<image width="28.8%">
+				<shortdescription>Diagram comparing the values of the sine and cosine functions with the angle measure.</shortdescription>
+				<!-- TODO description -->
+				<latex-image label="image-periodic-trig-ineq">
+					<xi:include href="periodic.d/trig-ineq.tex" parse="text" />
+				</latex-image>
+			</image>
+		</figure>
+
+		<p>
+		Now, we have <m> y \lt a </m> because <m> a </m> is the length of the hypotenuse in a right triangle and <m> y </m> is the length of one of the legs of that triangle.
+		We also have <m> a \lt \theta </m> because the arc that <m> \theta </m> measures has the same endpoints as the segment measured by <m> a </m>,
+		but the segment takes a straight path between those points.
+		Going out further, for a similar reason we can say <m> \theta \lt b + d </m>.
+		But also <m> d \lt c </m> because <m> c </m> is a hypotenuse and <m> d </m> is a leg.
+		And we have <m> b + c = \tan(\theta) </m> by using <em>opposite-over-adjacent</em> in the large right triangle.
+		So we finally have
+		<md> \sin(\theta) = y \lt a \lt \theta \lt b + d \lt b + c = \tan(\theta) </md>.
+		Splitting in two at <m> \theta </m> and doing a little re-arranging,
+		we have
+		<md>
+			<mrow> \sin(\theta) \amp \lt \theta \amp \theta \amp \lt \tan(\theta) </mrow>
+			<mrow> \frac{\sin(\theta)}{\theta} \amp\lt 1 \text{,} \amp \theta \amp \lt \frac{\sin(\theta)}{\cos(\theta)} </mrow>
+			<mrow> \amp\amp \cos(\theta) \amp \lt \frac{\sin(\theta)}{\theta} \text{.} </mrow>
+		</md>
+		(Note that for <m> \theta \approx 0 </m> but positive,
+		the value of <m> \cos(\theta) </m> is also positive,
+		so multiplying or dividing both sides of an inequality by either <m> \theta </m> or <m> \cos(\theta) </m> will not reverse the inequality.)
+		</p>
+
+		<p>
+		Combining these inequalities, we have
+		<md>
+			\cos(\theta) \lt \frac{\sin(\theta)}{\theta} \lt 1
+			\qquad \text{for} \qquad \theta \approx 0^+
+		</md>,
+		where the superscript <m> + </m> indicates that <m> \theta </m> is assumed to be positive.
+		This inequality says that the graph of <m> \sin(\theta)/\theta </m>,
+		whatever it might look like,
+		will be confined to the shaded region in <xref ref="figure-periodic-trig-squeeze" /> below.
+		For <m> \theta \approx 0^+ </m>,
+		this graph must be <em>squeezed</em> into the little wedge in the upper-left corner of the shaded region,
+		very close to a height of <m> 1 </m>,
+		and so we conclude
+		<md> \frac{\sin(\theta)}{\theta} \approx 1 \qquad \text{for} \qquad \theta \approx 0^+
+		</md>.
+		</p>
+
+		<figure xml:id="figure-periodic-trig-squeeze">
+			<caption>
+				For <m> 0 \lt \theta \lt \pi/2 </m>,
+				the graph of <m> \sin(\theta)/\theta </m> is confined to the shaded region.
+			</caption>
+			<image width="38.8%">
+				<shortdescription>Diagram illustrating a region to which the graph of sine divided by independent variable must be confined.</shortdescription>
+				<!-- TODO description -->
+				<latex-image label="image-periodic-squeeze-sin-over-t">
+					<xi:include href="periodic.d/squeeze-sin-over-t.tex" parse="text" />
+				</latex-image>
+			</image>
+		</figure>
+
+	</proof>
+
+</identity>
+
+<p> The following corresponding property of the cosine function can be justified in a similar manner. </p>
+
+<identity xml:id="pattern-periodic-cos-over-theta">
+	<title>Cosine at small inputs</title>
+	<p>
+		For small values of <m> \theta </m>
+		(that is, for <m> \theta \approx 0 </m>),
+		we obviously have <m> \cos(\theta) \approx \theta </m>.
+		This approximation becomes so tight that we can say that values of <md> \frac{\cos(\theta) - 1}{\theta} </md> become arbitrarily close to <m> 0 </m> for non-zero values of <m> \theta </m> sufficiently close to <m> 0 </m>.
+	</p>
+</identity>
+
+<remark><p>
+	The statement that <md> \frac{\cos(\theta) - 1}{\theta} \approx 0 </md> for <m> \theta \approx 0 </m> says something stronger than just <m> \cos(\theta) \approx 1 </m>.
+	In the ratio <md> \frac{\cos(\theta) - 1}{\theta} </md>,
+	both the numerator and denominator are approximately <m> 0 </m> for small values of <m> \theta </m>.
+	But similarly to <xref ref="section-inf-behaviour-relative-growth" />,
+	it becomes a <q>race</q> to <m> 0 </m>.
+	The fact that <md> \frac{\cos(\theta) - 1}{\theta} \approx 0 </md>
+	says that the numerator <q>wins</q> the race,
+	so that the approximation <m> \cos(\theta) \approx 1 </m> must be very tight compared to <m> \theta \approx 0 </m>
+	since if it were the other way around then we would expect the expression <md> \frac{\cos(\theta) - 1}{\theta} </md> to have a singularity at <m> \theta = 0 </m>.
+</p></remark>
+
+<p>
+Finally, let's return to our analysis of the derivative of sine.
+<xref ref="pattern-periodic-sin-over-theta" /> implies that
+<md>
+	\frac{ \sin(\change{t}) }{ \change{t} } \to 1
+	\qquad \text{as} \qquad
+	\change{t} \to 0
+</md>,
+and <xref ref="pattern-periodic-cos-over-theta" /> implies that
+<md>
+	\frac{ \bbrac{\cos(\change{t}) - 1} }{ \change{t} } \to 0
+	\qquad \text{as} \qquad
+	\change{t} \to 0
+</md>.
+Using these limits,
+for <m> q(t) = \sin(t) </m> we have
+<md>
+
+	<mrow>
+		\lim_{ \change{t} \to 0 } \slope{q}{t}
+		\amp = \lim_{ \change{t} \to 0 } \left(
+			\sin(t) \cdot \frac{ \bbrac{\cos(\change{t}) - 1} }{ \change{t} }
+			+ \frac{ \sin(\change{t}) }{ \change{t} } \cdot \cos(t)
+		\right)
+	</mrow>
+
+	<mrow>
+		\amp =
+		\lim_{ \change{t} \to 0 } \left(
+			\sin(t) \cdot \frac{ \bbrac{\cos(\change{t}) - 1} }{ \change{t} }
+		\right)
+		+ \lim_{ \change{t} \to 0 } \left(
+			\frac{ \sin(\change{t}) }{ \change{t} } \cdot \cos(t)
+		\right)
+	</mrow>
+
+	<mrow>
+		\amp =
+		\sin(t) \cdot \left(
+		\lim_{ \change{t} \to 0 }
+			\frac{ \bbrac{\cos(\change{t}) - 1} }{ \change{t} }
+		\right)
+		+ \left( \lim_{ \change{t} \to 0 }
+			\frac{ \sin(\change{t}) }{ \change{t} }
+		\right) \cdot \cos(t)
+	</mrow>
+
+	<mrow> \amp = \sin(t) \cdot 0 + 1 \cdot \cos(t) </mrow>
+
+	<mrow> \amp = \cos(t) </mrow>
+
+</md>.
+</p>
+
+<p>
+A similar analysis for the cosine function yields the derivative formula predicted at the beginning of this section from the <em>mass-on-spring</em> model.
+</p>
+
+<!--
+	PREVIOUSLY SEPARATE
+	pattern-deriv-sin
+	pattern-deriv-cos
+-->
+<identity xml:id="pattern-periodic-deriv-sin-cos">
+	<title>Derivative of the sine and cosine functions</title>
+	<p>
+		Both the sine and cosine functions are differentiable for all <m> t </m>,
+		with
+		<md><mrow>
+			\ddt{\bbrac{\sin(t)}} \amp = \cos(t) \text{,}
+			\amp
+			\ddt{\bbrac{\cos(t)}} \amp = - \sin(t) \text{.}
+		</mrow></md>
+	</p>
+</identity>
+
+<exercise>
+	<title>Derivative of the cosine function from the limit definition</title>
+	<p>
+	Similar to the derivation of the derivative of the sine function in this section,
+	combine
+	<xref ref="pattern-periodic-addition-identities" /> with
+	<xref ref="pattern-periodic-sin-over-theta" /> and
+	<xref ref="pattern-periodic-cos-over-theta" />
+	to verify that for <m> q(t) = \cos(t) </m>,
+	<md> \lim_{ \change{t} \to 0 } \slope{q}{t} = - \sin(t) </md>.
+	</p>
+</exercise>
+
+<!-- TODO examples -->
+
+<p>
+Derivatives of the other four trigonometric functions will have to wait until we have developed some further differentiation rules.
+</p>
+
+</section>
+
+
+<section xml:id="section-periodic-sine-cosine-integ">
+<title>Integrals of the sine and cosine functions</title>
+
+<p>
+Let's return once more to the setup at the beginning of <xref ref="section-periodic-sine-cosine-deriv" />,
+where we considered
+<md><mrow> v(t) \amp = \sin(t) \text{,} \amp s(t) = - \cos(t) </mrow></md>
+for the <em>mass-on-spring</em> system from <xref ref="example-periodic-spring" />.
+</p>
+
+<p>
+As the mass begins to move,
+it accumulates displacement from the initial position <m> s(0) = -1 </m>.
+Applying <xref ref="pattern-integ-definite-integ-to-quantity-function" /> to the <q>quantity</q> function <m> s(t) </m> and its rate function <m> v(t) </m>,
+we have
 <md>
 	<mrow> s(t) \amp = s(0) + \ccmint{0}{t}{v(u)}{u} </mrow>
 	<mrow> \amp = -1 + \ccmint{0}{t}{\sin(u)}{u} </mrow>
 </md>.
 On the other hand,
-we have already modelled position as <m> s(t) = - \cos(t) </m>:
+we have already modelled the position function as <m> s(t) = - \cos(t) </m>.
+So
 <md> - \cos(t) = -1 + \ccmint{0}{t}{\sin(u)}{u} </md>.
 </p>
 
@@ -647,30 +1037,15 @@ we have already modelled position as <m> s(t) = - \cos(t) </m>:
 
 <p>
 For a cosine rate function,
-we can use the fact that cosine is just a horizontal shift of the sine function:
-<md> \cos(t) = \sin(t + \pi/2) </md>.
-(See <xref ref="pattern-periodic-sin-cos-identities" />.)
-Accordingly, if we shift time so that we consider the velocity of the object in <xref ref="example-periodic-spring" /> as being modelled by <m> v(t) = \cos(t) </m>,
-then we can just shift our position function by the same amount:
-<md>
-	<mrow>
-		v(t) \amp = \cos(t)
+we once again reset the <q>initial</q> time for the <em>mass-on-spring</em> system to when it is first moving through the equilibrium position,
+which yielded <xref ref="figure-periodic-shifted-position-spring-mass" />
+and shifted velocity and position functions
+<md><mrow>
+		v(t) \amp = \cos(t) \text{,}
 		\amp
-		s(t) \amp = -\cos(t + \pi/2)
-	</mrow>
-	<mrow>
-		\amp = \sin(t + \pi/2)
-		\amp
-		\amp = - \bbrac{-\sin(t)}
-	</mrow>
-	<mrow>
-		\amp \amp \amp = \sin(t)
-	</mrow>
-</md>.
-Essentially,
-we have shifted time so that <m> t = 0 </m> means the moment that the object first moves through the equilibrium position at <m> s = 0 </m> with its maximum positive velocity.
-Again,
-we think of the object as accumulating displacement from its initial position:
+		s(t) \amp = \sin(t) \text{.}
+</mrow></md>
+8And again we think of the mass as accumulating displacement from its initial position and apply <xref ref="pattern-integ-definite-integ-to-quantity-function" />:
 <md>
 	<mrow> s(t) \amp = s(0) + \ccmint{0}{t}{v(u)}{u} </mrow>
 	<mrow> \amp = 0 + \ccmint{0}{t}{\cos(u)}{u} </mrow>
