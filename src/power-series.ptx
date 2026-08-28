@@ -808,7 +808,7 @@ but for now the next two examples give us hope that term-by-term operations yiel
 	Applying term-by-term differentiation to <xref ref="equation-power-series-exp-taylor" /> yields
 	<md> 0 + 1 + \frac{2 t}{2} + \frac{3 t^2}{3!} + \frac{4 t^3}{4!} + \dotsb </md>,
 	which simplifies to the Taylor series for the exponential function,
-	agreeing with <xref ref="pattern-deriv-exp" />.
+	agreeing with <xref ref="pattern-exp-deriv" />.
 	</p>
 
 </example>

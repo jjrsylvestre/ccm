@@ -1123,7 +1123,7 @@ let's record the pattern of the <em>result</em> of that example.
 
 <remark><p>
 	<xref ref="pattern-chain-diff-exp-any-base" /> now justifies
-	<xref ref="pattern-deriv-exp" />,
+	<xref ref="pattern-exp-deriv" />,
 	since if we take <m> a = e </m> then we get
 	<md> q'(t) = e^t \ln e = e^t \cdot 1 = e^t </md>,
 	as expected.

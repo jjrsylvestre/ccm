@@ -589,7 +589,7 @@ also known as <em>antidifferentiating</em>.
 	Let's once again revisit <xref ref="example-models-radioactive-decay" />,
 	which involved the rate equation
 	<md> \frac{r(t)}{q(t)} = - k </md>.
-	In <xref ref="example-deriv-solution-to-proportional-rate-equation" />
+	In <xref ref="example-exp-solution-to-proportional-diff-equation" />
 	we verified that an horizontally-transformed exponential function can be a solution to this type of rate equation.
 	Now we'll solve this equation to verify that exponential functions are the <em>only</em> possible solutions.
 	<md alignment="gather">
@@ -640,7 +640,7 @@ also known as <em>antidifferentiating</em>.
 <p> Let's record the pattern of the solution to the previous example. </p>
 
 <identity xml:id="pattern-substitution-proportional-rate">
-	<title>Solution to proportional rate equation</title>
+	<title>General solution to proportional rate equation</title>
 	<p>
 	If <m> q(t) </m> is a varying quantity so that its rate of variation <m> r(t) </m> is always proportional to the amount <m> q(t) </m> according to the rate equation
 	<md> r(t) = k q(t) </md>,

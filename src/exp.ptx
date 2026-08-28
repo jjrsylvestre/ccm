@@ -14,10 +14,10 @@ respective owners.
 *********************************************************************-->
 
 <chapter xml:id="chapter-exp" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Exponential growth</title>
+<title>Exponential functions</title>
 
 <section xml:id="section-exp-functions">
-<title>Exponential functions</title>
+<title>Basics</title>
 
 <example xml:id="example-exp-doubling-rate">
 	<title>A doubling rate of growth</title>
@@ -316,7 +316,7 @@ the special number so that <m> \ln (a) = 1 </m> is given its own symbol.
 
 <p>
 Sage knows about Euler's number <c>e</c>.
-We can express it as a decimal number using the <c>n()</c> method.
+We can express it as a (truncated) decimal number using the <c>n()</c> method.
 </p>
 
 <sage>
@@ -334,7 +334,7 @@ it becomes <q>natural</q> to compare every exponential function to the exponenti
 	<statement><p> The function <m> \exp(t) = e^t </m>, where the constant base <m> e </m> is Euler's number. </p></statement>
 </definition>
 
-<identity xml:id="pattern-exp-shift-to-natural">
+<identity xml:id="pattern-exp-scale-to-natural">
 	<title>Realizing an exponential function as a horizontal transformation of the natural exponential function</title>
 	<p>
 	For every positive base <m> a </m>,
@@ -420,7 +420,8 @@ we can say that this is indeed the graph of the natural exponential function.
 </identity>
 
 <remark><p>
-	We will explore pairs of functions whose graphs are reflections of each other more
+	We will further explore pairs of functions whose graphs are reflections of each other in the line <m> y = t </m>,
+	similarly to the natural exponential and logarithm functions,
 	in <xref ref="chapter-comp-inv" />.
 </p></remark>
 
@@ -477,7 +478,7 @@ The first command in the Sage cell below prints out a numerical approximation of
 </sage>
 
 <p>
-We can combine <xref ref="pattern-exp-computing-via-ln" /> with <xref ref="pattern-exp-shift-to-natural" /> and use a similar method to compute values like
+We can combine <xref ref="pattern-exp-computing-via-ln" /> with <xref ref="pattern-exp-scale-to-natural" /> and use a similar method to compute values like
 <md> 2^\pi = e^{\pi \ln (2)} </md>
 by solving
 <md> \ln (z) = \pi \ln (2) </md>.
@@ -516,7 +517,7 @@ you can ask Sage to compute it for you below.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-exp-inverse-ln">
 <title>Undoing the natural exponential and logarithm functions</title>
 
 <p>
@@ -636,7 +637,7 @@ we can use the same technique to solve an equation involving any exponential.
 Every exponential function is a horizontal scaling
 (possibly including a reflection)
 of the natural exponential function.
-(See <xref ref="pattern-exp-shift-to-natural" />.)
+(See <xref ref="pattern-exp-scale-to-natural" />.)
 In the reflection in the line <m> y = t </m> between the graphs of <m> \exp(t) </m> and <m> \ln(t) </m>,
 a horizontal scaling of <m> \exp(t) </m> corresponds to a <em>vertical</em> scaling of <m> \ln(t) </m>.
 </p>
@@ -729,7 +730,7 @@ we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to ob
 	</p></statement>
 
 	<proof><p>
-		From <xref ref="pattern-exp-shift-to-natural" />,
+		From <xref ref="pattern-exp-scale-to-natural" />,
 		we have
 		<md> a^{u + v} = e^{(u + v) \bbrac{\ln (a)}} </md>.
 		From <xref ref="pattern-exp-computing-via-ln" />,
@@ -760,7 +761,7 @@ we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to ob
 	The <q>reflection</q> here is the interchanging of the words <em>sum</em> and <em>product</em>.
 	Try to identify the <q>reflection</q> in each of the next two properties,
 	compared to the corresponding property in <xref ref="section-log-props" />.
-	Also try to provide a justification for each of these two properties in the same manner as the justification for <xref ref="pattern-exp-shift-to-natural" />.
+	Also try to provide a justification for each of these two properties in the same manner as the justification for <xref ref="pattern-exp-scale-to-natural" />.
 </p></remark>
 
 <identity xml:id="pattern-exp-negative">
@@ -792,7 +793,7 @@ we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to ob
 	</p></statement>
 
 	<proof><p>
-		From <xref ref="pattern-exp-shift-to-natural" />,
+		From <xref ref="pattern-exp-scale-to-natural" />,
 		we have
 		<md> <mrow> {(a^u)}^v \amp = e^{v \ln (a^u)} \amp a^{u v} \amp = e^{(u v) \ln (a)} </mrow> </md>.
 		But from <xref ref="pattern-log-power" /> we have <md> \ln (a^u) = u \ln (a) </md>,
@@ -821,16 +822,391 @@ we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to ob
 
 </section>
 
-<section xml:id="section-exp-rate">
-<title>Exponential rate</title>
+
+<section xml:id="section-exp-deriv">
+<title>Derivatives of exponential functions</title>
+
+<subsection>
+<title>Derivative of the natural exponential function</title>
+
+<p>
+Let's return to our visualization of the graph of the natural exponential function as a reflection of the graph of the natural logarithm function.
+Additionally,
+we have drawn on some tangent lines,
+one to each curve.
+</p>
+
+<figure xml:id="figure-exp-reflect-ln-with-tangents">
+	<caption>
+		The natural exponential function as a reflection of the graph of the natural logarithm function,
+		with corresponding tangent lines on each curve.
+	</caption>
+
+	<sbsgroup>
+
+		<sidebyside width="80.5%"><figure xml:id="figure-exp-reflect-ln-with-tangents-ln">
+			<caption> A tangent line to the natural logarithm function. </caption>
+			<image>
+				<shortdescription>
+					The graphs of the natural exponential and logarithm functions,
+					with tangent lines.
+				</shortdescription>
+				<!-- TODO description -->
+				<latex-image label="image-exp-reflect-ln-with-ln-tangent">
+					<xi:include href="exp.d/reflect-ln-with-ln-tangent.tex" parse="text" />
+				</latex-image>
+			</image>
+		</figure></sidebyside>
+
+		<sidebyside width="53.2%"><figure xml:id="figure-exp-reflect-ln-with-tangents-exp">
+			<caption> A tangent line to the natural exponential function. </caption>
+			<image>
+				<shortdescription>
+					The graphs of the natural exponential and logarithm functions,
+					with tangent lines.
+				</shortdescription>
+				<!-- TODO description -->
+				<latex-image label="image-exp-reflect-ln-with-exp-tangent">
+					<xi:include href="exp.d/reflect-ln-with-exp-tangent.tex" parse="text" />
+				</latex-image>
+			</image>
+		</figure></sidebyside>
+
+	</sbsgroup>
+
+</figure>
+
+<p>
+The <em>rise-over-run</em> formula can be used between any two points on a line to compute its slope.
+For the tangent line to the natural logarithm function in <xref ref="figure-exp-reflect-ln-with-tangents-ln" />,
+we have arbitrarily chosen two points on the tangent line and labelled the <em>run</em> between them as <m> \change{t} </m> and the <em>rise</em> between them as <m> \change{y} </m>,
+so that the line's slope is <m> \inlineslope{y}{t} </m>.
+The slope of this tangent line also has a relationship to the input point <m> t^\ast </m> at which the tangent line meets the curve,
+given by <xref ref="pattern-log-deriv" />.
+So we can say that
+<md> \slope{y}{t} = \frac{1}{t^\ast} </md>.
+</p>
+
+<p>
+By symmetry, in <xref ref="figure-exp-reflect-ln-with-tangents-exp" /> the <em>output</em> point <m> y^\ast </m> should have exactly the same relationship to <m> \change{t} </m> and <m> \change{y} </m>,
+under the following correspondences
+through the reflection <m> t \leftrightarrow y </m>.
+(In these correspondences, the left-hand side is from <xref ref="figure-exp-reflect-ln-with-tangents-ln" /> and the right-hand side is from <xref ref="figure-exp-reflect-ln-with-tangents-exp" />.)
+<md><mrow>
+	t^\ast \amp \leftrightarrow y^\ast
+	\amp
+	\change{t} \amp \leftrightarrow \change{y}
+	\amp
+	\change{y} \amp \leftrightarrow \change{t}
+</mrow></md>
+So we have
+<md> \slope{t}{y} = \frac{1}{y^\ast} </md>.
+But now this slope is <em>run-over-rise</em> instead of <em>rise-over-run</em>;
+to get the correct slope for the tangent line in <xref ref="figure-exp-reflect-ln-with-tangents-exp" />,
+we need to flip things:
+<md> \slope{y}{t} = y^\ast </md>.
+Since <m> y^\ast </m> is an <em>output</em> for the natural exponential function,
+we obtain the following derivative formula for the natural exponential function.
+</p>
+
+<identity xml:id="pattern-exp-deriv">
+	<title>Derivative of the natural exponential function</title>
+	<p>
+	The natural exponential function is differentiable for all <m> t </m>,
+	with <md> \ddt{e^t} = e^t </md>.
+	In function notation, this says that <md> \exp'(t) = \exp(t) </md>.
+	</p>
+</identity>
+
+<p>
+This is a remarkable fact!
+It says that a quantity that experiences exponential growth will also have a <em>rate</em> of growth that grows exponentially.
+This is why exponential growth can be both exciting
+(when considering compounding of gains in your investment account, for example)
+and terrifying
+(when considering unchecked spread of a virus in a population, for example):
+the more there is, the sooner there will be a lot more than that.
+</p>
+
+<example>
+	<title>Derivative involving an exponential</title>
+	<p>
+	For <md> q(t) = t^5 + 6 e^t - 24 </md>,
+	we have
+	<md>
+
+		<mrow> q'(t) \amp = \opddt \bbrac{t^5 + 6 e^t - 24} </mrow>
+
+		<mrow> \amp = \ddt{t^5} + \ddt{(6 e^t)} - \ddt{24} </mrow>
+
+		<mrow> \amp = 5 t^4 + 6 \ddt{e^t} + 0 </mrow>
+
+		<mrow> \amp = 5 t^4 + 6 e^t </mrow>
+
+	</md>
+	where in the first step we have applied the
+	<xref ref="pattern-deriv-sum" text="custom">Sum Rule</xref>
+	and the <xref ref="pattern-deriv-diff" text="custom">Difference Rule</xref>,
+	in the second step we have applied the
+	<xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref>,
+	the <xref ref="pattern-deriv-scale" text="custom">Constant Multiple Rule</xref>,
+	and the rule for the <xref ref="pattern-deriv-constant" text="custom">derivative of a constant</xref>,
+	and in the final step we have applied our new derivative formula for the natural exponential.
+	</p>
+</example>
+
+</subsection>
+
+<subsection>
+<title>Exponential functions as solutions to proportional differential equations</title>
+
+<p>
+We can now combine <xref ref="pattern-exp-deriv" /> with <xref ref="pattern-deriv-h-scale" /> to verify exponential solutions to differential equations
+with form similar to our <xref ref="example-models-radioactive-decay" text="title" /> example (<xref ref="example-models-radioactive-decay" />),
+where the rate is proportional to the quantity.
+</p>
+
+<example xml:id="example-exp-solution-to-proportional-diff-equation">
+	<title>Verifying an exponential solution to a proportional differential equation</title>
+
+	<p>
+	Suppose <m> q(t) </m> is a quantity function whose rate of accumulation is proportional to the quantity,
+	with proportionality constant <m> k </m>.
+	For the purposes of this example,
+	let's take our proportionality constant to be <m> k = 3 </m>,
+	so that
+	<md xml:id="equation-exp-proportional-diff-eqn" tag="star"> \dqdt = 3 q(t) </md>.
+	So we are looking for a function whose derivative is essentially the same function,
+	just vertically scaled by <m> 3 </m>.
+	The pattern <md> \ddt{e^t} = e^t </md> is almost correct,
+	but here the vertical scale factor between function and derivative is only <m> 1 </m>.
+	However,
+	we know from <xref ref="pattern-deriv-h-scale" /> that introducing a horizontal scale factor into the quantity function also introduces a vertical scale factor into the derivative function.
+	In this case,
+	if we take <md> q(t) = \exp(3 t) </md>,
+	then <xref ref="pattern-deriv-h-scale" /> says that
+	<md>
+		<mrow> q'(t) \amp = 3 \exp'(3 t) </mrow>
+		<mrow> \amp = 3 \exp(3 t) </mrow>
+		<mrow> \amp = 3 q(t) </mrow>
+	</md>.
+	This shows that <m> q(t) = e^{3 t} </m> is a solution to the differential equation in
+	<xref ref="equation-exp-proportional-diff-eqn" />.
+	</p>
+
+	<p>
+	This is only one <term>particular solution</term> to <xref ref="equation-exp-proportional-diff-eqn" />.
+	Can we guess at the general solution by introducing some parameter?
+	Our particular solution above has initial value <md> q(0) = e^{3 \cdot 0} = 1 </md>.
+	But exponential growth or decay does not turn into some other behaviour if there is a different initial value <mdash />
+	otherwise a horizontal shift (so that the point in time that is considered <m> t = 0 </m> is shifted)
+	would change the type of graph,
+	which is not possible.
+	For example,
+	see our direction field for <m> k = -1/2 </m>
+	(<xref ref="figure-models-radioactive-int-curves" />)
+	<mdash /> the example solution curves all look like exponential decay no matter the initial value.
+	</p>
+
+	<p>
+	Recall from <xref ref="definition-exp-func" /> that introducing a constant multiple in an exponential function changes the initial amount.
+	So let's try <md> q(t) = A e^{3 t} </md>,
+	where <m> A </m> represents the initial amount <m> A = q(0) </m>.
+	Using the <xref ref="pattern-deriv-scale" text="custom">Constant Multiple Rule</xref>
+	(<xref ref="pattern-deriv-scale" />)
+	for our first step,
+	we have
+	<md>
+		<mrow> q'(t) \amp = \opddt \bbrac{A \exp(3 t)} </mrow>
+		<mrow> \amp = A \opddt \bbrac{\exp(3 t)} </mrow>
+		<mrow> \amp = A \bbrac{3 \exp'(3 t)} </mrow>
+		<mrow> \amp = 3 A \exp(3 t) </mrow>
+		<mrow> \amp = 3 q(t) </mrow>
+	</md>.
+	This verifies that for <em>every</em> possible initial value <m> A </m>,
+	the exponential function <m> q(t) = A e^{3 t} </m>
+	is a solution to the rate equation in <xref ref="equation-exp-proportional-diff-eqn" />.
+	</p>
+
+</example>
+
+<p>
+Our analysis at the end of <xref ref="example-exp-solution-to-proportional-diff-equation" />
+doesn't verify that <em>every</em> solution has that form,
+but it strongly suggests it:
+given any initial amount <m> A = q(0) </m> we have a solution function <m> q(t) = A e^{k t} </m> that fits the behaviour of the differential equation,
+and it doesn't seem possible for there to exist some other solution function <m> q(t) </m> with the same <m> q(0) </m> value,
+as that would mean the system would somehow have to initially <q>decide</q> which of those two solution curves to follow.
+For now we will at least record the general pattern that we've found without overstating our current knowledge,
+but in <xref ref="chapter-substitution" /> we will be able to verify that we in fact have the general solution.
+</p>
+
+<identity xml:id="pattern-exp-proportional-diff-eqn-gen-soln">
+	<title>Solutions to a proportional differential equation</title>
+	<p>
+	Consider differential equation <md> \dqdt = k q(t) </md>,
+	where the rate of accumulation is proportional to the quantity by constant of proportionality <m> k </m>.
+	Then every function of the form <md> q(t) = A e^{k t} </md> is a solution to the differential equation,
+	where the parameter <m> A </m> represents the initial quantity <m> q(0) </m>.
+	</p>
+</identity>
+
+<remark>
+	<title>Calculations versus reality</title>
+	<p>
+	In the discussion between <xref ref="example-exp-solution-to-proportional-diff-equation" />
+	and <xref ref="pattern-exp-proportional-diff-eqn-gen-soln" />,
+	we asserted the plausible-sounding principle that a system should always behave exactly the same way given the exact same initial conditions.
+	In reality,
+	unless you are counting molecules,
+	it is nearly impossible to re-run an experiment with <em>exactly</em> the same initial conditions.
+	And we will find in <xref ref="chapter-auto" /> that sometimes a particular initial quantity value <m> A = q(0) </m> can be <term>unstable</term>,
+	in the sense that the system behaves very differently depending on whether the actual <m> q(0) </m> value is slightly greater than <m> A </m> or slightly less then <m> A </m>.
+	</p>
+</remark>
+
+<example>
+	<title>Radioactive decay</title>
+
+	<p>
+	Suppose <m> q(t) </m> measures how many kilograms of a <quantity><mag>3</mag><unit base="gram" prefix="kilo"/></quantity> hunk of radioactive material remain after <m> t </m> years.
+	For this particular material,
+	it is experimentally determined that its rate of decay can be modelled as <md> \dqdt = - \frac{q(t)}{2} </md>.
+	This is the same differential equation we analysed graphically in <xref ref="example-models-exp-decay-dir-field" />,
+	and from the direction field produced there we expect solutions to have the <q>shape</q> of exponential decay.
+	Based on our analysis in <xref ref="example-exp-solution-to-proportional-diff-equation" />,
+	we know that quantity function <m> q(t) = 3 e^{- t / 2} </m> is a solution to this differential equation,
+	where we have used the initial amount <m> q(0) = 3 </m> as the value of parameter <m> A </m>,
+	and the proportionality constant <m> k = - 1 /2 </m> from the differential equation.
+	</p>
+
+	<p>
+	We can use the solution function to determine properties of the material,
+	such as its <term>half-life</term>,
+	which is the time it takes for the sample to be reduced by half.
+	Our initial quantity was <m> q(0) = 3 </m>,
+	so we are looking to solve for the <m> t </m>-value that satisfies <md> q(t) = 3 / 2 = 1.5 </md>.
+	As in <xref ref="subsection-exp-inverse-ln" />,
+	we can use the natural logarithm to help us solve this.
+	<md alignment="gather">
+		<mrow> 3 e^{- t / 2} = \frac{3}{2} </mrow>
+		<mrow> e^{- t / 2} = \frac{1}{2} </mrow>
+		<mrow> \ln(e^{- t / 2}) = \ln\left(\frac{1}{2}\right) </mrow>
+		<mrow> - \frac{t}{2} = - \ln(2) </mrow>
+		<mrow> t = 2 \ln(2) </mrow>
+	</md>
+	So it will take approximately <m> 1.4 </m> years for the sample to be reduced by half.
+	</p>
+
+</example>
+
+<remark>
+	<title>Half-life is independent of initial amount</title>
+	<p>
+	For differential equation <md> \dqdt = -k q(t) </md>
+	(where here we have explicitly included a negative sign and assume that the constant <m> k </m> is positive,
+	so that overall the constant of proportionality is negative and we have <term>decay</term>),
+	the half-life depends <em>only</em> on <m> k </m> and not on the initial amount <m> A = q(0) </m>.
+	That is,
+	it will take the same amount of time for a sample to be reduced by half,
+	regardless of how large or small of a sample.
+	This is because we are looking to solve
+	<md> A e^{- k t} = \frac{A}{2} \qquad \implies e^{- k t} = \frac{1}{2} </md>,
+	where the value of <m> A </m> is no longer involved after one step of simplification.
+	</p>
+</remark>
+
+<exercise>
+	<title>Half-life formula</title>
+	<p>
+	Determine a formula in <m> k </m> for the half-life of a radioactive material that decays according to
+	<md> \dqdt = -k q(t) \text{,} \qquad k \gt 0 \text{.} </md>
+	</p>
+</exercise>
+
+</subsection>
+
+<subsection>
+<title>Derivatives of general exponential functions</title>
+
+<p>
+Since every exponential function is a horizontal scaling of the natural exponential function
+(<xref ref="pattern-exp-scale-to-natural" />),
+we may combine our derivative formula for the natural exponential function
+(<xref ref="pattern-exp-deriv" />)
+with our rule for the derivative of a horizontally-scaled function
+(<xref ref="pattern-deriv-h-scale" />).
+</p>
+
+<identity xml:id="pattern-exp-general-deriv">
+	<title>Derivative of a general exponential function</title>
+
+	<statement><p>
+		Every exponential function with positive base is differentiable for all <m> t </m>,
+		with <md> \ddt{a^t} = a^t \ln(a) </md>.
+	</p></statement>
+
+	<proof><p>
+		Consider <m> q(t) = a^t </m> with <m> a \gt 0 </m>.
+		The formula we would like to verify is
+		<md> q'(t) = q(t) \cdot k \quad \text{for} \quad k = \ln(a) </md>.
+		With this same value of <m> k </m>,
+		<xref ref="pattern-exp-scale-to-natural" /> says that
+		<md> q(t) = \exp(k t) </md>.
+		Applying <xref ref="pattern-deriv-h-scale" /> with <m> \exp </m> in place of <m> p </m> gives us
+		<md> q'(t) = k \exp'(k t) </md>.
+		But <m> \exp'(t) = \exp(t) </m>,
+		so
+		<md> q'(t) = k \exp(k t) = k q(t) </md>,
+		our desired result.
+	</p></proof>
+
+</identity>
+
+</subsection>
+
+</section>
+
+
+<section xml:id="section-exp-int">
+<title>Integrals of exponential functions</title>
 
 <p>
 Suppose we have an exponential rate function, <m> r(t) = e^t </m>.
-This means that the rate of variation of some quantity is experiencing exponential growth,
+This means that the <em>rate</em> of accumulation of some quantity is itself growing exponentially,
 similar to the <em>rate doubles every year</em> pattern in <xref ref="example-exp-doubling-rate" />.
-Let's see what kind of accumulation values we get for
+We would like to know the associated accumulation function based at <m> t = 0 </m>,
 <md> A_0(t) = \ccmint{0}{t}{e^u}{u} </md>.
-In the Sage cell below, try different values for the variable upper bound <c>t</c> and look for the pattern.
+</p>
+
+<p>
+For power functions we have found that the pattern of <em>integrate-then-differentiate</em> returns us back to the original function.
+Here we remind ourselves of that pattern,
+in general for power functions with positive exponent <m> m \gt 0 </m>,
+and also specifically for the power function with exponent <m> m = -1 </m> whose integral defines the natural logarithm function.
+<md><mrow>
+	\opddt \, \ccmint{0}{t}{ u^m }{t} \amp = t^m
+	\amp
+	\opddt \, \ccmint{0}{t}{ \frac{1}{u} }{t} \amp = \frac{1}{t}
+</mrow></md>
+If we expect this pattern to also hold for exponential functions,
+then we should have
+<md> \opddt \ccmint{0}{t}{ e^u }{t} = e^t </md>,
+or
+<md> \ddt{A_0(t)} = e^t </md>.
+What kind of function has an exponential derivative?
+Well, the natural exponential function does (<xref ref="pattern-exp-deriv" />)!
+But we have to be careful:
+just as recording only speedometer data will not tell you where the vehicle ended up at the end of the trip,
+knowing only a derivative calculation result does not tell you the original function exactly.
+You also need to take into account the initial condition.
+</p>
+
+<p>
+For now,
+we'll ask Sage to help us find the pattern in the accumulation values for an exponential rate function.
+In the Sage cell below,
+try different values for the variable upper bound <c>t</c> and look for the pattern.
 </p>
 
 <sage>
@@ -843,15 +1219,16 @@ In the Sage cell below, try different values for the variable upper bound <c>t</
 </sage>
 
 <p>
-So it appears that an exponential rate of variation leads to exponential accumulation.
+As expected,
+an exponential rate of accumulation leads to an exponential accumulation function.
 The extra <q>minus one</q> is essentially a correction for the fact that an exponential function has initial value <m> e^0 = 1 </m>,
 whereas accumulation should always be zero if no time has elapsed.
 </p>
 
 <p>
 In the case that the exponential rate function has a different base,
-we need a correction factor,
-similar to <xref ref="pattern-poly-int-power" />.
+we also need a <em>vertical scale</em> correction factor.
+(Compare with the vertical scale factor in the derivative formula of a general exponential function in <xref ref="pattern-exp-general-deriv" />.)
 </p>
 
 <identity xml:id="pattern-exp-integral">
@@ -869,7 +1246,7 @@ similar to <xref ref="pattern-poly-int-power" />.
 	<p>
 	In the case of the natural exponential function as the rate function
 	(that is, where <m> a = e </m>),
-	then since <m> \ln (e) = 1 </m> we have <md> \ccmint{0}{t}{e^u}{u} = e^t - 1 </md>.
+	then since <m> \ln(e) = 1 </m> we have <md> \ccmint{0}{t}{e^u}{u} = e^t - 1 </md>.
 	</p>
 
 </identity>
