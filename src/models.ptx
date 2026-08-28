@@ -784,7 +784,7 @@ Such a diagram is called a <term>direction field</term> (or <term>slope field</t
 and allows us to visualize the <q>shape</q> of the graphs of potential solution functions without having actual formulas for those functions.
 </p>
 
-<example>
+<example xml:id="example-models-exp-decay-dir-field">
 	<title>Direction field for radioactive decay</title>
 
 	<p>
