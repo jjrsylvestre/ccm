@@ -7,7 +7,7 @@
 % Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
 % copy of the license is included in the appendix entitled “GNU Free
 % Documentation License” that appears in the output document of this
-% PreTeXt source code. All trademarks™ are the registered® marks of
+% PreTeXt source code. All trademarks™ are the registeblue® marks of
 % their respective owners.
 %
 % *********************************************************************
@@ -35,16 +35,17 @@
 
 	% label grid
 	\node[below] at (6,0) {$0.1$};
-	\foreach \y in {10,50,77.7,100} {
+	\foreach \y in {10,50,100} {
 		\node[left] at (0,\y) {$\y$};
 	}
+	\node[left,red!75!black,yshift=0.05cm] at (0,77.7) {$77.7$};
 
 	% axes
 	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below right] {hr};
 	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[above right] {$\mathrm{km}/\mathrm{hr}$};
 
 	% continuous graph fill
-	\fill[red!33!white, opacity=0.7]
+	\fill[blue!33!white, opacity=0.7]
 	  (0,0)
 	  cos ( 0.333,  25)
 	  sin ( 0.667,  50)
@@ -89,17 +90,17 @@
 	;
 
 	% average rate fill
-	\fill[blue!33!white, opacity=0.7] (0,0) -- (0,77.7) -- (39,77.7) -- (39,0) -- cycle;
+	\fill[red!33!white, opacity=0.7] (0,0) -- (0,77.7) -- (39,77.7) -- (39,0) -- cycle;
 
 	% average rate lines
-	\draw[blue!75!black,very thick] (0,77.7) -- (39,77.7);
-	\draw[blue!75!white,thin]
+	\draw[red!75!black,very thick] (0,77.7) -- (39,77.7);
+	\draw[red!75!white,thin]
 	  (0,0) -- (0,77.7)
 	  (39,0) -- (39,77.7)
 	;
 
 	% continuous graph
-	\draw[red!75!black,very thick]
+	\draw[blue!75!black,very thick]
 	  (\xmin,0) -- (0,0)
 	  cos ( 0.333,  25)
 	  sin ( 0.667,  50)
