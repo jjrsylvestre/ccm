@@ -980,7 +980,7 @@ A similar analysis for the cosine function yields the derivative formula predict
 	</p>
 </identity>
 
-<exercise>
+<exercise xml:id="checkpoint-periodic-cos-deriv-from-limit">
 	<title>Derivative of the cosine function from the limit definition</title>
 	<p>
 	Similar to the derivation of the derivative of the sine function in this section,
