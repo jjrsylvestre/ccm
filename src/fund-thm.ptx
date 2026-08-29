@@ -16,8 +16,8 @@ respective owners.
 <chapter xml:id="chapter-fund-thm" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Average value and the Fundamental Theorem</title>
 
-<section xml:id="section-fund-thm-avg-value">
-<title>Average value of a function</title>
+<section xml:id="section-fund-thm-avg-rate-redux">
+<title>Average rate revisited</title>
 
 <p>
 Given a quantity function <m> q(t) </m>,
@@ -32,10 +32,71 @@ Substituting this into the average rate formula,
 we have
 <md> \avg{r} = \frac{\text{accumulation}}{\text{duration}} = \frac{1}{\change{t}} \ccmint{t_1}{t_2}{r(t)}{t} </md>.
 This formula is interesting in that it relates average rate <m> \avg{r} </m> directly to the rate function <m> r(t) </m>.
+Rearranging it to
+<md> \ccmint{t_1}{t_2}{r(t)}{t} = \avg{r} \cdot \change{t} </md>,
+where on the left we have an accumulation calculation for a varying rate function
+(<xref ref="pattern-integ-definite-integ-as-accum-function" />)
+and on the right we have an accumulation calcluation for a constant rate
+(<xref ref="pattern-vars-accumulation-for-constant-rate" />),
+leads to the following reinterpretation of <term>average rate</term>.
 </p>
 
+<identity xml:id="pattern-avg-rate">  <!-- formerly definition-avg-rate -->
+	<title>Average rate of accumulation produces same accumulation</title>
+	<p>
+	For a quantity that varies over time according to a rate function that also varies over time,
+	the average rate of accumulation over a given time period is equal to the constant rate of accumulation that would produce the same accumulation amount over that same time period. </p>
+</identity>
+
+<example xml:id="example-fund-thm-avg-speed">
+	<title>Average speed</title>
+
+	<p>
+	Consider again our Camrose-Wetaskiwin trip from <xref ref="example-step-car-trip" />,
+	also discussed in <xref ref="subsection-integ-simplifying-models" />.
+	The actual total distance travelled according to the <q>more realistic</q> rate model in <xref ref="figure-integ-camrose-wetaskiwin" /> is approximately
+	<quantity><mag>50.5</mag><unit base="metre" prefix="kilo" /></quantity>,
+	and the trip lasts a total of
+	<quantity><mag>39</mag><unit base="minute" /></quantity>,
+	for an average speed of
+	<md> \frac{50.5}{39/60} \approx 77.7 </md>
+	in kilometres per hour.
+	If it were possible to go from parked to full speed instantaneously,
+	maintain that full speed constantly over the full
+	<quantity><mag>39</mag><unit base="minute" /></quantity>,
+	and then go from full speed to parked again instantaneously at the destination,
+	then the exact same distance of
+	<quantity><mag>50.5</mag><unit base="metre" prefix="kilo" /></quantity>
+	would be traversed over such a trip.
+	In <xref ref="figure-fund-thm-camrose-wetaskiwin" />,
+	this equality of distances is represented by equality of the red and blue areas.
+	</p>
+
+	<aside valign="top"><title>Terminology</title><p>
+		We take <q>average speed</q> to mean <q>average rate of accumulation of distance</q>.
+	</p></aside>
+
+	<figure xml:id="figure-fund-thm-camrose-wetaskiwin">
+		<caption> Maintaining a constant speed at the average speed value traverses the same distance. </caption>
+		<image width="84.7%">
+			<shortdescription>Graph comparing accumulation as area between constant average rate and variable rate in a rate-of-travel model.</shortdescription>
+			TODO description
+			<latex-image label="image-fund-thm-camrose-wetaskiwin">
+				<xi:include href="fund-thm.d/camrose-wetaskiwin.tex" parse="text" />
+			</latex-image>
+		</image>
+	</figure>
+
+</example>
+
+</section>
+
+<section xml:id="section-fund-thm-avg-value">
+<title>Average value of a function</title>
+
 <p>
-What if we applied this relationship to a quantity function?
+What if we tried to view a quantity function as a somehow being a rate function,
+and then computed the <q>average rate</q>?
 </p>
 
 <example xml:id="example-fund-thm-avg-temp">
@@ -66,7 +127,7 @@ What if we applied this relationship to a quantity function?
 	we could think of <m> T(t) </m> as being expressed in <em>degree-hours per hour</em>.
 	(With unit analysis,
 	we see that this made-up unit is really just degrees,
-	as <em>hours per hour</em> <q>cancels</q> out.)
+	as <em>hours per hour</em> <q>cancels out.</q>)
 	Then we could calculate how many <em>degree-hours</em> accumulated over this period,
 	using <xref ref="pattern-poly-quantity-from-rate" /> to assist with the calculation.
 	<md>
@@ -105,6 +166,22 @@ What if we applied this relationship to a quantity function?
 			<!-- TODO description -->
 			<latex-image label="image-fund-thm-temp-avg">
 				<xi:include href="fund-thm.d/temp-avg.tex" parse="text" />
+			</latex-image>
+		</image>
+	</figure>
+
+	<p>
+	In light of <xref ref="pattern-avg-rate" />,
+	we expect the area under the temperature graph to equal the rectangular area under the constant average temperature value over the same time period.
+	</p>
+
+	<figure xml:id="figure-fund-thm-avg-daily-temp-area">
+		<caption> Average temperature over a twenty-four-hour period achieves the same total <q>accumulation</q> of <em>degree-hours</em> as measured by the integral. </caption>
+		<image width="67.9%">
+			<shortdescription> Graph demonstrating that Average temperature over a twenty-four-hour period achieves the same total accumulation of degree-hours as measured by the integral. </shortdescription>
+			<!-- TODO description -->
+			<latex-image label="image-fund-thm-temp-avg-area">
+				<xi:include href="fund-thm.d/temp-avg-area.tex" parse="text" />
 			</latex-image>
 		</image>
 	</figure>
@@ -148,36 +225,6 @@ What if we applied this relationship to a quantity function?
 Graphically, if we think of the definite integral in this definition as an area,
 then we are dividing that area by the full width <m> b - a </m> to obtain an average height:
 <md> \text{area} = \text{height} \times \text{width} \qquad\implies\qquad \text{height} = \frac{\text{area}}{\text{width}} </md>.
-</p>
-
-<p>
-But we should also compare our definition of <term><xref ref="definition-fund-thm-function-average" text="title" /></term> with our definition of <term><xref ref="definition-avg-rate" text="title" /></term> <mdash />
-what if we apply our definition above to the case of a rate function <m> r(t) </m>?
-Will we be calculating <term>average rate of accumulation</term> as we've defined it in <xref ref="definition-avg-rate" />?
-Our definition of <term>average rate</term> is that it is the constant rate that produces the same accumulation as the varying rate function over a given time period.
-For a constant rate <m> r = \avg{r} </m> we have
-<md> \text{accumulation} = \text{rate} \times \text{duration} = \avg{r} \times (b - a) </md>.
-For a varying rate <m> r(t) </m> we have
-<md> \text{accumulation} = \ccmint{a}{b}{r(t)}{t} </md>.
-But if <m> \avg{r} </m> is taken to be
-<md> \avg{r} = \frac{1}{b - a} \ccmint{a}{b}{r(t)}{t} </md>
-as in <xref ref="definition-fund-thm-function-average" />,
-then the two accumulation formulas above become the same.
-</p>
-
-<figure xml:id="figure-fund-thm-avg-daily-temp-area">
-	<caption> Average temperature over a twenty-four-hour period achieves the same total <q>accumulation</q> of <em>degree-hours</em> as measured by the integral. </caption>
-	<image width="67.9%">
-		<shortdescription> Graph demonstrating that Average temperature over a twenty-four-hour period achieves the same total accumulation of degree-hours as measured by the integral. </shortdescription>
-		<!-- TODO description -->
-		<latex-image label="image-fund-thm-temp-avg-area">
-			<xi:include href="fund-thm.d/temp-avg-area.tex" parse="text" />
-		</latex-image>
-	</image>
-</figure>
-
-<p>
-Compare <xref ref="figure-fund-thm-avg-daily-temp-area" /> with the graphical interpretation we made of <term>average rate</term> in <xref ref="section-avg-rate-graph" />.
 </p>
 
 <example xml:id="example-fund-thm-cos-avg">
@@ -278,7 +325,7 @@ the <term>average</term> of these values is defined to be
 
 <remark><p>
 	The analysis strategy in <xref ref="example-fund-thm-compare-int-avg-with-discrete-avg" /> is a powerful method in engineering and the sciences:
-	if you can interpret an approximation to some value as a Riemann sum,
+	if can you make an approximation of some value in such a way that the pattern of your approximation can be interpreted as a Riemann sum,
 	then you can calculate that value exactly with an integral.
 </p></remark>
 
@@ -300,7 +347,7 @@ that means it must have crossed through its average value at some point.
 	<title>Mean Value Theorem</title>
 
 	<statement><p>
-		If <m> f(t) </m> is continuous on <m> a \le t \le b </m>,
+		If <m> f(t) </m> is continuous on domain <m> a \le t \le b </m>,
 		then there is at least one specific time <m> t = c </m> in that domain where <m> f(c) = \avg{f} </m>.
 	</p></statement>
 
@@ -465,7 +512,16 @@ that means it must have crossed through its average value at some point.
 <p> Let's review. </p>
 
 <p>
-We have learned how to use a Riemann sum to approximate an accumulation from the rate function <m> r(t) </m>.
+We have learned how to use average rates of accumulation to approximate an instantaneous rate of accumulation from values of a quantity function <m> q(t) </m>.
+Over shorter and shorter time intervals for the average rate calculations,
+if all such approximations are arbitrarily close to some particular value,
+we call that value the <term>derivative value</term> for the quantity function at the particular instant in question,
+and we interpret it as the instantaneous rate of accumulation of the quantity function at that instant.
+We then collect those derivative values instant-by-instant into a function called the <term>derivative function</term> <m> q'(t) </m> for the quantity function.
+</p>
+
+<p>
+We have also learned how to use a Riemann sum to approximate the accumulation of some quantity from the rate function <m> r(t) </m> that models the rate at which the quantity accumulates.
 Since the true accumulation value always lies between the upper and lower Riemann sums,
 for an integrable function we can <q>squeeze</q> the upper and lower sums together by using more, skinnier rectangles in our sums until the upper and lower sums are so close together that we can determine the true accumulation value.
 We called this value the <term>definite integral</term> for the rate function and the domain over which we were computing an accumulation.
@@ -476,31 +532,40 @@ we can combine an accumulation function with an initial value to recover the qua
 </p>
 
 <p>
-We have also learned how to use average rates of variation to approximate an instantaneous rate of variation from values of a quantity function <m> q(t) </m>.
-Over shorter and shorter time intervals for the average rate calculations,
-if all such approximations are arbitrarily close to some particular value,
-we call that value the <term>derivative value</term> for the quantity function at the particular instant in question,
-and we interpret it as the rate of variation of the quantity function at that instant.
-By <q>stitching</q> together derivative values at different instants together into a function called the <term>derivative function</term> <m> q'(t) </m> for the quantity function.
-Again, interpreting values of <m> q'(t) </m> as instantaneous rates of variation,
-it is reasonable to think that in forming the derivative function we have recovered the rate function,
-so that <m> q'(t) = r(t) </m>.
+We would expect that performing both processes one after the other should return us to where we started:
+<ul>
+
+	<li><p>
+		If we begin with a quantity function <m> q(t) </m>,
+		compute the rate at which the quantity accumulates as represented by the derivative function <m> q'(t) </m>,
+		use that derivative function as the rate function in an integral based at some initial time <m> t = t_0 </m> to create an accumulation function,
+		and then combine that accumulation function with the initial value <m> q(t_0) </m>,
+		we should be back at the original quantity function.
+	</p></li>
+
+	<li><p>
+		If we begin with a rate function <m> r(t) </m>,
+		use an accumulation function based on a definite integral of <m> r(t) </m> to obtain a quantity function,
+		and then compute the derivative of that quantity function,
+		we should be back at the original rate function.
+	</p></li>
+
+</ul>
+Intuitively, this is beyond doubt.
+We <em>verified</em> that it works for power functions in <xref ref="section-poly-deriv-vs-integ" />
+(up to knowing the initial value).
+We <em>assumed</em> that it works to help us analyze derivatives and integrals of logarithms and exponentials.
 </p>
 
 <p>
-If this is the case, then performing both processes should return us to where we started:
-if we begin with a rate function <m> r(t) </m>,
-use an accumulation function based on a definite integral of <m> r(t) </m> to obtain a quantity function,
-and then compute the derivative of that quantity function,
-we should be back at the original rate function.
-Intuitively, this is beyond doubt.
-However, <em>mathematically</em> there is no reason to think this should be true,
+However, if we discard the underlying ideas of <term>varying quantities</term> and <term>instantaneous rates</term> and <term>accumulation</term> and only deal with the mathematical concept of <term>functions</term>,
+then <em>mathematically</em> there is no reason to think that either of the <em>differentiate-then-integrate</em> or <em>integrate-then-differentiate</em> patterns described above should work,
 as the two <em>processes</em> involved have seemingly nothing to do with each other:
-one process uses rectangles to approximate an area,
-the other process uses secant-line slopes to approximate a tangent-line slope.
+one process uses secant-line slopes to approximate a tangent-line slope,
+while the other uses rectangles to approximate an area.
 Why would performing one process after the other return you to where you started?
 But, in fact,
-our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation</em> is correct.
+our intuition based on <term>quantities</term>, <term>rates</term>, and <term>accumulation</term> is correct.
 </p>
 
 <theorem xml:id="theorem-fund-thm">
@@ -518,43 +583,53 @@ our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation
 
 		<p>
 		As usual, to compute the derivative of <m> A(t) </m>,
-		we consider a forward/backward difference quotient.
-		First consider the numerator.
-		<md> A(t + dt) - A(t) = \ccmint{a}{t + dt}{f(u)}{u} - \ccmint{a}{t}{f(u)}{u} </md>.
-		Regardless of whether <m> dt </m> is positive or negative,
+		we consider a forward/backward difference quotient <m> \inlineslope{A}{t} </m>.
+		In the numerator, first consider
+		<md> A(t + \change{t}) = \ccmint{a}{t + \change{t}}{f(u)}{u} </md>.
+		Regardless of whether <m> \change{t} </m> is positive or negative,
+		assuming that it is small enough that <m> t + \change{t} </m> remains within the domain <m> a \le t \le b </m>,
 		we can use <xref ref="pattern-integ-definite-props-split" text="type-local">Property</xref>
 		of <xref ref="pattern-integ-definite-props" />
-		to split that first integral up.
+		to split the integral:
+		<md> A(t + \change{t}) = \ccmint{a}{t}{f(u)}{u} + \ccmint{t}{t + \change{t}}{f(u)}{u} </md>.
+		But now that first integral is precisely <m> A(t) </m>,
+		so in the subtraction of <m> \change{A} </m> we will have cancellation:
 		<md>
-			A(t + dt) - A(t)
-			= \left( \ccmint{a}{t}{f(u)}{u} + \ccmint{t}{t + dt}{f(u)}{u} \right)
-			- \ccmint{a}{t}{f(u)}{u}
+
+			<mrow> \change{A} \amp = A(t + dt) - A(t) </mrow>
+
+			<mrow> \amp = \left( A(t) + \ccmint{t}{t + \change{t}}{f(u)}{u} \right) - A(t) </mrow>
+
+			<mrow> \amp = \ccmint{t}{t + \change{t}}{f(u)}{u} </mrow>
+
 		</md>.
-		But we can cancel the first and third integrals above to get
-		<md> A(t + dt) - A(t) = \ccmint{t}{t + dt}{f(u)}{u} </md>.
-		We now have a simplified version of the numerator to use in our difference quotient:
+		We now have a simplified version of the numerator <m> \change{A} </m> to use in our average rate difference quotient:
 		<md>
-			<mrow> \ddt{A} \amp = \frac{A(t + dt) - A(t)}{dt} </mrow>
-			<mrow> \amp = \frac{1}{dt} \ccmint{t}{t + dt}{f(u)}{u} </mrow>
+			\slope{A}{t}
+			= \frac{A(t + \change{t}) - A(t)}{\change{t}}
+			= \frac{1}{\change{t}} \ccmint{t}{t + \change{t}}{f(u)}{u}
 		</md>.
-		The integral is over the domain <m> t \le u \le t + dt </m>,
-		and <m> dt </m> is the duration of that domain,
-		which means that
-		<md> \ddt{A} = \avg{f} </md>,
-		where the average is over that domain <m> t \le u \le t + dt </m>.
+		This looks like the formula for the average value of a function!
+		(See <xref ref="definition-fund-thm-function-average" />.)
+		Indeed,
+		the integral is over the domain <m> t \le u \le t + \change{t} </m>,
+		and <m> \change{t} </m> is the duration of that domain.
+		So <md> \slope{A}{t} = \avg{f} </md> over domain <m> t \le u \le t + \change{t} </m>.
 		The <xref ref="theorem-fund-thm-mean-value" text="title" />
 		says that there is at least one time <m> c </m> in that domain where <m> f(c) = \avg{f} </m>.
-		But when <m> dt \approx 0 </m>,
-		then <md> t + dt \approx t </md>,
-		and so this <m> c </m> that is between <m> t </m> and <m> t + dt </m> must be <q>squeezed</q> down to <m> c \approx t </m> as well.
-		That is,
-		<md> \ddt{A} = \avg{f} = f(c) = f(t) </md>,
+		But when <m> \change{t} \approx 0 </m>,
+		then <md> t + \change{t} \approx t </md>,
+		and so this <m> c </m> that is between <m> t </m> and <m> t + \change{t} </m> must be <q>squeezed</q> down to <m> c \approx t </m> as well.
+		Along with it, we have <m> f(c) \approx f(t) </m> because <m> f </m> is continuous.
+		Ultimately,
+		<md> \slope{A}{t} = \avg{f} = f(c) \to f(t) </md>,
+		so that <m> dA/dt = f(t) </m>,
 		as desired.
 		</p>
 
 		<p>
-		Now, <xref ref="pattern-avg-rate-discont-implies-not-diff" /> says that a discontinuous function cannot be differentiable,
-		so since our accumulation function <m> A(t) </m> is differentiable it must be continuous,
+		So the accumulation function <m> A(t) </m> is differentiable,
+		and <xref ref="pattern-avg-rate-diff-implies-cont" /> says that a differentiable must be continuous,
 		at least at all points in the domain <m> a \lt t \lt b </m>.
 		At the endpoints <m> t = a </m> and <m> t = b </m> it is more complicated,
 		and we leave that justification to your further study of calculus,
@@ -566,37 +641,77 @@ our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation
 </theorem>
 
 <remark xml:id="remark-fund-thm-deriv-is-rate"><p>
-	If we accept that a definite integral does in fact measure accumulation,
-	then <xref ref="theorem-fund-thm" /> confirms that <alert>a derivative function is a rate function</alert>,
-	as we had proposed in <xref ref="principle-deriv-equals-rate" />.
-	If <m> q(t) </m> is a quantity function with associated rate of variation function <m> r(t) </m>,
+	The <xref ref="theorem-fund-thm" text="custom">Fundamental Theorem</xref> verifies that <em>integrate-then-differentiate</em> returns back to the original function.
+	Even more,
+	it strengthens the interpretation of the <term>derivative function</term> as measuring <term>instantaneous rate of accumulation</term>.
+	If <m> q(t) </m> is a quantity function and <m> r(t) </m> is a model for the rate at which <m> q </m> accumulates,
 	then from <m> r(t) </m> we can recover the quantity function using <xref ref="pattern-integ-definite-integ-to-quantity-function" />:
 	<md> q(t) = q(a) + \ccmint{a}{t}{r(u)}{u} </md>.
-	Then, using <xref ref="theorem-fund-thm" /> and the properties of differentiation from <xref ref="section-deriv-basic-formulas" />,
+	Then, using the <xref ref="theorem-fund-thm" text="custom">Fundamental Theorem</xref> and the properties of differentiation from <xref ref="section-deriv-basic-formulas" />,
 	we can compute
 	<md>
 		<mrow> q'(t) \amp = \opddt \left( q(a) + \ccmint{a}{t}{r(u)}{u} \right) </mrow>
 		<mrow> \amp = 0 + \opddt \ccmint{a}{t}{r(u)}{u} </mrow>
 		<mrow> \amp = r(t) </mrow>
-	</md>.
+	</md>,
+	so that the derivative function matches the initial model for the rate at which <m> q </m> accumulates.
 </p></remark>
+
+<example xml:id="example-fund-thm-confirm-in-linear-case">
+	<title>Confirming the Fundamental Theorem in a simple case</title>
+	<p>
+	The function <m> f(t) = t </m> is obviously continuous.
+	Using simple geometry
+	(see <xref ref="example-poly-linear-velo" />)
+	we can compute
+	<md>
+		<mrow> A_0(t) \amp = \ccmint{0}{t}{f(u)}{u} </mrow>
+		<mrow> \amp = \ccmint{0}{t}{u}{u} </mrow>
+		<mrow> \amp = \frac{t^2}{2} </mrow>
+	</md>.
+	Using <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> we can compute
+	<md>
+		<mrow> A_0'(t) \amp = \opddt \left( \frac{t^2}{2} \right) </mrow>
+		<mrow> \amp = \frac{2 t}{2} </mrow>
+		<mrow> \amp = t </mrow>
+		<mrow> \amp = f(t) </mrow>
+	</md>.
+	As predicted by the <xref ref="theorem-fund-thm" text="custom">Fundamental Theorem</xref>,
+	the derivative of the accumulation function is just the original function used to create it.
+	</p>
+</example>
+
+<exercise>
+	<title>Irrelevance of <q>base</q> point in the Fundamental Theorem</title>
+	<p>
+	Repeat the calculations in <xref ref="example-fund-thm-confirm-in-linear-case" />,
+	again for the function <m> f(t) = t </m>,
+	but this time using the accumulation function
+	<md> A_1(t) = \ccmint{1}{t}{f(u)}{u} </md>.
+	Once again, begin by computing a formula in <m> t </m> for the integral in this definition just by the geometry of the area to which it corresponds.
+	Then differentiate that formula.
+	</p>
+</exercise>
 
 <example>
 	<title>Derivative of <m> \ln(t) </m> and <m> \ln\abs{t} </m></title>
 	<p>
-	We can now use <xref ref="theorem-fund-thm" text="title" /> to verify <xref ref="pattern-log-deriv" />:
+	We can now use the <xref ref="theorem-fund-thm" text="custom">Fundamental Theorem</xref> to verify our formula for the derivative of the natural logarithm function
+	(<xref ref="pattern-log-deriv" />):
 	<md>
-		<mrow> \ddt{\bbrac{\ln (t)}} \amp = \opddt \ccmint{1}{t}{\frac{1}{u}}{u} </mrow>
-		<mrow>\amp = \frac{1}{t} </mrow>
+		\ddt{\bbrac{\ln (t)}}
+		= \opddt \ccmint{1}{t}{\frac{1}{u}}{u}
+		= \frac{1}{t}
 	</md>.
-	We can similarly verify <xref ref="pattern-deriv-abs-log" /> using our interpretation of <m> \ln\abs{t} </m> at the end of <xref ref="section-deriv-ln-exp" />:
+	We can similarly verify <xref ref="pattern-log-abs-deriv" /> using our interpretation of <m> \ln\abs{t} </m> at the end of
+	<xref ref="subsection-log-extended-deriv-formula" />:
 	<md>
 		\ln\abs{t} = \begin{cases}
 			\displaystyle \ccmint{1}{t}{\frac{1}{u}}{u} \amp t \gt 0 \\[3pt]
 			\displaystyle \ccmint{-1}{t}{\frac{1}{u}}{u} \amp t \lt 0
 		\end{cases}
 	</md>.
-	Therefore,
+	From this,
 	<md>
 		<mrow>
 			\ddt{\bbrac{\ln \abs{t}}} \amp
@@ -617,85 +732,94 @@ our intuition based on <em>rates</em>, <em>quantities</em>, and <em>accumulation
 	</p>
 </example>
 
-<example>
-	<title>Derivative of a trigonometric accumulation function</title>
+<example xml:id="example-fund-thm-diff-integral-formulas-for-sin-cos">
+	<title>Integrals of sine and cosine</title>
 
 	<p>
 	In <xref ref="section-periodic-sine-cosine-integ" />,
-	we used the example of a spring attached to a mass as inspiration for the formulas
+	we used the example of a spring attached to a mass as inspiration for integration formulas for sine and cosine.
 	<md>
 		<mrow>
 			\ccmint{0}{t}{\sin(u)}{u} \amp = 1 - \cos(t)
 			\amp
 			\ccmint{0}{t}{\cos(u)}{u} \amp = \sin(t)
 		</mrow>
-	</md>.
+	</md>
 	(See <xref ref="pattern-periodic-int-sin" /> and <xref ref="pattern-periodic-int-cos" />.)
 	</p>
 
 	<p>
-	Suppose we have a quantity function <m> q(t) </m> and associated rate function <m> r(t) </m>,
-	and we have modelled <m> r(t) = \sin(t) </m>.
-	As usual, we can create an accumulation function <md> A_0(t) = \ccmint{0}{t}{\sin(u)}{u} </md>,
-	where the value of <m> A_0(t) </m> represents the accumulation of quantity that occurred over the domain from time <m> 0 </m> up until time <m> t </m>.
-	Applying the <xref ref="theorem-fund-thm" text="title" /> to compute the derivative function returns us to the rate function, as expected:
-	<md> \ddt{A_0} = \opddt \ccmint{0}{t}{\sin(u)}{u} = \sin(t) </md>.
+	Starting with the formula for the integral of sine,
+	let's differentiate both sides,
+	where on the left we may now apply the <xref ref="theorem-fund-thm" text="custom">Fundamental Theorem</xref> to be sure of the result,
+	and on the right we have the confidence of <xref ref="pattern-periodic-deriv-sin-cos" />,
+	with the cosine derivative formula verified in <xref ref="checkpoint-periodic-cos-deriv-from-limit" />.
+	<md>
+
+		<mrow>
+			\opddt \, \ccmint{0}{t}{\sin(u)}{u} \amp = \sin(t)
+			\amp
+			\opddt \bbrac{1 - \cos(t)} \amp = \ddt{1} - \ddt{\bbrac{\cos(t)}}
+		</mrow>
+
+		<mrow> \amp \amp \amp = 0 - \bbrac{- \sin(t)} </mrow>
+
+		<mrow> \amp \amp \amp = \sin(t) </mrow>
+
+	</md>
+	We got the same result both times!
+	While this doesn't fully verify our integral formula for sine
+	(we'll do that later this chapter),
+	it gives confidence that the formula has the right <q>form</q>.
 	</p>
 
 	<p>
-	On the other hand,
-	applying <xref ref="pattern-periodic-int-sin" /> tells us that <md> A_0(t) = 1 - \cos(t) </md>.
-	What happens if we differentiate this formula using our patterns from <xref ref="chapter-deriv" />?
-	<md>
-		<mrow> \ddt{A_0} \amp = \opddt \bbrac{1 - \cos(t)} </mrow>
-		<mrow> \amp = \ddt{1} - \ddt{\bbrac{\cos(t)}} </mrow>
-		<mrow> \amp = 0 - \bbrac{- \sin(t)} </mrow>
-		<mrow> \amp = \sin(t) </mrow>
-	</md>
-	It is good that we got the same result both times!
-	While this by itself does not imply that our accumulation formula for the sine function
-	(<xref ref="pattern-periodic-int-sin" />)
-	is correct,
-	<!-- (see TODO-XREF below),  NOT SURE WHAT THIS SHOULD POINT TO ... maybe example-fund-thm-indef-int-sine ?-->
-	it certainly gives us more confidence.
+	Similarly,
+	separately differentiating each side of our integral formula for cosine gives the same result in both calculationsx.
+	<md><mrow>
+			\opddt \, \ccmint{0}{t}{\cos(u)}{u} \amp = \cos(t)
+			\amp
+			\ddt{\bbrac{\sin(t)}} \amp = \cos(t)
+	</mrow></md>
 	</p>
 
 </example>
 
-<exercise>
-	<p>
-	Carry out the same comparison of derivative calculations of the accumulation function created out of a cosine rate function
-	<m> r(t) = \cos(t) </m>,
-	using the <xref ref="theorem-fund-thm" text="title" /> on the one hand,
-	and using <xref ref="pattern-periodic-int-cos" /> and <xref ref="pattern-deriv-sin" /> on the other.
-	</p>
-</exercise>
-
 </section>
+
 
 <section>
 <title>Antiderivatives</title>
 
 <p>
-The <xref ref="theorem-fund-thm" text="title" /> tells us that if we begin with a rate function <m> r(t) </m>,
-use a definite integral to recover the quantity function
-<md> q(t) = q_0 + \ccmint{t_0}{t}{r(u)}{u} </md>
-(where <m> q_0 </m> represents a chosen or observed <q>initial value</q> <m> q(t_0) = q_0 </m>),
-and then differentiate,
+The <xref ref="theorem-fund-thm" text="title" /> tells that carrying out an <em>integrate-then-differentiate</em> cycle will return us back to the original function.
+This even works if we insert the addition of an initial value into the process,
+as in <xref ref="pattern-integ-definite-integ-to-quantity-function" />.
+If <m> q </m> is a quantity that is varying over time and we have a model rate function <m> r(t) </m> that describes the rate at which <m> q </m> accumulates,
+we can use a definite integral to recover a model for the quantity function
+<md> q(t) = q_0 + \ccmint{t_0}{t}{r(u)}{u} </md>,
+where <m> q_0 </m> represents a chosen or observed <q>initial value</q> <m> q(t_0) = q_0 </m>.
+If we then differentiate this quantity function,
 we end up back at the rate function: <md> q'(t) = r(t) </md>.
 (See the calculation in <xref ref="remark-fund-thm-deriv-is-rate" />.)
 </p>
 
 <p>
-What if we begin with a quantity function <m> q(t) </m>?
-Suppose we take the derivative as the rate function, <m> r(t) = q'(t) </m>,
-and then use that to re-form a quantity function.
-Except at first,
-there is not yet a mathematical reason to expect that we will end up back at <m> q(t) </m>,
-so let's write
-<md> s(t) = s_0 + \ccmint{t_0}{t}{r(u)}{u} </md>
-for this quantity function,
-where again <m> s_0 </m> represents a chosen <q>initial value</q> <m> s(t_0) = s_0 </m>.
+What about a <em>differentiate-then-integrate</em> cycle beginning with a model for the quantity function <m> q(t) </m>?
+<xref ref="checkpoint-poly-diff-vs-int-for-neg-exp-power-func" /> demonstrates that we <em>won't</em> always necessarily end up back at the original <m> q(t) </m>.
+Let's investigate why more generally.
+Since the derivative function <m> q'(t) </m> measures instantaneous rate of accumulation,
+we can use it as a rate model for how <m> q </m> varies: <m> r(t) = q'(t) </m>.
+We can then use this rate function to create a quantity function <m> s(t) </m> through the following steps.
+(We are choosing to represent this <q>recovered</q> quantity function by <m> s(t) </m> instead of <m> q(t) </m> so as to not bias ourselves into assuming that the cycle <em>will</em> return us to the original quantity function.)
+First we create an accumulation function based at some choice of <q>initial</q> time <m> t_0 </m>:
+<md> A(t) = \ccmint{t_0}{t}{ r(u) }{u} </md>.
+Then we combine that with some choice of <q>initial</q> quantity <m> s_0 </m>:
+<md> s(t) = s_0 + \ccmint{t_0}{t}{r(u)}{u} </md>.
+Note that <md> s(t_0) = s_0 + \ccmint{t_0}{t_0}{r(u)}{u} = s_0 + 0 = s_0 </md>.
+</p>
+
+<p>
 How is <m> s(t) </m> related to <m> q(t) </m>?
 We at least know that they have the same derivative function:
 using an identical calculation as in <xref ref="remark-fund-thm-deriv-is-rate" />,
@@ -721,10 +845,10 @@ differentiating the formula for <m> s(t) </m> above arrives at
 <example xml:id="example-fund-thm-two-antiderivs">
 	<title>Two antiderivatives for the same function</title>
 	<p>
-	Consider <m> F_1(t) = t^2 </m> and <m> F_2(t) = t^2 + 1 </m>.
-	Using the patterns in <xref ref="chapter-deriv" />,
+	Consider <md><mrow> F_1(t) \amp = t^2 \text{,} \amp F_2(t) \amp = t^2 + 1 \text{.} </mrow></md>
+	Using the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> and the general differentiation patterns in <xref ref="chapter-deriv" />,
 	we have both
-	<md> <mrow> F_1'(t) \amp = 2 t \amp F_2'(t) \amp = 2 t + 0 = 2 t  </mrow> </md>.
+	<md><mrow> F_1'(t) \amp = 2 t \text{,} \amp F_2'(t) \amp = 2 t + 0 = 2 t \text{.}  </mrow></md>
 	This tells us that both <m> F_1 </m> and <m> F_2 </m> are antiderivatives of the function <m> f(t) = 2 t </m>.
 	And because the derivative of a constant is <m> 0 </m>,
 	we could change the <em>plus-one</em> part of the formula for <m> F_2(t) </m> to be any other constant and it would still be an antiderivative for <m> f(t) </m>.
@@ -749,26 +873,29 @@ but the <xref ref="theorem-fund-thm" text="title" /> provides an important parti
 </fact>
 
 <example>
-	<title>Accumulation of a line</title>
+	<title>Antiderivative of a linear function</title>
 	<p>
-	The function <m> f(t) = t </m> is obviously continuous.
-	Using simple geometry
-	(see <xref ref="example-poly-linear-velo" />)
-	we can compute
-	<md>
-		<mrow> A_0(t) \amp = \ccmint{0}{t}{f(u)}{u} </mrow>
-		<mrow> \amp = \ccmint{0}{t}{u}{u} </mrow>
-		<mrow> \amp = \frac{t^2}{2} </mrow>
-	</md>.
-	Using <xref ref="pattern-deriv-power" /> we can compute
-	<md>
-		<mrow> A_0'(t) \amp = \opddt \left( \frac{t^2}{2} \right) </mrow>
-		<mrow> \amp = \frac{2 t}{2} </mrow>
-		<mrow> \amp = t </mrow>
-		<mrow> \amp = f(t) </mrow>
-	</md>.
-	So treating our original function <m> f(t) </m> as a rate function,
-	the associated accumulation function is an antiderivative.
+	In <xref ref="example-fund-thm-confirm-in-linear-case" />,
+	beginning with the basic linear function <m> f(t) = t </m> we:
+	<ol>
+
+		<li><p>
+			Formed the accumulation function
+			<md> A_0(t) = \ccmint{0}{t}{f(u)}{u} </md>.
+		</p></li>
+
+		<li><p>
+			Used geometry to compute the integral defining the accumulation function to obtain an explicit formula in <m> t </m> for it.
+		</p></li>
+
+		<li><p> Differentiated that formula for the accumulation function. </p></li>
+
+	</ol>
+	At the end of these steps,
+	the result was <md> \ddt{A_0} = f(t) </md>,
+	confirming the <xref ref="theorem-fund-thm" text="custom">Fundamental Theorem</xref> in that case.
+	But in the language of <xref ref="definition-fund-thm-antideriv" />,
+	another point of view on these calculations is that <em><m> A_0(t) </m> became an antiderivative of <m> f(t) </m></em>.
 	</p>
 </example>
 
@@ -796,7 +923,7 @@ we can make the pattern of <xref ref="example-fund-thm-two-antiderivs" /> more g
 			<mrow> \amp = f(t) - f(t) </mrow>
 			<mrow> \amp = 0 </mrow>
 		</md>.
-		As a derivative function is a rate function,
+		As a derivative function measures instantaneous rates,
 		having <m> G'(t) </m> uniformly equal to <m> 0 </m> says that the function <m> G(t) </m> never varies,
 		so it must be a constant function <m> G(t) = C </m>.
 		As <m> G </m> was defined as the difference of <m> F_1 </m> and <m> F_2 </m>,
@@ -819,7 +946,49 @@ we can make the pattern of <xref ref="example-fund-thm-two-antiderivs" /> more g
 </corollary>
 
 <p>
-What about two different accumulation functions?
+We are now in a position to verify our formulas for the integrals of the natural exponential function and of the sine and cosine functions.
+</p>
+
+<example xml:id="example-fund-thm-confirm-exp-integral">
+	<title>Two antiderivatives of the natural exponential function</title>
+	<p>
+	The <xref ref="theorem-fund-thm" text="custom">Fundamental Theorem</xref> tells us that the accumulation function
+	<md> \ccmint{0}{t}{ e^u }{u} </md>
+	is an antiderivative for the natural exponential function <m> \exp(t) </m>.
+	Using <xref ref="pattern-exp-deriv" /> and the general differentiation rules from <xref ref="chapter-deriv" />,
+	it is straightforward to verify that the expression <md> e^t - 1 </md> also forms an antiderivative function for <m> \exp(t) </m>.
+	<xref ref="fact-fund-thm-antideriv-v-shifts" /> now implies that these two functions must be vertical shifts of one another;
+	that is, there is some value of the constant <m> C </m> for which
+	<md> \ccmint{0}{t}{ e^u }{u} = e^t - 1 + C </md>.
+	Two functions that are equal must always produce the same output when fed the same input.
+	In the case of <m> t = 0 </m>,
+	this means
+	<md> \ccmint{0}{0}{ e^u }{u} = e^0 - 1 + C = 1 - 1 + C = C </md>.
+	But the integral on the left is accumulation over a time period of duration <m> 0 </m>,
+	and so that accumulation is <m> 0 </m>
+	(<xref ref="convention-integ-definite-props-zero-length" text="type-local">Property</xref>
+	of <xref ref="convention-integ-definite-props" />).
+	This means that <m> C = 0 </m>,
+	and so in fact we have
+	<md> \ccmint{0}{t}{ e^u }{u} = e^t - 1 </md>,
+	confirming the formula provided in <xref ref="pattern-exp-integral" />.
+	</p>
+</example>
+
+<exercise>
+	<title>Antiderivatives of the sine and cosine function</title>
+	<p>
+	Using the same process as in <xref ref="example-fund-thm-confirm-exp-integral" />,
+	confirm the integral formulas for the sine and cosine functions provided
+	in <xref ref="pattern-periodic-int-sin" />
+	and <xref ref="pattern-periodic-int-cos" />.
+	(You may wish to refer back to the derivative calculations
+	in <xref ref="example-fund-thm-diff-integral-formulas-for-sin-cos" />.)
+	</p>
+</exercise>
+
+<p>
+How does <xref ref="fact-fund-thm-antideriv-v-shifts" /> apply to the case of two different accumulation functions for the same rate function?
 If the function <m> f(t) </m> is continuous on a large domain,
 when creating an accumulation antiderivative as in <xref ref="fact-fund-thm-continuous-has-antideriv" />,
 we can choose any base point <m> a </m> for the lower bound of our definite integral that we like.
@@ -827,11 +996,11 @@ So, starting with continuous <m> f(t) </m>,
 we can create two different antiderivatives
 <md>
 	<mrow>
-		A_1(t) \amp = \ccmint{a_1}{t}{f(u)}{u}
+		A_1(t) \amp = \ccmint{a_1}{t}{f(u)}{u} \text{,}
 		\amp
-		A_2(t) \amp = \ccmint{a_2}{t}{f(u)}{u}
+		A_2(t) \amp = \ccmint{a_2}{t}{f(u)}{u} \text{.}
 	</mrow>
-</md>.
+</md>
 But these are still vertical shifts of one another,
 since
 <md>
@@ -890,11 +1059,13 @@ and <xref ref="fact-fund-thm-antideriv-v-shifts" /> says that
 This is <em>almost</em> back where we started <mdash />
 differentiating and then integrating that derivative returns us back to a vertical shift of our original function.
 However, in creating <m> s(t) </m>,
-we can choose <m> s_0 </m> to be any value we want,
-so in fact it is possible to have the <em>differentiation-integration</em> cycle come full circle.
+we can choose <m> s_0 </m> to be any value we want.
+So while the <em>differentiate-then-integrate</em> cycle won't necessarily come full circle back to the original function we started with,
+careful choice of an additional <q>initial value</q> can always be made to ensure it does.
 </p>
 
 </section>
+
 
 <section>
 <title>Indefinite integrals</title>
@@ -949,7 +1120,7 @@ then we know them all.
 	It is more convenient to take a specific vertical shift of this antiderivative:
 	let <md> F(t) = A_0(t) - 1 = - \cos(t) </md>.
 	This is still an antiderivative of <m> \sin(t) </m>,
-	as we know from <xref ref="pattern-deriv-cos" /> that
+	as we know from <xref ref="pattern-periodic-deriv-sin-cos" /> that
 	<md>
 		<mrow> \opddt \bbrac{- \cos(t)} \amp = - \opddt \bbrac{\cos(t)} </mrow>
 		<mrow> \amp = - \bbrac{- \sin(t)} </mrow>
@@ -1138,7 +1309,7 @@ So now
 	<xref ref="pattern-fund-thm-def-int-by-antideriv" /> confirms this,
 	since <m> q(t) </m> is obviously an antiderivative of its own derivative,
 	so
-	<md> \ccmint{t_1}{t_2}{q'(t)}{t} = q(t_2) - q(t_1) = \text{accumulation} </md>.
+	<md> \ccmint{t_1}{t_2}{ \dqdt }{t} = q(t_2) - q(t_1) = \text{accumulation} </md>.
 </p></remark>
 
 </section>

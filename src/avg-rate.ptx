@@ -58,56 +58,6 @@ There is no way to tell because this was not observed.
 <em>Average</em> rate of accumulation replaces all the minute-to-minute or second-to-second variation in the actual rate of accumulation with a single, constant rate of accumulation.
 </p>
 
-<!-- REWRITE-TODO make sure this is stated somewhere, probably in fund-thm
-<definition xml:id="definition-avg-rate">
-	<title>Average rate of accumulation</title>
-	<statement><p> The constant rate of accumulation that produces the same accumulation amount over a given time period. </p></statement>
-</definition>
- -->
-
-<!-- REWRITE-TODO move this near example-step-car-trip ???
-<example xml:id="example-avg-rate-speed">
-	<title>Average speed</title>
-
-	<p>
-	Consider again our Camrose-Wetaskiwin trip from <xref ref="example-step-car-trip" />,
-	also discussed in <xref ref="subsection-integ-simplifying-models" />.
-	The actual total distance travelled according to the <q>more realistic</q> rate model in <xref ref="figure-integ-camrose-wetaskiwin" /> is approximately
-	<quantity><mag>50.5</mag><unit base="metre" prefix="kilo" /></quantity>,
-	and the trip lasts a total of
-	<quantity><mag>39</mag><unit base="minute" /></quantity>,
-	for an average speed of
-	<md> \frac{50.5}{39/60} \approx 77.7 </md>
-	in kilometres per hour.
-	If it were possible to go from parked to full speed instantaneously,
-	maintain that full speed constantly over the full
-	<quantity><mag>39</mag><unit base="minute" /></quantity>,
-	and then go from full speed to parked again instantaneously at the destination,
-	then the exact same distance of
-	<quantity><mag>50.5</mag><unit base="metre" prefix="kilo" /></quantity>
-	would be traversed over such a trip.
-	In <xref ref="figure-avg-rate-camrose-wetaskiwin" />,
-	this equality of distances is represented by equality of the red and blue areas.
-	</p>
-
-	<aside valign="top"><title>Terminology</title><p>
-		We take <q>average speed</q> to mean <q>average rate of accumulation of distance</q>.
-	</p></aside>
-
-	<figure xml:id="figure-avg-rate-camrose-wetaskiwin">
-		<caption> Maintaining a constant speed at the average speed value traverses the same distance. </caption>
-		<image width="84.7%">
-			<shortdescription>Graph comparing accumulation as area between constant average rate and variable rate in a rate-of-travel model.</shortdescription>
-			TODO description
-			<latex-image label="image-avg-rate-camrose-wetaskiwin">
-				<xi:include href="avg-rate.d/camrose-wetaskiwin.tex" parse="text" />
-			</latex-image>
-		</image>
-	</figure>
-
-</example>
- -->
-
 <p>
 Calculating average rate of accumulation from a quantity model is simple <mdash />
 simply divide the accumulation amount by the time duration.
