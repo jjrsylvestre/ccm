@@ -708,7 +708,7 @@ but in brackets to distinguish it from an exponent.
 	<title>Higher derivatives of the natural logarithm function</title>
 	<p>
 	We have <m> d\bbrac{\ln(t)}/dt = 1/t </m>,
-	and after that we may use the pattern for the <xref ref="pattern-deriv-power" text="title" /> to compute higher derivatives:
+	and after that we may use the pattern for the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> to compute higher derivatives:
 	<md>
 		<mrow> \opddt \bbrac{\ln(t)} \amp = \frac{1}{t} </mrow>
 		<mrow> \opdblddt \bbrac{\ln(t)} \amp = \opddt \left(\frac{1}{t}\right) = - \frac{1}{t^2} </mrow>

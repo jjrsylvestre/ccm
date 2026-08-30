@@ -247,9 +247,9 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	</p>
 
 	<p>
-	We can't apply <xref ref="pattern-deriv-power" />,
+	We can't apply the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref>,
 	because the exponent is varying.
-	We can't apply <xref ref="pattern-exp-deriv" /> directly,
+	We can't apply our formula for the derivative of an exponential (<xref ref="pattern-exp-deriv" />) directly,
 	because the base is varying.
 	So instead we'll take the logarithm of each side so that we can turn that varying exponent into a factor:
 	<md alignment="gather">

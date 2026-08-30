@@ -76,7 +76,7 @@ respective owners.
 
 	<p>
 	To obtain the rate function that measures how the diameter varies over time,
-	we can use <xref ref="pattern-deriv-power" /> to directly compute a formula for <m> dD/dt </m> from our formula for <m> D(t) </m> above.
+	we can use the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> to directly compute a formula for <m> dD/dt </m> from our formula for <m> D(t) </m> above.
 	<md>
 		<mrow> \ddt{D} \amp = \opddt \left( \sqrt[3]{\frac{9}{2 \pi}} \, t^{1/3} \right) </mrow>
 		<mrow> \amp = \sqrt[3]{\frac{9}{2 \pi}} \, \opddt \left( t^{1/3} \right) </mrow>
@@ -427,10 +427,10 @@ by making a substitution.
 <!-- NOTE: OMITTING THIS IN FAVOUR OF A LOGARITHMIC DIFF VERIFICAITON FOR ALL EXPONENTS
 <p>
 The previous example raises the question:
-how do we know that our formula for the <xref ref="pattern-deriv-power" text="title" /> is valid for negative exponents?
-The justification we provided for <xref ref="pattern-deriv-power" /> only dealt with the case of positive exponents.
+how do we know that our formula for the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> is valid for negative exponents?
+The justification we provided for that rule only dealt with the case of positive exponents.
 But now that we have the <xref ref="pattern-chain-differential-version" text="title" />,
-we can combine it with <xref ref="pattern-deriv-power" /> for positive exponents to extend to negative exponents,
+we can combine it with the Power Rule for positive exponents to extend to negative exponents,
 similarly to <xref ref="example-chain-reciprocal" />.
 </p>
 
@@ -477,7 +477,7 @@ similarly to <xref ref="example-chain-reciprocal" />.
 		and now <md> q(t) = t^m = t^{-n} = \frac{1}{t^n} </md>.
 		Then we can write
 		<md> <mrow> q \amp = \frac{1}{u} = u^{-1} \amp \amp\text{for} \amp u \amp = t^n </mrow></md>.
-		Using the fact that we have previously verified <xref ref="pattern-deriv-power" /> in the case of positive exponents,
+		Using the fact that we have previously verified the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> in the case of positive exponents,
 		we have
 		<md> \dudt = n t^{n - 1} </md>.
 		On the other hand,
@@ -767,7 +767,7 @@ Because in more complicated examples it is often not practical (or even possible
 <!-- NOTE: OMITTING THIS IN FAVOUR OF A LOGARITHMIC DIFF VERIFICAITON FOR ALL EXPONENTS
 <p>
 In <xref ref="fact-chain-deriv-reciprocal-power" />,
-we verified that <xref ref="pattern-deriv-power" /> is valid for negative integer exponents.
+we verified that the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> is valid for negative integer exponents.
 We can use <xref ref="procedure-chain-implicit" /> to verify that it is valid for rational exponents as well.
 </p>
 
@@ -800,7 +800,7 @@ We can use <xref ref="procedure-chain-implicit" /> to verify that it is valid fo
 		</md>,
 		where we have already verified that our pattern is valid for integer exponents,
 		whether positive or negative.
-		(See the justifications for <xref ref="pattern-deriv-power" /> and <xref ref="fact-chain-deriv-reciprocal-power" />.)
+		(See the justifications for the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> and <xref ref="fact-chain-deriv-reciprocal-power" />.)
 		</p>
 
 		<p>
@@ -1163,7 +1163,7 @@ let's record the pattern of the <em>result</em> of that example.
 	so that <m> y = q(t) </m> becomes <m> \ln\abs{y} = \ln\abs{q(t)} </m> before differentiating,
 	to be able to handle cases where <m> q(t) </m> is sometimes negative.
 	The extra absolute value brackets generally won't complicate things since we know how to differentiate the extended logarithm function
-	(<xref ref="pattern-deriv-abs-log" />).
+	(<xref ref="pattern-log-abs-deriv" />).
 	Also, the absolute value brackets won't interfere with the applying the properties of the logarithm to simplify <m> \ln\bbrac{q(t)} </m>,
 	since
 	<md>
@@ -1285,9 +1285,9 @@ let's record the pattern of the <em>result</em> of that example.
 
 <p>
 Finally,
-the justification we provided for <xref ref="pattern-deriv-power" /> only dealt with the case of positive exponents.
+the justification we provided for the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> only dealt with the case of positive exponents.
 But now that we have the <xref ref="pattern-chain-differential-version" text="title" />
-we can use the method of <xref ref="procedure-chain-log-diff" text="title" /> to verify that <xref ref="pattern-deriv-power" /> does indeed hold for arbitrary exponents.
+we can use the method of <xref ref="procedure-chain-log-diff" text="title" /> to verify that the Power Rule does indeed hold for arbitrary exponents.
 </p>
 
 <fact xml:id="fact-chain-deriv-power">

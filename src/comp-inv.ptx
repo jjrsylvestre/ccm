@@ -832,7 +832,7 @@ then <em>slopes</em> on the graphs should also be related.
 	<title>Derivatives of the cube and cube root functions</title>
 
 	<p>
-	Even though <xref ref="pattern-deriv-power" /> allows us to directly compute formulas for the derivatives of both <m> q(t) = t^3 </m> and <m> \inv{q}(t) = t^{1/3} </m>,
+	Even though the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> allows us to directly compute formulas for the derivatives of both <m> q(t) = t^3 </m> and <m> \inv{q}(t) = t^{1/3} </m>,
 	let's explore the relationship between their derivatives.
 	</p>
 
@@ -898,7 +898,7 @@ then <em>slopes</em> on the graphs should also be related.
 	we know <m> q'(t) = 3 t^2 </m>,
 	so <m> q'(2) = 12 </m>.
 	On the other hand,
-	we can also use <xref ref="pattern-deriv-power" /> to directly compute that
+	we can also use the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref> to directly compute that
 	<md> \inv{q}(t) = t^{1/3} \quad\implies\quad (\inv{q})'(t) = \frac{1}{3} \cdot t^{-2/3} = \frac{1}{3 t^{2/3}} </md>,
 	so
 	<md>
