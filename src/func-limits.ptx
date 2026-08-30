@@ -791,7 +791,9 @@ the <xref ref="pattern-func-limits-laws" text="title" /> are equally valid for o
 		</p>
 
 		<aside valign="middle"><title>A look back</title><p>
-			Compare this statement with the definition of <term><xref ref="definition-funcs-point-continuous" text="title"/></term>.
+			Compare this statement with the definition of
+			REWRITE-TODO-XREF.
+			<!-- <term><xref ref="definition-funcs-point-continuous" text="title"/></term>. -->
 			We will connect function limits to continuity in <xref ref="subsection-func-limits-continuity" />.
 		</p></aside>
 
@@ -875,7 +877,9 @@ the <xref ref="pattern-func-limits-laws" text="title" /> are equally valid for o
 <title>Continuity in terms of limits</title>
 
 <p>
-In <xref ref="definition-funcs-point-continuous" />,
+In
+REWRITE-TODO-XREF,
+<!-- <xref ref="definition-funcs-point-continuous" />, -->
 we defined continuity at a point to mean that output values can always be restricted to an open range around a specific output value by restricting the inputs to an open domain around the corresponding specific input value.
 Through <xref ref="pattern-func-limits-epsilon-delta" /> we may now connect this to limits.
 </p>
@@ -1690,7 +1694,9 @@ where <m> t^\ast </m> is a specific point in the domain of <m> q </m>.
 A difference quotient function <m> Q_{t^\ast}(\change{t}) </m> always <q>evaluates</q> to an indeterminate <m> 0/0 </m> form,
 similar to many of the function limit examples we've considered in this chapter.
 In particular,
-you may have noticed a similarity between <xref ref="example-func-limits-practical-computation" /> and our algebraic approach to computing derivative values from the definition (<xref ref="procedure-dev-algebraic" />).
+you may have noticed a similarity between <xref ref="example-func-limits-practical-computation" /> and our algebraic approach to computing derivative values from the definition
+(REWRITE-TODO-XREF).
+<!-- (<xref ref="procedure-dev-algebraic" />). -->
 <xref ref="fact-func-limits-vs-derivative" /> says that this is not a coincidence.
 </p>
 

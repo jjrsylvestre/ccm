@@ -104,7 +104,7 @@ by applying the concepts we learned in <xref ref="chapter-curves" />.
 	If we differentiate both sides of <xref ref="equation-auto-first-example-rate-eqn" />,
 	on the left we will be differentiating the derivative of <m> q </m>,
 	and so we'll get the second derivative.
-	On the right, we could expand before differentiating so that we can just apply <xref ref="pattern-deriv-power" />,
+	On the right, we could expand before differentiating so that we can just apply the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref>
 	or we can directly apply the <xref ref="pattern-product-rule" text="title" />.
 	But in either case we will also need to apply the <xref ref="pattern-chain-differential-version" text="title" />,
 	since we are differentiating with respect to <m> t </m>, not <m> q </m>.

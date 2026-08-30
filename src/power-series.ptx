@@ -777,7 +777,7 @@ Again, let's line this Taylor series up with the one for f.
 	\end{array}
 </md>
 This time it appears that each term of the series for <m> g = f' </m> can be obtained by <term>term-by-term differentiation</term> of the series for <m> f </m>
-(see <xref ref="pattern-deriv-power" />).
+(see the <xref ref="pattern-poly-deriv-power" text="custom">Power Rule</xref>).
 </p>
 
 <p>
@@ -864,7 +864,7 @@ but for now the next two examples give us hope that term-by-term operations yiel
 	</md>.
 	Again, this new series is the Taylor series at <m> t = 0 </m> for the sine function,
 	except for the extra negative sign out front,
-	and so this result agrees with <xref ref="pattern-deriv-cos" />.
+	and so this result agrees with our formula for the derivative of cosine from <xref ref="pattern-periodic-deriv-sin-cos" />.
 	</p>
 
 </example>
