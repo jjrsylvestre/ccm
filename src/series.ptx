@@ -1668,9 +1668,9 @@ But if a series converges <em>absolutely</em> then this is <em>not</em> possible
 		so that both the tails <m>\absseqtail{s_n - S}</m> and <m>\nseqtail{r}</m> are completely contained in <m>[0,c/2)</m>.
 		In particular,
 		the first terms of these tails are both contained in this range:
-		<md tag="dagger" xml:id="equation-series-rearrange-half-inequalities">
+		<md><mrow tag="dagger" xml:id="equation-series-rearrange-half-inequalities">
 			\abs{s_N - S} \amp \lt c/2 \text{,} \amp r_N \amp \lt c/2 \text{.}
-		</md>
+		</mrow></md>
 		</p>
 
 		<p>
