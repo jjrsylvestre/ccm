@@ -118,7 +118,7 @@ as expressing <m> V </m> as a function of the independent variable <m> D </m>:
 </p>
 
 <example>
-	<title>Average rate of change of volume with respect to diameter</title>
+	<title>Average rate of accumulation of volume with respect to diameter</title>
 	<p>
 	Suppose our balloon increases in diameter from
 	<quantity><mag>0.5</mag><unit base="metre"/></quantity>
