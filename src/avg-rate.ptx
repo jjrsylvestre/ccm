@@ -1145,12 +1145,12 @@ with the derivative value describing the slope of that essentially linear piece 
 			Graph of distance from a sensor of an object in motion (blue),
 			with backward (red), forward (green), and central (purple) secant lines.
 		</caption>
-		<image>
+		<image width="59.7%">
 			<shortdescription>
 				A graph of an object's distance from a sensor as the object travels toward and then away from the sensor, with accompanying secant lines.
 			</shortdescription>
 			<!-- TODO description -->
-			<latex-image label="image-avg-rate-distance" width="59.7%">
+			<latex-image label="image-avg-rate-distance">
 				<xi:include href="avg-rate.d/distance.tex" parse="text" />
 			</latex-image>
 		</image>
