@@ -111,14 +111,14 @@ we have to take care with what <q>approximately equal to <m> L </m></q> and <q>a
 
 <definition xml:id="definition-limits">
 	<title>Limit of a function</title>
-	<p>
-	We write
-	<md> f(t) \to L \qquad \text{as} \qquad t \to c</md>
-	or <md> \lim_{t \to c} f(t) = L </md>
-	if values of <m> f(t) </m> can be made arbitrarily close to <m> L </m> for all <m> t </m> sufficiently close to <m> c </m> but not equal to <m> c </m>.
-	If there is no such value <m> L </m>,
-	then we say the limit doesn't exist.
-	</p>
+	<statement><p>
+		We write
+		<md> f(t) \to L \qquad \text{as} \qquad t \to c</md>
+		or <md> \lim_{t \to c} f(t) = L </md>
+		if values of <m> f(t) </m> can be made arbitrarily close to <m> L </m> for all <m> t </m> sufficiently close to <m> c </m> but not equal to <m> c </m>.
+		If there is no such value <m> L </m>,
+		then we say the limit doesn't exist.
+	</p></statement>
 </definition>
 
 <remark xml:id="remark-limits-nearby-behaviour">
@@ -142,7 +142,8 @@ we have to take care with what <q>approximately equal to <m> L </m></q> and <q>a
 	<figure>
 		<caption> For the square function, output values remain near <m> 4 </m> when input values are taken near <m> 2 </m>. </caption>
 		<image width="33%">
-			<description> A graph demonstrating that for the square function, output values remain near 4 when input values are taken near 2. </description>
+			<shortdescription> A graph demonstrating that for the square function, output values remain near 4 when input values are taken near 2. </shortdescription>
+			<!-- TODO description -->
 			<latex-image label="image-limits-parabola">
 				<xi:include href="limits.d/parabola.tex" parse="text" />
 			</latex-image>
@@ -165,7 +166,8 @@ we have to take care with what <q>approximately equal to <m> L </m></q> and <q>a
 	<figure>
 		<caption> For a modified square function, output values remain near <m> 4 </m> when input values are taken near <m> 2 </m>. </caption>
 		<image width="40%">
-			<description> A graph demonstrating that for a modified square function, output values remain near 4 when input values are taken near 2. </description>
+			<shortdescription> A graph demonstrating that for a modified square function, output values remain near 4 when input values are taken near 2. </shortdescription>
+			<!-- TODO description -->
 			<latex-image label="image-limits-parabola-2">
 				<xi:include href="limits.d/parabola-2.tex" parse="text" />
 			</latex-image>
@@ -196,7 +198,8 @@ we have to take care with what <q>approximately equal to <m> L </m></q> and <q>a
 	<figure xml:id="figure-limits-dne">
 		<caption> Output values for this piecewise function do not stay close to one particular value for <m> t \approx 2 </m>. </caption>
 		<image width="66%">
-			<description> A graph of a piecewise function where not all output values remain near a particular value for inputs near 2. </description>
+			<shortdescription> A graph of a piecewise function where not all output values remain near a particular value for inputs near 2. </shortdescription>
+			<!-- TODO description -->
 			<latex-image label="image-limits-dne">
 				<xi:include href="limits.d/piecewise-limit.tex" parse="text" />
 			</latex-image>
@@ -252,7 +255,8 @@ so that it will indeed be the case that <md> f(t) \approx L </md> is true for al
 	<figure xml:id="figure-limits-epsilon-bounds">
 		<caption> When the limit exists, outputs can be restricted to remain arbitrarily close to the limiting value as long as inputs are restricted to being sufficiently close around the input point of interest. </caption>
 		<image width="66%">
-			<description> A graph demonstrating that when the limit exists, outputs can be restricted to remain arbitrarily close to the limiting value as long as inputs are restricted to being sufficiently close around the input point of interest. </description>
+			<shortdescription> A graph demonstrating that when the limit exists, outputs can be restricted to remain arbitrarily close to the limiting value as long as inputs are restricted to being sufficiently close around the input point of interest. </shortdescription>
+			<!-- TODO description -->
 			<latex-image label="image-limits-parabola-with-bounds">
 				<xi:include href="limits.d/parabola-with-bounds.tex" parse="text" />
 			</latex-image>
@@ -294,7 +298,8 @@ so that it will indeed be the case that <md> f(t) \approx L </md> is true for al
 					by restricting <m> t </m> to be in the domain <m> 1 \lt t \lt 3 </m>.
 				</caption>
 				<image>
-					<description> A generous definition of close can be achieved. </description>
+					<shortdescription> A generous definition of close can be achieved. </shortdescription>
+					<!-- TODO description -->
 					<latex-image label="image-limits-testing-dne-1">
 						<xi:include href="limits.d/testing-dne-1.tex" parse="text" />
 					</latex-image>
@@ -307,7 +312,8 @@ so that it will indeed be the case that <md> f(t) \approx L </md> is true for al
 					no matter how closely we restrict <m> t </m> around <m> 2 </m>.
 				</caption>
 				<image>
-					<description> A tighter definition of close cannot be achieved. </description>
+					<shortdescription> A tighter definition of close cannot be achieved. </shortdescription>
+					<!-- TODO description -->
 					<latex-image label="image-limits-testing-dne-2">
 						<xi:include href="limits.d/testing-dne-2.tex" parse="text" />
 					</latex-image>
@@ -611,11 +617,11 @@ and discontinuous when they disagree.
 
 <definition xml:id="definition-limits-point-continuous">
 	<title>Continuous at a point</title>
-	<p>
-	A function <m> f(t) </m> is said to be <term>continuous at a specific input value</term> <m> t = c </m> if the limit of <m> f(t) </m> as <m> t \to c </m> exists and satisfies
-	<md> \lim_{t \to c} f(t) = f(c) </md>.
-	Otherwise, the function is said to be <term>discontinuous</term> at that point.
-	</p>
+	<statement><p>
+		A function <m> f(t) </m> is said to be <term>continuous at a specific input value</term> <m> t = c </m> if the limit of <m> f(t) </m> as <m> t \to c </m> exists and satisfies
+		<md> \lim_{t \to c} f(t) = f(c) </md>.
+		Otherwise, the function is said to be <term>discontinuous</term> at that point.
+	</p></statement>
 </definition>
 
 <example><p>
@@ -671,14 +677,18 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 <definition xml:id="definition-limits-domain-continuous">
 	<title>Continuous on a subdomain</title>
 
-	<p> A function <m> f(t) </m> is said to be <term>continuous on a specific subdomain</term> if it is continuous at every point in that subdomain. </p>
+	<statement>
 
-	<p>
-	If a function is continuous on its entire domain we will say exactly that:
-	the function is <term>continuous on its domain</term>.
-	If we just say that a function is <term>continuous</term>,
-	we mean that the function is continuous at all real input values.
-	</p>
+		<p> A function <m> f(t) </m> is said to be <term>continuous on a specific subdomain</term> if it is continuous at every point in that subdomain. </p>
+
+		<p>
+		If a function is continuous on its entire domain we will say exactly that:
+		the function is <term>continuous on its domain</term>.
+		If we just say that a function is <term>continuous</term>,
+		we mean that the function is continuous at all real input values.
+		</p>
+
+	</statement>
 
 </definition>
 
@@ -705,7 +715,8 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 			<figure>
 				<caption> A piecewise function can often (but not always!) jump values at transition points. </caption>
 				<image>
-					<description> A piecewise function with a jump discontinuity. </description>
+					<shortdescription> A piecewise function with a jump discontinuity. </shortdescription>
+					<!-- TODO description -->
 					<latex-image label="image-limits-jump-discont-1">
 						<xi:include href="limits.d/jump-discont-1.tex" parse="text" />
 					</latex-image>
@@ -718,7 +729,8 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 					creating a jump discontinuity.
 				</caption>
 				<image>
-					<description> A function with a redefined point creating a jump discontinuity. </description>
+					<shortdescription> A function with a redefined point creating a jump discontinuity. </shortdescription>
+					<!-- TODO description -->
 					<latex-image label="image-limits-jump-discont-2">
 						<xi:include href="limits.d/jump-discont-2.tex" parse="text" />
 					</latex-image>
@@ -750,7 +762,8 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 	<figure>
 		<caption> A graph with a discontinuity caused by an undefined value. </caption>
 		<image width="33%">
-			<description> A graph with a discontinuity caused by an undefined value. </description>
+			<shortdescription> A graph with a discontinuity caused by an undefined value. </shortdescription>
+			<!-- TODO description -->
 			<latex-image label="image-limits-hole">
 				<xi:include href="limits.d/hole.tex" parse="text" />
 			</latex-image>
@@ -791,7 +804,8 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 			with a singularity at <m> t = 2 </m>.
 		</caption>
 		<image width="50%">
-			<description> A graph of a function with a discontinuity caused by a singularity. </description>
+			<shortdescription> A graph of a function with a discontinuity caused by a singularity. </shortdescription>
+			<!-- TODO description -->
 			<latex-image label="image-limits-singular">
 				<xi:include href="limits.d/singular.tex" parse="text" />
 			</latex-image>
