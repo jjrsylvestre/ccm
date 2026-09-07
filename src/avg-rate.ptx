@@ -521,8 +521,7 @@ Here is an extreme example to illustrate this.
 <insight xml:id="principle-avg-rate-shorter-duration">
 	<title>Shorter time domain yields better approximation</title>
 	<p>
-	In general,
-	given a quantity function <m> q(t) </m>,
+	For a <q>well-behaved</q> quantity function <m> q(t) </m>,
 	an average rate calculation over a shorter time domain will yield a better approximation of the actual rate of change,
 	compared to an average rate calculation over a longer time domain.
 	</p>
@@ -530,7 +529,7 @@ Here is an extreme example to illustrate this.
 
 <remark><p>
 	It is possible to come up with <q>wild</q> examples where <xref ref="principle-avg-rate-shorter-duration" /> does not hold,
-	which is why we have the proviso <q>In general.</q>
+	which is why we have included the (admittedly vague) <q>well-behaved</q> condition.
 </p></remark>
 
 <!-- REWRITE-TODO
