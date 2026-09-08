@@ -562,7 +562,7 @@ as that is the result if we just try to evaluate with <m> t = c </m> instead of 
 </example>
 
 
-<example>
+<example xml:id="example-limits-rationalizing">
 	<title>Rationalizing</title>
 	<p>
 	Consider <md> \lim_{t \to 1} \frac{\sqrt{t} - 1}{t - 1} </md>.
