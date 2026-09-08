@@ -22,7 +22,7 @@ respective owners.
 
 TODO
   quote appropriate limit laws in justification of basic deriv formulas
-
+  .... is this already done ?
 -->
 
 <chapter xml:id="chapter-deriv" xmlns:xi="http://www.w3.org/2001/XInclude">
@@ -99,10 +99,52 @@ In this process,
 there will be two variables involved:
 the input time <m> t </m>,
 and the limit variable <m> \change{t} </m>.
-<alert>As you compute the limit, regard <m> t </m> as an unknown constant</alert>.
+<alert>As you compute the limit, regard <m> t </m> as an unspecified constant</alert>.
 We take <m> \change{t} \to 0 </m> for one specific <m> t </m>,
 but as we leave <m> t </m> unspecified this will do the work of computing the derivative value <m> q'(t) </m> as a formula in <m> t </m>.
 </p>
+
+<p>
+Note that every derivative limit is a so-called <term><m>0 / 0</m>-form</term> limit,
+since if <m> \change{t} \approx 0 </m> then also
+<md>
+	<mrow> \change{q} \amp = q(t + \change{t}) - q(t) </mrow>
+	<mrow> \amp \approx q(t + 0) - q(t) </mrow>
+	<mrow> \amp = q(t) - q(t) </mrow>
+	<mrow> \amp = 0 </mrow>
+</md>.
+So for <m> \change{t} \approx 0 </m>,
+both numerator and denominator in the difference quotient <m> \inlineslope{q}{t} </m> are approximately zero.
+But we never actually have an undefined <m> 0 / 0 </m> quotient,
+as in the limit <m> \change{t} \to 0 </m> we consider <m> \change{t} \approx 0 </m> but <m> \change{t} \neq 0 </m>.
+</p>
+
+<p> Our general method is to avoid division by zero by algebraic manipulation. </p>
+
+<algorithm xml:id="procedure-deriv-alg">
+	<title>Computing a derivative function algebraically</title>
+	<p>
+	To compute a formula for the derivative function of a function <m> q(t) </m> algebraically:
+	<ol>
+
+		<li><p>
+			Form the forward/backward difference quotient
+			<md> \slope{q}{t} = \frac{ q(t + \change{t}) - q(t) }{ \change{t} } </md>.
+		</p></li>
+
+		<li><p>
+			Manipulate algebraically until a factor of <m> \change{t} </m> is obtained in the numerator to cancel with the <m> \change{t} </m> in the denominator.
+			(Often it is simpler to work with the numerator <m> \change{q} </m> separately from the denominator until such a factor of <m> \change{t} </m> is obtained.)
+		</p></li>
+
+		<li><p>
+			After cancelling <m> \change{t} </m>,
+			simplify any remaining <m> \change{t} </m> terms using <m> \change{t} \approx 0 </m>.
+		</p></li>
+
+	</ol>
+	</p>
+</algorithm>
 
 <p> Here is a basic example of the process. </p>
 
