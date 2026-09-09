@@ -365,7 +365,7 @@ where we will approach <term>function limits</term> more rigorously from the per
 
 		<li xml:id="pattern-limits-laws-homog">
 			<title>Constant multiple law</title>
-			<p><m> \displaystyle \lim_{t \to c} k f(t) = k \lim_{t \to c} f(t) </m></p>
+			<p><m> \displaystyle \lim_{t \to c} k f(t) = k L </m></p>
 		</li>
 
 		<li xml:id="pattern-limits-laws-add">
@@ -388,13 +388,32 @@ where we will approach <term>function limits</term> more rigorously from the per
 			<p><m> \displaystyle \lim_{t \to c} \frac{f(t)}{g(t)} </m> does not exist if <m> M = 0 </m> but <m> L \neq 0 </m></p>
 		</li>
 
+		<li xml:id="pattern-limits-laws-power">
+			<title>Power law</title>
+			<p><m> \displaystyle \lim_{t \to c} {f(t)}^n = L^n </m> for positive integer <m> n </m></p>
+		</li>
+
+		<li xml:id="pattern-limits-laws-odd-root">
+			<title>Root law (odd root)</title>
+			<p><m> \displaystyle \lim_{t \to c} \sqrt[n]{f(t)} = \sqrt[n]{L} </m> for positive, odd integer <m> n </m></p>
+		</li>
+
+		<li xml:id="pattern-limits-laws-even-root">
+			<title>Root law (even root)</title>
+			<p><m> \displaystyle \lim_{t \to c} \sqrt[n]{f(t)} = \sqrt[n]{L} </m> for positive, even integer <m> n </m> if <m> L \gt 0 </m></p>
+		</li>
+
 	</ol>
 	</p>
 </identity>
 
 <warning><p>
 	A limit of a quotient function were both the numerator and denominator limits are <m> 0 </m> is called <term><m>0 / 0</m>-form</term>.
-	<alert>Neither of the last two laws in <xref ref="pattern-limits-laws" /> applies to such a situation.</alert>
+	<alert>
+		Neither of the laws involving quotients in <xref ref="pattern-limits-laws" />
+		(<xref ref="pattern-limits-laws-div" text="type-local">Law</xref> and <xref ref="pattern-limits-laws-non-div" text="type-local">Law</xref>)
+		applies to such a situation.
+	</alert>
 	In fact,
 	a <m>0 / 0</m>-form quotient limit <alert>may or may not exist</alert>.
 	See <xref ref="example-limits-pre-cancelling-00" /> for an example of a <m>0 / 0</m>-form quotient limit that does exist,

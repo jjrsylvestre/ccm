@@ -398,12 +398,17 @@ because it is too easy to be deceived by numerical trends
 	<p>
 	In the following,
 	assume that <m> c </m> and <m> k </m> are constants
-	and that <m> f </m> and <m> g </m> are functions with <m> \lim_{t \to c} f(t) = L </m> and <m> \lim_{t \to c} g(t) = M </m>.
+	and that <m> f </m> and <m> g </m> are functions with
+	<md><mrow>
+		\lim_{t \to c} f(t) \amp = L \text{,}
+		\amp
+		\lim_{t \to c} g(t) \amp = M \text{.}
+	</mrow></md>
 	<ol>
 
 		<li xml:id="pattern-func-limits-laws-homog">
 			<title>Homogeneity</title>
-			<p><m> \displaystyle \lim_{t \to c} k f(t) = k \lim_{t \to c} f(t) </m></p>
+			<p><m> \displaystyle \lim_{t \to c} k f(t) = k L </m></p>
 		</li>
 
 		<li xml:id="pattern-func-limits-laws-add">
@@ -445,6 +450,8 @@ allow us to handle limits of power functions, polynomial functions, and most rat
 		<li xml:id="pattern-func-limits-power-poly-power">
 			<p><m> \displaystyle \lim_{t \to c} t^n = c^n </m></p>
 		</li>
+
+		<!-- TODO root law? -->
 
 		<li xml:id="pattern-func-limits-power-poly-poly">
 			<p><m> \displaystyle \lim_{t \to c} p(t) = p(c) </m></p>
