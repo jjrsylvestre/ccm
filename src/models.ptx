@@ -251,7 +251,7 @@ the <xref ref="definition-deriv" text="custom">derivative function</xref> <m> q'
 	The derivative function keeps track of how the rate of accumulation varies:
 	<md>
 		s'(u) = \begin{cases}
-			10 \amp 0 \le u \le 100 \\
+			10 \amp 0 \lt u \lt 100 \\
 			15 \amp u \gt 100
 		\end{cases}
 	</md>.
