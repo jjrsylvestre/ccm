@@ -57,10 +57,10 @@ html-all: html html-images html-fonts
 clean: ptx-clean html-clean html-images-clean
 
 ptx-clean:
-	@-rm -f ${BUILDDIR}/ptx/.sentinal
+	@-rm -f ${BUILDDIR}/ptx/.sentinel
 	@-rm -f ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 html-clean:
-	@-rm -f ${BUILDDIR}/html/.sentinal
+	@-rm -f ${BUILDDIR}/html/.sentinel
 	@-rm -f ${BUILDDIR}/html/*.html
 	@-rm -f ${BUILDDIR}/html/knowl/*.html
 	@-rm -f ${BUILDDIR}/html/knowl/index/*.html
@@ -68,14 +68,14 @@ html-clean:
 	@-rm -f ${BUILDDIR}/html/lunr-pretext-search-index.js
 	@-rm -f ${BUILDDIR}/html/ccm.css
 html-images-clean:
-	@-rm -f ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal
+	@-rm -f ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinel
 	@-rm -f ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/*.svg
 	@-rm -f ${BUILDDIR}/image-pdfs/*.pdf
 
 ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx preprocess.xsl
-html: ${BUILDDIR}/html/.sentinal html-out.xml
-html-images: ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal
-html-image-pdfs: ${BUILDDIR}/image-pdfs/.sentinal
+html: ${BUILDDIR}/html/.sentinel html-out.xml
+html-images: ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinel
+html-image-pdfs: ${BUILDDIR}/image-pdfs/.sentinel
 latex: ${BUILDDIR}/latex/${ROOTDOCNAME}.tex
 
 deploy: html
@@ -92,12 +92,12 @@ ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx: $(SOURCES) | validate-xml
 	  --xinclude \
 	  --output ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx \
 	  ./preprocess.xsl src/${ROOTDOCNAME}.ptx
-	@touch ${BUILDDIR}/ptx/.sentinal
+	@touch ${BUILDDIR}/ptx/.sentinel
 	@echo "...DONE"
 
-${BUILDDIR}/html/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+${BUILDDIR}/html/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Converting PTX to HTML..."
-	@-rm -f ${BUILDDIR}/html/.sentinal
+	@-rm -f ${BUILDDIR}/html/.sentinel
 	@mkdir -p ${BUILDDIR}/html/knowl
 	@ln -sf --no-dereference ${BUILDDIR} build
 	@echo "...calling pretext to compile PreTeXt document"
@@ -116,17 +116,17 @@ ${BUILDDIR}/html/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 # 	  ${BUILDDIR}/html/*.html
 	@echo "...copying css style customizations"
 	@cp css/ccm.css ${BUILDDIR}/html/
-	@touch ${BUILDDIR}/html/.sentinal
+	@touch ${BUILDDIR}/html/.sentinel
 	@echo "...DONE"
 	@echo "Now call:"
 	@echo "   make html-images  (to build SVG images)"
 	@echo "   make html-serve   (to serve the output locally for previewing)"
 
-${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Generating SVG files for HTML output..."
 	@mkdir -p ${BUILDDIR}/html/${LATEX_IMAGE_PATH}
 	@ln -sf --no-dereference ${BUILDDIR} build
-	@-rm -f ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal
+	@-rm -f ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinel
 	@echo "...calling pretext to generate images"
 	@${PRETEXTDIR}/pretext/pretext \
 	  --verbose \
@@ -138,14 +138,14 @@ ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.p
 	@echo "...copying institution logo"
 	@mkdir -p ${BUILDDIR}/html/external
 	@-cp images/${BRANDLOGO} ${BUILDDIR}/html/external/
-	@touch ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinal
+	@touch ${BUILDDIR}/html/${LATEX_IMAGE_PATH}/.sentinel
 	@echo "...DONE"
 
-${BUILDDIR}/image-pdfs/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+${BUILDDIR}/image-pdfs/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Generating PDF files for HTML output images..."
 	@mkdir -p ${BUILDDIR}/image-pdfs
 	@ln -sf --no-dereference ${BUILDDIR} build
-	@-rm -f ${BUILDDIR}/image-pdfs/.sentinal
+	@-rm -f ${BUILDDIR}/image-pdfs/.sentinel
 	@echo "...calling pretext to generate images"
 	@${PRETEXTDIR}/pretext/pretext \
 	  --verbose \
@@ -154,7 +154,7 @@ ${BUILDDIR}/image-pdfs/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --restrict ${ROOT_XMLID} \
 	  --directory ${BUILDDIR}/image-pdfs \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
-	@touch ${BUILDDIR}/image-pdfs/.sentinal
+	@touch ${BUILDDIR}/image-pdfs/.sentinel
 	@echo "...DONE"
 	@echo "Now call:"
 	@echo "   ./scripts/image-widths.sh build/image-pdfs/*.pdf   (to calculate width attributes for ptx source)"
