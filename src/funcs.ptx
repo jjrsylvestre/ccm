@@ -990,7 +990,7 @@ then <m> g </m> will be both a scaling and reflection of <m> f </m>.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-funcs-horiz-trans">
 <title>Horizontal transformations</title>
 
 <introduction><p>

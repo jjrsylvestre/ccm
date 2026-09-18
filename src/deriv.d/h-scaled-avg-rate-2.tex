@@ -12,38 +12,39 @@
 %
 % *********************************************************************
 
-\newcommand*{\xmin}{1.25}
-\newcommand*{\xmax}{4.75}
-\newcommand*{\ymin}{-2}
-\newcommand*{\ymax}{4.25}
-\newcommand*{\func}{\x * \x * \x * \x / 4 - 3 * \x * \x * \x + 23 * \x * \x / 2 - 14 * \x + 3}
+\newcommand*{\xmin}{-0.1}
+\newcommand*{\xmax}{3}
+\newcommand*{\ymin}{-1.25}
+\newcommand*{\ymax}{4}
+\newcommand*{\func}{\x * \x * \x * \x / 4 - 3 * \x * \x * \x / 2 + 11 * \x * \x / 8 + 29 * \x / 8 - 63 / 64}
 
 \begin{tikzpicture}
 [
 	closedpt/.style={circle,draw,fill,inner sep=0pt,minimum size=4pt},
 	openpt/.style={circle,draw,inner sep=0pt,minimum size=4pt},
-	xscale=2,
+%	xscale=2,
 	yscale=1
 ]
 
 
 	% example graph
-	\draw[thick, domain=1.25:4.5, smooth, thick] plot (\x,{\func});
+	\draw[thick, domain=0:2.75, smooth, thick] plot (\x,{\func});
 
 	% axes
 	\draw[->,thick] (\xmin,0) -- (\xmax,0) node[below] {$t$};
-	\draw[->,thick] (1.5,\ymin) -- (1.5,\ymax) node[below right] {$p(t)$};
+	\draw[->,thick] (0,\ymin) -- (0,\ymax) node[below right] {$p(t)$};
 
-	\node[closedpt,blue] at (2.5,2.766) (qlefthalf) {};
-	\node[closedpt] at (3,3.75) (qcentre) {};
-	\node[closedpt,blue] at (3.5,3.766) (qrighthalf) {};
+	\node[closedpt,blue] at (1,2.766) (qlefthalf) {};
+	\node[closedpt] at (1.5,3.75) (qcentre) {};
+	\node[closedpt,blue] at (2,3.766) (qrighthalf) {};
 
 	\draw[blue, thick] (qlefthalf) -- (qrighthalf);
 
-	\draw[dashed] (qcentre) -- (3,0);
-	\node[below] at (3,0.1) (tcentre) {$u^\ast$};
+	\node[below] at (1.5,0.09) (tcentre) {$u^\ast$};
 
-	\draw[dashed] (qlefthalf) -- (2.5,0) node[below] {$u_1$};
-	\draw[dashed] (qrighthalf) -- (3.5,0) node[below] {$u_2$};
+	\draw[dashed] (qcentre) -- (1.5,0);
+
+	\draw[dashed] (qlefthalf) -- (1,0) node[below] {$u_1$};
+	\draw[dashed] (qrighthalf) -- (2,0) node[below] {$u_2$};
 
 \end{tikzpicture}

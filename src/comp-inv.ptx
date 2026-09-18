@@ -43,7 +43,7 @@ It is just a matter of changing perspective on the function from a single input-
 	</image>
 </figure>
 
-<definition>
+<definition xml:id="definition-comp-inv-comp">
 	<title>Composite of two functions</title>
 	<statement><p>
 		Given functions <m> f </m> and <m> g </m>,

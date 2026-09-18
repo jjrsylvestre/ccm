@@ -272,43 +272,50 @@ So we'll start by analysing the two simplest possible quantity models built on t
 </subsection>
 
 <subsection>
-<title>Scaling and adding quantities does the same to the derivative</title>
+<title>Effects of vertical transformations and combinations</title>
 
-<p> Now we'll work a little more generally to develop some algebraic rules for derivatives. </p>
+<p> Now we'll work a little more generally to develop some algebraic rules for derivatives based on transforming and combining the outputs of differentiable functions. </p>
 
 <identity xml:id="pattern-deriv-scale">
 	<title>Derivative of a scaled quantity (Constant Multiple Rule)</title>
 
 	<statement><p>
-		If <m> q(t) </m> is a differentiable quantity function,
-		then for any constant <m> c </m> we have <md> \opddt (c q) = c \, \dqdt </md>.
+		If <m> q(t) </m> is a vertical scale of a differentiable quantity function <m> p(t) </m>,
+		so that <md> q(t) = k p(t) </md> for some constant <m> k </m>,
+		then <m> q </m> is also differentiable with <md> q'(t) = k p'(t) </md>.
+		Alternatively,
+		we have <md> \opddt (k p) = k \, \ddt{p} </md>.
 		That is, <alert>the derivative of a constant multiple is the constant multiple of the derivative</alert>.
 	</p></statement>
 
 	<proof><p>
-		Consider quantity function <m> p(t) = c q(t) </m>.
-		Then <md> p(t + \change{t}) = c q(t + \change{t}) </md>,
-		so
+		We have <md> q(t + \change{t}) = k p(t + \change{t}) </md>,
+		so that
 		<md>
-			<mrow> \change{p} \amp = p(t + \change{t}) - p(t) </mrow>
-			<mrow> \amp = c q(t + \change{t}) - c q(t) </mrow>
-			<mrow> \amp = c \bbrac{ q(t + \change{t}) - q(t) } </mrow>
-			<mrow> \amp = c \change{q} \text{.} </mrow>
+			<mrow> \change{q} \amp = q(t + \change{t}) - q(t) </mrow>
+			<mrow> \amp = k p(t + \change{t}) - k p(t) </mrow>
+			<mrow> \amp = k \bbrac{ p(t + \change{t}) - p(t) } </mrow>
+			<mrow> \amp = k \change{p} \text{.} </mrow>
 		</md>
 		Therefore,
 		<md>
-			\slope{p}{t}
-			= \frac{c \change{q} }{ \change{t} }
-			= c \, \slope{q}{t}
+			\slope{q}{t}
+			= \frac{k \change{p} }{ \change{t} }
+			= k \, \slope{p}{t}
 		</md>.
-		We have assumed that <m> q </m> is differentiable,
-		so <md> \slope{q}{t} \to \dqdt \qquad \text{as} \qquad \change{t} \to 0 </md>.
+		We have assumed that <m> p </m> is differentiable,
+		so <md> \slope{p}{t} \to \ddt{p} \qquad \text{as} \qquad \change{t} \to 0 </md>.
 		By the <xref ref="pattern-limits-laws-homog" text="title" /> we then have
-		<md> c \,  \slope{q}{t} \to c \, \dqdt \qquad \text{as} \qquad \change{t} \to 0 </md>.
+		<md> k \, \slope{p}{t} \to k \, \ddt{p} \qquad \text{as} \qquad \change{t} \to 0 </md>.
 		That is,
-		<md> \slope{p}{t} \to c \, \dqdt \qquad \text{as} \qquad \change{t} \to 0 </md>,
+		<md>
+			\slope{q}{t}
+			= k \slope{p}{t} \to k \, \ddt{p}
+			\qquad \text{as} \qquad
+			\change{t} \to 0
+		</md>,
 		and so
-		<md> \ddt{p} = c \, \dqdt </md>,
+		<md> \dqdt = k \, \ddt{p} </md>,
 		as claimed.
 	</p></proof>
 
@@ -368,36 +375,43 @@ if we reflect vertically then the rise becomes negative while the run stays the 
 	<title>Derivative of a sum of quantities (Sum Rule)</title>
 
 	<statement><p>
-		If <m> q_1(t) </m> and <m> q_2(t) </m> are differentiable quantity functions,
-		then <md> \opddt (q_1 + q_2) = \ddt{q_1} + \ddt{q_2} </md>.
+		If <m> p_1(t) </m> and <m> p_2(t) </m> are differentiable quantity functions,
+		then the sum function <md> q(t) = p_1(t) + p_2(t) </md> is also differentiable,
+		with <md> q'(t) = p_1'(t) + p_2'(t) </md>.
+		Alternatively, <md> \opddt (p_1 + p_2) = \ddt{p_1} + \ddt{p_2} </md>.
 		That is, <alert>the derivative of a sum is the sum of the derivatives</alert>.
 	</p></statement>
 
 	<proof><p>
-		Consider quantity function <md> p(t) = q_1(t) + q_2(t) </md>.
-		Then <md> p(t + \change{t}) = q_1(t + \change{t}) + q_2(t + \change{t}) </md>,
+		We have <md> q(t + \change{t}) = p_1(t + \change{t}) + p_2(t + \change{t}) </md>,
 		so
 		<md>
-			<mrow> \change{p} \amp = p(t + \change{t}) - p(t) </mrow>
-			<mrow> \amp = \bbrac{ q_1(t + \change{t}) + q_2(t + \change{t}) } - \bbrac{ q_1(t) + q_2(t) } </mrow>
-			<mrow> \amp = \bbrac{ q_1(t + \change{t}) - q_1(t) } + \bbrac{ q_2(t + \change{t}) - q_2(t)} </mrow>
-			<mrow> \amp = \change{q_1} + \change{q_2} </mrow>
+			<mrow> \change{q} \amp = q(t + \change{t}) - q(t) </mrow>
+			<mrow> \amp = \bbrac{ p_1(t + \change{t}) + p_2(t + \change{t}) } - \bbrac{ p_1(t) + p_2(t) } </mrow>
+			<mrow> \amp = \bbrac{ p_1(t + \change{t}) - p_1(t) } + \bbrac{ p_2(t + \change{t}) - p_2(t)} </mrow>
+			<mrow> \amp = \change{p_1} + \change{p_2} </mrow>
 		</md>.
 		Therefore,
 		<md>
-			\slope{p}{t}
-			= \frac{ \change{q_1} + \change{q_2} }{ \change{t} }
-			= \slope{q_1}{t} + \slope{q_2}{t}
+			\slope{q}{t}
+			= \frac{ \change{p_1} + \change{p_2} }{ \change{t} }
+			= \slope{p_1}{t} + \slope{p_2}{t}
 		</md>.
-		We have assumed that <m> q_1 </m> and <m> q_2 </m> are both differentiable,
-		so <md>\slope{q_1}{t} \to \ddt{q_1}, \quad \slope{q_2}{t} \to \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0</md>.
+		We have assumed that <m> p_1 </m> and <m> p_2 </m> are both differentiable,
+		so both <md>\slope{p_1}{t} \to \ddt{p_1}, \quad \slope{p_2}{t} \to \ddt{p_2} \qquad \text{as} \qquad \change{t} \to 0</md>.
 		Using the <xref ref="pattern-limits-laws-add" text="title" />,
 		we can combine these to get
-		<md> \slope{q_1}{t} + \slope{q_2}{t} \to \ddt{q_1} + \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0 </md>.
+		<md> \slope{p_1}{t} + \slope{p_2}{t} \to \ddt{p_1} + \ddt{p_2} \qquad \text{as} \qquad \change{t} \to 0 </md>.
 		That is,
-		<md> \slope{p}{t} \to \ddt{q_1} + \ddt{q_2} \qquad \text{as} \qquad \change{t} \to 0 </md>,
+		<md>
+			\slope{q}{t}
+			= \slope{p_1}{t} + \slope{p_2}{t}
+			\to \ddt{p_1} + \ddt{p_2}
+			\qquad \text{as} \qquad
+			\change{t} \to 0
+		</md>,
 		and so
-		<md> \ddt{p} = \ddt{q_1} + \ddt{q_2} </md>,
+		<md> \ddt{q} = \ddt{p_1} + \ddt{p_2} </md>,
 		as claimed.
 	</p></proof>
 
@@ -414,8 +428,10 @@ to create a <term>Difference Rule</term>.
 <identity xml:id="pattern-deriv-diff">
 	<title>Derivative of a difference of quantities (Difference Rule)</title>
 	<statement><p>
-		If <m> q_1(t) </m> and <m> q_2(t) </m> are differentiable quantity functions,
-		then <md> \opddt (q_1 - q_2) = \ddt{q_1} - \ddt{q_2} </md>.
+		If <m> p_1(t) </m> and <m> q_2(t) </m> are differentiable quantity functions,
+		then the difference function <md> q(t) = p_1(t) - p_2(t) </md> is differentiable,
+		with <md> q'(t) = p_1'(t) - p_2'(t) </md>.
+		Alternatively, <md> \opddt (p_1 - p_2) = \ddt{p_1} - \ddt{p_2} </md>.
 		That is, <alert>the derivative of a difference is the difference of the derivatives</alert>.
 	</p></statement>
 </identity>
@@ -424,13 +440,12 @@ to create a <term>Difference Rule</term>.
 We may apply a combination of our rules and basic formulas so far to establish the pattern of a derivative function for a linear function.
 </p>
 
-
 <identity xml:id="pattern-deriv-linear">
 	<title>Derivative of a linear quantity function</title>
 
 	<statement><p>
-		For <md> q(t) = r t + q_0 </md>,
-		<m> q'(t) = r </m>.
+		For <md> q(t) = r t + q_0 </md>
+		we have <m> q'(t) = r </m>.
 	</p></statement>
 
 	<proof><p>
@@ -485,24 +500,24 @@ so in fact they will be the same line.
 Finally,
 consider the special case of the <xref ref="pattern-deriv-sum" text="custom">Sum Rule</xref>
 where the second function is a constant function:
-if <md> q(t) = q_1(t) + c </md>,
+if <md> q(t) = p_1(t) + C </md>,
 then
 <md>
-	<mrow> \dqdt \amp = \opddt (q_1 + c) </mrow>
-	<mrow> \amp = \ddt{q_1} + \ddt{c} </mrow>
-	<mrow> \amp = \ddt{q_1} + 0 </mrow>
-	<mrow> \amp = \ddt{q_1} </mrow>
+	<mrow> \dqdt \amp = \opddt (p_1 + C) </mrow>
+	<mrow> \amp = \ddt{p_1} + \ddt{C} </mrow>
+	<mrow> \amp = \ddt{p_1} + 0 </mrow>
+	<mrow> \amp = \ddt{p_1} </mrow>
 </md>.
 </p>
 
 <identity xml:id="pattern-deriv-vertical-shift">
 	<title>Derivative of a vertical shift</title>
 	<p>
-	Suppose quantity functions <m> q_1 </m> and <m> q_2 </m> are vertical shifts of each other,
-	so that there exists a constant <m> c </m> with
-	<md> q_2(t) = q_1(t) + c </md>.
+	Suppose quantity functions <m> p </m> and <m> q </m> are vertical shifts of each other,
+	so that there exists a constant <m> C </m> with
+	<md> q(t) = p(t) + C </md>.
 	Then the two functions are differentiable at the same input values,
-	with <md> \ddt{q_1} = \ddt{q_2} </md>.
+	with <md> \dqdt = \ddt{p} </md>.
 	</p>
 </identity>
 
@@ -517,10 +532,12 @@ then
 	</image>
 </figure>
 
-<p>
-Finally,
-let's consider the effect of horizontal transformations on derivative.
-</p>
+</subsection>
+
+<subsection>
+<title>Effects of horizontal transformations</title>
+
+<p> Now let's consider the effect of a horizontal transformation of a differentiable quantity function on the derivative function. </p>
 
 <identity xml:id="pattern-deriv-h-shift">
 	<title>Derivative of a horizontally-shifted quantity function</title>
@@ -536,8 +553,8 @@ let's consider the effect of horizontal transformations on derivative.
 		Instead of carrying out a detailed calculation of <m> dq / dt </m>,
 		let's just argue in terms of the concept of the derivative.
 		If the value of <m> dq / dt </m> at a particular time <m> t = t_0 </m> represents the instantaneous rate of accumulation of <m> q </m> at that time,
-		but <md> q(t) = p(t - c) </md>,
-		then we are really just measuring the instantaneous rate of accumulation of <m> p </m> at the <q>earlier</q> time <m> t = t_0 - c </m>.
+		but <md> q(t) = p(t - c) </md> for all <m> t </m> in a small domain containing <m> t_0 </m>,
+		then we are really just measuring the instantaneous rate of accumulation of <m> q </m> at the <q>earlier</q> time <m> t = t_0 - c </m>.
 		</p>
 	</proof>
 
@@ -558,10 +575,10 @@ let's consider the effect of horizontal transformations on derivative.
 	<title>Derivative of a horizontally-scaled quantity function</title>
 
 	<statement><p>
-		If we horizontally scale a differentiable quantity function <m> p(t) </m> to create a new function <md> q(t) = p(a t) </md>,
+		If we horizontally scale a differentiable quantity function <m> p(t) </m> to create a new function <md> q(t) = p(t / k) </md>,
 		then the new function is also differentiable,
 		and the associated derivative function is also a scaling,
-		but both vertically and horizontally by the same factor: <md> q'(t) = a p'(a t) </md>.
+		but both vertically and horizontally by the same factor: <md> q'(t) = \frac{p'(t / k)}{k} </md>.
 	</p></statement>
 
 	<proof>
@@ -573,63 +590,63 @@ let's consider the effect of horizontal transformations on derivative.
 
 			<mrow> \slope{q}{t} \amp = \frac{q(t_2) - q(t_1)}{t_2 - t_1} </mrow>
 
-			<mrow> \amp = \frac{p(a t_2) - p(a t_1)}{t_2 - t_1} </mrow>
+			<mrow> \amp = \frac{p(t_2 / k) - p(t_1 / k)}{t_2 - t_1} </mrow>
 
 		</md>.
 		This almost looks like an average rate calculation for <m> p </m>,
 		but the time values in the denominator don't match the time values used as inputs to <m> p </m> in the numerator.
-		Let's fix that;
-		assuming <m> a \neq 0 </m>
-		(since using <m> a = 0 </m> would not constitute a horizontal scaling of <m> p </m>),
-		we have <m> a / a = 1 </m>.
-		This means we may multiply our difference quotient by <m> a / a </m> without changing it:
+		Let's fix that:
+		assuming <m> k \neq 0 </m>,
+		we have <md> \frac{1 / k}{1 / k} = 1 </md>.
+		This means we may multiply our difference quotient above by this version of <m> 1 </m> affecting its value:
 		<md>
 
-			<mrow> \slope{q}{t} \amp = \slope{q}{t} \cdot \frac{a}{a} </mrow>
+			<mrow> \slope{q}{t} \amp = \slope{q}{t} \cdot \frac{1 / k}{1 / k} </mrow>
 
-			<mrow> \amp = \frac{p(a t_2) - p(a t_1)}{t_2 - t_1} \cdot \frac{a}{a} </mrow>
+			<mrow> \amp = \frac{p(t_2 / k) - p(t_1 / k)}{t_2 - t_1} \cdot \frac{1 / k}{1 / k} </mrow>
 
-			<mrow> \amp = a \cdot \frac{p(a t_2) - p(a t_1)}{a t_2 - a t_1} </mrow>
+			<mrow> \amp = \frac{p(t_2 / k) - p(t_1 / k)}{t_2 / k - t_1 / k} \cdot \frac{1 / k}{1} </mrow>
+
+			<mrow> \amp = \frac{p(t_2 / k) - p(t_1 / k)}{t_2 / k - t_1 / k} \cdot \frac{1}{k} </mrow>
 
 		</md>.
-		So an average rate calculation for <m> q </m> over a domain <m> t_1 \le t \le t_2 </m> is a scaling of an average rate calculation for <m> p </m> over domain <m> a t_1 \le t \le a t_2 </m>.
+		So an average rate calculation for <m> q </m> over a domain <m> t_1 \le t \le t_2 </m> is a scaling of an average rate calculation for <m> p </m> over domain <m> t_1 / k \le t \le t_2 / k </m>.
 		To more clearly work over this scaled domain,
 		let's change variables.
 		<md>
 
-			<mrow> u_1 \amp = a t_1 \amp \change{u} \amp = u_2 - u_1 </mrow>
+			<mrow> u_1 \amp = t_1 / k \amp \change{u} \amp = u_2 - u_1 </mrow>
 
-			<mrow> u_2 \amp = a t_2 \amp \amp = a t_2 - a t_1 </mrow>
+			<mrow> u_2 \amp = t_2 / k \amp \amp = t_2 / k - t_1 / k </mrow>
 
-			<mrow> u^\ast \amp = a t^\ast \amp \amp = a \change{t} </mrow>
+			<mrow> u^\ast \amp = t^\ast / k \amp \amp = \change{t} / k </mrow>
 
 		</md>
 		With these new variables,
 		our previous calculation becomes
 		<md>
 			\slope{q}{t}
-			= a \cdot \frac{p(u_2) - p(u_1)}{u_2 - u_1}
-			= a \cdot \slope{p}{u}
+			= \frac{p(u_2) - p(u_1)}{u_2 - u_1} \cdot \frac{1}{k}
+			= \slope{p}{u} \cdot \frac{1}{k}
 		</md>.
 		</p>
 
 		<figure xml:id="figure-deriv-h-scaled-avg-rate">
 			<caption>
-				An average rate calculation on one graph stretched into an average rate calculation on another.
-				Note that in the case that <m> a \gt 1 </m>
+				An average rate calculation on one graph compressed into an average rate calculation on another.
+				Note that in the case that <m> k \gt 1 </m>
 				(which is what is pictured here),
-				then the graph of <m> q </m> is a <em>compression</em> of the graph of <m> p </m>.
-				And notice how this makes the slope of the secant line on the graph of <m> q </m> <em>steeper</em> than the slope of the secant line on the graph of <m> p </m>.
+				the graph of <m> q </m> is a stretch of the graph of <m> p </m>,
+				but this in turn means that the graph of <m> p </m> is a <em>compression</em> of the graph of <m> q </m>.
+				Notice how this makes the slope of the secant line on the graph of <m> p </m> <em>steeper</em> than the corresponding slope of the secant line on the graph of <m> q </m>.
 			</caption>
 
-			<sidebyside widths="30% 59.4%">
+			<sidebyside widths="51.4% 27.3%">
 
 				<figure xml:id="figure-deriv-h-scaled-avg-rate-1">
-					<caption>
-						A secant line representing an average rate on a compressed graph.
-					</caption>
+					<caption> A secant line representing an average rate on a stretched graph. </caption>
 					<image>
-						<shortdescription> A secant line representing an average rate on a compressed graph. </shortdescription>
+						<shortdescription> A secant line representing an average rate on a stretched graph. </shortdescription>
 						<!-- TODO description -->
 						<latex-image label="image-deriv-h-scaled-avg-rate-1">
 							<xi:include href="deriv.d/h-scaled-avg-rate-1.tex" parse="text" />
@@ -638,11 +655,9 @@ let's consider the effect of horizontal transformations on derivative.
 				</figure>
 
 				<figure xml:id="figure-deriv-h-scaled-avg-rate-2">
-					<caption>
-						A stretched secant line representing an average rate on the original graph.
-					</caption>
+					<caption> A compressed secant line representing an average rate on the original graph. </caption>
 					<image>
-						<shortdescription> A stretched secant line representing an average rate on the original graph. </shortdescription>
+						<shortdescription> A compressed secant line representing an average rate on the original graph. </shortdescription>
 						<!-- TODO description -->
 						<latex-image label="image-deriv-h-scaled-avg-rate-2">
 							<xi:include href="deriv.d/h-scaled-avg-rate-2.tex" parse="text" />
@@ -656,7 +671,7 @@ let's consider the effect of horizontal transformations on derivative.
 
 		<p>
 		If we are considering a specific time <m> t = t^\ast </m>,
-		our calculations above say that <em>every</em> average rate calculation for <m> q </m> on a domain containing <m> t^\ast </m> can be converted into a scaled average rate calculation for <m> p </m> on a domain containing <m> a t^\ast </m>.
+		our calculations above say that <em>every</em> average rate calculation for <m> q </m> on a domain containing <m> t^\ast </m> can be converted into a scaled average rate calculation for <m> p </m> on a domain containing <m> u^\ast = t^\ast / k </m>.
 		Applying this in particular to a forward/backward average rate approximation as in
 		<xref ref="definition-avg-rate-derivative-value" />,
 		since <m> p </m> is assumed to be differentiable,
@@ -664,10 +679,10 @@ let's consider the effect of horizontal transformations on derivative.
 		</p>
 
 		<p>
-		As we are investigating <m> q'(t) </m>,
+		As we are investigating <m> dq/dt </m>,
 		we would like to know the limit of <m> \inlineslope{q}{t} </m> as <m> \change{t} \to 0 </m>.
 		But for <m> \change{t} \to 0 </m>,
-		we have <md> \change{u} = a \change{t} \to a \cdot 0 = 0 </md>.
+		we have <md> \change{u} = \change{t} / k \to 0 / k = 0 </md>.
 		So
 		<md>
 
@@ -686,20 +701,40 @@ let's consider the effect of horizontal transformations on derivative.
 			<mrow>
 				\amp
 				\amp \amp \implies \quad
-				\slope{q}{t} = a \cdot \slope{p}{u} \to a \dd{p}{u} \text{.}
+				\slope{q}{t} = \slope{p}{u} \cdot \frac{1}{k} \to \dd{p}{u} \cdot \frac{1}{k} \text{.}
 			</mrow>
 
 		</md>
-		The pattern of our change of variables was <m> u = a t </m>,
-		so that <md> \dd{p}{u} = p'(u) = p'(a t) </md>.
+		The pattern of our change-of-variables was <m> u = t / k </m>,
+		so that <md> \dd{p}{u} = p'(u) = p'(t / k) </md>.
 		Combining with the calculations above we have
-		<md> q'(t) = \lim_{\change{t} \to 0} \slope{q}{t} = a \dd{p}{u} = a p'(a t) </md>,
+		<md> q'(t) = \lim_{\change{t} \to 0} \slope{q}{t} = \dd{p}{u} \cdot \frac{1}{k} = \frac{p'(t / k)}{k} </md>,
 		as desired.
 		</p>
 
 	</proof>
 
 </identity>
+
+<remark xml:id="remark-deriv-h-scale">
+
+	<p>
+	In <xref ref="pattern-deriv-h-scale" />,
+	we have expressed the horizontal scale pattern <m> q(t) = p(t / k) </m> consistently with our presentation in <xref ref="subsection-funcs-horiz-trans" />,
+	where the scale factor is expressed through <em>division</em> rather than multiplication.
+	Nevertheless,
+	here is the corresponding derivative pattern when the horizontal scale factor is expressed through multiplication.
+	To obtain it,
+	we simply make a substitution of the scale factor via <m> a = 1 / k </m>:
+	<md> q(t) = p(a t) \qquad \implies \qquad q'(t) = a p'(a t) </md>.
+	</p>
+
+	<aside><title>A look ahead</title><p>
+		We will discover that the derivative patterns associated to horizontal scaling expressed in <xref ref="pattern-deriv-h-scale" /> and <xref ref="remark-deriv-h-scale" /> are special cases of a larger pattern involving the <xref ref="definition-comp-inv-comp" text="title" />,
+		called the <xref ref="pattern-chain-differential-version" text="title" />.
+	</p></aside>
+
+</remark>
 
 <p>
 Note that <xref ref="pattern-deriv-h-scale" /> applies equally well when the horizontal scale factor is negative.
