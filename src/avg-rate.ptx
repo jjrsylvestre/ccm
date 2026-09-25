@@ -1251,7 +1251,7 @@ and functions with such a feature are never differentiable at that point.
 	<p>
 	Consider a model function <md> q(t) = \frac{1}{(t-2)^2} </md>.
 	This function has a singularity at <m> t = 2 </m>,
-	where <m> q(t) \to \infty </m> for both <m> t \to 2^\plus </m> and <m> t \to 2^\minus </m>.
+	where <m> q(t) \to \infty </m> for both <m> t \to 2^- </m> and <m> t \to 2^+ </m>.
 	</p>
 
 	<p>
