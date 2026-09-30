@@ -16,7 +16,7 @@ respective owners.
 <chapter xml:id="chapter-limits" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Limits and continuity</title>
 
-<section xml:id="section-limits-intro">
+<section xml:id="section-limits-motivation">
 <title>Motivation</title>
 
 <p>
@@ -96,7 +96,7 @@ and return to the pattern of a limiting process for average rate of accumulation
 
 </section>
 
-<section>
+<section xml:id="section-limits-definition">
 <title>Definition and first examples</title>
 
 <p>
@@ -503,7 +503,7 @@ where we will approach <term>function limits</term> more rigorously from the per
 
 	<p>
 	The situation where the function value <m> f(c) </m> and the limit value of <m> f(t) </m> as <m> t \to c </m> turn out to be the same is a special one that we will give a name to later in this chapter
-	(<xref ref="section-limits-continuous-funcs" />).
+	(<xref ref="section-limits-continuity" />).
 	</p>
 
 </warning>
@@ -511,7 +511,7 @@ where we will approach <term>function limits</term> more rigorously from the per
 </section>
 
 
-<section>
+<section xml:id="section-limits-algebraically">
 <title>Computing limits algebraically</title>
 
 <p>
@@ -617,10 +617,10 @@ we leave further examples to the further development of the limiting process app
 
 </section>
 
-<section xml:id="section-limits-continuous-funcs">
+<section xml:id="section-limits-continuity">
 <title>Continuous functions</title>
 
-<subsection>
+<subsection xml:id="subsection-limits-continuity-basics">
 <title>Basics</title>
 
 <p>
@@ -713,7 +713,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-limits-continuity-discontinuities">
 <title>Types of discontinuities</title>
 
 <p> We will encounter three basic types of discontinuities. </p>
@@ -844,7 +844,7 @@ Between discontinuities, we  make a blanket pronouncement of continuity.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-limits-continuity-IVT">
 <title>The Intermediate Value Theorem</title>
 
 <p> An important feature of continuous graphs is that they cannot <q>skip over</q> any particular output level. </p>
