@@ -252,7 +252,7 @@ even if the description of the function's input-output process could allow other
 
 </section>
 
-<section>
+<section xml:id="section-funcs-graph">
 <title>Graph of a function</title>
 
 <definition xml:id="definition-funcs-graph">
@@ -452,7 +452,7 @@ assign an output value <m> f(t) </m> to each input value <m> t </m> as follows:
 
 </section>
 
-<section>
+<section xml:id="section-funcs-piecewise">
 <title>Piecewise functions</title>
 
 <p>
@@ -714,10 +714,10 @@ but mainly we want to use the relationships between the graph at hand and a refe
 
 </introduction>
 
-<subsection>
+<subsection xml:id="subsection-funcs-transformations-vert">
 <title>Vertical transformations</title>
 
-<subsubsection>
+<subsubsection xml:id="subsubsection-funcs-transformations-vert-shift">
 <title>Vertical shift</title>
 
 <p>
@@ -799,7 +799,7 @@ we call <m> g </m> a <term>vertical shift</term> of <m> f </m>.
 
 </subsubsection>
 
-<subsubsection>
+<subsubsection xml:id="subsubsection-funcs-transformations-vert-scale">
 <title>Vertical scaling</title>
 
 <p>
@@ -882,7 +882,7 @@ we call <m> g </m> a <term>vertical scaling</term> of <m> f </m>.
 
 </subsubsection>
 
-<subsubsection>
+<subsubsection xml:id="subsubsection-funcs-transformations-vert-refl">
 <title>Vertical reflection</title>
 
 <p>
@@ -952,7 +952,7 @@ then <m> g </m> will be both a scaling and reflection of <m> f </m>.
 
 </subsubsection>
 
-<subsubsection>
+<subsubsection xml:id="subsubsection-funcs-transformations-vert-summary">
 <title>Summary of vertical transformations</title>
 
 <assemblage>
@@ -990,7 +990,7 @@ then <m> g </m> will be both a scaling and reflection of <m> f </m>.
 
 </subsection>
 
-<subsection xml:id="subsection-funcs-horiz-trans">
+<subsection xml:id="subsection-funcs-transformations-horiz">
 <title>Horizontal transformations</title>
 
 <introduction><p>
@@ -1007,7 +1007,7 @@ then <m> g </m> will be both a scaling and reflection of <m> f </m>.
 	and horizontal scales in terms of <em>dividing</em> by a scale factor that is either greater or less than one.
 </p></introduction>
 
-<subsubsection>
+<subsubsection xml:id="subsubsection-funcs-transformations-horiz-shift">
 <title>Horizontal shift</title>
 
 <p>
@@ -1110,7 +1110,7 @@ we call the <q>new</q> function a <term>horizontal shift</term> of the <q>old</q
 
 </subsubsection>
 
-<subsubsection>
+<subsubsection xml:id="subsubsection-funcs-transformations-horiz-scale">
 <title>Horizontal scaling</title>
 
 <p>
@@ -1226,7 +1226,7 @@ we call the <q>new</q> function a <term>horizontal scale</term> of the <q>old</q
 
 </subsubsection>
 
-<subsubsection>
+<subsubsection xml:id="subsubsection-funcs-transformations-horiz-refl">
 <title>Horizontal reflection</title>
 
 <p>
@@ -1306,7 +1306,7 @@ then <m> g </m> will be both a scaling and reflection of <m> f </m>.
 
 </subsubsection>
 
-<subsubsection>
+<subsubsection xml:id="subsubsection-funcs-transformations-horiz-summary">
 <title>Summary of horizontal transformations</title>
 
 <assemblage>

@@ -720,7 +720,7 @@ then
 
 	<p>
 	In <xref ref="pattern-deriv-h-scale" />,
-	we have expressed the horizontal scale pattern <m> q(t) = p(t / k) </m> consistently with our presentation in <xref ref="subsection-funcs-horiz-trans" />,
+	we have expressed the horizontal scale pattern <m> q(t) = p(t / k) </m> consistently with our presentation in <xref ref="subsection-funcs-transformations-horiz" />,
 	where the scale factor is expressed through <em>division</em> rather than multiplication.
 	Nevertheless,
 	here is the corresponding derivative pattern when the horizontal scale factor is expressed through multiplication.
