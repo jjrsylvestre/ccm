@@ -18,10 +18,10 @@ respective owners.
 <chapter xml:id="chapter-models" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Models</title>
 
-<section xml:id="section-models-intro">
+<section xml:id="section-models-rate-funcs">
 <title>Functions modelling rate of accumulation</title>
 
-<subsection>
+<subsection xml:id="subsection-models-rate-func-concept">
 <title>Concept and basic examples</title>
 
 <p>
@@ -197,7 +197,7 @@ obtaining a quantity function that can be used to predict specific future quanti
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-models-rate-func-vs-deriv">
 <title>Rate functions versus derivative functions</title>
 
 <p>
@@ -286,7 +286,7 @@ at this point it is not clear whether every rate function is a derivative functi
 
 </section>
 
-<section>
+<section xml:id="section-models-diff-eq">
 <title>Differential equations</title>
 
 <p>
@@ -723,7 +723,7 @@ so we should expect different <em>initial</em> quantities to lead to different s
 
 </section>
 
-<section>
+<section xml:id="section-models-dir-fields">
 <title>Direction fields</title>
 
 <p>
