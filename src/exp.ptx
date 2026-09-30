@@ -271,7 +271,7 @@ Exponential functions come in three varieties:
 <section xml:id="section-exp-natural">
 <title>The natural exponential function</title>
 
-<subsection>
+<subsection xml:id="subsection-exp-natural-euler">
 <title>Euler's number</title>
 
 <p>
@@ -344,7 +344,7 @@ it becomes <q>natural</q> to compare every exponential function to the exponenti
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-exp-natural-reflect-log">
 <title>The natural exponential function as a reflection of the natural logarithm</title>
 
 <p>
@@ -427,7 +427,7 @@ we can say that this is indeed the graph of the natural exponential function.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-exp-natural-computing">
 <title>Computing values of exponential functions</title>
 
 <p>
@@ -517,7 +517,7 @@ you can ask Sage to compute it for you below.
 
 </subsection>
 
-<subsection xml:id="subsection-exp-inverse-ln">
+<subsection xml:id="subsection-exp-natural-inverse-ln">
 <title>Undoing the natural exponential and logarithm functions</title>
 
 <p>
@@ -826,7 +826,7 @@ we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to ob
 <section xml:id="section-exp-deriv">
 <title>Derivatives of exponential functions</title>
 
-<subsection>
+<subsection xml:id="subsection-exp-deriv-natural">
 <title>Derivative of the natural exponential function</title>
 
 <p>
@@ -957,7 +957,7 @@ the more there is, the sooner there will be a lot more than that.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-exp-deriv-diff-eq">
 <title>Exponential functions as solutions to proportional differential equations</title>
 
 <p>
@@ -1086,7 +1086,7 @@ but in <xref ref="chapter-substitution" /> we will be able to verify that we in 
 	which is the time it takes for the sample to be reduced by half.
 	Our initial quantity was <m> q(0) = 3 </m>,
 	so we are looking to solve for the <m> t </m>-value that satisfies <md> q(t) = 3 / 2 = 1.5 </md>.
-	As in <xref ref="subsection-exp-inverse-ln" />,
+	As in <xref ref="subsection-exp-natural-inverse-ln" />,
 	we can use the natural logarithm to help us solve this.
 	<md alignment="gather">
 		<mrow> 3 e^{- t / 2} = \frac{3}{2} </mrow>
@@ -1126,7 +1126,7 @@ but in <xref ref="chapter-substitution" /> we will be able to verify that we in 
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-exp-deriv-general">
 <title>Derivatives of general exponential functions</title>
 
 <p>
