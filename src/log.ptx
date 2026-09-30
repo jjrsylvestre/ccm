@@ -490,7 +490,7 @@ we record the following version of <xref ref="pattern-log-quotient" />.
 <section xml:id="section-log-deriv">
 <title>Derivative of the natural logarithm</title>
 
-<subsection>
+<subsection xml:id="subsection-log-deriv-formula">
 <title>Initial formula</title>
 
 <p>
@@ -580,7 +580,7 @@ we have a new differentiation pattern.
 
 </subsection>
 
-<subsection xml:id="subsection-log-extended-deriv-formula">
+<subsection xml:id="subsection-log-deriv-extended-formula">
 <title>Extended formula</title>
 
 <p>

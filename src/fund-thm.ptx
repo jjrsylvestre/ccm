@@ -731,7 +731,7 @@ our intuition based on <term>quantities</term>, <term>rates</term>, and <term>ac
 		= \frac{1}{t}
 	</md>.
 	We can similarly verify <xref ref="pattern-log-abs-deriv" /> using our interpretation of <m> \ln\abs{t} </m> at the end of
-	<xref ref="subsection-log-extended-deriv-formula" />:
+	<xref ref="subsection-log-deriv-extended-formula" />:
 	<md>
 		\ln\abs{t} = \begin{cases}
 			\displaystyle \ccmint{1}{t}{\frac{1}{u}}{u} \amp t \gt 0 \\[3pt]
