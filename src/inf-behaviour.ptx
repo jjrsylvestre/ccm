@@ -16,7 +16,7 @@ respective owners.
 <chapter xml:id="chapter-inf-behaviour" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Long-term and singular behaviour</title>
 
-<section xml:id="section-inf-behaviour-horiz">
+<section xml:id="section-inf-behaviour-long-term">
 <title>Long-term behaviour</title>
 
 <introduction><p>
@@ -33,7 +33,7 @@ respective owners.
 	we develop a process for detecting these patterns.
 </p></introduction>
 
-<subsection>
+<subsection xml:id="subsection-inf-behaviour-long-term-definition">
 <title>Definition and first examples</title>
 
 <definition xml:id="definition-inf-behaviour-horiz">
@@ -353,7 +353,7 @@ Finally, here is an example where the long-term behaviour does not fall into any
 
 </subsection>
 
-<subsection xml:id="subsection-inf-behaviour-patterns">
+<subsection xml:id="subsection-inf-behaviour-long-term-patterns">
 <title>Fundamental long-term behaviour patterns</title>
 
 <p>
@@ -430,7 +430,7 @@ by recognizing these patterns as <q>pieces</q> of the more complex ones.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-inf-behaviour-long-term-analysis">
 <title>Analyzing more complex examples</title>
 
 <p>
@@ -584,7 +584,7 @@ We can do this by forming ratios inside the overall ratio to more directly compa
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-inf-behaviour-long-term-ancient">
 <title>Ancient behaviour</title>
 
 <p>
@@ -615,7 +615,7 @@ must hold on a subdomain <m> t \lt t_1 </m> for some large, negative <m> t_1 </m
 </p>
 
 <p>
-Most of the same patterns described in <xref ref="subsection-inf-behaviour-patterns" /> still hold,
+Most of the same patterns described in <xref ref="subsection-inf-behaviour-long-term-patterns" /> still hold,
 with the following alterations.
 <ol>
 
@@ -777,7 +777,7 @@ with the following alterations.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-inf-behaviour-long-term-slant">
 <title>Slant asymptotes</title>
 
 <p> Sometimes we can be more informative about the patterns <m> f(t) \to \pm \infty </m>. </p>
@@ -1014,10 +1014,10 @@ here are some simple examples based on computations we have already performed.
 </section>
 
 
-<section>
+<section xml:id="section-inf-behaviour-singular">
 <title>Singular behaviour</title>
 
-<subsection>
+<subsection xml:id="subsection-inf-behaviour-singular-definition">
 <title>Concept, definition, and basic examples</title>
 
 <p>
@@ -1146,7 +1146,7 @@ except:
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-inf-behaviour-singular-one-sided">
 <title>One-sided singularities</title>
 
 <p>
@@ -1209,7 +1209,7 @@ we make the following definition.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-inf-behaviour-singular-vert-asymp">
 <title>Vertical asymptotes</title>
 
 <p>
