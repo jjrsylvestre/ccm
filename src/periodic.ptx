@@ -152,7 +152,7 @@ the sine and cosine functions. -->
 
 </section>
 
-<section>
+<section xml:id="section-periodic-radians">
 <title>Radian measure</title>
 
 <p>
@@ -312,7 +312,7 @@ we generally take the point <m> (1,0) </m> as the <q>first</q> point to act as a
 
 </section>
 
-<section>
+<section xml:id="section-periodic-trig-funcs">
 <title>The six trigonometric functions</title>
 
 <p>
@@ -620,7 +620,7 @@ leading to the familiar acronyms SOH CAH TOA:
 </section>
 
 
-<section xml:id="section-periodic-sine-cosine-deriv">
+<section xml:id="section-periodic-deriv-sine-cosine">
 <title>Derivatives of the sine and cosine functions</title>
 
 <p>
@@ -1002,11 +1002,11 @@ Derivatives of the other four trigonometric functions will have to wait until we
 </section>
 
 
-<section xml:id="section-periodic-sine-cosine-integ">
+<section xml:id="section-periodic-integ-sine-cosine">
 <title>Integrals of the sine and cosine functions</title>
 
 <p>
-Let's return once more to the setup at the beginning of <xref ref="section-periodic-sine-cosine-deriv" />,
+Let's return once more to the setup at the beginning of <xref ref="section-periodic-deriv-sine-cosine" />,
 where we considered
 <md><mrow> v(t) \amp = \sin(t) \text{,} \amp s(t) = - \cos(t) </mrow></md>
 for the <em>mass-on-spring</em> system from <xref ref="example-periodic-spring" />.

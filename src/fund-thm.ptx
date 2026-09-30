@@ -763,7 +763,7 @@ our intuition based on <term>quantities</term>, <term>rates</term>, and <term>ac
 	<title>Integrals of sine and cosine</title>
 
 	<p>
-	In <xref ref="section-periodic-sine-cosine-integ" />,
+	In <xref ref="section-periodic-integ-sine-cosine" />,
 	we used the example of a spring attached to a mass as inspiration for integration formulas for sine and cosine.
 	<md>
 		<mrow>
