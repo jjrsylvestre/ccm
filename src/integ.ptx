@@ -25,7 +25,7 @@ respective owners.
 <section xml:id="section-integ-approx">
 <title>Approximating accumulation using step functions</title>
 
-<subsection xml:id="subsection-integ-simplifying-models">
+<subsection xml:id="subsection-integ-approx-simplifying-models">
 <title>Simplifying models</title>
 
 <p>
@@ -273,7 +273,7 @@ as before.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-integ-approx-better">
 <title>Obtaining better approximations</title>
 
 <question><p>
@@ -427,7 +427,7 @@ so that the step function's values can change more often to better keep up with 
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-integ-approx-general-form">
 <title>General form of approximations</title>
 
 <p>
@@ -498,7 +498,7 @@ because they are used to <q>sample</q> the value of the rate function on that su
 
 </subsection>
 
-<subsection xml:id="subsection-integ-systematic-riemann">
+<subsection xml:id="subsection-integ-approx-systematic">
 <title>Systematic approximation</title>
 
 <p>
@@ -851,11 +851,11 @@ By the same reasoning, a <term>lower</term> Riemann sum will always <alert>under
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-integ-approx-sage">
 <title>Using Sage to calculate Riemann sums</title>
 
 <p>
-The approximate accumulation values in the various examples of <xref ref="subsection-integ-systematic-riemann" /> are all quite different from each other,
+The approximate accumulation values in the various examples of <xref ref="subsection-integ-approx-systematic" /> are all quite different from each other,
 even though each calculation involves the same rate function and same number of steps.
 This is because using only <m> 3 </m> steps will not give a very good approximation no matter which scheme of sample points is used,
 so none of these approximations is close to the true accumulation total.
@@ -1064,7 +1064,7 @@ it turns out we can work exclusively with regular step functions.
 <section xml:id="section-integ-definite">
 <title>The definite integral</title>
 
-<subsection>
+<subsection xml:id="subsection-integ-definite-definition">
 <title>Definition</title>
 
 <p>
@@ -1165,7 +1165,7 @@ there is really no difference between sample points that are left endpoints or r
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-integ-definite-net-area">
 <title>The definite integral as net oriented area</title>
 
 <p>
@@ -1255,7 +1255,7 @@ eventually closely mimicking the area under the function's graph.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-integ-definite-sage">
 <title>Using Sage to compute definite integrals</title>
 
 <p>
@@ -1325,7 +1325,7 @@ you can define a function and then apply the <c>integrate</c> method to it.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-integ-definite-properties">
 <title>Properties of the definite integral</title>
 
 <p>
@@ -1452,7 +1452,7 @@ mathematically.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-integ-definite-rebasing">
 <title>Re-basing an integral</title>
 
 <p>
@@ -1489,7 +1489,7 @@ since
 <section xml:id="section-integ-recover-accumulation">
 <title>Recovering a quantity function from a rate function</title>
 
-<subsection>
+<subsection xml:id="subsection-integ-recover-accumulation-func">
 <title>The definite integral as an accumulation function</title>
 
 <p>
@@ -1742,7 +1742,7 @@ though in practice we will not often return to <q>first principles</q> to carry 
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-integ-recover-accumulation-vs-quantity">
 <title>Accumulation versus quantity</title>
 
 <p>

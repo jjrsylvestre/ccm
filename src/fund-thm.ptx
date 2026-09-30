@@ -79,7 +79,7 @@ In this way you can visualize how the net oriented area between graph and horizo
 
 	<p>
 	Consider again our Camrose-Wetaskiwin trip from <xref ref="example-step-car-trip" />,
-	also discussed in <xref ref="subsection-integ-simplifying-models" />.
+	also discussed in <xref ref="subsection-integ-approx-simplifying-models" />.
 	The actual total distance travelled according to the <q>more realistic</q> rate model in <xref ref="figure-integ-camrose-wetaskiwin" /> is approximately
 	<quantity><mag>50.5</mag><unit base="metre" prefix="kilo" /></quantity>,
 	and the trip lasts a total of
