@@ -734,7 +734,7 @@ we can still get an idea of what solutions look like graphically from the differ
 <p>
 A differential equation only makes sense if we assume that the unknown quantity function <m> q(t) </m> is <term>differentiable</term>,
 since otherwise the <m> dq/dt </m> in the differential equation would be undefined.
-In <xref ref="subsection-avg-rate-local-linearity" /> we introduced the concept of <term>local linearity</term> as a graphical interpretation of differentiability and derivative values:
+In <xref ref="subsection-avg-rate-interp-deriv-local-linearity" /> we introduced the concept of <term>local linearity</term> as a graphical interpretation of differentiability and derivative values:
 at a specific input value <m> t = t^\ast </m>,
 repeatedly zooming in on the graph of a differentiable function <m> q </m> around the point <m> \bbrac{t^\ast, q(t^\ast)} </m> eventually leads to the graph resembling a straight line,
 with the derivative value <m> q'(t^\ast) </m> representing the slope of that line.
