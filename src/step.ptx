@@ -211,10 +211,10 @@ and then changes in output-value still only occur at boundaries of these length-
 
 </section>
 
-<section>
+<section xml:id="section-step-accumulation">
 <title>Accumulation for a stepped rate function</title>
 
-<subsection>
+<subsection xml:id="subsection-step-accumulation-pattern">
 <title>Calculation pattern</title>
 
 <p>
@@ -390,7 +390,7 @@ we can extend this accumulation pattern to stepped rate functions by applying it
 </subsection>
 
 
-<subsection>
+<subsection xml:id="subsection-step-accumulation-geometric-interp">
 <title>Geometric interpretation</title>
 
 <p>
@@ -740,7 +740,7 @@ Graphically,
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-step-accumulation-oriented-area">
 <title>Oriented area</title>
 
 <p> What if the rate is sometimes negative? </p>
@@ -1007,10 +1007,10 @@ then the above calculation is still a sum of rectangle areas.
 
 </section>
 
-<section>
+<section xml:id="section-step-sigma">
 <title>Sigma notation</title>
 
-<subsection>
+<subsection xml:id="subsection-step-sigma-patterns">
 <title>Summing patterns</title>
 
 <p>
@@ -1215,7 +1215,7 @@ As well as factoring out of sums, we also know that we may perform a series of a
 
 </subsection>
 
-<subsection xml:id="subsection-step-sage">
+<subsection xml:id="subsection-step-sigma-sage">
 <title>Summing in Sage</title>
 
 <p>
@@ -1268,7 +1268,7 @@ we have to first tell Sage that we want <c>k</c> to be treated as a variable.
 
 </section>
 
-<section>
+<section xml:id="section-step-riemann">
 <title>Riemann sums</title>
 
 <p>

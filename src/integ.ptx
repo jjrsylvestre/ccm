@@ -1275,7 +1275,7 @@ The syntax for computing a definite integral in Sage is (unsurprisingly) essenti
 <cd><cline>
 	integrate(function, variable, start, end)
 </cline></cd>
-(Compare with the Sage summation syntax discussed in <xref ref="subsection-step-sage" />.)
+(Compare with the Sage summation syntax discussed in <xref ref="subsection-step-sigma-sage" />.)
 Alternatively,
 you can define a function and then apply the <c>integrate</c> method to it.
 <cd>
