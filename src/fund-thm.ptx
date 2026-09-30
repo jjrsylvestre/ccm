@@ -358,7 +358,7 @@ the <term>average</term> of these values is defined to be
 
 </section>
 
-<section>
+<section xml:id="section-fund-thm-MVT">
 <title>The Mean Value Theorem</title>
 
 <p>
@@ -533,7 +533,7 @@ that means it must have crossed through its average value at some point.
 
 </section>
 
-<section>
+<section xml:id="section-fund-thm-FTC">
 <title>The Fundamental Theorem</title>
 
 <p> Let's review. </p>
@@ -815,7 +815,7 @@ our intuition based on <term>quantities</term>, <term>rates</term>, and <term>ac
 </section>
 
 
-<section>
+<section xml:id="section-fund-thm-antideriv">
 <title>Antiderivatives</title>
 
 <p>
@@ -1094,7 +1094,7 @@ careful choice of an additional <q>initial value</q> can always be made to ensur
 </section>
 
 
-<section>
+<section xml:id="section-fund-thm-indefinite">
 <title>Indefinite integrals</title>
 
 <p>
@@ -1189,7 +1189,7 @@ should equal to the integrand function in the indefinite integral.
 
 </section>
 
-<section>
+<section xml:id="section-fund-thm-computing-by-antideriv">
 <title>Using antiderivatives to compute definite integrals</title>
 
 <example xml:id="example-fund-thm-cancel-v-shift"><p>
