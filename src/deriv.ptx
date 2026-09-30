@@ -28,7 +28,7 @@ TODO
 <chapter xml:id="chapter-deriv" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>The derivative function</title>
 
-<section xml:id="section-deriv-intro">
+<section xml:id="section-deriv-definition">
 <title>Definition</title>
 
 <p>
@@ -209,7 +209,7 @@ as in the limit <m> \change{t} \to 0 </m> we consider <m> \change{t} \approx 0 <
 <section xml:id="section-deriv-basic-formulas">
 <title>Fundamental differentiation formulas and principles</title>
 
-<subsection>
+<subsection xml:id="subsection-deriv-basic-formulas-constant-indep-var">
 <title>Two fundamental formulas</title>
 
 <p>
@@ -271,7 +271,7 @@ So we'll start by analysing the two simplest possible quantity models built on t
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-deriv-basic-formulas-vert-trans">
 <title>Effects of vertical transformations and combinations</title>
 
 <p> Now we'll work a little more generally to develop some algebraic rules for derivatives based on transforming and combining the outputs of differentiable functions. </p>
@@ -534,7 +534,7 @@ then
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-deriv-basic-formulas-horiz-trans">
 <title>Effects of horizontal transformations</title>
 
 <p> Now let's consider the effect of a horizontal transformation of a differentiable quantity function on the derivative function. </p>
@@ -758,7 +758,7 @@ Meanwhile, the <em>amount</em> of run stays the same.
 
 </section>
 
-<section>
+<section xml:id="section-deriv-sage">
 <title>Calculating derivatives with Sage</title>
 
 <p>
