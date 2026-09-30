@@ -19,7 +19,7 @@ respective owners.
 <section xml:id="section-poly-intro">
 <title>Power and polynomial functions</title>
 
-<subsection>
+<subsection xml:id="subsection-poly-intro-definitions">
 <title>Definitions</title>
 
 <p>
@@ -87,7 +87,7 @@ and so on.
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-poly-intro-small-deg">
 <title>Polynomials of small degree</title>
 
 <introduction><p>
@@ -95,7 +95,7 @@ and so on.
 	polynomials of small degree are of special interest.
 </p></introduction>
 
-<subsubsection><title>Constant polynomials</title><p>
+<subsubsection xml:id="subsubsection-poly-intro-small-deg-constant"><title>Constant polynomials</title><p>
 	A polynomial of degree <m> 0 </m> is just a a constant function,
 	and its graph is a horizontal line.
 	The zero function <m> p(t) = 0 </m> can be considered a polynomial,
@@ -104,7 +104,7 @@ and so on.
 	However, we will just lump the zero polynomial in with the constant polynomials.
 </p></subsubsection>
 
-<subsubsection><title>Linear polynomials</title><p>
+<subsubsection xml:id="subsubsection-poly-intro-small-deg-linear"><title>Linear polynomials</title><p>
 	A polynomial of degree <m> 1 </m>,
 	<md> p(t) = a_0 + a_1 t </md>,
 	is called a <term>linear polynomial</term> because its graph is a line,
@@ -114,7 +114,7 @@ and so on.
 	<md><mrow> a_0 + a_1 t \amp = 0 \amp \amp\implies \amp t \amp = - \frac{a_0}{a_1} </mrow></md>.
 </p></subsubsection>
 
-<subsubsection>
+<subsubsection xml:id="subsubsection-poly-intro-small-deg-quadratic">
 <title>Quadratic polynomials</title>
 
 <p>
@@ -230,7 +230,7 @@ there exists a formula for the roots of quadratic polynomial.
 
 </subsubsection>
 
-<subsubsection>
+<subsubsection xml:id="subsubsection-poly-intro-small-deg-cubic">
 <title>Cubic polynomials</title>
 
 <p>
@@ -280,7 +280,7 @@ demonstrating the possibility for one, two, or three roots for a cubic polynomia
 
 </subsection>
 
-<subsection>
+<subsection xml:id="subsection-poly-intro-factoring">
 <title>Roots and factoring</title>
 
 <p>
@@ -862,7 +862,7 @@ We will leave the justification up to you, the reader.
 <section xml:id="section-poly-integ">
 <title>Integrals of polynomial rate functions</title>
 
-<subsection xml:id="subsection-poly-constant-var">
+<subsection xml:id="subsection-poly-integ-constant-var">
 <title>Constant rate function</title>
 
 <p>
@@ -929,7 +929,7 @@ We have already seen in <xref ref="pattern-vars-constant-rate" /> that a constan
 
 </subsection>
 
-<subsection xml:id="subsection-poly-linear-var">
+<subsection xml:id="subsection-poly-integ-linear-var">
 <title>Linear rate functions</title>
 
 <p> Next we consider a linear rate of accumulation. </p>
@@ -1119,7 +1119,7 @@ of <xref ref="pattern-integ-definite-props" /> says that
 
 </subsection>
 
-<subsection xml:id="subsection-poly-higher-degree-var">
+<subsection xml:id="subsection-poly-integ-higher-degree-var">
 <title>Polynomial rate functions</title>
 
 <p>
