@@ -236,14 +236,14 @@ Exponential functions come in three varieties:
 		<p>
 		We can use <xref ref="pattern-log-power" /> to determine the value of <m> t </m> so that <m> a^t = b </m>:
 		<md alignment="gather">
-			<mrow>       a^t = b                       </mrow>
-			<mrow> \ln (a^t) = \ln (b)                 </mrow>
-			<mrow>   t \ln (a) = \ln (b)               </mrow>
-			<mrow>         t = \frac{\ln (b)}{\ln (a)} </mrow>
+			<mrow>      a^t = b                       </mrow>
+			<mrow> \ln(a^t) = \ln(b)                 </mrow>
+			<mrow> t \ln(a) = \ln(b)               </mrow>
+			<mrow>        t = \frac{\ln(b)}{\ln(a)} </mrow>
 		</md>.
-		Substituting <m> b = a^{\bbrac{\ln (b) / \ln (a)}} </m> into the exponential function formula <m> b^t </m>,
+		Substituting <m> b = a^{\bbrac{\ln(b) / \ln(a)}} </m> into the exponential function formula <m> b^t </m>,
 		we obtain
-		<md> b^t = {(a^{\bbrac{\ln (b) / \ln (a)}})}^t = a^{t \bbrac{\ln (b) / \ln (a)}} </md>.
+		<md> b^t = {(a^{\bbrac{\ln(b) / \ln(a)}})}^t = a^{t \bbrac{\ln(b) / \ln(a)}} </md>.
 		</p>
 
 		<figure xml:id="figure-exp-new-base-horiz-scale-graph">
@@ -276,11 +276,11 @@ Exponential functions come in three varieties:
 
 <p>
 In <xref ref="pattern-exp-horiz-scale" />,
-if we choose <m> a </m> so that <m> \ln (a) = 1 </m>,
+if we choose <m> a </m> so that <m> \ln(a) = 1 </m>,
 then the comparison between the two exponential formulas becomes much simpler:
-<md xml:id="equation-exp-pre-natural-comparison" tag="star"> b^t = a^{t \ln (b)} </md>.
+<md xml:id="equation-exp-pre-natural-comparison" tag="star"> b^t = a^{t \ln(b)} </md>.
 Just like we use <m> \pi </m> to represent the special number that corresponds to the area of a unit circle,
-the special number so that <m> \ln (a) = 1 </m> is given its own symbol.
+the special number so that <m> \ln(a) = 1 </m> is given its own symbol.
 </p>
 
 <definition xml:id="definition-exp-euler">
@@ -291,7 +291,7 @@ the special number so that <m> \ln (a) = 1 </m> is given its own symbol.
 		<p>
 		The real number,
 		denoted by the letter <m> e </m>,
-		so that <m> \ln (e) = 1 </m>.
+		so that <m> \ln(e) = 1 </m>.
 		</p>
 
 		<biographical valign="top">
@@ -338,7 +338,7 @@ it becomes <q>natural</q> to compare every exponential function to the exponenti
 	<title>Realizing an exponential function as a horizontal transformation of the natural exponential function</title>
 	<p>
 	For every positive base <m> a </m>,
-	we have <md> a^t = e^{t \ln (a)} </md>.
+	we have <md> a^t = e^{t \ln(a)} </md>.
 	</p>
 </identity>
 
@@ -372,14 +372,14 @@ but which one?
 Let's explore by plotting some points.
 A graph <m> y = f(t) </m> is a collection of input-output pairs <m> (t,y) </m>.
 Reflecting in the line <m> y = t </m> interchanges the coordinates in a point,
-so that if <m> (t,y) </m> is on the graph <m> y = \ln (t) </m>,
+so that if <m> (t,y) </m> is on the graph <m> y = \ln(t) </m>,
 then <m> (y,t) </m> is on the reflected curve.
 For example,
 from <xref ref="pattern-log-value-at-1" />,
 we have
 <md alignment="gather">
-	<mrow> \ln (1) = 0 </mrow>
-	<mrow> \implies (1,0) \text{ on graph } y = \ln (t) </mrow>
+	<mrow> \ln(1) = 0 </mrow>
+	<mrow> \implies (1,0) \text{ on graph } y = \ln(t) </mrow>
 	<mrow> \implies (0,1) \text{ on reflected curve } </mrow>
 </md>.
 Now, the point <m> (0,1) </m> is on the graph of <em>every</em> exponential function,
@@ -387,11 +387,11 @@ as <m> a^0 = 1 </m> for each positive base <m> a </m>.
 So let's consider some other points.
 Using <xref ref="definition-exp-euler" /> along with <xref ref="pattern-log-power" />,
 we have
-<md> \ln (e^r) = r \ln (e) = r \cdot 1 </md>,
+<md> \ln(e^r) = r \ln(e) = r \cdot 1 </md>,
 so
 <md alignment="gather">
-	<mrow> \ln (e^r) = r </mrow>
-	<mrow> \implies (e^r,r) \text{ on graph } y = \ln (t) </mrow>
+	<mrow> \ln(e^r) = r </mrow>
+	<mrow> \implies (e^r,r) \text{ on graph } y = \ln(t) </mrow>
 	<mrow> \implies (r,e^r) \text{ on reflected curve } </mrow>
 </md>.
 </p>
@@ -415,7 +415,7 @@ we can say that this is indeed the graph of the natural exponential function.
 <identity xml:id="pattern-exp-as-reflection">
 	<title>The natural exponential function as a reflection of the natural logarithm function</title>
 	<p>
-	The natural exponential function <m> \exp(t) = e^t </m> is the unique function whose graph is the reflection in the line <m> y = t </m> of the graph of the natural logarithm function <m> \ln (t) </m>.
+	The natural exponential function <m> \exp(t) = e^t </m> is the unique function whose graph is the reflection in the line <m> y = t </m> of the graph of the natural logarithm function <m> \ln(t) </m>.
 	</p>
 </identity>
 
@@ -440,16 +440,16 @@ tells us (in principle) how to compute expressions like <m> e^\pi </m>.
 	<title>Using the natural logarithm to compute values of the natural exponential function</title>
 	<p>
 	The following two equalities are equivalent to each other.
-	<md><mrow> e^w \amp = z \amp \ln (z) \amp = w </mrow></md>.
+	<md><mrow> e^w \amp = z \amp \ln(z) \amp = w </mrow></md>.
 	</p>
 </identity>
 
 <p>
-<xref ref="pattern-exp-computing-via-ln" /> says that computing <m> e^\pi </m> is equivalent to solving <m> \ln (z) = \pi </m> for <m> z </m>.
+<xref ref="pattern-exp-computing-via-ln" /> says that computing <m> e^\pi </m> is equivalent to solving <m> \ln(z) = \pi </m> for <m> z </m>.
 In the Sage cell below, change the value of the <c>z</c> variable
 (which is used as the upper bound of the integration command)
 and re-evaluate until you get reasonably close to the value of <m> \pi </m>.
-(Recall that <m> \ln (t) </m> is defined as an integral of rate function <m> r(t) = 1/t </m>.)
+(Recall that <m> \ln(t) </m> is defined as an integral of rate function <m> r(t) = 1/t </m>.)
 The first command in the Sage cell below prints out a numerical approximation of <m> \pi </m>.
 </p>
 
@@ -479,12 +479,12 @@ The first command in the Sage cell below prints out a numerical approximation of
 
 <p>
 We can combine <xref ref="pattern-exp-computing-via-ln" /> with <xref ref="pattern-exp-scale-to-natural" /> and use a similar method to compute values like
-<md> 2^\pi = e^{\pi \ln (2)} </md>
+<md> 2^\pi = e^{\pi \ln(2)} </md>
 by solving
-<md> \ln (z) = \pi \ln (2) </md>.
+<md> \ln(z) = \pi \ln(2) </md>.
 Use the Sage cell below to do just that.
 As before,
-you are attempting to refine the value of the <c>z</c> variable until the integration result is very close to <m> \pi \ln (2) </m>,
+you are attempting to refine the value of the <c>z</c> variable until the integration result is very close to <m> \pi \ln(2) </m>,
 which the first command computes for you.
 </p>
 
@@ -542,12 +542,12 @@ just as <em>cube</em> and <em>cube root</em> reverse each other.
 
 		<li xml:id="pattern-exp-ln-inverse-exp-inside-ln"><title>Exponential inside logarithm</title><p>
 			For all <m> a </m>,
-			we have <md> \ln (e^a) = a </md>.
+			we have <md> \ln(e^a) = a </md>.
 		</p></li>
 
 		<li xml:id="pattern-exp-ln-inverse-ln-inside-exp"><title>Logarithm inside exponential</title><p>
 			For all <em>positive</em> <m> a </m>,
-			we have <md> e^{\ln (a)} = a </md>.
+			we have <md> e^{\ln(a)} = a </md>.
 		</p></li>
 
 	</ol></p>
@@ -583,9 +583,9 @@ We can perform similar algebra using <m> \exp </m> and <m> \ln </m>.
 	<xref ref="pattern-exp-ln-inverse-exp-inside-ln" text="type-local">Property</xref>
 	of <xref ref="pattern-exp-ln-inverse" />:
 	<md>
-		<mrow> \ln (e^{t + 1}) = \ln (2) </mrow>
-		<mrow> t + 1 = \ln (2) </mrow>
-		<mrow> t = \ln (2) - 1 </mrow>
+		<mrow> \ln(e^{t + 1}) = \ln(2) </mrow>
+		<mrow> t + 1 = \ln(2) </mrow>
+		<mrow> t = \ln(2) - 1 </mrow>
 	</md>.
 	</p>
 </example>
@@ -601,10 +601,10 @@ we can use the same technique to solve an equation involving any exponential.
 	To solve the equation <md> a^{t + 1} = 2 </md>,
 	we first take the logarithm of both sides and apply <xref ref="pattern-log-power" />:
 	<md>
-		<mrow> \ln (a^{t + 1}) = \ln (2) </mrow>
-		<mrow> (t + 1) \ln (a) = \ln (2) </mrow>
-		<mrow> t + 1 = \frac{\ln (2)}{\ln (a)} </mrow>
-		<mrow> t = \frac{\ln (2)}{\ln (a)} - 1 </mrow>
+		<mrow> \ln(a^{t + 1}) = \ln(2) </mrow>
+		<mrow> (t + 1) \ln(a) = \ln(2) </mrow>
+		<mrow> t + 1 = \frac{\ln(2)}{\ln(a)} </mrow>
+		<mrow> t = \frac{\ln(2)}{\ln(a)} - 1 </mrow>
 	</md>.
 	</p>
 </example>
@@ -614,12 +614,12 @@ we can use the same technique to solve an equation involving any exponential.
 <example xml:id="example-exp-solving-ln">
 	<title>Solving an equation involving the natural logarithm function</title>
 	<p>
-	To solve the equation <md> \ln (t + 1) = 2 </md>,
+	To solve the equation <md> \ln(t + 1) = 2 </md>,
 	we first <q>undo</q> the logarithm by taking the natural exponential of both sides and applying
 	<xref ref="pattern-exp-ln-inverse-ln-inside-exp" text="type-local">Property</xref>
 	of <xref ref="pattern-exp-ln-inverse" />:
 	<md>
-		<mrow> e^{\ln (t + 1)} = e^2 </mrow>
+		<mrow> e^{\ln(t + 1)} = e^2 </mrow>
 		<mrow> t + 1 = e^2 </mrow>
 		<mrow> t = e^2 - 1 </mrow>
 	</md>.
@@ -732,16 +732,16 @@ we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to ob
 	<proof><p>
 		From <xref ref="pattern-exp-scale-to-natural" />,
 		we have
-		<md> a^{u + v} = e^{(u + v) \bbrac{\ln (a)}} </md>.
+		<md> a^{u + v} = e^{(u + v) \bbrac{\ln(a)}} </md>.
 		From <xref ref="pattern-exp-computing-via-ln" />,
-		<m> z = e^{(u + v) \bbrac{\ln (a)}} </m> should be the unique value so that <m> \ln (z) = (u + v) \bbrac{\ln (a)} </m>.
+		<m> z = e^{(u + v) \bbrac{\ln(a)}} </m> should be the unique value so that <m> \ln(z) = (u + v) \bbrac{\ln(a)} </m>.
 		Let's check whether applying the natural logarithm to <m> a^u a^v </m> evaluates to the same result.
 		Using the properties of the natural logarithm,
 		we have
 		<md>
-			<mrow> \ln (a^u a^v) \amp = \ln (a^u) + \ln (a^v) </mrow>
-			<mrow> \amp = u \ln (a) + v \ln (a) </mrow>
-			<mrow> \amp = (u + v) \ln (a) </mrow>
+			<mrow> \ln(a^u a^v) \amp = \ln(a^u) + \ln(a^v) </mrow>
+			<mrow> \amp = u \ln(a) + v \ln(a) </mrow>
+			<mrow> \amp = (u + v) \ln(a) </mrow>
 		</md>,
 		as desired.
 	</p></proof>
@@ -795,8 +795,8 @@ we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to ob
 	<proof><p>
 		From <xref ref="pattern-exp-scale-to-natural" />,
 		we have
-		<md> <mrow> {(a^u)}^v \amp = e^{v \ln (a^u)} \amp a^{u v} \amp = e^{(u v) \ln (a)} </mrow> </md>.
-		But from <xref ref="pattern-log-power" /> we have <md> \ln (a^u) = u \ln (a) </md>,
+		<md> <mrow> {(a^u)}^v \amp = e^{v \ln(a^u)} \amp a^{u v} \amp = e^{(u v) \ln(a)} </mrow> </md>.
+		But from <xref ref="pattern-log-power" /> we have <md> \ln(a^u) = u \ln(a) </md>,
 		so the two exponential expressions above are indeed the same.
 	</p></proof>
 
@@ -810,13 +810,13 @@ we can <q>reflect</q> the properties from <xref ref="section-log-props" /> to ob
 	and vice versa.
 	So inputs become outputs and outputs become inputs.
 	If we view the pattern
-	<md> t \to 0^+ \qquad \implies \qquad \ln (t) \to -\infty </md>
+	<md> t \to 0^+ \qquad \implies \qquad \ln(t) \to -\infty </md>
 	from <xref ref="pattern-log-limits" /> as
 	<md> \text{input} \to 0^+ \qquad \text{then} \qquad \text{output} \to -\infty </md>,
 	then the <q>reflected</q> pattern for the exponential function is
 	<md> \text{output} \to 0^+ \qquad \text{when} \qquad \text{input} \to -\infty </md>,
 	so that
-	<md> t \to -\infty \qquad \implies \qquad \exp t \to 0^+ </md>,
+	<md> t \to -\infty \qquad \implies \qquad \exp(t) \to 0^+ </md>,
 	meaning that the exponential graph heads towards <m> 0 </m> from above as the input goes off to the left.
 </p></note>
 
@@ -1237,9 +1237,9 @@ we also need a <em>vertical scale</em> correction factor.
 	<p>
 	For rate function <m> r(t) = a^t </m>
 	(with positive base <m> a </m>),
-	we have <md> \ccmint{0}{t}{a^u}{u} = \frac{a^t - 1}{\ln (a)} </md>.
+	we have <md> \ccmint{0}{t}{a^u}{u} = \frac{a^t - 1}{\ln(a)} </md>.
 	A quantity experiencing an exponential rate of variation can itself be modelled by an exponential function
-	<md> q(t) = q_0 + \frac{a^t - 1}{\ln (a)} </md>,
+	<md> q(t) = q_0 + \frac{a^t - 1}{\ln(a)} </md>,
 	where <m> q_0 = q(0) </m> is the initial amount.
 	</p>
 
@@ -1302,11 +1302,11 @@ we also need a <em>vertical scale</em> correction factor.
 		<mrow>
 			\amp =
 			\left( \frac{4^2}{2} - \frac{3^2}{2} \right)
-			+ ( \ln (4) - \ln (3) )
+			+ ( \ln(4) - \ln(3) )
 			+ \bbrac{ (e^4 - 1) - (e^3 - 1) }
 		</mrow>
 
-		<mrow> \amp = \frac{7}{2} + \ln \left(\frac{4}{3}\right) + e^3 (e - 1) </mrow>
+		<mrow> \amp = \frac{7}{2} + \ln\left(\frac{4}{3}\right) + e^3 (e - 1) </mrow>
 
 	</md>.
 	</p>
