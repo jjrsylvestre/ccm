@@ -32,7 +32,7 @@ For convenience, we will also give this special accumulation function a name.
 	<statement><p>
 		The function that returns the accumulation for a quantity that is varying according to rate function <m> r(t) = 1/t </m>,
 		relative to <q>initial</q> time <m> t = 1 </m>:
-		<md> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </md>.
+		<md> \ln(t) = \ccmint{1}{t}{\frac{1}{u}}{u} </md>.
 	</p></statement>
 </definition>
 
@@ -77,7 +77,7 @@ Notice that the graph of the logarithm function in <xref ref="figure-log-positiv
 This is because of <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref> in <xref ref="convention-integ-definite-props" />:
 if we allow time to <q>run backwards</q>,
 then we consider the quantity to be dissipating instead of accumulating,
-so that <md> \ln t = \ccmint{1}{t}{\frac{1}{u}}{u} </md>
+so that <md> \ln(t) = \ccmint{1}{t}{\frac{1}{u}}{u} </md>
 for <m> 0 \lt t \lt 1 </m> is the <em>negative</em> of the accumulation that occurs over time interval <m> t \le u \le 1 </m>.
 </p>
 
@@ -113,45 +113,44 @@ for <m> 0 \lt t \lt 1 </m> is the <em>negative</em> of the accumulation that occ
 	Suppose we would like to calculate
 	<md> \ccmint{3}{4}{ t + \frac{1}{t} }{t} </md>.
 	Similarly to <xref ref="example-poly-definite-integral-mixed-exponents" />,
-	we split into two integrals,
-	and then use <xref ref="pattern-integ-rebase" /> to re-base our integrals to match our formulas.
+	since the integrand function is undefined at <m> t = 0 </m> we will <q> re-base </q> our integral to <m> t = 1 </m>
+	(using a version of <xref ref="pattern-integ-rebase" />),
+	and apply <xref ref="pattern-poly-int-power-all-exp" text="type-local">Formula</xref>
+	from <xref ref="pattern-poly-int-power" /> for the linear part of the integrand function.
 	<md>
 
 		<mrow>
 			\ccmint{3}{4}{ t + \frac{1}{t} }{t}
-			\amp = \ccmint{3}{4}{t}{t} + \ccmint{3}{4}{\frac{1}{t}}{t}
+			\amp = \ccmint{1}{4}{ t + \frac{1}{t} }{t} - \ccmint{1}{3}{ t + \frac{1}{t} }{t}
 		</mrow>
 
 		<mrow>
 			\amp =
 			\left(
-				\ccmint{0}{4}{t}{t}
-				- \ccmint{0}{3}{t}{t}
+				\ccmint{1}{4}{t}{t}
+				+ \ccmint{1}{4}{ \frac{1}{t} }{t}
 			\right)
-			+ \left(
-				\ccmint{1}{4}{\frac{1}{t}}{t}
-				- \ccmint{1}{3}{\frac{1}{t}}{t}
+			- \left(
+				\ccmint{1}{3}{t}{t}
+				+ \ccmint{1}{3}{ \frac{1}{t} }{t}
 			\right)
 		</mrow>
 
 		<mrow>
 			\amp =
-			\left( \frac{4^2}{2} - \frac{3^2}{2} \right)
-			+ ( \ln 4 - \ln 3 )
+			\left( \frac{4^2 - 1}{2} + \ln(4) \right)
+			+ ( \frac{3^2 - 1}{2} + \ln(3) )
 		</mrow>
-
-		<!-- can't do this, haven't stated properties of ln yet -->
-		<!-- <mrow> \amp = \frac{7}{2} + \ln \left(\frac{4}{3}\right) </mrow> -->
 
 	</md>
 	</p>
 </example>
 
 <remark><p>
-	It might seem like <q>cheating</q> to write <m> \ln 4 </m> as the value of
+	It might seem like <q>cheating</q> to write <m> \ln(4) </m> as the value of
 	<md> \ccmint{1}{4}{\frac{1}{t}}{t} </md>,
-	since <xref ref="definition-log-natural" /> says that to calculate <m> \ln 4 </m> we would need to calculate that very integral
-	(and similarly for <m> \ln 3 </m>).
+	since <xref ref="definition-log-natural" /> says that to calculate <m> \ln(4) </m> we would need to calculate that very integral
+	(and similarly for <m> \ln(3) </m>).
 	But this is an acceptable way to represent the value of this integral,
 	as there are several ways to numerically approximate values of the natural logarithm <mdash />
 	using Riemann sums, for example.
@@ -171,13 +170,13 @@ leads immediately to a special value of the natural logarithm.
 <identity xml:id="pattern-log-value-at-1">
 	<title>Logarithm at <m> t = 1 </m></title>
 
-	<statement><p> We have <md> \ln 1 = 0 </md>. </p> </statement>
+	<statement><p> We have <md> \ln(1) = 0 </md>. </p> </statement>
 
 	<proof><p>
 		Combining <xref ref="convention-integ-definite-props-zero-length" text="type-local">Property</xref>
 		of <xref ref="convention-integ-definite-props" />
 		with <xref ref="definition-log-natural" />,
-		<md> \ln 1 = \ccmint{1}{1}{\frac{1}{u}}{u} = 0 </md>.
+		<md> \ln(1) = \ccmint{1}{1}{\frac{1}{u}}{u} = 0 </md>.
 	</p></proof>
 
 </identity>
@@ -188,7 +187,7 @@ leads immediately to a special value of the natural logarithm.
 	<title>Domain of the natural logarithm</title>
 
 	<statement><p>
-		The value of <m> \ln t </m> is defined for all <m> t \gt 0 </m> and undefined for all <m> t \le 0 </m>.
+		The value of <m> \ln(t) </m> is defined for all <m> t \gt 0 </m> and undefined for all <m> t \le 0 </m>.
 	</p></statement>
 
 	<proof><p>
@@ -213,11 +212,11 @@ we can see obvious long-term and singular behaviour.
 	<statement><p><ol>
 
 		<li><title>Long-term behaviour</title><p>
-			As <m> t \to \infty </m>, also <m> \ln t \to \infty </m>.
+			As <m> t \to \infty </m>, also <m> \ln(t) \to \infty </m>.
 		</p></li>
 
 		<li><title>Singular behaviour</title><p>
-			As <m> t \to 0^+ </m>, <m> \ln t \to -\infty </m>.
+			As <m> t \to 0^+ </m>, <m> \ln(t) \to -\infty </m>.
 		</p></li>
 
 	</ol></p></statement>
@@ -234,7 +233,7 @@ The first involves the logarithm of a product of two numbers.
 
 	<statement><p>
 		For all positive <m> a </m> and <m> b </m>,
-		we have <md> \ln (a b) = \ln a + \ln b </md>.
+		we have <md> \ln (a b) = \ln(a) + \ln(b) </md>.
 		In other words, <em>the logarithm of a product is the sum of the logarithms</em>.
 	</p></statement>
 
@@ -247,28 +246,28 @@ The first involves the logarithm of a product of two numbers.
 		we may write
 		<md>
 			<mrow> \ccmint{1}{a b}{\frac{1}{u}}{u} \amp = \ccmint{1}{a}{\frac{1}{u}}{u} + \ccmint{a}{a b}{\frac{1}{u}}{u} </mrow>
-			<mrow> \amp = \ln a + \ccmint{a}{a b}{\frac{1}{u}}{u} </mrow>
+			<mrow> \amp = \ln(a) + \ccmint{a}{a b}{\frac{1}{u}}{u} </mrow>
 		</md>.
-		So we already have the first part of our desired formula, <m> \ln a </m>.
+		So we already have the first part of our desired formula, <m> \ln(a) </m>.
 		What about the second integral
 		<md xml:id="equation-log-product-second-int" tag="star"> \ccmint{a}{a b}{\frac{1}{u}}{u} </md>?
-		How does it compare to <md> \ln b = \ccmint{1}{b}{\frac{1}{s}}{s} </md>?
+		How does it compare to <md> \ln(b) = \ccmint{1}{b}{\frac{1}{s}}{s} </md>?
 		(We have changed the integration variable to help keep things separate during our comparison of these two integrals.)
 		It appears that the domain in integral <xref ref="equation-log-product-second-int" /> has been stretched by a factor of <m> a </m>
-		compared to the domain in the integral defining <m> \ln b </m>.
+		compared to the domain in the integral defining <m> \ln(b) </m>.
 		Remember that an integral is a calculation of (oriented) area under a graph,
 		added up <q>slice by slice</q>
 		(see <xref ref="figure-integ-representative-rect-slice" />).
-		For each <q>slice</q> at position <m> s </m> in the integral for <m> \ln b </m>,
+		For each <q>slice</q> at position <m> s </m> in the integral for <m> \ln(b) </m>,
 		we can create a corresponding <q>stretched slice</q> at position <m> u = a s </m>,
 		where if <m> 1 \le s \le b </m> then also <m> a \le a s \le a b </m>.
 		</p>
 
 		<figure xml:id="figure-log-slice-product">
-			<caption>A slice of the area defining <m> \ln b </m> transforms into a slice of the area corresponding to integral <xref ref="equation-log-product-second-int" />.</caption>
+			<caption>A slice of the area defining <m> \ln(b) </m> transforms into a slice of the area corresponding to integral <xref ref="equation-log-product-second-int" />.</caption>
 			<sbsgroup>
 				<sidebyside width="50.8%"><figure xml:id="figure-log-slice-product-ln-value">
-					<caption>A representative slice of area in the integral defining <m> \ln b </m>.</caption>
+					<caption>A representative slice of area in the integral defining <m> \ln(b) </m>.</caption>
 					<image>
 						<shortdescription>A representative slice of area in the integral defining a natural logarithm value.</shortdescription>
 						<!-- TODO description -->
@@ -300,15 +299,15 @@ The first involves the logarithm of a product of two numbers.
 		since we have moved to a different place on the rate graph:
 		<md> r(u) = \frac{1}{u} = \frac{1}{a s} = \frac{r(s)}{a} </md>.
 		However, when calculate the <q>area</q> of this <q>stretched slice</q>,
-		we find it's the same area as the slice at position <m> s </m> for the <m> \ln b </m> integral:
+		we find it's the same area as the slice at position <m> s </m> for the <m> \ln(b) </m> integral:
 		<md> r(u) \intspace du = \left( \frac{r(s)}{a} \right) \left( a \intspace ds \right) = r(s) \intspace ds </md>.
-		So as we add up <q>slices</q> of area to compute the integral for <m> \ln b </m>,
+		So as we add up <q>slices</q> of area to compute the integral for <m> \ln(b) </m>,
 		or we add up <q>slices</q> of area to compute integral <xref ref="equation-log-product-second-int" />,
 		we will be adding up the <em>same values</em> for those slices of area at corresponding positions,
 		and so we will come out to the same total area:
-		<md> \ccmint{a}{a b}{\frac{1}{u}}{u} = \ccmint{1}{b}{\frac{1}{s}}{s} = \ln b </md>,
+		<md> \ccmint{a}{a b}{\frac{1}{u}}{u} = \ccmint{1}{b}{\frac{1}{s}}{s} = \ln(b) </md>,
 		and thus
-		<md> \ln (a b) = \ccmint{1}{a}{\frac{1}{u}}{u} + \ccmint{a}{a b}{\frac{1}{u}}{u} = \ln a + \ln b </md>.
+		<md> \ln (a b) = \ccmint{1}{a}{\frac{1}{u}}{u} + \ccmint{a}{a b}{\frac{1}{u}}{u} = \ln(a) + \ln(b) </md>.
 		</p>
 
 	</proof>
@@ -316,10 +315,10 @@ The first involves the logarithm of a product of two numbers.
 </identity>
 
 <remark><p>
-	We can be a little more precise in our justification above by considering actual Riemann sums of rectangular areas when we compare integral <xref ref="equation-log-product-second-int" /> with the integral for <m> \ln b </m>.
-	What our <q>corresponding slices</q> argument essentially shows is that for each Riemann sum approximating the integral for <m> \ln b </m>,
+	We can be a little more precise in our justification above by considering actual Riemann sums of rectangular areas when we compare integral <xref ref="equation-log-product-second-int" /> with the integral for <m> \ln(b) </m>.
+	What our <q>corresponding slices</q> argument essentially shows is that for each Riemann sum approximating the integral for <m> \ln(b) </m>,
 	we can create a Riemann sum approximating integral <xref ref="equation-log-product-second-int" /> that computes to the same value.
-	So the pattern of upper and lower sums squeezing down to the value for the integral for <m> \ln b </m> must be the same as the pattern of upper and lower sums squeezing down to the value of integral <xref ref="equation-log-product-second-int" />.
+	So the pattern of upper and lower sums squeezing down to the value for the integral for <m> \ln(b) </m> must be the same as the pattern of upper and lower sums squeezing down to the value of integral <xref ref="equation-log-product-second-int" />.
 </p></remark>
 
 <p>
@@ -332,7 +331,7 @@ What does it do to a reciprocal?
 
 	<statement><p>
 		For all positive <m> a </m>,
-		we have <md> \ln (1 / a) = - \ln a </md>.
+		we have <md> \ln (1 / a) = - \ln(a) </md>.
 		In other words, <em>the logarithm of a reciprocal is the negative of the logarithm</em>.
 	</p></statement>
 
@@ -342,7 +341,7 @@ What does it do to a reciprocal?
 		This time we will deal with an actual rectangular area in a typical Riemann sum,
 		instead of just working with <q>slices</q>.
 		For the integral
-		<md> \ln a = \ccmint{1}{a}{\frac{1}{s}}{s} </md>,
+		<md> \ln(a) = \ccmint{1}{a}{\frac{1}{s}}{s} </md>,
 		consider a typical rectangle at sample point <m> s </m> in an <em>upper sum</em> approximation.
 		Because of the shape of the graph of the rate function,
 		this sample point will appear at the left endpoint of the base of the rectangular area.
@@ -351,7 +350,7 @@ What does it do to a reciprocal?
 		</p>
 
 		<figure xml:id="figure-log-slice-recip-before">
-			<caption>A representative rectangular area in a Riemann sum approximating <m> \ln a </m>.</caption>
+			<caption>A representative rectangular area in a Riemann sum approximating <m> \ln(a) </m>.</caption>
 			<image width="50.8%">
 				<shortdescription>A representative rectangular area in a Riemann sum approximating the integral defining a natural logarithm value.</shortdescription>
 				<!-- TODO description -->
@@ -402,9 +401,9 @@ What does it do to a reciprocal?
 		By matching up areas of rectangles in this way,
 		we see that the two upper sum approximations would compute to the same total approximate area.
 		That is,
-		every upper sum approximation for the integral defining <m> \ln a </m> corresponds to an upper sum approximation for integral <xref ref="equation-log-reciprocal-int" /> with the same value.
+		every upper sum approximation for the integral defining <m> \ln(a) </m> corresponds to an upper sum approximation for integral <xref ref="equation-log-reciprocal-int" /> with the same value.
 		This would also work the other way <mdash />
-		every upper sum approximation for integral <xref ref="equation-log-reciprocal-int" /> could be <q>flipped</q> over by taking reciprocals of the rectangle base boundary points to create an upper sum approximation for the integral defining <m> \ln a </m>.
+		every upper sum approximation for integral <xref ref="equation-log-reciprocal-int" /> could be <q>flipped</q> over by taking reciprocals of the rectangle base boundary points to create an upper sum approximation for the integral defining <m> \ln(a) </m>.
 		And by changing sample points,
 		we would see the same correspondence for <em>lower</em> sum approximations of these two integrals.
 		</p>
@@ -412,11 +411,11 @@ What does it do to a reciprocal?
 		<p>
 		Therefore, the patterns of upper and lower sum approximations for each integral would <q>squeeze</q> down to the same values.
 		That is, <md> \ccmint{1}{a}{\frac{1}{s}}{s} = \ccmint{1 / a}{1}{\frac{1}{u}}{u} </md>.
-		The first integral is the value of <m> \ln a </m>,
+		The first integral is the value of <m> \ln(a) </m>,
 		while the second integral is the value of <m> - \ln (1 / a) </m>,
 		using <xref ref="convention-integ-definite-props-backwards" text="type-local">Property</xref> of <xref ref="convention-integ-definite-props" />.
 		Flipping the negative sign to the other side of the equality of integrals above,
-		we obtain <md> \ln (1 / a) = - \ln a </md>, as desired.
+		we obtain <md> \ln (1 / a) = - \ln(a) </md>, as desired.
 		</p>
 
 	</proof>
@@ -425,12 +424,12 @@ What does it do to a reciprocal?
 
 <p>
 We could rewrite <xref ref="pattern-log-reciprocal" /> as
-<md> \ln (a^{-1}) = - \ln a </md>.
+<md> \ln (a^{-1}) = - \ln(a) </md>.
 Using <xref ref="pattern-log-product" />,
 we also have
 <md alignment="gather">
-	<mrow> \ln (a^2) = \ln (a \cdot a) = \ln a + \ln a </mrow>
-	<mrow> \implies \ln (a^2) = 2 \ln a </mrow>
+	<mrow> \ln (a^2) = \ln (a \cdot a) = \ln(a) + \ln(a) </mrow>
+	<mrow> \implies \ln (a^2) = 2 \ln(a) </mrow>
 </md>.
 In both instances we see an <em>exponent-becomes-coefficient</em> pattern.
 Though we are not yet prepared to justify it,
@@ -441,7 +440,7 @@ in fact this pattern holds for all exponents.
 	<title>Logarithm of a power</title>
 	<p>
 	For all exponents <m> r </m> and all positive bases <m> a </m>,
-	we have <md> \ln (a ^ r) = r \ln a </md>.
+	we have <md> \ln (a ^ r) = r \ln(a) </md>.
 	In other words, <em>the logarithm of a power is a multiple of the logarithm</em>.
 	</p>
 </identity>
@@ -455,7 +454,7 @@ we can combine <xref ref="pattern-log-product" /> and <xref ref="pattern-log-rec
 	<title>Logarithm of a quotient</title>
 	<p>
 	For all positive <m> a </m> and <m> b </m>,
-	we have <md> \ln (a / b) = \ln a - \ln b </md>.
+	we have <md> \ln (a / b) = \ln(a) - \ln(b) </md>.
 	In other words, <em>the logarithm of a quotient is the difference of the logarithms</em>.
 	</p>
 </identity>
@@ -466,7 +465,7 @@ we can combine <xref ref="pattern-log-product" /> and <xref ref="pattern-log-rec
 		\ccmint{3}{4}{\frac{1}{t}}{t}
 		= \ccmint{1}{4}{\frac{1}{t}}{t}
 		- \ccmint{1}{3}{\frac{1}{t}}{t}
-		= \ln 4 - \ln 3
+		= \ln(4) - \ln(3)
 	</md>.
 	We can now use <xref ref="pattern-log-quotient" /> to <q>simplify</q> this result to a single logarithm:
 	<md> \ccmint{3}{4}{ \frac{1}{t} }{t} = \ln(4 / 3) </md>.
@@ -512,7 +511,7 @@ we have a new differentiation pattern.
 	<title>Derivative of the natural logarithm</title>
 	<p>
 	The natural logarithm function is differentiable for all <m> t \gt 0 </m>,
-	with <md> \ddt{\bbrac{\ln (t)}} = \frac{1}{t} </md>.
+	with <md> \ddt{\bbrac{\ln(t)}} = \frac{1}{t} </md>.
 	In function notation, this says that <md> \ln'(t) = 1 / t </md>.
 	</p>
 </identity>
@@ -585,15 +584,15 @@ we have a new differentiation pattern.
 
 <p>
 It is common to extend the domain of the natural logarithm by composing with the absolute value function:
-whereas <m> \ln (t) </m> is defined only for <m> t \gt 0 </m>,
-<m> \ln \abs{t} </m> is defined for all <m> t </m> except at the singularity at <m> t = 0 </m>.
+whereas <m> \ln(t) </m> is defined only for <m> t \gt 0 </m>,
+<m> \ln\abs{t} </m> is defined for all <m> t </m> except at the singularity at <m> t = 0 </m>.
 For this function,
 a negative input produces the same output value as the corresponding positive input of the same magnitude,
 so the graph is symmetric about the vertical axis.
 </p>
 
 <figure xml:id="figure-log-natural-abs">
-	<caption> Graph of the quantity function <m> q(t) = \ln \abs{t} </m>. </caption>
+	<caption> Graph of the quantity function <m> q(t) = \ln\abs{t} </m>. </caption>
 	<image width="100%">
 		<shortdescription>Graph of the natural logarithm composed with the absolute value.</shortdescription>
 		<!-- TODO description -->
@@ -608,16 +607,16 @@ Consider a point on the graph in <xref ref="figure-log-natural-abs" /> at <m> t 
 There is a corresponding point on the other side of the vertical axis,
 at input value <m> t = \abs{t^\ast} </m> but at the same output height.
 Since <m> \abs{t^\ast} \gt 0 </m>,
-this second point is on the graph of <m> y = \ln (t) </m>,
+this second point is on the graph of <m> y = \ln(t) </m>,
 and so we know its derivative value is the reciprocal of the input value for that point:
-<md> \funceval{\ddt{\bbrac{\ln (t)}}}{t = \abs{t^\ast}} = \frac{1}{\abs{t^\ast}} </md>.
+<md> \funceval{\ddt{\bbrac{\ln(t)}}}{t = \abs{t^\ast}} = \frac{1}{\abs{t^\ast}} </md>.
 This derivative value describes the slope of the tangent line at this point.
 </p>
 
 <p>
 On the other hand,
 the derivative value
-<md> \funceval{\ddt{(\ln \abs{t})}}{t = t^\ast} </md>
+<md> \funceval{\ddt{(\ln\abs{t})}}{t = t^\ast} </md>
 describes the slope of the tangent line at the original input value <m> t = t^\ast </m>.
 But since these two points are reflections of each other in the vertical axis,
 we can see that the two slopes will be equal in magnitude but have opposite signs.
@@ -625,7 +624,7 @@ we can see that the two slopes will be equal in magnitude but have opposite sign
 
 <figure xml:id="figure-log-abs-reflected-tangents">
 	<caption>
-		Two tangent lines at symmetric points on the graph of the quantity function <m> q(t) = \ln \abs{t} </m>.
+		Two tangent lines at symmetric points on the graph of the quantity function <m> q(t) = \ln\abs{t} </m>.
 	</caption>
 	<image width="100%">
 		<shortdescription>
@@ -641,7 +640,7 @@ we can see that the two slopes will be equal in magnitude but have opposite sign
 <p>
 So by symmetry we have
 <md>
-	\funceval{\ddt{(\ln \abs{t})}}{t = t^\ast}
+	\funceval{\ddt{(\ln\abs{t})}}{t = t^\ast}
 	= - \frac{1}{\abs{t^\ast}}
 	= \frac{1}{- \abs{t^\ast}}
 </md>.
@@ -649,7 +648,7 @@ However, since <m> t^\ast </m> was negative to begin with,
 <md> - \abs{t^\ast} = t^\ast </md>,
 and we end up with
 <md>
-	\funceval{\ddt{(\ln \abs{t})}}{t = t^\ast}
+	\funceval{\ddt{(\ln\abs{t})}}{t = t^\ast}
 	= - \frac{1}{\abs{t^\ast}}
 	= \frac{1}{t^\ast}
 </md>,
@@ -668,11 +667,11 @@ which is the same <em>reciprocal-of-input-value</em> formula as for the derivati
 	<title>Derivative of a horizontally transformed logarithm</title>
 	<p>
 	To calculate <md> \opddt \ln\abs{3 t - 5} </md>,
-	start with <m> p_1(t) = \ln \abs{t} </m>.
+	start with <m> p_1(t) = \ln\abs{t} </m>.
 	Then <xref ref="pattern-log-abs-deriv" /> says that <md> p_1'(t) = \frac{1}{t} </md>.
-	Now consider <md> p_2(t) = p_1(t - 5) = \ln \abs{t - 5} </md>.
+	Now consider <md> p_2(t) = p_1(t - 5) = \ln\abs{t - 5} </md>.
 	<xref ref="pattern-deriv-h-shift" /> says that <md> p_2'(t) = p_1'(t - 5) = \frac{1}{t - 5} </md>.
-	Finally, consider <md> q(t) = p_2(3 t) = \ln \abs{3 t - 5} </md>,
+	Finally, consider <md> q(t) = p_2(3 t) = \ln\abs{3 t - 5} </md>,
 	the function whose derivative we would like to calculate.
 	<xref ref="pattern-deriv-h-scale" /> tells us <md> q'(t) = 3 p_2'(3 t) = \frac{3}{3 t - 5} </md>.
 	So we have determined that <md> \opddt \ln\abs{3 t - 5} = q'(t) = \frac{3}{3 t - 5} </md>.
