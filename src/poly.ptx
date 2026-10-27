@@ -1196,6 +1196,7 @@ from the fact that we have shifted our <q>initial</q> time.
 	<title>Integral of a power of <m> t </m></title>
 
 	<p><ol>
+
 		<li xml:id="pattern-poly-int-power-positive-exp">
 			<title>Positive exponents, with integral based at <m> t = 0 </m></title>
 			<p>
@@ -1204,6 +1205,7 @@ from the fact that we have shifted our <q>initial</q> time.
 			for <m> t \ge 0 </m>.
 			</p>
 		</li>
+
 		<li xml:id="pattern-poly-int-power-all-exp">
 			<title>(Almost) All exponents, with integral based at <m> t = 1 </m></title>
 			<p>
@@ -1212,6 +1214,7 @@ from the fact that we have shifted our <q>initial</q> time.
 			for <m> t \gt 0 </m>.
 			</p>
 		</li>
+
 	</ol></p>
 
 </identity>

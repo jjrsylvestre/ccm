@@ -973,31 +973,31 @@ where the rate is proportional to the quantity.
 	Suppose <m> q(t) </m> is a quantity function whose rate of accumulation is proportional to the quantity,
 	with proportionality constant <m> k </m>.
 	For the purposes of this example,
-	let's take our proportionality constant to be <m> k = 3 </m>,
+	let's take our proportionality constant to be <m> k = 1 / 3 </m>,
 	so that
-	<md xml:id="equation-exp-proportional-diff-eqn" tag="star"> \dqdt = 3 q(t) </md>.
+	<md xml:id="equation-exp-proportional-diff-eqn" tag="star"> \dqdt = \frac{ q(t) }{ 3 } </md>.
 	So we are looking for a function whose derivative is essentially the same function,
-	just vertically scaled by <m> 3 </m>.
+	but vertically compressed by a factor of <m> 3 </m>.
 	The pattern <md> \ddt{e^t} = e^t </md> is almost correct,
 	but here the vertical scale factor between function and derivative is only <m> 1 </m>.
 	However,
 	we know from <xref ref="pattern-deriv-h-scale" /> that introducing a horizontal scale factor into the quantity function also introduces a vertical scale factor into the derivative function.
 	In this case,
-	if we take <md> q(t) = \exp(3 t) </md>,
+	if we take <md> q(t) = \exp(t / 3) </md>,
 	then <xref ref="pattern-deriv-h-scale" /> says that
 	<md>
-		<mrow> q'(t) \amp = 3 \exp'(3 t) </mrow>
-		<mrow> \amp = 3 \exp(3 t) </mrow>
-		<mrow> \amp = 3 q(t) </mrow>
+		<mrow> q'(t) \amp = \frac{ \exp'(t / 3) }{ 3 } </mrow>
+		<mrow> \amp = \frac{ \exp(t / 3) }{ 3 } </mrow>
+		<mrow> \amp = \frac{ q(t) }{ 3 } </mrow>
 	</md>.
-	This shows that <m> q(t) = e^{3 t} </m> is a solution to the differential equation in
+	This shows that <m> q(t) = e^{t / 3} </m> is a solution to the differential equation in
 	<xref ref="equation-exp-proportional-diff-eqn" />.
 	</p>
 
 	<p>
 	This is only one <term>particular solution</term> to <xref ref="equation-exp-proportional-diff-eqn" />.
 	Can we guess at the general solution by introducing some parameter?
-	Our particular solution above has initial value <md> q(0) = e^{3 \cdot 0} = 1 </md>.
+	Our particular solution above has initial value <md> q(0) = e^{0 / 3} = 1 </md>.
 	But exponential growth or decay does not turn into some other behaviour if there is a different initial value <mdash />
 	otherwise a horizontal shift (so that the point in time that is considered <m> t = 0 </m> is shifted)
 	would change the type of graph,
@@ -1010,21 +1010,21 @@ where the rate is proportional to the quantity.
 
 	<p>
 	Recall from <xref ref="definition-exp-func" /> that introducing a constant multiple in an exponential function changes the initial amount.
-	So let's try <md> q(t) = A e^{3 t} </md>,
+	So let's try <md> q(t) = A e^{t / 3} </md>,
 	where <m> A </m> represents the initial amount <m> A = q(0) </m>.
 	Using the <xref ref="pattern-deriv-scale" text="custom">Constant Multiple Rule</xref>
 	(<xref ref="pattern-deriv-scale" />)
 	for our first step,
 	we have
 	<md>
-		<mrow> q'(t) \amp = \opddt \bbrac{A \exp(3 t)} </mrow>
-		<mrow> \amp = A \opddt \bbrac{\exp(3 t)} </mrow>
-		<mrow> \amp = A \bbrac{3 \exp'(3 t)} </mrow>
-		<mrow> \amp = 3 A \exp(3 t) </mrow>
-		<mrow> \amp = 3 q(t) </mrow>
+		<mrow> q'(t) \amp = \opddt \bbrac{A \exp(t / 3)} </mrow>
+		<mrow> \amp = A \opddt \bbrac{\exp(t / 3)} </mrow>
+		<mrow> \amp = A \left( \frac{ \exp'(t / 3) }{ 3 } \right) </mrow>
+		<mrow> \amp = \frac{ A \exp(t / 3) }{ 3 } </mrow>
+		<mrow> \amp = \frac{ q(t) }{ 3 } </mrow>
 	</md>.
 	This verifies that for <em>every</em> possible initial value <m> A </m>,
-	the exponential function <m> q(t) = A e^{3 t} </m>
+	the exponential function <m> q(t) = A e^{t / 3} </m>
 	is a solution to the rate equation in <xref ref="equation-exp-proportional-diff-eqn" />.
 	</p>
 
@@ -1185,44 +1185,33 @@ Here we remind ourselves of that pattern,
 in general for power functions with positive exponent <m> m \gt 0 </m>,
 and also specifically for the power function with exponent <m> m = -1 </m> whose integral defines the natural logarithm function.
 <md><mrow>
-	\opddt \, \ccmint{0}{t}{ u^m }{t} \amp = t^m
+	\opddt \, \ccmint{0}{t}{ u^m }{u} \amp = t^m
 	\amp
-	\opddt \, \ccmint{0}{t}{ \frac{1}{u} }{t} \amp = \frac{1}{t}
+	\opddt \, \ccmint{0}{t}{ \frac{1}{u} }{u} \amp = \frac{1}{t}
 </mrow></md>
 If we expect this pattern to also hold for exponential functions,
 then we should have
-<md> \opddt \ccmint{0}{t}{ e^u }{t} = e^t </md>,
+<md> \opddt \ccmint{0}{t}{ e^u }{u} = e^t </md>,
 or
-<md> \ddt{A_0(t)} = e^t </md>.
+<md> A_0(t) = \ccmint{0}{t}{ e^u }{u} \qquad \implies \qquad \ddt{A_0} = e^t </md>.
 What kind of function has an exponential derivative?
-Well, the natural exponential function does (<xref ref="pattern-exp-deriv" />)!
+Well, the natural exponential function does! (<xref ref="pattern-exp-deriv" />)
 But we have to be careful:
 just as recording only speedometer data will not tell you where the vehicle ended up at the end of the trip,
 knowing only a derivative calculation result does not tell you the original function exactly.
 You also need to take into account the initial condition.
-</p>
-
-<p>
-For now,
-we'll ask Sage to help us find the pattern in the accumulation values for an exponential rate function.
-In the Sage cell below,
-try different values for the variable upper bound <c>t</c> and look for the pattern.
-</p>
-
-<sage>
-	<input>
-		var('u')
-		t = 1
-		integrate(e^u,u,0,t)
-	</input>
-	<output>e^t - 1</output>
-</sage>
-
-<p>
-As expected,
-an exponential rate of accumulation leads to an exponential accumulation function.
-The extra <q>minus one</q> is essentially a correction for the fact that an exponential function has initial value <m> e^0 = 1 </m>,
-whereas accumulation should always be zero if no time has elapsed.
+So while we have both
+<md><mrow> \ddt{A_0} \amp = e^t \text{,} \amp \ddt{(\exp)} \amp = e^t </mrow></md>,
+we find a mismatch in their initial values:
+<md><mrow>
+	A_0(0) \amp = \ccmint{0}{0}{ e^ u }{u} = 0 \text{,} \amp
+	\exp(0) \amp = e^0 = 1 \text{.}
+</mrow></md>
+So it seems that,
+similar to <xref ref="pattern-poly-int-power-all-exp" text="type-local">Formula</xref> in <xref ref="pattern-poly-int-power" />,
+we need a <q>correction term</q> in our formula for <m> A_0(t) </m>,
+where the correction amount is precisely the amount of mismatch in initial value that we found above:
+<md> \ccmint{0}{t}{ e^u }{u} = e^t - 1 </md>.
 </p>
 
 <p>
@@ -1268,47 +1257,49 @@ we also need a <em>vertical scale</em> correction factor.
 	Let's extend <xref ref="example-log-definite-integral" />
 	by computing
 	<md> \ccmint{3}{4}{ t + \frac{1}{t} + e^t }{t} </md>.
-	Use the same strategy as in <xref ref="example-log-definite-integral" />
-	(and <xref ref="example-poly-definite-integral-mixed-exponents" />):
+	We'll use the same strategy as
+	in <xref ref="example-log-definite-integral" />
+	and <xref ref="example-poly-definite-integral-mixed-exponents" />,
+	but here since we only have a formula for the exponential integral based at initial time <m> t_0 = 0 </m>,
+	we'll first split into two integrals.
+	<md>
+
+		<mrow>
+			\amp \ccmint{3}{4}{t + \frac{1}{t}}{t}
+			\amp
+			\amp \ccmint{3}{4}{ e^t }{t}
+		</mrow>
+
+		<mrow>
+			\amp = \ccmint{1}{4}{t + \frac{1}{t}}{t} - \ccmint{1}{3}{t + \frac{1}{t}}{t}
+			\amp
+			\amp = \ccmint{0}{4}{e^t}{t} - \ccmint{0}{3}{e^t}{t}
+		</mrow>
+
+		<mrow>
+			\amp = \left( \frac{4^2 - 1}{2} + \ln(4) \right) - \left( \frac{3^2 - 1}{2} + \ln(3) \right)
+			\amp
+			\amp = (e^4 - 1) - (e^3 - 1)
+		</mrow>
+
+		<mrow>
+			\amp = \frac{7}{2} + \ln\left(\frac{4}{3}\right)
+			\amp
+			\amp = e^4 - e^3
+		</mrow>
+
+	</md>
+	Our original integral is now just the sum of these two integrals.
 	<md>
 
 		<mrow>
 			\ccmint{3}{4}{ t + \frac{1}{t} + e^t }{t}
-			\amp = \ccmint{3}{4}{t}{t} + \ccmint{3}{4}{\frac{1}{t}}{t} + \ccmint{3}{4}{ e^t }{t}
+			\amp = \ccmint{3}{4}{t + \frac{1}{t}}{t} + \ccmint{3}{4}{ e^t }{t}
 		</mrow>
 
-		<mrow>
-			\amp =
-			\left(
-				\ccmint{0}{4}{t}{t}
-				- \ccmint{0}{3}{t}{t}
-			\right)
-		</mrow>
-		<mrow>
-			\amp \qquad {} +
-			\left(
-				\ccmint{1}{4}{\frac{1}{t}}{t}
-				- \ccmint{1}{3}{\frac{1}{t}}{t}
-			\right)
-		</mrow>
-		<mrow>
-			\amp \qquad {} +
-			\left(
-				\ccmint{0}{4}{e^t}{t}
-				- \ccmint{0}{3}{e^t}{t}
-			\right)
-		</mrow>
+		<mrow> \amp = \frac{7}{2} + \ln\left(\frac{4}{3}\right) + e^4 - e^3 </mrow>
 
-		<mrow>
-			\amp =
-			\left( \frac{4^2}{2} - \frac{3^2}{2} \right)
-			+ ( \ln(4) - \ln(3) )
-			+ \bbrac{ (e^4 - 1) - (e^3 - 1) }
-		</mrow>
-
-		<mrow> \amp = \frac{7}{2} + \ln\left(\frac{4}{3}\right) + e^3 (e - 1) </mrow>
-
-	</md>.
+	</md>
 	</p>
 </example>
 
