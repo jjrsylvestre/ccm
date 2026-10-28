@@ -1375,8 +1375,8 @@ We might describe these formulas in words as follows.
 <dl>
 
 	<li><title>derivative of a power function</title><p>
-		reduce the exponent by one,
-		then multiply by the old exponent
+		multiply by the (old) exponent,
+		then reduce the exponent by one
 	</p></li>
 
 	<li><title>integral of a power function</title><p>
