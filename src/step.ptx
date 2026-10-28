@@ -1020,7 +1020,7 @@ The situation of calculating a sum where each term in the sum follows a pattern 
 so mathematicians have developed special notation for it.
 </p>
 
-<assemblage>
+<assemblage xml:id="assemblage-step-sigma-notation">
 <title>Sigma notation</title>
 
 <p>
