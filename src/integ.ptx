@@ -529,7 +529,7 @@ Next, we have to decide how to choose sample points that will determine our step
 this can be done systematically in a number of different ways.
 </p>
 
-<definition>
+<definition xml:id="definition-integ-left-riemann">
 	<title>Left Riemann sum</title>
 	<statement><p>
 		Given rate function <m> r(t) </m>,
@@ -588,7 +588,7 @@ this can be done systematically in a number of different ways.
 
 </example>
 
-<definition>
+<definition xml:id="definition-integ-right-riemann">
 	<title>Right Riemann sum</title>
 	<statement><p>
 		Given rate function <m> r(t) </m>,
@@ -646,7 +646,7 @@ this can be done systematically in a number of different ways.
 
 </example>
 
-<definition>
+<definition xml:id="definition-integ-midpt-riemann">
 	<title>Midpoint Riemann sum</title>
 	<statement><p>
 		Given rate function <m> r(t) </m>,
@@ -703,7 +703,7 @@ this can be done systematically in a number of different ways.
 
 </example>
 
-<definition>
+<definition xml:id="definition-integ-upper-riemann">
 	<title>Upper Riemann sum</title>
 	<statement><p>
 		Given rate function <m> r(t) </m>,
@@ -757,7 +757,7 @@ this can be done systematically in a number of different ways.
 
 </example>
 
-<definition>
+<definition xml:id="definition-integ-lower-riemann">
 	<title>Lower sum</title>
 	<statement><p>
 		Given rate function <m> r(t) </m>,
