@@ -780,7 +780,7 @@ our intuition based on <term>quantities</term>, <term>rates</term>, and <term>ac
 	let's differentiate both sides,
 	where on the left we may now apply the <xref ref="theorem-fund-thm" text="custom">Fundamental Theorem</xref> to be sure of the result,
 	and on the right we have the confidence of <xref ref="pattern-periodic-deriv-sin-cos" />,
-	with the cosine derivative formula verified in <xref ref="checkpoint-periodic-cos-deriv-from-limit" />.
+	with the cosine derivative formula verified in <xref ref="checkpoint-periodic-verify-cos-deriv" />.
 	<md>
 
 		<mrow>

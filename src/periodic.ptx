@@ -731,7 +731,7 @@ With this in mind,
 the <xref ref="pattern-limits-laws-add" text="custom">Sum Law</xref>
 and the <xref ref="pattern-limits-laws-homog" text="custom">Constant Multiple Law</xref>
 from <xref ref="pattern-limits-laws" />
-imply that should focus on determining
+imply that we should focus on determining
 <md><mrow>
 	\frac{ \bbrac{\cos(\change{t}) - 1} }{ \change{t} } \amp \to \text{?}
 	\amp
@@ -791,7 +791,8 @@ But in each of these cases we can say something much stronger about how close th
 		(that is, for <m> \theta \approx 0 </m>),
 		we have <m> \sin(\theta) \approx \theta </m>.
 		In fact,
-		we can say that values of <md> \frac{\sin(\theta)}{\theta} </md> become arbitrarily close to <m> 1 </m> for non-zero values of <m> \theta </m> sufficiently close to <m> 0 </m>.
+		we can say that values of <md> \frac{ \sin(\theta) }{ \theta } </md> become arbitrarily close to <m> 1 </m> for non-zero values of <m> \theta </m> sufficiently close to <m> 0 </m>:
+		<md> \lim_{\theta \to 0} \frac{ \sin(\theta) }{ \theta } = 1 </md>.
 	</p></statement>
 
 	<proof>
@@ -888,7 +889,8 @@ But in each of these cases we can say something much stronger about how close th
 		For small values of <m> \theta </m>
 		(that is, for <m> \theta \approx 0 </m>),
 		we obviously have <m> \cos(\theta) \approx \theta </m>.
-		This approximation becomes so tight that we can say that values of <md> \frac{\cos(\theta) - 1}{\theta} </md> become arbitrarily close to <m> 0 </m> for non-zero values of <m> \theta </m> sufficiently close to <m> 0 </m>.
+		This approximation becomes so tight that we can say that values of <md> \frac{ \cos(\theta) - 1 }{ \theta } </md> become arbitrarily close to <m> 0 </m> for non-zero values of <m> \theta </m> sufficiently close to <m> 0 </m>:
+		<md> \lim_{\theta \to 0} \frac{ \cos(\theta) - 1 }{ \theta } = 0 </md>.
 	</p>
 </identity>
 
@@ -980,17 +982,35 @@ A similar analysis for the cosine function yields the derivative formula predict
 	</p>
 </identity>
 
-<exercise xml:id="checkpoint-periodic-cos-deriv-from-limit">
-	<title>Derivative of the cosine function from the limit definition</title>
-	<p>
-	Similar to the derivation of the derivative of the sine function in this section,
-	combine
-	<xref ref="pattern-periodic-addition-identities" /> with
-	<xref ref="pattern-periodic-sin-over-theta" /> and
-	<xref ref="pattern-periodic-cos-over-theta" />
-	to verify that for <m> q(t) = \cos(t) </m>,
-	<md> \lim_{ \change{t} \to 0 } \slope{q}{t} = - \sin(t) </md>.
-	</p>
+<exercise xml:id="checkpoint-periodic-verify-cos-deriv">
+	<title>Verifying the derivative of the cosine function</title>
+	<introduction><p>
+		Verify the formula for the derivative of cosine in <xref ref="pattern-periodic-deriv-sin-cos" /> in two ways.
+	</p></introduction>
+
+	<task>
+		<title>Using the limit definition of the derivative</title>
+		<p>
+		Similar to the derivation of the derivative of the sine function in this section,
+		combine
+		<xref ref="pattern-periodic-addition-identities" /> with
+		<xref ref="pattern-periodic-sin-over-theta" /> and
+		<xref ref="pattern-periodic-cos-over-theta" />
+		to verify that for <m> q(t) = \cos(t) </m>,
+		<md> \lim_{ \change{t} \to 0 } \slope{q}{t} = - \sin(t) </md>.
+		</p>
+	</task>
+
+	<task>
+		<title>By realizing cosine as a shift of sine</title>
+		<p>
+		Starting with the identity <md> \cos(t) = \sin(t + \pi / 2) </md> from <xref ref="pattern-periodic-sin-cos-identities" />,
+		combine <xref ref="pattern-deriv-h-shift" /> with the formula for the derivative of sine from <xref ref="pattern-periodic-deriv-sin-cos" />.
+		Finally,
+		use another identity from <xref ref="pattern-periodic-sin-cos-identities" /> to express your result in terms of sine.
+		</p>
+	</task>
+
 </exercise>
 
 <!-- TODO examples -->
