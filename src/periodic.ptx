@@ -1065,7 +1065,7 @@ and shifted velocity and position functions
 		\amp
 		s(t) \amp = \sin(t) \text{.}
 </mrow></md>
-8And again we think of the mass as accumulating displacement from its initial position and apply <xref ref="pattern-integ-definite-integ-to-quantity-function" />:
+And again we think of the mass as accumulating displacement from its initial position and apply <xref ref="pattern-integ-definite-integ-to-quantity-function" />:
 <md>
 	<mrow> s(t) \amp = s(0) + \ccmint{0}{t}{v(u)}{u} </mrow>
 	<mrow> \amp = 0 + \ccmint{0}{t}{\cos(u)}{u} </mrow>

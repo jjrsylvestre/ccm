@@ -121,7 +121,7 @@ In this way you can visualize how the net oriented area between graph and horizo
 <title>Average value of a function</title>
 
 <p>
-What if we tried to view a quantity function as a somehow being a rate function,
+What if we tried to view a quantity function as somehow being a rate function,
 and then computed the <q>average rate</q>?
 </p>
 
@@ -802,7 +802,7 @@ our intuition based on <term>quantities</term>, <term>rates</term>, and <term>ac
 
 	<p>
 	Similarly,
-	separately differentiating each side of our integral formula for cosine gives the same result in both calculationsx.
+	separately differentiating each side of our integral formula for cosine gives the same result in both calculations.
 	<md><mrow>
 			\opddt \, \ccmint{0}{t}{\cos(u)}{u} \amp = \cos(t)
 			\amp
