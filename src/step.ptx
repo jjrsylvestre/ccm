@@ -920,7 +920,7 @@ then the above calculation is still a sum of rectangle areas.
 			<p>
 			If a function is positive on a domain,
 			then the area bounded between the graph of the function and the horizontal axis over that domain is <term>positively-oriented</term>
-			and we assign positive number to that area.
+			and we assign a positive number to that area.
 			</p>
 		</li>
 
