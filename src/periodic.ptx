@@ -478,7 +478,7 @@ we make the following definitions of four more trigonometric functions as ratios
 
 <!-- TODO graphs of these new trig functions -->
 
-<identity>
+<identity xml:id="pattern-periodic-recip">
 	<title>Rational/reciprocal relationships between trigonometric functions</title>
 
 	<statement><p><md>
