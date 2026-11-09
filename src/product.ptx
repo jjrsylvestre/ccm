@@ -46,7 +46,7 @@ we might assume that <m> k(t) </m> is approximately constant:
 </mrow></md>.
 Then a small variation in <m> t </m> causes a small variation in <m> p(t) </m>,
 which causes a variation of approximately
-<md> k^\ast \, \ddt{p} </md>
+<md> k^\ast \cdot \ddt{p} </md>
 in <m> q(t) </m>.
 But <m> k(t) </m> isn't actually constant <mdash />
 a small variation in <m> k(t) </m> also causes a small variation in <m> q(t) </m>.
@@ -64,11 +64,11 @@ we might now assume that <m> p(t) </m> is approximately constant:
 </mrow></md>.
 And then a small variation in <m> t </m> causes a small variation in <m> k(t) </m>,
 which causes a variation of approximately
-<md> p^\ast \, \ddt{k} </md>
+<md> p^\ast \cdot \ddt{k} </md>
 in <m> q(t) </m>.
 To get the total variation in <m> q(t) </m>,
 we should add these variations together:
-<md> \dqdt = k^\ast \, \ddt{p} + p^\ast \, \ddt{k} </md>.
+<md> \dqdt = k^\ast \cdot \ddt{p} + p^\ast \cdot \ddt{k} </md>.
 Since this is true at all points <m> t = t^\ast </m>,
 we may as well just write
 <md> \dqdt = k(t) \, \ddt{p} + p(t) \, \ddt{k} </md>.
@@ -157,8 +157,10 @@ we may as well just write
 	In the last example,
 	we combine with the <xref ref="pattern-chain-differential-version" text="title" />.
 	<ol>
-		<li><p>
-			<md>
+
+		<li>
+			<title>Derivative of product <m> t \ln\abs{t} </m></title>
+			<p><md>
 				<mrow>
 					\opddt \bbrac{ t \ln\abs{t} }
 					\amp
@@ -167,10 +169,12 @@ we may as well just write
 				</mrow>
 				<mrow> \amp = t \cdot \frac{1}{t} + 1 \cdot \ln\abs{t} </mrow>
 				<mrow> \amp = 1 + \ln\abs{t} </mrow>
-			</md>
-		</p></li>
-		<li><p>
-			<md>
+			</md></p>
+		</li>
+
+		<li>
+			<title>Derivative of product <m> e^t \tan(t) </m></title>
+			<p><md>
 				<mrow>
 					\opddt \bbrac{ e^t \tan(t) }
 					\amp
@@ -179,12 +183,20 @@ we may as well just write
 				</mrow>
 				<mrow> \amp = e^t \sec^2(t) + e^t \cdot \tan(t) </mrow>
 				<mrow> \amp = e^t \bbrac{\sec^2(t) + \tan(t)} </mrow>
-			</md>
-		</p></li>
-		<li><p>
-			For <md> \opddt \bbrac{ t \sin(t^2) } </md>,
-			set <m> u = t^2 </m>.
-			Then
+			</md></p>
+		</li>
+
+		<li>
+			<title>Derivative of product <m> t \sin(t^2) </m></title>
+
+			<p>
+			Here we will need both
+			the <xref ref="pattern-product-rule" text="title" />
+			and the <xref ref="pattern-chain-differential-version" text="title" />.
+			</p>
+
+			<p>
+			Set <m> u = t^2 </m>.
 			<md>
 				<mrow>
 					\opddt \bbrac{ t \sin(t^2) }
@@ -199,8 +211,11 @@ we may as well just write
 				</mrow>
 				<mrow> \amp = t \cos(u) \cdot (2 t) + 1 \cdot \sin(t^2) </mrow>
 				<mrow> \amp = 2 t^2 \cos(t^2) + \sin(t^2) </mrow>
-			</md>.
-		</p></li>
+			</md>
+			</p>
+
+		</li>
+
 	</ol>
 	</p>
 </example>
@@ -364,8 +379,8 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	</figure>
 
 	<p>
-	We might model the incoming concentration <m> k(t) </m> with a function that begins at <m> k(0) = 0 </m>,
-	but then quickly ramps up to approach a horizontal asymptote at the desired concentration of
+	We might model the incoming concentration as a function <m> k(t) </m> that has initial condition <m> k(0) = 0 </m>
+	but quickly ramps up to approach a horizontal asymptote at the desired concentration of
 	<quantity><mag>15</mag><unit base="gram" /><per base="liter" /></quantity>.
 	Maybe something like <md> k(t) = 15 (1 - e^{-t}) </md>.
 	</p>
@@ -382,31 +397,36 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	</figure>
 
 	<p>
-	To obtain a rate equation for this system,
-	we use the same <md> r(t) = (\text{rate in }) - (\text{rate out}) </md>
+	To obtain a differential equation for this system,
+	we use the same <md> \text{net rate of accumulation} = (\text{rate in }) - (\text{rate out}) </md>
 	analysis that we used in <xref ref="example-models-mixing" />,
 	but now our <em>rate in</em> is varying instead of constant.
 	Remember that our analysis in that example was based on <em>amount</em> of salt in grams,
 	not concentration.
-	So letting <m> q(t) </m> represent the amount of salt in the tank at time <m> t </m>,
-	we have
-	<md>
-		<mrow> \text{rate in} \amp = \bbrac{k(t) \; \mathrm{g}/\mathrm{L}} (2 \; \mathrm{L}/\mathrm{s}) </mrow>
-		<mrow> \amp = 2 k(t) \; \mathrm{g}/\mathrm{s} </mrow>
-		<mrow> \amp = 30 (1 - e^{-t}) \; \mathrm{g}/\mathrm{s} </mrow>
-		<mrow></mrow>
-		<mrow> \text{rate out} \amp = \left(\frac{q(t)}{1000} \; \mathrm{g}/\mathrm{L}\right) (2 \; \mathrm{L}/\mathrm{s}) </mrow>
-		<mrow> \amp = \frac{q(t)}{500} \; \mathrm{g}/\mathrm{s} </mrow>
-		<mrow></mrow>
-		<mrow> r(t) \amp = 30 (1 - e^{-t}) - \frac{q(t)}{500} </mrow>
-	</md>.
+	So let <m> q(t) </m> represent the amount of salt in the tank at time <m> t </m>.
 	</p>
 
+	<sidebyside valigns="middle middle">
+
+		<p><md>
+			<mrow> \text{rate in} \amp = \bbrac{k(t) \; \mathrm{g}/\mathrm{L}} (2 \; \mathrm{L}/\mathrm{s}) </mrow>
+			<mrow> \amp = 2 k(t) \; \mathrm{g}/\mathrm{s} </mrow>
+			<mrow> \amp = 30 (1 - e^{-t}) \; \mathrm{g}/\mathrm{s} </mrow>
+		</md></p>
+
+		<p><md>
+			<mrow> \text{rate out} \amp = \left(\frac{q(t)}{1000} \; \mathrm{g}/\mathrm{L}\right) (2 \; \mathrm{L}/\mathrm{s}) </mrow>
+			<mrow> \amp = \frac{q(t)}{500} \; \mathrm{g}/\mathrm{s} </mrow>
+		</md></p>
+
+	</sidebyside>
+
+	<p> From this we obtain differential equation <md> \dqdt = 30 (1 - e^{-t}) - \frac{q(t)}{500} </md>. </p>
+
 	<p>
-	Writing <m> r(t) = \dqdt </m> as usual,
-	let's rearrange this equation to
+	Rearrange this differential equation to
 	<md> \dqdt + \frac{q}{500} = 30 (1 - e^{-t}) </md>.
-	Just as when we solved separable rate equations (<xref ref="section-substitution-separable-DE" />),
+	Just as when we solved separable differential equations (<xref ref="section-substitution-separable-DE" />),
 	we would like to interpret each side as somehow the result of a differentiation.
 	With the addition on the left-hand side,
 	it could be the result of a <xref ref="pattern-product-rule" text="title" /> computation.
@@ -415,15 +435,15 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	instead of just <m> dq/dt </m>,
 	for some function <m> u(t) </m>.
 	To introduce this new factor,
-	let's multiply the whole rate equation by this (currently unknown) function <m> u(t) </m>:
+	let's multiply the whole differential equation by this (currently unknown) function <m> u(t) </m>:
 	<md> u \cdot \dqdt + \frac{u}{500} \cdot q = 30 u (1 - e^{-t}) </md>.
-	But the Product Rule pattern is
+	But the <xref ref="pattern-product-rule" text="title" /> pattern is
 	<md> \opddt \, ( u q ) = u \cdot \dqdt + \dudt \cdot q </md>.
 	So for this to work,
 	we would need <md> \dudt = \frac{u}{500} </md>.
 	Luckily, we already know from <xref ref="pattern-substitution-proportional-rate" /> that the function
 	<md> u(t) = e^{t / 500} </md>
-	satisfies this new rate equation.
+	satisfies this new differential equation.
 	(Note that we have chosen <m> u_0 = u(0) = 1 </m>,
 	since we only need <em>one</em> appropriate function <m> u </m> to use,
 	not <em>every possible</em> such function.)
@@ -431,7 +451,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 
 	<p>
 	So with <m> u </m> as above,
-	our rate equation becomes
+	our differential equation becomes
 	<md alignment="gather">
 		<mrow> e^{t / 500} \cdot \dqdt + \frac{e^{t / 500}}{500} \cdot q = 30 e^{t / 500} (1 - e^{-t}) </mrow>
 		<mrow> \opddt \, ( e^{t / 500} \cdot q ) = 30 e^{t / 500} - 30 e^{- 499 t / 500} </mrow>
@@ -441,14 +461,11 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	let's make them appear more the same by also interpreting the right-hand side as the result of a derivative calculation.
 	Since
 	<md>
-		<mrow>
-			\opddt \, \left( 15000 e^{t / 500} + \frac{15000}{499} e^{- 499 t / 500} \right)
-			\amp = \frac{15000}{500} e^{t / 500}
-			+ \frac{15000}{499} \cdot \left( \frac{-499}{500} \right) e^{-499 t / 500}
-		</mrow>
+		<mrow> \amp \opddt \, \left( 15000 e^{t / 500} + \frac{15000}{499} e^{- 499 t / 500} \right) </mrow>
+		<mrow> \amp = \frac{15000}{500} e^{t / 500} + \frac{15000}{499} \cdot \left( \frac{-499}{500} \right) e^{-499 t / 500} </mrow>
 		<mrow> \amp = 30 e^{t / 500} - 30 e^{-499 t / 500} </mrow>
 	</md>,
-	we can rewrite our modified rate equation as
+	we can rewrite our modified differential equation as
 	<md>
 		\opddt \, ( e^{t / 500} \cdot q )
 		= \opddt \, \left( 15000 e^{t / 500} + \frac{15000}{499} e^{- 499 t / 500} \right)
@@ -456,7 +473,7 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	This now says that the functions
 	<md>
 		<mrow>
-			e^{t / 500} \amp \cdot q
+			e^{t / 500} \amp \cdot q \text{,}
 			\amp
 			\frac{15000}{499} \amp ( 499 e^{t / 500} + e^{- 499 t / 500} )
 		</mrow>
@@ -481,22 +498,22 @@ We can also combine the product rule with logarithmic differentiation to tackle 
 	</p>
 </example>
 
-<p> We can use the same method to solve rate equations of a similar form. </p>
+<p> We can use the same method to solve differential equations of a similar form. </p>
 
 <definition xml:id="definition-product-1st-order-linear-DE">
-	<title>First-order, linear rate equation</title>
+	<title>First-order, linear differential equation</title>
 	<statement><p>
-		A rate equation that can be expressed in the form
+		A differential equation that can be expressed in the form
 		<md> \dqdt + p(t) \cdot q = f(t) </md>
 		for some functions <m> p </m> and <m> f </m>
-		is called a <term>first-order, linear rate equation</term>.
+		is called a <term>first-order, linear differential equation</term>.
 		The function <m> p(t) </m> is called the <term>coefficient function</term>,
 		and the function <m> f(t) </m> is called the <term>forcing function</term> for the system.
 	</p></statement>
 </definition>
 
 <p>
-We can use the same method as in <xref ref="example-product-mixing" /> to solve such a rate equation.
+We can use the same method as in <xref ref="example-product-mixing" /> to solve such a differential equation.
 We would like to determine a function <m> u(t) </m> so that
 <md> u \cdot \dqdt + u p q </md>
 is the same as the result of a <xref ref="pattern-product-rule" text="title" /> computation
@@ -508,17 +525,17 @@ which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <
 </p>
 
 <algorithm xml:id="procedure-product-solve-1st-order-linear">
-	<title>Solving a first order, linear rate equation</title>
+	<title>Solving a first order, linear differential equation</title>
 	<p>
 	To solve <md>  \dqdt + p(t) \cdot q = f(t) </md>:
 	<ol>
 		<li>
 			First use <xref ref="procedure-substitution-solve-separable" />
-			to solve the separable rate equation
+			to solve the separable differential equation
 			<md> \frac{1}{u} \cdot \dudt = p(t) </md>.
 		 </li>
 		 <li>
-			 Choose one particular solution function <m> u(t) </m> and multiply the original rate equation through by it:
+			 Choose one particular solution function <m> u(t) </m> and multiply the original differential equation through by it:
 			 <md> u(t) \dqdt + u(t) p(t) q(t) = u(t) f(t) </md>.
 		 </li>
 		 <li>
@@ -536,7 +553,7 @@ which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <
 </algorithm>
 
 <remark><p>
-	The chosen function <m> u(t) </m> is called an <term>integrating factor</term> for the rate equation,
+	The chosen function <m> u(t) </m> is called an <term>integrating factor</term> for the differential equation,
 	as introducing it as an extra factor in each term allows us to undo the differentiation on the left-hand side <mdash />
 	that is, it allows us to solve the equation by integrating.
 </p></remark>
@@ -546,7 +563,7 @@ which is a <xref ref="definition-substitution-separable-DE" text="title" /> in <
 
 	<p>
 	Suppose we would like to solve
-	<md> r(t) = \frac{1 - 2 t q(t)}{1 + t^2} </md>.
+	<md> \dqdt = \frac{1 - 2 t q(t)}{1 + t^2} </md>.
 	It certainly doesn't like a <xref ref="definition-substitution-separable-DE" text="title" />,
 	and at first glance it also doesn't look it's of the form in <xref ref="definition-product-1st-order-linear-DE" />.
 	But we can rearrange:
