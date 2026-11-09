@@ -350,18 +350,23 @@ where the function is increasing,
 and the domain <m> 0 \lt t \lt 1 </m>,
 where the function is decreasing.
 Notice that <m> q'(0) = 0 </m> at that boundary.
-We can think of this feature in several different ways.
+We can think of this feature in several ways.
 <ol>
 
 	<li>
+		<title> Rate of accumulation of a varying quantity </title>
+		<p>
 		When increasing, the quantity is accumulating,
 		and when decreasing, the quantity is dissipating.
 		At a boundary between these two behaviours,
 		there must be an instant where the quantity is neither accumulating nor dissipating;
 		that is, where <m> r(t) = 0 </m>.
+		</p>
 	</li>
 
 	<li>
+		<title> Velocity of an object in motion </title>
+		<p>
 		If the function represents the position of an object in motion,
 		the derivative function represents velocity.
 		When the velocity is positive,
@@ -373,17 +378,20 @@ We can think of this feature in several different ways.
 		At a boundary between these two boundaries,
 		in order to switch direction of movement there must be an instant where the object comes to a stop;
 		that is, where <m> v(t) = 0 </m>.
+		</p>
 	</li>
 
 	<li>
-		Graphically,
-		if a function increases and then decreases,
-		it must have come to a <q>peak</q> at that boundary point between the two behaviours.
+		<title> Graph of a function </title>
+		<p>
+		If a function increases and then decreases,
+		its graph must have come to a <q>peak</q> at that boundary point between the two behaviours.
 		On the increasing side of the peak we will see positive slopes,
 		and on the decreasing side we will see negative slopes.
 		So if the function is differentiable at that boundary point,
 		then we should see a slope <m> q'(t) = 0 </m>,
 		where the tangent line is horizontal.
+		</p>
 	</li>
 
 </ol>
@@ -612,21 +620,25 @@ and what kind if it does.
 	<title>First Derivative Test</title>
 
 	<p>
-	Suppose that <m> q </m> has a critical point at <m> t = t^\ast </m>.
+	Suppose function <m> q </m> has a critical point at <m> t = t^\ast </m>,
+	and is differentiable on some open interval containing that point,
+	except possibly at <m> t = t^\ast </m> itself.
 	<ol>
 
 		<li>
-			If <m> q </m> changes in behaviour from increasing to decreasing at <m> t = t^\ast </m>,
-			then <m> q </m> has a local maximum there.
+			If <m> q </m> changes in behaviour from increasing to decreasing at the critical point,
+			so that its derivative <m> q' </m> changes sign from positive before to negative after <m> t = t^\ast </m>,
+			then <m> q </m> has a local maximum at that critical point.
 		</li>
 
 		<li>
-			If <m> q </m> changes in behaviour from decreasing to increasing at <m> t = t^\ast </m>,
-			then <m> q </m> has a local minimum there.
+			If <m> q </m> changes in behaviour from decreasing to increasing at the critical point,
+			so that its derivative <m> q' </m> changes sign from negative before to positive after <m> t = t^\ast </m>,
+			then <m> q </m> has a local minimum at that critical point.
 		</li>
 
 		<li>
-			If <m> q </m> does not change behaviour at <m> t = t^\ast </m>,
+			If <m> q </m> does not change behaviour and its derivative does not change sign at the critical point,
 			then <m> q </m> has neither a local minimum nor a local maximum there.
 		</li>
 
