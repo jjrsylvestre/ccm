@@ -473,7 +473,7 @@ just as in <xref ref="example-comp-inv-rain" />.
 
 </section>
 
-<section>
+<section xml:id="section-comp-inv-inj">
 <title>One-to-one functions</title>
 
 <p> How can we tell whether a function is invertible in the first place? </p>
@@ -683,7 +683,7 @@ we have the following further properties.
 
 </section>
 
-<section>
+<section xml:id="section-comp-inv-graph">
 <title>Graph of an inverse function</title>
 
 <p>
@@ -820,7 +820,7 @@ it is equivalent to verifying the <xref ref="pattern-funcs-VLT" text="title" /> 
 </section>
 
 
-<section>
+<section xml:id="section-comp-inv-deriv">
 <title>Derivative of an inverse function</title>
 
 <p>
