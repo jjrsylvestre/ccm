@@ -16,7 +16,7 @@ respective owners.
 <chapter xml:id="chapter-substitution" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Reversing the Chain Rule</title>
 
-<section xml:id="section-substitution">
+<section xml:id="section-substitution-idea">
 <title>Integrating a derivative</title>
 
 <!--   FIRST GO ... TOO COMPLICATED
@@ -211,7 +211,7 @@ or for which it is simpler to guess an antiderivative.
 
 </section>
 
-<section>
+<section xml:id="section-substitution-idea-method">
 <title>Method of substitution</title>
 
 <p>
@@ -428,14 +428,14 @@ we can sometimes use substitution to <q>shift</q> a complicated expression to an
 </section>
 
 <section xml:id="section-substitution-separable-DE">
-<title>Separable rate equations</title>
+<title>Separable differential equations</title>
 
 <p>
-Recall that a rate equation relates a quantity to its rate of variation.
-Our goal in solving a rate equation is to relate the quantity directly to the independent variable.
+Recall that a <xref ref="definition-models-diff-eqn" text="title" /> relates a quantity to its rate of variation.
+Our goal in solving a differential equation is to relate the quantity directly to the independent variable.
 Since a rate of variation is a derivative function,
-ultimately solving a rate equation involves recognizing and reversing the differentiation.
-When we can <q>separate</q> the variables involved in a rate function to either side of a rate equation,
+ultimately solving a differential equation involves recognizing and reversing the differentiation.
+When we can <q>separate</q> the variables involved to either side of a differential equation,
 on one side we can reverse the differentiation by reversing the chain rule.
 </p>
 
@@ -443,11 +443,10 @@ on one side we can reverse the differentiation by reversing the chain rule.
 	<title>A first example</title>
 
 	<p>
-	Consider the rate equation <md> r(t) = \frac{t^2 + 1}{2 q(t) + 1} </md>.
+	Consider the differential equation <md> \dqdt = \frac{t^2 + 1}{2 q(t) + 1} </md>.
 	Let's simply write <m> q </m> instead of <m> q(t) </m>.
-	But let's also replace <m> r(t) </m> with <m> dq/dt </m>,
-	since <m> dq/dt </m> is the rate of variation of <m> q </m>.
-	Finally, we'll also do a little algebraic rearrangement.
+	Consider the following algebraic rearrangement of the differential equation,
+	separating dependent from independent variables:
 	<md alignment="gather">
 		<mrow> r(t) = \frac{t^2 + 1}{2 q(t) + 1} </mrow>
 		<mrow> \dqdt = \frac{t^2 + 1}{2 q + 1}   </mrow>
@@ -468,7 +467,7 @@ on one side we can reverse the differentiation by reversing the chain rule.
 
 	<p>
 	To reverse a suspected differentiation process,
-	let us <em>antidifferentiate</em> both sides of our re-arranged rate equation.
+	let us <em>antidifferentiate</em> both sides of our re-arranged differential equation.
 	First, we'll tackle the right-hand side of <xref ref="equation-substitution-first-separable-rearranged" />,
 	since it is straight-forward:
 	<md> \ccmiint{t^2 + 1}{t} = \frac{t^3}{3} + t + C </md>.
@@ -549,9 +548,9 @@ on one side we can reverse the differentiation by reversing the chain rule.
 </example>
 
 <definition xml:id="definition-substitution-separable-DE">
-	<title>Separable rate equation</title>
+	<title>Separable differential equation</title>
 	<statement><p>
-		A rate equation that can be expressed in the form
+		A differential equation that can be expressed in the form
 		<md> m(q) \cdot \dqdt = n(t) </md>
 		for some functions <m> m </m> and <m> n </m> is called <term>separable</term>.
 	</p></statement>
@@ -560,11 +559,11 @@ on one side we can reverse the differentiation by reversing the chain rule.
 <p>
 Ultimately,
 the problem in <xref ref="example-substitution-first-separable" /> was solved by reversing differentiation,
-also known as <em>antidifferentiating</em>.
+also known as <term>antidifferentiating</term>.
 </p>
 
 <algorithm xml:id="procedure-substitution-solve-separable">
-	<title>Solving a separable rate equation</title>
+	<title>Solving a separable differential equation</title>
 	<p>
 	To solve <md> m(q) \cdot \dqdt = n(t) </md>,
 	integrate both sides:
@@ -578,7 +577,7 @@ also known as <em>antidifferentiating</em>.
 	(with respect to <m> q </m>)
 	and <m> N(t) </m> is an antiderivative for <m> n(t) </m>
 	(with respect to <m> t </m>).
-	Notice that we have introduced an arbitrary constant of integration on one side only.
+	Notice that we introduce an arbitrary constant of integration on one side only.
 	</p>
 </algorithm>
 
@@ -587,10 +586,10 @@ also known as <em>antidifferentiating</em>.
 
 	<p>
 	Let's once again revisit <xref ref="example-models-radioactive-decay" />,
-	which involved the rate equation
-	<md> \frac{r(t)}{q(t)} = - k </md>.
+	which involved the (separable) differential equation
+	<md> \frac{dq/dt}{q(t)} = - k </md>.
 	In <xref ref="subsection-exp-deriv-diff-eq" />
-	we verified that an horizontally-transformed exponential function can be a solution to this type of rate equation.
+	we verified that a horizontally-transformed exponential function can be a solution to this type of differential equation.
 	Now we'll solve this equation to verify that exponential functions are the <em>only</em> possible solutions.
 	<md alignment="gather">
 		<mrow> \frac{1}{q} \cdot \dqdt = -k </mrow>
@@ -621,10 +620,10 @@ also known as <em>antidifferentiating</em>.
 	then <m> A = 0 </m> is not possible.
 	And that's good,
 	because <m> q = 0 </m> would not work in
-	<md> \frac{r(t)}{q(t)} = - k </md>.
+	<md> \frac{dq/dt}{q(t)} = - k </md>.
 	However,
 	if we rearrange this to
-	<md> r(t) = - k q(t) </md>,
+	<md> \dqdt = - k q(t) </md>,
 	then <m> q(t) = 0 </m> would in fact be a solution,
 	since then <m> q'(t) = 0 </m> also,
 	so
@@ -640,9 +639,9 @@ also known as <em>antidifferentiating</em>.
 <p> Let's record the pattern of the solution to the previous example. </p>
 
 <identity xml:id="pattern-substitution-proportional-rate">
-	<title>General solution to proportional rate equation</title>
+	<title>General solution to proportional differential equation</title>
 	<p>
-	If <m> q(t) </m> is a varying quantity so that its rate of variation <m> r(t) </m> is always proportional to the amount <m> q(t) </m> according to the rate equation
+	If <m> q(t) </m> is a varying quantity so that its rate of variation <m> dq/dt </m> is always proportional to the amount <m> q(t) </m> according to the differential equation
 	<md> r(t) = k q(t) </md>,
 	then <m> q(t) </m> is the exponential function <md> q(t) = q_0 e^{k t} </md>,
 	where <m> q_0 = q(0) </m> is the initial quantity.
@@ -651,14 +650,14 @@ also known as <em>antidifferentiating</em>.
 
 <p>
 As one last example,
-let's return to the rate equation from <xref ref="example-models-general-solution" />.
+let's return to the differential equation from <xref ref="example-models-general-solution" />.
 </p>
 
 <example xml:id="example-substitution-solve-previous-example">
 
 	<p>
-	In <xref ref="example-models-general-solution" /> we considered the rate equation
-	<md> r(t) = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </md>.
+	In <xref ref="example-models-general-solution" /> we considered the differential equation
+	<md> \dqdt = \frac{q(t) \cdot \bbrac{1 - q(t)}}{t + 1} </md>.
 	This is somewhat similar to <xref ref="example-substitution-first-separable" />,
 	except this time the solution will involve logarithms,
 	because after separating variables we will have reciprocal functions on both sides.
@@ -711,7 +710,7 @@ let's return to the rate equation from <xref ref="example-models-general-solutio
 	letting <m> A </m> represent <m> \pm e^C </m> implies that <m> A </m> cannot be zero,
 	since an exponential is never <m> 0 </m>.
 	Verify that setting <m> A = 0 </m> in the final formula for <m> q(t) </m> actually does lead to a valid particular solution,
-	by substituting that version of <m> q(t) </m> (and its derivative) into the left-hand and right-hand sides of the original rate equation.
+	by substituting that version of <m> q(t) </m> (and its derivative) into the left-hand and right-hand sides of the original differential equation.
 </p></exercise>
 
 
