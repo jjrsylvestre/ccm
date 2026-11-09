@@ -539,7 +539,7 @@ We can now compare to our previous results.
 
 </section>
 
-<section>
+<section xml:id="section-chain-implicit">
 <title>Implicit differentiation</title>
 
 <p>
@@ -823,7 +823,7 @@ We can use <xref ref="procedure-chain-implicit" /> to verify that it is valid fo
 
 </section>
 
-<section>
+<section xml:id="section-chain-related-rates">
 <title>Related rate problems</title>
 
 <p>
@@ -1061,7 +1061,7 @@ Here are some more examples of such <term>related rates</term>.
 
 </section>
 
-<section>
+<section xml:id="section-chain-log-diff">
 <title>Logarithmic differentiation</title>
 
 <p> Sometimes it is helpful to turn an explicit function formula into an implicit relationship between dependent and independent variables. </p>
