@@ -191,7 +191,7 @@ so in this section we will develop a more efficient process based on local extre
 
 </section>
 
-<section>
+<section xml:id="section-opt-evt">
 <title>The Extreme Value Theorem</title>
 
 <p>
@@ -374,7 +374,7 @@ then we are always guaranteed to have <em>both</em> an absolute maximum and mini
 
 </section>
 
-<section>
+<section xml:id="section-opt-procedure">
 <title>Searching for extremes</title>
 
 <p>
@@ -489,7 +489,7 @@ or not occur at all because of endpoint behaviour.
 	The stated subdomains already split this function up into domains of continuity for us.
 	</p>
 
-	<case><title>On <m> -1 \le t \lt 2 </m></title><p>
+	<case><title>Subdomain <m> -1 \le t \lt 2 </m></title><p>
 		On this domain we have <m> q'(t) = 2 t </m>,
 		so there is a critical point at <m> t = 0 </m>.
 		We evaluate <md><mrow> q(-1) \amp = 1 \amp q(0) = 0 </mrow></md>.
@@ -499,7 +499,7 @@ or not occur at all because of endpoint behaviour.
 		there is no absolute maximum here.
 	</p></case>
 
-	<case><title>On <m> 2 \le t \le 8 </m></title><p>
+	<case><title>Subdomain <m> 2 \le t \le 8 </m></title><p>
 		On this domain,
 		the derivative is <m> q'(t) = 1 </m> and so there are no critical points.
 		In fact, the graph here is just a line with positive slope,
@@ -507,7 +507,7 @@ or not occur at all because of endpoint behaviour.
 		to an absolute maximum <m> q(8) = 5 </m> at the right endpoint.
 	</p></case>
 
-	<case><title>On <m> t \gt 8 </m></title><p>
+	<case><title>Subdomain <m> t \gt 8 </m></title><p>
 		On this domain the derivative is <md> q'(t) = \frac{1}{(t - 8)^2} </md>,
 		so again there are no critical points.
 		At the excluded endpoint <m> t = 8 </m> the function actually has a singularity,
@@ -564,7 +564,7 @@ or not occur at all because of endpoint behaviour.
 
 </section>
 
-<section>
+<section xml:id="section-opt-abs-2nd-deriv-test">
 <title>The Second Derivative Test</title>
 
 <p>
@@ -693,7 +693,7 @@ the concavity can tell us whether we are at a local maximum or a local minimum.
 
 </section>
 
-<section>
+<section xml:id="section-opt-problems">
 <title>Optimization problems</title>
 
 <p>
