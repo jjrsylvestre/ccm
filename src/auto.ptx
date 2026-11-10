@@ -20,14 +20,15 @@ respective owners.
 <title>Introduction and method of analysis</title>
 
 <p>
-Suppose <m> q(t) </m> is a quantity that is varying over time,
-and <m> r(t) = q'(t) </m> is its association rate function.
-If <m> q </m> and <m> r </m> satisfy a rate equation of the form
-<md> r(t) = f(q) </md>
-for some function <m> f </m>,
-then the rate of variation of <m> q </m> is entirely dependent on the amount <m> q </m> and not on the actual time at which that particular amount occurs.
-We call such a model an <term>autonomous system</term>,
-and the expression in <m> q </m> on the right-hand side is called the <term>rate function</term>.
+Suppose <m> q(t) </m> is a quantity that is varying over time and satisfies a differential equation of the form
+<md> \dqdt = f(q) </md>
+for some function <m> f </m>.
+Then the rate of variation of <m> q </m> is entirely dependent on the amount <m> q </m> and not on the actual time at which that particular amount occurs.
+We call such a model an <term>autonomous system</term>.
+(Further recall that the function <m> f(q) </m> on the right-hand side of the differential equation is called the <term>rate function</term>.)
+</p>
+
+<p>
 Population dynamics are a typical example of autonomous systems:
 if a scientist is studying bacterial growth in controlled lab environment,
 the rate of growth doesn't have much to do with the reading on the clock on the wall,
@@ -35,7 +36,7 @@ only on the current number of bacteria.
 </p>
 
 <p>
-We can determine a lot about the general behavioural characteristics of solutions to autonomous systems without actually solving the rate equation,
+We can determine a lot about the general behavioural characteristics of solutions to autonomous systems without actually solving the differential equation,
 by applying the concepts we learned in <xref ref="chapter-curves" />.
 </p>
 
@@ -43,10 +44,9 @@ by applying the concepts we learned in <xref ref="chapter-curves" />.
 	<title>Analyzing an autonomous system</title>
 
 	<p>
-	Consider the rate equation
+	Consider the differential equation
 	<md xml:id="equation-auto-first-example-rate-eqn" tag="star"> \dqdt = (q + 1) (q - 2) </md>.
-	The first thing to notice is that at quantity levels <m> q = -1 </m> and <m> q = 2 </m>,
-	we have <m> dq/dt = 0 </m>,
+	The first thing to notice is that we have <m> dq/dt = 0 </m> at quantity levels <m> q = -1 </m> and <m> q = 2 </m>,
 	which means that the rate of growth is zero,
 	and neither growth nor decay can occur.
 	So if the quantity reaches a level of <m> q = -1 </m> or <m> q = 2 </m>,
@@ -59,7 +59,7 @@ by applying the concepts we learned in <xref ref="chapter-curves" />.
 	As in <xref ref="section-curves-increase-decrease" />,
 	we can determine this by solving <m> q'(t) \gt 0 </m> and <m> q'(t) \lt 0 </m>,
 	but this time we will solve in terms of <m> q </m> rather than in terms of <m> t </m>.
-	Using our rate equation,
+	Using our differential equation,
 	we can determine when the derivative is positive or negative by determining the values of <m> q </m>
 	that make the right-hand side of <xref ref="equation-auto-first-example-rate-eqn" /> positive or negative.
 	We already know that this right-hand expression is zero at <m> q = -1 </m> and <m> q = 2 </m>,
@@ -191,9 +191,9 @@ by applying the concepts we learned in <xref ref="chapter-curves" />.
 	<p> Now we can sketch some typical solution curves that demonstrate the range of behaviours above. </p>
 
 	<figure xml:id="figure-auto-first-example-solutions">
-		<caption> Typical solution curves to the original rate equation. </caption>
+		<caption> Typical solution curves to the original differential equation. </caption>
 		<image width="100%">
-			<shortdescription>Diagram illustrating graphs of typical solution curves to the original rate equation.</shortdescription>
+			<shortdescription>Diagram illustrating graphs of typical solution curves to the original differential equation.</shortdescription>
 			<!-- TODO description -->
 			<latex-image label="image-auto-first-example-solutions">
 				<xi:include href="auto.d/first-example-solutions.tex" parse="text" />
@@ -338,7 +338,7 @@ that meets the increasing/decreasing and concavity behaviour requirements both a
 <algorithm xml:id="procedure-auto">
 	<title>Analyzing an autonomous system</title>
 	<p>
-	For <m> q'(t) = f(q) </m>:
+	For autonomous differential equation <md> q'(t) = f(q) </md>.
 	<ol>
 		<li>
 			Determine the equilibrium solutions by solving <m> f(q) = 0 </m> for <m> q </m>.
@@ -382,8 +382,9 @@ but we will review it once again as it will serve as a <q>base</q> model that we
 </p>
 
 <p>
-Suppose <m> q </m> is a quantity that varies over time so that its rate of variation is always proportional to its current amount:
-<md> \frac{dq/dt}{q} = k </md>,
+Suppose <m> q </m> is a quantity that varies over time so that its rate of variation is always proportional to its current amount.
+That is,
+<md> \frac{dq/dt}{q} = k </md>
 for some constant of proportionality <m> k </m>.
 We might use such a model when we study a population that has lots of food and space and no predators or disease.
 In this case,
@@ -393,7 +394,7 @@ in which case <m> dq/dt </m> should also be positive.
 </p>
 
 <p>
-Rewriting the rate equation as <md> \dqdt = k q </md>,
+Rewriting the differential equation as <md> \dqdt = k q </md>,
 our rate function is <m> f(q) = k q </m>.
 The only equilibrium solution is <m> q(t) = 0 </m>,
 and above that we have increasing behaviour.
@@ -446,7 +447,7 @@ In this model:
 	<li><p>
 		The growth rate factor <m> \rho </m> is also a (positive) constant,
 		and the quantity <m> k = \rho M </m> is called the <term>intrinsic growth rate</term>;
-		if <m> q \approx 0 </m>, then our rate equation becomes
+		if <m> q \approx 0 </m>, then our differential equation becomes
 		<md> \frac{dq/dt}{q} \approx k </md>,
 		and we should observe approximately exponential growth as in <xref ref="section-auto-exp" />.
 	</p></li>
@@ -456,7 +457,7 @@ In this model:
 <p>
 For this model,
 we will demonstrate an entirely graphical analysis.
-Our rate equation is
+Our differential equation is
 <md> \dqdt = \rho \, (M - q) \, q = \rho M q - \rho q^2 </md>,
 so our rate function
 <md> f(q) = \rho M q - \rho q^2 </md>
@@ -559,7 +560,7 @@ so that for <m> q \approx 0 </m> we have approximately exponential decay.
 </p>
 
 <p>
-Rewriting the rate equation to leave only <m> dq/dt </m> on the left,
+Rewriting the differential equation to leave only <m> dq/dt </m> on the left,
 we have rate function <md> f(q) = \rho \, (q - T) \, q = \rho q^2 - \rho T q </md>.
 The analysis of this model is very similar to the analysis of logistic growth in <xref ref="section-auto-log" />,
 so we will leave the details to you, the reader.
@@ -618,7 +619,7 @@ Finally, we can combine our previous modifications into one model that takes int
 above which the environment is not able to sustain such a large population,
 and a threshold,
 below which the population is not robust enough to thrive and grow.
-The rate equation for this model is of the form
+The differential equation for this model is of the form
 <md> \dqdt = \rho \, (M - q) \, (q - T) \, y </md>,
 where <m> \rho </m> is a positive growth factor,
 <md> f(q) = \rho \, (M - q) \, (q - T) \, y </md>
