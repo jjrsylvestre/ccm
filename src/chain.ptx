@@ -398,7 +398,7 @@ by making a substitution.
 	<statement><p><md><mrow>
 		\opddt \bbrac{\sec(t)} \amp = \sec(t) \tan(t)
 		\amp
-		\opddt \bbrac{\csc(t)} \amp = \csc(t) \cot(t)
+		\opddt \bbrac{\csc(t)} \amp = - \csc(t) \cot(t)
 	</mrow></md></p></statement>
 
 	<proof>
@@ -742,7 +742,7 @@ Because in more complicated examples it is often not practical (or even possible
 
 <example><p>
 	The curve <md> y^7 - 6 y^5 + 5 y^2 + 2 x^2 = 8 </md>
-	pass through the point <m> (2,1) </m>,
+	passes through the point <m> (2,1) </m>,
 	as you can verify.
 	It wouldn't be practical to attempt to isolate <m> y </m> in this equation.
 	But assuming that a small portion of the curve around that point satisfies the Vertical Line Test,
@@ -753,7 +753,7 @@ Because in more complicated examples it is often not practical (or even possible
 		<mrow> \amp = 7 y^6 \dydx - 6 \cdot 5 y^4 \dydx + 5 \cdot 2 y \dydx + 4 x </mrow>
 		<mrow> \amp = (7 y^6 - 30 y^4 + 10 y) \dydx + 4 x </mrow>
 	</md>.
-	Substituting <m> x = 2 </m> and <m> y = 1 </m> and setting this equal to <m> d/dx(8) = 0 </m>,
+	Substituting <m> x = 2 </m> and <m> y = 1 </m> and setting this equal to <m> d(8)/dx = 0 </m>,
 	we have
 	<md alignment="gather">
 		<mrow> (7 \cdot 1^6 - 30 \cdot 1^4 + 10 \cdot 1) \dydx + 4 \cdot 2 = 0 </mrow>
@@ -1075,7 +1075,7 @@ Here are some more examples of such <term>related rates</term>.
 	and use <xref ref="pattern-deriv-h-scale" />.
 	We have <md> q(t) = 2^t = e^{t \ln 2} </md>,
 	so since <m> d(e^t)/dt = e^t </m>,
-	we have <md> q(t) = (\ln 2) \cdot e^{t \ln 2} = (\ln 2) 2^t </md>.
+	we have <md> q'(t) = (\ln 2) \cdot e^{t \ln 2} = (\ln 2) 2^t </md>.
 	</p>
 
 	<p>
@@ -1132,9 +1132,9 @@ let's record the pattern of the <em>result</em> of that example.
 <algorithm xml:id="procedure-chain-log-diff">
 	<title>Logarithmic differentiation</title>
 
-	<statement><p>expression
-		Suppose the expression <m> p(t) = \ln\abs{\bbrac{q(t)}} </m> can be simplified using the properties of the logarithm so that <m> p'(t) </m> can be easily computed.
-		Then it is possible to use this to compute <m> q'(t) </m> by taking the logarithm of both sides of <m> y = q(t) </m>,
+	<statement><p>
+		Suppose the expression <md> p(t) = \ln\abs{q(t)} </md> can be simplified using the properties of the logarithm so that <m> p'(t) </m> can be easily computed.
+		Then it is possible to use this to compute <m> q'(t) </m> by taking the absolute value then logarithm of both sides of <m> y = q(t) </m>,
 		and differentiating the result <md> \ln\abs{y} = \ln\abs{q(t)} </md>
 		to obtain <md> q'(t) = q(t) p'(t) </md>.
 	</p></statement>
