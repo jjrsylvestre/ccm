@@ -257,7 +257,7 @@ So we create a slightly more general procedure that can be tried when we merely 
 	consider <m> u = 5 t </m> with <m> du/dt = 5 </m>.
 	Since our integrand doesn't involve a multiple of <m> 5 </m> <em>outside</em> of the cosine function,
 	we need to introduce one:
-	<md> \cos(t) = \frac{\cos(5 t)}{5} \cdot 5 = \frac{\cos(5 t)}{5} \cdot \dudt </md>.
+	<md> \cos(5 t) = \frac{\cos(5 t)}{5} \cdot 5 = \frac{\cos(5 t)}{5} \cdot \dudt </md>.
 	So our <m> g(t) </m> is <md> g(t) = \frac{\cos(5 t)}{5} \qquad\implies\qquad g(u) = \frac{\cos(u)}{5} </md>,
 	and our new bounds of integration are
 	<md>
@@ -446,15 +446,14 @@ on one side we can reverse the differentiation by reversing the chain rule.
 	Consider the differential equation <md> \dqdt = \frac{t^2 + 1}{2 q(t) + 1} </md>.
 	Let's simply write <m> q </m> instead of <m> q(t) </m>.
 	Consider the following algebraic rearrangement of the differential equation,
-	separating dependent from independent variables:
+	separating dependent from independent variables.
 	<md alignment="gather">
-		<mrow> r(t) = \frac{t^2 + 1}{2 q(t) + 1} </mrow>
 		<mrow> \dqdt = \frac{t^2 + 1}{2 q + 1}   </mrow>
 		<mrow xml:id="equation-substitution-first-separable-rearranged" tag="dagger">
 			(2 q + 1) \dqdt = t^2 + 1
 		</mrow>
 		<mrow> 2 q \cdot \dqdt + \dqdt = t^2 + 1 </mrow>
-	</md>.
+	</md>
 	The first term on the left now looks the type of result we would obtain when applying the chain rule during an <em>implicit differentiation</em> computation:
 	<md>
 		<mrow> \text{formula in } q \amp = \text{formula in } t </mrow>
